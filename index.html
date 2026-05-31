@@ -84,218 +84,55 @@ nav{
 .nav-cta{background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(10px,0.8vw,13px);letter-spacing:.07em;padding:clamp(6px,.5vw,9px) clamp(12px,1.2vw,18px);transition:background .2s,color .2s;margin-left:clamp(8px,.8vw,14px)}
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
-/* ── HERO — cinematic single scene ── */
+/* ── HERO ── */
 .hero{
   position:relative;
   height:calc(100vh - clamp(56px,4.5vw,72px));
-  min-height:520px;
-  max-height:880px;
-  overflow:hidden;
-  background:#07090D;
+  min-height:520px;max-height:860px;
+  overflow:hidden;background:var(--bg);
 }
-
-/*
-  Layer 0 — FULL-WIDTH banner image.
-  Spans the entire hero. The panda video will be screen-blended
-  on top so its dark background disappears and only the panda
-  (bright pixels) composites over this base.
-*/
-.hero-right-img{
-  position:absolute;
-  left:0;top:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  /* Position image so the TheLinkPanda branding sits on the right
-     and the left side shows the city environment the panda stands in */
-  object-position:right center;
-  z-index:0;
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(1.22) contrast(1.03);}.hero-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:breathe 5.5s cubic-bezier(.45,.05,.55,.95) infinite;transform-origin:center 60%;filter:brightness(1.22) contrast(1.03)}
+/* gradient stops at ~50% — right half stays clean for the panda */
+.hero-ol{position:absolute;left:0;top:0;bottom:0;width:55%;background:linear-gradient(to right,rgba(7,9,13,.96) 0%,rgba(7,9,13,.88) 28%,rgba(7,9,13,.42) 62%,transparent 100%);z-index:2;pointer-events:none}
+.hero-ob{position:absolute;left:0;right:0;bottom:0;height:180px;background:linear-gradient(to top,var(--bg) 0%,transparent 100%);z-index:3;pointer-events:none}
+.hero-net{position:absolute;inset:0;z-index:1;pointer-events:none}
+.nl{stroke:rgba(200,146,42,.16);stroke-width:.5;fill:none}
+.nla{animation:netpulse 11s ease-in-out infinite}
+.nlb{animation:netpulse2 15s ease-in-out infinite 4s}
+.nlc{animation:netpulse 9s ease-in-out infinite 7s}
+.tp{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;animation:travel 17s ease-in-out infinite;stroke-dasharray:12 500}
+.tp2{fill:none;stroke:rgba(200,146,42,.5);stroke-width:.8;stroke-linecap:round;animation:travel2 23s ease-in-out infinite 9s;stroke-dasharray:8 380}
+.hn{fill:rgba(200,146,42,.35);animation:nodeblink 7s ease-in-out infinite}
+.hn2{fill:rgba(200,146,42,.2);animation:nodeblink 10s ease-in-out infinite 3s}
+.hero-glow{position:absolute;right:8%;top:12%;width:clamp(300px,30vw,560px);height:clamp(300px,30vw,560px);border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,.07) 0%,transparent 70%);animation:glowpulse 9s ease-in-out infinite;z-index:1;pointer-events:none}
+.hero-content{
+  position:absolute;left:0;top:0;bottom:0;width:42%;
+  padding:0 0 clamp(52px,5.5vw,96px) clamp(32px,4.5vw,72px);
+  display:flex;flex-direction:column;justify-content:flex-end;z-index:4;
 }
-
-/*
-  Layer 1 — PANDA VIDEO, screen blend mode.
-  mix-blend-mode: screen makes every dark pixel in the video
-  transparent. The near-black video background (#07090D) becomes
-  invisible. Only the bright panda and city lights composite
-  additively onto the banner. No mask needed, no visible edge,
-  no colour mismatch.
-*/
-.hero-panda-video{
-  position:absolute;
-  left:0;top:0;
-  width:62%;
-  height:100%;
-  object-fit:cover;
-  object-position:55% center;
-  mix-blend-mode:screen;
-  /* Slight brightness adjustment — screen mode can blow out
-     highlights, so we pull brightness back a touch */
-  filter:brightness(1.08) contrast(1.10) saturate(0.90);
-  z-index:1;
-}
-
-/*
-  Layer 2 — Atmospheric blue bloom in the centre zone.
-  Bridges the two halves so the lighting feels shared.
-*/
-.hero-blend{
-  position:absolute;
-  left:20%;top:0;
-  width:60%;height:100%;
-  background:
-    radial-gradient(
-      ellipse 70% 60% at 44% 38%,
-      rgba(20,55,200,.12)  0%,
-      rgba(12,30,140,.07)  40%,
-      transparent          100%
-    ),
-    radial-gradient(
-      ellipse 50% 80% at 48% 65%,
-      rgba(15,45,180,.08)  0%,
-      transparent          100%
-    );
-  z-index:2;
-  pointer-events:none;
-}
-
-/* Layer 2b — disabled */
-.hero-vignette{ display:none; }
-
-/* Layer 2c — very subtle warm spotlight on panda face */
-.hero-spotlight{
-  position:absolute;
-  left:0;top:0;
-  width:58%;height:100%;
-  background:radial-gradient(
-    ellipse 44% 42% at 52% 28%,
-    rgba(255,252,238,.06)  0%,
-    rgba(255,248,225,.03)  30%,
-    transparent            60%
-  );
-  z-index:2;
-  pointer-events:none;
-}
-
-/*
-  Layer 3 — Dark text-readability gradient.
-  Only left ~40% where the text lives.
-  Does NOT cover the panda face.
-*/
-.hero-text-grad{
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:44%;
-  background:linear-gradient(
-    to right,
-    rgba(7,9,13,.72) 0%,
-    rgba(7,9,13,.55) 18%,
-    rgba(7,9,13,.30) 38%,
-    rgba(7,9,13,.08) 60%,
-    transparent      80%
-  );
-  z-index:3;
-  pointer-events:none;
-}
-
-/* Layer 4 — Bottom fade */
-.hero-ob{
-  position:absolute;
-  left:0;right:0;bottom:0;
-  height:160px;
-  background:linear-gradient(to top,var(--bg) 0%,transparent 100%);
-  z-index:4;pointer-events:none;
-}
-
-/* Layer 5 — Website text and CTA */
-.hero-text-panel{
-  position:absolute;
-  left:0;bottom:0;
-  width:42%;
-  padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);
-  display:flex;flex-direction:column;justify-content:flex-end;
-  z-index:5;
-}
-.hero-text-panel::before{
-  content:"";
-  position:absolute;inset:0;
-  background:
-    radial-gradient(
-      ellipse 90% 58% at 0% 100%,
-      rgba(7,9,13,.65) 0%,
-      rgba(7,9,13,.40) 35%,
-      rgba(7,9,13,.12) 62%,
-      transparent      85%
-    ),
-    radial-gradient(
-      ellipse 120% 80% at 0% 105%,
-      rgba(7,9,13,.25) 0%,
-      transparent      65%
-    );
-  pointer-events:none;z-index:-1;
-}
-
-/* ── HERO TYPOGRAPHY ── */
-.hero-eyebrow{
-  font-size:clamp(9px,.62vw,11px);
-  letter-spacing:.22em;color:var(--gold);opacity:.78;
-  margin-bottom:clamp(10px,.9vw,15px);font-weight:400;
-}
+.hero-eyebrow{font-size:clamp(9px,.65vw,11px);letter-spacing:.22em;color:var(--gold);opacity:.75;margin-bottom:clamp(12px,1.1vw,18px);font-weight:400}
 .hero-h1{
   font-family:var(--sans);
-  font-size:clamp(32px,3.8vw,52px);
+  font-size:clamp(34px,4.5vw,58px);
   font-weight:500;line-height:1.0;letter-spacing:-.025em;
   color:var(--w);margin-bottom:4px;
 }
 .hero-h1 span{color:var(--gold)}
-.hero-rule{
-  width:clamp(32px,2.4vw,50px);height:.5px;
-  background:var(--gold);opacity:.5;
-  margin:clamp(9px,.85vw,14px) 0;
-  transform-origin:left;animation:ruledraw .7s ease-out .2s both;
-}
+.hero-rule{width:clamp(36px,2.8vw,56px);height:.5px;background:var(--gold);opacity:.5;margin:clamp(10px,1vw,18px) 0;transform-origin:left;animation:ruledraw .7s ease-out .2s both}
 .hero-tagline{
   font-family:var(--serif);font-style:italic;
-  font-size:clamp(13px,1.4vw,19px);
-  font-weight:300;color:var(--w80);
-  margin-bottom:clamp(7px,.6vw,10px);line-height:1.35;
+  font-size:clamp(14px,1.6vw,22px);
+  font-weight:300;color:var(--w80);margin-bottom:clamp(8px,.7vw,12px);line-height:1.35;
 }
-.hero-sub{
-  font-size:clamp(12px,.78vw,14px);color:var(--w40);line-height:1.7;
-  margin-bottom:clamp(20px,1.9vw,30px);
-  max-width:clamp(200px,20vw,340px);
-}
+.hero-sub{font-size:clamp(12px,.85vw,15px);color:var(--w40);line-height:1.7;margin-bottom:clamp(22px,2.2vw,36px);max-width:clamp(240px,24vw,380px)}
 .hero-cta{
   display:inline-flex;align-items:center;gap:8px;background:none;
   border:.5px solid var(--gold);cursor:pointer;color:var(--gold);
-  font-family:var(--sans);font-size:clamp(11px,.76vw,13px);letter-spacing:.07em;
-  padding:clamp(8px,.62vw,11px) clamp(14px,1.4vw,21px);
+  font-family:var(--sans);font-size:clamp(11px,.8vw,13px);letter-spacing:.07em;
+  padding:clamp(8px,.7vw,12px) clamp(16px,1.6vw,24px);
   transition:background .25s,color .25s;width:fit-content;
 }
 .hero-cta:hover{background:var(--gold);color:#08070a}
-
-/* ── Large desktop ── */
-@media(min-width:1920px){
-  .hero-panda-video{width:60%}
-  .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
-  .hero-eyebrow{font-size:.54vw;margin-bottom:.9vw}
-  .hero-h1{font-size:3.1vw}
-  .hero-rule{width:2.1vw;margin:.85vw 0}
-  .hero-tagline{font-size:1.35vw;margin-bottom:.52vw}
-  .hero-sub{font-size:.75vw;margin-bottom:1.7vw;max-width:19vw}
-  .hero-cta{font-size:.64vw;padding:.6vw 1.4vw}
-}
-@media(min-width:2400px){
-  .hero-h1{font-size:3.3vw}
-  .hero-tagline{font-size:1.45vw}
-  .hero-sub{font-size:.78vw}
-}
-
-/* ── Mobile ── */
-@media(max-width:860px){
-  .hero-right-img{object-fit:cover;object-position:70% center}
-  .hero-panda-video{width:100%}
-  .hero-text-panel{width:75%;padding:0 0 36px 20px}
-  .hero-text-grad{width:80%}
-}
 
 /* ── SECTIONS ── */
 .section{padding:var(--section-pad);max-width:var(--content-max);margin-left:auto;margin-right:auto;width:100%}
@@ -589,13 +426,12 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .follow-inner{flex-direction:column}
   .follow-channels{min-width:0;width:100%}
   .art-hero-content{padding:24px 20px}
-  .hero-text-panel{padding:0 0 44px 20px}
-
+  .hero-content{padding:0 0 44px 20px}
   .lb-main{padding:16px 52px}
   .lb-footer{padding:0 52px 16px}
   body{font-size:14px}
-  /* on mobile panda video goes full width — banner becomes its own base */
-  .hero-panda-video{width:100%;-webkit-mask-image:linear-gradient(to right,black 0%,black 70%,transparent 100%);mask-image:linear-gradient(to right,black 0%,black 70%,transparent 100%)}
+  /* on mobile, video stays but we nudge object-position to show panda */
+  .hero-video{object-position:60% top}
 }
 /* ── WIDE — 1400px+ structural layout adjustments ── */
 @media(min-width:1400px){
@@ -633,7 +469,20 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .soc-btn{width:2vw;height:2vw}
   .soc-btn svg{width:1vw;height:1vw}
 
-
+  /* ── hero ── */
+  .hero{max-height:100vh}
+  /* text block: left 38%, sits in lower third — cinematic not dominant */
+  .hero-content{
+    width:40%;
+    padding:0 0 4.8vw 4.2vw;
+    justify-content:flex-end;
+  }
+  .hero-eyebrow{font-size:.58vw;margin-bottom:1.1vw;letter-spacing:.26em}   /* ~15px */
+  .hero-h1{font-size:3.3vw;margin-bottom:.25vw}   /* ~84px at 2560 */
+  .hero-rule{width:2.4vw;margin:.95vw 0}
+  .hero-tagline{font-size:1.45vw;margin-bottom:.6vw}  /* ~37px */
+  .hero-sub{font-size:.82vw;margin-bottom:1.9vw;max-width:22vw}  /* ~21px */
+  .hero-cta{font-size:.68vw;padding:.65vw 1.6vw}   /* ~17px */
 
   /* ── issue bar ── */
   .ib-label,.ib-t,.ib-date{font-size:.65vw}             /* 17px */
@@ -757,7 +606,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 /* ── 2560+ minor nudge ── */
 @media(min-width:2400px){
   :root{--content-max:1900px;--section-pad:128px 112px}
-
+  /* hero — gentle nudge, not a jump */
+  .hero-h1{font-size:3.5vw}         /* ~90px at 2560 */
+  .hero-tagline{font-size:1.55vw}   /* ~40px */
+  .hero-sub{font-size:.86vw}        /* ~22px */
+  .hero-cta{font-size:.72vw}        /* ~18px */
   /* rest of site */
   .sec-title{font-size:3vw}         /* 77px */
   .thesis-hed{font-size:3vw}
@@ -817,37 +670,45 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <!-- ════════════════════════════ HOME ════════════════════════════ -->
 <div class="page active" id="page-home">
 
-  <section class="hero">
-
-    <!-- Layer 0: banner image full-width base — panda video screen-blends over it -->
-    <img class="hero-right-img"
-      src="assets/banner/TheLinkPanda banner split.jpg"
-      alt="TheLinkPanda — Infrastructure Before Narratives"
-      onerror="this.style.opacity='.1'"/>
-
-    <!-- Layer 1: panda video — feathered mask dissolves into banner -->
-    <video class="hero-panda-video" autoplay muted loop playsinline
-      onerror="this.style.display='none'">
-      <source src="assets/video/Panda background.mp4" type="video/mp4"/>
+  <div class="hero">
+    <!--
+      Primary: ambient loop video.
+      Fallback: static banner image (shown when video fails to load,
+      codec unsupported, or autoplay blocked).
+    -->
+    <video
+      class="hero-video"
+      autoplay muted loop playsinline
+      poster="assets/banner/TheLinkPanda banner.jpg"
+      onerror="this.style.display='none';document.getElementById('hero-fallback').style.display='block'">
+      <source src="assets/video/panda-loop.mp4" type="video/mp4"/>
     </video>
-
-    <!-- Layer 2: atmospheric blue glow in the blend zone -->
-    <div class="hero-blend"></div>
-
-    <!-- Layer 2b: edge vignette — outer video corners dark, panda face bright -->
-    <div class="hero-vignette"></div>
-
-    <!-- Layer 2c: cinematic spotlight — barely-there warm glow on panda face -->
-    <div class="hero-spotlight"></div>
-
-    <!-- Layer 3: dark text-readability gradient (left only) -->
-    <div class="hero-text-grad"></div>
-
-    <!-- Layer 4: bottom fade -->
+    <!-- Static fallback — hidden by default, revealed if video errors -->
+    <img
+      id="hero-fallback"
+      class="hero-banner"
+      src="assets/banner/TheLinkPanda banner.jpg"
+      alt="TheLinkPanda Banner"
+      style="display:none"
+      onerror="this.style.opacity='.15'"/>
+    <div class="hero-ol"></div>
     <div class="hero-ob"></div>
-
-    <!-- Layer 5: website text and CTA -->
-    <div class="hero-text-panel">
+    <svg class="hero-net" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice">
+      <line class="nl nla" x1="620" y1="40"   x2="920"  y2="190"/>
+      <line class="nl nlb" x1="920" y1="190"  x2="1100" y2="110"/>
+      <line class="nl nlc" x1="920" y1="190"  x2="1000" y2="370"/>
+      <line class="nl nla" x1="1000" y1="370" x2="1160" y2="430"/>
+      <line class="nl nlb" x1="620"  y1="40"  x2="740"  y2="290"/>
+      <line class="nl nlc" x1="740"  y1="290" x2="1000" y2="370"/>
+      <path class="tp"  d="M620,40 L920,190 L1000,370 L1160,430"/>
+      <path class="tp2" d="M740,290 L1000,370 L1160,430"/>
+      <circle class="hn"  cx="620"  cy="40"  r="3"   fill="rgba(200,146,42,.4)"/>
+      <circle class="hn2" cx="920"  cy="190" r="4.5" fill="rgba(200,146,42,.3)"/>
+      <circle class="hn"  cx="1100" cy="110" r="3"   fill="rgba(200,146,42,.3)"/>
+      <circle class="hn2" cx="1000" cy="370" r="3.5" fill="rgba(200,146,42,.3)"/>
+    </svg>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
       <div class="hero-eyebrow">DIGITAL FINANCE INFRASTRUCTURE</div>
       <div class="hero-h1">TheLink<span>Panda</span></div>
       <div class="hero-rule"></div>
@@ -855,8 +716,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <div class="hero-sub">The systems powering digital finance, made visible through research and design.</div>
       <button class="hero-cta" onclick="showPage('infographics')">Explore the infrastructure →</button>
     </div>
-
-  </section>
+  </div>
 
   <div class="issue-bar">
     <span class="ib-label">LATEST ISSUE</span>
