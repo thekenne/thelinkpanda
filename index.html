@@ -91,8 +91,9 @@ nav{
   min-height:520px;max-height:860px;
   overflow:hidden;background:var(--bg);
 }
-.hero-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:breathe 5.5s cubic-bezier(.45,.05,.55,.95) infinite;transform-origin:center 60%}
-.hero-ol{position:absolute;left:0;top:0;bottom:0;width:62%;background:linear-gradient(to right,rgba(7,9,13,.97) 0%,rgba(7,9,13,.82) 50%,transparent 100%);z-index:2;pointer-events:none}
+.hero-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:breathe 5.5s cubic-bezier(.45,.05,.55,.95) infinite;transform-origin:center 60%;filter:brightness(1.28) contrast(1.04)}
+/* gradient stops at ~50% — right half stays clean for the panda */
+.hero-ol{position:absolute;left:0;top:0;bottom:0;width:52%;background:linear-gradient(to right,rgba(7,9,13,.97) 0%,rgba(7,9,13,.92) 30%,rgba(7,9,13,.55) 68%,transparent 100%);z-index:2;pointer-events:none}
 .hero-ob{position:absolute;left:0;right:0;bottom:0;height:180px;background:linear-gradient(to top,var(--bg) 0%,transparent 100%);z-index:3;pointer-events:none}
 .hero-net{position:absolute;inset:0;z-index:1;pointer-events:none}
 .nl{stroke:rgba(200,146,42,.16);stroke-width:.5;fill:none}
@@ -105,30 +106,30 @@ nav{
 .hn2{fill:rgba(200,146,42,.2);animation:nodeblink 10s ease-in-out infinite 3s}
 .hero-glow{position:absolute;right:8%;top:12%;width:clamp(300px,30vw,560px);height:clamp(300px,30vw,560px);border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,.07) 0%,transparent 70%);animation:glowpulse 9s ease-in-out infinite;z-index:1;pointer-events:none}
 .hero-content{
-  position:absolute;left:0;top:0;bottom:0;width:54%;
-  padding:0 0 clamp(48px,5vw,88px) clamp(32px,5vw,80px);
+  position:absolute;left:0;top:0;bottom:0;width:42%;
+  padding:0 0 clamp(52px,5.5vw,96px) clamp(32px,4.5vw,72px);
   display:flex;flex-direction:column;justify-content:flex-end;z-index:4;
 }
-.hero-eyebrow{font-size:clamp(9px,.7vw,11px);letter-spacing:.22em;color:var(--gold);opacity:.75;margin-bottom:clamp(12px,1.2vw,20px);font-weight:400}
+.hero-eyebrow{font-size:clamp(9px,.65vw,11px);letter-spacing:.22em;color:var(--gold);opacity:.75;margin-bottom:clamp(12px,1.1vw,18px);font-weight:400}
 .hero-h1{
   font-family:var(--sans);
-  font-size:clamp(36px,5.5vw,72px);
+  font-size:clamp(34px,4.5vw,58px);
   font-weight:500;line-height:1.0;letter-spacing:-.025em;
   color:var(--w);margin-bottom:4px;
 }
 .hero-h1 span{color:var(--gold)}
-.hero-rule{width:clamp(40px,3vw,64px);height:.5px;background:var(--gold);opacity:.5;margin:clamp(12px,1.2vw,20px) 0;transform-origin:left;animation:ruledraw .7s ease-out .2s both}
+.hero-rule{width:clamp(36px,2.8vw,56px);height:.5px;background:var(--gold);opacity:.5;margin:clamp(10px,1vw,18px) 0;transform-origin:left;animation:ruledraw .7s ease-out .2s both}
 .hero-tagline{
   font-family:var(--serif);font-style:italic;
-  font-size:clamp(16px,2vw,28px);
-  font-weight:300;color:var(--w80);margin-bottom:clamp(8px,.8vw,14px);line-height:1.35;
+  font-size:clamp(14px,1.6vw,22px);
+  font-weight:300;color:var(--w80);margin-bottom:clamp(8px,.7vw,12px);line-height:1.35;
 }
-.hero-sub{font-size:clamp(13px,1vw,17px);color:var(--w40);line-height:1.7;margin-bottom:clamp(24px,2.5vw,40px);max-width:clamp(260px,28vw,440px)}
+.hero-sub{font-size:clamp(12px,.85vw,15px);color:var(--w40);line-height:1.7;margin-bottom:clamp(22px,2.2vw,36px);max-width:clamp(240px,24vw,380px)}
 .hero-cta{
   display:inline-flex;align-items:center;gap:8px;background:none;
   border:.5px solid var(--gold);cursor:pointer;color:var(--gold);
-  font-family:var(--sans);font-size:clamp(11px,.9vw,14px);letter-spacing:.07em;
-  padding:clamp(9px,.8vw,13px) clamp(18px,1.8vw,28px);
+  font-family:var(--sans);font-size:clamp(11px,.8vw,13px);letter-spacing:.07em;
+  padding:clamp(8px,.7vw,12px) clamp(16px,1.6vw,24px);
   transition:background .25s,color .25s;width:fit-content;
 }
 .hero-cta:hover{background:var(--gold);color:#08070a}
@@ -468,17 +469,18 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   /* ── hero ── */
   .hero{max-height:100vh}
+  /* text block: left 38%, sits in lower third — cinematic not dominant */
   .hero-content{
-    width:58%;
-    padding:0 0 5.5vw 5vw;
-    justify-content:center;        /* move text up — centre of viewport */
+    width:40%;
+    padding:0 0 4.8vw 4.2vw;
+    justify-content:flex-end;
   }
-  .hero-eyebrow{font-size:.7vw;margin-bottom:1.4vw;letter-spacing:.26em}   /* 18px */
-  .hero-h1{font-size:4.7vw;margin-bottom:.3vw}          /* 120px at 2560 */
-  .hero-rule{width:3vw;margin:1.2vw 0}
-  .hero-tagline{font-size:2.3vw;margin-bottom:.7vw}     /* 59px */
-  .hero-sub{font-size:1.05vw;margin-bottom:2.2vw;max-width:28vw}  /* 27px */
-  .hero-cta{font-size:.9vw;padding:.8vw 2vw}            /* 23px */
+  .hero-eyebrow{font-size:.58vw;margin-bottom:1.1vw;letter-spacing:.26em}   /* ~15px */
+  .hero-h1{font-size:3.3vw;margin-bottom:.25vw}   /* ~84px at 2560 */
+  .hero-rule{width:2.4vw;margin:.95vw 0}
+  .hero-tagline{font-size:1.45vw;margin-bottom:.6vw}  /* ~37px */
+  .hero-sub{font-size:.82vw;margin-bottom:1.9vw;max-width:22vw}  /* ~21px */
+  .hero-cta{font-size:.68vw;padding:.65vw 1.6vw}   /* ~17px */
 
   /* ── issue bar ── */
   .ib-label,.ib-t,.ib-date{font-size:.65vw}             /* 17px */
@@ -602,9 +604,13 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 /* ── 2560+ minor nudge ── */
 @media(min-width:2400px){
   :root{--content-max:1900px;--section-pad:128px 112px}
-  .hero-h1{font-size:5vw}             /* 128px at 2560 */
-  .hero-tagline{font-size:2.5vw}      /* 64px */
-  .sec-title{font-size:3vw}           /* 77px */
+  /* hero — gentle nudge, not a jump */
+  .hero-h1{font-size:3.5vw}         /* ~90px at 2560 */
+  .hero-tagline{font-size:1.55vw}   /* ~40px */
+  .hero-sub{font-size:.86vw}        /* ~22px */
+  .hero-cta{font-size:.72vw}        /* ~18px */
+  /* rest of site */
+  .sec-title{font-size:3vw}         /* 77px */
   .thesis-hed{font-size:3vw}
 }
 </style>
