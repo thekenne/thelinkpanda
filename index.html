@@ -98,25 +98,34 @@ nav{
   filter:brightness(1.15) contrast(1.02);
   z-index:0;
 }
-/* Layer 1 — panda video, left column only */
-/* RED BORDER: temporary debug — confirms video layer is active */
+/* Layer 1 — panda video: wider, centred on panda face/upper body, brighter */
 .hero-panda-video{
   position:absolute;
   left:0;top:0;
-  width:46%;height:100%;
-  object-fit:cover;object-position:right top;
+  width:50%;height:100%;
+  object-fit:cover;
+  object-position:35% center;
+  filter:brightness(1.35) contrast(1.04);
   z-index:1;
-  border:2px solid red; /* DEBUG — remove once confirmed */
-  -webkit-mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
-  mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to right,black 0%,black 58%,transparent 100%);
+  mask-image:linear-gradient(to right,black 0%,black 58%,transparent 100%);
 }
-/* Layer 2 — gradient overlays (left text area only) */
+/* Layer 2a — text-side overlay: only behind website text, not over panda */
 .hero-ol{
-  position:absolute;left:0;top:0;bottom:0;width:46%;
+  position:absolute;left:0;top:0;bottom:0;width:44%;
   background:linear-gradient(to right,
-    rgba(7,9,13,.80) 0%,
-    rgba(7,9,13,.68) 25%,
-    rgba(7,9,13,.22) 70%,
+    rgba(7,9,13,.78) 0%,
+    rgba(7,9,13,.60) 22%,
+    rgba(7,9,13,.18) 65%,
+    transparent 100%);
+  z-index:2;pointer-events:none;
+}
+/* Layer 2b — right-side veil: ~12% max opacity, reduces banner text dominance */
+.hero-or{
+  position:absolute;right:0;top:0;bottom:0;width:55%;
+  background:linear-gradient(to left,
+    rgba(7,9,13,.14) 0%,
+    rgba(7,9,13,.08) 40%,
     transparent 100%);
   z-index:2;pointer-events:none;
 }
@@ -153,7 +162,7 @@ nav{
 .hero-text-panel::before{
   content:"";
   position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 10% 90%,rgba(7,9,13,.50) 0%,transparent 100%);
+  background:radial-gradient(ellipse 90% 65% at 8% 92%,rgba(7,9,13,.60) 0%,rgba(7,9,13,.18) 60%,transparent 100%);
   pointer-events:none;z-index:-1;
 }
 .hero-eyebrow{font-size:clamp(9px,.65vw,11px);letter-spacing:.22em;color:var(--gold);opacity:.75;margin-bottom:clamp(12px,1.1vw,18px);font-weight:400}
@@ -728,6 +737,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
     <!-- Layer 2: gradient overlays and SVG network (decorative) -->
     <div class="hero-ol"></div>
+    <div class="hero-or"></div>
     <div class="hero-ob"></div>
     <svg class="hero-net" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice">
       <line class="nl nla" x1="620" y1="40"   x2="920"  y2="190"/>
