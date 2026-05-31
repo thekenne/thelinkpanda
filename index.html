@@ -91,55 +91,34 @@ nav{
   min-height:520px;
   max-height:880px;
   overflow:hidden;
-  /* Deep navy matching the split banner's sky/background tone.
-     This is the unified ground colour both assets sit on. */
-  background:#070C1E;
-}
-/* Full-width navy base — guarantees no dark gap anywhere */
-.hero::before{
-  content:"";
-  position:absolute;inset:0;
-  background:
-    /* Horizontal gradient that matches banner's internal toning:
-       slightly darker on far left (video edge) → richer navy at centre
-       → same navy across right. This mimics how the banner itself
-       gets darker toward its left edge, so the colour feels continuous. */
-    linear-gradient(
-      to right,
-      #060A18  0%,
-      #07101F  15%,
-      #081426  35%,
-      #081426  60%,
-      #070E1D  80%,
-      #060C1A  100%
-    );
-  z-index:0;
-  pointer-events:none;
+  background:#07090D;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 0 — split banner image: full-hero base
-   Covers the entire hero so the right-side branding
-   fills the scene. The video will be composited
-   on top of this on the left.
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 0 — FULL-WIDTH banner image.
+  Spans the entire hero. The panda video will be screen-blended
+  on top so its dark background disappears and only the panda
+  (bright pixels) composites over this base.
+*/
 .hero-right-img{
   position:absolute;
-  /* shift right so banner only occupies right ~58% of hero —
-     leaves left side for the panda to dominate */
-  left:38%;
-  top:0;
-  width:62%;
-  height:100%;
-  object-fit:contain;
-  object-position:center center;
-  z-index:1;
+  left:0;top:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  /* Position image so the TheLinkPanda branding sits on the right
+     and the left side shows the city environment the panda stands in */
+  object-position:right center;
+  z-index:0;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 1 — panda video: left ~60% of hero
-   object-position pulls panda toward horizontal centre
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 1 — PANDA VIDEO, screen blend mode.
+  mix-blend-mode: screen makes every dark pixel in the video
+  transparent. The near-black video background (#07090D) becomes
+  invisible. Only the bright panda and city lights composite
+  additively onto the banner. No mask needed, no visible edge,
+  no colour mismatch.
+*/
 .hero-panda-video{
   position:absolute;
   left:0;top:0;
@@ -147,196 +126,114 @@ nav{
   height:100%;
   object-fit:cover;
   object-position:55% center;
-  filter:brightness(1.28) contrast(1.06) saturate(0.88);
-  z-index:2;
-  /*
-    Sharp cut at 56%, no long dissolve.
-    The cut edge is buried under the colour-match cover layer below.
-    A ghost ring only appears when pixels fade to transparent over a
-    mismatching background — we avoid that entirely by cutting clean
-    and covering the seam with solid matching colour.
-  */
-  -webkit-mask-image:linear-gradient(
-    to right,
-    black            0%,
-    black            53%,
-    rgba(0,0,0,.92)  56%,
-    rgba(0,0,0,.60)  58%,
-    rgba(0,0,0,.22)  60%,
-    transparent      62%
-  );
-  mask-image:linear-gradient(
-    to right,
-    black            0%,
-    black            53%,
-    rgba(0,0,0,.92)  56%,
-    rgba(0,0,0,.60)  58%,
-    rgba(0,0,0,.22)  60%,
-    transparent      62%
-  );
+  mix-blend-mode:screen;
+  /* Slight brightness adjustment — screen mode can blow out
+     highlights, so we pull brightness back a touch */
+  filter:brightness(1.08) contrast(1.10) saturate(0.90);
+  z-index:1;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 2 — atmospheric blue glow in transition zone
-   Mimics the city-glow lighting from both assets
-   so they feel like the same environment
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 2 — Atmospheric blue bloom in the centre zone.
+  Bridges the two halves so the lighting feels shared.
+*/
 .hero-blend{
   position:absolute;
-  left:0;top:0;
-  width:100%;height:100%;
-  /*
-    Three layers — together they bury the cut and read as atmosphere:
-
-    A) COLOUR MATCH BAND — solid banner-sky colour (#060B18) peaking
-       exactly at the video cut (~57–60% of hero width). This is the
-       invisible seam trick: paint matching colour over the cut so no
-       ghost is ever exposed. Fades out left and right so it reads as
-       environmental depth, not a painted stripe.
-
-    B) CITY BLUE BLOOM — expands outward from the cut zone,
-       mimicking the glow of the banner's city lights spilling left
-       into the video frame. Makes both assets feel lit by the same
-       source.
-
-    C) UPPER ATMOSPHERE — wide soft blue that sits across the full
-       upper hero, unifying the sky tone of both assets.
-  */
+  left:20%;top:0;
+  width:60%;height:100%;
   background:
-    /* A: colour-match band over the seam */
-    linear-gradient(
-      to right,
-      transparent           0%,
-      transparent           46%,
-      rgba(8,20,38,.0)      50%,
-      rgba(8,20,38,.55)     57%,
-      rgba(8,20,38,.82)     60%,
-      rgba(8,20,38,.55)     63%,
-      rgba(8,20,38,.22)     68%,
-      transparent           76%,
-      transparent           100%
-    ),
-    /* B: city blue bloom spreading from the banner into the video */
     radial-gradient(
-      ellipse 50% 70% at 62% 42%,
-      rgba(20,50,180,.16)   0%,
-      rgba(14,35,140,.10)   30%,
-      rgba(8,18,80,.04)     60%,
-      transparent           100%
+      ellipse 70% 60% at 44% 38%,
+      rgba(20,55,200,.12)  0%,
+      rgba(12,30,140,.07)  40%,
+      transparent          100%
     ),
-    /* C: upper sky unifier — very faint blue across full width */
     radial-gradient(
-      ellipse 100% 45% at 50% 0%,
-      rgba(10,18,55,.12)    0%,
-      rgba(6,12,38,.06)     50%,
-      transparent           100%
+      ellipse 50% 80% at 48% 65%,
+      rgba(15,45,180,.08)  0%,
+      transparent          100%
     );
-  z-index:3;
+  z-index:2;
   pointer-events:none;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 2b — edge vignette over video area
-   Darkens outer corners of the video frame so the eye
-   travels to the panda's bright face at centre.
-   Leaves the inner 50% fully unaffected.
-   ──────────────────────────────────────────────────── */
-.hero-vignette{
-  /* Removed — radial vignette was creating the visible fog blob.
-     Corner darkening now comes from the colour-match blend layer. */
-  display:none;
-}
+/* Layer 2b — disabled */
+.hero-vignette{ display:none; }
 
-/* ────────────────────────────────────────────────────
-   LAYER 2c — cinematic spotlight on panda face
-   Extremely subtle warm-neutral glow centred slightly
-   above mid-hero (where the face is).
-   Movie-poster rim-light, not RGB flash.
-   ──────────────────────────────────────────────────── */
+/* Layer 2c — very subtle warm spotlight on panda face */
 .hero-spotlight{
   position:absolute;
   left:0;top:0;
-  width:62%;height:100%;
-  /* Warm barely-there glow centred on panda face — movie poster rim light */
+  width:58%;height:100%;
   background:radial-gradient(
     ellipse 44% 42% at 52% 28%,
-    rgba(255,252,238,.09)  0%,
-    rgba(255,248,225,.05)  28%,
-    rgba(240,240,255,.02)  48%,
-    transparent            65%
+    rgba(255,252,238,.06)  0%,
+    rgba(255,248,225,.03)  30%,
+    transparent            60%
+  );
+  z-index:2;
+  pointer-events:none;
+}
+
+/*
+  Layer 3 — Dark text-readability gradient.
+  Only left ~40% where the text lives.
+  Does NOT cover the panda face.
+*/
+.hero-text-grad{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:44%;
+  background:linear-gradient(
+    to right,
+    rgba(7,9,13,.72) 0%,
+    rgba(7,9,13,.55) 18%,
+    rgba(7,9,13,.30) 38%,
+    rgba(7,9,13,.08) 60%,
+    transparent      80%
   );
   z-index:3;
   pointer-events:none;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 3 — dark gradient for text readability
-   Only on the far left where text lives, does NOT
-   cross into the panda or transition zone
-   ──────────────────────────────────────────────────── */
-.hero-text-grad{
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:45%;
-  /* 70% solid behind text, dissolves softly rightward — panda centre untouched */
-  background:linear-gradient(
-    to right,
-    rgba(7,9,13,.70) 0%,
-    rgba(7,9,13,.62) 15%,
-    rgba(7,9,13,.42) 32%,
-    rgba(7,9,13,.14) 55%,
-    transparent      78%
-  );
-  z-index:4;
-  pointer-events:none;
-}
-
-/* Bottom fade — consistent horizon across full width */
+/* Layer 4 — Bottom fade */
 .hero-ob{
   position:absolute;
   left:0;right:0;bottom:0;
   height:160px;
   background:linear-gradient(to top,var(--bg) 0%,transparent 100%);
-  z-index:5;pointer-events:none;
+  z-index:4;pointer-events:none;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 5 — website text panel
-   Bottom-left quadrant only, over panda
-   ──────────────────────────────────────────────────── */
+/* Layer 5 — Website text and CTA */
 .hero-text-panel{
   position:absolute;
   left:0;bottom:0;
   width:42%;
   padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);
   display:flex;flex-direction:column;justify-content:flex-end;
-  z-index:6;
+  z-index:5;
 }
-/* Dark cushion localised to text cluster — bottom-left quadrant only */
 .hero-text-panel::before{
   content:"";
   position:absolute;inset:0;
   background:
-    /* Primary: 70%+ darkness directly where eyebrow/title/CTA live */
     radial-gradient(
       ellipse 90% 58% at 0% 100%,
-      rgba(7,9,13,.75) 0%,
-      rgba(7,9,13,.52) 30%,
-      rgba(7,9,13,.22) 58%,
+      rgba(7,9,13,.65) 0%,
+      rgba(7,9,13,.40) 35%,
+      rgba(7,9,13,.12) 62%,
       transparent      85%
     ),
-    /* Secondary: wide soft halo — no hard cutoff */
     radial-gradient(
       ellipse 120% 80% at 0% 105%,
-      rgba(7,9,13,.32) 0%,
+      rgba(7,9,13,.25) 0%,
       transparent      65%
     );
   pointer-events:none;z-index:-1;
 }
 
-/* ────────────────────────────────────────────────────
-   HERO TYPOGRAPHY
-   ──────────────────────────────────────────────────── */
+/* ── HERO TYPOGRAPHY ── */
 .hero-eyebrow{
   font-size:clamp(9px,.62vw,11px);
   letter-spacing:.22em;color:var(--gold);opacity:.78;
@@ -377,7 +274,6 @@ nav{
 
 /* ── Large desktop ── */
 @media(min-width:1920px){
-  .hero-right-img{left:40%;width:60%}
   .hero-panda-video{width:60%}
   .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
   .hero-eyebrow{font-size:.54vw;margin-bottom:.9vw}
@@ -395,13 +291,10 @@ nav{
 
 /* ── Mobile ── */
 @media(max-width:860px){
-  .hero-right-img{left:0;width:100%;object-fit:cover;object-position:70% center;opacity:.45}
-  .hero-panda-video{width:100%;
-    -webkit-mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
-    mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%)
-  }
-  .hero-text-panel{width:70%;padding:0 0 36px 20px}
-  .hero-text-grad{width:75%}
+  .hero-right-img{object-fit:cover;object-position:70% center}
+  .hero-panda-video{width:100%}
+  .hero-text-panel{width:75%;padding:0 0 36px 20px}
+  .hero-text-grad{width:80%}
 }
 
 /* ── SECTIONS ── */
@@ -926,7 +819,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <section class="hero">
 
-    <!-- Layer 0: split banner image — right-side branding base -->
+    <!-- Layer 0: banner image full-width base — panda video screen-blends over it -->
     <img class="hero-right-img"
       src="assets/banner/TheLinkPanda banner split.jpg"
       alt="TheLinkPanda — Infrastructure Before Narratives"
