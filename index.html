@@ -91,7 +91,30 @@ nav{
   min-height:520px;
   max-height:880px;
   overflow:hidden;
-  background:#07090D;
+  /* Deep navy matching the split banner's sky/background tone.
+     This is the unified ground colour both assets sit on. */
+  background:#070C1E;
+}
+/* Full-width navy base — guarantees no dark gap anywhere */
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    /* Horizontal gradient that matches banner's internal toning:
+       slightly darker on far left (video edge) → richer navy at centre
+       → same navy across right. This mimics how the banner itself
+       gets darker toward its left edge, so the colour feels continuous. */
+    linear-gradient(
+      to right,
+      #060A18  0%,
+      #07101F  15%,
+      #081426  35%,
+      #081426  60%,
+      #070E1D  80%,
+      #060C1A  100%
+    );
+  z-index:0;
+  pointer-events:none;
 }
 
 /* ────────────────────────────────────────────────────
@@ -110,7 +133,7 @@ nav{
   height:100%;
   object-fit:contain;
   object-position:center center;
-  z-index:0;
+  z-index:1;
 }
 
 /* ────────────────────────────────────────────────────
@@ -125,7 +148,7 @@ nav{
   object-fit:cover;
   object-position:55% center;
   filter:brightness(1.28) contrast(1.06) saturate(0.88);
-  z-index:1;
+  z-index:2;
   /*
     Sharp cut at 56%, no long dissolve.
     The cut edge is buried under the colour-match cover layer below.
@@ -185,11 +208,11 @@ nav{
       to right,
       transparent           0%,
       transparent           46%,
-      rgba(6,11,24,.0)      50%,
-      rgba(6,11,24,.55)     57%,
-      rgba(6,11,24,.80)     60%,
-      rgba(6,11,24,.55)     63%,
-      rgba(6,11,24,.20)     68%,
+      rgba(8,20,38,.0)      50%,
+      rgba(8,20,38,.55)     57%,
+      rgba(8,20,38,.82)     60%,
+      rgba(8,20,38,.55)     63%,
+      rgba(8,20,38,.22)     68%,
       transparent           76%,
       transparent           100%
     ),
@@ -208,7 +231,7 @@ nav{
       rgba(6,12,38,.06)     50%,
       transparent           100%
     );
-  z-index:2;
+  z-index:3;
   pointer-events:none;
 }
 
@@ -242,7 +265,7 @@ nav{
     rgba(240,240,255,.02)  48%,
     transparent            65%
   );
-  z-index:2;
+  z-index:3;
   pointer-events:none;
 }
 
@@ -264,7 +287,7 @@ nav{
     rgba(7,9,13,.14) 55%,
     transparent      78%
   );
-  z-index:3;
+  z-index:4;
   pointer-events:none;
 }
 
@@ -274,7 +297,7 @@ nav{
   left:0;right:0;bottom:0;
   height:160px;
   background:linear-gradient(to top,var(--bg) 0%,transparent 100%);
-  z-index:4;pointer-events:none;
+  z-index:5;pointer-events:none;
 }
 
 /* ────────────────────────────────────────────────────
@@ -287,7 +310,7 @@ nav{
   width:42%;
   padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);
   display:flex;flex-direction:column;justify-content:flex-end;
-  z-index:5;
+  z-index:6;
 }
 /* Dark cushion localised to text cluster — bottom-left quadrant only */
 .hero-text-panel::before{
