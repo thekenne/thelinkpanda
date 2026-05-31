@@ -91,9 +91,9 @@ nav{
   min-height:520px;max-height:860px;
   overflow:hidden;background:var(--bg);
 }
-.hero-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:breathe 5.5s cubic-bezier(.45,.05,.55,.95) infinite;transform-origin:center 60%;filter:brightness(1.28) contrast(1.04)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(1.22) contrast(1.03);}.hero-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:breathe 5.5s cubic-bezier(.45,.05,.55,.95) infinite;transform-origin:center 60%;filter:brightness(1.22) contrast(1.03)}
 /* gradient stops at ~50% — right half stays clean for the panda */
-.hero-ol{position:absolute;left:0;top:0;bottom:0;width:52%;background:linear-gradient(to right,rgba(7,9,13,.97) 0%,rgba(7,9,13,.92) 30%,rgba(7,9,13,.55) 68%,transparent 100%);z-index:2;pointer-events:none}
+.hero-ol{position:absolute;left:0;top:0;bottom:0;width:55%;background:linear-gradient(to right,rgba(7,9,13,.96) 0%,rgba(7,9,13,.88) 28%,rgba(7,9,13,.42) 62%,transparent 100%);z-index:2;pointer-events:none}
 .hero-ob{position:absolute;left:0;right:0;bottom:0;height:180px;background:linear-gradient(to top,var(--bg) 0%,transparent 100%);z-index:3;pointer-events:none}
 .hero-net{position:absolute;inset:0;z-index:1;pointer-events:none}
 .nl{stroke:rgba(200,146,42,.16);stroke-width:.5;fill:none}
@@ -430,6 +430,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .lb-main{padding:16px 52px}
   .lb-footer{padding:0 52px 16px}
   body{font-size:14px}
+  /* on mobile, video stays but we nudge object-position to show panda */
+  .hero-video{object-position:60% top}
 }
 /* ── WIDE — 1400px+ structural layout adjustments ── */
 @media(min-width:1400px){
@@ -669,7 +671,26 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <div class="page active" id="page-home">
 
   <div class="hero">
-    <img class="hero-banner" src="assets/banner/TheLinkPanda banner.jpg" alt="TheLinkPanda Banner" onerror="this.style.opacity='.2'"/>
+    <!--
+      Primary: ambient loop video.
+      Fallback: static banner image (shown when video fails to load,
+      codec unsupported, or autoplay blocked).
+    -->
+    <video
+      class="hero-video"
+      autoplay muted loop playsinline
+      poster="assets/banner/TheLinkPanda banner.jpg"
+      onerror="this.style.display='none';document.getElementById('hero-fallback').style.display='block'">
+      <source src="assets/video/panda-loop.mp4" type="video/mp4"/>
+    </video>
+    <!-- Static fallback — hidden by default, revealed if video errors -->
+    <img
+      id="hero-fallback"
+      class="hero-banner"
+      src="assets/banner/TheLinkPanda banner.jpg"
+      alt="TheLinkPanda Banner"
+      style="display:none"
+      onerror="this.style.opacity='.15'"/>
     <div class="hero-ol"></div>
     <div class="hero-ob"></div>
     <svg class="hero-net" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice">
