@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -97,11 +96,30 @@ nav{
   position:absolute;
   left:38%;top:0;
   width:62%;height:100%;
-  /* cover: fills the container so no dark background bleeds through edges */
   object-fit:cover;
-  /* keep the right-side branding area visible */
   object-position:center center;
   z-index:0;
+  /* Soft left-edge fade: makes the banner dissolve into the video seamlessly.
+     The mask fades from fully transparent (left edge) to fully opaque at ~12% width.
+     This eliminates the hard vertical seam entirely. */
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent      0%,
+    rgba(0,0,0,.15)  4%,
+    rgba(0,0,0,.55)  8%,
+    rgba(0,0,0,.88)  12%,
+    black            18%,
+    black            100%
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent      0%,
+    rgba(0,0,0,.15)  4%,
+    rgba(0,0,0,.55)  8%,
+    rgba(0,0,0,.88)  12%,
+    black            18%,
+    black            100%
+  );
 }
 .hero-panda-video{
   position:absolute;
@@ -137,25 +155,13 @@ nav{
 }
 .hero-blend{
   position:absolute;
-  /* Span the full transition zone — from just inside the video
-     across to well into the banner, so no hard edge can show */
-  left:24%;top:0;width:52%;height:100%;
+  left:28%;top:0;width:44%;height:100%;
   background:
-    /* Primary blue atmospheric haze — peaks at the seam zone */
     radial-gradient(
-      ellipse 75% 90% at 46% 42%,
-      rgba(20,50,200,.18) 0%,
-      rgba(14,35,160,.12) 28%,
-      rgba(8,18,90,.05)   56%,
-      transparent         100%
-    ),
-    /* Secondary horizontal mist — softens any remaining vertical contrast */
-    linear-gradient(
-      to right,
-      transparent         0%,
-      rgba(10,20,80,.06)  35%,
-      rgba(14,28,110,.10) 50%,
-      rgba(10,20,80,.06)  65%,
+      ellipse 70% 85% at 48% 42%,
+      rgba(20,50,200,.12) 0%,
+      rgba(14,35,160,.08) 35%,
+      rgba(8,18,90,.03)   65%,
       transparent         100%
     );
   z-index:2;pointer-events:none;
@@ -544,11 +550,11 @@ nav{
 }
 .ex-svc-text{}
 .ex-svc-name{
-  font-size:clamp(12px,.9vw,14px);color:rgba(244,242,238,.92);
+  font-size:clamp(13px,.95vw,15px);color:rgba(244,242,238,.95);
   font-weight:500;line-height:1.2;
 }
 .ex-svc-desc{
-  font-size:clamp(9px,.7vw,11px);color:rgba(244,242,238,.42);
+  font-size:clamp(10px,.75vw,12px);color:rgba(244,242,238,.48);
   line-height:1.3;margin-top:1px;
 }
 
@@ -584,13 +590,13 @@ nav{
 }
 .ex-ctx-title{
   font-family:var(--serif);
-  font-size:clamp(16px,1.5vw,22px);
+  font-size:clamp(17px,1.6vw,24px);
   font-weight:300;color:#fff;line-height:1.2;
   margin-bottom:clamp(6px,.6vw,10px);
 }
 .ex-ctx-body{
-  font-size:clamp(12px,.9vw,14px);color:rgba(244,242,238,.68);
-  line-height:1.7;
+  font-size:clamp(13px,.95vw,15px);color:rgba(244,242,238,.72);
+  line-height:1.72;
 }
 .ex-ctx-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .ex-ctx-tag{
@@ -1403,7 +1409,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="thesis-body">The systems behind digital finance are architecture — built by institutions, governed by protocols, and migrating onchain. Explore where they connect.</div>
   </div>
 
-  <!-- ══ INFRASTRUCTURE EXPLORER — Constellation Map ══ -->
+  <!-- ══ INFRASTRUCTURE EXPLORER — title + shell ══ -->
+  <div style="background:linear-gradient(180deg,#07090D 0%,#050A18 100%);padding:clamp(28px,3vw,48px) clamp(20px,4vw,64px) clamp(16px,2vw,28px);border-top:.5px solid rgba(200,146,42,.10)">
+    <div style="max-width:860px">
+      <div style="font-size:clamp(8px,.58vw,10px);letter-spacing:.22em;color:var(--gold);opacity:.6;margin-bottom:clamp(8px,.8vw,12px);font-family:var(--mono)">INFRASTRUCTURE EXPLORER</div>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.2vw,36px);font-weight:300;color:#fff;line-height:1.15;margin-bottom:clamp(10px,1vw,16px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
+      <div style="font-size:clamp(12px,.88vw,14px);color:rgba(244,242,238,.42);line-height:1.65;font-family:var(--sans)">Click any node to explore relationships, services used, and infrastructure dependencies.</div>
+    </div>
+  </div>
   <div class="ex-shell" id="explorer-shell">
 
     <!-- Category filter bar -->
@@ -2213,6 +2226,11 @@ var EXD = {
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink connects XRPL to the broader blockchain ecosystem for cross-chain asset movement and verified data.',
       connects:['chainlink'],chainlinkRole:'Chainlink connects XRPL to the broader blockchain ecosystem through CCIP and provides verified price data — enabling enterprise payments and asset issuance on XRPL to interact with DeFi and institutional protocols.',reachable:['swift','cbanks','stablecoins','ethereum']},
+    {id:'stellar',  cat:'chains',  label:'Stellar',          icon:'✦', x:0.88, y:0.68,
+      desc:'Blockchain network focused on cross-border payments, stablecoin settlement, and asset tokenization.',
+      services:['CCIP','Data Feeds'],
+      chainlinkRole:"Chainlink enables Stellar-based payment and tokenization workflows to connect with other blockchains through CCIP and access verified price data.",
+      connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','mastercard']},
 
     // APPLICATIONS — inner orbit, interspersed
     {id:'aave',     cat:'apps',    label:'Aave',            icon:'◈', logo:'assets/logos/aave.png', x:0.24, y:0.6,
@@ -2265,6 +2283,7 @@ var EXD = {
     'avalanche': {services:['CCIP','Data Feeds'],                  label:'Avalanche → Chainlink'},
     'arbitrum':  {services:['CCIP','Data Feeds','Automation'],     label:'Arbitrum → Chainlink'},
     'xrpl':      {services:['CCIP','Data Feeds'],                  label:'XRPL → Chainlink'},
+    'stellar':   {services:['CCIP','Data Feeds'],                  label:'Stellar → Chainlink'},
     'aave':      {services:['Data Feeds','SVR','Automation','CCIP'],label:'Aave → Chainlink'},
     'ondo':      {services:['Data Feeds','Proof of Reserve','CCIP'],label:'Ondo → Chainlink'},
     'lido':      {services:['Data Feeds','Automation'],            label:'Lido → Chainlink'},
@@ -2406,8 +2425,8 @@ function exBuildSVG(){
     line.setAttribute('id','ex-edge-'+n.id);
     line.setAttribute('x1',px); line.setAttribute('y1',py);
     line.setAttribute('x2',EX.CX); line.setAttribute('y2',EX.CY);
-    line.setAttribute('stroke','rgba(200,146,42,.22)');
-    line.setAttribute('stroke-width','0.7');
+    line.setAttribute('stroke','rgba(200,146,42,.32)');
+    line.setAttribute('stroke-width','0.9');
     line.setAttribute('opacity','1');
     edgeGroup.appendChild(line);
   });
@@ -2446,7 +2465,7 @@ function exBuildSVG(){
     ring.setAttribute('fill','none');
     ring.setAttribute('stroke',catC);
     ring.setAttribute('stroke-width','0.7');
-    ring.setAttribute('opacity','0.50');
+    ring.setAttribute('opacity','0.62');
     ring.setAttribute('pointer-events','none');
     g.appendChild(ring);
 
@@ -2485,8 +2504,8 @@ function exBuildSVG(){
     var lbl = document.createElementNS(ns,'text');
     lbl.setAttribute('x',px); lbl.setAttribute('y', py+38);
     lbl.setAttribute('text-anchor','middle');
-    lbl.setAttribute('fill','rgba(244,242,238,.82)');
-    lbl.setAttribute('font-size','12');
+    lbl.setAttribute('fill','rgba(244,242,238,.92)');
+    lbl.setAttribute('font-size','13');
     lbl.setAttribute('font-family','DM Sans,sans-serif');
     lbl.setAttribute('font-weight','500');
     lbl.setAttribute('pointer-events','none');
@@ -2577,11 +2596,11 @@ function exBuildSVG(){
     t.setAttribute('x',cl.x); t.setAttribute('y',cl.y);
     t.setAttribute('text-anchor',cl.anchor);
     t.setAttribute('fill',EX.catColor[cl.cat]);
-    t.setAttribute('font-size','10');
+    t.setAttribute('font-size','11');
     t.setAttribute('font-family','DM Sans,sans-serif');
     t.setAttribute('letter-spacing','0.14em');
     t.setAttribute('font-weight','500');
-    t.setAttribute('opacity','0.60');
+    t.setAttribute('opacity','0.75');
     t.setAttribute('pointer-events','none');
     t.textContent = cl.label;
     svg.appendChild(t);
@@ -2646,9 +2665,9 @@ function exApplyVisuals(){
     // Opacity of the whole group
     var opacity;
     if(hasSel){
-      opacity = (isSel || isReach) ? '1' : '0.15';
+      opacity = (isSel || isReach) ? '1' : '0.20';
     } else if(hasSvc){
-      opacity = isSvcHit ? '1' : '0.15';
+      opacity = isSvcHit ? '1' : '0.20';
     } else if(EX.catFilter !== 'all'){
       opacity = isFocused ? '1' : '0.20';
     } else {
@@ -2915,6 +2934,7 @@ function exUpdateCtxDefault(){
 // ── Service clicked (left panel) ──────────────────────────────────
 function exClickService(svcName){
   console.log('[Explorer] service clicked:', svcName);
+  exClearAnimations(); // always stop any running animation immediately
   if(EX.selectedSvc === svcName){
     EX.selectedSvc  = null;
     EX.selectedNode = null;
