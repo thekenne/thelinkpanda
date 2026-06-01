@@ -432,24 +432,38 @@ nav{
 .thesis-inner{max-width:var(--content-max);margin:0 auto}.thesis-body{font-size:clamp(14px,1.1vw,18px);color:var(--w40);line-height:1.8;max-width:clamp(520px,50vw,760px);margin:0 auto}
 
 /* ══════════════════════════════════════════════════════
-   INFRASTRUCTURE EXPLORER — Constellation Map
+   INFRASTRUCTURE EXPLORER — Fixed-height dashboard
    ══════════════════════════════════════════════════════ */
+
+/* ── CSS variable: navbar height ── */
+:root{ --nav-h: clamp(56px,4.5vw,72px); }
+
+/* Shell: fixed viewport height minus navbar. No content expansion. */
 .ex-shell{
-  /* Full-bleed dark section, no max-width constraint */
   width:100%;
+  /* Total height = viewport minus nav. The filterbar and hint bar
+     are inside, so the three columns fill the remaining space. */
+  height:calc(100vh - var(--nav-h));
+  max-height:860px;
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
   background:linear-gradient(170deg,#050A18 0%,#060C1C 40%,#070E20 70%,#050912 100%);
   border-top:.5px solid rgba(200,146,42,.12);
   border-bottom:.5px solid rgba(200,146,42,.12);
-  overflow:hidden;
+  overflow:hidden; /* shell clips everything — prevents any child from expanding page */
   position:relative;
 }
-/* Category filter bar across top */
+
+/* ── Filter bar: fixed height, flex-shrink:0 ── */
 .ex-filterbar{
+  flex-shrink:0;
   display:flex;align-items:center;
   padding:0 clamp(16px,2vw,32px);
   border-bottom:.5px solid rgba(255,255,255,.05);
   background:rgba(4,6,16,.7);
   overflow-x:auto;scrollbar-width:none;
+  height:clamp(40px,4vw,52px);
   gap:0;
 }
 .ex-filterbar::-webkit-scrollbar{display:none}
@@ -457,7 +471,8 @@ nav{
   background:none;border:none;cursor:pointer;
   font-family:var(--sans);font-size:clamp(10px,.75vw,12px);
   letter-spacing:.12em;color:rgba(255,255,255,.32);
-  padding:clamp(10px,1vw,14px) clamp(14px,1.5vw,22px);
+  padding:0 clamp(14px,1.5vw,22px);
+  height:100%;
   border-bottom:2px solid transparent;
   transition:color .2s,border-color .2s;white-space:nowrap;
 }
@@ -470,24 +485,30 @@ nav{
   padding:0 clamp(12px,1.4vw,20px);
   display:flex;align-items:center;gap:6px;
 }
-/* Three-column layout */
+
+/* ── Three-column body: fills all remaining height in shell ── */
 .ex-body{
+  flex:1;           /* takes all height not used by filterbar + hint */
+  min-height:0;     /* critical: allows flex child to shrink below content size */
   display:grid;
   grid-template-columns:clamp(200px,17vw,260px) 1fr clamp(260px,24vw,360px);
-  min-height:clamp(420px,40vw,600px);
+  overflow:hidden;
 }
-/* Left: Chainlink services panel */
+
+/* ── Left panel: service filters ── */
 .ex-services{
   border-right:.5px solid rgba(255,255,255,.05);
-  padding:clamp(16px,1.6vw,24px) clamp(12px,1.2vw,18px);
+  padding:clamp(14px,1.4vw,20px) clamp(12px,1.2vw,18px);
   display:flex;flex-direction:column;gap:2px;
   overflow-y:auto;scrollbar-width:none;
+  height:100%;
 }
 .ex-services::-webkit-scrollbar{display:none}
 .ex-svc-header{
   font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;
   color:var(--gold);opacity:.55;
-  margin-bottom:clamp(10px,1vw,14px);
+  margin-bottom:clamp(8px,.8vw,12px);
+  flex-shrink:0;
   display:flex;align-items:center;gap:6px;
 }
 .ex-svc-header::before{
@@ -496,10 +517,11 @@ nav{
 }
 .ex-svc{
   display:flex;align-items:center;gap:10px;
-  padding:clamp(7px,.7vw,10px) clamp(8px,.8vw,12px);
+  padding:clamp(6px,.65vw,9px) clamp(8px,.8vw,12px);
   border-radius:6px;cursor:pointer;
   transition:background .18s,opacity .18s;
   border:.5px solid transparent;
+  flex-shrink:0;
 }
 .ex-svc:hover{background:rgba(255,255,255,.04);border-color:rgba(200,146,42,.2)}
 .ex-svc.active-svc{background:rgba(200,146,42,.12);border-color:rgba(200,146,42,.5)}
@@ -508,112 +530,163 @@ nav{
 .ex-svc.svc-filtered{background:rgba(200,146,42,.06);border-color:rgba(200,146,42,.25)}
 .ex-svc.svc-filtered .ex-svc-name{color:rgba(200,146,42,.85)}
 .ex-svc-icon{
-  width:clamp(28px,2.4vw,36px);height:clamp(28px,2.4vw,36px);
+  width:clamp(26px,2.2vw,32px);height:clamp(26px,2.2vw,32px);
   border-radius:50%;background:rgba(30,50,120,.5);
   border:.5px solid rgba(100,140,255,.2);
   display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:clamp(12px,1vw,15px);
+  flex-shrink:0;font-size:clamp(11px,.9vw,14px);
   transition:background .18s,border-color .18s;
 }
 .ex-svc-text{}
 .ex-svc-name{
-  font-size:clamp(12px,.9vw,14px);color:rgba(244,242,238,.88);
+  font-size:clamp(11px,.85vw,13px);color:rgba(244,242,238,.88);
   font-weight:500;line-height:1.2;
 }
 .ex-svc-desc{
-  font-size:clamp(10px,.75vw,12px);color:rgba(244,242,238,.42);
-  line-height:1.3;margin-top:2px;
+  font-size:clamp(9px,.7vw,11px);color:rgba(244,242,238,.42);
+  line-height:1.3;margin-top:1px;
 }
-/* Centre: constellation SVG — needs explicit height for SVG to render */
+
+/* ── Centre: SVG canvas fills its cell exactly ── */
 .ex-canvas{
   position:relative;
-  /* overflow visible: SVG viewBox handles containment.
-     overflow:hidden was clipping bottom nodes. */
-  height:clamp(420px,40vw,600px);
+  height:100%;
+  overflow:hidden; /* SVG viewBox + preserveAspectRatio handles internal layout */
 }
 .ex-svg{width:100%;height:100%;display:block}
-/* Right: context panel */
+
+/* ── Right panel: fixed three-zone layout ── */
 .ex-ctx{
   border-left:.5px solid rgba(255,255,255,.05);
-  padding:clamp(16px,1.6vw,28px) clamp(14px,1.4vw,22px);
-  display:flex;flex-direction:column;gap:clamp(16px,1.6vw,22px);
   background:rgba(4,6,16,.4);
-  overflow-y:auto;scrollbar-width:none;
+  display:flex;
+  flex-direction:column;
+  height:100%;    /* fills the grid row */
+  overflow:hidden; /* children handle their own scroll */
 }
-.ex-ctx::-webkit-scrollbar{display:none}
+
+/* Zone 1: Header — fixed, never scrolls */
+.ex-ctx-header{
+  flex-shrink:0;
+  padding:clamp(14px,1.4vw,22px) clamp(14px,1.4vw,22px) clamp(10px,1vw,14px);
+  border-bottom:.5px solid rgba(255,255,255,.04);
+}
 .ex-ctx-eyebrow{
   font-size:clamp(8px,.58vw,10px);letter-spacing:.18em;
   color:var(--gold);opacity:.6;margin-bottom:4px;
 }
 .ex-ctx-title{
   font-family:var(--serif);
-  font-size:clamp(17px,1.6vw,26px);
+  font-size:clamp(16px,1.5vw,22px);
   font-weight:300;color:#fff;line-height:1.2;
-  margin-bottom:clamp(8px,.8vw,12px);
+  margin-bottom:clamp(6px,.6vw,10px);
 }
 .ex-ctx-body{
-  font-size:clamp(12px,.88vw,14px);color:rgba(244,242,238,.65);
-  line-height:1.7;
+  font-size:clamp(11px,.82vw,13px);color:rgba(244,242,238,.62);
+  line-height:1.65;
 }
-.ex-ctx-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ex-ctx-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .ex-ctx-tag{
   font-size:clamp(9px,.62vw,10px);letter-spacing:.06em;
   color:var(--gold);opacity:.65;
-  border:.5px solid rgba(200,146,42,.25);padding:3px 8px;
+  border:.5px solid rgba(200,146,42,.25);padding:2px 7px;
   font-family:var(--sans);border-radius:2px;
 }
+
+/* Zone 2: Scrollable connection list — flex:1, custom scrollbar */
+.ex-ctx-scroll{
+  flex:1;
+  min-height:0;        /* allow shrinking */
+  overflow-y:auto;
+  padding:clamp(10px,1vw,16px) clamp(14px,1.4vw,22px);
+  position:relative;
+  /* Custom scrollbar — thin, branded */
+  scrollbar-width:thin;
+  scrollbar-color:rgba(60,100,200,.35) transparent;
+}
+.ex-ctx-scroll::-webkit-scrollbar{width:3px}
+.ex-ctx-scroll::-webkit-scrollbar-track{background:transparent}
+.ex-ctx-scroll::-webkit-scrollbar-thumb{
+  background:rgba(60,100,200,.4);
+  border-radius:2px;
+}
+.ex-ctx-scroll::-webkit-scrollbar-thumb:hover{background:rgba(200,146,42,.5)}
+
+/* Fade at bottom of scroll area when content overflows */
+.ex-ctx-scroll-wrap{
+  position:relative;
+}
+.ex-ctx-scroll-wrap::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:3px; /* account for scrollbar */
+  height:32px;
+  background:linear-gradient(to top,rgba(4,6,16,.9) 0%,transparent 100%);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .2s;
+}
+.ex-ctx-scroll-wrap.can-scroll::after{opacity:1}
+
 .ex-ctx-svc-list{
-  display:flex;flex-direction:column;gap:6px;margin-top:4px;
+  display:flex;flex-direction:column;gap:5px;
 }
 .ex-ctx-svc-item{
   display:flex;align-items:flex-start;gap:8px;
-  padding:8px 10px;
+  padding:7px 10px;
   background:rgba(30,50,120,.2);
   border:.5px solid rgba(100,140,255,.12);
   border-radius:5px;
+  flex-shrink:0;
 }
 .ex-ctx-svc-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--gold);flex-shrink:0;margin-top:4px;opacity:.7;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;margin-top:5px;opacity:.7;
 }
-.ex-ctx-svc-name{font-size:clamp(11px,.85vw,13px);color:rgba(244,242,238,.88);font-weight:500}
-.ex-ctx-svc-exp{font-size:clamp(10px,.72vw,11px);color:rgba(244,242,238,.45);line-height:1.4;margin-top:2px}
-/* Stats bar */
+.ex-ctx-svc-name{font-size:clamp(11px,.82vw,13px);color:rgba(244,242,238,.88);font-weight:500}
+.ex-ctx-svc-exp{font-size:clamp(10px,.7vw,11px);color:rgba(244,242,238,.45);line-height:1.4;margin-top:2px}
+
+/* Zone 3: Stats footer — fixed at bottom, never scrolls */
 .ex-stats{
+  flex-shrink:0;
   display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;border-top:.5px solid rgba(255,255,255,.06);
+  gap:1px;
+  border-top:.5px solid rgba(255,255,255,.07);
   background:rgba(255,255,255,.04);
-  margin-top:auto;
 }
 .ex-stat{
-  padding:clamp(10px,1vw,14px) clamp(8px,.8vw,12px);
-  background:rgba(4,6,16,.8);text-align:center;
+  padding:clamp(8px,.8vw,12px) clamp(6px,.6vw,10px);
+  background:rgba(4,6,16,.9);text-align:center;
 }
 .ex-stat-n{
   font-family:var(--mono);
-  font-size:clamp(14px,1.4vw,22px);
-  color:#fff;font-weight:400;line-height:1;display:block;margin-bottom:3px;
+  font-size:clamp(13px,1.2vw,18px);
+  color:#fff;font-weight:400;line-height:1;display:block;margin-bottom:2px;
 }
 .ex-stat-l{
-  font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;
+  font-size:clamp(8px,.55vw,9px);letter-spacing:.1em;
   color:rgba(244,242,238,.3);
 }
-/* Bottom hint bar */
+
+/* ── Bottom hint bar ── */
 .ex-hint{
+  flex-shrink:0;
   text-align:center;
-  padding:clamp(9px,.9vw,13px);
+  padding:clamp(7px,.7vw,10px);
   border-top:.5px solid rgba(255,255,255,.04);
-  font-size:clamp(10px,.75vw,12px);color:rgba(244,242,238,.25);
+  font-size:clamp(9px,.7vw,11px);color:rgba(244,242,238,.22);
   letter-spacing:.05em;font-family:var(--mono);
   background:rgba(4,6,14,.8);
   display:flex;align-items:center;justify-content:center;gap:8px;
 }
 .ex-hint-icon{
-  width:16px;height:16px;border-radius:50%;
+  width:14px;height:14px;border-radius:50%;
   border:.5px solid rgba(244,242,238,.2);
   display:inline-flex;align-items:center;justify-content:center;
-  font-size:9px;color:rgba(244,242,238,.35);flex-shrink:0;
+  font-size:8px;color:rgba(244,242,238,.35);flex-shrink:0;
 }
+
+/* ── Tooltip ── */
 /* Tooltip — large, instantly readable */
 .ex-tooltip{
   position:fixed;pointer-events:none;z-index:500;
@@ -641,27 +714,42 @@ nav{
 .ex-tt-body{font-size:12px;color:rgba(244,242,238,.52);line-height:1.6;
   border-top:.5px solid rgba(255,255,255,.07);padding-top:9px;margin-top:2px;}
 
-/* Mobile explorer */
+/* Mobile explorer — stacked layout, not fixed viewport height */
 @media(max-width:900px){
-  .ex-body{grid-template-columns:1fr;grid-template-rows:auto 1fr auto}
+  .ex-shell{
+    height:auto;max-height:none;min-height:auto;
+    overflow:visible;
+  }
+  .ex-body{
+    grid-template-columns:1fr;
+    grid-template-rows:auto 1fr auto;
+    overflow:visible;
+    height:auto;
+  }
+  .ex-canvas{height:clamp(300px,60vw,460px)}
   .ex-services{
+    height:auto;
     border-right:none;border-bottom:.5px solid rgba(255,255,255,.05);
     flex-direction:row;flex-wrap:wrap;
-    padding:12px 16px;gap:6px;min-height:auto;
+    padding:10px 14px;gap:5px;
   }
   .ex-svc-header{display:none}
   .ex-svc{padding:5px 8px;gap:6px}
   .ex-svc-desc{display:none}
-  .ex-ctx{border-left:none;border-top:.5px solid rgba(255,255,255,.05)}
+  .ex-ctx{
+    height:auto;border-left:none;
+    border-top:.5px solid rgba(255,255,255,.05);
+    overflow:visible;
+  }
+  .ex-ctx-scroll{overflow-y:visible;max-height:none}
+  .ex-ctx-scroll-wrap::after{display:none}
   .ex-stats{grid-template-columns:repeat(4,1fr)}
   .ex-filter-hint{display:none}
 }
 @media(max-width:600px){
-  .ex-shell{overflow-x:hidden}
   .ex-services{display:none}
   .ex-ctx-svc-list{gap:4px}
   .ex-stats{grid-template-columns:repeat(2,1fr)}
-  .ex-body{min-height:400px}
 }
 
 /* ── TOPICS ── */
@@ -1340,17 +1428,23 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           preserveAspectRatio="xMidYMid meet"></svg>
       </div>
 
-      <!-- Right: context panel -->
+      <!-- Right: context panel — three fixed zones -->
       <div class="ex-ctx" id="ex-ctx">
-        <div>
+
+        <!-- Zone 1: Header — always visible, never scrolls -->
+        <div class="ex-ctx-header">
           <div class="ex-ctx-eyebrow" id="ex-ctx-eyebrow">EXPLORER</div>
-          <div class="ex-ctx-title" id="ex-ctx-title">Chainlink connects every layer of the global financial system.</div>
-          <div class="ex-ctx-body"  id="ex-ctx-body">Click any node to see how Chainlink powers the connections between systems.</div>
-          <div class="ex-ctx-tags"  id="ex-ctx-tags"></div>
+          <div class="ex-ctx-title"   id="ex-ctx-title">Chainlink connects every layer of the global financial system.</div>
+          <div class="ex-ctx-body"    id="ex-ctx-body">Click any node to see how Chainlink powers the connections between systems.</div>
+          <div class="ex-ctx-tags"    id="ex-ctx-tags"></div>
         </div>
-        <div class="ex-ctx-svc-list" id="ex-ctx-svcs" style="display:none"></div>
-        <!-- How it works (default state) -->
-        <div id="ex-how" style="margin-top:auto">
+
+        <!-- Zone 2: Scrollable list — flex:1, internal scroll only -->
+        <div class="ex-ctx-scroll-wrap" id="ex-ctx-scroll-wrap">
+          <div class="ex-ctx-scroll" id="ex-ctx-scroll">
+            <div class="ex-ctx-svc-list" id="ex-ctx-svcs" style="display:none"></div>
+            <!-- How it works (default state) -->
+            <div id="ex-how">
           <div style="font-size:clamp(9px,.65vw,10px);letter-spacing:.16em;color:var(--gold);opacity:.55;margin-bottom:10px">HOW IT WORKS</div>
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
             <div style="text-align:center">
@@ -1373,8 +1467,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
               <div style="font-size:9px;color:rgba(244,242,238,.3);letter-spacing:.05em">Global<br>Impact</div>
             </div>
           </div>
-        </div>
-        <!-- Stats -->
+            </div><!-- /ex-how -->
+          </div><!-- /ex-ctx-scroll -->
+        </div><!-- /ex-ctx-scroll-wrap -->
+
+        <!-- Zone 3: Stats footer — always pinned at bottom -->
         <div class="ex-stats">
           <div class="ex-stat"><span class="ex-stat-n">100+</span><span class="ex-stat-l">Networks</span></div>
           <div class="ex-stat"><span class="ex-stat-n">20K+</span><span class="ex-stat-l">Data Feeds</span></div>
@@ -2300,6 +2397,7 @@ function exSvcFilter(svcName){
     svcList.style.display='';
     document.getElementById('ex-how').style.display='none';
   }
+  exCheckScrollFade();
   exRender();
 }
 
@@ -2743,6 +2841,21 @@ function exUpdateCtxDefault(){
   document.getElementById('ex-ctx-title').textContent   = 'Chainlink connects every layer of the global financial system.';
   document.getElementById('ex-ctx-body').textContent    = 'Click any node to see how Chainlink powers the connections between systems.';
   document.getElementById('ex-ctx-tags').innerHTML      = '';
+  exCheckScrollFade();
+}
+
+// Show bottom fade if scroll area has overflowing content
+function exCheckScrollFade(){
+  var wrap   = document.getElementById('ex-ctx-scroll-wrap');
+  var scroll = document.getElementById('ex-ctx-scroll');
+  if(!wrap || !scroll) return;
+  var hasOverflow = scroll.scrollHeight > scroll.clientHeight + 4;
+  wrap.classList.toggle('can-scroll', hasOverflow);
+  // Update fade as user scrolls
+  scroll.onscroll = function(){
+    var atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 8;
+    wrap.classList.toggle('can-scroll', !atBottom && scroll.scrollHeight > scroll.clientHeight + 4);
+  };
 }
 
 function exUpdateCtxNode(node){
@@ -2780,6 +2893,7 @@ function exUpdateCtxNode(node){
       svcList.appendChild(exp);
     }
   }
+  exCheckScrollFade();
 }
 
 
