@@ -139,26 +139,50 @@ nav{
   );
   z-index:2;pointer-events:none;
 }
+/* Corner vignette — fades outer corners of video frame naturally.
+   Centre (where panda face is) stays bright. Not a full-frame darken. */
+.hero-vignette{
+  position:absolute;left:0;top:0;width:62%;height:100%;
+  background:radial-gradient(
+    ellipse 65% 72% at 52% 32%,
+    transparent           0%,
+    transparent           38%,
+    rgba(4,6,10,.10)      55%,
+    rgba(4,6,10,.30)      75%,
+    rgba(4,6,10,.52)      100%
+  );
+  z-index:2;pointer-events:none;
+}
 .hero-text-grad{
-  position:absolute;left:0;top:0;bottom:0;width:42%;
+  position:absolute;left:0;top:0;bottom:0;width:44%;
   background:linear-gradient(
     to right,
-    rgba(5,7,12,.78) 0%,
-    rgba(5,7,12,.58) 25%,
-    rgba(5,7,12,.20) 55%,
-    transparent      78%
+    rgba(4,6,12,.84) 0%,
+    rgba(4,6,12,.68) 22%,
+    rgba(4,6,12,.28) 50%,
+    rgba(4,6,12,.06) 70%,
+    transparent      85%
   );
   z-index:3;pointer-events:none;
 }
 .hero-text-backing{
-  position:absolute;left:0;bottom:0;width:50%;height:72%;
-  background:radial-gradient(
-    ellipse 92% 88% at 5% 95%,
-    rgba(4,6,12,.52) 0%,
-    rgba(4,6,12,.30) 36%,
-    rgba(4,6,12,.08) 62%,
-    transparent      86%
-  );
+  position:absolute;left:0;bottom:0;width:48%;height:76%;
+  /* Localised dark panel — only behind the text cluster.
+     Peak opacity at bottom-left, transparent everywhere else.
+     Does NOT extend over the panda's face. */
+  background:
+    radial-gradient(
+      ellipse 88% 82% at 3% 97%,
+      rgba(3,5,10,.60) 0%,
+      rgba(3,5,10,.38) 32%,
+      rgba(3,5,10,.12) 60%,
+      transparent      82%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 0% 100%,
+      rgba(3,5,10,.30) 0%,
+      transparent      70%
+    );
   z-index:3;pointer-events:none;
 }
 .hero-ob{
@@ -241,6 +265,103 @@ nav{
   .hero-text-backing{width:85%}
 }
 
+/* ── DESTINATION CARDS — What I Create ── */
+.dest-section{
+  max-width:none;
+  padding:clamp(40px,4.5vw,72px) clamp(32px,5vw,80px);
+  background:var(--bg2);
+  border-bottom:.5px solid var(--border);
+}
+.dest-inner{max-width:var(--content-max);margin:0 auto}
+.dest-label{
+  font-size:clamp(9px,.65vw,11px);letter-spacing:.22em;
+  color:var(--gold);opacity:.65;display:block;
+  margin-bottom:clamp(16px,1.8vw,28px);
+}
+.dest-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(10px,1vw,16px);
+}
+.dest-card{
+  position:relative;
+  display:flex;flex-direction:column;
+  overflow:hidden;cursor:pointer;
+  border:.5px solid var(--border);
+  background:var(--bg3);
+  transition:border-color .25s,transform .25s;
+  min-height:clamp(220px,22vw,340px);
+  text-decoration:none;
+}
+.dest-card:hover{border-color:rgba(200,146,42,.45);transform:translateY(-2px)}
+.dest-card-img{
+  position:absolute;inset:0;
+  overflow:hidden;
+}
+.dest-card-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+  opacity:.55;
+}
+.dest-card:hover .dest-card-img img{transform:scale(1.05)}
+.dest-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(7,9,13,.96) 0%,
+    rgba(7,9,13,.72) 35%,
+    rgba(7,9,13,.28) 70%,
+    rgba(7,9,13,.08) 100%
+  );
+}
+.dest-card-body{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  flex:1;
+  padding:clamp(18px,2vw,30px) clamp(16px,1.8vw,26px);
+}
+.dest-card-cat{
+  font-size:clamp(8px,.6vw,10px);letter-spacing:.18em;
+  color:var(--gold);opacity:.7;margin-bottom:clamp(6px,.7vw,10px);
+}
+.dest-card-title{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(18px,1.9vw,28px);
+  color:#fff;line-height:1.15;
+  margin-bottom:clamp(8px,.9vw,14px);
+}
+.dest-card-desc{
+  font-size:clamp(11px,.82vw,13px);
+  color:rgba(244,242,238,.55);
+  line-height:1.6;
+  margin-bottom:clamp(14px,1.4vw,22px);
+}
+.dest-card-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:clamp(10px,.72vw,12px);letter-spacing:.08em;
+  color:var(--gold);opacity:.7;
+  transition:opacity .2s,gap .2s;
+}
+.dest-card:hover .dest-card-link{opacity:1;gap:9px}
+/* No-image placeholder gradient per card */
+.dest-card-img.dest-infographics{background:linear-gradient(135deg,#0D1628,#0A1832)}
+.dest-card-img.dest-videos{background:linear-gradient(135deg,#0E1530,#0A1525)}
+.dest-card-img.dest-art{background:linear-gradient(135deg,#150E1A,#1A0E22)}
+.dest-card-img.dest-work{background:linear-gradient(135deg,#12130E,#1A1A10)}
+@media(max-width:860px){
+  .dest-section{padding:32px 16px}
+  .dest-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .dest-card{min-height:clamp(160px,42vw,240px)}
+  .dest-card-title{font-size:clamp(16px,5vw,22px)}
+  .dest-card-desc{display:none}
+  .dest-card-body{padding:14px}
+}
+@media(max-width:420px){
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .dest-card{min-height:140px}
+}
+
 /* ── SECTIONS ── */
 .section{padding:var(--section-pad);max-width:var(--content-max);margin-left:auto;margin-right:auto;width:100%}
 .section-alt{background:var(--bg2)}
@@ -284,7 +405,7 @@ nav{
 .feat-card.small .fc-title{font-size:clamp(15px,1.6vw,22px)}
 
 /* ── THESIS ── */
-.thesis{max-width:none;padding:var(--section-pad);text-align:center;background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.thesis{max-width:none;padding:clamp(36px,4vw,60px) clamp(32px,5vw,80px);text-align:center;background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
 .thesis-rule{width:clamp(40px,3.5vw,64px);height:.5px;background:var(--gold);opacity:.4;margin:0 auto clamp(22px,2.5vw,40px)}
 .thesis-hed{font-family:var(--serif);font-size:clamp(24px,3.5vw,52px);font-weight:300;color:var(--w);margin-bottom:clamp(12px,1.2vw,20px)}
 .thesis-inner{max-width:var(--content-max);margin:0 auto}.thesis-body{font-size:clamp(14px,1.1vw,18px);color:var(--w40);line-height:1.8;max-width:clamp(520px,50vw,760px);margin:0 auto}
@@ -663,6 +784,16 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   /* ── body ── */
   body{font-size:1.1vw}                   /* 28px at 2560 */
 
+  /* ── destination cards ── */
+  .dest-section{padding:4.5vw 5vw}
+  .dest-grid{gap:1.2vw}
+  .dest-card{min-height:28vw}
+  .dest-card-title{font-size:1.7vw}
+  .dest-card-desc{font-size:.78vw}
+  .dest-card-cat{font-size:.55vw}
+  .dest-card-link{font-size:.68vw}
+  .dest-card-body{padding:1.6vw}
+
   /* ── nav ── */
   nav{height:4.2vw}
   .nav-wordmark{font-size:1vw}            /* 26px */
@@ -910,18 +1041,81 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <span class="ib-date">MAY 2026</span>
   </div>
 
-  <div class="section">
-    <div class="sec-header">
-      <div><span class="sec-label">FEATURED INFOGRAPHICS</span><div class="sec-title">Selected coverage</div></div>
-      <button class="sec-link" onclick="showPage('infographics')">View full library →</button>
+
+  <!-- ══ WHAT I CREATE ══ -->
+  <div class="dest-section">
+    <div class="dest-inner">
+      <span class="dest-label">WHAT I CREATE</span>
+      <div class="dest-grid" id="dest-grid">
+
+        <!-- Card 1: Infographics -->
+        <div class="dest-card" onclick="showPage('infographics')">
+          <div class="dest-card-img dest-infographics" id="dest-img-infographics">
+            <img src="assets/infographics/global-systems/Global systems/The global financial system connected by Chainlink.jpg"
+                 alt="Infographics" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">RESEARCH &amp; DESIGN</div>
+            <div class="dest-card-title">Infographics</div>
+            <div class="dest-card-desc">Complex infrastructure.<br>Made understandable.</div>
+            <div class="dest-card-link">View library →</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Videos -->
+        <div class="dest-card" onclick="showPage('videos')">
+          <div class="dest-card-img dest-videos" id="dest-img-videos">
+            <img src="https://i.ytimg.com/vi/ebMDoPEdWP0/hqdefault.jpg"
+                 alt="Videos" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">YOUTUBE SHORTS</div>
+            <div class="dest-card-title">Videos</div>
+            <div class="dest-card-desc">Digital finance explained.<br>In minutes.</div>
+            <div class="dest-card-link">Watch now →</div>
+          </div>
+        </div>
+
+        <!-- Card 3: Art & NFTs -->
+        <div class="dest-card" onclick="showPage('art')">
+          <div class="dest-card-img dest-art" id="dest-img-art">
+            <img src="assets/art/2026 The mark of an Era.jpg"
+                 alt="Art &amp; NFTs" loading="lazy" onerror="this.style.src='assets/art/Painting HD Sergey Nazarov NFT.jpg'"/>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">ORIGINAL ARTWORK</div>
+            <div class="dest-card-title">Art &amp; NFTs</div>
+            <div class="dest-card-desc">Original artwork.<br>Limited editions.</div>
+            <div class="dest-card-link">View collection →</div>
+          </div>
+        </div>
+
+        <!-- Card 4: Work With Me -->
+        <div class="dest-card" onclick="showPage('contact')">
+          <div class="dest-card-img dest-work" id="dest-img-work">
+            <img src="assets/banner/TheLinkPanda banner.jpg"
+                 alt="Work With Me" loading="lazy" onerror="this.style.display='none'"/>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">COLLABORATE</div>
+            <div class="dest-card-title">Work With Me</div>
+            <div class="dest-card-desc">Research.<br>Design. Storytelling.</div>
+            <div class="dest-card-link">Get in touch →</div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="feat-grid" id="feat-grid"></div>
   </div>
 
   <div class="thesis">
     <div class="thesis-rule"></div>
     <div class="thesis-hed">Infrastructure Before Narratives.</div>
-    <div class="thesis-body">The systems behind digital finance are not abstract. They are architecture — built by institutions, governed by protocols, and now migrating onchain. This is where they become visible.</div>
+    <div class="thesis-body">The systems behind digital finance are architecture — built by institutions, governed by protocols, and migrating onchain. Explore where they connect.</div>
   </div>
 
   <!-- ══ INFRASTRUCTURE EXPLORER ══ -->
@@ -933,7 +1127,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       </div>
       <span style="font-size:clamp(9px,.65vw,11px);color:var(--w20);letter-spacing:.1em;font-family:var(--mono);display:none" class="ex-desktop-hint">INTERACTIVE MAP</span>
     </div>
-    <p style="font-size:clamp(12px,.9vw,14px);color:var(--w40);margin-bottom:clamp(14px,1.6vw,24px);line-height:1.65;max-width:600px">Select a layer, then click any node to explore its role in the global digital finance stack.</p>
+    <p style="font-size:clamp(12px,.9vw,14px);color:var(--w40);margin-bottom:clamp(14px,1.6vw,24px);line-height:1.65;max-width:600px">Click any node to understand where Chainlink sits in the global financial system — and why it matters.</p>
 
     <div class="explorer-wrap">
       <!-- Layer tabs -->
@@ -963,6 +1157,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       </div>
     </div>
     <p style="font-size:clamp(9px,.65vw,10px);color:var(--w20);text-align:center;margin-top:8px;letter-spacing:.06em;font-family:var(--mono)">CHAINLINK SITS AT EVERY COORDINATION LAYER</p>
+  </div>
+
+  <div class="section">
+    <div class="sec-header">
+      <div><span class="sec-label">FEATURED INFOGRAPHICS</span><div class="sec-title">Selected coverage</div></div>
+      <button class="sec-link" onclick="showPage('infographics')">View full library →</button>
+    </div>
+    <div class="feat-grid" id="feat-grid"></div>
   </div>
 
   <div class="section section-alt">
