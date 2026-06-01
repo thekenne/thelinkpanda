@@ -97,7 +97,9 @@ nav{
   position:absolute;
   left:38%;top:0;
   width:62%;height:100%;
-  object-fit:contain;
+  /* cover: fills the container so no dark background bleeds through edges */
+  object-fit:cover;
+  /* keep the right-side branding area visible */
   object-position:center center;
   z-index:0;
 }
@@ -109,34 +111,53 @@ nav{
   object-position:55% center;
   filter:brightness(1.30) contrast(1.04);
   z-index:1;
+  /* Extended dissolve — video fades gradually from 45% to 100%
+     so it always overlaps the banner. The blend layer above covers
+     the overlap zone with atmospheric haze, hiding any seam. */
   -webkit-mask-image:linear-gradient(
     to right,
-    black   0%,
-    black   52%,
-    rgba(0,0,0,.85) 62%,
-    rgba(0,0,0,.50) 72%,
-    rgba(0,0,0,.15) 82%,
-    transparent     100%
+    black            0%,
+    black            42%,
+    rgba(0,0,0,.90)  55%,
+    rgba(0,0,0,.65)  65%,
+    rgba(0,0,0,.35)  75%,
+    rgba(0,0,0,.12)  85%,
+    transparent      100%
   );
   mask-image:linear-gradient(
     to right,
-    black   0%,
-    black   52%,
-    rgba(0,0,0,.85) 62%,
-    rgba(0,0,0,.50) 72%,
-    rgba(0,0,0,.15) 82%,
-    transparent     100%
+    black            0%,
+    black            42%,
+    rgba(0,0,0,.90)  55%,
+    rgba(0,0,0,.65)  65%,
+    rgba(0,0,0,.35)  75%,
+    rgba(0,0,0,.12)  85%,
+    transparent      100%
   );
 }
 .hero-blend{
-  position:absolute;left:30%;top:0;width:40%;height:100%;
-  background:radial-gradient(
-    ellipse 80% 70% at 50% 45%,
-    rgba(30,60,180,.13) 0%,
-    rgba(20,40,140,.09) 35%,
-    rgba(10,20,80,.04)  65%,
-    transparent         100%
-  );
+  position:absolute;
+  /* Span the full transition zone — from just inside the video
+     across to well into the banner, so no hard edge can show */
+  left:24%;top:0;width:52%;height:100%;
+  background:
+    /* Primary blue atmospheric haze — peaks at the seam zone */
+    radial-gradient(
+      ellipse 75% 90% at 46% 42%,
+      rgba(20,50,200,.18) 0%,
+      rgba(14,35,160,.12) 28%,
+      rgba(8,18,90,.05)   56%,
+      transparent         100%
+    ),
+    /* Secondary horizontal mist — softens any remaining vertical contrast */
+    linear-gradient(
+      to right,
+      transparent         0%,
+      rgba(10,20,80,.06)  35%,
+      rgba(14,28,110,.10) 50%,
+      rgba(10,20,80,.06)  65%,
+      transparent         100%
+    );
   z-index:2;pointer-events:none;
 }
 /* Corner vignette — fades outer corners of video frame naturally.
@@ -1240,10 +1261,16 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <!-- Card 4: Work With Me -->
         <div class="dest-card" onclick="showPage('contact')">
           <div class="dest-card-img dest-work" id="dest-img-work">
+            <!-- Use panda video poster / still — object-position centres the panda face -->
             <img src="assets/banner/TheLinkPanda banner.jpg"
-                 alt="Work With Me" loading="lazy" onerror="this.style.display='none'"/>
+                 alt="Work With Me" loading="lazy"
+                 style="object-position:18% center;"
+                 onerror="this.style.display='none'"/>
           </div>
+          <!-- Extra overlay: darken the right side where text/logo bleeds in,
+               keep the panda (left side) visible -->
           <div class="dest-card-overlay"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(7,9,13,.85) 0%,rgba(7,9,13,.45) 35%,transparent 65%);pointer-events:none;z-index:1"></div>
           <div class="dest-card-body">
             <div class="dest-card-cat">COLLABORATE</div>
             <div class="dest-card-title">Work With Me</div>
