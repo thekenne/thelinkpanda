@@ -2142,91 +2142,91 @@ var EXD = {
 
   nodes: [
     // TRADFI — tighter orbit, upper-left quadrant
-    {id:'swift',    cat:'tradfi',  label:'SWIFT',          icon:'⚡', logo:'assets/logos/swift.png', x:0.14, y:0.12,
+    {id:'swift',    cat:'tradfi',  label:'SWIFT',          icon:'⚡', logo:'assets/logos/swift.png', x:0.08, y:0.09,
       desc:'Global financial messaging connecting 11,500+ institutions. Piloting CCIP for CBDC interoperability.',
       services:['CCIP','CRE','Identity','ACE'],
       explanation:'Chainlink helps SWIFT coordinate cross-chain settlement, compliance, identity verification, and tokenized asset messaging.',
       role:'Connects 11,500+ financial institutions globally.',enables:['Cross-chain messaging','Compliance workflows','Identity verification','Multi-ledger settlement'],examples:['ANZ','UBS','DTCC','Euroclear'],connects:['chainlink'],chainlinkRole:'Chainlink can extend SWIFT-connected institution workflows into tokenized assets, multiple blockchains, compliance verification, identity confirmation, and multi-ledger settlement — turning messaging into programmable financial infrastructure.',reachable:['dtcc','assetmgr','cbanks','tkfunds','stablecoins','ethereum','avalanche','xrpl']},
-    {id:'dtcc',     cat:'tradfi',  label:'DTCC',           icon:'🏛', logo:'assets/logos/dtcc.png', x:0.2, y:0.26,
+    {id:'dtcc',     cat:'tradfi',  label:'DTCC',           icon:'🏛', logo:'assets/logos/dtcc.png', x:0.22, y:0.16,
       desc:'Processes $2.5 quadrillion in US securities annually. Piloting blockchain settlement with Chainlink.',
       services:['CCIP','CRE','Data Feeds','ACE'],
       explanation:'Chainlink enables DTCC to verify tokenized asset data, automate compliance workflows, and connect to blockchain settlement layers.',
       role:'Clears and settles $2.5 quadrillion in US securities annually.',enables:['Tokenised asset data verification','Automated compliance','Blockchain settlement'],examples:['BNY Mellon','JPMorgan','Goldman Sachs','Citadel'],connects:['chainlink'],chainlinkRole:'Chainlink enables DTCC to verify tokenized asset NAV data, automate compliance workflows, and connect equity settlement directly to blockchain settlement layers including DeFi and institutional token platforms.',reachable:['swift','assetmgr','custodians','tkfunds','rwas','ethereum','base','arbitrum']},
-    {id:'custodians',cat:'tradfi', label:'Custodians',     icon:'◉', x:0.08, y:0.4,
+    {id:'custodians',cat:'tradfi', label:'Custodians',     icon:'◉', x:0.08, y:0.3,
       desc:'State Street, BNY Mellon, Citi safeguard $100T+ in assets, expanding into digital custody.',
       services:['Proof of Reserve','Data Feeds'],
       explanation:'Chainlink Proof of Reserve gives custodians automated, cryptographic verification of assets held onchain.',
       connects:['chainlink'],chainlinkRole:'Chainlink Proof of Reserve gives custodians continuous, automated cryptographic verification that assets held onchain actually match what is reported — replacing manual audit cycles.',reachable:['assetmgr','tkfunds','rwas','treasuries','ethereum']},
-    {id:'assetmgr', cat:'tradfi',  label:'Asset Mgrs',     icon:'◎', x:0.18, y:0.5,
+    {id:'assetmgr', cat:'tradfi',  label:'Asset Mgrs',     icon:'◎', x:0.23, y:0.38,
       desc:'BlackRock, Fidelity, Franklin Templeton manage $100T+ and are launching tokenised fund products.',
       services:['Data Feeds','Proof of Reserve','CCIP'],
       explanation:'Asset managers use Chainlink for NAV pricing, reserve verification, and cross-chain distribution of tokenised funds.',
       connects:['chainlink'],chainlinkRole:'Chainlink delivers real-time NAV pricing, verifies reserve backing, and enables cross-chain distribution of tokenized fund shares — giving asset managers the data infrastructure to launch onchain products.',reachable:['dtcc','custodians','tkfunds','rwas','treasuries','ethereum','base']},
-    {id:'cbanks',   cat:'tradfi',  label:'Central Banks',  icon:'🏦', x:0.08, y:0.62,
+    {id:'cbanks',   cat:'tradfi',  label:'Central Banks',  icon:'🏦', x:0.09, y:0.5,
       desc:'130+ central banks exploring CBDC issuance. SWIFT+Chainlink form the CBDC interoperability layer.',
       services:['CCIP','Identity'],
       explanation:'Chainlink CCIP provides the cross-chain connectivity layer for CBDCs to move between central and commercial bank networks.',
       connects:['chainlink'],chainlinkRole:'Chainlink CCIP provides the cross-chain connectivity layer that lets central bank digital currencies move securely between central bank infrastructure and commercial blockchain networks.',reachable:['swift','stablecoins','ethereum','avalanche','xrpl']},
 
     // DIGITAL ASSETS — upper-right quadrant, tighter
-    {id:'stablecoins',cat:'assets', label:'Stablecoins',    icon:'$',  x:0.84, y:0.12,
+    {id:'stablecoins',cat:'assets', label:'Stablecoins',    icon:'$',  x:0.92, y:0.09,
       desc:'USDC, USDT, PYUSD — $200B+ in circulation. Becoming the primary global settlement layer.',
       services:['Proof of Reserve','Data Feeds','CCIP','ACE'],
       explanation:'Chainlink verifies stablecoin reserves, provides price integrity, enables cross-chain movement, and supports compliance.',
       role:'$200B+ in circulation — the global digital settlement layer.',enables:['Reserve verification','Price integrity','Cross-chain movement','Compliance automation'],examples:['USDC','USDT','PYUSD','RLUSD'],connects:['chainlink'],chainlinkRole:'Chainlink verifies stablecoin reserve backing through Proof of Reserve, provides tamper-proof price data through Data Feeds, and enables cross-chain movement through CCIP — making stablecoins trustworthy and portable.',reachable:['cbanks','rwas','tkfunds','aave','mastercard','ethereum','base','solana','avalanche','arbitrum']},
-    {id:'rwas',     cat:'assets',  label:'RWAs',            icon:'🏢', x:0.84, y:0.26,
+    {id:'rwas',     cat:'assets',  label:'RWAs',            icon:'🏢', x:0.78, y:0.16,
       desc:'Tokenised equities, bonds, real estate. BlackRock BUIDL, Franklin OnChain lead the $300T migration.',
       services:['Data Feeds','Proof of Reserve','CCIP'],
       explanation:'Chainlink delivers NAV data, verifies real-world asset backing, and enables RWAs to move cross-chain.',
       role:'Tokenised real-world assets — the $300T migration.',enables:['NAV data delivery','Reserve attestation','Cross-chain distribution'],examples:['BlackRock BUIDL','Franklin OnChain','Ondo Finance'],connects:['chainlink'],chainlinkRole:'Chainlink delivers institutional-grade NAV data, provides cryptographic reserve verification, and enables tokenized real-world assets to move across blockchains — the core infrastructure for the $300T migration onchain.',reachable:['assetmgr','custodians','tkfunds','treasuries','ondo','securitize','ethereum','base','arbitrum']},
-    {id:'tkfunds',  cat:'assets',  label:'Token. Funds',   icon:'◎', x:0.88, y:0.4,
+    {id:'tkfunds',  cat:'assets',  label:'Token. Funds',   icon:'◎', x:0.92, y:0.3,
       desc:'BlackRock BUIDL, Ondo OUSG, Superstate — institutional fund NAV onchain.',
       services:['Data Feeds','Proof of Reserve','CCIP'],
       explanation:'Chainlink delivers real-time NAV, verifies fund collateral, and powers cross-chain fund distribution.',
       connects:['chainlink'],chainlinkRole:'Chainlink delivers real-time NAV onchain, verifies fund collateral backing, and powers cross-chain distribution of tokenized fund shares — the complete oracle and interoperability stack for institutional fund products.',reachable:['assetmgr','custodians','rwas','ondo','securitize','ethereum','base','arbitrum']},
-    {id:'treasuries',cat:'assets', label:'Treasuries',      icon:'◆', x:0.84, y:0.54,
+    {id:'treasuries',cat:'assets', label:'Treasuries',      icon:'◆', x:0.77, y:0.38,
       desc:'Tokenised US Treasuries bringing the risk-free rate to DeFi. Ondo, Superstate lead.',
       services:['Data Feeds','Proof of Reserve'],
       explanation:'Chainlink provides yield data and reserve attestation for tokenised Treasury products onchain.',
       connects:['chainlink'],chainlinkRole:'Chainlink provides yield rate data and continuous reserve attestation for tokenized Treasury products — giving DeFi and institutional platforms the verified data they need to price and settle Treasury-backed assets.',reachable:['assetmgr','rwas','tkfunds','ondo','ethereum']},
-    {id:'marketdata',cat:'assets', label:'Market Data',     icon:'📊', x:0.9, y:0.64,
+    {id:'marketdata',cat:'assets', label:'Market Data',     icon:'📊', x:0.91, y:0.5,
       desc:'Institutional-grade price data for every onchain financial product. 16+ premium data sources.',
       services:['Data Feeds','Data Streams'],
       explanation:'Chainlink aggregates market data from premium providers into tamper-proof onchain price feeds for all financial products.',
       connects:['chainlink'],chainlinkRole:'Chainlink aggregates market data from 16+ premium institutional providers through decentralized node networks, delivering tamper-proof price feeds that power every onchain financial product.',reachable:['aave','gmx','lido','ondo','tkfunds','rwas']},
 
     // BLOCKCHAINS — lower arc, tighter
-    {id:'ethereum', cat:'chains',  label:'Ethereum',        icon:'◆', logo:'assets/logos/ethereum.png', x:0.16, y:0.8,
+    {id:'ethereum', cat:'chains',  label:'Ethereum',        icon:'◆', logo:'assets/logos/ethereum.png', x:0.08, y:0.72,
       desc:'Dominant institutional L1. Most tokenised funds and RWAs launch here first.',
       services:['CCIP','Data Feeds','Automation'],
       explanation:'Chainlink is the oracle standard on Ethereum, enabling DeFi, institutional products, and cross-chain settlement.',
       role:'Dominant institutional smart contract platform.',enables:['Oracle price feeds','Cross-chain messaging','Automated settlement'],examples:['BlackRock BUIDL','Franklin FOBXX','Ondo OUSG'],connects:['chainlink'],chainlinkRole:'Chainlink is the oracle and cross-chain messaging standard on Ethereum — providing price data for every DeFi protocol, CCIP messaging between Ethereum and all other chains, and Automation for institutional settlement.',reachable:['base','arbitrum','aave','lido','ondo','gmx','securitize','stablecoins','rwas']},
-    {id:'base',     cat:'chains',  label:'Base',            icon:'◇', logo:'assets/logos/base.png', x:0.28, y:0.88,
+    {id:'base',     cat:'chains',  label:'Base',            icon:'◇', logo:'assets/logos/base.png', x:0.21, y:0.8,
       desc:"Coinbase's Ethereum L2. Growing institutional adoption for tokenised asset flows.",
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink CCIP and Data Feeds enable Base to connect with other chains and access real-world financial data.',
       connects:['chainlink'],chainlinkRole:'Chainlink CCIP and Data Feeds give Base full connectivity to the broader financial ecosystem — enabling stablecoin flows, tokenized asset distribution, and cross-chain DeFi from Coinbase\'s L2.',reachable:['ethereum','arbitrum','aave','stablecoins']},
-    {id:'solana',   cat:'chains',  label:'Solana',          icon:'◆', logo:'assets/logos/solana.png', x:0.42, y:0.92,
+    {id:'solana',   cat:'chains',  label:'Solana',          icon:'◆', logo:'assets/logos/solana.png', x:0.35, y:0.88,
       desc:'High-performance L1 for stablecoin payments and high-throughput settlement.',
       services:['Data Feeds','CCIP'],
       explanation:'Chainlink provides oracle services and cross-chain connectivity to integrate Solana into the global financial stack.',
       connects:['chainlink'],chainlinkRole:'Chainlink provides oracle price feeds and CCIP cross-chain connectivity for Solana — integrating high-throughput payment and settlement infrastructure with the broader institutional blockchain ecosystem.',reachable:['ethereum','stablecoins','mastercard']},
-    {id:'avalanche',cat:'chains',  label:'Avalanche',       icon:'◆', logo:'assets/logos/avalanche.png', logo:'assets/logos/avalanche.png', x:0.58, y:0.9,
+    {id:'avalanche',cat:'chains',  label:'Avalanche',       icon:'◆', logo:'assets/logos/avalanche.png', logo:'assets/logos/avalanche.png', x:0.5, y:0.92,
       desc:'Institutional Subnets for compliance-configured blockchain environments.',
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink connects Avalanche Subnets to the global financial system via CCIP and provides real-world data feeds.',
       connects:['chainlink'],chainlinkRole:'Chainlink connects Avalanche institutional Subnets to the global financial stack — providing verified data feeds and CCIP messaging for compliance-configured blockchain environments targeting tokenized assets.',reachable:['ethereum','swift','cbanks','stablecoins']},
-    {id:'arbitrum', cat:'chains',  label:'Arbitrum',        icon:'◇', logo:'assets/logos/arbitrum.png', x:0.72, y:0.82,
+    {id:'arbitrum', cat:'chains',  label:'Arbitrum',        icon:'◇', logo:'assets/logos/arbitrum.png', x:0.63, y:0.84,
       desc:'Leading Ethereum L2 by TVL. Full Chainlink CCIP and oracle integration.',
       services:['CCIP','Data Feeds','Automation'],
       explanation:'Chainlink powers DeFi and institutional settlement on Arbitrum through oracles, automation, and cross-chain messaging.',
       connects:['chainlink'],chainlinkRole:'Chainlink powers DeFi and institutional settlement on Arbitrum with price oracles, cross-chain messaging through CCIP, and Automation for liquidations and scheduled workflows.',reachable:['ethereum','base','aave','gmx']},
-    {id:'xrpl',     cat:'chains',  label:'XRPL',            icon:'◇', x:0.80, y:0.86,
+    {id:'xrpl',     cat:'chains',  label:'XRPL',            icon:'◇', x:0.77, y:0.76,
       desc:'Enterprise-grade L1 focused on payments and institutional asset issuance.',
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink connects XRPL to the broader blockchain ecosystem for cross-chain asset movement and verified data.',
       connects:['chainlink'],chainlinkRole:'Chainlink connects XRPL to the broader blockchain ecosystem through CCIP and provides verified price data — enabling enterprise payments and asset issuance on XRPL to interact with DeFi and institutional protocols.',reachable:['swift','cbanks','stablecoins','ethereum']},
-    {id:'stellar',  cat:'chains',  label:'Stellar',          icon:'✦', x:0.90, y:0.60,
+    {id:'stellar',  cat:'chains',  label:'Stellar',          icon:'✦', x:0.89, y:0.68,
       desc:'Blockchain network focused on cross-border payments, stablecoin settlement, and asset tokenization.',
       services:['CCIP','Data Feeds'],
       chainlinkRole:"Chainlink enables Stellar-based payment and tokenization workflows to connect with other blockchains through CCIP and access verified price data.",
@@ -2238,7 +2238,7 @@ var EXD = {
       services:['Data Feeds','SVR','Automation','CCIP'],
       explanation:'Aave uses Chainlink for price data, liquidation triggers, automation, and cross-chain lending.',
       role:'Leading DeFi lending protocol with $10B+ TVL.',enables:['Real-time price data','Automated liquidations','Cross-chain lending'],examples:['$10B+ TVL','180+ markets','25+ blockchains'],connects:['chainlink'],chainlinkRole:'Aave relies on Chainlink for every critical operation: price data for collateral valuation, liquidation triggers via Automation, and cross-chain lending capabilities through CCIP across 25+ blockchains.',reachable:['ethereum','base','arbitrum','solana','stablecoins','rwas','lido']},
-    {id:'ondo',     cat:'apps',    label:'Ondo',            icon:'◎', logo:'assets/logos/ondo.png', x:0.34, y:0.72,
+    {id:'ondo',     cat:'apps',    label:'Ondo',            icon:'◎', logo:'assets/logos/ondo.png', x:0.5, y:0.64,
       desc:'Leading tokenised Treasury platform. OUSG brings US Treasuries onchain.',
       services:['Data Feeds','Proof of Reserve','CCIP'],
       explanation:'Ondo uses Chainlink for NAV pricing, reserve verification, and cross-chain OUSG distribution.',
@@ -2248,17 +2248,17 @@ var EXD = {
       services:['Data Feeds','Automation'],
       explanation:'Lido uses Chainlink Data Feeds for stETH pricing and Automation for reward distribution.',
       connects:['chainlink'],chainlinkRole:'Chainlink Data Feeds power stETH price calculations and yield accounting across the $30B+ Lido protocol, while Automation handles reward distribution — making Chainlink the data backbone of liquid staking.',reachable:['aave','ethereum','stablecoins']},
-    {id:'gmx',      cat:'apps',    label:'GMX',             icon:'◆', x:0.64, y:0.72,
+    {id:'gmx',      cat:'apps',    label:'GMX',             icon:'◆', x:0.63, y:0.58,
       desc:'Leading decentralised perpetuals exchange. $1B+ TVL. Chainlink powers all price oracles.',
       services:['Data Feeds','Data Streams'],
       explanation:'GMX uses Chainlink Data Feeds and Streams for real-time, manipulation-resistant price execution.',
       connects:['chainlink'],chainlinkRole:'GMX uses Chainlink Data Feeds for spot prices and Data Streams for low-latency perpetuals pricing — providing the manipulation-resistant oracle infrastructure that powers $1B+ TVL in decentralized derivatives.',reachable:['aave','arbitrum','ethereum','marketdata']},
-    {id:'mastercard',cat:'apps',   label:'Mastercard',      icon:'◇', logo:'assets/logos/mastercard.png', x:0.74, y:0.62,
+    {id:'mastercard',cat:'apps',   label:'Mastercard',      icon:'◇', logo:'assets/logos/mastercard.png', x:0.76, y:0.58,
       desc:'Global payment network integrating blockchain rails for cross-border stablecoin settlement.',
       services:['CCIP','Identity','ACE'],
       explanation:'Mastercard uses Chainlink for compliant cross-chain payment settlement and identity verification.',
       role:'Global payment network integrating blockchain rails.',enables:['Cross-chain settlement','Identity verification','Compliance automation'],examples:['Mastercard Multi-Token Network','CBDC pilots','Stablecoin payments'],connects:['chainlink'],chainlinkRole:'Chainlink enables Mastercard\'s Multi-Token Network to perform compliant cross-chain settlement, verify counterparty identity through CCID, and automate compliance workflows through ACE.',reachable:['swift','stablecoins','ethereum','base','solana']},
-    {id:'securitize',cat:'apps',   label:'Securitize',      icon:'◈', logo:'assets/logos/securitize.png', x:0.36, y:0.52,
+    {id:'securitize',cat:'apps',   label:'Securitize',      icon:'◈', logo:'assets/logos/securitize.png', x:0.35, y:0.52,
       desc:'Leading digital securities platform. Partners include BlackRock for BUIDL distribution.',
       services:['Identity','ACE','Proof of Reserve','CCIP'],
       explanation:'Securitize uses Chainlink for investor identity verification, compliance automation, and cross-chain asset distribution.',
@@ -2421,13 +2421,21 @@ function exBuildSVG(){
 
   EXD.nodes.forEach(function(n){
     var px = n.x * EX.W, py = n.y * EX.H;
+    // Category-coloured edges from the start
+    var edgeCatColors = {
+      tradfi:  'rgba(200,146,42,1)',
+      assets:  'rgba(160,100,255,1)',
+      chains:  'rgba(60,160,255,1)',
+      apps:    'rgba(255,165,60,1)'
+    };
+    var edgeBaseColor = edgeCatColors[n.cat] || 'rgba(200,146,42,1)';
     var line = document.createElementNS(ns,'line');
     line.setAttribute('id','ex-edge-'+n.id);
     line.setAttribute('x1',px); line.setAttribute('y1',py);
     line.setAttribute('x2',EX.CX); line.setAttribute('y2',EX.CY);
-    line.setAttribute('stroke','rgba(200,146,42,.32)');
-    line.setAttribute('stroke-width','0.9');
-    line.setAttribute('opacity','1');
+    line.setAttribute('stroke', edgeBaseColor);
+    line.setAttribute('stroke-width','1.0');
+    line.setAttribute('opacity','0.28');
     edgeGroup.appendChild(line);
   });
   svg.appendChild(edgeGroup);
@@ -2586,10 +2594,10 @@ function exBuildSVG(){
 
   // ── Category corner labels ──
   var catLabels = [
-    {cat:'tradfi', label:'TRADITIONAL FINANCE', x:14,    y:18,  anchor:'start'},
-    {cat:'assets', label:'DIGITAL ASSETS',       x:686,   y:18,  anchor:'end'},
-    {cat:'chains', label:'BLOCKCHAINS',           x:14,    y:588, anchor:'start'},
-    {cat:'apps',   label:'APPLICATIONS',          x:686,   y:588, anchor:'end'},
+    {cat:'tradfi', label:'TRADITIONAL FINANCE', x:12,  y:16,  anchor:'start'},
+    {cat:'assets', label:'DIGITAL ASSETS',       x:688, y:16,  anchor:'end'},
+    {cat:'chains', label:'BLOCKCHAINS',           x:12,  y:596, anchor:'start'},
+    {cat:'apps',   label:'APPLICATIONS',          x:688, y:596, anchor:'end'},
   ];
   catLabels.forEach(function(cl){
     var t = document.createElementNS(ns,'text');
@@ -2735,28 +2743,37 @@ function exApplyVisuals(){
     var isReach = !!EX.reachableSet[n.id];
     var isSvcHit = EX.selectedSvc && exNodeUsesSvc(n, EX.selectedSvc);
 
+    var edgeCatC = {tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'}[n.cat] || 'rgba(200,146,42,1)';
     if(EX.selectedNode){
       if(isSel){
-        edge.setAttribute('stroke','rgba(60,160,255,.9)');
-        edge.setAttribute('stroke-width','2.2');
+        edge.setAttribute('stroke','rgba(60,160,255,.95)');
+        edge.setAttribute('stroke-width','2.4');
+        edge.setAttribute('opacity','1');
       } else if(isReach){
-        edge.setAttribute('stroke','rgba(200,146,42,.7)');
-        edge.setAttribute('stroke-width','1.4');
+        edge.setAttribute('stroke', edgeCatC);
+        edge.setAttribute('stroke-width','1.6');
+        edge.setAttribute('opacity','0.80');
       } else {
-        edge.setAttribute('stroke','rgba(200,146,42,.05)');
-        edge.setAttribute('stroke-width','0.4');
+        edge.setAttribute('stroke', edgeCatC);
+        edge.setAttribute('stroke-width','0.5');
+        edge.setAttribute('opacity','0.06');
       }
     } else if(EX.selectedSvc){
       if(isSvcHit){
-        edge.setAttribute('stroke','rgba(200,146,42,.75)');
-        edge.setAttribute('stroke-width','1.5');
+        edge.setAttribute('stroke', edgeCatC);
+        edge.setAttribute('stroke-width','2.0');
+        edge.setAttribute('opacity','0.85');
       } else {
-        edge.setAttribute('stroke','rgba(200,146,42,.05)');
-        edge.setAttribute('stroke-width','0.4');
+        edge.setAttribute('stroke', edgeCatC);
+        edge.setAttribute('stroke-width','0.5');
+        edge.setAttribute('opacity','0.06');
       }
     } else {
-      edge.setAttribute('stroke','rgba(200,146,42,.22)');
-      edge.setAttribute('stroke-width','0.7');
+      // Default: category colour at low opacity
+      var defC = {tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'}[n.cat] || 'rgba(200,146,42,1)';
+      edge.setAttribute('stroke', defC);
+      edge.setAttribute('stroke-width','1.0');
+      edge.setAttribute('opacity','0.28');
     }
   });
 }
