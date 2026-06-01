@@ -2119,7 +2119,6 @@ var EXD = {
       services:['Identity','ACE','Proof of Reserve','CCIP'],
       explanation:'Securitize uses Chainlink for investor identity verification, compliance automation, and cross-chain asset distribution.',
       connects:['chainlink']},
-  ]
   ],
 
   // Connection metadata — services used on each edge
@@ -2289,7 +2288,7 @@ function exSvcFilter(svcName){
         EX.selectedNode  = n.id;
         exRender();
         exUpdateCtxNode(n);
-        exHighlightServices(EXD.connections[n.id]?.services || []);
+        exHighlightServices((EXD.connections[n.id] && EXD.connections[n.id].services) || []);
         document.getElementById('ex-ctx-svcs').style.display='';
         document.getElementById('ex-how').style.display='none';
       });
