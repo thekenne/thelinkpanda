@@ -94,101 +94,116 @@ nav{
   background:#07090D;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 0 — split banner image: full-hero base
-   Covers the entire hero so the right-side branding
-   fills the scene. The video will be composited
-   on top of this on the left.
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 0 — FULL-WIDTH banner image.
+  Spans the entire hero. The panda video will be screen-blended
+  on top so its dark background disappears and only the panda
+  (bright pixels) composites over this base.
+*/
 .hero-right-img{
   position:absolute;
-  /* shift right so banner only occupies right ~58% of hero —
-     leaves left side for the panda to dominate */
-  left:38%;
-  top:0;
-  width:62%;
-  height:100%;
-  object-fit:contain;
-  object-position:center center;
+  left:0;top:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  /* Position image so the TheLinkPanda branding sits on the right
+     and the left side shows the city environment the panda stands in */
+  object-position:right center;
   z-index:0;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 1 — panda video: left ~60% of hero
-   object-position pulls panda toward horizontal centre
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 1 — PANDA VIDEO, screen blend mode.
+  mix-blend-mode: screen makes every dark pixel in the video
+  transparent. The near-black video background (#07090D) becomes
+  invisible. Only the bright panda and city lights composite
+  additively onto the banner. No mask needed, no visible edge,
+  no colour mismatch.
+*/
 .hero-panda-video{
   position:absolute;
   left:0;top:0;
   width:62%;
   height:100%;
   object-fit:cover;
-  object-position:55% center;   /* keeps panda face/torso centred */
-  filter:brightness(1.30) contrast(1.04);
+  object-position:55% center;
+  mix-blend-mode:screen;
+  /* Slight brightness adjustment — screen mode can blow out
+     highlights, so we pull brightness back a touch */
+  filter:brightness(1.08) contrast(1.10) saturate(0.90);
   z-index:1;
-  /* Feathered right-edge mask — dissolves over 20% of hero width
-     so the city environment bleeds naturally into the banner */
-  -webkit-mask-image:linear-gradient(
-    to right,
-    black   0%,
-    black   52%,
-    rgba(0,0,0,.85) 62%,
-    rgba(0,0,0,.50) 72%,
-    rgba(0,0,0,.15) 82%,
-    transparent     100%
-  );
-  mask-image:linear-gradient(
-    to right,
-    black   0%,
-    black   52%,
-    rgba(0,0,0,.85) 62%,
-    rgba(0,0,0,.50) 72%,
-    rgba(0,0,0,.15) 82%,
-    transparent     100%
-  );
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 2 — atmospheric blue glow in transition zone
-   Mimics the city-glow lighting from both assets
-   so they feel like the same environment
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 2 — Atmospheric blue bloom in the centre zone.
+  Bridges the two halves so the lighting feels shared.
+*/
 .hero-blend{
   position:absolute;
-  left:30%;top:0;
-  width:40%;height:100%;
+  left:20%;top:0;
+  width:60%;height:100%;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 44% 38%,
+      rgba(20,55,200,.12)  0%,
+      rgba(12,30,140,.07)  40%,
+      transparent          100%
+    ),
+    radial-gradient(
+      ellipse 50% 80% at 48% 65%,
+      rgba(15,45,180,.08)  0%,
+      transparent          100%
+    );
+  z-index:2;
+  pointer-events:none;
+}
+
+/* Layer 2b — disabled */
+.hero-vignette{ display:none; }
+
+/* Layer 2c — very subtle warm spotlight on panda face */
+.hero-spotlight{
+  position:absolute;
+  left:0;top:0;
+  width:58%;height:100%;
   background:radial-gradient(
-    ellipse 80% 70% at 50% 45%,
-    rgba(30,60,180,.13)  0%,
-    rgba(20,40,140,.09)  35%,
-    rgba(10,20,80,.04)   65%,
-    transparent          100%
+    ellipse 44% 42% at 52% 28%,
+    rgba(255,252,238,.06)  0%,
+    rgba(255,248,225,.03)  30%,
+    transparent            60%
   );
   z-index:2;
   pointer-events:none;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 3 — dark gradient for text readability
-   Only on the far left where text lives, does NOT
-   cross into the panda or transition zone
-   ──────────────────────────────────────────────────── */
+/*
+  Layer 3 — Dark text-readability gradient.
+  Only left ~40% where the text lives.
+  Does NOT cover the panda face.
+*/
 .hero-text-grad{
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:38%;
+  position:absolute;left:0;top:0;bottom:0;width:42%;
   background:linear-gradient(
     to right,
-    rgba(7,9,13,.80) 0%,
-    rgba(7,9,13,.55) 30%,
-    rgba(7,9,13,.15) 70%,
-    transparent      100%
+    rgba(5,7,12,.78) 0%,
+    rgba(5,7,12,.58) 25%,
+    rgba(5,7,12,.20) 55%,
+    transparent      78%
   );
-  z-index:3;
-  pointer-events:none;
+  z-index:3;pointer-events:none;
+}
+.hero-text-backing{
+  position:absolute;left:0;bottom:0;width:50%;height:72%;
+  background:radial-gradient(
+    ellipse 92% 88% at 5% 95%,
+    rgba(4,6,12,.52) 0%,
+    rgba(4,6,12,.30) 36%,
+    rgba(4,6,12,.08) 62%,
+    transparent      86%
+  );
+  z-index:3;pointer-events:none;
 }
 
-/* Bottom fade — consistent horizon across full width */
+/* Layer 4 — Bottom fade */
 .hero-ob{
   position:absolute;
   left:0;right:0;bottom:0;
@@ -197,10 +212,7 @@ nav{
   z-index:4;pointer-events:none;
 }
 
-/* ────────────────────────────────────────────────────
-   LAYER 5 — website text panel
-   Bottom-left quadrant only, over panda
-   ──────────────────────────────────────────────────── */
+/* Layer 5 — Website text and CTA */
 .hero-text-panel{
   position:absolute;
   left:0;bottom:0;
@@ -209,34 +221,40 @@ nav{
   display:flex;flex-direction:column;justify-content:flex-end;
   z-index:5;
 }
-/* Localised dark cushion — only bottom-left corner */
 .hero-text-panel::before{
   content:"";
   position:absolute;inset:0;
-  background:radial-gradient(
-    ellipse 90% 60% at 5% 95%,
-    rgba(7,9,13,.52) 0%,
-    rgba(7,9,13,.10) 55%,
-    transparent      100%
-  );
+  background:
+    radial-gradient(
+      ellipse 90% 58% at 0% 100%,
+      rgba(7,9,13,.65) 0%,
+      rgba(7,9,13,.40) 35%,
+      rgba(7,9,13,.12) 62%,
+      transparent      85%
+    ),
+    radial-gradient(
+      ellipse 120% 80% at 0% 105%,
+      rgba(7,9,13,.25) 0%,
+      transparent      65%
+    );
   pointer-events:none;z-index:-1;
 }
 
-/* ────────────────────────────────────────────────────
-   HERO TYPOGRAPHY
-   ──────────────────────────────────────────────────── */
+/* ── HERO TYPOGRAPHY ── */
 .hero-eyebrow{
   font-size:clamp(9px,.62vw,11px);
-  letter-spacing:.22em;color:var(--gold);opacity:.78;
+  letter-spacing:.22em;color:var(--gold);opacity:.92;
   margin-bottom:clamp(10px,.9vw,15px);font-weight:400;
+  text-shadow:0 1px 8px rgba(0,0,0,.7);
 }
 .hero-h1{
   font-family:var(--sans);
   font-size:clamp(32px,3.8vw,52px);
   font-weight:500;line-height:1.0;letter-spacing:-.025em;
-  color:var(--w);margin-bottom:4px;
+  color:#FFFFFF;margin-bottom:4px;
+  text-shadow:0 2px 12px rgba(0,0,0,.6),0 1px 4px rgba(0,0,0,.8);
 }
-.hero-h1 span{color:var(--gold)}
+.hero-h1 span{color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.5)}
 .hero-rule{
   width:clamp(32px,2.4vw,50px);height:.5px;
   background:var(--gold);opacity:.5;
@@ -246,13 +264,17 @@ nav{
 .hero-tagline{
   font-family:var(--serif);font-style:italic;
   font-size:clamp(13px,1.4vw,19px);
-  font-weight:300;color:var(--w80);
+  font-weight:300;color:rgba(244,242,238,.96);
   margin-bottom:clamp(7px,.6vw,10px);line-height:1.35;
+  text-shadow:0 2px 12px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.7);
 }
 .hero-sub{
-  font-size:clamp(12px,.78vw,14px);color:var(--w40);line-height:1.7;
+  font-size:clamp(12px,.78vw,14px);
+  color:rgba(244,242,238,.78);
+  line-height:1.7;
   margin-bottom:clamp(20px,1.9vw,30px);
   max-width:clamp(200px,20vw,340px);
+  text-shadow:0 1px 8px rgba(0,0,0,.7);
 }
 .hero-cta{
   display:inline-flex;align-items:center;gap:8px;background:none;
@@ -265,7 +287,6 @@ nav{
 
 /* ── Large desktop ── */
 @media(min-width:1920px){
-  .hero-right-img{left:40%;width:60%}
   .hero-panda-video{width:60%}
   .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
   .hero-eyebrow{font-size:.54vw;margin-bottom:.9vw}
@@ -283,13 +304,10 @@ nav{
 
 /* ── Mobile ── */
 @media(max-width:860px){
-  .hero-right-img{left:0;width:100%;object-fit:cover;object-position:70% center;opacity:.45}
-  .hero-panda-video{width:100%;
-    -webkit-mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
-    mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%)
-  }
-  .hero-text-panel{width:70%;padding:0 0 36px 20px}
-  .hero-text-grad{width:75%}
+  .hero-right-img{object-fit:cover;object-position:70% center}
+  .hero-panda-video{width:100%}
+  .hero-text-panel{width:75%;padding:0 0 36px 20px}
+  .hero-text-grad{width:80%}
 }
 
 /* ── SECTIONS ── */
@@ -814,7 +832,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <section class="hero">
 
-    <!-- Layer 0: split banner image — right-side branding base -->
+    <!-- Layer 0: banner image full-width base — panda video screen-blends over it -->
     <img class="hero-right-img"
       src="assets/banner/TheLinkPanda banner split.jpg"
       alt="TheLinkPanda — Infrastructure Before Narratives"
@@ -829,8 +847,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <!-- Layer 2: atmospheric blue glow in the blend zone -->
     <div class="hero-blend"></div>
 
+    <!-- Layer 2b: edge vignette — outer video corners dark, panda face bright -->
+    <div class="hero-vignette"></div>
+
+    <!-- Layer 2c: cinematic spotlight — barely-there warm glow on panda face -->
+    <div class="hero-spotlight"></div>
+
     <!-- Layer 3: dark text-readability gradient (left only) -->
     <div class="hero-text-grad"></div>
+    <div class="hero-text-backing"></div>
 
     <!-- Layer 4: bottom fade -->
     <div class="hero-ob"></div>
@@ -872,44 +897,36 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="thesis-body">The systems behind digital finance are not abstract. They are architecture — built by institutions, governed by protocols, and now migrating onchain. This is where they become visible.</div>
   </div>
 
+  <!-- ══ INFRASTRUCTURE EXPLORER — 5-layer interactive map ══ -->
   <div class="section section-dark">
     <div class="sec-header">
       <div><span class="sec-label">INFRASTRUCTURE EXPLORER</span><div class="sec-title">How the systems connect</div></div>
-      <span style="font-size:10px;color:var(--w20);letter-spacing:.1em">INTERACTIVE</span>
+      <span style="font-size:clamp(9px,.65vw,11px);color:var(--w20);letter-spacing:.1em;font-family:var(--mono)">INTERACTIVE MAP</span>
     </div>
-    <p style="font-size:13px;color:var(--w40);margin-bottom:24px;line-height:1.65;max-width:560px">Select any node to understand how it fits into the global digital finance infrastructure stack.</p>
-    <div class="explorer-canvas">
-      <svg class="ex-svg" viewBox="0 0 800 320">
-        <line class="e-edge" x1="80"  y1="160" x2="178" y2="160"/>
-        <line class="e-edge" x1="178" y1="160" x2="290" y2="96"/>
-        <line class="e-edge" x1="178" y1="160" x2="400" y2="160"/>
-        <line class="e-edge" x1="178" y1="160" x2="290" y2="224"/>
-        <line class="e-edge" x1="290" y1="96"  x2="400" y2="160"/>
-        <line class="e-edge" x1="400" y1="160" x2="510" y2="96"/>
-        <line class="e-edge" x1="400" y1="160" x2="510" y2="224"/>
-        <line class="e-edge" x1="510" y1="96"  x2="620" y2="96"/>
-        <line class="e-edge" x1="510" y1="224" x2="620" y2="224"/>
-        <line class="e-edge" x1="620" y1="96"  x2="720" y2="160"/>
-        <line class="e-edge" x1="620" y1="224" x2="720" y2="160"/>
-        <line class="e-dash" x1="400" y1="160" x2="720" y2="160"/>
-        <g onclick="selectNode('bank')"      style="cursor:pointer"><circle cx="80"  cy="160" r="22" class="e-ring" id="er-bank"/><circle cx="80"  cy="160" r="20" class="e-bg" id="eb-bank"/><text x="80"  y="160" class="e-txt" id="et-bank">BANK</text><text x="80"  y="186" class="e-lbl" id="el-bank">Central Bank</text></g>
-        <g onclick="selectNode('swift')"     style="cursor:pointer"><circle cx="178" cy="160" r="24" class="e-ring" id="er-swift"/><circle cx="178" cy="160" r="22" class="e-bg" id="eb-swift"/><text x="178" y="160" class="e-txt" id="et-swift" style="font-size:10px;fill:rgba(200,146,42,.65);font-weight:500">SW</text><text x="178" y="188" class="e-lbl" id="el-swift">SWIFT</text></g>
-        <g onclick="selectNode('dtcc')"      style="cursor:pointer"><circle cx="290" cy="96"  r="20" class="e-ring" id="er-dtcc"/><circle cx="290" cy="96"  r="18" class="e-bg" id="eb-dtcc"/><text x="290" y="96"  class="e-txt" id="et-dtcc">DTCC</text><text x="290" y="120" class="e-lbl" id="el-dtcc">Settlement</text></g>
-        <g onclick="selectNode('stable')"    style="cursor:pointer"><circle cx="290" cy="224" r="20" class="e-ring" id="er-stable"/><circle cx="290" cy="224" r="18" class="e-bg" id="eb-stable"/><text x="290" y="224" class="e-txt" id="et-stable">USD</text><text x="290" y="248" class="e-lbl" id="el-stable">Stablecoins</text></g>
-        <g onclick="selectNode('chainlink')" style="cursor:pointer"><circle cx="400" cy="160" r="28" class="e-ring" id="er-chainlink"/><circle cx="400" cy="160" r="26" class="e-bg" id="eb-chainlink"/><text x="400" y="158" class="e-txt" id="et-chainlink" style="font-size:15px;fill:rgba(200,146,42,.7)">⬡</text><text x="400" y="192" class="e-lbl" id="el-chainlink">Chainlink</text></g>
-        <g onclick="selectNode('token')"     style="cursor:pointer"><circle cx="510" cy="96"  r="20" class="e-ring" id="er-token"/><circle cx="510" cy="96"  r="18" class="e-bg" id="eb-token"/><text x="510" y="96"  class="e-txt" id="et-token">TOK</text><text x="510" y="120" class="e-lbl" id="el-token">Tokenisation</text></g>
-        <g onclick="selectNode('interop')"   style="cursor:pointer"><circle cx="510" cy="224" r="20" class="e-ring" id="er-interop"/><circle cx="510" cy="224" r="18" class="e-bg" id="eb-interop"/><text x="510" y="224" class="e-txt" id="et-interop">INT</text><text x="510" y="248" class="e-lbl" id="el-interop">Interoperability</text></g>
-        <g onclick="selectNode('rwa')"       style="cursor:pointer"><circle cx="620" cy="96"  r="20" class="e-ring" id="er-rwa"/><circle cx="620" cy="96"  r="18" class="e-bg" id="eb-rwa"/><text x="620" y="96"  class="e-txt" id="et-rwa">RWA</text><text x="620" y="120" class="e-lbl" id="el-rwa">Real-World Assets</text></g>
-        <g onclick="selectNode('cbdc')"      style="cursor:pointer"><circle cx="620" cy="224" r="20" class="e-ring" id="er-cbdc"/><circle cx="620" cy="224" r="18" class="e-bg" id="eb-cbdc"/><text x="620" y="224" class="e-txt" id="et-cbdc">CBDC</text><text x="620" y="248" class="e-lbl" id="el-cbdc">Digital Currency</text></g>
-        <g onclick="selectNode('oracle')"    style="cursor:pointer"><circle cx="720" cy="160" r="20" class="e-ring" id="er-oracle"/><circle cx="720" cy="160" r="18" class="e-bg" id="eb-oracle"/><text x="720" y="160" class="e-txt" id="et-oracle">DATA</text><text x="720" y="184" class="e-lbl" id="el-oracle">Oracle Network</text></g>
-      </svg>
+    <p style="font-size:clamp(12px,.9vw,14px);color:var(--w40);margin-bottom:clamp(16px,1.8vw,28px);line-height:1.65;max-width:620px">Click any node to explore how it fits into the global digital finance infrastructure stack. Use layer tabs to navigate between system tiers.</p>
+    <div class="explorer-wrap">
+      <div class="ex-tabs">
+        <button class="ex-tab active" data-layer="chainlink" onclick="exSetLayer('chainlink')">CHAINLINK LAYER</button>
+        <button class="ex-tab" data-layer="tradfi" onclick="exSetLayer('tradfi')">TRADITIONAL FINANCE</button>
+        <button class="ex-tab" data-layer="assets" onclick="exSetLayer('assets')">ASSETS &amp; DATA</button>
+        <button class="ex-tab" data-layer="chains" onclick="exSetLayer('chains')">BLOCKCHAINS</button>
+        <button class="ex-tab" data-layer="apps" onclick="exSetLayer('apps')">APPLICATIONS</button>
+        <span style="margin-left:auto;padding:10px 20px;font-size:9px;letter-spacing:.08em;color:var(--w20);font-family:var(--mono);align-self:center;flex-shrink:0">CLICK TO EXPLORE</span>
+      </div>
+      <div class="ex-canvas-wrap">
+        <svg class="ex-svg" id="ex-svg" viewBox="0 0 900 380" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div class="ex-info" id="ex-info">
+        <div class="ex-info-main">
+          <div class="ex-info-layer" id="ex-info-layer">SELECT A NODE</div>
+          <div class="ex-info-title" id="ex-info-title">Digital Finance Infrastructure</div>
+          <div class="ex-info-body" id="ex-info-body">Click any node to explore how it connects to the global digital finance ecosystem. Use the layer tabs to navigate between system tiers.</div>
+          <div class="ex-info-connections" id="ex-info-conns"></div>
+        </div>
+        <div class="ex-info-hint" id="ex-info-hint">5 LAYERS · 30+ NODES</div>
+      </div>
     </div>
-    <div class="explorer-info" id="explorer-info">
-      <div class="ei-label" id="ei-label">SELECT A NODE</div>
-      <div class="ei-title" id="ei-title">Digital Finance Infrastructure</div>
-      <div class="ei-body"  id="ei-body">Tap any node above to explore how it connects to the global digital finance system.</div>
-    </div>
-    <p style="font-size:10px;color:var(--w20);text-align:center;margin-top:10px;letter-spacing:.05em">Each node links to a full infographic →</p>
+    <p style="font-size:clamp(9px,.65vw,11px);color:var(--w20);text-align:center;margin-top:10px;letter-spacing:.05em;font-family:var(--mono)">CHAINLINK IS THE COORDINATION LAYER BETWEEN ALL SYSTEMS</p>
   </div>
 
   <div class="section section-alt">
@@ -1492,34 +1509,248 @@ document.addEventListener('keydown', function(e) {
   else if (e.key === 'ArrowRight') { lbNav(1); }
 });
 
-// ── explorer ──
-var explorerData = {
-  bank:      {label:'CENTRAL BANK',      title:'Central Banking Infrastructure',                              body:'The origin point of monetary authority. Central banks issue currency, set policy, and are increasingly piloting CBDCs through SWIFT and emerging blockchain rails.'},
-  swift:     {label:'SWIFT NETWORK',     title:'SWIFT \u2014 Society for Worldwide Interbank Financial Telecommunication', body:'The global messaging standard for cross-border payments. SWIFT connects 11,000+ institutions across 200 countries and is building blockchain bridges through its CBDC and tokenisation pilots.'},
-  dtcc:      {label:'DTCC \u00b7 SETTLEMENT',title:'DTCC \u2014 The Settlement Stack',                       body:'Central counterparty for US securities markets, processing $2.5 quadrillion annually. Project Ion and digital asset initiatives are reshaping settlement on blockchain infrastructure.'},
-  stable:    {label:'STABLECOINS',       title:'Stablecoin Infrastructure Layer',                             body:'Fiat-backed digital currencies on blockchain rails. From issuance to redemption, stablecoins bridge traditional finance with onchain liquidity \u2014 increasingly used for cross-border settlement.'},
-  chainlink: {label:'CHAINLINK PROTOCOL',title:'Chainlink \u2014 The Infrastructure Standard',               body:'The decentralised oracle network connecting blockchains to real-world data, events, and payment systems. CCIP enables cross-chain communication. DECO enables privacy-preserving proofs.'},
-  token:     {label:'TOKENIZATION',      title:'Asset Tokenisation Infrastructure',                           body:'Representing real-world assets \u2014 equities, bonds, real estate \u2014 as digital tokens on blockchain. BlackRock BUIDL, Franklin Templeton, JPMorgan Onyx are leading institutional deployments.'},
-  interop:   {label:'INTEROPERABILITY',  title:'Cross-Chain Interoperability',                                body:'The ability for blockchains to communicate and transfer value across networks. Chainlink CCIP is the institutional standard. Without it, the tokenised asset economy remains fragmented.'},
-  rwa:       {label:'REAL-WORLD ASSETS', title:'RWA \u2014 Real-World Assets On-Chain',                      body:'The multi-trillion dollar market for bringing traditional financial assets onto blockchain rails. RWAs require oracle infrastructure, compliance layers, and interoperable settlement.'},
-  cbdc:      {label:'CBDC',              title:'Central Bank Digital Currencies',                             body:'Government-issued digital currencies on distributed ledger infrastructure. 130+ countries in development. Integration with SWIFT, Chainlink oracles, and stablecoin rails is the critical challenge.'},
-  oracle:    {label:'ORACLE NETWORK',    title:'Oracle Data Infrastructure',                                  body:'The bridge between blockchain smart contracts and real-world data \u2014 prices, rates, events, identity. Without reliable oracles, onchain financial contracts cannot settle against real-world outcomes.'},
-};
-var activeNode = null;
-function selectNode(id) {
-  if (activeNode) {
-    ['er-','eb-','et-','el-'].forEach(function(p) { var el = document.getElementById(p + activeNode); if (el) el.classList.remove('sel'); });
+// ════════════════════════════════════════
+// INFRASTRUCTURE EXPLORER — 5-layer interactive map
+// ════════════════════════════════════════
+var EX = {
+  layer:'chainlink', hovered:null, selected:null,
+  C:{
+    nodeDefault:'#0D1528',nodeHover:'#162040',nodeSel:'#1A2D55',
+    edgeDefault:'rgba(200,146,42,.14)',edgeHover:'rgba(200,146,42,.55)',edgeSel:'rgba(60,130,255,.7)',
+    textDefault:'rgba(244,242,238,.45)',textSel:'#ffffff',
+    labelDefault:'rgba(244,242,238,.30)',labelHover:'rgba(200,146,42,.85)',labelSel:'rgba(200,146,42,1)',
+    ringDefault:'rgba(200,146,42,.22)',ringHover:'rgba(200,146,42,.6)',ringSel:'rgba(60,130,255,.9)',
+    chainlinkRing:'rgba(200,146,42,.45)',
+  },
+  layers:{
+    chainlink:{
+      nodes:[
+        {id:'cl',x:450,y:190,r:34,label:'Chainlink',icon:'\u29c1',tier:'center',info:{layer:'CHAINLINK PROTOCOL',title:'Chainlink \u2014 The Infrastructure Standard',body:'The decentralised oracle and cross-chain infrastructure connecting blockchains to real-world data, systems and institutions. Powers settlement, verification and interoperability across the entire digital finance stack.',connects:['CCIP','Data Feeds','Proof of Reserve','Automation','Functions','CRE','SWIFT','DTCC']}},
+        {id:'ccip',x:200,y:88,r:24,label:'CCIP',icon:'\u2194',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Cross-Chain Interoperability Protocol',body:'CCIP is the institutional standard for secure cross-chain token transfers and messaging. Used by SWIFT, ANZ, and major institutions for programmable, compliant cross-chain settlement.',connects:['Chainlink','SWIFT','DTCC','Ethereum','Avalanche','Base']}},
+        {id:'feeds',x:322,y:48,r:24,label:'Data Feeds',icon:'\u25ce',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Decentralised Data Feeds',body:'Tamper-proof price and market data used by hundreds of DeFi protocols, institutional platforms and tokenised fund NAV calculations. The most widely used oracle infrastructure in DeFi.',connects:['Chainlink','Stablecoins','RWA','DeFi','Tokenised Funds']}},
+        {id:'por',x:578,y:48,r:24,label:'Proof of Reserve',icon:'\u2713',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Proof of Reserve',body:'Automated on-chain verification of real-world asset backing \u2014 used for stablecoin collateral, tokenised fund NAV, and institutional reserve attestation. Reduces counterparty risk at scale.',connects:['Chainlink','Stablecoins','Tokenised Funds','Asset Managers']}},
+        {id:'auto',x:700,y:88,r:24,label:'Automation',icon:'\u27f3',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Chainlink Automation',body:'Decentralised smart contract automation \u2014 triggers protocol actions reliably without centralised keepers. Used for liquidations, yield rebalancing, and scheduled institutional workflows.',connects:['Chainlink','DeFi','Institutional Workflows','AI Agents']}},
+        {id:'funcs',x:758,y:210,r:24,label:'Functions',icon:'\u0192',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Chainlink Functions',body:'Connects smart contracts to any Web2 API or off-chain computation. Enables smart contracts to access KYC data, compliance checks, and any external computation.',connects:['Chainlink','Compliance Automation','AI Agents','Institutional Workflows']}},
+        {id:'cre',x:700,y:322,r:22,label:'CRE',icon:'\u25c8',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Chainlink Runtime Environment',body:'The confidential compute layer for Chainlink, enabling privacy-preserving workflows. Critical for compliance-sensitive institutional use cases and confidential settlement.',connects:['Chainlink','DTCC','SWIFT','Compliance Automation']}},
+        {id:'ccid',x:578,y:360,r:22,label:'Identity',icon:'\u25c9',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'CCID \u2014 Cross-Chain Identity',body:'Cross-chain identity and compliance infrastructure. Enables institutions to verify counterparty identity, sanctions screening, and KYC status across blockchain networks.',connects:['Chainlink','Compliance Automation','DTCC','Institutional Workflows']}},
+        {id:'ace',x:322,y:360,r:22,label:'ACE',icon:'\u2295',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Automated Compliance Engine',body:'Programmable compliance workflows built into smart contracts. Automates AML, sanctions screening, and regulatory reporting.',connects:['Chainlink','Compliance Automation','DTCC','SWIFT']}},
+        {id:'deco',x:200,y:322,r:22,label:'DECO',icon:'\u25fb',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'DECO \u2014 Privacy-Preserving Proofs',body:'Allows users to prove facts about their web data (credit score, account balance, KYC status) to smart contracts without revealing the underlying data.',connects:['Chainlink','Identity','Compliance Automation']}},
+        {id:'staking',x:142,y:200,r:22,label:'Staking',icon:'\u25b3',tier:'service',info:{layer:'CHAINLINK SERVICE',title:'Chainlink Staking',body:'LINK token staking provides cryptoeconomic security for oracle services. Node operators and community stakers stake LINK as a performance bond.',connects:['Chainlink','LINK Token','Oracle Nodes']}},
+      ],
+      edges:[['cl','ccip'],['cl','feeds'],['cl','por'],['cl','auto'],['cl','funcs'],['cl','cre'],['cl','ccid'],['cl','ace'],['cl','deco'],['cl','staking']]
+    },
+    tradfi:{
+      nodes:[
+        {id:'swift',x:150,y:130,r:28,label:'SWIFT',icon:'\u26a1',tier:'major',info:{layer:'TRADITIONAL FINANCE',title:'SWIFT \u2014 Global Financial Messaging',body:'Connects 11,500+ institutions in 200+ countries. SWIFT is piloting blockchain integration for CBDC connectivity and tokenised asset settlement, partnering directly with Chainlink for cross-chain interoperability.',connects:['DTCC','Chainlink CCIP','Central Banks','Asset Managers','CBDCs']}},
+        {id:'dtcc',x:370,y:80,r:28,label:'DTCC',icon:'\u2302',tier:'major',info:{layer:'TRADITIONAL FINANCE',title:'DTCC \u2014 The Settlement Stack',body:'Processes $2.5 quadrillion in securities transactions annually. Project Ion and digital asset initiatives are migrating settlement to blockchain infrastructure, with Chainlink as the data and interoperability layer.',connects:['SWIFT','Chainlink CCIP','Euroclear','Custodians','Asset Managers']}},
+        {id:'euroclear',x:590,y:80,r:24,label:'Euroclear',icon:'\u25c8',tier:'major',info:{layer:'TRADITIONAL FINANCE',title:'Euroclear \u2014 European Settlement',body:"The world's largest securities settlement system, processing \u20ac1 quadrillion+ annually. Actively piloting tokenised bond settlement and digital asset custody.",connects:['SWIFT','DTCC','Asset Managers','Tokenised Funds']}},
+        {id:'cbanks',x:760,y:130,r:24,label:'Central Banks',icon:'\U0001f3e6',tier:'major',info:{layer:'TRADITIONAL FINANCE',title:'Central Banks \u2014 Monetary Authority',body:'130+ central banks are exploring CBDC issuance. SWIFT and Chainlink are engaged as infrastructure partners for CBDC interoperability.',connects:['SWIFT','CBDCs','Chainlink CCIP']}},
+        {id:'custodians',x:200,y:270,r:22,label:'Custodians',icon:'\u25c9',tier:'mid',info:{layer:'TRADITIONAL FINANCE',title:'Custodians \u2014 Asset Safekeeping',body:'State Street, BNY Mellon, Citi and others hold $100+ trillion in assets. Digital asset custody divisions bridge traditional safekeeping with tokenised asset management.',connects:['DTCC','Asset Managers','Tokenised Funds','Chainlink PoR']}},
+        {id:'assetmgr',x:450,y:200,r:24,label:'Asset Managers',icon:'\u25ce',tier:'major',info:{layer:'TRADITIONAL FINANCE',title:'Asset Managers \u2014 Capital Allocation',body:'BlackRock, Fidelity, Franklin Templeton manage $100+ trillion. Their tokenised fund products (BUIDL, FOBXX) use Chainlink for NAV feeds and Proof of Reserve.',connects:['DTCC','Euroclear','Tokenised Funds','Chainlink Data Feeds']}},
+        {id:'banks',x:650,y:270,r:22,label:'Banks',icon:'\U0001f3e2',tier:'mid',info:{layer:'TRADITIONAL FINANCE',title:'Commercial Banks',body:'JPMorgan Onyx, ANZ, Standard Chartered are building blockchain-native settlement and tokenised asset infrastructure using Chainlink CCIP.',connects:['SWIFT','DTCC','Custodians','Chainlink CCIP']}},
+      ],
+      edges:[['swift','dtcc'],['swift','cbanks'],['swift','euroclear'],['dtcc','euroclear'],['dtcc','assetmgr'],['dtcc','custodians'],['euroclear','assetmgr'],['cbanks','banks'],['custodians','assetmgr'],['assetmgr','banks']]
+    },
+    assets:{
+      nodes:[
+        {id:'stables',x:130,y:160,r:26,label:'Stablecoins',icon:'$',tier:'major',info:{layer:'ASSETS & DATA',title:'Stablecoins \u2014 Digital Settlement Layer',body:'USDC, USDT, PYUSD and CBDCs represent $200B+ in circulation. Chainlink Data Feeds provide price integrity, and Proof of Reserve verifies collateral backing.',connects:['Chainlink Data Feeds','Chainlink PoR','CBDCs','Tokenised Funds','SWIFT']}},
+        {id:'cbdcs',x:310,y:60,r:24,label:'CBDCs',icon:'\u2302',tier:'major',info:{layer:'ASSETS & DATA',title:'CBDCs \u2014 Central Bank Digital Currencies',body:'130+ countries exploring CBDCs. Chainlink CCIP is the infrastructure for CBDC cross-chain connectivity, enabling central bank currencies to settle on commercial networks.',connects:['Central Banks','Chainlink CCIP','Stablecoins','SWIFT']}},
+        {id:'rwa',x:520,y:60,r:26,label:'RWAs',icon:'\U0001f3e2',tier:'major',info:{layer:'ASSETS & DATA',title:'Real-World Assets \u2014 The $300T Migration',body:'Tokenised equities, bonds, real estate and commodities. BlackRock BUIDL, Franklin OnChain, and Ondo Finance lead institutional RWA. Chainlink provides price feeds, Proof of Reserve and CCIP.',connects:['Asset Managers','Chainlink Data Feeds','Chainlink PoR','Tokenised Funds','DeFi']}},
+        {id:'tfunds',x:710,y:130,r:24,label:'Tokenised Funds',icon:'\u25ce',tier:'major',info:{layer:'ASSETS & DATA',title:'Tokenised Funds \u2014 Institutional DeFi',body:'BlackRock BUIDL ($500M+), Franklin OnChain, Ondo OUSG bring institutional fund NAV onchain. Chainlink Proof of Reserve verifies backing, Data Feeds deliver NAV.',connects:['Chainlink Data Feeds','Chainlink PoR','RWAs','Asset Managers','DeFi']}},
+        {id:'pricefeeds',x:180,y:300,r:22,label:'Market Data',icon:'\U0001f4ca',tier:'mid',info:{layer:'ASSETS & DATA',title:'Market Data \u2014 The Oracle Problem',body:'Every onchain financial product needs reliable price data. Chainlink Data Feeds aggregate from 16+ premium data providers, run through independent node operators.',connects:['Chainlink Data Feeds','Stablecoins','RWAs','DeFi']}},
+        {id:'navdata',x:400,y:320,r:22,label:'NAV Data',icon:'\u25c9',tier:'mid',info:{layer:'ASSETS & DATA',title:'NAV Data \u2014 Fund Valuation Onchain',body:"Net Asset Value calculation for tokenised funds requires tamper-proof, real-time data delivery. Chainlink's institutional-grade oracles deliver NAV data directly to smart contracts.",connects:['Chainlink Data Feeds','Tokenised Funds','Asset Managers']}},
+        {id:'pof',x:620,y:300,r:22,label:'Proof of Reserve',icon:'\u2713',tier:'mid',info:{layer:'ASSETS & DATA',title:'Proof of Reserve \u2014 Collateral Verification',body:'Automated cryptographic proof that real-world assets backing onchain representations actually exist. Used by stablecoin issuers, tokenised fund managers and custodians.',connects:['Chainlink PoR','Stablecoins','Tokenised Funds','Custodians']}},
+      ],
+      edges:[['stables','cbdcs'],['stables','pricefeeds'],['stables','pof'],['cbdcs','rwa'],['rwa','tfunds'],['rwa','pof'],['tfunds','navdata'],['tfunds','pricefeeds'],['pricefeeds','navdata'],['pof','navdata']]
+    },
+    chains:{
+      nodes:[
+        {id:'eth',x:160,y:100,r:22,label:'Ethereum',icon:'\u25c6',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Ethereum \u2014 Institutional Layer 1',body:'The dominant smart contract platform for institutional DeFi. BlackRock BUIDL, Ondo Finance and most tokenised funds deploy first on Ethereum. Chainlink is the oracle standard.',connects:['Chainlink CCIP','Base','Arbitrum','Optimism','Polygon']}},
+        {id:'base',x:295,y:50,r:20,label:'Base',icon:'\u25c7',tier:'chain',info:{layer:'BLOCKCHAIN',title:"Base \u2014 Coinbase L2",body:"Coinbase's Ethereum L2. Chainlink CCIP and Data Feeds natively supported, making it a key destination for institutional tokenised asset flows.",connects:['Ethereum','Chainlink CCIP']}},
+        {id:'arb',x:435,y:50,r:20,label:'Arbitrum',icon:'\u25c7',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Arbitrum \u2014 Leading Ethereum L2',body:'The largest Ethereum L2 by TVL. Full Chainlink CCIP and oracle integration for DeFi and institutional tokenised asset settlement.',connects:['Ethereum','Chainlink CCIP','DeFi']}},
+        {id:'avax',x:575,y:100,r:22,label:'Avalanche',icon:'\u25c6',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Avalanche \u2014 Institutional Subnets',body:'Avalanche Subnets allow institutions to deploy private, compliance-configured blockchain environments. Spruce (Ava Labs) is focused on institutional tokenised assets.',connects:['Chainlink CCIP','Ethereum','Hedera']}},
+        {id:'sol',x:700,y:170,r:22,label:'Solana',icon:'\u25c6',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Solana \u2014 High-Performance L1',body:'Built for speed and low transaction costs. Increasingly relevant for stablecoin payments and tokenised assets requiring high throughput.',connects:['Chainlink Data Feeds','Stablecoins']}},
+        {id:'poly',x:155,y:250,r:20,label:'Polygon',icon:'\u25c7',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Polygon \u2014 Enterprise Blockchain',body:"Significant enterprise adoption with JP Morgan's Project Guardian and institutional DeFi protocols. Full Chainlink integration.",connects:['Ethereum','Chainlink CCIP','DeFi']}},
+        {id:'opt',x:275,y:310,r:20,label:'Optimism',icon:'\u25c7',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Optimism \u2014 Ethereum L2',body:'Key Ethereum L2 with strong DeFi ecosystem and expanding institutional use. Connected via CCIP.',connects:['Ethereum','Chainlink CCIP']}},
+        {id:'hedera',x:450,y:330,r:22,label:'Hedera',icon:'\u25c6',tier:'chain',info:{layer:'BLOCKCHAIN',title:'Hedera \u2014 Enterprise DLT',body:'Governed by global enterprises (Google, IBM, Boeing). Used for institutional tokenisation and CBDCs. Chainlink provides oracle services and CCIP connectivity.',connects:['Chainlink CCIP','CBDCs','Asset Managers']}},
+        {id:'more',x:610,y:310,r:18,label:'+20 more',icon:'\u00b7\u00b7\u00b7',tier:'minor',info:{layer:'BLOCKCHAIN',title:'30+ Additional Networks',body:'Chainlink CCIP is deployed across 30+ blockchain networks including BNB Chain, Fantom, Metis, Scroll, and more.',connects:['Chainlink CCIP']}},
+      ],
+      edges:[['eth','base'],['eth','arb'],['eth','poly'],['eth','opt'],['avax','eth'],['sol','eth'],['hedera','eth'],['hedera','avax'],['poly','opt'],['arb','base']]
+    },
+    apps:{
+      nodes:[
+        {id:'defi',x:140,y:140,r:26,label:'DeFi',icon:'\u29c1',tier:'major',info:{layer:'APPLICATION',title:'Decentralised Finance',body:'DeFi protocols \u2014 Aave, Compound, Uniswap, dYdX \u2014 manage $100B+ TVL. All rely on Chainlink oracles for price data, liquidation triggers and interest rate calculations.',connects:['Chainlink Data Feeds','Chainlink Automation','Ethereum','Stablecoins','RWAs']}},
+        {id:'tokfunds',x:320,y:60,r:24,label:'Tokenised Funds',icon:'\u25ce',tier:'major',info:{layer:'APPLICATION',title:'Tokenised Fund Products',body:'BlackRock BUIDL, Franklin OnChain FOBXX, Ondo OUSG \u2014 the leading tokenised fund products bringing institutional assets onchain. Use Chainlink Proof of Reserve, Data Feeds and CCIP.',connects:['Asset Managers','Chainlink PoR','RWAs','DeFi']}},
+        {id:'stablepay',x:530,y:60,r:24,label:'Stablecoin Payments',icon:'$',tier:'major',info:{layer:'APPLICATION',title:'Stablecoin Payment Infrastructure',body:'USDC, PYUSD and RLUSD-based payment rails replacing correspondent banking. Visa, Mastercard and PayPal all have active stablecoin payment programs.',connects:['Stablecoins','Chainlink CCIP','SWIFT','Banks']}},
+        {id:'instwf',x:720,y:130,r:24,label:'Institutional Workflows',icon:'\u25c8',tier:'major',info:{layer:'APPLICATION',title:'Institutional Workflows',body:'Post-trade settlement automation, margin call processing, collateral management, and compliance reporting \u2014 all being migrated to programmable blockchain infrastructure.',connects:['Chainlink Automation','Chainlink Functions','DTCC','SWIFT','Custodians']}},
+        {id:'aiagents',x:160,y:290,r:22,label:'AI Agents',icon:'\U0001f916',tier:'mid',info:{layer:'APPLICATION',title:'AI Agents \u2014 Onchain Intelligence',body:'Autonomous AI systems executing onchain \u2014 reading market data, managing positions, interacting with smart contracts. Chainlink Functions provides the trusted data bridge.',connects:['Chainlink Functions','Chainlink Automation','DeFi','Institutional Workflows']}},
+        {id:'compliance',x:380,y:310,r:22,label:'Compliance Automation',icon:'\u2295',tier:'mid',info:{layer:'APPLICATION',title:'Compliance Automation',body:'Programmable KYC/AML, sanctions screening and regulatory reporting built into smart contract workflows. Chainlink CCID, ACE and CRE provide the compliance infrastructure layer.',connects:['Chainlink ACE','Chainlink CCID','Chainlink CRE','DTCC']}},
+        {id:'crossborder',x:600,y:290,r:22,label:'Cross-Border Settlement',icon:'\U0001f310',tier:'mid',info:{layer:'APPLICATION',title:'Cross-Border Settlement',body:'Real-time, 24/7 cross-border settlement replacing T+2 correspondent banking. SWIFT, BIS and major banks use Chainlink CCIP for the cross-chain messaging layer.',connects:['Chainlink CCIP','SWIFT','Stablecoins','CBDCs']}},
+      ],
+      edges:[['defi','tokfunds'],['defi','stablepay'],['defi','aiagents'],['tokfunds','instwf'],['stablepay','crossborder'],['stablepay','instwf'],['instwf','compliance'],['instwf','aiagents'],['compliance','crossborder']]
+    }
   }
-  activeNode = id;
-  ['er-','eb-','et-','el-'].forEach(function(p) { var el = document.getElementById(p + id); if (el) el.classList.add('sel'); });
-  var d = explorerData[id];
-  document.getElementById('ei-label').textContent = d.label;
-  document.getElementById('ei-title').textContent = d.title;
-  document.getElementById('ei-body').textContent  = d.body;
-  var info = document.getElementById('explorer-info');
-  info.style.animation = 'none';
-  requestAnimationFrame(function() { info.style.animation = 'cardreveal .3s ease-out'; });
+};
+
+function exInit(){ exSetLayer('chainlink'); }
+
+function exSetLayer(layer){
+  EX.layer=layer; EX.selected=null; EX.hovered=null;
+  document.querySelectorAll('.ex-tab').forEach(function(t){ t.classList.toggle('active',t.dataset.layer===layer); });
+  exSetInfo(null); exRender();
 }
+
+function exRender(){
+  var svg=document.getElementById('ex-svg'); if(!svg)return;
+  var L=EX.layers[EX.layer]; if(!L)return;
+  svg.innerHTML='';
+  var ns='http://www.w3.org/2000/svg';
+  function el(tag,attrs){ var e=document.createElementNS(ns,tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
+
+  var defs=el('defs',{});
+  var f1=el('filter',{id:'nglow',x:'-60%',y:'-60%',width:'220%',height:'220%'});
+  var fb=el('feGaussianBlur',{stdDeviation:'4',result:'cb'});
+  var fm=el('feMerge',{}); fm.appendChild(el('feMergeNode',{in:'cb'})); fm.appendChild(el('feMergeNode',{in:'SourceGraphic'}));
+  f1.appendChild(fb); f1.appendChild(fm); defs.appendChild(f1);
+  var f2=el('filter',{id:'nglows',x:'-80%',y:'-80%',width:'260%',height:'260%'});
+  var fb2=el('feGaussianBlur',{stdDeviation:'7',result:'cb2'});
+  var fm2=el('feMerge',{}); fm2.appendChild(el('feMergeNode',{in:'cb2'})); fm2.appendChild(el('feMergeNode',{in:'SourceGraphic'}));
+  f2.appendChild(fb2); f2.appendChild(fm2); defs.appendChild(f2);
+  svg.appendChild(defs);
+
+  var nodeMap={};
+  L.nodes.forEach(function(n){nodeMap[n.id]=n;});
+
+  // Build connection map for selected
+  var connSet={};
+  if(EX.selected){
+    L.edges.forEach(function(e){
+      if(e[0]===EX.selected) connSet[e[1]]=true;
+      if(e[1]===EX.selected) connSet[e[0]]=true;
+    });
+  }
+
+  // Edges
+  var edgeG=el('g',{}); var animG=el('g',{});
+  L.edges.forEach(function(edge){
+    var a=nodeMap[edge[0]],b=nodeMap[edge[1]]; if(!a||!b)return;
+    var isSC=EX.selected&&(edge[0]===EX.selected||edge[1]===EX.selected);
+    var isHC=EX.hovered&&(edge[0]===EX.hovered||edge[1]===EX.hovered);
+    var hasA=EX.selected||EX.hovered;
+    var stroke=hasA?(isSC?'rgba(60,130,255,.8)':isHC?'rgba(200,146,42,.5)':'rgba(200,146,42,.04)'):EX.C.edgeDefault;
+    var sw=isSC?2:isHC?1.2:0.6;
+    var op=hasA&&!isSC&&!isHC?'0.12':'1';
+    edgeG.appendChild(el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:stroke,'stroke-width':sw,opacity:op}));
+    if(isSC){
+      var c=el('circle',{r:'3.5',fill:'rgba(80,150,255,.9)',filter:'url(#nglow)'});
+      var ax=el('animate',{attributeName:'cx',from:a.x,to:b.x,dur:'1.6s',repeatCount:'indefinite',begin:(Math.random()*1.2)+'s'});
+      var ay=el('animate',{attributeName:'cy',from:a.y,to:b.y,dur:'1.6s',repeatCount:'indefinite',begin:(Math.random()*1.2)+'s'});
+      var ao=el('animate',{attributeName:'opacity',values:'0;0.9;0.9;0',keyTimes:'0;0.08;0.92;1',dur:'1.6s',repeatCount:'indefinite'});
+      c.appendChild(ax);c.appendChild(ay);c.appendChild(ao);animG.appendChild(c);
+    }
+  });
+  svg.appendChild(edgeG);
+
+  // Nodes
+  var nodeG=el('g',{});
+  L.nodes.forEach(function(n){
+    var isSel=EX.selected===n.id;
+    var isHov=EX.hovered===n.id;
+    var isConn=EX.selected&&connSet[n.id];
+    var hasA=EX.selected||EX.hovered;
+    var op=hasA&&!isSel&&!isHov&&!isConn?'0.28':'1';
+
+    var g=el('g',{opacity:op,'data-id':n.id,style:'cursor:pointer'});
+
+    if(isSel){
+      var og=el('circle',{cx:n.x,cy:n.y,r:n.r+12,fill:'none',stroke:'rgba(60,130,255,.2)','stroke-width':'10',filter:'url(#nglows)'});
+      g.appendChild(og);
+    }
+    if(n.tier==='center'){
+      var pr=el('circle',{cx:n.x,cy:n.y,r:n.r+16,fill:'none',stroke:'rgba(200,146,42,.12)','stroke-width':'1.2'});
+      var pa=el('animate',{attributeName:'r',values:(n.r+12)+';'+(n.r+24)+';'+(n.r+12),dur:'3.5s',repeatCount:'indefinite'});
+      var oa=el('animate',{attributeName:'opacity',values:'0.5;0.08;0.5',dur:'3.5s',repeatCount:'indefinite'});
+      pr.appendChild(pa);pr.appendChild(oa);g.appendChild(pr);
+    }
+
+    var ringR=isSel?n.r+6:isHov?n.r+4:n.r+2;
+    var ringS=isSel?EX.C.ringSel:isHov?EX.C.ringHover:(n.tier==='center'?EX.C.chainlinkRing:EX.C.ringDefault);
+    var ringW=isSel?2.5:isHov?1.8:0.8;
+    g.appendChild(el('circle',{cx:n.x,cy:n.y,r:ringR,fill:'none',stroke:ringS,'stroke-width':ringW}));
+
+    var bgF=isSel?EX.C.nodeSel:isHov?EX.C.nodeHover:EX.C.nodeDefault;
+    var bg=el('circle',{cx:n.x,cy:n.y,r:n.r,fill:bgF});
+    if(isSel||isHov) bg.setAttribute('filter','url(#nglow)');
+    g.appendChild(bg);
+
+    var ic=el('text',{x:n.x,y:n.y-3,'text-anchor':'middle','dominant-baseline':'central',
+      fill:isSel?'#fff':isHov?'rgba(200,146,42,.95)':EX.C.textDefault,
+      'font-size':n.tier==='center'?'16':n.r>22?'13':'11',
+      'font-family':'DM Sans,sans-serif'});
+    ic.textContent=n.icon;
+    g.appendChild(ic);
+
+    var lc=el('text',{x:n.x,y:n.y+n.r+12,'text-anchor':'middle',
+      fill:isSel?EX.C.labelSel:isHov?EX.C.labelHover:EX.C.labelDefault,
+      'font-size':n.tier==='center'?'11':n.r>22?'10':'9',
+      'font-family':'DM Sans,sans-serif','font-weight':isSel||isHov?'500':'300',
+      'letter-spacing':'0.04em'});
+    lc.textContent=n.label;
+    g.appendChild(lc);
+
+    g.appendChild(el('circle',{cx:n.x,cy:n.y,r:n.r+16,fill:'transparent'}));
+
+    (function(nid){
+      g.addEventListener('mouseenter',function(){EX.hovered=nid;exRender();});
+      g.addEventListener('mouseleave',function(){EX.hovered=null;exRender();});
+      g.addEventListener('click',function(e){
+        e.stopPropagation();
+        EX.selected=EX.selected===nid?null:nid;
+        exRender();
+        var nd=L.nodes.filter(function(x){return x.id===nid;})[0];
+        if(nd)exSetInfo(nd.info);
+        else exSetInfo(null);
+      });
+    })(n.id);
+    nodeG.appendChild(g);
+  });
+  svg.appendChild(animG);
+  svg.appendChild(nodeG);
+
+  svg.addEventListener('click',function(e){
+    if(e.target===svg){EX.selected=null;EX.hovered=null;exSetInfo(null);exRender();}
+  });
+}
+
+function exSetInfo(info){
+  if(!info){
+    document.getElementById('ex-info-layer').textContent='SELECT A NODE';
+    document.getElementById('ex-info-title').textContent='Digital Finance Infrastructure';
+    document.getElementById('ex-info-body').textContent='Click any node to explore how it connects to the global digital finance ecosystem. Use the layer tabs to navigate between system tiers.';
+    document.getElementById('ex-info-conns').innerHTML='';
+    document.getElementById('ex-info-hint').textContent='5 LAYERS \xb7 30+ NODES';
+    return;
+  }
+  document.getElementById('ex-info-layer').textContent=info.layer;
+  document.getElementById('ex-info-title').textContent=info.title;
+  document.getElementById('ex-info-body').textContent=info.body;
+  var conns=document.getElementById('ex-info-conns');
+  conns.innerHTML='';
+  if(info.connects&&info.connects.length){
+    var lbl=document.createElement('span');
+    lbl.style.cssText='font-size:9px;letter-spacing:.14em;color:rgba(244,242,238,.25);margin-right:6px;font-family:var(--mono)';
+    lbl.textContent='CONNECTS TO';
+    conns.appendChild(lbl);
+    info.connects.forEach(function(c){
+      var tag=document.createElement('span');
+      tag.className='ex-conn-tag';
+      tag.textContent=c;
+      conns.appendChild(tag);
+    });
+  }
+  document.getElementById('ex-info-hint').textContent=info.layer;
+}
+
 
 // ── routing ──
 var ALL_PAGES = ['home','infographics','videos','art','about','contact'];
@@ -1540,6 +1771,7 @@ function showPage(page, filter) {
 buildFeatured();
 buildArt();
 buildHomeVideos();
+exInit();
 </script>
 </body>
 </html>
