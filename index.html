@@ -524,9 +524,14 @@ nav{
   flex-shrink:0;
 }
 .ex-svc:hover{background:rgba(255,255,255,.04);border-color:rgba(200,146,42,.2)}
-.ex-svc.active-svc{background:rgba(200,146,42,.12);border-color:rgba(200,146,42,.5)}
-.ex-svc.active-svc .ex-svc-icon{background:rgba(200,146,42,.2);border-color:rgba(200,146,42,.5)}
-.ex-svc.active-svc .ex-svc-name{color:var(--gold)}
+.ex-svc.active-svc{
+  background:rgba(200,146,42,.14);
+  border-color:rgba(200,146,42,.6);
+  border-left:2px solid var(--gold);
+  padding-left:calc(clamp(8px,.8vw,12px) - 2px); /* compensate for border */
+}
+.ex-svc.active-svc .ex-svc-icon{background:rgba(200,146,42,.25);border-color:rgba(200,146,42,.6)}
+.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600}
 .ex-svc.svc-filtered{background:rgba(200,146,42,.06);border-color:rgba(200,146,42,.25)}
 .ex-svc.svc-filtered .ex-svc-name{color:rgba(200,146,42,.85)}
 .ex-svc-icon{
@@ -539,7 +544,7 @@ nav{
 }
 .ex-svc-text{}
 .ex-svc-name{
-  font-size:clamp(11px,.85vw,13px);color:rgba(244,242,238,.88);
+  font-size:clamp(12px,.9vw,14px);color:rgba(244,242,238,.92);
   font-weight:500;line-height:1.2;
 }
 .ex-svc-desc{
@@ -582,8 +587,8 @@ nav{
   margin-bottom:clamp(6px,.6vw,10px);
 }
 .ex-ctx-body{
-  font-size:clamp(11px,.82vw,13px);color:rgba(244,242,238,.62);
-  line-height:1.65;
+  font-size:clamp(12px,.9vw,14px);color:rgba(244,242,238,.68);
+  line-height:1.7;
 }
 .ex-ctx-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .ex-ctx-tag{
@@ -643,7 +648,7 @@ nav{
   width:5px;height:5px;border-radius:50%;
   background:var(--gold);flex-shrink:0;margin-top:5px;opacity:.7;
 }
-.ex-ctx-svc-name{font-size:clamp(11px,.82vw,13px);color:rgba(244,242,238,.88);font-weight:500}
+.ex-ctx-svc-name{font-size:clamp(12px,.88vw,14px);color:rgba(244,242,238,.92);font-weight:500}
 .ex-ctx-svc-exp{font-size:clamp(10px,.7vw,11px);color:rgba(244,242,238,.45);line-height:1.4;margin-top:2px}
 
 /* Zone 3: Stats footer — fixed at bottom, never scrolls */
@@ -2561,7 +2566,7 @@ function exRender(){
     var isReachable = EX.selectedNode && EX.reachableSet[n.id];
 
     var dimmed = false;
-    var dimOpacity = '0.12'; // hard dim — clearly background
+    var dimOpacity = '0.18'; // dimmed but still legible
 
     if(EX.activeService){
       if(!usesActiveSvc) dimmed = true;
@@ -2583,7 +2588,7 @@ function exRender(){
                : isHovered ? catC
                : catC;
     var ringW  = isSelected ? 2.5 : isReachable ? 1.5 : isHovered ? 1.8 : 0.7;
-    var ringOp = isSelected ? 1   : isReachable ? 0.75 : isHovered ? 0.85 : 0.38;
+    var ringOp = isSelected ? 1   : isReachable ? 0.85 : isHovered ? 0.92 : 0.50;
 
     // Outer glow ring on selected
     if(isSelected){
@@ -2621,13 +2626,13 @@ function exRender(){
         style: 'transition:width .15s,height .15s'
       });
       // Slight opacity boost on hover/select
-      imgEl.setAttribute('opacity', isSelected ? '1' : isHovered ? '0.95' : '0.88');
+      imgEl.setAttribute('opacity', isSelected ? '1' : isReachable ? '0.95' : isHovered ? '0.95' : '0.92');
       g.appendChild(imgEl);
     } else {
       // Text icon fallback for nodes without a logo
       var ic = el('text',{x:coord.x,y:coord.y,
         'text-anchor':'middle','dominant-baseline':'central',
-        fill: isSelected?'#fff':isHovered?catC:'rgba(244,242,238,.7)',
+        fill: isSelected?'#fff':isHovered?catC:'rgba(244,242,238,.82)',
         'font-size': isSelected?'18':isHovered?'17':'15',
         'font-family':'DM Sans,sans-serif'});
       ic.textContent = n.icon;
@@ -2643,7 +2648,7 @@ function exRender(){
         fill: isSelected ? 'rgba(255,255,255,1)'
             : isReachable ? 'rgba(220,180,100,.95)'
             : isHovered   ? 'rgba(255,255,255,.95)'
-            : 'rgba(244,242,238,.70)',
+            : 'rgba(244,242,238,.82)',
         'font-size': isSelected?'14':isReachable?'13':isHovered?'13':'12',
         'font-family':'DM Sans,sans-serif',
         'font-weight': isSelected?'700':isReachable?'600':isHovered?'600':'500',
@@ -2659,44 +2664,36 @@ function exRender(){
     // Hit area
     g.appendChild(el('circle',{cx:coord.x,cy:coord.y,r:r+22,fill:'transparent'}));
 
-    // Events
+    // Events — hover for glow only, click for full information
     (function(node){
-      g.addEventListener('mouseenter',function(e){
-        if(EX.tooltipPinned) return;
+      g.addEventListener('mouseenter',function(){
+        if(EX.selectedNode) return; // don't override selection
         EX.hoveredNode = node.id;
         exRender();
-        exShowTooltip(e, node);
-      });
-      g.addEventListener('mousemove',function(e){
-        if(EX.tooltipPinned) return;
-        exMoveTooltip(e);
       });
       g.addEventListener('mouseleave',function(){
-        if(EX.tooltipPinned) return;
         EX.hoveredNode = null;
         exRender();
-        exHideTooltip();
-        exHighlightServices(null);
       });
       g.addEventListener('click',function(e){
         e.stopPropagation();
         if(EX.selectedNode === node.id){
+          // Deselect
           EX.selectedNode = null;
           EX.reachableSet = {};
-          EX.tooltipPinned = false;
-          exHideTooltip();
+          EX.hoveredNode  = null;
           exUpdateCtxDefault();
           exHighlightServices(null);
           document.getElementById('ex-ctx-svcs').style.display='none';
           document.getElementById('ex-how').style.display='';
         } else {
+          // Select — show full path
           EX.selectedNode = node.id;
+          EX.hoveredNode  = null;
           EX.reachableSet = {};
           if(node.reachable){
             node.reachable.forEach(function(rid){ EX.reachableSet[rid] = true; });
           }
-          EX.tooltipPinned = true;
-          exShowTooltip(e, node);
           exUpdateCtxNode(node);
           var conn = EXD.connections[node.id];
           exHighlightServices(conn ? conn.services : null);
@@ -2749,20 +2746,13 @@ function exRender(){
   });
   clG.appendChild(clImg);
 
-  // "Chainlink" label
-  var clLabel = el('text',{x:EX.CX,y:EX.CY+14,
-    'text-anchor':'middle',fill:'#fff','font-size':'14',
+  // "Chainlink" label — subtitle removed per requirements
+  var clLabel = el('text',{x:EX.CX,y:EX.CY+18,
+    'text-anchor':'middle',fill:'rgba(255,255,255,.92)','font-size':'13',
     'font-family':'DM Sans,sans-serif','font-weight':'600',
-    'letter-spacing':'0.02em'});
+    'letter-spacing':'0.04em'});
   clLabel.textContent = 'Chainlink';
   clG.appendChild(clLabel);
-
-  // Sub-label: the four pillars
-  var clSub = el('text',{x:EX.CX,y:EX.CY+26,
-    'text-anchor':'middle',fill:'rgba(200,146,42,.8)','font-size':'8.5',
-    'font-family':'DM Sans,sans-serif','letter-spacing':'0.06em'});
-  clSub.textContent = 'Coordination \xb7 Compliance \xb7 Verified Data \xb7 Interoperability';
-  clG.appendChild(clSub);
 
   // Category labels around the constellation
   var catLabels = [
@@ -2798,8 +2788,6 @@ function exRender(){
       EX.reachableSet  = {};
       EX.hoveredNode   = null;
       EX.activeService = null;
-      EX.tooltipPinned = false;
-      exHideTooltip();
       exUpdateCtxDefault();
       exHighlightServices(null);
       document.querySelectorAll('.ex-svc').forEach(function(el){ el.classList.remove('active-svc','svc-filtered'); });
@@ -2904,8 +2892,19 @@ function exUpdateCtxNode(node){
   // Header zone
   document.getElementById('ex-ctx-eyebrow').textContent = catLabel;
   document.getElementById('ex-ctx-title').textContent   = node.label.replace('\n',' ');
-  document.getElementById('ex-ctx-body').textContent    = node.desc || node.explanation || '';
-  document.getElementById('ex-ctx-tags').innerHTML      = '';
+  // Body: explanation + path summary
+  var bodyText = node.desc || node.explanation || '';
+  document.getElementById('ex-ctx-body').textContent = bodyText;
+  // Tags: show connection count as a path summary
+  var tagsEl = document.getElementById('ex-ctx-tags');
+  tagsEl.innerHTML = '';
+  var reachCount = node.reachable ? node.reachable.length : 0;
+  if(reachCount > 0){
+    var pathChip = document.createElement('div');
+    pathChip.style.cssText = 'font-size:10px;letter-spacing:.06em;color:rgba(60,160,255,.8);border:.5px solid rgba(60,160,255,.25);padding:3px 8px;border-radius:2px;margin-top:4px;font-family:var(--mono)';
+    pathChip.textContent = node.label.replace('\n',' ') + ' → Chainlink → ' + reachCount + ' systems';
+    tagsEl.appendChild(pathChip);
+  }
 
   // Scrollable zone — build the full educational content
   var svcList = document.getElementById('ex-ctx-svcs');
