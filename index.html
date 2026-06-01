@@ -2453,6 +2453,7 @@ function exRender(){
   }
 
   svg.appendChild(defs);
+  var defsEl = defs; // direct reference — never use svg.querySelector('defs')
 
   // ── Background radial halo around Chainlink ──
   var halo = el('circle',{cx:EX.CX,cy:EX.CY,r:72,fill:'url(#cl-grad)',opacity:'0.8'});
@@ -2604,7 +2605,7 @@ function exRender(){
       var clipId = 'clip-' + n.id;
       var clipPath = el('clipPath',{id:clipId});
       clipPath.appendChild(el('circle',{cx:coord.x,cy:coord.y,r:r-2}));
-      svg.querySelector('defs').appendChild(clipPath);
+      defsEl.appendChild(clipPath);
 
       // Logo sizing: slightly smaller than node radius
       var logoR = isSelected ? r-6 : isHovered ? r-5 : r-7;
@@ -2733,7 +2734,7 @@ function exRender(){
   // Chainlink logo image (real logo)
   var clClip = el('clipPath',{id:'clip-chainlink-centre'});
   clClip.appendChild(el('circle',{cx:EX.CX,cy:EX.CY,r:'38'}));
-  svg.querySelector('defs').appendChild(clClip);
+  defsEl.appendChild(clClip);
 
   var clLogoSize = 44;  // logo display size (px in SVG coords)
   var clImg = el('image',{
@@ -2882,12 +2883,16 @@ function exCheckScrollFade(){
   var wrap   = document.getElementById('ex-ctx-scroll-wrap');
   var scroll = document.getElementById('ex-ctx-scroll');
   if(!wrap || !scroll) return;
+  // Use add/remove — classList.toggle(name, force) is not universal
   var hasOverflow = scroll.scrollHeight > scroll.clientHeight + 4;
-  wrap.classList.toggle('can-scroll', hasOverflow);
+  if(hasOverflow){ wrap.classList.add('can-scroll'); }
+  else { wrap.classList.remove('can-scroll'); }
   // Update fade as user scrolls
   scroll.onscroll = function(){
     var atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 8;
-    wrap.classList.toggle('can-scroll', !atBottom && scroll.scrollHeight > scroll.clientHeight + 4);
+    var overflow = scroll.scrollHeight > scroll.clientHeight + 4;
+    if(!atBottom && overflow){ wrap.classList.add('can-scroll'); }
+    else { wrap.classList.remove('can-scroll'); }
   };
 }
 
@@ -3009,3 +3014,43 @@ function exUpdateCtxNode(node){
 
   svcList.style.display = '';
 }
+
+// Show bottom fade if scroll area has overflowing content
+function exCheckScrollFade(){
+  var wrap   = document.getElementById('ex-ctx-scroll-wrap');
+  var scroll = document.getElementById('ex-ctx-scroll');
+  if(!wrap || !scroll) return;
+  var hasOverflow = scroll.scrollHeight > scroll.clientHeight + 4;
+  if(hasOverflow){ wrap.classList.add('can-scroll'); }
+  else { wrap.classList.remove('can-scroll'); }
+  scroll.onscroll = function(){
+    var atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 8;
+    var overflow = scroll.scrollHeight > scroll.clientHeight + 4;
+    if(!atBottom && overflow){ wrap.classList.add('can-scroll'); }
+    else { wrap.classList.remove('can-scroll'); }
+  };
+}
+
+// ── routing ──
+var ALL_PAGES = ['home','infographics','videos','art','about','contact'];
+function showPage(page, filter) {
+  ALL_PAGES.forEach(function(p) {
+    var el = document.getElementById('page-' + p);
+    var nl = document.getElementById('nl-' + p);
+    if (el) el.classList.toggle('active', p === page);
+    if (nl) nl.classList.toggle('active', p === page);
+  });
+  window.scrollTo(0, 0);
+  if (page === 'infographics') { buildFilterBar(); buildLibrary(filter || 'All'); }
+  if (page === 'art')          { buildArt(); }
+  if (page === 'videos')       { buildVideosPage(); }
+}
+
+// ── init ──
+buildFeatured();
+buildArt();
+buildHomeVideos();
+exInit();
+</script>
+</body>
+</html>
