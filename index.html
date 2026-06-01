@@ -624,19 +624,19 @@ nav{
 }
 .ex-tooltip.show{opacity:1}
 .ex-tt-header{
-  font-size:9px;letter-spacing:.18em;color:var(--gold);
-  opacity:.65;margin-bottom:5px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.16em;color:var(--gold);
+  opacity:.7;margin-bottom:6px;font-family:var(--mono);
 }
-.ex-tt-title{font-size:14px;color:#fff;font-weight:500;margin-bottom:10px;line-height:1.3}
-.ex-tt-svcs-label{font-size:9px;letter-spacing:.14em;color:rgba(244,242,238,.32);margin-bottom:5px;font-family:var(--mono)}
-.ex-tt-svcs{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.ex-tt-title{font-size:16px;color:#fff;font-weight:600;margin-bottom:12px;line-height:1.25}
+.ex-tt-svcs-label{font-size:10px;letter-spacing:.12em;color:rgba(244,242,238,.36);margin-bottom:6px;font-family:var(--mono)}
+.ex-tt-svcs{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
 .ex-tt-svc{
-  display:flex;align-items:center;gap:8px;
-  font-size:12px;color:rgba(244,242,238,.85);
+  display:flex;align-items:center;gap:9px;
+  font-size:13px;color:rgba(244,242,238,.88);font-weight:400;
 }
-.ex-tt-svc::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.ex-tt-body{font-size:11px;color:rgba(244,242,238,.48);line-height:1.55;
-  border-top:.5px solid rgba(255,255,255,.06);padding-top:8px;margin-top:4px;}
+.ex-tt-svc::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.ex-tt-body{font-size:12px;color:rgba(244,242,238,.52);line-height:1.6;
+  border-top:.5px solid rgba(255,255,255,.07);padding-top:9px;margin-top:2px;}
 
 /* Mobile explorer */
 @media(max-width:900px){
@@ -2003,12 +2003,12 @@ var EXD = {
 
   nodes: [
     // TRADFI — tighter orbit, upper-left quadrant
-    {id:'swift',    cat:'tradfi',  label:'SWIFT',          icon:'⚡', x:0.18, y:0.16,
+    {id:'swift',    cat:'tradfi',  label:'SWIFT',          icon:'⚡', logo:'assets/logos/swift.png', x:0.18, y:0.16,
       desc:'Global financial messaging connecting 11,500+ institutions. Piloting CCIP for CBDC interoperability.',
       services:['CCIP','CRE','Identity','ACE'],
       explanation:'Chainlink helps SWIFT coordinate cross-chain settlement, compliance, identity verification, and tokenized asset messaging.',
       connects:['chainlink']},
-    {id:'dtcc',     cat:'tradfi',  label:'DTCC',           icon:'🏛', x:0.24, y:0.28,
+    {id:'dtcc',     cat:'tradfi',  label:'DTCC',           icon:'🏛', logo:'assets/logos/dtcc.png', x:0.24, y:0.28,
       desc:'Processes $2.5 quadrillion in US securities annually. Piloting blockchain settlement with Chainlink.',
       services:['CCIP','CRE','Data Feeds','ACE'],
       explanation:'Chainlink enables DTCC to verify tokenized asset data, automate compliance workflows, and connect to blockchain settlement layers.',
@@ -2057,27 +2057,27 @@ var EXD = {
       connects:['chainlink']},
 
     // BLOCKCHAINS — lower arc, tighter
-    {id:'ethereum', cat:'chains',  label:'Ethereum',        icon:'◆', x:0.18, y:0.76,
+    {id:'ethereum', cat:'chains',  label:'Ethereum',        icon:'◆', logo:'assets/logos/ethereum.png', x:0.18, y:0.76,
       desc:'Dominant institutional L1. Most tokenised funds and RWAs launch here first.',
       services:['CCIP','Data Feeds','Automation'],
       explanation:'Chainlink is the oracle standard on Ethereum, enabling DeFi, institutional products, and cross-chain settlement.',
       connects:['chainlink']},
-    {id:'base',     cat:'chains',  label:'Base',            icon:'◇', x:0.28, y:0.86,
+    {id:'base',     cat:'chains',  label:'Base',            icon:'◇', logo:'assets/logos/base.png', x:0.28, y:0.86,
       desc:"Coinbase's Ethereum L2. Growing institutional adoption for tokenised asset flows.",
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink CCIP and Data Feeds enable Base to connect with other chains and access real-world financial data.',
       connects:['chainlink']},
-    {id:'solana',   cat:'chains',  label:'Solana',          icon:'◆', x:0.42, y:0.90,
+    {id:'solana',   cat:'chains',  label:'Solana',          icon:'◆', logo:'assets/logos/solana.png', x:0.42, y:0.90,
       desc:'High-performance L1 for stablecoin payments and high-throughput settlement.',
       services:['Data Feeds','CCIP'],
       explanation:'Chainlink provides oracle services and cross-chain connectivity to integrate Solana into the global financial stack.',
       connects:['chainlink']},
-    {id:'avalanche',cat:'chains',  label:'Avalanche',       icon:'◆', x:0.58, y:0.88,
+    {id:'avalanche',cat:'chains',  label:'Avalanche',       icon:'◆', logo:'assets/logos/avalanche.png', logo:'assets/logos/avalanche.png', x:0.58, y:0.88,
       desc:'Institutional Subnets for compliance-configured blockchain environments.',
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink connects Avalanche Subnets to the global financial system via CCIP and provides real-world data feeds.',
       connects:['chainlink']},
-    {id:'arbitrum', cat:'chains',  label:'Arbitrum',        icon:'◇', x:0.72, y:0.80,
+    {id:'arbitrum', cat:'chains',  label:'Arbitrum',        icon:'◇', logo:'assets/logos/arbitrum.png', x:0.72, y:0.80,
       desc:'Leading Ethereum L2 by TVL. Full Chainlink CCIP and oracle integration.',
       services:['CCIP','Data Feeds','Automation'],
       explanation:'Chainlink powers DeFi and institutional settlement on Arbitrum through oracles, automation, and cross-chain messaging.',
@@ -2089,12 +2089,12 @@ var EXD = {
       connects:['chainlink']},
 
     // APPLICATIONS — inner orbit, interspersed
-    {id:'aave',     cat:'apps',    label:'Aave',            icon:'◈', x:0.28, y:0.60,
+    {id:'aave',     cat:'apps',    label:'Aave',            icon:'◈', logo:'assets/logos/aave.png', x:0.28, y:0.60,
       desc:'Leading DeFi lending protocol. $10B+ TVL. Relies on Chainlink for every critical operation.',
       services:['Data Feeds','SVR','Automation','CCIP'],
       explanation:'Aave uses Chainlink for price data, liquidation triggers, automation, and cross-chain lending.',
       connects:['chainlink']},
-    {id:'ondo',     cat:'apps',    label:'Ondo',            icon:'◎', x:0.36, y:0.70,
+    {id:'ondo',     cat:'apps',    label:'Ondo',            icon:'◎', logo:'assets/logos/ondo.png', x:0.36, y:0.70,
       desc:'Leading tokenised Treasury platform. OUSG brings US Treasuries onchain.',
       services:['Data Feeds','Proof of Reserve','CCIP'],
       explanation:'Ondo uses Chainlink for NAV pricing, reserve verification, and cross-chain OUSG distribution.',
@@ -2109,12 +2109,12 @@ var EXD = {
       services:['Data Feeds','Data Streams'],
       explanation:'GMX uses Chainlink Data Feeds and Streams for real-time, manipulation-resistant price execution.',
       connects:['chainlink']},
-    {id:'mastercard',cat:'apps',   label:'Mastercard',      icon:'◇', x:0.72, y:0.60,
+    {id:'mastercard',cat:'apps',   label:'Mastercard',      icon:'◇', logo:'assets/logos/mastercard.png', x:0.72, y:0.60,
       desc:'Global payment network integrating blockchain rails for cross-border stablecoin settlement.',
       services:['CCIP','Identity','ACE'],
       explanation:'Mastercard uses Chainlink for compliant cross-chain payment settlement and identity verification.',
       connects:['chainlink']},
-    {id:'securitize',cat:'apps',   label:'Securitize',      icon:'◈', x:0.38, y:0.52,
+    {id:'securitize',cat:'apps',   label:'Securitize',      icon:'◈', logo:'assets/logos/securitize.png', x:0.38, y:0.52,
       desc:'Leading digital securities platform. Partners include BlackRock for BUIDL distribution.',
       services:['Identity','ACE','Proof of Reserve','CCIP'],
       explanation:'Securitize uses Chainlink for investor identity verification, compliance automation, and cross-chain asset distribution.',
@@ -2452,49 +2452,83 @@ function exRender(){
 
     var g = el('g',{opacity: dimmed?'0.18':'1', style:'cursor:pointer'});
 
-    var r = isSelected ? 28 : isHovered ? 26 : 22;  // +4px across the board
-    var bgFill = isSelected ? '#1A2D55' : isHovered ? '#162040' : '#0D1528';
-    var ringC = isSelected ? 'rgba(60,160,255,.95)' : isHovered ? catC : catC;
-    var ringW = isSelected ? 2 : isHovered ? 1.5 : 0.8;
-    var ringOpacity = isSelected ? 1 : isHovered ? 0.9 : 0.45;
+    // r=30 gives ~60px diameter — logo nodes need room for the image
+    var r = isSelected ? 32 : isHovered ? 30 : 27;
+    var bgFill = isSelected ? '#1A2D55' : isHovered ? '#162040' : '#0C1325';
+    var ringC  = isSelected ? 'rgba(60,160,255,.95)' : catC;
+    var ringW  = isSelected ? 2.5 : isHovered ? 1.8 : 0.7;
+    var ringOp = isSelected ? 1   : isHovered ? 0.85 : 0.38;
 
+    // Outer glow ring on selected
     if(isSelected){
-      var og = el('circle',{cx:coord.x,cy:coord.y,r:r+8,fill:'none',
-        stroke:'rgba(60,160,255,.18)','stroke-width':'10',filter:'url(#glow-sel)'});
+      var og = el('circle',{cx:coord.x,cy:coord.y,r:r+10,fill:'none',
+        stroke:'rgba(60,160,255,.18)','stroke-width':'12',filter:'url(#glow-sel)'});
       g.appendChild(og);
     }
+
+    // Ring + background circle
     g.appendChild(el('circle',{cx:coord.x,cy:coord.y,r:r+3,fill:'none',
-      stroke:ringC,'stroke-width':ringW,opacity:ringOpacity}));
+      stroke:ringC,'stroke-width':ringW,opacity:ringOp}));
     var bg = el('circle',{cx:coord.x,cy:coord.y,r:r,fill:bgFill});
-    if(isSelected||isHovered) bg.setAttribute('filter', isSelected?'url(#glow-sel)':'url(#glow-hov)');
+    if(isSelected||isHovered) bg.setAttribute('filter',isSelected?'url(#glow-sel)':'url(#glow-hov)');
     g.appendChild(bg);
 
-    // Icon
-    var ic = el('text',{x:coord.x,y:coord.y-2,
-      'text-anchor':'middle','dominant-baseline':'central',
-      fill: isSelected?'#fff':isHovered?catC:'rgba(244,242,238,.62)',
-      'font-size': isSelected?'17':isHovered?'16':'13',
-      'font-family':'DM Sans,sans-serif'});
-    ic.textContent = n.icon;
-    g.appendChild(ic);
+    // Logo image OR text icon fallback
+    if(n.logo){
+      // Clip circle so image stays inside the node
+      var clipId = 'clip-' + n.id;
+      var clipPath = el('clipPath',{id:clipId});
+      clipPath.appendChild(el('circle',{cx:coord.x,cy:coord.y,r:r-2}));
+      svg.querySelector('defs').appendChild(clipPath);
 
-    // Label
+      // Logo sizing: slightly smaller than node radius
+      var logoR = isSelected ? r-6 : isHovered ? r-5 : r-7;
+      var imgEl = el('image',{
+        href: n.logo,
+        x: coord.x - logoR,
+        y: coord.y - logoR,
+        width:  logoR * 2,
+        height: logoR * 2,
+        'clip-path': 'url(#' + clipId + ')',
+        'image-rendering': 'crisp-edges',
+        preserveAspectRatio: 'xMidYMid meet',
+        style: 'transition:width .15s,height .15s'
+      });
+      // Slight opacity boost on hover/select
+      imgEl.setAttribute('opacity', isSelected ? '1' : isHovered ? '0.95' : '0.88');
+      g.appendChild(imgEl);
+    } else {
+      // Text icon fallback for nodes without a logo
+      var ic = el('text',{x:coord.x,y:coord.y,
+        'text-anchor':'middle','dominant-baseline':'central',
+        fill: isSelected?'#fff':isHovered?catC:'rgba(244,242,238,.7)',
+        'font-size': isSelected?'18':isHovered?'17':'15',
+        'font-family':'DM Sans,sans-serif'});
+      ic.textContent = n.icon;
+      g.appendChild(ic);
+    }
+
+    // Label — larger, always readable
     var parts = n.label.split('\n');
-    var labelY = coord.y + r + 10;
+    var labelY = coord.y + r + 13;
     parts.forEach(function(part,pi){
-      var lbl = el('text',{x:coord.x, y:labelY+pi*11,
+      var lbl = el('text',{x:coord.x, y:labelY + pi*13,
         'text-anchor':'middle',
-        fill: isSelected?'rgba(200,146,42,1)':isHovered?catC:'rgba(244,242,238,.45)',
-        'font-size': isSelected?'12':isHovered?'11':'10',
+        fill: isSelected?'rgba(255,255,255,1)':isHovered?'rgba(255,255,255,.9)':'rgba(244,242,238,.55)',
+        'font-size': isSelected?'13':isHovered?'12':'11',
         'font-family':'DM Sans,sans-serif',
-        'font-weight': isSelected||isHovered?'500':'300',
-        'letter-spacing':'0.03em'});
+        'font-weight': isSelected?'600':isHovered?'500':'400',
+        'letter-spacing':'0.02em'});
       lbl.textContent = part;
+      // Drop shadow on label for readability
+      if(isSelected || isHovered){
+        lbl.setAttribute('filter','url(#glow-hov)');
+      }
       g.appendChild(lbl);
     });
 
-    // Hit area (generous touch target)
-    g.appendChild(el('circle',{cx:coord.x,cy:coord.y,r:r+20,fill:'transparent'}));
+    // Hit area
+    g.appendChild(el('circle',{cx:coord.x,cy:coord.y,r:r+22,fill:'transparent'}));
 
     // Events
     (function(node){
@@ -2563,33 +2597,45 @@ function exRender(){
   clG.appendChild(el('circle',{cx:EX.CX,cy:EX.CY,r:'52',
     fill:'rgba(30,60,150,.4)'}));
 
-  // Chainlink ⬡ symbol
-  var clIcon = el('text',{x:EX.CX,y:EX.CY-18,
-    'text-anchor':'middle','dominant-baseline':'central',
-    fill:'#fff','font-size':'32','font-family':'DM Sans,sans-serif'});
-  clIcon.textContent = '\u29c1';
-  clG.appendChild(clIcon);
+  // Chainlink logo image (real logo)
+  var clClip = el('clipPath',{id:'clip-chainlink-centre'});
+  clClip.appendChild(el('circle',{cx:EX.CX,cy:EX.CY,r:'46'}));
+  svg.querySelector('defs').appendChild(clClip);
+
+  var clLogoSize = 54;  // logo display size (px in SVG coords)
+  var clImg = el('image',{
+    href:'assets/logos/chainlink.png',
+    x: EX.CX - clLogoSize/2,
+    y: EX.CY - clLogoSize/2 - 10,
+    width: clLogoSize,
+    height: clLogoSize,
+    'clip-path':'url(#clip-chainlink-centre)',
+    preserveAspectRatio:'xMidYMid meet',
+    opacity:'0.95'
+  });
+  clG.appendChild(clImg);
 
   // "Chainlink" label
-  var clLabel = el('text',{x:EX.CX,y:EX.CY+10,
-    'text-anchor':'middle',fill:'#fff','font-size':'13',
-    'font-family':'DM Sans,sans-serif','font-weight':'500'});
+  var clLabel = el('text',{x:EX.CX,y:EX.CY+18,
+    'text-anchor':'middle',fill:'#fff','font-size':'14',
+    'font-family':'DM Sans,sans-serif','font-weight':'600',
+    'letter-spacing':'0.02em'});
   clLabel.textContent = 'Chainlink';
   clG.appendChild(clLabel);
 
   // Sub-label: the four pillars
-  var clSub = el('text',{x:EX.CX,y:EX.CY+24,
-    'text-anchor':'middle',fill:'rgba(200,146,42,.75)','font-size':'8',
-    'font-family':'DM Sans,sans-serif','letter-spacing':'0.05em'});
+  var clSub = el('text',{x:EX.CX,y:EX.CY+32,
+    'text-anchor':'middle',fill:'rgba(200,146,42,.8)','font-size':'8.5',
+    'font-family':'DM Sans,sans-serif','letter-spacing':'0.06em'});
   clSub.textContent = 'Coordination \xb7 Compliance \xb7 Verified Data \xb7 Interoperability';
   clG.appendChild(clSub);
 
   // Category labels around the constellation
   var catLabels = [
-    {cat:'tradfi',  label:'TRADITIONAL FINANCE', x:0.12, y:0.06, anchor:'start'},
-    {cat:'assets',  label:'DIGITAL ASSETS',       x:0.88, y:0.06, anchor:'end'},
-    {cat:'chains',  label:'BLOCKCHAINS',           x:0.12, y:0.95, anchor:'start'},
-    {cat:'apps',    label:'APPLICATIONS',          x:0.88, y:0.95, anchor:'end'},
+    {cat:'tradfi',  label:'TRADITIONAL FINANCE', x:0.04, y:0.05, anchor:'start'},
+    {cat:'assets',  label:'DIGITAL ASSETS',       x:0.96, y:0.05, anchor:'end'},
+    {cat:'chains',  label:'BLOCKCHAINS',           x:0.04, y:0.97, anchor:'start'},
+    {cat:'apps',    label:'APPLICATIONS',          x:0.96, y:0.97, anchor:'end'},
   ];
   catLabels.forEach(function(cl){
     var isFocused = EX.activeFilter === 'all' || EX.activeFilter === cl.cat;
