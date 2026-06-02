@@ -2714,13 +2714,23 @@ function exBuildSVG(){
     // Logo or icon
     if(n.logo){
       var img = document.createElementNS(ns,'image');
-      img.setAttribute('href',n.logo);
+      // Encode spaces in path so SVG href works across all browsers
+      var logoHref = n.logo.replace(/ /g,'%20');
+      img.setAttribute('href', logoHref);
+      // Also set xlink:href for older SVG implementations
+      img.setAttributeNS('http://www.w3.org/1999/xlink','href', logoHref);
       img.setAttribute('x', px-20); img.setAttribute('y', py-20);
       img.setAttribute('width','40'); img.setAttribute('height','40');
       img.setAttribute('clip-path','url(#clip-'+n.id+')');
       img.setAttribute('preserveAspectRatio','xMidYMid meet');
       img.setAttribute('opacity','0.92');
       img.setAttribute('pointer-events','none');
+      // Error fallback — log failed paths to console
+      (function(path, nodeId){
+        img.addEventListener('error', function(){
+          console.warn('Failed logo path:', path, '| node:', nodeId);
+        });
+      })(n.logo, n.id);
       g.appendChild(img);
     } else {
       var ic = document.createElementNS(ns,'text');
@@ -2799,6 +2809,8 @@ function exBuildSVG(){
   // Logo
   var clImg = document.createElementNS(ns,'image');
   clImg.setAttribute('href','assets/logos/chainlink.png');
+  clImg.setAttributeNS('http://www.w3.org/1999/xlink','href','assets/logos/chainlink.png');
+  clImg.addEventListener('error',function(){ console.warn('Failed logo path: assets/logos/chainlink.png'); });
   clImg.setAttribute('x',EX.CX-22); clImg.setAttribute('y',EX.CY-26);
   clImg.setAttribute('width','44'); clImg.setAttribute('height','44');
   clImg.setAttribute('clip-path','url(#clip-cl)');
