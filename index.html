@@ -497,7 +497,7 @@ nav{
   flex:1;           /* takes all height not used by filterbar + hint */
   min-height:0;     /* critical: allows flex child to shrink below content size */
   display:grid;
-  grid-template-columns:clamp(160px,13vw,210px) 1fr clamp(200px,18vw,270px);
+  grid-template-columns:clamp(150px,12vw,200px) 1fr clamp(180px,16vw,240px);
   overflow:hidden;
 }
 
@@ -609,8 +609,9 @@ nav{
 /* Zone 2: Scrollable connection list — flex:1, custom scrollbar */
 .ex-ctx-scroll{
   flex:1;
-  min-height:0;        /* allow shrinking */
+  min-height:0;
   overflow-y:auto;
+  padding-bottom:32px; /* ensure last item isn't hidden */
   padding:clamp(10px,1vw,16px) clamp(14px,1.4vw,22px);
   position:relative;
   /* Custom scrollbar — thin, branded */
@@ -628,6 +629,11 @@ nav{
 /* Fade at bottom of scroll area when content overflows */
 .ex-ctx-scroll-wrap{
   position:relative;
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
 }
 .ex-ctx-scroll-wrap::after{
   content:'';
@@ -2200,27 +2206,27 @@ var EXD = {
       chainlinkRole:"Chainlink aggregates market data from 16+ premium providers into tamper-proof onchain price feeds.",
       status:'live',connects:['chainlink'],reachable:['aave','gmx','lido','ondo','tkfunds','rwas']},
     // ── BLOCKCHAINS ───────────────────────────────────────────────
-    {id:'ethereum',    cat:'chains',  label:'Ethereum',         icon:'◆', logo:'assets/logos/ethereum.png',        x:0.05, y:0.85,
+    {id:'ethereum',    cat:'chains',  label:'Ethereum',         icon:'◆', logo:'assets/logos/ethereum.png',        x:0.05, y:0.81,
       desc:'Dominant institutional L1.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink is the oracle and cross-chain standard on Ethereum.",
       status:'live',connects:['chainlink'],reachable:['base','arbitrum','aave','lido','ondo','gmx','securitize','stablecoins','rwas']},
-    {id:'base',        cat:'chains',  label:'Base',             icon:'◇', logo:'assets/logos/base.png',            x:0.16, y:0.92,
+    {id:'base',        cat:'chains',  label:'Base',             icon:'◇', logo:'assets/logos/base.png',            x:0.16, y:0.86,
       desc:"Coinbase's Ethereum L2.",
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink CCIP and Data Feeds enable Base to connect with other chains.",
       status:'live',connects:['chainlink'],reachable:['ethereum','arbitrum','aave','stablecoins']},
-    {id:'solana',      cat:'chains',  label:'Solana',           icon:'◆', logo:'assets/logos/solana.png',          x:0.28, y:0.94,
+    {id:'solana',      cat:'chains',  label:'Solana',           icon:'◆', logo:'assets/logos/solana.png',          x:0.28, y:0.88,
       desc:'High-performance L1 for stablecoin payments.',
       services:['Data Streams','CCIP'],
       chainlinkRole:"Chainlink provides Data Streams and CCIP for Solana.",
       status:'live',connects:['chainlink'],reachable:['ethereum','stablecoins','mastercard']},
-    {id:'bnb',         cat:'chains',  label:'BNB Chain',        icon:'B', logo:'assets/logos/bnb chain.png',       x:0.4, y:0.94,
+    {id:'bnb',         cat:'chains',  label:'BNB Chain',        icon:'B', logo:'assets/logos/bnb chain.png',       x:0.4, y:0.88,
       desc:'BNB Chain is one of the largest smart contract networks and uses Chainlink infrastructure for secure market data, automation, interoperability, and external connectivity.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink provides BNB Chain with the full oracle and cross-chain infrastructure stack — Data Feeds, Data Streams, Automation, Functions, and CCIP.",
       status:'live',connects:['chainlink'],reachable:['ethereum','arbitrum','avalanche','base','optimism','polygon','aave','stablecoins']},
-    {id:'avalanche',   cat:'chains',  label:'Avalanche',        icon:'◆', logo:'assets/logos/avalanche.png',       x:0.52, y:0.88,
+    {id:'avalanche',   cat:'chains',  label:'Avalanche',        icon:'◆', logo:'assets/logos/avalanche.png',       x:0.52, y:0.84,
       desc:'Institutional Subnets for compliance-configured environments.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink connects Avalanche Subnets to the global financial system.",
@@ -2290,844 +2296,203 @@ var EXD = {
 
   // Connection metadata — services used on each edge
   connections: {
-    'swift':     {services:['CCIP','CRE','Identity','ACE'],        label:'SWIFT → Chainlink'},
-    'dtcc':      {services:['CCIP','CRE','Data Feeds','ACE'],      label:'DTCC → Chainlink'},
-    'custodians':{services:['Proof of Reserve','Data Feeds'],      label:'Custodians → Chainlink'},
-    'assetmgr':  {services:['Data Feeds','Proof of Reserve','CCIP'],label:'Asset Managers → Chainlink'},
-    'cbanks':    {services:['CCIP','Identity'],                    label:'Central Banks → Chainlink'},
-    'stablecoins':{services:['Proof of Reserve','Data Feeds','CCIP','ACE'],label:'Stablecoins → Chainlink'},
-    'rwas':      {services:['Data Feeds','Proof of Reserve','CCIP'],label:'RWAs → Chainlink'},
-    'tkfunds':   {services:['Data Feeds','Proof of Reserve','CCIP'],label:'Tokenised Funds → Chainlink'},
-    'treasuries':{services:['Data Feeds','Proof of Reserve'],      label:'Treasuries → Chainlink'},
-    'marketdata':{services:['Data Feeds','Data Streams'],          label:'Market Data → Chainlink'},
-    'ethereum':  {services:['CCIP','Data Feeds','Automation'],     label:'Ethereum → Chainlink'},
-    'base':      {services:['CCIP','Data Feeds'],                  label:'Base → Chainlink'},
-    'solana':    {services:['Data Feeds','CCIP'],                  label:'Solana → Chainlink'},
-    'avalanche': {services:['CCIP','Data Feeds'],                  label:'Avalanche → Chainlink'},
-    'arbitrum':  {services:['CCIP','Data Feeds','Automation'],     label:'Arbitrum → Chainlink'},
-    'xrpl':      {services:['CCIP','Data Feeds'],                  label:'XRPL → Chainlink'},
-    'stellar':   {services:['CCIP','Data Feeds'],                  label:'Stellar → Chainlink'},
-    'euroclear': {services:['CCIP','CRE','Data Feeds','ACE'],          label:'Euroclear → Chainlink'},
-    'hedera':    {services:['CCIP','Data Feeds'],                      label:'Hedera → Chainlink'},
-    'optimism':  {services:['CCIP','Data Feeds','Automation'],         label:'Optimism → Chainlink'},
-    'polygon':   {services:['CCIP','Data Feeds','Automation'],         label:'Polygon → Chainlink'},
-    'bnb':       {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'], label:'BNB Chain → Chainlink'},
-    'aave':      {services:['Data Feeds','SVR','Automation','CCIP'],label:'Aave → Chainlink'},
-    'ondo':      {services:['Data Feeds','Proof of Reserve','CCIP'],label:'Ondo → Chainlink'},
-    'lido':      {services:['Data Feeds','Automation'],            label:'Lido → Chainlink'},
-    'gmx':       {services:['Data Feeds','Data Streams'],          label:'GMX → Chainlink'},
-    'mastercard':{services:['CCIP','Identity','ACE'],              label:'Mastercard → Chainlink'},
-    'securitize':{services:['Identity','ACE','Proof of Reserve','CCIP'],label:'Securitize → Chainlink'},
-  }
+    'swift':      {services:['CCIP','CRE','CCID','ACE'],                              label:'SWIFT'},
+    'dtcc':       {services:['CCIP','CRE','Data Feeds','ACE'],                        label:'DTCC'},
+    'euroclear':  {services:['CCIP','CRE','Data Feeds','ACE'],                        label:'Euroclear'},
+    'custodians': {services:['Proof of Reserve','Data Feeds'],                        label:'Custodians'},
+    'assetmgr':   {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Asset Managers'},
+    'cbanks':     {services:['CCIP','CCID'],                                          label:'Central Banks'},
+    'stablecoins':{services:['Proof of Reserve','Data Feeds','CCIP','ACE'],           label:'Stablecoins'},
+    'rwas':       {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Real-World Assets'},
+    'tkfunds':    {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Tokenized Funds'},
+    'treasuries': {services:['Data Feeds','Proof of Reserve'],                        label:'Treasuries'},
+    'marketdata': {services:['Data Feeds','Data Streams'],                            label:'Market Data'},
+    'ethereum':   {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'Ethereum'},
+    'base':       {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'Base'},
+    'solana':     {services:['Data Streams','CCIP'],                                  label:'Solana'},
+    'bnb':        {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'BNB Chain'},
+    'avalanche':  {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'Avalanche'},
+    'arbitrum':   {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'Arbitrum'},
+    'xrpl':       {services:['CCIP','Data Feeds'],                                    label:'XRPL'},
+    'stellar':    {services:['Data Feeds','Data Streams','CCIP'],                     label:'Stellar'},
+    'hedera':     {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Hedera'},
+    'optimism':   {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'Optimism'},
+    'polygon':    {services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],label:'Polygon'},
+    'aave':       {services:['Data Feeds','SVR','Automation','CCIP'],                 label:'Aave'},
+    'ondo':       {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Ondo'},
+    'lido':       {services:['Data Feeds','Automation'],                              label:'Lido'},
+    'gmx':        {services:['Data Streams'],                                         label:'GMX'},
+    'mastercard': {services:['CCIP'],                                                 label:'Mastercard'},
+    'securitize': {services:['CCIP','Data Feeds'],                                    label:'Securitize'},
+  },
 };
 
-var EX = {
-  selectedNode:  null,   // id of clicked node
-  selectedSvc:   null,   // id of clicked service
-  reachableSet:  {},     // {id: true} — nodes lit gold when a node is selected
-  catFilter:     'all',  // tab filter
-  CX: 450, CY: 300,
-  W:  900, H:  680,
-  catColor:{ tradfi:'rgba(200,146,42,1)', assets:'rgba(160,100,255,1)', chains:'rgba(60,160,255,1)', apps:'rgba(255,165,60,1)' },
-  els: {}                // {nodeId: {g, bg, ring, glow, lbl}} — kept alive between updates
+var EX={
+  selectedNode:null,selectedSvc:null,reachableSet:{},catFilter:'all',
+  CX:450,CY:300,W:900,H:680,
+  catColor:{tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'},
+  els:{}
 };
 
-// ── Init ─────────────────────────────────────────────────────────
-function exInit(){
-  exBuildServicePanel();
-  exBuildSVG();          // draw once, keep elements
-  exBindTabFilter();
-}
+function exInit(){exBuildServicePanel();exBuildSVG();exBindTabFilter();}
 
-// ── Service panel (left) ─────────────────────────────────────────
 function exBuildServicePanel(){
-  var panel = document.getElementById('ex-services');
-  if(!panel) return;
-  panel.innerHTML =
-    '<div class="ex-svc-header">CHAINLINK SERVICES</div>' +
-    '<div style="font-size:9px;color:rgba(244,242,238,.22);letter-spacing:.04em;margin-bottom:8px;padding:0 4px;line-height:1.5">Click to filter</div>';
+  var p=document.getElementById('ex-services');if(!p)return;
+  p.innerHTML='<div class="ex-svc-header">CHAINLINK SERVICES</div><div style="font-size:9px;color:rgba(244,242,238,.22);letter-spacing:.04em;margin-bottom:8px;padding:0 4px">Click to filter</div>';
   EXD.chainlinkServices.forEach(function(svc){
-    var div = document.createElement('div');
-    div.className = 'ex-svc';
-    div.id = 'ex-svc-' + svc.id;
-    div.innerHTML =
-      '<div class="ex-svc-icon">' + svc.icon + '</div>' +
-      '<div class="ex-svc-text"><div class="ex-svc-name">' + svc.name + '</div>' +
-      '<div class="ex-svc-desc">' + svc.desc + '</div></div>';
-    (function(s){
-      div.addEventListener('click', function(){ exClickService(s.name); });
-    })(svc);
-    panel.appendChild(div);
+    var d=document.createElement('div');d.className='ex-svc';d.id='ex-svc-'+svc.id;
+    d.innerHTML='<div class="ex-svc-icon">'+svc.icon+'</div><div class="ex-svc-text"><div class="ex-svc-name">'+svc.name+'</div><div class="ex-svc-desc">'+svc.desc+'</div></div>';
+    (function(s){d.addEventListener('click',function(){exClickService(s.name);});})(svc);
+    p.appendChild(d);
   });
 }
 
-// ── Build SVG once ───────────────────────────────────────────────
-// Elements are never destroyed — only their attributes change on interaction.
 function exBuildSVG(){
-  var svg = document.getElementById('ex-svg');
-  if(!svg) return;
-  var ns = 'http://www.w3.org/2000/svg';
-  svg.innerHTML = '';
-
-  // ── defs ──
-  var defs = document.createElementNS(ns,'defs');
-
-  // Glow filters
-  function mkFilter(id, col, blur){
-    var f = document.createElementNS(ns,'filter');
-    f.setAttribute('id',id);
-    f.setAttribute('x','-80%'); f.setAttribute('y','-80%');
-    f.setAttribute('width','260%'); f.setAttribute('height','260%');
-    var fe = document.createElementNS(ns,'feGaussianBlur');
-    fe.setAttribute('in','SourceGraphic'); fe.setAttribute('stdDeviation', blur||'6');
-    fe.setAttribute('result','blur');
-    var flood = document.createElementNS(ns,'feFlood');
-    flood.setAttribute('flood-color', col); flood.setAttribute('flood-opacity','1');
-    flood.setAttribute('result','color');
-    var comp = document.createElementNS(ns,'feComposite');
-    comp.setAttribute('in','color'); comp.setAttribute('in2','SourceAlpha');
-    comp.setAttribute('operator','in'); comp.setAttribute('result','colorBlur');
-    var b2 = document.createElementNS(ns,'feGaussianBlur');
-    b2.setAttribute('in','colorBlur'); b2.setAttribute('stdDeviation', blur||'6');
-    b2.setAttribute('result','softBlur');
-    var merge = document.createElementNS(ns,'feMerge');
-    var mn1 = document.createElementNS(ns,'feMergeNode'); mn1.setAttribute('in','softBlur');
-    var mn2 = document.createElementNS(ns,'feMergeNode'); mn2.setAttribute('in','SourceGraphic');
-    merge.appendChild(mn1); merge.appendChild(mn2);
-    f.appendChild(fe); f.appendChild(flood); f.appendChild(comp); f.appendChild(b2); f.appendChild(merge);
-    return f;
-  }
-  defs.appendChild(mkFilter('glow-sel','rgba(60,140,255,.9)','8'));
-  defs.appendChild(mkFilter('glow-reach','rgba(200,146,42,.8)','6'));
-  defs.appendChild(mkFilter('glow-cl','rgba(40,100,255,.7)','10'));
-
-  // Radial gradient for CL halo
-  var rg = document.createElementNS(ns,'radialGradient');
-  rg.setAttribute('id','cl-grad'); rg.setAttribute('cx','50%'); rg.setAttribute('cy','50%'); rg.setAttribute('r','50%');
-  function addStop(g,off,col){ var s=document.createElementNS(ns,'stop'); s.setAttribute('offset',off); s.setAttribute('stop-color',col); g.appendChild(s); }
-  addStop(rg,'0%','rgba(60,120,255,.35)');
-  addStop(rg,'60%','rgba(20,50,160,.15)');
-  addStop(rg,'100%','rgba(6,10,26,0)');
+  var svg=document.getElementById('ex-svg');if(!svg)return;
+  var ns='http://www.w3.org/2000/svg';svg.innerHTML='';
+  EXD.nodes.forEach(function(n){if(typeof n.x!=='number'||isNaN(n.x)||typeof n.y!=='number'||isNaN(n.y)){console.warn('[Explorer] bad coords:',n.id);n.x=0.5;n.y=0.5;}});
+  var defs=document.createElementNS(ns,'defs');
+  function mkF(id,col,blur){var f=document.createElementNS(ns,'filter');f.setAttribute('id',id);f.setAttribute('x','-80%');f.setAttribute('y','-80%');f.setAttribute('width','260%');f.setAttribute('height','260%');var fe=document.createElementNS(ns,'feGaussianBlur');fe.setAttribute('in','SourceGraphic');fe.setAttribute('stdDeviation',blur||'6');fe.setAttribute('result','blur');var fl=document.createElementNS(ns,'feFlood');fl.setAttribute('flood-color',col);fl.setAttribute('flood-opacity','1');fl.setAttribute('result','color');var co=document.createElementNS(ns,'feComposite');co.setAttribute('in','color');co.setAttribute('in2','SourceAlpha');co.setAttribute('operator','in');co.setAttribute('result','cb');var b2=document.createElementNS(ns,'feGaussianBlur');b2.setAttribute('in','cb');b2.setAttribute('stdDeviation',blur||'6');b2.setAttribute('result','sb');var m=document.createElementNS(ns,'feMerge');var n1=document.createElementNS(ns,'feMergeNode');n1.setAttribute('in','sb');var n2=document.createElementNS(ns,'feMergeNode');n2.setAttribute('in','SourceGraphic');m.appendChild(n1);m.appendChild(n2);f.appendChild(fe);f.appendChild(fl);f.appendChild(co);f.appendChild(b2);f.appendChild(m);return f;}
+  defs.appendChild(mkF('glow-sel','rgba(60,140,255,.9)','8'));defs.appendChild(mkF('glow-reach','rgba(200,146,42,.8)','6'));defs.appendChild(mkF('glow-cl','rgba(40,100,255,.7)','10'));
+  var rg=document.createElementNS(ns,'radialGradient');rg.setAttribute('id','cl-grad');rg.setAttribute('cx','50%');rg.setAttribute('cy','50%');rg.setAttribute('r','50%');
+  function addS(g,o,c){var s=document.createElementNS(ns,'stop');s.setAttribute('offset',o);s.setAttribute('stop-color',c);g.appendChild(s);}
+  addS(rg,'0%','rgba(60,120,255,.35)');addS(rg,'60%','rgba(20,50,160,.15)');addS(rg,'100%','rgba(6,10,26,0)');
   defs.appendChild(rg);
-
-  // Clip paths for logos
-  // Debug guard: warn if any node has invalid coordinates
-  EXD.nodes.forEach(function(n){
-    if(typeof n.x !== 'number' || typeof n.y !== 'number' || isNaN(n.x) || isNaN(n.y)){
-      console.warn('[Explorer] Node missing coordinates:', n.id, '— using fallback (0.5, 0.5)');
-      n.x = 0.5; n.y = 0.5;
-    }
-  });
-  EXD.nodes.forEach(function(n){
-    if(!n.logo) return;
-    var cp = document.createElementNS(ns,'clipPath');
-    cp.setAttribute('id','clip-'+n.id);
-    var circ = document.createElementNS(ns,'circle');
-    var px = n.x * EX.W, py = n.y * EX.H;
-    circ.setAttribute('cx', px); circ.setAttribute('cy', py); circ.setAttribute('r', '30');
-    cp.appendChild(circ); defs.appendChild(cp);
-  });
-  // CL clip
-  var clcp = document.createElementNS(ns,'clipPath'); clcp.setAttribute('id','clip-cl');
-  var clcirc = document.createElementNS(ns,'circle');
-  clcirc.setAttribute('cx',EX.CX); clcirc.setAttribute('cy',EX.CY); clcirc.setAttribute('r','36');
-  clcp.appendChild(clcirc); defs.appendChild(clcp);
+  EXD.nodes.forEach(function(n){if(!n.logo)return;var cp=document.createElementNS(ns,'clipPath');cp.setAttribute('id','clip-'+n.id);var ci=document.createElementNS(ns,'circle');ci.setAttribute('cx',n.x*EX.W);ci.setAttribute('cy',n.y*EX.H);ci.setAttribute('r','30');cp.appendChild(ci);defs.appendChild(cp);});
+  var clcp=document.createElementNS(ns,'clipPath');clcp.setAttribute('id','clip-cl');var clci=document.createElementNS(ns,'circle');clci.setAttribute('cx',EX.CX);clci.setAttribute('cy',EX.CY);clci.setAttribute('r','38');clcp.appendChild(clci);defs.appendChild(clcp);
   svg.appendChild(defs);
-
-  // ── Background: halo + rings ──
-  function mkCirc(r, fill, stroke, sw, opacity){
-    var c = document.createElementNS(ns,'circle');
-    c.setAttribute('cx',EX.CX); c.setAttribute('cy',EX.CY); c.setAttribute('r',r);
-    if(fill)   c.setAttribute('fill',fill); else c.setAttribute('fill','none');
-    if(stroke){ c.setAttribute('stroke',stroke); c.setAttribute('stroke-width',sw||'1'); }
-    if(opacity) c.setAttribute('opacity',opacity);
-    c.setAttribute('pointer-events','none');
-    return c;
-  }
-  svg.appendChild(mkCirc(72,'url(#cl-grad)',null,null,'0.8'));
-  svg.appendChild(mkCirc(128,null,'rgba(60,120,255,.05)','1'));
-  svg.appendChild(mkCirc(200,null,'rgba(60,120,255,.03)','1'));
-
-  // ── Edge group (drawn below nodes) ──
-  var edgeGroup = document.createElementNS(ns,'g');
-  edgeGroup.setAttribute('id','ex-edges');
-  edgeGroup.setAttribute('pointer-events','none');
-
+  function mkC(r,fill,stroke,sw){var c=document.createElementNS(ns,'circle');c.setAttribute('cx',EX.CX);c.setAttribute('cy',EX.CY);c.setAttribute('r',r);if(fill)c.setAttribute('fill',fill);else c.setAttribute('fill','none');if(stroke){c.setAttribute('stroke',stroke);c.setAttribute('stroke-width',sw||'1');}c.setAttribute('pointer-events','none');return c;}
+  svg.appendChild(mkC(72,'url(#cl-grad)',null,null));svg.appendChild(mkC(128,null,'rgba(60,120,255,.05)','1'));svg.appendChild(mkC(200,null,'rgba(60,120,255,.03)','1'));
+  var cats={tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'};
+  var eg=document.createElementNS(ns,'g');eg.setAttribute('id','ex-edges');eg.setAttribute('pointer-events','none');
+  EXD.nodes.forEach(function(n){var ln=document.createElementNS(ns,'line');ln.setAttribute('id','ex-edge-'+n.id);ln.setAttribute('x1',n.x*EX.W);ln.setAttribute('y1',n.y*EX.H);ln.setAttribute('x2',EX.CX);ln.setAttribute('y2',EX.CY);ln.setAttribute('stroke',cats[n.cat]||'rgba(200,146,42,1)');ln.setAttribute('stroke-width','1.0');ln.setAttribute('opacity','0.35');eg.appendChild(ln);});
+  svg.appendChild(eg);
+  var ag=document.createElementNS(ns,'g');ag.setAttribute('id','ex-anims');ag.setAttribute('pointer-events','none');svg.appendChild(ag);
+  var ng=document.createElementNS(ns,'g');ng.setAttribute('id','ex-nodes');
   EXD.nodes.forEach(function(n){
-    var px = n.x * EX.W, py = n.y * EX.H;
-    // Category-coloured edges from the start
-    var edgeCatColors = {
-      tradfi:  'rgba(200,146,42,1)',
-      assets:  'rgba(160,100,255,1)',
-      chains:  'rgba(60,160,255,1)',
-      apps:    'rgba(255,165,60,1)'
-    };
-    var edgeBaseColor = edgeCatColors[n.cat] || 'rgba(200,146,42,1)';
-    var line = document.createElementNS(ns,'line');
-    line.setAttribute('id','ex-edge-'+n.id);
-    line.setAttribute('x1',px); line.setAttribute('y1',py);
-    line.setAttribute('x2',EX.CX); line.setAttribute('y2',EX.CY);
-    line.setAttribute('stroke', edgeBaseColor);
-    line.setAttribute('stroke-width','1.0');
-    line.setAttribute('opacity','0.35');
-    edgeGroup.appendChild(line);
-  });
-  svg.appendChild(edgeGroup);
-
-  // ── Animation group (particles) ──
-  var animGroup = document.createElementNS(ns,'g');
-  animGroup.setAttribute('id','ex-anims');
-  animGroup.setAttribute('pointer-events','none');
-  svg.appendChild(animGroup);
-
-  // ── Node group ──
-  var nodeGroup = document.createElementNS(ns,'g');
-  nodeGroup.setAttribute('id','ex-nodes');
-
-  EXD.nodes.forEach(function(n){
-    var px = n.x * EX.W, py = n.y * EX.H;
-    var catC = EX.catColor[n.cat] || 'rgba(200,146,42,1)';
-    var g = document.createElementNS(ns,'g');
-    g.setAttribute('id','ex-node-'+n.id);
-    g.style.cursor = 'pointer';
-
-    // Glow halo (hidden by default, shown on select/reach)
-    var glow = document.createElementNS(ns,'circle');
-    glow.setAttribute('cx',px); glow.setAttribute('cy',py); glow.setAttribute('r','44');
-    glow.setAttribute('fill','none');
-    glow.setAttribute('stroke','rgba(60,140,255,0)');
-    glow.setAttribute('stroke-width','12');
-    glow.setAttribute('opacity','0');
-    glow.setAttribute('pointer-events','none');
-    g.appendChild(glow);
-
-    // Outer ring
-    var ring = document.createElementNS(ns,'circle');
-    ring.setAttribute('cx',px); ring.setAttribute('cy',py); ring.setAttribute('r','35');
-    ring.setAttribute('fill','none');
-    ring.setAttribute('stroke',catC);
-    ring.setAttribute('stroke-width','0.7');
-    ring.setAttribute('opacity','0.70');
-    ring.setAttribute('pointer-events','none');
-    g.appendChild(ring);
-
-    // Background fill
-    var bg = document.createElementNS(ns,'circle');
-    bg.setAttribute('cx',px); bg.setAttribute('cy',py); bg.setAttribute('r','32');
-    bg.setAttribute('fill','#0C1325');
-    bg.setAttribute('pointer-events','none');
-    g.appendChild(bg);
-
-    // Logo or icon — use foreignObject+img for reliable path resolution
-    if(n.logo){
-      // foreignObject lets the browser load the image using document-relative paths
-      // (same as <img src="...">) rather than SVG-relative paths
-      var fo = document.createElementNS(ns,'foreignObject');
-      fo.setAttribute('x', px-24); fo.setAttribute('y', py-24);
-      fo.setAttribute('width','48'); fo.setAttribute('height','48');
-      fo.setAttribute('clip-path','url(#clip-'+n.id+')');
-      fo.setAttribute('opacity','0.92');
-      fo.setAttribute('pointer-events','none');
-
-      var imgEl = document.createElement('img');
-      imgEl.src = n.logo;
-      imgEl.style.cssText = 'width:48px;height:48px;object-fit:contain;display:block';
-      // Error fallback
-      (function(path, nodeId){
-        imgEl.onerror = function(){
-          console.warn('Failed logo path:', path, '| node:', nodeId);
-          // Show icon text as fallback
-          fo.parentNode && fo.parentNode.removeChild(fo);
-        };
-      })(n.logo, n.id);
-      fo.appendChild(imgEl);
-      g.appendChild(fo);
-    } else {
-      var ic = document.createElementNS(ns,'text');
-      ic.setAttribute('x',px); ic.setAttribute('y',py);
-      ic.setAttribute('text-anchor','middle');
-      ic.setAttribute('dominant-baseline','central');
-      ic.setAttribute('fill','rgba(244,242,238,.82)');
-      ic.setAttribute('font-size','15');
-      ic.setAttribute('font-family','DM Sans,sans-serif');
-      ic.setAttribute('pointer-events','none');
-      ic.textContent = n.icon;
-      g.appendChild(ic);
-    }
-
-    // Label
-    var lbl = document.createElementNS(ns,'text');
-    lbl.setAttribute('x',px); lbl.setAttribute('y', py+44);
-    lbl.setAttribute('text-anchor','middle');
-    lbl.setAttribute('fill','rgba(244,242,238,.95)');
-    lbl.setAttribute('font-size','14');
-    lbl.setAttribute('font-family','DM Sans,sans-serif');
-    lbl.setAttribute('font-weight','500');
-    lbl.setAttribute('pointer-events','none');
-    lbl.textContent = n.label.replace('\n',' ');
+    var px=n.x*EX.W,py=n.y*EX.H,catC=cats[n.cat]||'rgba(200,146,42,1)';
+    var g=document.createElementNS(ns,'g');g.setAttribute('id','ex-node-'+n.id);g.style.cursor='pointer';
+    var glow=document.createElementNS(ns,'circle');glow.setAttribute('cx',px);glow.setAttribute('cy',py);glow.setAttribute('r','44');glow.setAttribute('fill','none');glow.setAttribute('stroke','rgba(60,140,255,0)');glow.setAttribute('stroke-width','12');glow.setAttribute('opacity','0');glow.setAttribute('pointer-events','none');g.appendChild(glow);
+    var ring=document.createElementNS(ns,'circle');ring.setAttribute('cx',px);ring.setAttribute('cy',py);ring.setAttribute('r','35');ring.setAttribute('fill','none');ring.setAttribute('stroke',catC);ring.setAttribute('stroke-width','0.7');ring.setAttribute('opacity','0.70');ring.setAttribute('pointer-events','none');g.appendChild(ring);
+    var bg=document.createElementNS(ns,'circle');bg.setAttribute('cx',px);bg.setAttribute('cy',py);bg.setAttribute('r','32');bg.setAttribute('fill','#0C1325');bg.setAttribute('pointer-events','none');g.appendChild(bg);
+    if(n.logo){var fo=document.createElementNS(ns,'foreignObject');fo.setAttribute('x',px-24);fo.setAttribute('y',py-24);fo.setAttribute('width','48');fo.setAttribute('height','48');fo.setAttribute('clip-path','url(#clip-'+n.id+')');fo.setAttribute('opacity','0.92');fo.setAttribute('pointer-events','none');var im=document.createElement('img');im.src=n.logo;im.style.cssText='width:48px;height:48px;object-fit:contain;display:block';(function(p,id){im.onerror=function(){console.warn('Failed logo:',p,'node:',id);};})(n.logo,n.id);fo.appendChild(im);g.appendChild(fo);}else{var ic=document.createElementNS(ns,'text');ic.setAttribute('x',px);ic.setAttribute('y',py);ic.setAttribute('text-anchor','middle');ic.setAttribute('dominant-baseline','central');ic.setAttribute('fill','rgba(244,242,238,.82)');ic.setAttribute('font-size','15');ic.setAttribute('font-family','DM Sans,sans-serif');ic.setAttribute('pointer-events','none');ic.textContent=n.icon;g.appendChild(ic);}
+    var lbl=document.createElementNS(ns,'text');lbl.setAttribute('x',px);lbl.setAttribute('y',py+44);lbl.setAttribute('text-anchor','middle');lbl.setAttribute('fill','rgba(244,242,238,.95)');lbl.setAttribute('font-size','13');lbl.setAttribute('font-family','DM Sans,sans-serif');lbl.setAttribute('font-weight','500');lbl.setAttribute('pointer-events','none');
+    lbl.textContent=n.label.split('\n').join(' ');
     g.appendChild(lbl);
-
-    // Transparent hit area — large, reliable
-    var hit = document.createElementNS(ns,'circle');
-    hit.setAttribute('cx',px); hit.setAttribute('cy',py); hit.setAttribute('r','40');
-    hit.setAttribute('fill','transparent');
-    hit.setAttribute('stroke','none');
-    g.appendChild(hit);
-
-    // Store element references
-    EX.els[n.id] = { g:g, glow:glow, ring:ring, bg:bg, lbl:lbl };
-
-    // ── Click handler — THE CORE INTERACTION ──
-    g.addEventListener('click', function(e){
-      e.stopPropagation();
-      console.log('[Explorer] clicked:', n.id, '| services:', n.services, '| reachable:', n.reachable);
-      if(EX.selectedNode === n.id){
-        exClearSelection();
-      } else {
-        exSelectNode(n);
-      }
-    });
-
-    nodeGroup.appendChild(g);
+    var hit=document.createElementNS(ns,'circle');hit.setAttribute('cx',px);hit.setAttribute('cy',py);hit.setAttribute('r','40');hit.setAttribute('fill','transparent');hit.setAttribute('stroke','none');g.appendChild(hit);
+    EX.els[n.id]={g:g,glow:glow,ring:ring,bg:bg,lbl:lbl};
+    g.addEventListener('click',function(e){e.stopPropagation();console.log('[Explorer] clicked:',n.id,'svcs:',n.services);if(EX.selectedNode===n.id){exClearSelection();}else{exSelectNode(n);}});
+    ng.appendChild(g);
   });
-
-  svg.appendChild(nodeGroup);
-
-  // ── Chainlink centre ──
-  var clG = document.createElementNS(ns,'g');
-  clG.setAttribute('id','ex-cl-centre');
-  clG.setAttribute('pointer-events','none');
-
-  // Pulse ring
-  var pr = document.createElementNS(ns,'circle');
-  pr.setAttribute('cx',EX.CX); pr.setAttribute('cy',EX.CY); pr.setAttribute('r','60');
-  pr.setAttribute('fill','none'); pr.setAttribute('stroke','rgba(60,120,255,.15)');
-  pr.setAttribute('stroke-width','1.2');
-  var pa = document.createElementNS(ns,'animate');
-  pa.setAttribute('attributeName','r'); pa.setAttribute('values','52;70;52'); pa.setAttribute('dur','4s'); pa.setAttribute('repeatCount','indefinite');
-  var pa2 = document.createElementNS(ns,'animate');
-  pa2.setAttribute('attributeName','opacity'); pa2.setAttribute('values','0.4;0.08;0.4'); pa2.setAttribute('dur','4s'); pa2.setAttribute('repeatCount','indefinite');
-  pr.appendChild(pa); pr.appendChild(pa2); clG.appendChild(pr);
-
-  // BG circle
-  var clBg = document.createElementNS(ns,'circle');
-  clBg.setAttribute('cx',EX.CX); clBg.setAttribute('cy',EX.CY); clBg.setAttribute('r','42');
-  clBg.setAttribute('fill','#1A2D55'); clBg.setAttribute('filter','url(#glow-cl)');
-  clBg.setAttribute('stroke','rgba(60,140,255,.55)'); clBg.setAttribute('stroke-width','1.8');
-  clG.appendChild(clBg);
-
-  // Logo
-  // Chainlink centre logo via foreignObject+img (document-relative path resolution)
-  var clFo = document.createElementNS(ns,'foreignObject');
-  clFo.setAttribute('x', EX.CX-22); clFo.setAttribute('y', EX.CY-26);
-  clFo.setAttribute('width','44'); clFo.setAttribute('height','44');
-  clFo.setAttribute('clip-path','url(#clip-cl)');
-  clFo.setAttribute('pointer-events','none');
-  var clImgEl = document.createElement('img');
-  clImgEl.src = 'assets/logos/chainlink.png';
-  clImgEl.style.cssText = 'width:44px;height:44px;object-fit:contain;display:block';
-  clImgEl.onerror = function(){ console.warn('Failed logo path: assets/logos/chainlink.png'); };
-  clFo.appendChild(clImgEl);
-  clG.appendChild(clFo);
-
-  // Label
-  var clLbl = document.createElementNS(ns,'text');
-  // Label BELOW the logo — CY+28 puts it under the 42px radius circle
-  clLbl.setAttribute('x',EX.CX); clLbl.setAttribute('y',EX.CY+30);
-  clLbl.setAttribute('text-anchor','middle');
-  clLbl.setAttribute('fill','rgba(255,255,255,.95)');
-  clLbl.setAttribute('font-size','12');
-  clLbl.setAttribute('font-family','DM Sans,sans-serif');
-  clLbl.setAttribute('font-weight','600');
-  clLbl.setAttribute('letter-spacing','0.04em');
-  clLbl.textContent = 'Chainlink';
-  clG.appendChild(clLbl);
-
+  svg.appendChild(ng);
+  var clG=document.createElementNS(ns,'g');clG.setAttribute('id','ex-cl-centre');clG.setAttribute('pointer-events','none');
+  var pr=document.createElementNS(ns,'circle');pr.setAttribute('cx',EX.CX);pr.setAttribute('cy',EX.CY);pr.setAttribute('r','60');pr.setAttribute('fill','none');pr.setAttribute('stroke','rgba(60,120,255,.15)');pr.setAttribute('stroke-width','1.2');var pa=document.createElementNS(ns,'animate');pa.setAttribute('attributeName','r');pa.setAttribute('values','52;70;52');pa.setAttribute('dur','4s');pa.setAttribute('repeatCount','indefinite');pr.appendChild(pa);clG.appendChild(pr);
+  var clBg=document.createElementNS(ns,'circle');clBg.setAttribute('cx',EX.CX);clBg.setAttribute('cy',EX.CY);clBg.setAttribute('r','42');clBg.setAttribute('fill','#1A2D55');clBg.setAttribute('filter','url(#glow-cl)');clBg.setAttribute('stroke','rgba(60,140,255,.55)');clBg.setAttribute('stroke-width','1.8');clG.appendChild(clBg);
+  var clFo=document.createElementNS(ns,'foreignObject');clFo.setAttribute('x',EX.CX-22);clFo.setAttribute('y',EX.CY-26);clFo.setAttribute('width','44');clFo.setAttribute('height','44');clFo.setAttribute('clip-path','url(#clip-cl)');clFo.setAttribute('pointer-events','none');var clIm=document.createElement('img');clIm.src='assets/logos/chainlink.png';clIm.style.cssText='width:44px;height:44px;object-fit:contain;display:block';clIm.onerror=function(){console.warn('chainlink logo failed');};clFo.appendChild(clIm);clG.appendChild(clFo);
+  var clL=document.createElementNS(ns,'text');clL.setAttribute('x',EX.CX);clL.setAttribute('y',EX.CY+30);clL.setAttribute('text-anchor','middle');clL.setAttribute('fill','rgba(255,255,255,.92)');clL.setAttribute('font-size','12');clL.setAttribute('font-family','DM Sans,sans-serif');clL.setAttribute('font-weight','600');clL.textContent='Chainlink';clG.appendChild(clL);
   svg.appendChild(clG);
-
-  // ── Category corner labels ──
-  var catLabels = [
-    {cat:'tradfi', label:'TRADITIONAL FINANCE', x:12,  y:14,  anchor:'start'},
-    {cat:'assets', label:'DIGITAL ASSETS',       x:888, y:14,  anchor:'end'},
-    {cat:'chains', label:'BLOCKCHAINS',           x:12,  y:668, anchor:'start'},
-    {cat:'apps',   label:'APPLICATIONS',          x:888, y:668, anchor:'end'},
-  ];
-  catLabels.forEach(function(cl){
-    var t = document.createElementNS(ns,'text');
-    t.setAttribute('x',cl.x); t.setAttribute('y',cl.y);
-    t.setAttribute('text-anchor',cl.anchor);
-    t.setAttribute('fill',EX.catColor[cl.cat]);
-    t.setAttribute('font-size','12');
-    t.setAttribute('font-family','DM Sans,sans-serif');
-    t.setAttribute('letter-spacing','0.14em');
-    t.setAttribute('font-weight','600');
-    t.setAttribute('opacity','0.82');
-    t.setAttribute('pointer-events','none');
-    t.textContent = cl.label;
-    svg.appendChild(t);
-  });
-
-  // ── SVG background click to deselect ──
-  svg.addEventListener('click', function(e){
-    if(e.target === svg){
-      exClearSelection();
-    }
-  });
-
-  // Apply initial default visual state
-  exApplyVisuals();
+  [{cat:'tradfi',label:'TRADITIONAL FINANCE',x:12,y:14,a:'start'},{cat:'assets',label:'DIGITAL ASSETS',x:888,y:14,a:'end'},{cat:'chains',label:'BLOCKCHAINS',x:12,y:668,a:'start'},{cat:'apps',label:'APPLICATIONS',x:888,y:668,a:'end'}].forEach(function(cl){var t=document.createElementNS(ns,'text');t.setAttribute('x',cl.x);t.setAttribute('y',cl.y);t.setAttribute('text-anchor',cl.a);t.setAttribute('fill',cats[cl.cat]);t.setAttribute('font-size','12');t.setAttribute('font-family','DM Sans,sans-serif');t.setAttribute('letter-spacing','0.14em');t.setAttribute('font-weight','600');t.setAttribute('opacity','0.82');t.setAttribute('pointer-events','none');t.textContent=cl.label;svg.appendChild(t);});
+  svg.addEventListener('click',function(e){if(e.target===svg){EX.selectedNode=null;EX.reachableSet={};EX.selectedSvc=null;exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}});
 }
 
-// ── Select a node ─────────────────────────────────────────────────
-function exSelectNode(node){
-  EX.selectedNode = node.id;
-  EX.selectedSvc  = null;
-  EX.reachableSet = {};
-  if(node.reachable) node.reachable.forEach(function(r){ EX.reachableSet[r] = true; });
+function exSelectNode(node){EX.selectedNode=node.id;EX.selectedSvc=null;EX.reachableSet={};if(node.reachable)node.reachable.forEach(function(r){EX.reachableSet[r]=true;});exApplyVisuals();exHighlightServices(node.services||[]);exUpdateRightPanel(node);exAnimateEdges(node);document.getElementById('ex-ctx-svcs').style.display='';document.getElementById('ex-how').style.display='none';}
 
-  exApplyVisuals();
-  exHighlightServices(node.services || []);
-  exUpdateRightPanel(node);
-  exAnimateEdges(node);
+function exClearSelection(){EX.selectedNode=null;EX.selectedSvc=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([]);exClearAnimations();exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}
 
-  document.getElementById('ex-ctx-svcs').style.display = '';
-  document.getElementById('ex-how').style.display = 'none';
-}
-
-// ── Clear selection ───────────────────────────────────────────────
-function exClearSelection(){
-  EX.selectedNode = null;
-  EX.selectedSvc  = null;
-  EX.reachableSet = {};
-  exApplyVisuals();
-  exHighlightServices([]);
-  exClearAnimations();
-  exUpdateCtxDefault();
-  document.getElementById('ex-ctx-svcs').style.display = 'none';
-  document.getElementById('ex-how').style.display = '';
-}
-
-// ── Apply visuals to all nodes based on EX state ─────────────────
-// This mutates existing SVG element attributes — no innerHTML wipe.
 function exApplyVisuals(){
-  var hasSel = !!EX.selectedNode;
-  var hasSvc = !!EX.selectedSvc;
-
+  var cats={tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'};
+  var hasSel=!!EX.selectedNode,hasSvc=!!EX.selectedSvc;
   EXD.nodes.forEach(function(n){
-    var refs = EX.els[n.id];
-    if(!refs) return;
-    var catC = EX.catColor[n.cat] || 'rgba(200,146,42,1)';
-
-    var isSel     = EX.selectedNode === n.id;
-    var isReach   = !!EX.reachableSet[n.id];
-    var isSvcHit  = hasSvc && exNodeUsesSvc(n, EX.selectedSvc);
-    var isFocused = EX.catFilter === 'all' || EX.catFilter === n.cat;
-
-    // Opacity of the whole group
+    var refs=EX.els[n.id];if(!refs)return;
+    var catC=cats[n.cat]||'rgba(200,146,42,1)';
+    var isSel=EX.selectedNode===n.id,isReach=!!EX.reachableSet[n.id];
+    var isSvcHit=hasSvc&&n.services&&n.services.indexOf(EX.selectedSvc)>-1;
+    var isFocused=EX.catFilter==='all'||EX.catFilter===n.cat;
     var opacity;
-    if(hasSel){
-      opacity = (isSel || isReach) ? '1' : '0.20';
-    } else if(hasSvc){
-      opacity = isSvcHit ? '1' : '0.20';
-    } else if(EX.catFilter !== 'all'){
-      opacity = isFocused ? '1' : '0.20';
-    } else {
-      opacity = '1';
-    }
-    refs.g.setAttribute('opacity', opacity);
-
-    // Ring colour + width
-    if(isSel){
-      refs.ring.setAttribute('stroke','rgba(60,160,255,.95)');
-      refs.ring.setAttribute('stroke-width','2.5');
-      refs.ring.setAttribute('opacity','1');
-      refs.ring.setAttribute('r','38');
-      refs.bg.setAttribute('fill','#1A2D55');
-    } else if(isReach || isSvcHit){
-      refs.ring.setAttribute('stroke','rgba(200,146,42,.85)');
-      refs.ring.setAttribute('stroke-width','1.8');
-      refs.ring.setAttribute('opacity','0.9');
-      refs.ring.setAttribute('r','37');
-      refs.bg.setAttribute('fill','#131E3A');
-    } else {
-      refs.ring.setAttribute('stroke', catC);
-      refs.ring.setAttribute('stroke-width','0.7');
-      refs.ring.setAttribute('opacity','0.70');
-      refs.ring.setAttribute('r','35');
-      refs.bg.setAttribute('fill','#0C1325');
-    }
-
-    // Glow halo (only on selected)
-    if(isSel){
-      refs.glow.setAttribute('stroke','rgba(60,140,255,.25)');
-      refs.glow.setAttribute('opacity','1');
-      refs.glow.setAttribute('filter','url(#glow-sel)');
-    } else if(isReach || isSvcHit){
-      refs.glow.setAttribute('stroke','rgba(200,146,42,.15)');
-      refs.glow.setAttribute('opacity','0.8');
-      refs.glow.setAttribute('filter','url(#glow-reach)');
-    } else {
-      refs.glow.setAttribute('stroke','rgba(60,140,255,0)');
-      refs.glow.setAttribute('opacity','0');
-      refs.glow.removeAttribute('filter');
-    }
-
-    // Label colour
-    if(isSel){
-      refs.lbl.setAttribute('fill','rgba(255,255,255,1)');
-      refs.lbl.setAttribute('font-weight','700');
-      refs.lbl.setAttribute('font-size','13');
-    } else if(isReach || isSvcHit){
-      refs.lbl.setAttribute('fill','rgba(220,180,100,.95)');
-      refs.lbl.setAttribute('font-weight','600');
-      refs.lbl.setAttribute('font-size','12');
-    } else {
-      refs.lbl.setAttribute('fill','rgba(244,242,238,.82)');
-      refs.lbl.setAttribute('font-weight','500');
-      refs.lbl.setAttribute('font-size','12');
-    }
-  });
-
-  // Also update edges
-  EXD.nodes.forEach(function(n){
-    var edge = document.getElementById('ex-edge-'+n.id);
-    if(!edge) return;
-    var isSel   = EX.selectedNode === n.id;
-    var isReach = !!EX.reachableSet[n.id];
-    var isSvcHit = EX.selectedSvc && exNodeUsesSvc(n, EX.selectedSvc);
-
-    var edgeCatC = {tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'}[n.cat] || 'rgba(200,146,42,1)';
-    if(EX.selectedNode){
-      if(isSel){
-        edge.setAttribute('stroke','rgba(60,160,255,.95)');
-        edge.setAttribute('stroke-width','2.4');
-        edge.setAttribute('opacity','1');
-      } else if(isReach){
-        edge.setAttribute('stroke', edgeCatC);
-        edge.setAttribute('stroke-width','1.6');
-        edge.setAttribute('opacity','0.80');
-      } else {
-        edge.setAttribute('stroke', edgeCatC);
-        edge.setAttribute('stroke-width','0.5');
-        edge.setAttribute('opacity','0.06');
-      }
-    } else if(EX.selectedSvc){
-      if(isSvcHit){
-        edge.setAttribute('stroke', edgeCatC);
-        edge.setAttribute('stroke-width','2.0');
-        edge.setAttribute('opacity','0.85');
-      } else {
-        edge.setAttribute('stroke', edgeCatC);
-        edge.setAttribute('stroke-width','0.5');
-        edge.setAttribute('opacity','0.06');
-      }
-    } else {
-      // Default: category colour at low opacity
-      var defC = {tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chains:'rgba(60,160,255,1)',apps:'rgba(255,165,60,1)'}[n.cat] || 'rgba(200,146,42,1)';
-      edge.setAttribute('stroke', defC);
-      edge.setAttribute('stroke-width','1.0');
-      edge.setAttribute('opacity','0.35');
-    }
+    if(hasSel){opacity=(isSel||isReach)?'1':'0.20';}
+    else if(hasSvc){opacity=isSvcHit?'1':'0.20';}
+    else if(EX.catFilter!=='all'){opacity=isFocused?'1':'0.20';}
+    else{opacity='1';}
+    refs.g.setAttribute('opacity',opacity);
+    if(isSel){refs.ring.setAttribute('stroke','rgba(60,160,255,.95)');refs.ring.setAttribute('stroke-width','2.5');refs.ring.setAttribute('opacity','1');refs.ring.setAttribute('r','38');refs.bg.setAttribute('fill','#1A2D55');refs.glow.setAttribute('stroke','rgba(60,140,255,.25)');refs.glow.setAttribute('opacity','1');refs.glow.setAttribute('filter','url(#glow-sel)');refs.lbl.setAttribute('fill','rgba(255,255,255,1)');refs.lbl.setAttribute('font-weight','700');refs.lbl.setAttribute('font-size','14');}
+    else if(isReach||isSvcHit){refs.ring.setAttribute('stroke','rgba(200,146,42,.85)');refs.ring.setAttribute('stroke-width','1.8');refs.ring.setAttribute('opacity','0.9');refs.ring.setAttribute('r','37');refs.bg.setAttribute('fill','#131E3A');refs.glow.setAttribute('stroke','rgba(200,146,42,.15)');refs.glow.setAttribute('opacity','0.8');refs.glow.setAttribute('filter','url(#glow-reach)');refs.lbl.setAttribute('fill','rgba(220,180,100,.95)');refs.lbl.setAttribute('font-weight','600');refs.lbl.setAttribute('font-size','13');}
+    else{refs.ring.setAttribute('stroke',catC);refs.ring.setAttribute('stroke-width','0.7');refs.ring.setAttribute('opacity','0.70');refs.ring.setAttribute('r','35');refs.bg.setAttribute('fill','#0C1325');refs.glow.setAttribute('stroke','rgba(60,140,255,0)');refs.glow.setAttribute('opacity','0');refs.glow.removeAttribute('filter');refs.lbl.setAttribute('fill','rgba(244,242,238,.95)');refs.lbl.setAttribute('font-weight','500');refs.lbl.setAttribute('font-size','13');}
+    var edge=document.getElementById('ex-edge-'+n.id);if(!edge)return;
+    var ec=cats[n.cat]||'rgba(200,146,42,1)';
+    if(EX.selectedNode){if(isSel){edge.setAttribute('stroke','rgba(60,160,255,.95)');edge.setAttribute('stroke-width','2.4');edge.setAttribute('opacity','1');}else if(isReach){edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','1.6');edge.setAttribute('opacity','0.80');}else{edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','0.5');edge.setAttribute('opacity','0.06');}}
+    else if(EX.selectedSvc){if(isSvcHit){edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','2.0');edge.setAttribute('opacity','0.85');}else{edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','0.5');edge.setAttribute('opacity','0.06');}}
+    else{edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','1.0');edge.setAttribute('opacity','0.35');}
   });
 }
 
-function exNodeUsesSvc(node, svcName){
-  return node.services && node.services.indexOf(svcName) > -1;
-}
+function exAnimateEdges(node){exClearAnimations();var ag=document.getElementById('ex-anims');if(!ag)return;var ns='http://www.w3.org/2000/svg';var px=node.x*EX.W,py=node.y*EX.H,cx=EX.CX,cy=EX.CY;function mkP(x1,y1,x2,y2,r,fill,dur,delay){var c=document.createElementNS(ns,'circle');c.setAttribute('r',r);c.setAttribute('fill',fill);c.setAttribute('pointer-events','none');function anim(a,f,t){var an=document.createElementNS(ns,'animate');an.setAttribute('attributeName',a);an.setAttribute('from',f);an.setAttribute('to',t);an.setAttribute('dur',dur+'s');an.setAttribute('repeatCount','indefinite');an.setAttribute('begin',delay+'s');c.appendChild(an);}anim('cx',x1,x2);anim('cy',y1,y2);var ao=document.createElementNS(ns,'animate');ao.setAttribute('attributeName','opacity');ao.setAttribute('values','0;1;1;0');ao.setAttribute('keyTimes','0;0.08;0.88;1');ao.setAttribute('dur',dur+'s');ao.setAttribute('repeatCount','indefinite');ao.setAttribute('begin',delay+'s');c.appendChild(ao);ag.appendChild(c);}mkP(px,py,cx,cy,3.5,'rgba(80,160,255,.95)',1.4,0);mkP(px,py,cx,cy,2.5,'rgba(80,160,255,.7)',1.4,0.7);var delay=0.1;if(node.reachable)node.reachable.forEach(function(rid){var rn=EXD.nodes.filter(function(x){return x.id===rid;})[0];if(!rn)return;mkP(cx,cy,rn.x*EX.W,rn.y*EX.H,2.5,'rgba(200,146,42,.8)',2.0,delay);delay+=0.15;});}
+function exClearAnimations(){var ag=document.getElementById('ex-anims');if(ag)ag.innerHTML='';}
 
-// ── Animate edges: particles along selected + reachable edges ─────
-function exAnimateEdges(node){
-  exClearAnimations();
-  var ag = document.getElementById('ex-anims');
-  if(!ag) return;
-  var ns = 'http://www.w3.org/2000/svg';
-  var px = node.x * EX.W, py = node.y * EX.H;
-  var cx = EX.CX, cy = EX.CY;
-
-  function mkParticle(x1,y1,x2,y2,r,fill,dur,delay){
-    var c = document.createElementNS(ns,'circle');
-    c.setAttribute('r',r); c.setAttribute('fill',fill); c.setAttribute('pointer-events','none');
-    var ax = document.createElementNS(ns,'animate');
-    ax.setAttribute('attributeName','cx'); ax.setAttribute('from',x1); ax.setAttribute('to',x2);
-    ax.setAttribute('dur',dur+'s'); ax.setAttribute('repeatCount','indefinite'); ax.setAttribute('begin',delay+'s');
-    var ay = document.createElementNS(ns,'animate');
-    ay.setAttribute('attributeName','cy'); ay.setAttribute('from',y1); ay.setAttribute('to',y2);
-    ay.setAttribute('dur',dur+'s'); ay.setAttribute('repeatCount','indefinite'); ay.setAttribute('begin',delay+'s');
-    var ao = document.createElementNS(ns,'animate');
-    ao.setAttribute('attributeName','opacity'); ao.setAttribute('values','0;1;1;0');
-    ao.setAttribute('keyTimes','0;0.08;0.88;1'); ao.setAttribute('dur',dur+'s');
-    ao.setAttribute('repeatCount','indefinite'); ao.setAttribute('begin',delay+'s');
-    c.appendChild(ax); c.appendChild(ay); c.appendChild(ao);
-    ag.appendChild(c);
-  }
-
-  // Selected → Chainlink (blue, inward)
-  mkParticle(px,py,cx,cy, 3.5, 'rgba(80,160,255,.95)', 1.4, 0);
-  mkParticle(px,py,cx,cy, 2.5, 'rgba(80,160,255,.7)',  1.4, 0.7);
-
-  // Chainlink → reachable nodes (gold, outward, staggered)
-  var delay = 0.1;
-  if(node.reachable) node.reachable.forEach(function(rid){
-    var rn = EXD.nodes.filter(function(x){ return x.id===rid; })[0];
-    if(!rn) return;
-    var rx = rn.x * EX.W, ry = rn.y * EX.H;
-    mkParticle(cx,cy,rx,ry, 2.5, 'rgba(200,146,42,.8)', 2.0, delay);
-    delay += 0.15;
-  });
-}
-
-function exClearAnimations(){
-  var ag = document.getElementById('ex-anims');
-  if(ag) ag.innerHTML = '';
-}
-
-// ── Right panel: node view ────────────────────────────────────────
 function exUpdateRightPanel(node){
-  var conn = EXD.connections[node.id] || {};
-  var svcs = conn.services || node.services || [];
-  var catNames = {tradfi:'TRADITIONAL FINANCE',assets:'DIGITAL ASSETS',chains:'BLOCKCHAIN',apps:'APPLICATION'};
-
-  // Zone 1: header
-  document.getElementById('ex-ctx-eyebrow').textContent = catNames[node.cat] || '';
-  document.getElementById('ex-ctx-title').textContent   = node.label.replace('\n',' ');
-  document.getElementById('ex-ctx-body').textContent    = node.role || node.desc || '';
-
-  // Path chip
-  var tagsEl = document.getElementById('ex-ctx-tags');
-  tagsEl.innerHTML = '';
-  var reachCount = node.reachable ? node.reachable.length : 0;
-  if(reachCount){
-    var chip = document.createElement('div');
-    chip.style.cssText = 'font-size:10px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono);letter-spacing:.04em';
-    chip.textContent = node.label.replace('\n',' ') + ' \u2192 Chainlink \u2192 ' + reachCount + ' systems';
-    tagsEl.appendChild(chip);
-  }
-
-  // Zone 2: scroll content
-  var sl = document.getElementById('ex-ctx-svcs');
-  sl.innerHTML = '';
-
-  function section(label, color){
-    var h = document.createElement('div');
-    h.style.cssText = 'font-size:9px;letter-spacing:.16em;color:'+color+';margin-bottom:8px;margin-top:14px';
-    h.textContent = label;
-    sl.appendChild(h);
-  }
-  function divider(){ var d=document.createElement('div'); d.style.cssText='height:.5px;background:rgba(255,255,255,.06);margin:2px 0 2px'; sl.appendChild(d); }
-
-  // HOW CHAINLINK HELPS
-  var helpText = node.chainlinkRole || node.explanation || '';
-  if(helpText){
-    section('HOW CHAINLINK HELPS','rgba(200,146,42,.6)');
-    var hb = document.createElement('div');
-    hb.style.cssText = 'font-size:clamp(12px,.9vw,13px);color:rgba(244,242,238,.68);line-height:1.75;margin-bottom:4px';
-    hb.textContent = helpText;
-    sl.appendChild(hb);
-    divider();
-  }
-
-  // SERVICES USED
+  var conn=EXD.connections[node.id]||{};
+  var svcs=conn.services||node.services||[];
+  var catN={tradfi:'TRADITIONAL FINANCE',assets:'DIGITAL ASSETS',chains:'BLOCKCHAIN',apps:'APPLICATION'};
+  document.getElementById('ex-ctx-eyebrow').textContent=catN[node.cat]||'';
+  document.getElementById('ex-ctx-title').textContent=node.label.split('\n').join(' ');
+  document.getElementById('ex-ctx-body').textContent=node.role||node.desc||'';
+  var te=document.getElementById('ex-ctx-tags');te.innerHTML='';
+  var rc=node.reachable?node.reachable.length:0;
+  if(rc){var chip=document.createElement('div');chip.style.cssText='font-size:10px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';chip.textContent=node.label.split('\n').join(' ')+' \u2192 Chainlink \u2192 '+rc+' systems';te.appendChild(chip);}
+  var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
+  function sec(l,c){var h=document.createElement('div');h.style.cssText='font-size:9px;letter-spacing:.16em;color:'+c+';margin-bottom:8px;margin-top:14px';h.textContent=l;sl.appendChild(h);}
+  var help=node.chainlinkRole||node.explanation||'';
+  if(help){sec('HOW CHAINLINK HELPS','rgba(200,146,42,.6)');var hb=document.createElement('div');hb.style.cssText='font-size:13px;color:rgba(244,242,238,.68);line-height:1.75;margin-bottom:4px';hb.textContent=help;sl.appendChild(hb);}
   if(svcs.length){
-    section('CHAINLINK SERVICES USED','rgba(200,146,42,.65)');
-    svcs.forEach(function(s){
-      var row = document.createElement('div');
-      row.style.cssText = 'display:flex;align-items:center;gap:9px;padding:6px 10px;background:rgba(30,50,120,.2);border:.5px solid rgba(100,140,255,.15);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';
-      row.innerHTML = '<div style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.8"></div>'
-                    + '<div style="font-size:clamp(11px,.9vw,13px);color:rgba(244,242,238,.92);font-weight:500">'+s+'</div>';
-      row.addEventListener('mouseenter',function(){ row.style.background='rgba(30,50,120,.4)'; });
-      row.addEventListener('mouseleave',function(){ row.style.background='rgba(30,50,120,.2)'; });
-      (function(svcName){ row.addEventListener('click',function(e){ e.stopPropagation(); exClickService(svcName); }); })(s);
-      sl.appendChild(row);
-    });
-    divider();
+    sec('CHAINLINK SERVICES USED','rgba(200,146,42,.65)');
+    svcs.forEach(function(s){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:6px 10px;background:rgba(30,50,120,.2);border:.5px solid rgba(100,140,255,.15);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';row.innerHTML='<div style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.8"></div><div style="font-size:13px;color:rgba(244,242,238,.92);font-weight:500">'+s+'</div>';row.addEventListener('mouseenter',function(){row.style.background='rgba(30,50,120,.4)';});row.addEventListener('mouseleave',function(){row.style.background='rgba(30,50,120,.2)';});(function(sn){row.addEventListener('click',function(e){e.stopPropagation();exClickService(sn);});})(s);sl.appendChild(row);});
   }
-
-  // CONNECTED THROUGH CHAINLINK
-  if(node.reachable && node.reachable.length){
-    section('CONNECTED THROUGH CHAINLINK','rgba(60,160,255,.65)');
-    var catOrder = ['tradfi','assets','chains','apps'];
-    var catFullNames = {tradfi:'Traditional Finance',assets:'Digital Assets',chains:'Blockchains',apps:'Applications'};
-    var groups = {}; catOrder.forEach(function(c){ groups[c]=[]; });
-    node.reachable.forEach(function(rid){
-      var rn = EXD.nodes.filter(function(x){ return x.id===rid; })[0];
-      if(rn && groups[rn.cat]) groups[rn.cat].push(rn);
-    });
-    catOrder.forEach(function(cat){
-      if(!groups[cat].length) return;
-      var catLbl = document.createElement('div');
-      catLbl.style.cssText = 'font-size:9px;letter-spacing:.09em;color:rgba(244,242,238,.22);margin:6px 0 4px';
-      catLbl.textContent = catFullNames[cat].toUpperCase();
-      sl.appendChild(catLbl);
-      var row = document.createElement('div');
-      row.style.cssText = 'display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px';
-      groups[cat].forEach(function(rn){
-        var chip = document.createElement('div');
-        chip.style.cssText = 'font-size:clamp(10px,.8vw,12px);padding:4px 9px;background:rgba(20,40,100,.3);border:.5px solid rgba(60,160,255,.2);border-radius:3px;color:rgba(244,242,238,.78);cursor:pointer;transition:all .15s;font-weight:500';
-        chip.textContent = rn.label.replace('\n',' ');
-        chip.addEventListener('mouseenter',function(){ chip.style.background='rgba(20,40,130,.55)'; chip.style.color='#fff'; });
-        chip.addEventListener('mouseleave',function(){ chip.style.background='rgba(20,40,100,.3)'; chip.style.color='rgba(244,242,238,.78)'; });
-        (function(r){ chip.addEventListener('click',function(e){ e.stopPropagation(); exSelectNode(r); }); })(rn);
-        row.appendChild(chip);
-      });
-      sl.appendChild(row);
-    });
-    divider();
+  if(node.reachable&&node.reachable.length){
+    sec('CONNECTED THROUGH CHAINLINK','rgba(60,160,255,.65)');
+    var co=['tradfi','assets','chains','apps'],cf={tradfi:'Traditional Finance',assets:'Digital Assets',chains:'Blockchains',apps:'Applications'};
+    var groups={};co.forEach(function(c){groups[c]=[];});node.reachable.forEach(function(rid){var rn=EXD.nodes.filter(function(x){return x.id===rid;})[0];if(rn&&groups[rn.cat])groups[rn.cat].push(rn);});
+    co.forEach(function(cat){if(!groups[cat].length)return;var cl=document.createElement('div');cl.style.cssText='font-size:9px;letter-spacing:.09em;color:rgba(244,242,238,.22);margin:6px 0 4px';cl.textContent=cf[cat].toUpperCase();sl.appendChild(cl);var row=document.createElement('div');row.style.cssText='display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px';groups[cat].forEach(function(rn){var ch=document.createElement('div');ch.style.cssText='font-size:12px;padding:4px 9px;background:rgba(20,40,100,.3);border:.5px solid rgba(60,160,255,.2);border-radius:3px;color:rgba(244,242,238,.78);cursor:pointer;transition:all .15s;font-weight:500';ch.textContent=rn.label.split('\n').join(' ');ch.addEventListener('mouseenter',function(){ch.style.background='rgba(20,40,130,.55)';ch.style.color='#fff';});ch.addEventListener('mouseleave',function(){ch.style.background='rgba(20,40,100,.3)';ch.style.color='rgba(244,242,238,.78)';});(function(r){ch.addEventListener('click',function(e){e.stopPropagation();exSelectNode(r);});})(rn);row.appendChild(ch);});sl.appendChild(row);});
   }
-
-  // EXAMPLES
-  if(node.examples && node.examples.length){
-    section('REAL EXAMPLES','rgba(244,242,238,.22)');
-    var er = document.createElement('div'); er.style.cssText='display:flex;flex-wrap:wrap;gap:4px';
-    node.examples.forEach(function(ex){
-      var tag = document.createElement('span');
-      tag.style.cssText='font-size:clamp(10px,.75vw,11px);padding:2px 8px;background:rgba(200,146,42,.06);border:.5px solid rgba(200,146,42,.2);border-radius:2px;color:rgba(200,146,42,.7)';
-      tag.textContent = ex; er.appendChild(tag);
-    });
-    sl.appendChild(er);
-  }
-
-  sl.style.display = '';
-  var scrollEl = document.getElementById('ex-ctx-scroll');
-  if(scrollEl) scrollEl.scrollTop = 0;
-  setTimeout(exCheckScrollFade, 60);
+  sl.style.display='';var sc=document.getElementById('ex-ctx-scroll');if(sc)sc.scrollTop=0;setTimeout(exCheckScrollFade,60);
 }
 
-// ── Right panel: default state ────────────────────────────────────
-function exUpdateCtxDefault(){
-  document.getElementById('ex-ctx-eyebrow').textContent = 'EXPLORER';
-  document.getElementById('ex-ctx-title').textContent   = 'Chainlink connects every layer of the global financial system.';
-  document.getElementById('ex-ctx-body').textContent    = 'Click any node to see how Chainlink powers the connections between systems.';
-  document.getElementById('ex-ctx-tags').innerHTML      = '';
-  setTimeout(exCheckScrollFade, 60);
-}
+function exUpdateCtxDefault(){document.getElementById('ex-ctx-eyebrow').textContent='EXPLORER';document.getElementById('ex-ctx-title').textContent='Chainlink connects every layer of the global financial system.';document.getElementById('ex-ctx-body').textContent='Click any node to see how Chainlink powers the connections between systems.';document.getElementById('ex-ctx-tags').innerHTML='';setTimeout(exCheckScrollFade,60);}
 
-// ── Service clicked (left panel) ──────────────────────────────────
 function exClickService(svcName){
-  console.log('[Explorer] service clicked:', svcName);
-  exClearAnimations(); // always stop any running animation immediately
-  if(EX.selectedSvc === svcName){
-    EX.selectedSvc  = null;
-    EX.selectedNode = null;
-    EX.reachableSet = {};
-    exApplyVisuals();
-    exHighlightServices([]);
-    exClearAnimations();
-    exUpdateCtxDefault();
-    document.getElementById('ex-ctx-svcs').style.display = 'none';
-    document.getElementById('ex-how').style.display = '';
-    return;
-  }
-  EX.selectedSvc  = svcName;
-  EX.selectedNode = null;
-  EX.reachableSet = {};
-  exApplyVisuals();
-  exHighlightServices([svcName]);  // highlight just this service
-
-  // Right panel: service explanation
-  document.getElementById('ex-ctx-eyebrow').textContent = 'CHAINLINK SERVICE';
-  document.getElementById('ex-ctx-title').textContent   = svcName;
-  var svcDesc = (EXD.serviceInfo && EXD.serviceInfo[svcName]) || ('Chainlink ' + svcName + ' service.');
-  document.getElementById('ex-ctx-body').textContent = svcDesc;
-  var tagsEl = document.getElementById('ex-ctx-tags');
-  tagsEl.innerHTML = '';
-  var matchNodes = EXD.nodes.filter(function(n){ return exNodeUsesSvc(n, svcName); });
-  var chip = document.createElement('div');
-  chip.style.cssText = 'font-size:10px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';
-  chip.textContent = matchNodes.length + ' systems use this service';
-  tagsEl.appendChild(chip);
-
-  var sl = document.getElementById('ex-ctx-svcs');
-  sl.innerHTML = '';
-  var hdr = document.createElement('div');
-  hdr.style.cssText = 'font-size:9px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';
-  hdr.textContent = 'ECOSYSTEM USING ' + svcName.toUpperCase();
-  sl.appendChild(hdr);
-
-  var catColors={tradfi:'rgba(200,146,42,.7)',assets:'rgba(160,100,255,.7)',chains:'rgba(60,160,255,.7)',apps:'rgba(255,165,60,.7)'};
-  matchNodes.forEach(function(n){
-    var row = document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:9px;padding:7px 10px;background:rgba(20,35,80,.2);border:.5px solid rgba(100,140,255,.1);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';
-    row.innerHTML='<div style="width:5px;height:5px;border-radius:50%;background:'+(catColors[n.cat]||'rgba(200,146,42,.7)')+';flex-shrink:0"></div>'
-      +'<div style="font-size:clamp(11px,.9vw,13px);color:rgba(244,242,238,.88);font-weight:500">'+n.label.replace('\n',' ')+'</div>'
-      +'<div style="font-size:9px;color:rgba(244,242,238,.28);margin-left:auto;letter-spacing:.05em">'+({tradfi:'TRADFI',assets:'ASSETS',chains:'CHAIN',apps:'APP'}[n.cat]||'')+'</div>';
-    row.addEventListener('mouseenter',function(){ row.style.background='rgba(30,50,120,.35)'; });
-    row.addEventListener('mouseleave',function(){ row.style.background='rgba(20,35,80,.2)'; });
-    (function(selNode){ row.addEventListener('click',function(){ exSelectNode(selNode); }); })(n);
-    sl.appendChild(row);
-  });
-  sl.style.display = '';
-  document.getElementById('ex-how').style.display = 'none';
-  var scrollEl = document.getElementById('ex-ctx-scroll');
-  if(scrollEl) scrollEl.scrollTop = 0;
-  setTimeout(exCheckScrollFade, 60);
+  console.log('[Explorer] service:',svcName);exClearAnimations();
+  if(EX.selectedSvc===svcName){EX.selectedSvc=null;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';return;}
+  EX.selectedSvc=svcName;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([svcName]);
+  document.getElementById('ex-ctx-eyebrow').textContent='CHAINLINK SERVICE';
+  document.getElementById('ex-ctx-title').textContent=svcName;
+  var sd=(EXD.serviceInfo&&EXD.serviceInfo[svcName])||('Chainlink '+svcName);
+  document.getElementById('ex-ctx-body').textContent=sd;
+  var te=document.getElementById('ex-ctx-tags');te.innerHTML='';
+  var mn=EXD.nodes.filter(function(n){return n.services&&n.services.indexOf(svcName)>-1;});
+  var ch=document.createElement('div');ch.style.cssText='font-size:10px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';ch.textContent=mn.length+' systems use this service';te.appendChild(ch);
+  var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
+  var hd=document.createElement('div');hd.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';hd.textContent='ECOSYSTEM USING '+svcName.toUpperCase();sl.appendChild(hd);
+  var cc={tradfi:'rgba(200,146,42,.7)',assets:'rgba(160,100,255,.7)',chains:'rgba(60,160,255,.7)',apps:'rgba(255,165,60,.7)'};
+  mn.forEach(function(n){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:7px 10px;background:rgba(20,35,80,.2);border:.5px solid rgba(100,140,255,.1);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';row.innerHTML='<div style="width:5px;height:5px;border-radius:50%;background:'+(cc[n.cat]||'rgba(200,146,42,.7)')+';flex-shrink:0"></div><div style="font-size:13px;color:rgba(244,242,238,.88);font-weight:500">'+n.label.split('\n').join(' ')+'</div><div style="font-size:9px;color:rgba(244,242,238,.28);margin-left:auto">'+({tradfi:'TRADFI',assets:'ASSETS',chains:'CHAIN',apps:'APP'}[n.cat]||'')+'</div>';row.addEventListener('mouseenter',function(){row.style.background='rgba(30,50,120,.35)';});row.addEventListener('mouseleave',function(){row.style.background='rgba(20,35,80,.2)';});(function(sn){row.addEventListener('click',function(){exSelectNode(sn);});})(n);sl.appendChild(row);});
+  sl.style.display='';document.getElementById('ex-how').style.display='none';var sc=document.getElementById('ex-ctx-scroll');if(sc)sc.scrollTop=0;setTimeout(exCheckScrollFade,60);
 }
 
-// ── Highlight services in left panel ─────────────────────────────
-function exHighlightServices(serviceNames){
-  document.querySelectorAll('.ex-svc').forEach(function(el){
-    el.classList.remove('active-svc','svc-filtered');
-  });
-  if(!serviceNames || !serviceNames.length) return;
-  EXD.chainlinkServices.forEach(function(svc){
-    if(serviceNames.indexOf(svc.name) > -1){
-      var el = document.getElementById('ex-svc-'+svc.id);
-      if(el) el.classList.add('active-svc');
-    }
-  });
-}
+function exHighlightServices(svcNames){document.querySelectorAll('.ex-svc').forEach(function(el){el.classList.remove('active-svc','svc-filtered');});if(!svcNames||!svcNames.length)return;EXD.chainlinkServices.forEach(function(svc){if(svcNames.indexOf(svc.name)>-1){var el=document.getElementById('ex-svc-'+svc.id);if(el)el.classList.add('active-svc');}});}
 
-// ── Tab filter ────────────────────────────────────────────────────
-function exBindTabFilter(){
-  document.querySelectorAll('.ex-filter').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      EX.catFilter = btn.dataset.cat || 'all';
-      document.querySelectorAll('.ex-filter').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      exClearSelection();
-    });
-  });
-}
+function exBindTabFilter(){document.querySelectorAll('.ex-filter').forEach(function(btn){btn.addEventListener('click',function(){EX.catFilter=btn.dataset.cat||'all';document.querySelectorAll('.ex-filter').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');exClearSelection();});});}
 
-// ── Scroll fade ───────────────────────────────────────────────────
-function exCheckScrollFade(){
-  var wrap   = document.getElementById('ex-ctx-scroll-wrap');
-  var scroll = document.getElementById('ex-ctx-scroll');
-  if(!wrap || !scroll) return;
-  var hasOverflow = scroll.scrollHeight > scroll.clientHeight + 4;
-  if(hasOverflow){ wrap.classList.add('can-scroll'); } else { wrap.classList.remove('can-scroll'); }
-  scroll.onscroll = function(){
-    var atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 8;
-    if(!atBottom && scroll.scrollHeight > scroll.clientHeight+4){ wrap.classList.add('can-scroll'); }
-    else { wrap.classList.remove('can-scroll'); }
-  };
-}
+function exCheckScrollFade(){var wrap=document.getElementById('ex-ctx-scroll-wrap'),scroll=document.getElementById('ex-ctx-scroll');if(!wrap||!scroll)return;if(scroll.scrollHeight>scroll.clientHeight+4){wrap.classList.add('can-scroll');}else{wrap.classList.remove('can-scroll');}scroll.onscroll=function(){var atB=scroll.scrollTop+scroll.clientHeight>=scroll.scrollHeight-8;if(!atB&&scroll.scrollHeight>scroll.clientHeight+4){wrap.classList.add('can-scroll');}else{wrap.classList.remove('can-scroll');}};}
 
-// ── Legacy stubs (called from old HTML) ──────────────────────────
-function exFilter(cat){ EX.catFilter=cat; exClearSelection(); }
-function exRender(){ exApplyVisuals(); }
-function exSvcFilter(s){ exClickService(s); }
+function exFilter(cat){EX.catFilter=cat;exClearSelection();}
+function exRender(){exApplyVisuals();}
+function exSvcFilter(s){exClickService(s);}
 
+var ALL_PAGES=['home','infographics','videos','art','about','contact'];
+function showPage(page,filter){ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p),nl=document.getElementById('nl-'+p);if(el)el.classList.toggle('active',p===page);if(nl)nl.classList.toggle('active',p===page);});window.scrollTo(0,0);if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}if(page==='art')buildArt();if(page==='videos')buildVideosPage();}
 
-// ── routing ──
-var ALL_PAGES = ['home','infographics','videos','art','about','contact'];
-function showPage(page, filter) {
-  ALL_PAGES.forEach(function(p) {
-    var el = document.getElementById('page-' + p);
-    var nl = document.getElementById('nl-' + p);
-    if (el) el.classList.toggle('active', p === page);
-    if (nl) nl.classList.toggle('active', p === page);
-  });
-  window.scrollTo(0, 0);
-  if (page === 'infographics') { buildFilterBar(); buildLibrary(filter || 'All'); }
-  if (page === 'art')          { buildArt(); }
-  if (page === 'videos')       { buildVideosPage(); }
-}
-
-// ── init ──
 buildFeatured();
 buildArt();
 buildHomeVideos();
 exInit();
+
 </script>
 </body>
 </html>
