@@ -449,9 +449,9 @@ nav{
   width:100%;
   /* Total height = viewport minus nav. The filterbar and hint bar
      are inside, so the three columns fill the remaining space. */
-  height:760px;
-  max-height:760px;
-  min-height:580px;
+  height:680px;
+  max-height:85vh;
+  min-height:540px;
   display:flex;
   flex-direction:column;
   background:linear-gradient(170deg,#050A18 0%,#060C1C 40%,#070E20 70%,#050912 100%);
@@ -494,11 +494,14 @@ nav{
 
 /* ── Three-column body: fills all remaining height in shell ── */
 .ex-body{
-  flex:1;           /* takes all height not used by filterbar + hint */
-  min-height:0;     /* critical: allows flex child to shrink below content size */
+  flex:1;
+  min-height:0;
   display:grid;
   grid-template-columns:clamp(130px,10vw,170px) 1fr clamp(160px,14vw,210px);
+  grid-template-rows:1fr;        /* single row = exactly ex-body height */
   overflow:hidden;
+  height:100%;                   /* fill the flex parent completely */
+  align-items:stretch;           /* all cells stretch to row height */
 }
 
 /* ── Left panel: service filters ── */
@@ -507,7 +510,8 @@ nav{
   padding:clamp(14px,1.4vw,20px) clamp(12px,1.2vw,18px);
   display:flex;flex-direction:column;gap:2px;
   overflow-y:auto;scrollbar-width:none;
-  height:100%;
+  min-height:0;                  /* constrain to grid row */
+  max-height:100%;
 }
 .ex-services::-webkit-scrollbar{display:none}
 .ex-svc-header{
@@ -561,9 +565,11 @@ nav{
 /* ── Centre: SVG canvas fills its cell exactly ── */
 .ex-canvas{
   position:relative;
-  height:100%;
-  overflow:visible; /* allow SVG labels at edges to show */
+  min-height:0;                  /* allow grid cell to constrain height */
+  overflow:visible;
   pointer-events:auto;
+  display:flex;
+  align-items:stretch;
 }
 .ex-svg{width:100%;height:100%;display:block}
 
@@ -573,8 +579,9 @@ nav{
   background:rgba(4,6,16,.4);
   display:flex;
   flex-direction:column;
-  height:100%;    /* fills the grid row */
-  overflow:hidden; /* children handle their own scroll */
+  min-height:0;                  /* constrain to grid row */
+  max-height:100%;
+  overflow:hidden;
 }
 
 /* Zone 1: Header — fixed, never scrolls */
@@ -1450,8 +1457,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <div class="ex-canvas" id="ex-canvas">
         <svg class="ex-svg" id="ex-svg"
           width="100%" height="100%"
-          viewBox="0 0 900 680"
-          preserveAspectRatio="xMidYMid meet"
+          viewBox="-20 -10 940 720"
+          preserveAspectRatio="xMidYMin meet"
           style="display:block;overflow:visible"></svg>
       </div>
 
@@ -1511,13 +1518,13 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
     </div><!-- /ex-body -->
 
-    <!-- Bottom hint -->
-    <div class="ex-hint">
-      <span class="ex-hint-icon">ⓘ</span>
-      Click any node to see how Chainlink powers the connections between systems.
-    </div>
-
   </div><!-- /ex-shell -->
+
+  <!-- Explorer bottom hint — OUTSIDE the shell so it doesn't steal canvas height -->
+  <div class="ex-hint">
+    <span class="ex-hint-icon">ⓘ</span>
+    Click any node to see how Chainlink powers the connections between systems.
+  </div>
 
   <!-- Tooltip (shared) -->
 
