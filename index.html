@@ -1445,7 +1445,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <div class="ex-canvas" id="ex-canvas">
         <svg class="ex-svg" id="ex-svg"
           width="100%" height="100%"
-          viewBox="0 0 700 600"
+          viewBox="0 0 700 660"
           preserveAspectRatio="xMidYMid meet"
           style="display:block;overflow:visible"></svg>
       </div>
@@ -2201,27 +2201,27 @@ var EXD = {
       connects:['chainlink'],chainlinkRole:'Chainlink aggregates market data from 16+ premium institutional providers through decentralized node networks, delivering tamper-proof price feeds that power every onchain financial product.',reachable:['aave','gmx','lido','ondo','tkfunds','rwas']},
 
     // BLOCKCHAINS — lower arc, tighter
-    {id:'ethereum', cat:'chains',  label:'Ethereum',        icon:'◆', logo:'assets/logos/ethereum.png', x:0.07, y:0.87,
+    {id:'ethereum', cat:'chains',  label:'Ethereum',        icon:'◆', logo:'assets/logos/ethereum.png', x:0.04, y:0.88,
       desc:'Dominant institutional L1. Most tokenised funds and RWAs launch here first.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       explanation:'Chainlink is the oracle standard on Ethereum, enabling DeFi, institutional products, and cross-chain settlement.',
       role:'Dominant institutional smart contract platform.',enables:['Oracle price feeds','Cross-chain messaging','Automated settlement'],examples:['BlackRock BUIDL','Franklin FOBXX','Ondo OUSG'],status:'live',connects:['chainlink'],chainlinkRole:'Chainlink is the oracle and cross-chain messaging standard on Ethereum — providing price data for every DeFi protocol, CCIP messaging between Ethereum and all other chains, and Automation for institutional settlement.',reachable:['base','arbitrum','aave','lido','ondo','gmx','securitize','stablecoins','rwas']},
-    {id:'base',     cat:'chains',  label:'Base',            icon:'◇', logo:'assets/logos/base.png', x:0.19, y:0.92,
+    {id:'base',     cat:'chains',  label:'Base',            icon:'◇', logo:'assets/logos/base.png', x:0.16, y:0.92,
       desc:"Coinbase's Ethereum L2. Growing institutional adoption for tokenised asset flows.",
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       explanation:'Chainlink CCIP and Data Feeds enable Base to connect with other chains and access real-world financial data.',
       status:'live',connects:['chainlink'],chainlinkRole:'Chainlink CCIP and Data Feeds give Base full connectivity to the broader financial ecosystem — enabling stablecoin flows, tokenized asset distribution, and cross-chain DeFi from Coinbase\'s L2.',reachable:['ethereum','arbitrum','aave','stablecoins']},
-    {id:'solana',   cat:'chains',  label:'Solana',          icon:'◆', logo:'assets/logos/solana.png', x:0.31, y:0.88,
+    {id:'solana',   cat:'chains',  label:'Solana',          icon:'◆', logo:'assets/logos/solana.png', x:0.29, y:0.95,
       desc:'High-performance L1 for stablecoin payments and high-throughput settlement.',
       services:['Data Streams','CCIP'],
       explanation:'Chainlink provides oracle services and cross-chain connectivity to integrate Solana into the global financial stack.',
       status:'live',connects:['chainlink'],chainlinkRole:'Chainlink provides oracle price feeds and CCIP cross-chain connectivity for Solana — integrating high-throughput payment and settlement infrastructure with the broader institutional blockchain ecosystem.',reachable:['ethereum','stablecoins','mastercard']},
-    {id:'avalanche',cat:'chains',  label:'Avalanche',       icon:'◆', logo:'assets/logos/avalanche.png', x:0.44, y:0.93,
+    {id:'avalanche',cat:'chains',  label:'Avalanche',       icon:'◆', logo:'assets/logos/avalanche.png', x:0.53, y:0.92,
       desc:'Institutional Subnets for compliance-configured blockchain environments.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       explanation:'Chainlink connects Avalanche Subnets to the global financial system via CCIP and provides real-world data feeds.',
       status:'live',connects:['chainlink'],chainlinkRole:'Chainlink connects Avalanche institutional Subnets to the global financial stack — providing verified data feeds and CCIP messaging for compliance-configured blockchain environments targeting tokenized assets.',reachable:['ethereum','swift','cbanks','stablecoins']},
-    {id:'arbitrum', cat:'chains',  label:'Arbitrum',        icon:'◇', logo:'assets/logos/arbitrum.png', x:0.44, y:0.8,
+    {id:'arbitrum', cat:'chains',  label:'Arbitrum',        icon:'◇', logo:'assets/logos/arbitrum.png', x:0.64, y:0.86,
       desc:'Leading Ethereum L2 by TVL. Full Chainlink CCIP and oracle integration.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       explanation:'Chainlink powers DeFi and institutional settlement on Arbitrum through oracles, automation, and cross-chain messaging.',
@@ -2231,27 +2231,27 @@ var EXD = {
       services:['CCIP','Data Feeds'],
       explanation:'Chainlink connects XRPL to the broader blockchain ecosystem for cross-chain asset movement and verified data.',
       status:'future',connects:['chainlink'],chainlinkRole:'Chainlink connects XRPL to the broader blockchain ecosystem through CCIP and provides verified price data — enabling enterprise payments and asset issuance on XRPL to interact with DeFi and institutional protocols.',reachable:['swift','cbanks','stablecoins','ethereum']},
-    {id:'stellar',  cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png', x:0.55, y:0.75,
+    {id:'stellar',  cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png', x:0.52, y:0.73,
       desc:'Blockchain network focused on cross-border payments, stablecoin settlement, and asset tokenization.',
       services:['Data Feeds','Data Streams','CCIP'],
       chainlinkRole:"Chainlink enables Stellar-based payment and tokenization workflows to connect with other blockchains through CCIP and access verified price data.",
       status:'announced',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','mastercard']},
-    {id:'hedera',   cat:'chains',  label:'Hedera',           icon:'◇', logo:'assets/logos/hedera.png', x:0.07, y:0.67,
+    {id:'hedera',   cat:'chains',  label:'Hedera',           icon:'◇', logo:'assets/logos/hedera.png', x:0.06, y:0.7,
       desc:'Enterprise-grade public DLT with native tokenization, low fees, and carbon-negative footprint.',
       services:['Data Feeds','Proof of Reserve','CCIP'],
       chainlinkRole:"Chainlink connects Hedera's enterprise network to the broader blockchain ecosystem through CCIP and provides verified price feeds for Hedera-native tokenized assets.",
       status:'live',connects:['chainlink'],reachable:['ethereum','stablecoins','tkfunds','mastercard']},,
-    {id:'optimism', cat:'chains',  label:'Optimism',         icon:'◇', logo:'assets/logos/optimism.png', x:0.19, y:0.77,
+    {id:'optimism', cat:'chains',  label:'Optimism',         icon:'◇', logo:'assets/logos/optimism.png', x:0.22, y:0.79,
       desc:'Ethereum L2 scaling solution. High-throughput, low-cost environment for DeFi and institutional applications.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink provides oracle price feeds and CCIP cross-chain messaging for Optimism, enabling DeFi protocols and institutional applications to operate at scale with access to real-world data.",
       status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','aave','stablecoins']},,
-    {id:'polygon',  cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png', x:0.31, y:0.75,
+    {id:'polygon',  cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png', x:0.38, y:0.77,
       desc:'Ethereum scaling network with major institutional adoption for tokenized assets and enterprise blockchain.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink powers Polygon DeFi and institutional applications with price oracles, CCIP cross-chain connectivity, and Automation for settlement workflows.",
       status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','stablecoins','rwas','tkfunds']},,
-    {id:'bnb',     cat:'chains',  label:'BNB Chain',        icon:'B', logo:'assets/logos/bnb chain.png', x:0.43, y:0.67,
+    {id:'bnb',     cat:'chains',  label:'BNB Chain',        icon:'B', logo:'assets/logos/bnb chain.png', x:0.41, y:0.95,
       desc:'BNB Chain is one of the largest smart contract networks and uses Chainlink infrastructure for secure market data, automation, interoperability, and external connectivity.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink provides BNB Chain with the full oracle and cross-chain infrastructure stack — Data Feeds for DeFi pricing, Data Streams for real-time trading, Automation for protocol operations, and CCIP for cross-chain connectivity.",
@@ -2521,7 +2521,7 @@ var EX = {
   reachableSet:  {},     // {id: true} — nodes lit gold when a node is selected
   catFilter:     'all',  // tab filter
   CX: 350, CY: 290,
-  W:  700, H:  600,
+  W:  700, H:  660,
   catColor:{ tradfi:'rgba(200,146,42,1)', assets:'rgba(160,100,255,1)', chains:'rgba(60,160,255,1)', apps:'rgba(255,165,60,1)' },
   els: {}                // {nodeId: {g, bg, ring, glow, lbl}} — kept alive between updates
 };
@@ -2605,6 +2605,13 @@ function exBuildSVG(){
   defs.appendChild(rg);
 
   // Clip paths for logos
+  // Debug guard: warn if any node has invalid coordinates
+  EXD.nodes.forEach(function(n){
+    if(typeof n.x !== 'number' || typeof n.y !== 'number' || isNaN(n.x) || isNaN(n.y)){
+      console.warn('[Explorer] Node missing coordinates:', n.id, '— using fallback (0.5, 0.5)');
+      n.x = 0.5; n.y = 0.5;
+    }
+  });
   EXD.nodes.forEach(function(n){
     if(!n.logo) return;
     var cp = document.createElementNS(ns,'clipPath');
@@ -2705,27 +2712,30 @@ function exBuildSVG(){
     bg.setAttribute('pointer-events','none');
     g.appendChild(bg);
 
-    // Logo or icon
+    // Logo or icon — use foreignObject+img for reliable path resolution
     if(n.logo){
-      var img = document.createElementNS(ns,'image');
-      // Encode spaces in path so SVG href works across all browsers
-      var logoHref = n.logo.replace(/ /g,'%20');
-      img.setAttribute('href', logoHref);
-      // Also set xlink:href for older SVG implementations
-      img.setAttributeNS('http://www.w3.org/1999/xlink','href', logoHref);
-      img.setAttribute('x', px-20); img.setAttribute('y', py-20);
-      img.setAttribute('width','40'); img.setAttribute('height','40');
-      img.setAttribute('clip-path','url(#clip-'+n.id+')');
-      img.setAttribute('preserveAspectRatio','xMidYMid meet');
-      img.setAttribute('opacity','0.92');
-      img.setAttribute('pointer-events','none');
-      // Error fallback — log failed paths to console
+      // foreignObject lets the browser load the image using document-relative paths
+      // (same as <img src="...">) rather than SVG-relative paths
+      var fo = document.createElementNS(ns,'foreignObject');
+      fo.setAttribute('x', px-20); fo.setAttribute('y', py-20);
+      fo.setAttribute('width','40'); fo.setAttribute('height','40');
+      fo.setAttribute('clip-path','url(#clip-'+n.id+')');
+      fo.setAttribute('opacity','0.92');
+      fo.setAttribute('pointer-events','none');
+
+      var imgEl = document.createElement('img');
+      imgEl.src = n.logo;
+      imgEl.style.cssText = 'width:40px;height:40px;object-fit:contain;display:block';
+      // Error fallback
       (function(path, nodeId){
-        img.addEventListener('error', function(){
+        imgEl.onerror = function(){
           console.warn('Failed logo path:', path, '| node:', nodeId);
-        });
+          // Show icon text as fallback
+          fo.parentNode && fo.parentNode.removeChild(fo);
+        };
       })(n.logo, n.id);
-      g.appendChild(img);
+      fo.appendChild(imgEl);
+      g.appendChild(fo);
     } else {
       var ic = document.createElementNS(ns,'text');
       ic.setAttribute('x',px); ic.setAttribute('y',py);
@@ -2801,16 +2811,18 @@ function exBuildSVG(){
   clG.appendChild(clBg);
 
   // Logo
-  var clImg = document.createElementNS(ns,'image');
-  clImg.setAttribute('href','assets/logos/chainlink.png');
-  clImg.setAttributeNS('http://www.w3.org/1999/xlink','href','assets/logos/chainlink.png');
-  clImg.addEventListener('error',function(){ console.warn('Failed logo path: assets/logos/chainlink.png'); });
-  clImg.setAttribute('x',EX.CX-22); clImg.setAttribute('y',EX.CY-26);
-  clImg.setAttribute('width','44'); clImg.setAttribute('height','44');
-  clImg.setAttribute('clip-path','url(#clip-cl)');
-  clImg.setAttribute('preserveAspectRatio','xMidYMid meet');
-  clImg.setAttribute('opacity','0.95');
-  clG.appendChild(clImg);
+  // Chainlink centre logo via foreignObject+img (document-relative path resolution)
+  var clFo = document.createElementNS(ns,'foreignObject');
+  clFo.setAttribute('x', EX.CX-22); clFo.setAttribute('y', EX.CY-26);
+  clFo.setAttribute('width','44'); clFo.setAttribute('height','44');
+  clFo.setAttribute('clip-path','url(#clip-cl)');
+  clFo.setAttribute('pointer-events','none');
+  var clImgEl = document.createElement('img');
+  clImgEl.src = 'assets/logos/chainlink.png';
+  clImgEl.style.cssText = 'width:44px;height:44px;object-fit:contain;display:block';
+  clImgEl.onerror = function(){ console.warn('Failed logo path: assets/logos/chainlink.png'); };
+  clFo.appendChild(clImgEl);
+  clG.appendChild(clFo);
 
   // Label
   var clLbl = document.createElementNS(ns,'text');
