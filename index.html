@@ -449,9 +449,9 @@ nav{
   width:100%;
   /* Total height = viewport minus nav. The filterbar and hint bar
      are inside, so the three columns fill the remaining space. */
-  height:calc(100vh - var(--nav-h));
-  max-height:620px;
-  min-height:480px;
+  height:760px;
+  max-height:760px;
+  min-height:580px;
   display:flex;
   flex-direction:column;
   background:linear-gradient(170deg,#050A18 0%,#060C1C 40%,#070E20 70%,#050912 100%);
@@ -465,7 +465,7 @@ nav{
 .ex-filterbar{
   flex-shrink:0;
   display:flex;align-items:center;
-  padding:0 clamp(16px,2vw,32px);
+  padding:6px clamp(16px,2vw,32px);
   border-bottom:.5px solid rgba(255,255,255,.05);
   background:rgba(4,6,16,.7);
   overflow-x:auto;scrollbar-width:none;
@@ -488,7 +488,7 @@ nav{
   margin-left:auto;flex-shrink:0;
   font-size:clamp(9px,.65vw,10px);letter-spacing:.1em;
   color:rgba(255,255,255,.18);font-family:var(--mono);
-  padding:0 clamp(12px,1.4vw,20px);
+  padding:4px clamp(16px,2vw,32px) 6px;
   display:flex;align-items:center;gap:6px;
 }
 
@@ -1415,10 +1415,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div>
 
   <!-- ══ INFRASTRUCTURE EXPLORER — title ══ -->
-  <div style="background:linear-gradient(180deg,#07090D 0%,#050A18 100%);padding:clamp(32px,3.5vw,56px) clamp(20px,4vw,72px) clamp(20px,2vw,32px);border-top:.5px solid rgba(200,146,42,.10)">
+  <div style="background:linear-gradient(180deg,#07090D 0%,#050A18 100%);padding:clamp(20px,2vw,32px) clamp(20px,4vw,72px) clamp(12px,1.2vw,20px);border-top:.5px solid rgba(200,146,42,.10)">
     <div style="max-width:900px">
       <div style="font-size:clamp(9px,.62vw,10px);letter-spacing:.22em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,14px);font-family:var(--mono);text-transform:uppercase">Infrastructure Explorer</div>
-      <div style="font-family:var(--serif);font-size:clamp(26px,2.6vw,42px);font-weight:300;color:#fff;line-height:1.12;margin-bottom:clamp(12px,1.2vw,18px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
+      <div style="font-family:var(--serif);font-size:clamp(20px,2vw,30px);font-weight:300;color:#fff;line-height:1.12;margin-bottom:clamp(12px,1.2vw,18px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
       <div style="font-size:clamp(13px,.92vw,15px);color:rgba(244,242,238,.45);line-height:1.65;font-family:var(--sans)">Click any node to explore relationships, services used, and infrastructure dependencies.</div>
     </div>
   </div>
