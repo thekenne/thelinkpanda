@@ -94,11 +94,33 @@ nav{
 }
 .hero-right-img{
   position:absolute;
-  left:0;top:0;           /* span full width so banner covers entire hero */
+  left:0;top:0;
   width:100%;height:100%;
   object-fit:cover;
   object-position:center center;
-  z-index:0;              /* sits behind everything — video reveals it by fading right */
+  z-index:0;
+  /* Horizontal mask only: complementary to video fade so both layers sum to 1.0.
+     Vertical mask removed — gold line in image is intentional design. */
+  -webkit-mask-image:linear-gradient(to right,
+    transparent      0%,
+    transparent      38%,
+    rgba(0,0,0,.12)  50%,
+    rgba(0,0,0,.40)  60%,
+    rgba(0,0,0,.72)  70%,
+    rgba(0,0,0,.94)  78%,
+    black            85%,
+    black            100%
+  );
+  mask-image:linear-gradient(to right,
+    transparent      0%,
+    transparent      38%,
+    rgba(0,0,0,.12)  50%,
+    rgba(0,0,0,.40)  60%,
+    rgba(0,0,0,.72)  70%,
+    rgba(0,0,0,.94)  78%,
+    black            85%,
+    black            100%
+  );
 }
 .hero-panda-video{
   position:absolute;
