@@ -497,7 +497,7 @@ nav{
   flex:1;
   min-height:0;
   display:grid;
-  grid-template-columns:clamp(130px,10vw,170px) 1fr clamp(160px,14vw,210px);
+  grid-template-columns:280px 1fr 400px;
   grid-template-rows:1fr;        /* single row = exactly ex-body height */
   overflow:hidden;
   height:100%;                   /* fill the flex parent completely */
@@ -507,7 +507,7 @@ nav{
 /* ── Left panel: service filters ── */
 .ex-services{
   border-right:.5px solid rgba(255,255,255,.05);
-  padding:clamp(14px,1.4vw,20px) clamp(12px,1.2vw,18px);
+  padding:16px 16px;
   display:flex;flex-direction:column;gap:2px;
   overflow-y:auto;scrollbar-width:none;
   min-height:0;                  /* constrain to grid row */
@@ -515,8 +515,8 @@ nav{
 }
 .ex-services::-webkit-scrollbar{display:none}
 .ex-svc-header{
-  font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;
-  color:var(--gold);opacity:.55;
+  font-size:9px;letter-spacing:.18em;
+  color:var(--gold);opacity:.60;
   margin-bottom:clamp(8px,.8vw,12px);
   flex-shrink:0;
   display:flex;align-items:center;gap:6px;
@@ -527,7 +527,7 @@ nav{
 }
 .ex-svc{
   display:flex;align-items:center;gap:10px;
-  padding:clamp(6px,.65vw,9px) clamp(8px,.8vw,12px);
+  padding:7px 14px;
   border-radius:6px;cursor:pointer;
   transition:background .18s,opacity .18s;
   border:.5px solid transparent;
@@ -541,7 +541,7 @@ nav{
   padding-left:calc(clamp(8px,.8vw,12px) - 2px); /* compensate for border */
 }
 .ex-svc.active-svc .ex-svc-icon{background:rgba(200,146,42,.25);border-color:rgba(200,146,42,.6)}
-.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600;font-size:clamp(12px,.9vw,14px);line-height:1.2}
+.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600;font-size:13px;line-height:1.2}
 .ex-svc.svc-filtered{background:rgba(200,146,42,.06);border-color:rgba(200,146,42,.25)}
 .ex-svc.svc-filtered .ex-svc-name{color:rgba(200,146,42,.85)}
 .ex-svc-icon{
@@ -558,8 +558,8 @@ nav{
   font-weight:500;line-height:1.2;
 }
 .ex-svc-desc{
-  font-size:clamp(10px,.75vw,12px);color:rgba(244,242,238,.48);
-  line-height:1.3;margin-top:1px;
+  font-size:11px;color:rgba(244,242,238,.50);
+  line-height:1.35;margin-top:2px;
 }
 
 /* ── Centre: SVG canvas fills its cell exactly ── */
@@ -587,21 +587,21 @@ nav{
 /* Zone 1: Header — fixed, never scrolls */
 .ex-ctx-header{
   flex-shrink:0;
-  padding:clamp(14px,1.4vw,22px) clamp(14px,1.4vw,22px) clamp(10px,1vw,14px);
+  padding:20px 22px 14px;
   border-bottom:.5px solid rgba(255,255,255,.04);
 }
 .ex-ctx-eyebrow{
-  font-size:clamp(8px,.58vw,10px);letter-spacing:.18em;
-  color:var(--gold);opacity:.6;margin-bottom:4px;
+  font-size:9px;letter-spacing:.18em;
+  color:var(--gold);opacity:.65;margin-bottom:5px;
 }
 .ex-ctx-title{
   font-family:var(--serif);
-  font-size:clamp(17px,1.6vw,24px);
-  font-weight:300;color:#fff;line-height:1.2;
-  margin-bottom:clamp(6px,.6vw,10px);
+  font-size:20px;
+  font-weight:300;color:#fff;line-height:1.25;
+  margin-bottom:10px;
 }
 .ex-ctx-body{
-  font-size:clamp(13px,.95vw,16px);color:rgba(244,242,238,.75);
+  font-size:14px;color:rgba(244,242,238,.78);
   line-height:1.72;
 }
 .ex-ctx-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
