@@ -665,6 +665,81 @@ nav{
 .lb-footer{margin-top:12px;text-align:center;}
 .lb-caption{font-size:13px;color:rgba(244,242,238,.65);margin-bottom:4px;}
 .lb-counter{font-size:11px;color:rgba(244,242,238,.3);font-family:var(--mono);}
+
+/* ══ RIGHT CONTEXT PANEL ══════════════════════════════════════════
+   Three-zone flex column inside a fixed-height grid cell.
+   NOTHING here can expand the grid row — all overflow is internal.
+════════════════════════════════════════════════════════════════════ */
+.ex-ctx{
+  border-left:.5px solid rgba(255,255,255,.05);
+  background:rgba(4,6,16,.4);
+  display:flex;
+  flex-direction:column;
+  min-height:0;          /* CRITICAL: allows grid cell to shrink to row height */
+  max-height:100%;       /* never taller than the grid row */
+  overflow:hidden;       /* outer clips — inner zones scroll */
+}
+
+/* Zone 1: header — fixed, never scrolls */
+.ex-ctx-header{
+  flex-shrink:0;         /* cannot shrink, cannot grow */
+  padding:20px 22px 14px;
+  border-bottom:.5px solid rgba(255,255,255,.04);
+  overflow:hidden;       /* safety: prevent header from expanding */
+}
+
+/* Zone 2: scroll wrapper — takes all remaining height */
+.ex-ctx-scroll-wrap{
+  flex:1;
+  min-height:0;          /* CRITICAL for flex children */
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Zone 3: actual scroll container */
+.ex-ctx-scroll{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  padding:0 22px 48px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.08) transparent;
+}
+
+/* Right panel typography */
+.ex-ctx-eyebrow{
+  font-size:9px;letter-spacing:.18em;
+  color:var(--gold);opacity:.65;margin-bottom:5px;
+  font-family:var(--mono);text-transform:uppercase;
+}
+.ex-ctx-title{
+  font-size:20px;
+  font-weight:300;color:#fff;line-height:1.25;
+  margin-bottom:10px;
+}
+.ex-ctx-body{
+  font-size:14px;color:rgba(244,242,238,.78);
+  line-height:1.72;
+}
+
+/* Scroll fade overlay */
+.ex-ctx-scroll-wrap.can-scroll::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:32px;
+  background:linear-gradient(to top,rgba(4,6,16,.95),transparent);
+  pointer-events:none;z-index:2;
+}
+
+/* Stats strip */
+.ex-stats{display:flex;flex-direction:column;gap:6px;padding:12px 0 4px;}
+.ex-stat{display:flex;align-items:baseline;gap:10px;}
+.ex-stat-n{
+  font-family:var(--mono);font-size:16px;font-weight:600;
+  color:#fff;min-width:54px;letter-spacing:-.01em;
+}
+.ex-stat-l{font-size:11px;color:rgba(244,242,238,.55);letter-spacing:.04em;}
 </style>
 </head>
 <body>
@@ -2007,20 +2082,21 @@ function exUpdateCtxDefault(){document.getElementById('ex-ctx-eyebrow').textCont
 function exClickService(svcName){
   console.log('[Explorer] service:',svcName);exClearAnimations();
   if(EX.selectedSvc===svcName){EX.selectedSvc=null;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';return;}
+  // Look up service data FIRST — must be before any use of svcData
+  var svcData=EXD.chainlinkServices.filter(function(sv){return sv.id===svcName;})[0];
+  var displayName=(svcData&&svcData.name)||svcName;
   EX.selectedSvc=svcName;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([svcName]);
   document.getElementById('ex-ctx-eyebrow').textContent='CHAINLINK SERVICE';
-  var titleTxt=(svcData&&svcData.fullName)||(svcData&&svcData.name)||svcName;
+  var titleTxt=(svcData&&svcData.fullName)||displayName;
   document.getElementById('ex-ctx-title').textContent=titleTxt;
-  // Look up description from structured service data first, then serviceInfo
-  var svcData=EXD.chainlinkServices.filter(function(sv){return sv.id===svcName;})[0];
-  var sd=(svcData&&svcData.description)||(EXD.serviceInfo&&EXD.serviceInfo[svcName])||('Chainlink '+svcName+' service.');
+  var sd=(svcData&&svcData.description)||(EXD.serviceInfo&&EXD.serviceInfo[displayName])||('Chainlink '+displayName+' service.');
   document.getElementById('ex-ctx-body').textContent=sd;
   var te=document.getElementById('ex-ctx-tags');te.innerHTML='';
   var mn=EXD.nodes.filter(function(n){return n.services&&n.services.indexOf(svcName)>-1;});
   var ch=document.createElement('div');ch.style.cssText='font-size:10px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';ch.textContent=mn.length+' systems use this service';te.appendChild(ch);
   var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
-  var hd=document.createElement('div');hd.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';hd.textContent='ECOSYSTEM USING '+svcName.toUpperCase();sl.appendChild(hd);
-  if(mn.length===0){var noNode=document.createElement('div');noNode.style.cssText='font-size:12px;color:rgba(244,242,238,.38);line-height:1.6;padding:8px 0;font-style:italic';noNode.textContent=svcName+' is available as a Chainlink service, but no current node in this map is assigned to it yet.';sl.appendChild(noNode);}
+  var hd=document.createElement('div');hd.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';hd.textContent='ECOSYSTEM USING '+displayName.toUpperCase();sl.appendChild(hd);
+  if(mn.length===0){var noNode=document.createElement('div');noNode.style.cssText='font-size:12px;color:rgba(244,242,238,.38);line-height:1.6;padding:8px 0;font-style:italic';noNode.textContent=displayName+' is available as a Chainlink service, but no current node in this map is assigned to it yet.';sl.appendChild(noNode);}
   var cc={tradfi:'rgba(200,146,42,.7)',assets:'rgba(160,100,255,.7)',chains:'rgba(60,160,255,.7)',apps:'rgba(255,165,60,.7)'};
   mn.forEach(function(n){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:7px 10px;background:rgba(20,35,80,.2);border:.5px solid rgba(100,140,255,.1);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';var statusBadge=(function(st){
       var cfg={live:{c:'rgba(40,200,120,.85)',bg:'rgba(40,200,120,.12)',t:'LIVE'},announced:{c:'rgba(200,146,42,.85)',bg:'rgba(200,146,42,.12)',t:'ANNOUNCED'},future:{c:'rgba(120,140,200,.7)',bg:'rgba(120,140,200,.1)',t:'WATCHLIST'}};
