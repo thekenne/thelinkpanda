@@ -537,7 +537,7 @@ nav{
   padding-left:calc(clamp(8px,.8vw,12px) - 2px); /* compensate for border */
 }
 .ex-svc.active-svc .ex-svc-icon{background:rgba(200,146,42,.25);border-color:rgba(200,146,42,.6)}
-.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600}
+.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600;font-size:clamp(12px,.9vw,14px);line-height:1.2}
 .ex-svc.svc-filtered{background:rgba(200,146,42,.06);border-color:rgba(200,146,42,.25)}
 .ex-svc.svc-filtered .ex-svc-name{color:rgba(200,146,42,.85)}
 .ex-svc-icon{
@@ -562,8 +562,7 @@ nav{
 .ex-canvas{
   position:relative;
   height:100%;
-  overflow:hidden;
-  /* Ensure pointer events reach SVG child elements */
+  overflow:visible; /* allow SVG labels at edges to show */
   pointer-events:auto;
 }
 .ex-svg{width:100%;height:100%;display:block}
@@ -611,7 +610,7 @@ nav{
   flex:1;
   min-height:0;
   overflow-y:auto;
-  padding-bottom:32px; /* ensure last item isn't hidden */
+  padding:0 clamp(10px,1vw,16px) 48px;
   padding:clamp(10px,1vw,16px) clamp(14px,1.4vw,22px);
   position:relative;
   /* Custom scrollbar — thin, branded */
@@ -1521,7 +1520,6 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div><!-- /ex-shell -->
 
   <!-- Tooltip (shared) -->
-  <div class="ex-tooltip" id="ex-tooltip"></div>
 
   <div class="section">
     <div class="sec-header">
@@ -2231,7 +2229,7 @@ var EXD = {
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink connects Avalanche Subnets to the global financial system.",
       status:'live',connects:['chainlink'],reachable:['ethereum','swift','cbanks','stablecoins']},
-    {id:'arbitrum',    cat:'chains',  label:'Arbitrum',         icon:'◇', logo:'assets/logos/arbitrum.png',        x:0.46, y:0.79,
+    {id:'arbitrum',    cat:'chains',  label:'Arbitrum',         icon:'◇', logo:'assets/logos/arbitrum.png',        x:0.44, y:0.77,
       desc:'Leading Ethereum L2 by TVL.',
       services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
       chainlinkRole:"Chainlink powers DeFi and institutional settlement on Arbitrum.",
@@ -2409,9 +2407,9 @@ function exApplyVisuals(){
     var isSvcHit=hasSvc&&n.services&&n.services.indexOf(EX.selectedSvc)>-1;
     var isFocused=EX.catFilter==='all'||EX.catFilter===n.cat;
     var opacity;
-    if(hasSel){opacity=(isSel||isReach)?'1':'0.20';}
-    else if(hasSvc){opacity=isSvcHit?'1':'0.20';}
-    else if(EX.catFilter!=='all'){opacity=isFocused?'1':'0.20';}
+    if(hasSel){opacity=(isSel||isReach)?'1':'0.30';}
+    else if(hasSvc){opacity=isSvcHit?'1':'0.30';}
+    else if(EX.catFilter!=='all'){opacity=isFocused?'1':'0.30';}
     else{opacity='1';}
     refs.g.setAttribute('opacity',opacity);
     if(isSel){refs.ring.setAttribute('stroke','rgba(60,160,255,.95)');refs.ring.setAttribute('stroke-width','2.5');refs.ring.setAttribute('opacity','1');refs.ring.setAttribute('r','38');refs.bg.setAttribute('fill','#1A2D55');refs.glow.setAttribute('stroke','rgba(60,140,255,.25)');refs.glow.setAttribute('opacity','1');refs.glow.setAttribute('filter','url(#glow-sel)');refs.lbl.setAttribute('fill','rgba(255,255,255,1)');refs.lbl.setAttribute('font-weight','700');refs.lbl.setAttribute('font-size','14');}
