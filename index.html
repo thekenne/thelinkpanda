@@ -534,730 +534,548 @@ nav{
   flex-shrink:0;
 }
 .ex-svc:hover{background:rgba(255,255,255,.04);border-color:rgba(200,146,42,.2)}
-.ex-svc.active-svc{
-  background:rgba(200,146,42,.14);
-  border-color:rgba(200,146,42,.6);
-  border-left:2px solid var(--gold);
-  padding-left:calc(clamp(8px,.8vw,12px) - 2px); /* compensate for border */
-}
+
 .ex-svc.active-svc .ex-svc-icon{background:rgba(200,146,42,.25);border-color:rgba(200,146,42,.6)}
-.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600;font-size:13px;line-height:1.2}
-.ex-svc.svc-filtered{background:rgba(200,146,42,.06);border-color:rgba(200,146,42,.25)}
-.ex-svc.svc-filtered .ex-svc-name{color:rgba(200,146,42,.85)}
-.ex-svc-icon{
-  width:clamp(26px,2.2vw,32px);height:clamp(26px,2.2vw,32px);
-  border-radius:50%;background:rgba(30,50,120,.5);
-  border:.5px solid rgba(100,140,255,.2);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:clamp(11px,.9vw,14px);
-  transition:background .18s,border-color .18s;
-}
-.ex-svc-text{}
-.ex-svc-name{
-  font-size:clamp(13px,.95vw,16px);color:rgba(244,242,238,.98);
-  font-weight:500;line-height:1.2;
-}
-.ex-svc-desc{
-  font-size:11px;color:rgba(244,242,238,.50);
-  line-height:1.35;margin-top:2px;
-}
-
-/* ── Centre: SVG canvas fills its cell exactly ── */
-.ex-canvas{
-  position:relative;
-  min-height:0;                  /* allow grid cell to constrain height */
-  overflow:visible;
-  pointer-events:auto;
-  display:flex;
-  align-items:stretch;
-}
-.ex-svg{width:100%;height:100%;display:block}
-
-/* ── Right panel: fixed three-zone layout ── */
-.ex-ctx{
-  border-left:.5px solid rgba(255,255,255,.05);
-  background:rgba(4,6,16,.4);
-  display:flex;
-  flex-direction:column;
-  min-height:0;                  /* constrain to grid row */
-  max-height:100%;
-  overflow:hidden;
-}
-
-/* Zone 1: Header — fixed, never scrolls */
-.ex-ctx-header{
-  flex-shrink:0;
-  padding:20px 22px 14px;
-  border-bottom:.5px solid rgba(255,255,255,.04);
-}
-.ex-ctx-eyebrow{
-  font-size:9px;letter-spacing:.18em;
-  color:var(--gold);opacity:.65;margin-bottom:5px;
-}
-.ex-ctx-title{
-  font-family:var(--serif);
-  font-size:20px;
-  font-weight:300;color:#fff;line-height:1.25;
-  margin-bottom:10px;
-}
-.ex-ctx-body{
-  font-size:14px;color:rgba(244,242,238,.78);
-  line-height:1.72;
-}
-.ex-ctx-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.ex-ctx-tag{
-  font-size:clamp(9px,.62vw,10px);letter-spacing:.06em;
-  color:var(--gold);opacity:.65;
-  border:.5px solid rgba(200,146,42,.25);padding:2px 7px;
-  font-family:var(--sans);border-radius:2px;
-}
-
-/* Zone 2: Scrollable connection list — flex:1, custom scrollbar */
-.ex-ctx-scroll{
-  flex:1;
-  min-height:0;
-  overflow-y:auto;
-  padding:0 clamp(10px,1vw,16px) 48px;
-  padding:clamp(10px,1vw,16px) clamp(14px,1.4vw,22px);
-  position:relative;
-  /* Custom scrollbar — thin, branded */
-  scrollbar-width:thin;
-  scrollbar-color:rgba(60,100,200,.35) transparent;
-}
-.ex-ctx-scroll::-webkit-scrollbar{width:3px}
-.ex-ctx-scroll::-webkit-scrollbar-track{background:transparent}
-.ex-ctx-scroll::-webkit-scrollbar-thumb{
-  background:rgba(60,100,200,.4);
-  border-radius:2px;
-}
-.ex-ctx-scroll::-webkit-scrollbar-thumb:hover{background:rgba(200,146,42,.5)}
-
-/* Fade at bottom of scroll area when content overflows */
-.ex-ctx-scroll-wrap{
-  position:relative;
-  flex:1;
-  min-height:0;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-.ex-ctx-scroll-wrap::after{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:3px; /* account for scrollbar */
-  height:32px;
-  background:linear-gradient(to top,rgba(4,6,16,.9) 0%,transparent 100%);
-  pointer-events:none;
-  opacity:0;
-  transition:opacity .2s;
-}
-.ex-ctx-scroll-wrap.can-scroll::after{opacity:1}
-
-.ex-ctx-svc-list{
-  display:flex;flex-direction:column;gap:5px;
-}
-.ex-ctx-svc-item{
-  display:flex;align-items:flex-start;gap:8px;
-  padding:7px 10px;
-  background:rgba(30,50,120,.2);
-  border:.5px solid rgba(100,140,255,.12);
-  border-radius:5px;
-  flex-shrink:0;
-}
-.ex-ctx-svc-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--gold);flex-shrink:0;margin-top:5px;opacity:.7;
-}
-.ex-ctx-svc-name{font-size:clamp(12px,.88vw,14px);color:rgba(244,242,238,.92);font-weight:500}
-.ex-ctx-svc-exp{font-size:clamp(10px,.7vw,11px);color:rgba(244,242,238,.45);line-height:1.4;margin-top:2px}
-
-/* Zone 3: Stats footer — fixed at bottom, never scrolls */
-.ex-stats{
-  flex-shrink:0;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  border-top:.5px solid rgba(255,255,255,.07);
-  background:rgba(255,255,255,.04);
-}
-.ex-stat{
-  padding:clamp(8px,.8vw,12px) clamp(6px,.6vw,10px);
-  background:rgba(4,6,16,.9);text-align:center;
-}
-.ex-stat-n{
-  font-family:var(--mono);
-  font-size:clamp(13px,1.2vw,18px);
-  color:#fff;font-weight:400;line-height:1;display:block;margin-bottom:2px;
-}
-.ex-stat-l{
-  font-size:clamp(8px,.55vw,9px);letter-spacing:.1em;
-  color:rgba(244,242,238,.3);
-}
-
-/* ── Bottom hint bar ── */
-.ex-hint{
-  flex-shrink:0;
-  text-align:center;
-  padding:clamp(7px,.7vw,10px);
-  border-top:.5px solid rgba(255,255,255,.04);
-  font-size:clamp(9px,.7vw,11px);color:rgba(244,242,238,.22);
-  letter-spacing:.05em;font-family:var(--mono);
-  background:rgba(4,6,14,.8);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-}
-.ex-hint-icon{
-  width:14px;height:14px;border-radius:50%;
-  border:.5px solid rgba(244,242,238,.2);
+.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600}
+.ex-svc.active-svc img{opacity:1!important;filter:drop-shadow(0 0 4px rgba(200,146,42,.55));}
+.ex-svc img{transition:opacity .18s,filter .18s;}
+.ex-svc-icon-text{
   display:inline-flex;align-items:center;justify-content:center;
-  font-size:8px;color:rgba(244,242,238,.35);flex-shrink:0;
+  width:22px;height:22px;font-size:14px;flex-shrink:0;opacity:.75;
+}rt" content="width=device-width,initial-scale=1"/>
+<title>TheLinkPanda — Infrastructure Before Narratives</title>
+<link rel="icon" type="image/png" href="assets/logo/PANDA LOGO WEBSITE.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07090D;--bg2:#0B0E15;--bg3:#101420;
+  --gold:#C8922A;--gold2:#E0A83A;--gold3:rgba(200,146,42,0.15);
+  --w:rgba(244,242,238,1);--w80:rgba(244,242,238,.8);--w60:rgba(244,242,238,.6);
+  --w40:rgba(244,242,238,.4);--w20:rgba(244,242,238,.2);--w10:rgba(244,242,238,.1);--w06:rgba(244,242,238,.06);
+  --border:rgba(244,242,238,.08);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans','Helvetica Neue',sans-serif;
+  --mono:'DM Mono',monospace;
+  /* ── layout tokens — scale with viewport ── */
+  --content-max:1440px;
+  --section-pad:clamp(32px,3vw,56px) clamp(24px,3.5vw,52px);
+  --gap-card:clamp(12px,1.2vw,20px);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--w);
+  font-family:var(--sans);font-weight:300;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  font-size:clamp(14px,1.1vw,18px);
+  line-height:1.7;
 }
 
-/* ── Tooltip ── */
-/* Tooltip — large, instantly readable */
-.ex-tooltip{
-  position:fixed;pointer-events:none;z-index:500;
-  background:rgba(4,7,20,.97);
-  border:.5px solid rgba(200,146,42,.45);
-  border-left:2px solid var(--gold);
-  border-radius:8px;padding:16px 20px;
-  min-width:280px;max-width:340px;
-  box-shadow:0 12px 48px rgba(0,0,0,.7),0 0 24px rgba(20,50,180,.15);
-  opacity:0;transition:opacity .15s;
-}
-.ex-tooltip.show{opacity:1}
-.ex-tt-header{
-  font-size:10px;letter-spacing:.16em;color:var(--gold);
-  opacity:.7;margin-bottom:6px;font-family:var(--mono);
-}
-.ex-tt-title{font-size:16px;color:#fff;font-weight:600;margin-bottom:12px;line-height:1.25}
-.ex-tt-svcs-label{font-size:10px;letter-spacing:.12em;color:rgba(244,242,238,.36);margin-bottom:6px;font-family:var(--mono)}
-.ex-tt-svcs{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
-.ex-tt-svc{
-  display:flex;align-items:center;gap:9px;
-  font-size:13px;color:rgba(244,242,238,.88);font-weight:400;
-}
-.ex-tt-svc::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.ex-tt-body{font-size:12px;color:rgba(244,242,238,.52);line-height:1.6;
-  border-top:.5px solid rgba(255,255,255,.07);padding-top:9px;margin-top:2px;}
+@keyframes breathe{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.008) translateY(-3px)}}
+@keyframes netpulse{0%,100%{opacity:.15}50%{opacity:.45}}
+@keyframes netpulse2{0%,100%{opacity:.08}50%{opacity:.28}}
+@keyframes travel{0%{stroke-dashoffset:500;opacity:0}5%{opacity:.9}88%{opacity:.9}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes travel2{0%{stroke-dashoffset:380;opacity:0}8%{opacity:.6}90%{opacity:.6}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes nodeblink{0%,100%{opacity:.35}50%{opacity:.8}}
+@keyframes fadein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeinfast{from{opacity:0}to{opacity:1}}
+@keyframes ruledraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes glowpulse{0%,100%{opacity:.05}50%{opacity:.13}}
+@keyframes cardreveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes lbfadein{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
 
-/* Mobile explorer — stacked layout, not fixed viewport height */
-@media(max-width:900px){
-  .ex-shell{
-    height:auto;max-height:none;min-height:auto;
-    overflow:visible;
-  }
-  .ex-body{
-    grid-template-columns:1fr;
-    grid-template-rows:auto 1fr auto;
-    overflow:visible;
-    height:auto;
-  }
-  .ex-canvas{height:clamp(300px,60vw,460px)}
-  .ex-services{
-    height:auto;
-    border-right:none;border-bottom:.5px solid rgba(255,255,255,.05);
-    flex-direction:row;flex-wrap:wrap;
-    padding:10px 14px;gap:5px;
-  }
-  .ex-svc-header{display:none}
-  .ex-svc{padding:5px 8px;gap:6px}
-  .ex-svc-desc{display:none}
-  .ex-ctx{
-    height:auto;border-left:none;
-    border-top:.5px solid rgba(255,255,255,.05);
-    overflow:visible;
-  }
-  .ex-ctx-scroll{overflow-y:visible;max-height:none}
-  .ex-ctx-scroll-wrap::after{display:none}
-  .ex-stats{grid-template-columns:repeat(4,1fr)}
-  .ex-filter-hint{display:none}
-}
-@media(max-width:600px){
-  .ex-services{display:none}
-  .ex-ctx-svc-list{gap:4px}
-  .ex-stats{grid-template-columns:repeat(2,1fr)}
-}
+.page{display:none;min-height:100vh}
+.page.active{display:block;animation:fadein .35s ease-out}
 
-/* ── TOPICS ── */
-.topics-grid{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--border)}
-.topic-cell{padding:clamp(16px,1.8vw,28px) clamp(12px,1.2vw,20px);text-align:center;border-right:.5px solid var(--border);border-bottom:.5px solid var(--border);cursor:pointer;transition:background .15s}
-.topic-cell:nth-child(4n){border-right:none}
-.topic-cell:nth-child(n+5){border-bottom:none}
-.topic-cell:hover{background:var(--w06)}
-.topic-cell:hover .tc-icon{color:var(--gold)}
-.tc-icon{font-size:clamp(16px,1.6vw,24px);color:var(--w40);display:block;margin-bottom:clamp(6px,.6vw,10px);transition:color .15s}
-.tc-name{font-size:clamp(10px,.8vw,13px);letter-spacing:.05em;color:var(--w60)}
+/* ── CONTENT WRAPPER ── keeps all content ≤ 1440px and centered ── */
+.cw{max-width:var(--content-max);margin:0 auto;width:100%}
 
-/* ── YOUTUBE SHORTS CARDS ── */
-.home-video-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card)}
-.video-section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,18vw,280px),1fr));gap:clamp(14px,1.4vw,24px)}
-.yt-card{position:relative;cursor:pointer;border:.5px solid var(--border);background:var(--bg3);transition:border-color .2s;text-decoration:none;display:block}
-.yt-card:hover{border-color:rgba(200,146,42,.4)}
-.yt-thumb-wrap{position:relative;aspect-ratio:9/16;overflow:hidden;background:#0a0e18}
-.yt-thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.25,.46,.45,.94)}
-.yt-card:hover .yt-thumb-wrap img{transform:scale(1.04)}
-.yt-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,9,13,.25);transition:background .2s}
-.yt-card:hover .yt-play-overlay{background:rgba(7,9,13,.1)}
-.yt-play-btn{width:clamp(36px,3.5vw,52px);height:clamp(36px,3.5vw,52px);border-radius:50%;background:rgba(7,9,13,.65);border:.5px solid rgba(244,242,238,.4);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
-.yt-card:hover .yt-play-btn{border-color:var(--gold);background:rgba(200,146,42,.15)}
-.yt-play-btn svg{width:clamp(12px,1.1vw,16px);height:clamp(12px,1.1vw,16px);fill:var(--w80);margin-left:2px}
-.yt-badge{position:absolute;top:10px;left:10px;font-size:clamp(7px,.55vw,9px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:2px 7px;font-family:var(--sans)}
-.yt-meta{padding:clamp(10px,1vw,16px) clamp(12px,1.2vw,18px)}
-.yt-cat{font-size:clamp(8px,.6vw,10px);letter-spacing:.14em;color:var(--gold);opacity:.65;margin-bottom:clamp(3px,.35vw,6px)}
-.yt-title{font-family:var(--serif);font-size:clamp(13px,1.1vw,17px);font-weight:300;color:var(--w);line-height:1.3;margin-bottom:3px}
-.yt-sub{font-size:clamp(11px,.85vw,13px);color:var(--w40);line-height:1.45}
-
-/* ── FILTER BAR ── */
-.filter-bar{display:flex;margin-bottom:clamp(20px,2vw,36px);border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none}
-.filter-bar::-webkit-scrollbar{display:none}
-.filter-btn{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:clamp(11px,.85vw,13px);color:var(--w60);letter-spacing:.06em;padding:clamp(9px,.9vw,13px) clamp(14px,1.6vw,24px);white-space:nowrap;transition:background .18s,color .18s;border-right:.5px solid var(--border)}
-.filter-btn:last-child{border-right:none}
-.filter-btn:hover{background:var(--w06);color:var(--w80)}
-.filter-btn.active{background:var(--gold3);color:var(--gold)}
-
-/* ── LIB GRID ── */
-.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(220px,18vw,320px),1fr));gap:var(--gap-card)}
-.lib-card{position:relative;overflow:hidden;cursor:pointer;background:var(--bg3);border:.5px solid var(--border);aspect-ratio:4/5;transition:border-color .2s}
-.lib-card:hover{border-color:rgba(200,146,42,.4)}
-.lib-card>.img-wrap{position:absolute;inset:0}
-.lib-card:hover .img-wrap img{transform:scale(1.06)}
-.lib-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.92) 0%,rgba(7,9,13,.25) 50%,transparent 100%);opacity:.8;transition:opacity .25s;z-index:1}
-.lib-card:hover .lib-overlay{opacity:1}
-.lib-content{position:absolute;bottom:0;left:0;right:0;padding:clamp(10px,1vw,16px);z-index:2}
-.lc-cat{font-size:clamp(8px,.6vw,10px);letter-spacing:.14em;color:var(--gold);opacity:.7;margin-bottom:clamp(3px,.35vw,6px)}
-.lc-title{font-family:var(--serif);font-size:clamp(13px,1.1vw,18px);font-weight:300;color:var(--w);line-height:1.3}
-
-/* ── REF STRIP ── */
-.ref-strip{max-width:none;padding:clamp(28px,3vw,52px) clamp(32px,5vw,80px);background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
-.ref-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--w20);margin-bottom:clamp(14px,1.5vw,24px);display:block}
-.ref-inner{max-width:var(--content-max);margin:0 auto}.ref-logos{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:clamp(12px,1.5vw,24px)}
-.ref-logo{font-family:var(--sans);font-size:clamp(10px,.85vw,13px);letter-spacing:.08em;color:rgba(244,242,238,.18);font-weight:500}
-
-/* ── ART GALLERY ── */
-.art-hero{position:relative;height:clamp(45vh,50vw,65vh);overflow:hidden;cursor:pointer;border-bottom:.5px solid var(--border);background:var(--bg3)}
-.art-hero>.img-wrap{position:absolute;inset:0}
-.art-hero .img-wrap img{object-position:center 25%}
-.art-hero:hover .img-wrap img{transform:scale(1.03)}
-.art-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.97) 0%,rgba(7,9,13,.25) 55%,rgba(7,9,13,.05) 100%);z-index:1}
-.art-hero-content{position:absolute;bottom:0;left:0;right:0;padding:clamp(32px,4vw,64px);z-index:2}
-.ah-num{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.6;margin-bottom:clamp(8px,.8vw,14px);font-family:var(--mono)}
-.ah-title{font-family:var(--serif);font-size:clamp(24px,3.5vw,52px);font-weight:300;color:var(--w);margin-bottom:clamp(6px,.7vw,12px);line-height:1.1}
-.ah-meta{font-size:clamp(12px,.95vw,15px);color:var(--w40);letter-spacing:.04em;line-height:1.7}
-.ah-sold{display:inline-block;font-size:clamp(8px,.65vw,10px);letter-spacing:.14em;color:var(--gold);border:.5px solid rgba(200,146,42,.4);padding:3px 9px;margin-top:10px}
-.art-gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(clamp(260px,22vw,400px),1fr));
-  gap:var(--gap-card);
-}
-.art-card{position:relative;overflow:hidden;cursor:pointer;border:.5px solid var(--border);aspect-ratio:3/4;transition:border-color .25s;background:var(--bg3)}
-.art-card:hover{border-color:rgba(200,146,42,.45)}
-.art-card>.img-wrap{position:absolute;inset:0}
-.art-card:hover .img-wrap img{transform:scale(1.04)}
-.art-card-overlay{
-  position:absolute;inset:0;opacity:0;transition:opacity .25s;
-  background:linear-gradient(to top,rgba(7,9,13,.95) 0%,rgba(7,9,13,.15) 55%,transparent 100%);
-  z-index:1;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:clamp(16px,1.8vw,28px) clamp(14px,1.6vw,24px);
-}
-.art-card:hover .art-card-overlay{opacity:1}
-.ac-title{font-family:var(--serif);font-size:clamp(15px,1.4vw,22px);font-weight:300;color:var(--w);margin-bottom:4px;line-height:1.2}
-.ac-meta{font-size:clamp(11px,.85vw,13px);color:var(--w40);line-height:1.6}
-.ac-sold{font-size:clamp(8px,.65vw,10px);letter-spacing:.14em;color:var(--gold);margin-top:6px;display:inline-block;border:.5px solid rgba(200,146,42,.35);padding:2px 8px}
-.art-opensea{display:inline-flex;align-items:center;gap:5px;font-size:clamp(9px,.7vw,11px);letter-spacing:.06em;color:var(--gold);opacity:.65;margin-top:8px;border:.5px solid rgba(200,146,42,.25);padding:3px 8px;text-decoration:none;transition:opacity .2s}
-.art-opensea:hover{opacity:1}
-
-/* ── ABOUT ── */
-.about-split{max-width:none;display:grid;grid-template-columns:1fr 1fr;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
-.about-left{padding:var(--section-pad);border-right:.5px solid var(--border)}
-.about-right{position:relative;overflow:hidden;min-height:clamp(360px,40vw,600px);background:var(--bg3)}
-.about-right>.img-wrap{position:absolute;inset:0}
-.about-right .img-wrap img{object-position:40% center;opacity:.55}
-.about-right-fade{position:absolute;inset:0;background:linear-gradient(to right,transparent 30%,rgba(7,9,13,.5) 100%);z-index:1}
-.ab-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.7;margin-bottom:clamp(12px,1.2vw,20px)}
-.ab-hed{font-family:var(--serif);font-size:clamp(20px,2.4vw,36px);font-weight:300;color:var(--w);line-height:1.25;margin-bottom:clamp(14px,1.4vw,22px)}
-.ab-body{font-size:clamp(13px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:clamp(16px,1.6vw,26px)}
-.ab-tags{display:flex;flex-wrap:wrap;gap:clamp(8px,.9vw,14px)}
-.ab-tag{font-size:clamp(10px,.8vw,12px);color:var(--gold);opacity:.7;border-bottom:.5px solid rgba(200,146,42,.3);padding-bottom:1px;letter-spacing:.04em}
-/* services on about page */
-.services-list{margin-top:clamp(28px,2.8vw,48px);display:flex;flex-direction:column;gap:0;border:.5px solid var(--border)}
-.service-row{
-  padding:clamp(14px,1.4vw,22px) clamp(16px,1.8vw,28px);
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  height:clamp(56px,4.5vw,72px);
+  padding:0 clamp(24px,4vw,64px);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(7,9,13,.97);
   border-bottom:.5px solid var(--border);
-  display:grid;grid-template-columns:clamp(160px,16vw,240px) 1fr;gap:clamp(16px,2vw,32px);
-  align-items:start;
+  backdrop-filter:blur(16px);
 }
-.service-row:last-child{border-bottom:none}
-.srv-row-name{font-size:clamp(12px,.95vw,15px);color:var(--w80);font-weight:400;letter-spacing:.02em}
-.srv-row-desc{font-size:clamp(12px,.9vw,14px);color:var(--w40);line-height:1.65}
+.nav-brand{display:flex;align-items:center;gap:clamp(8px,.8vw,12px);cursor:pointer;border:none;background:none}
+.nav-logo-img{width:clamp(26px,2vw,34px);height:clamp(26px,2vw,34px);object-fit:contain;flex-shrink:0}
+.nav-logo-svg{width:clamp(26px,2vw,34px);height:clamp(26px,2vw,34px);flex-shrink:0;display:none}
+.nav-wordmark{font-family:var(--sans);font-size:clamp(13px,1.1vw,16px);font-weight:500;color:var(--w);letter-spacing:.01em}
+.nav-wordmark span{color:var(--gold)}
+.nav-links{display:flex}
+.nav-link{
+  background:none;border:none;cursor:pointer;font-family:var(--sans);
+  font-size:clamp(12px,0.9vw,14px);color:var(--w60);letter-spacing:.03em;
+  padding:0 clamp(10px,1vw,16px);height:clamp(56px,4.5vw,72px);
+  display:flex;align-items:center;position:relative;transition:color .2s;
+}
+.nav-link:hover{color:var(--w80)}
+.nav-link.active{color:var(--w)}
+.nav-link.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.social-bar{display:flex;align-items:center;gap:2px}
+.soc-btn{display:flex;align-items:center;justify-content:center;width:clamp(28px,2.2vw,36px);height:clamp(28px,2.2vw,36px);background:none;border:none;cursor:pointer;color:var(--w40);transition:color .2s;text-decoration:none}
+.soc-btn:hover{color:var(--gold)}
+.soc-btn svg{width:clamp(13px,1vw,16px);height:clamp(13px,1vw,16px);fill:currentColor;flex-shrink:0}
+.nav-cta{background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(10px,0.8vw,13px);letter-spacing:.07em;padding:clamp(6px,.5vw,9px) clamp(12px,1.2vw,18px);transition:background .2s,color .2s;margin-left:clamp(8px,.8vw,14px)}
+.nav-cta:hover{background:var(--gold);color:#08070a}
 
-/* ── FOLLOW ── */
-.follow-section{max-width:none;padding:var(--section-pad);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
-.follow-inner{max-width:var(--content-max);margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(32px,4vw,72px)}
-.follow-left{max-width:clamp(280px,28vw,440px)}
-.follow-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,16px);display:block}
-.follow-hed{font-family:var(--serif);font-size:clamp(18px,2vw,30px);font-weight:300;color:var(--w);margin-bottom:clamp(8px,.9vw,14px);line-height:1.3}
-.follow-sub{font-size:clamp(12px,.95vw,15px);color:var(--w40);line-height:1.7}
-.follow-channels{display:flex;flex-direction:column;border:.5px solid var(--border);min-width:clamp(300px,32vw,480px)}
-.follow-ch{display:flex;align-items:center;justify-content:space-between;padding:clamp(12px,1.2vw,18px) clamp(14px,1.6vw,24px);border-bottom:.5px solid var(--border);transition:background .15s;text-decoration:none}
-.follow-ch:last-child{border-bottom:none}
-.follow-ch:hover{background:var(--w06)}
-.follow-ch:hover .fc-arrow{opacity:1;transform:translateX(3px)}
-.fc-left{display:flex;align-items:center;gap:clamp(10px,1.1vw,16px)}
-.fc-icon{width:clamp(28px,2.8vw,40px);height:clamp(28px,2.8vw,40px);border:.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fc-icon svg{width:clamp(12px,1.1vw,16px);height:clamp(12px,1.1vw,16px);fill:var(--gold);opacity:.7}
-.fc-name{font-size:clamp(12px,.95vw,15px);color:var(--w80);letter-spacing:.02em}
-.fc-handle{font-size:clamp(10px,.78vw,12px);color:var(--w40);font-family:var(--mono);margin-top:1px}
-.fc-arrow{font-size:clamp(10px,.9vw,13px);color:var(--gold);opacity:.4;transition:opacity .2s,transform .2s}
-
-/* ── WORK WITH ME ── */
-.work-section{max-width:none;padding:var(--section-pad);background:var(--bg2)}
-.work-grid{max-width:var(--content-max);margin:0 auto;display:grid;grid-template-columns:clamp(200px,22vw,320px) 1fr;gap:clamp(40px,5vw,80px);align-items:start}
-.wk-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.7;margin-bottom:clamp(12px,1.2vw,20px)}
-.wk-hed{font-family:var(--serif);font-size:clamp(24px,2.8vw,42px);font-weight:300;color:var(--w);line-height:1.1;margin-bottom:clamp(10px,1vw,16px)}
-.wk-desc{font-size:clamp(12px,.95vw,16px);color:var(--w40);line-height:1.75;margin-bottom:clamp(20px,2vw,32px)}
-.wk-btn{background:var(--gold);color:#08070a;font-size:clamp(11px,.9vw,14px);letter-spacing:.07em;font-weight:500;font-family:var(--sans);padding:clamp(10px,.9vw,14px) clamp(20px,2vw,30px);display:inline-block;border:none;cursor:pointer;transition:background .2s}
-.wk-btn:hover{background:var(--gold2)}
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.srv{padding:clamp(14px,1.4vw,22px) clamp(8px,.9vw,14px);border-left:.5px solid var(--border);text-align:center}
-.srv:first-child{border-left:none}
-.srv-icon{font-size:clamp(14px,1.4vw,20px);color:var(--gold);opacity:.55;display:block;margin-bottom:clamp(6px,.7vw,10px)}
-.srv-name{font-size:clamp(10px,.8vw,12px);letter-spacing:.05em;color:var(--w60);margin-bottom:3px}
-.srv-desc{font-size:clamp(10px,.78vw,12px);color:var(--w20);line-height:1.4}
-
-/* ── FOOTER ── */
-footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg)}
-.ft-brand{display:flex;align-items:center;gap:clamp(8px,.8vw,12px);font-size:clamp(11px,.9vw,14px);color:var(--w40)}
-.ft-logo-img{width:clamp(18px,1.7vw,26px);height:clamp(18px,1.7vw,26px);object-fit:contain;opacity:.85}
-.ft-tag{font-size:clamp(10px,.75vw,12px);color:var(--w20);letter-spacing:.05em}
-
-/* ── LIGHTBOX — full gallery with prev/next ── */
-.lightbox{
-  display:none;position:fixed;inset:0;z-index:1000;
-  background:rgba(7,9,13,.96);
-  align-items:center;justify-content:center;flex-direction:column;
+/* ── HERO — cinematic single scene ── */
+.hero{
+  position:relative;
+  height:calc(100vh - clamp(56px,4.5vw,72px));
+  min-height:520px;
+  max-height:880px;
+  overflow:hidden;
+  background:#07090D;
 }
-.lightbox.open{display:flex;animation:fadeinfast .22s ease-out}
-.lb-main{
-  position:relative;display:flex;align-items:center;justify-content:center;
-  width:100%;flex:1;padding:24px clamp(56px,6vw,96px);
-  animation:lbfadein .22s ease-out;
+.hero-right-img{
+  position:absolute;
+  left:38%;top:0;
+  width:62%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  z-index:0;
+  /* Soft left-edge fade: makes the banner dissolve into the video seamlessly.
+     The mask fades from fully transparent (left edge) to fully opaque at ~12% width.
+     This eliminates the hard vertical seam entirely. */
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent      0%,
+    rgba(0,0,0,.15)  4%,
+    rgba(0,0,0,.55)  8%,
+    rgba(0,0,0,.88)  12%,
+    black            18%,
+    rgba(0,0,0,.78)  100%
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent      0%,
+    rgba(0,0,0,.15)  4%,
+    rgba(0,0,0,.55)  8%,
+    rgba(0,0,0,.88)  12%,
+    black            18%,
+    rgba(0,0,0,.78)  100%
+  );
 }
-.lb-main img{
-  max-width:100%;max-height:calc(100vh - 130px);
-  object-fit:contain;
-  cursor:zoom-in;
-  transition:transform .3s ease;
-  user-select:none;
+.hero-panda-video{
+  position:absolute;
+  left:0;top:0;
+  width:62%;height:100%;
+  object-fit:cover;
+  object-position:55% center;
+  filter:brightness(1.30) contrast(1.04);
+  z-index:1;
+  /* Extended dissolve — video fades gradually from 45% to 100%
+     so it always overlaps the banner. The blend layer above covers
+     the overlap zone with atmospheric haze, hiding any seam. */
+  -webkit-mask-image:linear-gradient(
+    to right,
+    black            0%,
+    black            42%,
+    rgba(0,0,0,.90)  55%,
+    rgba(0,0,0,.65)  65%,
+    rgba(0,0,0,.35)  75%,
+    rgba(0,0,0,.12)  85%,
+    transparent      100%
+  );
+  mask-image:linear-gradient(
+    to right,
+    black            0%,
+    black            42%,
+    rgba(0,0,0,.90)  55%,
+    rgba(0,0,0,.65)  65%,
+    rgba(0,0,0,.35)  75%,
+    rgba(0,0,0,.12)  85%,
+    transparent      100%
+  );
 }
-.lb-main img.zoomed{transform:scale(1.6);cursor:zoom-out}
-.lb-close{
-  position:absolute;top:16px;right:clamp(20px,2.5vw,40px);
-  background:none;border:none;cursor:pointer;
-  font-size:clamp(18px,1.5vw,24px);color:var(--w40);
-  transition:color .15s;line-height:1;z-index:10;
+.hero-blend{
+  position:absolute;
+  left:28%;top:0;width:44%;height:100%;
+  background:
+    radial-gradient(
+      ellipse 70% 85% at 48% 42%,
+      rgba(20,50,200,.12) 0%,
+      rgba(14,35,160,.08) 35%,
+      rgba(8,18,90,.03)   65%,
+      transparent         100%
+    );
+  z-index:2;pointer-events:none;
 }
-.lb-close:hover{color:var(--w)}
-.lb-nav{
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:none;border:.5px solid var(--border);cursor:pointer;
-  width:clamp(36px,3.5vw,52px);height:clamp(36px,3.5vw,52px);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--w40);font-size:clamp(14px,1.3vw,20px);
-  transition:border-color .2s,color .2s;z-index:10;
+/* Corner vignette — fades outer corners of video frame naturally.
+   Centre (where panda face is) stays bright. Not a full-frame darken. */
+.hero-vignette{
+  position:absolute;left:0;top:0;width:62%;height:100%;
+  background:radial-gradient(
+    ellipse 65% 72% at 52% 32%,
+    transparent           0%,
+    transparent           38%,
+    rgba(4,6,10,.10)      55%,
+    rgba(4,6,10,.30)      75%,
+    rgba(4,6,10,.52)      100%
+  );
+  z-index:2;pointer-events:none;
 }
-.lb-nav:hover{border-color:rgba(200,146,42,.5);color:var(--gold)}
-.lb-prev{left:clamp(12px,1.5vw,24px)}
-.lb-next{right:clamp(12px,1.5vw,24px)}
-.lb-footer{
-  width:100%;padding:0 clamp(56px,6vw,96px) 20px;
-  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+.hero-text-grad{
+  position:absolute;left:0;top:0;bottom:0;width:44%;
+  background:linear-gradient(
+    to right,
+    rgba(4,6,12,.84) 0%,
+    rgba(4,6,12,.68) 22%,
+    rgba(4,6,12,.28) 50%,
+    rgba(4,6,12,.06) 70%,
+    transparent      85%
+  );
+  z-index:3;pointer-events:none;
 }
-.lb-caption{font-family:var(--serif);font-size:clamp(12px,.95vw,16px);color:var(--w60);font-style:italic;letter-spacing:.02em}
-.lb-counter{font-family:var(--mono);font-size:clamp(10px,.8vw,12px);color:var(--w20);letter-spacing:.1em}
-.lb-hint{font-size:clamp(9px,.7vw,11px);color:var(--w20);letter-spacing:.06em;text-align:center;padding:4px 0}
-
-/* ── CONTACT FORM ── */
-.form-field{margin-bottom:clamp(16px,1.6vw,24px)}
-.form-label{font-size:clamp(10px,.78vw,12px);letter-spacing:.12em;color:var(--w40);display:block;margin-bottom:clamp(6px,.7vw,10px)}
-.form-input{width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--sans);font-size:clamp(13px,1vw,16px);padding:clamp(9px,.9vw,13px) clamp(12px,1.2vw,18px);outline:none;transition:border-color .2s}
-.form-input:focus{border-color:rgba(200,146,42,.5)}
-
-/* ── RESPONSIVE — mobile ── */
+.hero-text-backing{
+  position:absolute;left:0;bottom:0;width:48%;height:76%;
+  /* Localised dark panel — only behind the text cluster.
+     Peak opacity at bottom-left, transparent everywhere else.
+     Does NOT extend over the panda's face. */
+  background:
+    radial-gradient(
+      ellipse 88% 82% at 3% 97%,
+      rgba(3,5,10,.60) 0%,
+      rgba(3,5,10,.38) 32%,
+      rgba(3,5,10,.12) 60%,
+      transparent      82%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 0% 100%,
+      rgba(3,5,10,.30) 0%,
+      transparent      70%
+    );
+  z-index:3;pointer-events:none;
+}
+.hero-ob{
+  position:absolute;left:0;right:0;bottom:0;height:160px;
+  background:linear-gradient(to top,var(--bg) 0%,transparent 100%);
+  z-index:4;pointer-events:none;
+}
+.hero-text-panel{
+  position:absolute;left:0;bottom:0;width:42%;
+  padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  z-index:5;
+}
+.hero-eyebrow{
+  font-size:clamp(9px,.62vw,11px);letter-spacing:.22em;
+  color:var(--gold);opacity:.92;
+  margin-bottom:clamp(10px,.9vw,15px);font-weight:400;
+  text-shadow:0 1px 8px rgba(0,0,0,.7);
+}
+.hero-h1{
+  font-family:var(--sans);
+  font-size:clamp(32px,3.8vw,52px);
+  font-weight:500;line-height:1.0;letter-spacing:-.025em;
+  color:#FFFFFF;margin-bottom:4px;
+  text-shadow:0 2px 12px rgba(0,0,0,.6),0 1px 4px rgba(0,0,0,.8);
+}
+.hero-h1 span{color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.hero-rule{
+  width:clamp(32px,2.4vw,50px);height:.5px;
+  background:var(--gold);opacity:.65;
+  margin:clamp(9px,.85vw,14px) 0;
+  transform-origin:left;animation:ruledraw .7s ease-out .2s both;
+}
+.hero-tagline{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(13px,1.4vw,19px);
+  font-weight:300;color:rgba(244,242,238,.96);
+  margin-bottom:clamp(7px,.6vw,10px);line-height:1.35;
+  text-shadow:0 2px 12px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.7);
+}
+.hero-sub{
+  font-size:clamp(12px,.78vw,14px);color:rgba(244,242,238,.78);
+  line-height:1.7;margin-bottom:clamp(20px,1.9vw,30px);
+  max-width:clamp(200px,20vw,340px);
+  text-shadow:0 1px 8px rgba(0,0,0,.7);
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;background:none;
+  border:.5px solid var(--gold);cursor:pointer;color:var(--gold);
+  font-family:var(--sans);font-size:clamp(11px,.76vw,13px);letter-spacing:.07em;
+  padding:clamp(8px,.62vw,11px) clamp(14px,1.4vw,21px);
+  transition:background .25s,color .25s;width:fit-content;
+}
+.hero-cta:hover{background:var(--gold);color:#08070a}
+@media(min-width:1920px){
+  .hero-right-img{left:40%;width:60%}
+  .hero-panda-video{width:60%}
+  .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
+  .hero-eyebrow{font-size:.54vw;margin-bottom:.9vw}
+  .hero-h1{font-size:3.1vw}
+  .hero-rule{width:2.1vw;margin:.85vw 0}
+  .hero-tagline{font-size:1.35vw;margin-bottom:.52vw}
+  .hero-sub{font-size:.75vw;margin-bottom:1.7vw;max-width:19vw}
+  .hero-cta{font-size:.64vw;padding:.6vw 1.4vw}
+}
+@media(min-width:2400px){
+  .hero-h1{font-size:3.3vw}
+  .hero-tagline{font-size:1.45vw}
+  .hero-sub{font-size:.78vw}
+}
 @media(max-width:860px){
-  :root{--section-pad:44px 20px;--gap-card:10px}
-  /* NAV */
-  nav{padding:0 16px}
-  .nav-links .nav-link{padding:0 7px;font-size:11px;letter-spacing:.01em}
-  .nav-cta{padding:6px 11px;font-size:10px;margin-left:8px}
-  .soc-btn{width:28px;height:28px}
-  /* HERO */
-  .hero{min-height:480px;max-height:none;height:80vw}
+  .hero-right-img{left:0;width:100%;object-fit:cover;object-position:70% center;opacity:.45}
   .hero-panda-video{
     width:100%;
-    -webkit-mask-image:linear-gradient(to right,black 0%,black 62%,rgba(0,0,0,.5) 80%,transparent 100%);
-    mask-image:linear-gradient(to right,black 0%,black 62%,rgba(0,0,0,.5) 80%,transparent 100%);
+    -webkit-mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
+    mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
   }
-  .hero-text-panel{width:72%;padding:0 0 36px 18px}
-  .hero-text-grad{width:78%}
-  .hero-text-backing{width:88%;height:65%}
-  .hero-h1{font-size:clamp(26px,7.5vw,42px)}
-  .hero-tagline{font-size:clamp(13px,3.8vw,18px)}
-  .hero-sub{font-size:13px;max-width:260px}
-  .hero-rule{margin:8px 0}
-  .hero-eyebrow{font-size:9px;margin-bottom:8px}
-  .hero-cta{font-size:11px;padding:9px 16px}
-  /* SECTIONS */
-  .issue-bar{padding:8px 16px;flex-wrap:wrap;gap:6px}
-  .ib-topics{gap:10px;flex-wrap:wrap}
-  .ref-strip{padding:24px 20px}
-  .work-section,.follow-section,footer{padding-left:16px;padding-right:16px}
-  /* CARDS */
-  .feat-grid{grid-template-columns:1fr 1fr}
-  .feat-card.large{grid-column:1/3;grid-row:auto;min-height:52vw}
-  .feat-card.small{min-height:42vw}
-  /* LAYOUT */
-  .about-split,.work-grid{grid-template-columns:1fr}
-  .about-right{min-height:240px}
-  .work-grid{gap:24px}
-  .srv-grid{grid-template-columns:repeat(3,1fr)}
-  .home-video-row{grid-template-columns:1fr 1fr}
-  .follow-inner{flex-direction:column;gap:24px}
-  .follow-channels{min-width:0;width:100%}
-  .follow-ch{padding:12px 14px}
-  /* ART */
-  .art-hero-content{padding:20px 16px}
-  .ah-title{font-size:clamp(20px,6vw,32px)}
-  /* LIGHTBOX */
-  .lb-main{padding:12px 40px}
-  .lb-footer{padding:0 40px 12px}
-  .lb-hint{display:none}
-  /* GENERAL */
-  body{font-size:14px}
-  .sec-title{font-size:clamp(20px,6vw,32px)}
-  .topics-grid{grid-template-columns:repeat(4,1fr)}
-  .topic-cell{padding:14px 8px}
-  .tc-icon{font-size:18px}
-  .tc-name{font-size:10px}
-}
-/* ── Extra small mobile ≤ 390px ── */
-@media(max-width:390px){
-  .nav-links .nav-link{padding:0 5px;font-size:10.5px}
-  .hero-h1{font-size:24px}
-  .hero-tagline{font-size:13px}
-  .hero-sub{font-size:12px}
-  .topics-grid{grid-template-columns:repeat(2,1fr)}
-  .home-video-row{grid-template-columns:1fr}
-  .feat-grid{grid-template-columns:1fr}
-  .feat-card.large{grid-column:1}
-}
-/* ── Landscape mobile ── */
-@media(max-width:860px) and (orientation:landscape){
-  .hero{height:100vw;min-height:320px;max-height:520px}
-  .hero-text-panel{padding-bottom:24px}
-}
-/* ── WIDE — 1400px+ structural layout adjustments ── */
-@media(min-width:1400px){
-  :root{--section-pad:96px 80px;--gap-card:18px}
-  .topics-grid{grid-template-columns:repeat(8,1fr)}
-  .topics-grid .topic-cell:nth-child(8n){border-right:none}
-  .topics-grid .topic-cell:nth-child(n+9){border-bottom:none}
-  .topics-grid .topic-cell:nth-child(-n+8){border-bottom:.5px solid var(--border)}
-  .srv-grid{grid-template-columns:repeat(5,1fr)}
+  .hero-text-panel{width:70%;padding:0 0 36px 20px}
+  .hero-text-grad{width:75%}
+  .hero-text-backing{width:85%}
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   DESKTOP TYPOGRAPHY PASS — 1920px and above
-   Rule: viewport-relative units only, NO max caps.
-   At 2560px:  4.7vw = 120px,  2.3vw = 59px,  1.2vw = 31px etc.
-   ═══════════════════════════════════════════════════════════════ */
-@media(min-width:1920px){
-
-  /* ── root tokens ── */
-  :root{
-    --content-max:1680px;
-    --section-pad:112px 96px;
-    --gap-card:22px;
-  }
-
-  /* ── body ── */
-  body{font-size:1.1vw}                   /* 28px at 2560 */
-
-  /* ── destination cards ── */
-  .dest-section{padding:4.5vw 5vw}
-  .dest-grid{gap:1.2vw}
-  .dest-card{min-height:28vw}
-  .dest-card-title{font-size:1.7vw}
-  .dest-card-desc{font-size:.78vw}
-  .dest-card-cat{font-size:.55vw}
-  .dest-card-link{font-size:.68vw}
-  .dest-card-body{padding:1.6vw}
-
-  /* ── nav ── */
-  nav{height:4.2vw}
-  .nav-wordmark{font-size:1vw}            /* 26px */
-  .nav-link{font-size:.8vw;height:4.2vw;padding:0 1.1vw}   /* 20px */
-  .nav-cta{font-size:.75vw;padding:.55vw 1.3vw}             /* 19px */
-  .nav-logo-img,.nav-logo-svg{width:1.8vw;height:1.8vw}
-  .soc-btn{width:2vw;height:2vw}
-  .soc-btn svg{width:1vw;height:1vw}
-
-
-
-  /* ── issue bar ── */
-  .ib-label,.ib-t,.ib-date{font-size:.65vw}             /* 17px */
-  .ib-topics{gap:1.6vw}
-
-  /* ── section labels + titles ── */
-  .sec-label{font-size:.6vw;margin-bottom:.5vw}         /* 15px */
-  .sec-title{font-size:2.9vw}                           /* 74px */
-  .sec-link{font-size:.7vw}                             /* 18px */
-  .sec-header{margin-bottom:2.8vw}
-
-  /* ── thesis ── */
-  .thesis-hed{font-size:2.9vw}                          /* 74px */
-  .thesis-body{font-size:1.05vw;max-width:44vw}         /* 27px */
-  .thesis-rule{width:3vw;margin-bottom:2vw}
-
-  /* ── featured infographics ── */
-  .feat-card.large{min-height:52vh}
-  .feat-card.large .fc-title{font-size:1.8vw}           /* 46px */
-  .feat-card.small .fc-title{font-size:1.2vw}           /* 31px */
-  .fc-cat{font-size:.6vw;margin-bottom:.6vw}            /* 15px */
-  .feat-content{padding:1.8vw}
-
-  /* ── explorer ── */
-  .ex-canvas-wrap{height:32vw}
-  .ex-tab{font-size:.65vw;padding:.9vw 1.2vw}
-  .ex-info{padding:1.3vw 1.8vw}
-  .ex-info-title{font-size:1.4vw}
-  .ex-info-body{font-size:.82vw}
-  .ex-conn-tag{font-size:.58vw}
-
-  /* ── topics ── */
-  .topic-cell{padding:2vw 1.4vw}
-  .tc-icon{font-size:1.6vw;margin-bottom:.7vw}          /* 41px */
-  .tc-name{font-size:.8vw}                              /* 20px */
-
-  /* ── library cards ── */
-  .lib-grid{grid-template-columns:repeat(auto-fill,minmax(17vw,1fr))}
-  .lc-cat{font-size:.55vw;margin-bottom:.4vw}
-  .lc-title{font-size:1vw}                              /* 26px */
-  .lib-content{padding:1.2vw}
-
-  /* ── filter bar ── */
-  .filter-btn{font-size:.75vw;padding:.8vw 1.4vw}       /* 19px */
-  .filter-bar{margin-bottom:2vw}
-
-  /* ── video cards ── */
-  .yt-title{font-size:1vw}                              /* 26px */
-  .yt-sub{font-size:.75vw}                              /* 19px */
-  .yt-cat{font-size:.55vw}
-  .yt-meta{padding:.9vw 1.1vw}
-  .yt-play-btn{width:3vw;height:3vw}
-  .yt-play-btn svg{width:1.1vw;height:1.1vw}
-
-  /* ── ref strip ── */
-  .ref-label{font-size:.6vw;margin-bottom:1.4vw}
-  .ref-logo{font-size:.8vw}                             /* 20px */
-
-  /* ── art gallery ── */
-  .ah-title{font-size:3.2vw}                            /* 82px */
-  .ah-meta{font-size:.9vw}
-  .ah-num{font-size:.6vw;margin-bottom:1vw}
-  .art-hero-content{padding:3.5vw}
-  .art-gallery-grid{grid-template-columns:repeat(auto-fill,minmax(20vw,1fr))}
-  .ac-title{font-size:1.2vw}                            /* 31px */
-  .ac-meta{font-size:.8vw}
-  .art-card-overlay{padding:1.5vw 1.3vw}
-
-  /* ── about ── */
-  .ab-label{font-size:.6vw;margin-bottom:1.2vw}
-  .ab-hed{font-size:2vw}                                /* 51px */
-  .ab-body{font-size:.9vw;margin-bottom:1.6vw}          /* 23px */
-  .ab-tag{font-size:.7vw}
-  .srv-row-name{font-size:.85vw}                        /* 22px */
-  .srv-row-desc{font-size:.8vw}                         /* 20px */
-  .service-row{padding:1.3vw 1.6vw;grid-template-columns:14vw 1fr;gap:2vw}
-
-  /* ── follow ── */
-  .follow-hed{font-size:1.8vw}                          /* 46px */
-  .follow-sub{font-size:.85vw}
-  .follow-label{font-size:.6vw;margin-bottom:1vw}
-  .fc-name{font-size:.85vw}
-  .fc-handle{font-size:.65vw}
-  .fc-arrow{font-size:.75vw}
-  .follow-ch{padding:1.1vw 1.4vw}
-  .fc-icon{width:2.4vw;height:2.4vw}
-  .fc-icon svg{width:1vw;height:1vw}
-
-  /* ── work with me ── */
-  .wk-label{font-size:.6vw;margin-bottom:1.2vw}
-  .wk-hed{font-size:2.5vw}                              /* 64px */
-  .wk-desc{font-size:.85vw;margin-bottom:2vw}           /* 22px */
-  .wk-btn{font-size:.8vw;padding:.85vw 1.9vw}           /* 20px */
-  .srv-name{font-size:.7vw}
-  .srv-desc{font-size:.65vw}
-  .srv-icon{font-size:1.2vw;margin-bottom:.7vw}
-  .srv{padding:1.4vw .8vw}
-
-  /* ── footer ── */
-  .ft-brand{font-size:.8vw}
-  .ft-tag{font-size:.65vw}
-  .ft-logo-img{width:1.4vw;height:1.4vw}
-  footer{padding:1.2vw 5vw}
-
-  /* ── lightbox ── */
-  .lb-close{font-size:1.4vw}
-  .lb-nav{width:2.8vw;height:2.8vw;font-size:1.1vw}
-  .lb-caption{font-size:.85vw}
-  .lb-counter{font-size:.65vw}
-  .lb-hint{font-size:.6vw}
-  .lb-main{padding:1.5vw 5vw}
-  .lb-footer{padding:0 5vw 1.2vw}
-
-  /* ── contact form ── */
-  .form-label{font-size:.7vw;margin-bottom:.7vw}
-  .form-input{font-size:.85vw;padding:.75vw 1vw}
-
-  /* ── issue bar / explorer detail text ── */
-  .hero-glow{width:26vw;height:26vw}
+/* ── DESTINATION CARDS — What I Create ── */
+.dest-section{
+  max-width:none;
+  padding:clamp(24px,2.5vw,40px) clamp(24px,3.5vw,52px);
+  background:var(--bg2);
+  border-bottom:.5px solid var(--border);
+}
+.dest-inner{max-width:var(--content-max);margin:0 auto}
+.dest-label{
+  font-size:clamp(9px,.65vw,11px);letter-spacing:.22em;
+  color:var(--gold);opacity:.65;display:block;
+  margin-bottom:clamp(16px,1.8vw,28px);
+}
+.dest-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(10px,1vw,16px);
+}
+.dest-card{
+  position:relative;
+  display:flex;flex-direction:column;
+  overflow:hidden;cursor:pointer;
+  border:.5px solid var(--border);
+  background:var(--bg3);
+  transition:border-color .25s,transform .25s;
+  min-height:clamp(220px,22vw,340px);
+  text-decoration:none;
+}
+.dest-card:hover{border-color:rgba(200,146,42,.45);transform:translateY(-2px)}
+.dest-card-img{
+  position:absolute;inset:0;
+  overflow:hidden;
+}
+.dest-card-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+  opacity:.55;
+}
+.dest-card:hover .dest-card-img img{transform:scale(1.05)}
+.dest-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(7,9,13,.96) 0%,
+    rgba(7,9,13,.72) 35%,
+    rgba(7,9,13,.28) 70%,
+    rgba(7,9,13,.08) 100%
+  );
+}
+.dest-card-body{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  flex:1;
+  padding:clamp(18px,2vw,30px) clamp(16px,1.8vw,26px);
+}
+.dest-card-cat{
+  font-size:clamp(8px,.6vw,10px);letter-spacing:.18em;
+  color:var(--gold);opacity:.7;margin-bottom:clamp(6px,.7vw,10px);
+}
+.dest-card-title{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(18px,1.9vw,28px);
+  color:#fff;line-height:1.15;
+  margin-bottom:clamp(8px,.9vw,14px);
+}
+.dest-card-desc{
+  font-size:clamp(11px,.82vw,13px);
+  color:rgba(244,242,238,.55);
+  line-height:1.6;
+  margin-bottom:clamp(14px,1.4vw,22px);
+}
+.dest-card-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:clamp(10px,.72vw,12px);letter-spacing:.08em;
+  color:var(--gold);opacity:.7;
+  transition:opacity .2s,gap .2s;
+}
+.dest-card:hover .dest-card-link{opacity:1;gap:9px}
+/* No-image placeholder gradient per card */
+.dest-card-img.dest-infographics{background:linear-gradient(135deg,#0D1628,#0A1832)}
+.dest-card-img.dest-videos{background:linear-gradient(135deg,#0E1530,#0A1525)}
+.dest-card-img.dest-art{background:linear-gradient(135deg,#150E1A,#1A0E22)}
+.dest-card-img.dest-work{background:linear-gradient(135deg,#12130E,#1A1A10)}
+@media(max-width:860px){
+  .dest-section{padding:32px 16px}
+  .dest-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .dest-card{min-height:clamp(160px,42vw,240px)}
+  .dest-card-title{font-size:clamp(16px,5vw,22px)}
+  .dest-card-desc{display:none}
+  .dest-card-body{padding:14px}
+}
+@media(max-width:420px){
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .dest-card{min-height:140px}
 }
 
-/* ── 2560+ minor nudge ── */
-@media(min-width:2400px){
-  :root{--content-max:1900px;--section-pad:128px 112px}
+/* ── SECTIONS ── */
+.section{padding:var(--section-pad);max-width:var(--content-max);margin-left:auto;margin-right:auto;width:100%}
+.section-alt{background:var(--bg2)}
+.section-dark{background:var(--bg3)}
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(24px,2.5vw,44px)}
+.sec-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;display:block;margin-bottom:clamp(4px,.4vw,8px)}
+.sec-title{font-family:var(--serif);font-size:clamp(22px,3.2vw,52px);font-weight:300;color:var(--w);line-height:1.1}
+.sec-link{background:none;border:none;cursor:pointer;font-size:clamp(11px,.85vw,13px);color:var(--gold);opacity:.5;letter-spacing:.05em;font-family:var(--sans);transition:opacity .2s;text-decoration:none;white-space:nowrap}
+.sec-link:hover{opacity:1}
 
-  /* rest of site */
-  .sec-title{font-size:3vw}         /* 77px */
-  .thesis-hed{font-size:3vw}
-}
+/* ── ISSUE BAR ── */
+.issue-bar{max-width:none;border-bottom:.5px solid var(--border);padding:clamp(8px,.7vw,12px) clamp(32px,5vw,80px);background:var(--bg2);display:flex;align-items:center;justify-content:space-between}
+.ib-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.18em;color:var(--w20)}
+.ib-topics{display:flex;gap:clamp(12px,1.4vw,22px)}
+.ib-t{font-size:clamp(9px,.65vw,11px);letter-spacing:.07em;color:var(--w40);cursor:pointer;transition:color .15s;background:none;border:none;font-family:var(--sans)}
+.ib-t:hover,.ib-t.on{color:var(--gold)}
+.ib-date{font-size:clamp(9px,.65vw,11px);letter-spacing:.1em;color:var(--w20);font-family:var(--mono)}
 
-/* ── Explorer search bar ── */
-.ex-search-wrap{
-  flex-shrink:0;
-  padding:6px clamp(12px,1.5vw,24px) 0;
-  background:rgba(4,6,16,.7);
-}
-.ex-search-input{
+/* ── IMAGE WRAPPER + FALLBACK ── */
+.img-wrap{position:relative;width:100%;height:100%;overflow:hidden}
+.img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.img-fallback{display:none;position:absolute;inset:0;background:linear-gradient(135deg,#0c0f1a,#141828);flex-direction:column;align-items:center;justify-content:center;padding:16px;gap:10px;border:.5px dashed rgba(200,146,42,.4)}
+.img-wrap img.broken{opacity:0;position:absolute}
+.img-wrap img.broken ~ .img-fallback{display:flex}
+.fb-icon{font-size:22px;opacity:.4;color:var(--gold)}
+.fb-path{font-size:9px;font-family:var(--mono);color:rgba(200,146,42,.65);text-align:center;word-break:break-all;line-height:1.6;max-width:260px}
+.fb-label{font-size:8px;letter-spacing:.1em;color:var(--w20);text-align:center}
+
+/* ── FEATURED INFOGRAPHICS ── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card)}
+.feat-card{position:relative;overflow:hidden;cursor:pointer;background:var(--bg3);border:.5px solid var(--border)}
+.feat-card.large{grid-column:1/2;grid-row:1/3;min-height:clamp(400px,50vh,640px)}
+.feat-card.small{min-height:clamp(160px,18vh,260px)}
+.feat-card>.img-wrap{position:absolute;inset:0}
+.feat-card:hover .img-wrap img{transform:scale(1.05)}
+.feat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.85) 0%,rgba(7,9,13,.30) 45%,transparent 100%);z-index:1}
+.feat-content{position:absolute;bottom:0;left:0;right:0;padding:clamp(16px,1.8vw,28px);z-index:2}
+.fc-cat{font-size:clamp(8px,.6vw,10px);letter-spacing:.14em;color:var(--gold);opacity:.75;margin-bottom:clamp(5px,.5vw,8px)}
+.fc-title{font-family:var(--serif);font-weight:300;line-height:1.2;color:var(--w)}
+.feat-card.large .fc-title{font-size:clamp(18px,2.4vw,32px)}
+.feat-card.small .fc-title{font-size:clamp(15px,1.6vw,22px)}
+
+/* ── THESIS ── */
+.thesis{max-width:none;padding:clamp(20px,2vw,36px) clamp(24px,3.5vw,52px);text-align:center;background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.thesis-rule{width:clamp(40px,3.5vw,64px);height:.5px;background:var(--gold);opacity:.4;margin:0 auto clamp(22px,2.5vw,40px)}
+.thesis-hed{font-family:var(--serif);font-size:clamp(24px,3.5vw,52px);font-weight:300;color:var(--w);margin-bottom:clamp(12px,1.2vw,20px)}
+.thesis-inner{max-width:var(--content-max);margin:0 auto}.thesis-body{font-size:clamp(14px,1.1vw,18px);color:var(--w40);line-height:1.8;max-width:clamp(520px,50vw,760px);margin:0 auto}
+
+/* ══════════════════════════════════════════════════════
+   INFRASTRUCTURE EXPLORER — Fixed-height dashboard
+   ══════════════════════════════════════════════════════ */
+
+/* ── CSS variable: navbar height ── */
+:root{ --nav-h: clamp(56px,4.5vw,72px); }
+
+/* Shell: fixed viewport height minus navbar. No content expansion. */
+.ex-shell{
   width:100%;
-  background:rgba(255,255,255,.04);
-  border:.5px solid rgba(255,255,255,.10);
-  border-radius:3px;
-  padding:5px 10px 5px 28px;
-  font-size:11px;
-  color:rgba(244,242,238,.7);
-  font-family:var(--mono);
-  letter-spacing:.03em;
-  outline:none;
-  transition:border-color .15s,background .15s;
-  box-sizing:border-box;
+  /* Total height = viewport minus nav. The filterbar and hint bar
+     are inside, so the three columns fill the remaining space. */
+  height:clamp(820px,78vh,960px);
+  max-height:960px;
+  min-height:820px;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(170deg,#050A18 0%,#060C1C 40%,#070E20 70%,#050912 100%);
+  border-top:.5px solid rgba(200,146,42,.12);
+  border-bottom:.5px solid rgba(200,146,42,.12);
+  overflow:hidden; /* shell clips everything — prevents any child from expanding page */
+  position:relative;
 }
-.ex-search-input::placeholder{color:rgba(244,242,238,.28);}
-.ex-search-input:focus{border-color:rgba(200,146,42,.4);background:rgba(255,255,255,.07);}
-.ex-search-wrap-inner{position:relative;}
-.ex-search-icon{
-  position:absolute;left:8px;top:50%;transform:translateY(-50%);
-  font-size:11px;color:rgba(244,242,238,.25);pointer-events:none;
+
+/* ── Filter bar: fixed height, flex-shrink:0 ── */
+.ex-filterbar{
+  flex-shrink:0;
+  display:flex;align-items:center;
+  padding:6px clamp(16px,2vw,32px);
+  border-bottom:.5px solid rgba(255,255,255,.05);
+  background:rgba(4,6,16,.7);
+  overflow-x:auto;scrollbar-width:none;
+  height:clamp(40px,4vw,52px);
+  gap:0;
 }
+.ex-filterbar::-webkit-scrollbar{display:none}
+.ex-filter{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:clamp(10px,.75vw,12px);
+  letter-spacing:.12em;color:rgba(255,255,255,.32);
+  padding:0 clamp(14px,1.5vw,22px);
+  height:100%;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;white-space:nowrap;
+}
+.ex-filter:hover{color:rgba(255,255,255,.6)}
+.ex-filter.active{color:var(--gold);border-bottom-color:var(--gold)}
+.ex-filter-hint{
+  margin-left:auto;flex-shrink:0;
+  font-size:clamp(9px,.65vw,10px);letter-spacing:.1em;
+  color:rgba(255,255,255,.18);font-family:var(--mono);
+  padding:4px clamp(16px,2vw,32px) 6px;
+  display:flex;align-items:center;gap:6px;
+}
+
+/* ── Three-column body: fills all remaining height in shell ── */
+.ex-body{
+  flex:1;
+  min-height:0;
+  display:grid;
+  grid-template-columns:280px 1fr 400px;
+  grid-template-rows:1fr;        /* single row = exactly ex-body height */
+  overflow:hidden;
+  height:100%;                   /* fill the flex parent completely */
+  align-items:stretch;           /* all cells stretch to row height */
+}
+
+/* ── Left panel: service filters ── */
+.ex-services{
+  border-right:.5px solid rgba(255,255,255,.05);
+  padding:16px 16px;
+  display:flex;flex-direction:column;gap:2px;
+  overflow-y:auto;scrollbar-width:none;
+  min-height:0;                  /* constrain to grid row */
+  max-height:100%;
+}
+.ex-services::-webkit-scrollbar{display:none}
+.ex-svc-header{
+  font-size:9px;letter-spacing:.18em;
+  color:var(--gold);opacity:.60;
+  margin-bottom:clamp(8px,.8vw,12px);
+  flex-shrink:0;
+  display:flex;align-items:center;gap:6px;
+}
+.ex-svc-header::before{
+  content:'';width:12px;height:.5px;
+  background:var(--gold);opacity:.5;flex-shrink:0;
+}
+.ex-svc{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 14px;
+  border-radius:6px;cursor:pointer;
+  transition:background .18s,opacity .18s;
+  border:.5px solid transparent;
+  flex-shrink:0;
+}
+.ex-svc:hover{background:rgba(255,255,255,.04);border-color:rgba(200,146,42,.2)}
+
 </style>
 </head>
 <body>
@@ -2162,19 +1980,204 @@ document.addEventListener('keydown', function(e) {
 // ── Structured data ──────────────────────────────────────────────
 var EXD = {
   chainlinkServices: [
-    {id:'feeds',    icon:'◎', name:'Data Feeds',       desc:'Real-world data'},
-    {id:'streams',  icon:'▷', name:'Data Streams',     desc:'High-frequency data'},
-    {id:'ccip',     icon:'↔', name:'CCIP',             desc:'Cross-chain messaging'},
-    {id:'por',      icon:'✓', name:'Proof of Reserve', desc:'Transparency'},
-    {id:'auto',     icon:'⟳', name:'Automation',       desc:'Decentralized automation'},
-    {id:'funcs',    icon:'ƒ', name:'Functions',         desc:'Off-chain compute'},
-    {id:'identity', icon:'◉', name:'CCID',             desc:'Digital identity'},
-    {id:'cre',      icon:'◈', name:'CRE',               desc:'Cross-chain runtime'},
-    {id:'ace',      icon:'⊕', name:'ACE',               desc:'Compliance engine'},
-    {id:'staking',  icon:'△', name:'Staking',           desc:'Secure & decentralized'},
+    {id:'data-feeds',       name:'Data Feeds',       fullName:'Chainlink Data Feeds',
+     icon:'⬡', logo:'assets/service-logos/data-feeds.png',
+     desc:'Real-world data',  status:'live',
+     description:'Decentralised price and market data aggregated from 16+ premium providers through independent node operators. The institutional standard for onchain NAV calculations, DeFi pricing, and stablecoin integrity.'},
+    {id:'data-streams',     name:'Data Streams',     fullName:'Chainlink Data Streams',
+     icon:'▷', logo:'assets/service-logos/data-streams.png',
+     desc:'High-frequency data', status:'live',
+     description:'Pull-based low-latency market data for high-frequency applications. Sub-second price updates for perpetuals, derivatives, and institutional trading systems that need real-time precision.'},
+    {id:'ccip',             name:'CCIP',             fullName:'Cross-Chain Interoperability Protocol',
+     icon:'↔', logo:'assets/service-logos/ccip.png',
+     desc:'Cross-chain messaging', status:'live',
+     description:'The institutional standard for secure token transfers and cross-chain messaging. Used by SWIFT, ANZ, and major banks for programmable cross-chain settlement across public and private blockchain networks.'},
+    {id:'proof-of-reserve', name:'Proof of Reserve', fullName:'Chainlink Proof of Reserve',
+     icon:'✓', logo:'assets/service-logos/proof-of-reserve.png',
+     desc:'Onchain transparency', status:'live',
+     description:'Automated cryptographic verification that real-world assets back their onchain representations. Used by stablecoin issuers, tokenized fund managers, and custodians for continuous reserve attestation.'},
+    {id:'automation',       name:'Automation',       fullName:'Chainlink Automation',
+     icon:'⟳', logo:'assets/service-logos/automation.png',
+     desc:'Decentralized automation', status:'live',
+     description:'Decentralised smart contract automation that triggers protocol actions without centralised keepers. Powers liquidations, yield rebalancing, margin calls, and scheduled institutional settlement workflows.'},
+    {id:'functions',        name:'Functions',        fullName:'Chainlink Functions',
+     icon:'ƒ', logo:'assets/service-logos/functions.png',
+     desc:'Off-chain compute', status:'live',
+     description:'Connects smart contracts to any Web2 API or off-chain computation. Enables KYC checks, compliance verification, proprietary price sources, and any external data or computation to reach onchain contracts.'},
+    {id:'ccid',             name:'CCID',             fullName:'Cross-Chain Identity',
+     icon:'◉', logo:'assets/service-logos/ccid.png',
+     desc:'Digital identity', status:'live',
+     description:'Cross-chain identity and compliance infrastructure. Enables institutions to verify counterparty identity, KYC status, and sanctions screening across blockchain networks — a prerequisite for institutional DeFi.'},
+    {id:'cre',              name:'CRE',              fullName:'Chainlink Runtime Environment',
+     icon:'◈', logo:'assets/service-logos/cre.png',
+     desc:'Confidential compute', status:'live',
+     description:'The confidential compute layer for privacy-preserving institutional workflows. Critical for compliance-sensitive use cases, confidential settlement, and regulated financial operations requiring trusted execution.'},
+    {id:'ace',              name:'ACE',              fullName:'Automated Compliance Engine',
+     icon:'⊕', logo:'assets/service-logos/ace.png',
+     desc:'Compliance engine', status:'live',
+     description:'Programmable KYC/AML, sanctions screening, and regulatory reporting built directly into smart contracts. Enables institutions to operate onchain while meeting regulatory requirements automatically.'},
+    {id:'staking',          name:'Staking',          fullName:'Chainlink Staking',
+     icon:'△', logo:'assets/service-logos/staking.png',
+     desc:'Cryptoeconomic security', status:'live',
+     description:'LINK token staking creates cryptoeconomic security for oracle services. Node operators stake LINK as a performance bond, aligning economic incentives with reliable, accurate data delivery to smart contracts.'},
+    {id:'vrf',              name:'VRF',              fullName:'Verifiable Random Function',
+     icon:'🎲', logo:'assets/service-logos/vrf.png',
+     desc:'Verifiable randomness', status:'live',
+     description:'Chainlink VRF provides tamper-proof randomness verified onchain. Used for gaming, NFT minting, lotteries, raffles, and any application requiring provably fair random outcomes that cannot be manipulated.'},
+    {id:'svr',              name:'SVR',              fullName:'Smart Value Recapture',
+     icon:'◆', logo:null,
+     desc:'MEV recapture', status:'live',
+     description:'Smart Value Recapture — MEV-aware pricing that captures value for lending protocols during liquidations. Used by Aave and other DeFi lending protocols to improve capital efficiency and reduce value extraction.'},
   ],
 
-  // Service explanations — shown in right panel when service is clicked
+
+  nodes: [
+    // ── TRADITIONAL FINANCE ──────────────────────────────────────
+    {id:'swift',       cat:'tradfi',  label:'SWIFT',            icon:'⚡', logo:'assets/logos/swift.png',            x:0.06, y:0.06,
+      desc:'Global financial messaging network connecting 11,500+ institutions.',
+      services:['ccip','cre','ccid','ace'],
+      chainlinkRole:"Chainlink extends SWIFT-connected workflows into tokenized assets, blockchains, compliance, identity, and multi-ledger settlement.",
+      status:'live',connects:['chainlink'],reachable:['dtcc','euroclear','assetmgr','cbanks','tkfunds','stablecoins','ethereum','avalanche','xrpl']},
+    {id:'dtcc',        cat:'tradfi',  label:'DTCC',             icon:'🏛', logo:'assets/logos/dtcc.png',             x:0.24, y:0.13,
+      desc:'Processes $2.5 quadrillion in US securities annually.',
+      services:['ccip','cre','data-feeds','ace'],
+      chainlinkRole:"Chainlink enables DTCC to verify tokenized asset data, automate compliance, and connect to blockchain settlement layers.",
+      status:'live',connects:['chainlink'],reachable:['swift','euroclear','assetmgr','custodians','tkfunds','rwas','ethereum','base','arbitrum']},
+    {id:'euroclear',   cat:'tradfi',  label:'Euroclear',        icon:'◉', logo:'assets/logos/euroclear.png',        x:0.09, y:0.22,
+      desc:'Central securities depository connecting 90+ markets.',
+      services:['ccip','cre','data-feeds','ace'],
+      chainlinkRole:"Chainlink enables Euroclear settlement workflows to access tokenized assets and blockchain settlement layers.",
+      status:'live',connects:['chainlink'],reachable:['swift','dtcc','assetmgr','custodians','tkfunds','rwas','ethereum']},
+    {id:'custodians',  cat:'tradfi',  label:'Custodians',       icon:'◉', logo:'assets/logos/Custodian.png',        x:0.24, y:0.29,
+      desc:'State Street, BNY Mellon, Citi safeguard $100T+ in assets.',
+      services:['proof-of-reserve','data-feeds'],
+      chainlinkRole:"Chainlink Proof of Reserve gives custodians automated verification of assets held onchain.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','tkfunds','rwas','treasuries','ethereum']},
+    {id:'assetmgr',    cat:'tradfi',  label:'Asset Managers',   icon:'◎', logo:'assets/logos/Asset Mgrs.png',      x:0.09, y:0.40,
+      desc:'BlackRock, Fidelity, Franklin Templeton manage $100T+.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Asset managers use Chainlink for NAV pricing, reserve verification, and cross-chain distribution of tokenized funds.",
+      status:'live',connects:['chainlink'],reachable:['dtcc','custodians','tkfunds','rwas','treasuries','ethereum','base']},
+    {id:'cbanks',      cat:'tradfi',  label:'Central Banks',    icon:'🏦', logo:'assets/logos/Central Banks.png',   x:0.24, y:0.47,
+      desc:'130+ central banks exploring CBDC issuance.',
+      services:['ccip','ccid'],
+      chainlinkRole:"Chainlink CCIP provides the cross-chain connectivity layer for CBDCs.",
+      status:'live',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','avalanche','xrpl']},
+    // ── DIGITAL ASSETS ───────────────────────────────────────────
+    {id:'stablecoins', cat:'assets',  label:'Stablecoins',      icon:'$',  logo:'assets/logos/stablecoins.png',     x:0.91, y:0.07,
+      desc:'USDC, USDT, PYUSD — $200B+ in circulation.',
+      services:['proof-of-reserve','data-feeds','ccip','ace'],
+      chainlinkRole:"Chainlink verifies stablecoin reserves, provides price integrity, and enables cross-chain movement.",
+      status:'live',connects:['chainlink'],reachable:['cbanks','rwas','tkfunds','aave','mastercard','ethereum','base','solana','avalanche','arbitrum']},
+    {id:'rwas',        cat:'assets',  label:'Real-World Assets', icon:'🏢', logo:'assets/logos/RWAs.png',           x:0.76, y:0.14,
+      desc:'Tokenised equities, bonds, real estate — the $300T migration onchain.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Chainlink delivers NAV data, verifies real-world asset backing, and enables RWAs to move cross-chain.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','tkfunds','treasuries','ondo','securitize','ethereum','base','arbitrum']},
+    {id:'tkfunds',     cat:'assets',  label:'Tokenized Funds',  icon:'◎', logo:'assets/logos/Tokenized Fund.png',  x:0.91, y:0.27,
+      desc:'BlackRock BUIDL, Ondo OUSG — institutional fund NAV onchain.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Chainlink delivers real-time NAV, verifies fund collateral, and powers cross-chain fund distribution.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','rwas','ondo','securitize','ethereum','base','arbitrum']},
+    {id:'treasuries',  cat:'assets',  label:'Treasuries',       icon:'◆', logo:'assets/logos/Treasuries.png',      x:0.76, y:0.37,
+      desc:'Tokenised US Treasuries bringing the risk-free rate to DeFi.',
+      services:['data-feeds','proof-of-reserve'],
+      chainlinkRole:"Chainlink provides yield data and reserve attestation for tokenized Treasury products onchain.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','rwas','tkfunds','ondo','ethereum']},
+    {id:'marketdata',  cat:'assets',  label:'Market Data',      icon:'📊', logo:'assets/logos/market data.png',    x:0.91, y:0.47,
+      desc:'Institutional-grade price data for every onchain financial product.',
+      services:['data-feeds','data-streams'],
+      chainlinkRole:"Chainlink aggregates market data from 16+ premium providers into tamper-proof onchain price feeds.",
+      status:'live',connects:['chainlink'],reachable:['aave','gmx','lido','ondo','tkfunds','rwas']},
+    // ── BLOCKCHAINS ───────────────────────────────────────────────
+    {id:'ethereum',    cat:'chains',  label:'Ethereum',         icon:'◆', logo:'assets/logos/ethereum.png',        x:0.04, y:0.81,
+      desc:'Dominant institutional L1.',
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink is the oracle and cross-chain standard on Ethereum.",
+      status:'live',connects:['chainlink'],reachable:['base','arbitrum','aave','lido','ondo','gmx','securitize','stablecoins','rwas']},
+    {id:'base',        cat:'chains',  label:'Base',             icon:'◇', logo:'assets/logos/base.png',            x:0.16, y:0.86,
+      desc:"Coinbase's Ethereum L2.",
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink CCIP and Data Feeds enable Base to connect with other chains.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','arbitrum','aave','stablecoins']},
+    {id:'solana',      cat:'chains',  label:'Solana',           icon:'◆', logo:'assets/logos/solana.png',          x:0.29, y:0.88,
+      desc:'High-performance L1 for stablecoin payments.',
+      services:['data-streams','ccip'],
+      chainlinkRole:"Chainlink provides Data Streams and CCIP for Solana.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','stablecoins','mastercard']},
+    {id:'bnb',         cat:'chains',  label:'BNB Chain',        icon:'B', logo:'assets/logos/bnb chain.png',       x:0.41, y:0.88,
+      desc:'BNB Chain is one of the largest smart contract networks.',
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink provides BNB Chain with the full oracle and cross-chain infrastructure stack.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','arbitrum','avalanche','base','optimism','polygon','aave','stablecoins']},
+    {id:'avalanche',   cat:'chains',  label:'Avalanche',        icon:'◆', logo:'assets/logos/avalanche.png',       x:0.53, y:0.84,
+      desc:'Institutional Subnets for compliance-configured environments.',
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink connects Avalanche Subnets to the global financial system.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','swift','cbanks','stablecoins']},
+    {id:'arbitrum',    cat:'chains',  label:'Arbitrum',         icon:'◇', logo:'assets/logos/arbitrum.png',        x:0.44, y:0.77,
+      desc:'Leading Ethereum L2 by TVL.',
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink powers DeFi and institutional settlement on Arbitrum.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','base','aave','gmx']},
+    {id:'xrpl',        cat:'future',  label:'XRPL',             icon:'◇', logo:'assets/logos/xrpl.png',            x:0.55, y:0.65,
+      desc:'Enterprise-grade L1 focused on payments and institutional asset issuance.',
+      services:['ccip','data-feeds'],
+      chainlinkRole:"Chainlink connects XRPL to the broader blockchain ecosystem through CCIP.",
+      status:'future',connects:['chainlink'],reachable:['swift','cbanks','stablecoins','ethereum']},
+    {id:'stellar',     cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png',         x:0.42, y:0.67,
+      desc:'Blockchain network for cross-border payments and stablecoin settlement.',
+      services:['data-feeds','data-streams','ccip'],
+      chainlinkRole:"Chainlink enables Stellar payment workflows to connect with other blockchains.",
+      status:'announced',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','mastercard']},
+    {id:'hedera',      cat:'chains',  label:'Hedera',           icon:'◇', logo:'assets/logos/hedera.png',          x:0.05, y:0.65,
+      desc:'Enterprise-grade public DLT with native tokenization.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Chainlink connects Hedera to the blockchain ecosystem through CCIP.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','stablecoins','tkfunds','mastercard']},
+    {id:'optimism',    cat:'chains',  label:'Optimism',         icon:'◇', logo:'assets/logos/optimism.png',        x:0.22, y:0.74,
+      desc:'Ethereum L2 scaling solution.',
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink provides oracle feeds and CCIP for Optimism.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','aave','stablecoins']},
+    {id:'polygon',     cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png',         x:0.38, y:0.72,
+      desc:'Ethereum scaling network with major institutional adoption.',
+      services:['data-feeds','data-streams','automation','functions','ccip'],
+      chainlinkRole:"Chainlink powers Polygon DeFi and institutional applications.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','stablecoins','rwas','tkfunds']},
+    // ── APPLICATIONS ──────────────────────────────────────────────
+    {id:'aave',        cat:'apps',    label:'Aave',             icon:'◈', logo:'assets/logos/aave.png',            x:0.78, y:0.68,
+      desc:'Leading DeFi lending protocol. $10B+ TVL.',
+      services:['data-feeds','svr','automation','ccip'],
+      chainlinkRole:"Aave uses Chainlink for price data, liquidation triggers, automation, and cross-chain lending.",
+      status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','solana','stablecoins','rwas','lido']},
+    {id:'ondo',        cat:'apps',    label:'Ondo',             icon:'◎', logo:'assets/logos/ondo.png',            x:0.66, y:0.73,
+      desc:'Leading tokenized Treasury platform.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Ondo uses Chainlink for NAV pricing, reserve verification, and cross-chain OUSG distribution.",
+      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','treasuries','ethereum','base','arbitrum']},
+    {id:'lido',        cat:'apps',    label:'Lido',             icon:'◉', logo:'assets/logos/lido.png',            x:0.78, y:0.82,
+      desc:'Largest liquid staking protocol. $30B+ staked ETH.',
+      services:['data-feeds','automation'],
+      chainlinkRole:"Lido uses Chainlink Data Feeds for stETH pricing and Automation for reward distribution.",
+      status:'live',connects:['chainlink'],reachable:['aave','ethereum','stablecoins']},
+    {id:'gmx',         cat:'apps',    label:'GMX',              icon:'◆', logo:'assets/logos/gmx.png',             x:0.66, y:0.85,
+      desc:'Leading decentralized perpetuals exchange.',
+      services:['data-streams'],
+      chainlinkRole:"GMX uses Chainlink Data Streams for real-time manipulation-resistant price execution.",
+      status:'live',connects:['chainlink'],reachable:['aave','arbitrum','ethereum','marketdata']},
+    {id:'mastercard',  cat:'apps',    label:'Mastercard',       icon:'◇', logo:'assets/logos/mastercard.png',      x:0.91, y:0.77,
+      desc:'Global payment network integrating blockchain rails.',
+      services:['ccip'],
+      chainlinkRole:"Mastercard uses Chainlink CCIP for compliant cross-chain payment settlement.",
+      status:'live',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','solana']},
+    {id:'securitize',  cat:'apps',    label:'Securitize',       icon:'◈', logo:'assets/logos/securitize.png',      x:0.66, y:0.62,
+      desc:'Leading digital securities platform.',
+      services:['ccip','data-feeds'],
+      chainlinkRole:"Securitize uses Chainlink for cross-chain digital security distribution.",
+      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','assetmgr','ethereum','base']},
+  ],
+
   serviceInfo:{
     'Data Feeds':       'Decentralised price and market data aggregated from 16+ premium providers through independent node operators. The institutional standard for onchain NAV calculations, DeFi pricing, and stablecoin integrity.',
     'Data Streams':     'Pull-based low-latency market data for high-frequency applications. Sub-second price updates for perpetuals, derivatives, and institutional trading systems that need real-time precision.',
@@ -2182,162 +2185,15 @@ var EXD = {
     'Proof of Reserve': 'Automated cryptographic verification that real-world assets back their onchain representations. Used by stablecoin issuers, tokenized fund managers, and custodians for continuous reserve attestation.',
     'Automation':       'Decentralised smart contract automation that triggers protocol actions without centralised keepers. Powers liquidations, yield rebalancing, margin calls, and scheduled institutional settlement workflows.',
     'Functions':        'Connects smart contracts to any Web2 API or off-chain computation. Enables KYC checks, compliance verification, and any external data or computation to reach onchain contracts.',
-    'Identity':         'Cross-chain identity and compliance infrastructure. Enables institutions to verify counterparty identity, KYC status, and sanctions screening across blockchain networks.',
+    'CCID':             'Cross-chain identity and compliance infrastructure. Enables institutions to verify counterparty identity, KYC status, and sanctions screening across blockchain networks.',
     'CRE':              'Chainlink Runtime Environment — confidential compute for privacy-preserving institutional workflows. Critical for compliance-sensitive use cases and regulated financial operations.',
     'ACE':              'Automated Compliance Engine — programmable KYC/AML, sanctions screening, and regulatory reporting built into smart contracts. Enables institutions to operate onchain compliantly.',
-    'Staking':          'LINK token staking creates cryptoeconomic security for oracle services. Node operators stake LINK as a performance bond, aligning incentives with reliable data delivery.',
+    'Staking':          'LINK token staking creates cryptoeconomic security for oracle services. Node operators stake LINK as a performance bond, aligning economic incentives with reliable data delivery.',
     'SVR':              'Smart Value Recapture — MEV-aware pricing that captures value for lending protocols during liquidations. Used by Aave and other DeFi lending protocols.',
+    'VRF':              'Chainlink VRF provides tamper-proof randomness verified onchain. Used for gaming, NFT minting, lotteries, raffles, and any application requiring provably fair random outcomes.',
   },
 
-  // Connection metadata — services used on each edge
-  nodes: [
-    // ── TRADITIONAL FINANCE ──────────────────────────────────────
-    {id:'swift',       cat:'tradfi',  label:'SWIFT',            icon:'⚡', logo:'assets/logos/swift.png',            x:0.06, y:0.06,
-      desc:'Global financial messaging network connecting 11,500+ institutions.',
-      services:['CCIP','CRE','CCID','ACE'],
-      chainlinkRole:"Chainlink extends SWIFT-connected workflows into tokenized assets, blockchains, compliance, identity, and multi-ledger settlement.",
-      status:'live',connects:['chainlink'],reachable:['dtcc','euroclear','assetmgr','cbanks','tkfunds','stablecoins','ethereum','avalanche','xrpl']},
-    {id:'dtcc',        cat:'tradfi',  label:'DTCC',             icon:'🏛', logo:'assets/logos/dtcc.png',             x:0.2, y:0.13,
-      desc:'Processes $2.5 quadrillion in US securities annually.',
-      services:['CCIP','CRE','Data Feeds','ACE'],
-      chainlinkRole:"Chainlink enables DTCC to verify tokenized asset data, automate compliance, and connect to blockchain settlement layers.",
-      status:'live',connects:['chainlink'],reachable:['swift','euroclear','assetmgr','custodians','tkfunds','rwas','ethereum','base','arbitrum']},
-    {id:'euroclear',   cat:'tradfi',  label:'Euroclear',        icon:'◉', logo:'assets/logos/euroclear.png',        x:0.06, y:0.22,
-      desc:'Central securities depository connecting 90+ markets.',
-      services:['CCIP','CRE','Data Feeds','ACE'],
-      chainlinkRole:"Chainlink enables Euroclear settlement workflows to access tokenized assets and blockchain settlement layers.",
-      status:'live',connects:['chainlink'],reachable:['swift','dtcc','assetmgr','custodians','tkfunds','rwas','ethereum']},
-    {id:'custodians',  cat:'tradfi',  label:'Custodians',       icon:'◉', logo:'assets/logos/Custodian.png',        x:0.2, y:0.3,
-      desc:'State Street, BNY Mellon, Citi safeguard $100T+ in assets.',
-      services:['Proof of Reserve','Data Feeds'],
-      chainlinkRole:"Chainlink Proof of Reserve gives custodians automated verification of assets held onchain.",
-      status:'live',connects:['chainlink'],reachable:['assetmgr','tkfunds','rwas','treasuries','ethereum']},
-    {id:'assetmgr',    cat:'tradfi',  label:'Asset Managers',   icon:'◎', logo:'assets/logos/Asset Mgrs.png',      x:0.06, y:0.4,
-      desc:'BlackRock, Fidelity, Franklin Templeton manage $100T+ and are launching tokenized fund products.',
-      services:['Data Feeds','Proof of Reserve','CCIP'],
-      chainlinkRole:"Asset managers use Chainlink for NAV pricing, reserve verification, and cross-chain distribution of tokenized funds.",
-      status:'live',connects:['chainlink'],reachable:['dtcc','custodians','tkfunds','rwas','treasuries','ethereum','base']},
-    {id:'cbanks',      cat:'tradfi',  label:'Central Banks',    icon:'🏦', logo:'assets/logos/Central Banks.png',   x:0.2, y:0.48,
-      desc:'130+ central banks exploring CBDC issuance.',
-      services:['CCIP','CCID'],
-      chainlinkRole:"Chainlink CCIP provides the cross-chain connectivity layer for CBDCs.",
-      status:'live',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','avalanche','xrpl']},
-    // ── DIGITAL ASSETS ───────────────────────────────────────────
-    {id:'stablecoins', cat:'assets',  label:'Stablecoins',      icon:'$',  logo:'assets/logos/stablecoins.png',     x:0.94, y:0.06,
-      desc:'USDC, USDT, PYUSD — $200B+ in circulation.',
-      services:['Proof of Reserve','Data Feeds','CCIP','ACE'],
-      chainlinkRole:"Chainlink verifies stablecoin reserves, provides price integrity, and enables cross-chain movement.",
-      status:'live',connects:['chainlink'],reachable:['cbanks','rwas','tkfunds','aave','mastercard','ethereum','base','solana','avalanche','arbitrum']},
-    {id:'rwas',        cat:'assets',  label:'Real-World Assets', icon:'🏢', logo:'assets/logos/RWAs.png',           x:0.8, y:0.13,
-      desc:'Tokenised equities, bonds, real estate — the $300T migration onchain.',
-      services:['Data Feeds','Proof of Reserve','CCIP'],
-      chainlinkRole:"Chainlink delivers NAV data, verifies real-world asset backing, and enables RWAs to move cross-chain.",
-      status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','tkfunds','treasuries','ondo','securitize','ethereum','base','arbitrum']},
-    {id:'tkfunds',     cat:'assets',  label:'Tokenized Funds',  icon:'◎', logo:'assets/logos/Tokenized Fund.png',  x:0.94, y:0.26,
-      desc:'BlackRock BUIDL, Ondo OUSG — institutional fund NAV onchain.',
-      services:['Data Feeds','Proof of Reserve','CCIP'],
-      chainlinkRole:"Chainlink delivers real-time NAV, verifies fund collateral, and powers cross-chain fund distribution.",
-      status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','rwas','ondo','securitize','ethereum','base','arbitrum']},
-    {id:'treasuries',  cat:'assets',  label:'Treasuries',       icon:'◆', logo:'assets/logos/Treasuries.png',      x:0.8, y:0.37,
-      desc:'Tokenised US Treasuries bringing the risk-free rate to DeFi.',
-      services:['Data Feeds','Proof of Reserve'],
-      chainlinkRole:"Chainlink provides yield data and reserve attestation for tokenized Treasury products onchain.",
-      status:'live',connects:['chainlink'],reachable:['assetmgr','rwas','tkfunds','ondo','ethereum']},
-    {id:'marketdata',  cat:'assets',  label:'Market Data',      icon:'📊', logo:'assets/logos/market data.png',    x:0.94, y:0.48,
-      desc:'Institutional-grade price data for every onchain financial product.',
-      services:['Data Feeds','Data Streams'],
-      chainlinkRole:"Chainlink aggregates market data from 16+ premium providers into tamper-proof onchain price feeds.",
-      status:'live',connects:['chainlink'],reachable:['aave','gmx','lido','ondo','tkfunds','rwas']},
-    // ── BLOCKCHAINS ───────────────────────────────────────────────
-    {id:'ethereum',    cat:'chains',  label:'Ethereum',         icon:'◆', logo:'assets/logos/ethereum.png',        x:0.05, y:0.81,
-      desc:'Dominant institutional L1.',
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink is the oracle and cross-chain standard on Ethereum.",
-      status:'live',connects:['chainlink'],reachable:['base','arbitrum','aave','lido','ondo','gmx','securitize','stablecoins','rwas']},
-    {id:'base',        cat:'chains',  label:'Base',             icon:'◇', logo:'assets/logos/base.png',            x:0.16, y:0.86,
-      desc:"Coinbase's Ethereum L2.",
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink CCIP and Data Feeds enable Base to connect with other chains.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','arbitrum','aave','stablecoins']},
-    {id:'solana',      cat:'chains',  label:'Solana',           icon:'◆', logo:'assets/logos/solana.png',          x:0.28, y:0.88,
-      desc:'High-performance L1 for stablecoin payments.',
-      services:['Data Streams','CCIP'],
-      chainlinkRole:"Chainlink provides Data Streams and CCIP for Solana.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','stablecoins','mastercard']},
-    {id:'bnb',         cat:'chains',  label:'BNB Chain',        icon:'B', logo:'assets/logos/bnb chain.png',       x:0.4, y:0.88,
-      desc:'BNB Chain is one of the largest smart contract networks and uses Chainlink infrastructure for secure market data, automation, interoperability, and external connectivity.',
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink provides BNB Chain with the full oracle and cross-chain infrastructure stack — Data Feeds, Data Streams, Automation, Functions, and CCIP.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','arbitrum','avalanche','base','optimism','polygon','aave','stablecoins']},
-    {id:'avalanche',   cat:'chains',  label:'Avalanche',        icon:'◆', logo:'assets/logos/avalanche.png',       x:0.52, y:0.84,
-      desc:'Institutional Subnets for compliance-configured environments.',
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink connects Avalanche Subnets to the global financial system.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','swift','cbanks','stablecoins']},
-    {id:'arbitrum',    cat:'chains',  label:'Arbitrum',         icon:'◇', logo:'assets/logos/arbitrum.png',        x:0.44, y:0.77,
-      desc:'Leading Ethereum L2 by TVL.',
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink powers DeFi and institutional settlement on Arbitrum.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','base','aave','gmx']},
-    {id:'xrpl',        cat:'future',  label:'XRPL',             icon:'◇', logo:'assets/logos/xrpl.png',            x:0.55, y:0.65,
-      desc:'Enterprise-grade L1 focused on payments and institutional asset issuance.',
-      services:['CCIP','Data Feeds'],
-      chainlinkRole:"Chainlink connects XRPL to the broader blockchain ecosystem through CCIP.",
-      status:'future',connects:['chainlink'],reachable:['swift','cbanks','stablecoins','ethereum']},
-    {id:'stellar',     cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png',         x:0.42, y:0.67,
-      desc:'Blockchain network for cross-border payments and stablecoin settlement.',
-      services:['Data Feeds','Data Streams','CCIP'],
-      chainlinkRole:"Chainlink enables Stellar payment workflows to connect with other blockchains.",
-      status:'announced',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','mastercard']},
-    {id:'hedera',      cat:'chains',  label:'Hedera',           icon:'◇', logo:'assets/logos/hedera.png',          x:0.05, y:0.65,
-      desc:'Enterprise-grade public DLT with native tokenization.',
-      services:['Data Feeds','Proof of Reserve','CCIP'],
-      chainlinkRole:"Chainlink connects Hedera to the blockchain ecosystem through CCIP.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','stablecoins','tkfunds','mastercard']},
-    {id:'optimism',    cat:'chains',  label:'Optimism',         icon:'◇', logo:'assets/logos/optimism.png',        x:0.17, y:0.74,
-      desc:'Ethereum L2 scaling solution.',
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink provides oracle feeds and CCIP for Optimism.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','aave','stablecoins']},
-    {id:'polygon',     cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png',         x:0.29, y:0.72,
-      desc:'Ethereum scaling network with major institutional adoption.',
-      services:['Data Feeds','Data Streams','Automation','Functions','CCIP'],
-      chainlinkRole:"Chainlink powers Polygon DeFi and institutional applications.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','stablecoins','rwas','tkfunds']},
-    // ── APPLICATIONS ──────────────────────────────────────────────
-    {id:'aave',        cat:'apps',    label:'Aave',             icon:'◈', logo:'assets/logos/aave.png',            x:0.76, y:0.68,
-      desc:'Leading DeFi lending protocol. $10B+ TVL.',
-      services:['Data Feeds','SVR','Automation','CCIP'],
-      chainlinkRole:"Aave uses Chainlink for price data, liquidation triggers, automation, and cross-chain lending.",
-      status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','solana','stablecoins','rwas','lido']},
-    {id:'ondo',        cat:'apps',    label:'Ondo',             icon:'◎', logo:'assets/logos/ondo.png',            x:0.64, y:0.73,
-      desc:'Leading tokenized Treasury platform.',
-      services:['Data Feeds','Proof of Reserve','CCIP'],
-      chainlinkRole:"Ondo uses Chainlink for NAV pricing, reserve verification, and cross-chain OUSG distribution.",
-      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','treasuries','ethereum','base','arbitrum']},
-    {id:'lido',        cat:'apps',    label:'Lido',             icon:'◉', logo:'assets/logos/lido.png',            x:0.76, y:0.82,
-      desc:'Largest liquid staking protocol. $30B+ staked ETH.',
-      services:['Data Feeds','Automation'],
-      chainlinkRole:"Lido uses Chainlink Data Feeds for stETH pricing and Automation for reward distribution.",
-      status:'live',connects:['chainlink'],reachable:['aave','ethereum','stablecoins']},
-    {id:'gmx',         cat:'apps',    label:'GMX',              icon:'◆', logo:'assets/logos/gmx.png',             x:0.64, y:0.85,
-      desc:'Leading decentralized perpetuals exchange.',
-      services:['Data Streams'],
-      chainlinkRole:"GMX uses Chainlink Data Streams for real-time manipulation-resistant price execution.",
-      status:'live',connects:['chainlink'],reachable:['aave','arbitrum','ethereum','marketdata']},
-    {id:'mastercard',  cat:'apps',    label:'Mastercard',       icon:'◇', logo:'assets/logos/mastercard.png',      x:0.88, y:0.77,
-      desc:'Global payment network integrating blockchain rails.',
-      services:['CCIP'],
-      chainlinkRole:"Mastercard uses Chainlink CCIP for compliant cross-chain payment settlement.",
-      status:'live',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','solana']},
-    {id:'securitize',  cat:'apps',    label:'Securitize',       icon:'◈', logo:'assets/logos/securitize.png',      x:0.64, y:0.6,
-      desc:'Leading digital securities platform.',
-      services:['CCIP','Data Feeds'],
-      chainlinkRole:"Securitize uses Chainlink for cross-chain digital security distribution.",
-      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','assetmgr','ethereum','base']},
-  ],
-
-  // Connection metadata — services used on each edge
+    // Connection metadata — services used on each edge
   connections: {
     'swift':      {services:['CCIP','CRE','CCID','ACE'],                              label:'SWIFT'},
     'dtcc':       {services:['CCIP','CRE','Data Feeds','ACE'],                        label:'DTCC'},
@@ -2384,8 +2240,37 @@ function exBuildServicePanel(){
   p.innerHTML='<div class="ex-svc-header">CHAINLINK SERVICES</div><div style="font-size:9px;color:rgba(244,242,238,.22);letter-spacing:.04em;margin-bottom:8px;padding:0 4px">Click to filter</div>';
   EXD.chainlinkServices.forEach(function(svc){
     var d=document.createElement('div');d.className='ex-svc';d.id='ex-svc-'+svc.id;
-    d.innerHTML='<div class="ex-svc-icon">'+svc.icon+'</div><div class="ex-svc-text"><div class="ex-svc-name">'+svc.name+'</div><div class="ex-svc-desc">'+svc.desc+'</div></div>';
-    (function(s){d.addEventListener('click',function(){exClickService(s.name);});})(svc);
+
+    // Icon: real logo image with text fallback
+    var iconEl;
+    if(svc.logo){
+      iconEl=document.createElement('img');
+      iconEl.src=svc.logo;
+      iconEl.alt=svc.name;
+      iconEl.style.cssText='width:22px;height:22px;object-fit:contain;flex-shrink:0;opacity:0.85;';
+      (function(path,name){
+        iconEl.onerror=function(){
+          console.warn('Failed service logo path:',path);
+          this.style.display='none';
+          var fb=document.createElement('span');
+          fb.className='ex-svc-icon-text';
+          fb.textContent=svc.icon;
+          this.parentNode.insertBefore(fb,this);
+        };
+      })(svc.logo,svc.name);
+    } else {
+      iconEl=document.createElement('span');
+      iconEl.className='ex-svc-icon-text';
+      iconEl.textContent=svc.icon;
+    }
+
+    var textEl=document.createElement('div');
+    textEl.className='ex-svc-text';
+    textEl.innerHTML='<div class="ex-svc-name">'+svc.name+'</div><div class="ex-svc-desc">'+svc.desc+'</div>';
+
+    d.appendChild(iconEl);
+    d.appendChild(textEl);
+    (function(sv){d.addEventListener('click',function(){exClickService(sv.id);});})(svc);
     p.appendChild(d);
   });
 }
@@ -2503,7 +2388,16 @@ function exUpdateRightPanel(node){
   if(help){sec('HOW CHAINLINK HELPS','rgba(200,146,42,.6)');var hb=document.createElement('div');hb.style.cssText='font-size:13px;color:rgba(244,242,238,.68);line-height:1.75;margin-bottom:4px';hb.textContent=help;sl.appendChild(hb);}
   if(svcs.length){
     sec('CHAINLINK SERVICES USED','rgba(200,146,42,.65)');
-    svcs.forEach(function(s){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:6px 10px;background:rgba(30,50,120,.2);border:.5px solid rgba(100,140,255,.15);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';row.innerHTML='<div style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.8"></div><div style="font-size:13px;color:rgba(244,242,238,.92);font-weight:500">'+s+'</div>';row.addEventListener('mouseenter',function(){row.style.background='rgba(30,50,120,.4)';});row.addEventListener('mouseleave',function(){row.style.background='rgba(30,50,120,.2)';});(function(sn){row.addEventListener('click',function(e){e.stopPropagation();exClickService(sn);});})(s);sl.appendChild(row);});
+    svcs.forEach(function(s){
+      var svcMeta=EXD.chainlinkServices.filter(function(sv){return sv.id===s;})[0];
+      var displayName=(svcMeta&&svcMeta.name)||s;
+      var svcLogo=(svcMeta&&svcMeta.logo)||null;
+      var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:6px 10px;background:rgba(30,50,120,.2);border:.5px solid rgba(100,140,255,.15);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';
+      var iconEl;
+      if(svcLogo){iconEl=document.createElement('img');iconEl.src=svcLogo;iconEl.alt=displayName;iconEl.style.cssText='width:16px;height:16px;object-fit:contain;flex-shrink:0;opacity:.85';iconEl.onerror=function(){this.style.display='none';};}
+      else{iconEl=document.createElement('div');iconEl.style.cssText='width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.8';}
+      var nameEl=document.createElement('div');nameEl.style.cssText='font-size:13px;color:rgba(244,242,238,.92);font-weight:500';nameEl.textContent=displayName;
+      row.appendChild(iconEl);row.appendChild(nameEl);row.addEventListener('mouseenter',function(){row.style.background='rgba(30,50,120,.4)';});row.addEventListener('mouseleave',function(){row.style.background='rgba(30,50,120,.2)';});(function(sId){row.addEventListener('click',function(e){e.stopPropagation();exClickService(sId);});})(s);sl.appendChild(row);});
   }
   if(node.reachable&&node.reachable.length){
     sec('CONNECTED THROUGH CHAINLINK','rgba(60,160,255,.65)');
@@ -2521,14 +2415,18 @@ function exClickService(svcName){
   if(EX.selectedSvc===svcName){EX.selectedSvc=null;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';return;}
   EX.selectedSvc=svcName;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([svcName]);
   document.getElementById('ex-ctx-eyebrow').textContent='CHAINLINK SERVICE';
-  document.getElementById('ex-ctx-title').textContent=svcName;
-  var sd=(EXD.serviceInfo&&EXD.serviceInfo[svcName])||('Chainlink '+svcName);
+  var titleTxt=(svcData&&svcData.fullName)||(svcData&&svcData.name)||svcName;
+  document.getElementById('ex-ctx-title').textContent=titleTxt;
+  // Look up description from structured service data first, then serviceInfo
+  var svcData=EXD.chainlinkServices.filter(function(sv){return sv.id===svcName;})[0];
+  var sd=(svcData&&svcData.description)||(EXD.serviceInfo&&EXD.serviceInfo[svcName])||('Chainlink '+svcName+' service.');
   document.getElementById('ex-ctx-body').textContent=sd;
   var te=document.getElementById('ex-ctx-tags');te.innerHTML='';
   var mn=EXD.nodes.filter(function(n){return n.services&&n.services.indexOf(svcName)>-1;});
   var ch=document.createElement('div');ch.style.cssText='font-size:10px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';ch.textContent=mn.length+' systems use this service';te.appendChild(ch);
   var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
   var hd=document.createElement('div');hd.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';hd.textContent='ECOSYSTEM USING '+svcName.toUpperCase();sl.appendChild(hd);
+  if(mn.length===0){var noNode=document.createElement('div');noNode.style.cssText='font-size:12px;color:rgba(244,242,238,.38);line-height:1.6;padding:8px 0;font-style:italic';noNode.textContent=svcName+' is available as a Chainlink service, but no current node in this map is assigned to it yet.';sl.appendChild(noNode);}
   var cc={tradfi:'rgba(200,146,42,.7)',assets:'rgba(160,100,255,.7)',chains:'rgba(60,160,255,.7)',apps:'rgba(255,165,60,.7)'};
   mn.forEach(function(n){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:7px 10px;background:rgba(20,35,80,.2);border:.5px solid rgba(100,140,255,.1);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';var statusBadge=(function(st){
       var cfg={live:{c:'rgba(40,200,120,.85)',bg:'rgba(40,200,120,.12)',t:'LIVE'},announced:{c:'rgba(200,146,42,.85)',bg:'rgba(200,146,42,.12)',t:'ANNOUNCED'},future:{c:'rgba(120,140,200,.7)',bg:'rgba(120,140,200,.1)',t:'WATCHLIST'}};
@@ -2539,7 +2437,7 @@ function exClickService(svcName){
   sl.style.display='';document.getElementById('ex-how').style.display='none';var sc=document.getElementById('ex-ctx-scroll');if(sc)sc.scrollTop=0;setTimeout(exCheckScrollFade,60);
 }
 
-function exHighlightServices(svcNames){document.querySelectorAll('.ex-svc').forEach(function(el){el.classList.remove('active-svc','svc-filtered');});if(!svcNames||!svcNames.length)return;EXD.chainlinkServices.forEach(function(svc){if(svcNames.indexOf(svc.name)>-1){var el=document.getElementById('ex-svc-'+svc.id);if(el)el.classList.add('active-svc');}});}
+function exHighlightServices(svcNames){document.querySelectorAll('.ex-svc').forEach(function(el){el.classList.remove('active-svc','svc-filtered');});if(!svcNames||!svcNames.length)return;EXD.chainlinkServices.forEach(function(svc){if(svcNames.indexOf(svc.id)>-1){var el=document.getElementById('ex-svc-'+svc.id);if(el)el.classList.add('active-svc');}});}
 
 function exBindTabFilter(){document.querySelectorAll('.ex-filter').forEach(function(btn){btn.addEventListener('click',function(){EX.catFilter=btn.dataset.cat||'all';document.querySelectorAll('.ex-filter').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');exClearSelection();});});}
 
