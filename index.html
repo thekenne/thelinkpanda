@@ -708,6 +708,26 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .hero-h1{font-size:3.3vw}.hero-tagline{font-size:1.45vw}.hero-sub{font-size:.78vw}
   .sec-title{font-size:3vw}.thesis-hed{font-size:3vw}
 }
+
+/* ── QUOTE LIBRARY ── */
+.qt-filters{display:flex;flex-wrap:wrap;gap:0;border:.5px solid var(--border);margin-bottom:clamp(24px,2.5vw,40px);overflow-x:auto;scrollbar-width:none}
+.qt-filters::-webkit-scrollbar{display:none}
+.qt-filter{background:none;border:none;border-right:.5px solid var(--border);cursor:pointer;font-family:var(--sans);font-size:clamp(10px,.72vw,12px);letter-spacing:.12em;color:var(--w40);padding:clamp(8px,.8vw,12px) clamp(14px,1.5vw,22px);white-space:nowrap;transition:background .15s,color .15s}
+.qt-filter:last-child{border-right:none}
+.qt-filter:hover{color:var(--w80);background:var(--w06)}
+.qt-filter.active{color:var(--gold);background:var(--gold3)}
+.qt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(280px,30vw,420px),1fr));gap:clamp(1px,0.15vw,2px)}
+.qt-card{background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px);display:flex;flex-direction:column;gap:clamp(14px,1.4vw,20px);transition:border-color .2s}
+.qt-card:hover{border-color:rgba(200,146,42,.3)}
+.qt-quote{font-family:var(--serif);font-size:clamp(14px,1.05vw,17px);font-weight:300;color:var(--w80);line-height:1.7;font-style:italic;position:relative;padding-left:clamp(16px,1.5vw,22px)}
+.qt-quote::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:1.5px;background:var(--gold);opacity:.45}
+.qt-meta{display:flex;flex-direction:column;gap:3px;margin-top:auto;padding-top:clamp(12px,1.2vw,18px);border-top:.5px solid var(--border)}
+.qt-person{font-size:clamp(12px,.85vw,14px);color:var(--w80);font-weight:500;letter-spacing:.01em}
+.qt-role{font-size:clamp(10px,.75vw,12px);color:var(--w40);line-height:1.5}
+.qt-topic{display:inline-block;margin-top:6px;font-size:clamp(8px,.58vw,10px);letter-spacing:.14em;color:var(--gold);opacity:.7;border:.5px solid rgba(200,146,42,.25);padding:2px 8px;font-family:var(--mono)}
+.qt-source{font-size:clamp(9px,.62vw,10px);color:var(--w20);letter-spacing:.06em;margin-top:3px;font-family:var(--mono)}
+@media(max-width:768px){.qt-grid{grid-template-columns:1fr}.qt-filters{flex-wrap:nowrap}}
+
 </style>
 </head>
 <body>
@@ -749,6 +769,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <button class="nav-link"        id="nl-videos"       onclick="showPage('videos')">Videos</button>
     <button class="nav-link"        id="nl-art"          onclick="showPage('art')">Art &amp; NFTs</button>
     <button class="nav-link"        id="nl-about"        onclick="showPage('about')">About</button>
+    <button class="nav-link"        id="nl-quotes"       onclick="showPage('quotes')">Quotes</button>
   </div>
   <!-- Desktop right -->
   <div class="nav-right-desktop" style="display:flex;align-items:center;gap:6px">
@@ -774,6 +795,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <button class="mob-nav-link" onclick="showPage('videos');closeMobileMenu()">Videos</button>
       <button class="mob-nav-link" onclick="showPage('art');closeMobileMenu()">Art &amp; NFTs</button>
       <button class="mob-nav-link" onclick="showPage('about');closeMobileMenu()">About</button>
+      <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">Quotes</button>
     </div>
     <div class="mob-drawer-divider"></div>
     <div class="mob-social">
@@ -1350,6 +1372,32 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
       <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
       <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════ QUOTES ════════════════════════════ -->
+<div class="page" id="page-quotes">
+  <div class="section">
+    <div class="sec-header" style="margin-bottom:clamp(20px,2vw,32px)">
+      <div>
+        <span class="sec-label">QUOTE LIBRARY</span>
+        <div class="sec-title">What institutions are saying</div>
+      </div>
+    </div>
+    <p style="font-size:clamp(13px,.95vw,16px);color:var(--w40);line-height:1.7;max-width:640px;margin-bottom:clamp(28px,3vw,48px)">High-signal statements from executives, institutions, and researchers on Chainlink, digital finance infrastructure, tokenisation, and the architecture of the emerging financial system.</p>
+    <div class="qt-filters" id="qt-filters">
+      <button class="qt-filter active" data-filter="all" onclick="qtFilter('all',this)">ALL</button>
+    </div>
+    <div class="qt-grid" id="qt-grid"></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
     </div>
   </footer>
 </div>
@@ -2402,8 +2450,8 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','infographics','videos','art','about','contact'];
-function showPage(page,filter){ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p),nl=document.getElementById('nl-'+p);if(el)el.classList.toggle('active',p===page);if(nl)nl.classList.toggle('active',p===page);});window.scrollTo(0,0);if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}if(page==='art')buildArt();if(page==='videos')buildVideosPage();}
+var ALL_PAGES=['home','infographics','videos','art','about','quotes','contact'];
+function showPage(page,filter){ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p),nl=document.getElementById('nl-'+p);if(el)el.classList.toggle('active',p===page);if(nl)nl.classList.toggle('active',p===page);});window.scrollTo(0,0);if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}if(page==='quotes'){qtBuildFilters();qtBuildGrid();}if(page==='art')buildArt();if(page==='videos')buildVideosPage();}
 
 buildFeatured();
 buildArt();
@@ -2427,6 +2475,201 @@ function closeMobileMenu(){
   document.getElementById('mob-overlay').classList.remove('show');
   document.getElementById('nav-hamburger').classList.remove('open');
   document.body.style.overflow = '';
+}
+
+// ── QUOTE LIBRARY ──
+const QUOTES = [
+  {
+    quote:  'The market Chainlink is going after is almost impossible to quantify because it\'s in the hundreds of trillions of dollars.',
+    person: 'Ryan Rasmussen',
+    role:   'CIO',
+    org:    'Bitwise',
+    topic:  'Market Opportunity',
+    source: 'Public statement',
+  },
+  {
+    quote:  'Imagine if we could all have invested in Linux, SSL, or HTTP with a token that incentivized their development — now that would have been fun.',
+    person: 'Sergey Nazarov',
+    role:   'Co-Founder',
+    org:    'Chainlink Labs',
+    topic:  'Infrastructure',
+    source: 'Public statement',
+  },
+  {
+    quote:  'Blockchains are deterministic systems. They cannot, by themselves, access real-world data. Secure oracles are therefore not optional, they are foundational.',
+    person: 'Ari Juels',
+    role:   'Chief Scientist',
+    org:    'Chainlink Labs',
+    topic:  'Oracle Infrastructure',
+    source: 'Public statement',
+  },
+  {
+    quote:  'The world just becomes more complex. And that\'s why interoperability becomes even more important.',
+    person: 'Tom Zschach',
+    role:   'Chief Innovation Officer',
+    org:    'SWIFT',
+    topic:  'Interoperability',
+    source: 'Public statement',
+  },
+  {
+    quote:  'There will be many ledgers. And there is a need to move value between ledgers and especially the need to move data between ledgers. This is why Chainlink\'s role is so very important.',
+    person: 'Dan Doney',
+    role:   'CTO',
+    org:    'DTCC',
+    topic:  'Settlement Infrastructure',
+    source: 'Public statement',
+  },
+  {
+    quote:  'We represent a hundred trillion dollars worth of assets, and by working with partners like Chainlink we\'re able to completely update financial markets to use these new tools.',
+    person: 'Dan Doney',
+    role:   'CTO',
+    org:    'DTCC',
+    topic:  'Tokenisation',
+    source: 'Public statement',
+  },
+  {
+    quote:  'Developers who utilize the Chainlink network pay with the protocol\'s native token, LINK. A token that facilitates the growth of the on-chain ecosystem may gain prominence over Bitcoin in time as it becomes increasingly critical to the operation of blockchain infrastructure.',
+    person: 'Citigroup',
+    role:   '',
+    org:    'Citi Global Insights',
+    topic:  'LINK Token',
+    source: 'Citi Global Insights Report',
+  },
+  {
+    quote:  'I believe that tokenization is a concept which is transformative. Having a kind of golden source of truth for the market is a really big change.',
+    person: 'Stéphanie Lheureux',
+    role:   'Head of Digital Assets Competence Center',
+    org:    'Euroclear',
+    topic:  'Tokenisation',
+    source: 'Public statement',
+  },
+  {
+    quote:  'The simple way to understand it is that tokens change the economics in a fundamental way. The fact that a token can go up in value directly based on network effects is a real discovery. I don\'t think people understand the economics of this yet.',
+    person: 'Eric Schmidt',
+    role:   'Former CEO',
+    org:    'Google',
+    topic:  'Token Economics',
+    source: 'Public statement',
+  },
+  {
+    quote:  'The Chainlink-led initiative demonstrates how blockchain can deliver attested, real-time corporate actions data across jurisdictions & platforms, reducing operational risk and enabling smart contract automation.',
+    person: 'Wayne Hughes',
+    role:   'Head of Digital Assets, Securities Services',
+    org:    'BNP Paribas',
+    topic:  'Corporate Actions Data',
+    source: 'Public statement',
+  },
+  {
+    quote:  'By securely connecting our institutional payments solution with public and private blockchain infrastructures, we can offer scalable settlement benefits. This cross-chain solution demonstrates what can be achieved through collaboration with Ondo and Chainlink.',
+    person: 'Nelli Zaltsman',
+    role:   'Head of Platform Settlement Solutions, Kinexys Digital Payments',
+    org:    'J.P. Morgan',
+    topic:  'Cross-Chain Settlement',
+    source: 'Public statement',
+  },
+  {
+    quote:  'We work with Chainlink to bring the NAV of that fund on-chain, so the token can have that NAV associated to it. The client can see that as part of their wallet risk management. Ultimately that\'s why we\'re using Chainlink — we don\'t have to worry too much about that.',
+    person: 'Emma Pecenicic',
+    role:   'Head of Digital Propositions & Partnerships APACxJ',
+    org:    'Fidelity International',
+    topic:  'NAV On-Chain',
+    source: 'Public statement',
+  },
+  {
+    quote:  'We will provide Proof of Reserves daily, not monthly, and we\'ll provide the yield. We think that level of transparency is how you establish trust in this new on-chain world.',
+    person: 'Andrew Crawford',
+    role:   'Vice President, Digital Assets',
+    org:    'Franklin Templeton',
+    topic:  'Proof of Reserve',
+    source: 'Public statement',
+  },
+  {
+    quote:  'By pioneering decentralized oracle networks and enabling more than $27 trillion in transaction value, Chainlink now provides the infrastructure required for tokenized payments, lending, markets, and asset issuance to operate at scale.',
+    person: 'John Roy',
+    role:   'Managing Director, Technology',
+    org:    'Water Tower Research',
+    topic:  'Infrastructure Scale',
+    source: 'Water Tower Research Report',
+  },
+  {
+    quote:  'We chose Chainlink because they are an industry leader for cross-chain connectivity.',
+    person: 'Josh Leavitt',
+    role:   'Senior Director of Product',
+    org:    'Coinbase',
+    topic:  'CCIP',
+    source: 'Public statement',
+  },
+  {
+    quote:  'Super important for the future of this whole industry that these really sophisticated and reliable oracles get built to tie the fabric of smart contracts to the things that they need to make decisions.',
+    person: 'Tom Gonser',
+    role:   'Founder',
+    org:    'DocuSign',
+    topic:  'Oracle Infrastructure',
+    source: 'Public statement',
+  },
+  {
+    quote:  'Powered by CRE — unlocking a higher standard of trust, compliance, and transparency.',
+    person: 'Stijn Vander Straeten',
+    role:   'CEO, Crypto Finance Group',
+    org:    'Deutsche Börse Group',
+    topic:  'CRE',
+    source: 'Public statement',
+  },
+  {
+    quote:  'Partnering with Chainlink enables a similar multiplicator effect to Bloomberg or Refinitiv.',
+    person: 'Dr. Alera Dorfar',
+    role:   'Managing Director, Market Data',
+    org:    'Deutsche Börse Group',
+    topic:  'Market Data',
+    source: 'Public statement',
+  },
+];
+
+function qtBuildFilters(){
+  var bar=document.getElementById('qt-filters');if(!bar)return;
+  var topics=[];
+  QUOTES.forEach(function(q){if(topics.indexOf(q.topic)===-1)topics.push(q.topic);});
+  topics.sort();
+  topics.forEach(function(t){
+    var btn=document.createElement('button');
+    btn.className='qt-filter';btn.dataset.filter=t;
+    btn.textContent=t.toUpperCase();
+    btn.onclick=function(){qtFilter(t,this);};
+    bar.appendChild(btn);
+  });
+}
+
+function qtBuildGrid(){
+  var grid=document.getElementById('qt-grid');if(!grid)return;
+  grid.innerHTML='';
+  QUOTES.forEach(function(q,i){
+    var card=document.createElement('div');
+    card.className='qt-card';card.dataset.topic=q.topic;
+    card.style.animation='cardreveal .35s ease-out '+(i*0.03)+'s both';
+    var roleOrg=(q.role&&q.org)?q.role+' · '+q.org:(q.role||q.org);
+    card.innerHTML=
+      '<div class="qt-quote">'+escHtml(q.quote)+'</div>'+
+      '<div class="qt-meta">'+
+        '<div class="qt-person">'+escHtml(q.person)+'</div>'+
+        '<div class="qt-role">'+escHtml(roleOrg)+'</div>'+
+        '<div><span class="qt-topic">'+escHtml(q.topic)+'</span></div>'+
+        (q.source&&q.source!=='Public statement'?'<div class="qt-source">'+escHtml(q.source)+'</div>':'')+
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+function qtFilter(topic,btn){
+  document.querySelectorAll('.qt-filter').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  document.querySelectorAll('.qt-card').forEach(function(card){
+    card.style.display=(topic==='all'||card.dataset.topic===topic)?'':'none';
+  });
+}
+
+function escHtml(s){
+  if(!s)return'';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 </script>
 </body>
