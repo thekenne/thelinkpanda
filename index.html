@@ -874,38 +874,192 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 <!-- ════════════════════════════ ABOUT ════════════════════════════ -->
 <div class="page" id="page-about">
-  <div class="hero" style="max-height:400px">
-    <img class="hero-banner" src="assets/banner/TheLinkPanda banner.jpg" alt="TheLinkPanda" onerror="this.style.opacity='.2'"/>
-    <div class="hero-ol"></div>
+
+  <!-- ── ABOUT HERO BANNER ── -->
+  <div class="hero" style="max-height:420px">
+    <img class="hero-right-img"
+      src="assets/banner/TheLinkPanda banner split.jpg"
+      alt="TheLinkPanda" onerror="this.style.opacity='.1'"/>
+    <video class="hero-panda-video" autoplay muted loop playsinline
+      style="opacity:.7" onerror="this.style.display='none'">
+      <source src="assets/video/Panda background.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-blend"></div>
+    <div class="hero-text-grad"></div>
     <div class="hero-ob"></div>
-    <div class="hero-content" style="padding-bottom:40px">
-      <div class="hero-eyebrow">ABOUT</div>
-      <div class="hero-h1" style="font-size:clamp(24px,3vw,38px)">TheLink<span>Panda</span></div>
+    <div class="hero-text-panel" style="width:52%">
+      <div class="hero-eyebrow">ABOUT THELINKPANDA</div>
+      <div class="hero-h1" style="font-size:clamp(28px,3.5vw,48px)">TheLink<span>Panda</span></div>
       <div class="hero-rule"></div>
       <div class="hero-tagline">Infrastructure Before Narratives.</div>
+      <div class="hero-sub" style="max-width:clamp(240px,28vw,420px)">Making the invisible systems of digital finance visible — through research, design, and a refusal to mistake narrative for understanding.</div>
     </div>
   </div>
-  <div class="section" style="max-width:760px">
-    <div class="ab-label">MISSION</div>
-    <div class="ab-hed" style="font-size:clamp(20px,2.5vw,30px);margin-bottom:20px">The systems behind digital finance are knowable. Most explanations just aren't good enough.</div>
-    <div class="ab-body" style="font-size:14px">TheLinkPanda exists to make digital finance infrastructure legible — through rigorous research, precise visual systems, and a commitment to clarity over hype. Every infographic, video, and piece of analysis starts with one question: what is actually happening beneath the narrative?</div>
-    <div class="ab-body" style="font-size:14px;margin-top:16px">The focus is on the systems that process, settle, and secure global value: SWIFT, DTCC, Chainlink, stablecoins, tokenisation, interoperability — the architecture of the emerging financial internet.</div>
-    <div class="ab-tags" style="margin-top:24px">
-      <span class="ab-tag">Digital Finance</span>
-      <span class="ab-tag">Infrastructure</span>
-      <span class="ab-tag">Chainlink</span>
-      <span class="ab-tag">Visual Systems</span>
-      <span class="ab-tag">Web3</span>
-      <span class="ab-tag">RWA</span>
-    </div>
-    <div class="services-list">
-      <div class="service-row"><div class="srv-row-name">Infographics</div><div class="srv-row-desc">Visual explanations of infrastructure, technology and financial systems — designed to communicate complex ideas at a glance.</div></div>
-      <div class="service-row"><div class="srv-row-name">Video Content</div><div class="srv-row-desc">Short-form and long-form educational content explaining digital finance systems for informed and general audiences.</div></div>
-      <div class="service-row"><div class="srv-row-name">Research &amp; Narrative</div><div class="srv-row-desc">Turning dense technical topics into understandable, compelling stories with clear hierarchy and evidence.</div></div>
-      <div class="service-row"><div class="srv-row-name">Custom Artwork</div><div class="srv-row-desc">Commissioned paintings and visual work at the intersection of finance, technology, and portraiture.</div></div>
-      <div class="service-row"><div class="srv-row-name">Consulting</div><div class="srv-row-desc">Helping projects, companies, and individuals communicate complex ideas more effectively to their target audience.</div></div>
+
+  <!-- ── MISSION ── -->
+  <div style="background:var(--bg2);border-bottom:.5px solid var(--border)">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:var(--section-pad);display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);align-items:start">
+      <div>
+        <div class="ab-label" style="margin-bottom:clamp(16px,1.6vw,26px)">MISSION</div>
+        <div style="font-family:var(--serif);font-size:clamp(22px,2.8vw,42px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(18px,2vw,32px)">The systems behind digital finance are knowable.<br>Most explanations just aren't good enough.</div>
+        <div style="font-size:clamp(14px,1.05vw,17px);color:var(--w60);line-height:1.85;margin-bottom:clamp(14px,1.4vw,22px)">TheLinkPanda exists to make digital finance infrastructure legible — through rigorous research, precise visual systems, and a commitment to clarity over hype. Every infographic, video, and piece of analysis starts with one question: what is actually happening beneath the narrative?</div>
+        <div style="font-size:clamp(14px,1.05vw,17px);color:var(--w60);line-height:1.85;margin-bottom:clamp(24px,2.4vw,40px)">The focus is on the systems that process, settle, and secure global value: SWIFT, DTCC, Chainlink, stablecoins, tokenisation, interoperability — the architecture of the emerging financial internet.</div>
+        <div class="ab-tags">
+          <span class="ab-tag">Digital Finance</span>
+          <span class="ab-tag">Infrastructure</span>
+          <span class="ab-tag">Chainlink</span>
+          <span class="ab-tag">Visual Systems</span>
+          <span class="ab-tag">Web3</span>
+          <span class="ab-tag">RWA</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:clamp(20px,2.2vw,36px)">
+        <!-- Signature statement -->
+        <div style="border-left:2px solid var(--gold);padding-left:clamp(20px,2vw,32px)">
+          <div style="font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.6vw,24px);font-weight:300;color:var(--w80);line-height:1.5;margin-bottom:10px">"Most people focus on price. I focus on the systems that make price possible."</div>
+          <div style="font-size:clamp(10px,.75vw,12px);letter-spacing:.12em;color:var(--gold);opacity:.6">THELINKPANDA</div>
+        </div>
+        <!-- Context block -->
+        <div style="padding:clamp(20px,2vw,32px);background:var(--bg3);border:.5px solid var(--border)">
+          <div style="font-size:clamp(10px,.72vw,11px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(12px,1.2vw,18px);font-family:var(--mono)">WHY THIS WORK EXISTS</div>
+          <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.8">The institutions processing trillions in value daily — SWIFT, DTCC, Euroclear, central banks — are rarely explained well. As tokenisation and blockchain infrastructure moves from experiment to standard, the gap between what is actually happening and what most people understand is widening.</div>
+          <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.8;margin-top:14px">TheLinkPanda exists to close that gap.</div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- ── CREDIBILITY STATS ── -->
+  <div style="max-width:none;border-bottom:.5px solid var(--border);background:var(--bg)">
+    <div style="max-width:var(--content-max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+      <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);border-right:.5px solid var(--border);text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">16M+</div>
+        <div style="font-size:clamp(9px,.65vw,11px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Content Impressions</div>
+      </div>
+      <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);border-right:.5px solid var(--border);text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">60+</div>
+        <div style="font-size:clamp(9px,.65vw,11px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Educational Videos</div>
+      </div>
+      <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);border-right:.5px solid var(--border);text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">20+</div>
+        <div style="font-size:clamp(9px,.65vw,11px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Original Infographics</div>
+      </div>
+      <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);text-align:center">
+        <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">10K+</div>
+        <div style="font-size:clamp(9px,.65vw,11px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Followers Across Platforms</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WORK SHOWCASE — 3 premium cards ── -->
+  <div style="padding:var(--section-pad);max-width:var(--content-max);margin:0 auto;width:100%">
+    <div style="margin-bottom:clamp(28px,3vw,48px)">
+      <div class="ab-label">THE WORK</div>
+      <div style="font-family:var(--serif);font-size:clamp(22px,3vw,48px);font-weight:300;color:var(--w);line-height:1.1">Three years explaining<br>infrastructure no one else bothers to.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card)">
+
+      <!-- Card 1: Infographics -->
+      <div style="border:.5px solid var(--border);background:var(--bg2);display:flex;flex-direction:column;cursor:pointer;transition:border-color .25s,transform .25s" onclick="showPage('infographics')" onmouseover="this.style.borderColor='rgba(200,146,42,.45)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(244,242,238,.08)';this.style.transform='translateY(0)'">
+        <!-- Thumbnail collage -->
+        <div style="position:relative;height:clamp(180px,18vw,280px);overflow:hidden;background:var(--bg3)">
+          <img src="assets/infographics/global-systems/Global systems/The global financial system connected by Chainlink.jpg"
+               alt="Infographics" loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .5s cubic-bezier(.25,.46,.45,.94)"
+               onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+               onerror="this.style.display='none'"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.7) 0%,transparent 60%);pointer-events:none"></div>
+          <div style="position:absolute;top:14px;left:14px;font-size:clamp(7px,.55vw,9px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">RESEARCH &amp; DESIGN</div>
+        </div>
+        <!-- Content -->
+        <div style="padding:clamp(20px,2vw,32px);flex:1;display:flex;flex-direction:column">
+          <div style="font-family:var(--serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(10px,1vw,16px)">Infographics</div>
+          <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(14px,1.4vw,22px);flex:1">Complex infrastructure made understandable. Original visual systems explaining digital finance, tokenisation, interoperability, and market infrastructure — built for anyone serious enough to want the real picture.</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:clamp(14px,1.4vw,20px);border-top:.5px solid var(--border)">
+            <div style="font-size:clamp(10px,.72vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7">20+ original systems</div>
+            <div style="font-size:clamp(11px,.82vw,13px);color:var(--gold);opacity:.5;letter-spacing:.04em">View library →</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Video -->
+      <div style="border:.5px solid var(--border);background:var(--bg2);display:flex;flex-direction:column;cursor:pointer;transition:border-color .25s,transform .25s" onclick="showPage('videos')" onmouseover="this.style.borderColor='rgba(200,146,42,.45)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(244,242,238,.08)';this.style.transform='translateY(0)'">
+        <div style="position:relative;height:clamp(180px,18vw,280px);overflow:hidden;background:var(--bg3)">
+          <img src="https://i.ytimg.com/vi/ebMDoPEdWP0/hqdefault.jpg"
+               alt="Videos" loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .5s cubic-bezier(.25,.46,.45,.94)"
+               onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+               onerror="this.style.display='none'"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.7) 0%,transparent 60%);pointer-events:none"></div>
+          <div style="position:absolute;top:14px;left:14px;font-size:clamp(7px,.55vw,9px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">YOUTUBE SHORTS</div>
+          <!-- Play icon -->
+          <div style="position:absolute;bottom:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(7,9,13,.65);border:.5px solid rgba(244,242,238,.3);display:flex;align-items:center;justify-content:center">
+            <svg width="12" height="12" viewBox="0 0 24 24" style="fill:rgba(244,242,238,.8);margin-left:2px"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div style="padding:clamp(20px,2vw,32px);flex:1;display:flex;flex-direction:column">
+          <div style="font-family:var(--serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(10px,1vw,16px)">Video Education</div>
+          <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(14px,1.4vw,22px);flex:1">Infrastructure explained clearly, one system at a time. Short-form educational videos breaking down SWIFT, DTCC, stablecoins, tokenisation, and the protocols reshaping global finance — designed to stand alone as complete answers.</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:clamp(14px,1.4vw,20px);border-top:.5px solid var(--border)">
+            <div style="font-size:clamp(10px,.72vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7">60+ educational videos</div>
+            <div style="font-size:clamp(11px,.82vw,13px);color:var(--gold);opacity:.5;letter-spacing:.04em">Watch now →</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Research -->
+      <div style="border:.5px solid var(--border);background:var(--bg2);display:flex;flex-direction:column;cursor:pointer;transition:border-color .25s,transform .25s" onclick="showPage('infographics','Security')" onmouseover="this.style.borderColor='rgba(200,146,42,.45)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(244,242,238,.08)';this.style.transform='translateY(0)'">
+        <div style="position:relative;height:clamp(180px,18vw,280px);overflow:hidden;background:var(--bg3)">
+          <img src="assets/infographics/security/Security/Not all interoperability is the same. Chainlink CCIP.jpg"
+               alt="Research" loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .5s cubic-bezier(.25,.46,.45,.94)"
+               onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+               onerror="this.src='assets/infographics/rwa/RWA/Blackrock Buidl Chainlink stack.jpg'"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.7) 0%,transparent 60%);pointer-events:none"></div>
+          <div style="position:absolute;top:14px;left:14px;font-size:clamp(7px,.55vw,9px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">ANALYSIS &amp; RESEARCH</div>
+        </div>
+        <div style="padding:clamp(20px,2vw,32px);flex:1;display:flex;flex-direction:column">
+          <div style="font-family:var(--serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(10px,1vw,16px)">Research &amp; Analysis</div>
+          <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(14px,1.4vw,22px);flex:1">Looking beneath the narrative. Deep dives into SWIFT, DTCC, stablecoins, tokenisation, Chainlink, and the architecture of the emerging financial internet — for people who want to understand the systems, not just the headlines.</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:clamp(14px,1.4vw,20px);border-top:.5px solid var(--border)">
+            <div style="font-size:clamp(10px,.72vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7">16M+ impressions</div>
+            <div style="font-size:clamp(11px,.82vw,13px);color:var(--gold);opacity:.5;letter-spacing:.04em">Explore →</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TOPICS COVERED ── thin editorial strip ── -->
+  <div style="max-width:none;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);background:var(--bg3)">
+    <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(20px,2.2vw,36px) var(--section-pad);display:flex;align-items:center;gap:clamp(16px,2vw,32px);flex-wrap:wrap">
+      <div style="font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.55;white-space:nowrap;font-family:var(--mono)">TOPICS COVERED</div>
+      <div style="width:.5px;height:20px;background:var(--border);flex-shrink:0"></div>
+      <div style="display:flex;gap:clamp(10px,1.2vw,20px);flex-wrap:wrap;align-items:center">
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">SWIFT</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">DTCC</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Chainlink</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Stablecoins</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Tokenisation</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Interoperability</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">RWA</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Digital Assets</span>
+        <span style="color:var(--border)">·</span>
+        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">CBDCs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WORK WITH ME (unchanged) ── -->
   <div class="work-section">
     <div class="work-grid">
       <div>
@@ -923,7 +1077,16 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       </div>
     </div>
   </div>
-  
+
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
 </div>
 
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
