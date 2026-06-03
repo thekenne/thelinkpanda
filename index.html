@@ -92,65 +92,43 @@ nav{
   overflow:hidden;
   background:#07090D;
 }
-.hero-right-img{
+.hero-right-img{ display:none; } /* retired — replaced by hero-logo-banner */
+
+.hero-logo-banner{
   position:absolute;
-  left:0;top:0;
-  width:100%;height:100%;
-  object-fit:cover;
+  right:0;top:50%;
+  transform:translateY(-50%);   /* vertically centred in hero */
+  width:clamp(420px,44vw,900px);
+  height:auto;
+  object-fit:contain;           /* transparent PNG — no cropping */
   object-position:center center;
-  z-index:0;
-  /* Horizontal mask only: complementary to video fade so both layers sum to 1.0.
-     Vertical mask removed — gold line in image is intentional design. */
-  -webkit-mask-image:linear-gradient(to right,
-    transparent      0%,
-    transparent      38%,
-    rgba(0,0,0,.12)  50%,
-    rgba(0,0,0,.40)  60%,
-    rgba(0,0,0,.72)  70%,
-    rgba(0,0,0,.94)  78%,
-    black            85%,
-    black            100%
-  );
-  mask-image:linear-gradient(to right,
-    transparent      0%,
-    transparent      38%,
-    rgba(0,0,0,.12)  50%,
-    rgba(0,0,0,.40)  60%,
-    rgba(0,0,0,.72)  70%,
-    rgba(0,0,0,.94)  78%,
-    black            85%,
-    black            100%
-  );
+  z-index:4;                    /* above video and decorative layers */
+  pointer-events:none;
 }
 .hero-panda-video{
   position:absolute;
   left:0;top:0;
-  width:100%;height:100%;  /* cover full hero — no artificial width cutoff */
+  width:100%;height:100%;
   object-fit:cover;
-  object-position:30% center; /* keep panda in left portion */
+  object-position:30% center;  /* panda stays left */
   filter:brightness(1.18) contrast(1.04);
   z-index:1;
-  /* Single smooth fade: video solid on left, dissolves to reveal banner on right.
-     No abrupt transitions — one continuous gradient from 40% to 78%. */
-  -webkit-mask-image:linear-gradient(
-    to right,
-    black            0%,
-    black            38%,
-    rgba(0,0,0,.88)  50%,
-    rgba(0,0,0,.60)  60%,
-    rgba(0,0,0,.28)  70%,
-    rgba(0,0,0,.06)  78%,
-    transparent      85%
+  /* No horizontal mask needed — transparent logo PNG sits above the video.
+     The city background fills the right side naturally.
+     Subtle right-edge fade keeps focus on panda without a hard cutoff. */
+  -webkit-mask-image:linear-gradient(to right,
+    black       0%,
+    black       55%,
+    rgba(0,0,0,.7) 72%,
+    rgba(0,0,0,.4) 85%,
+    rgba(0,0,0,.2) 100%
   );
-  mask-image:linear-gradient(
-    to right,
-    black            0%,
-    black            38%,
-    rgba(0,0,0,.88)  50%,
-    rgba(0,0,0,.60)  60%,
-    rgba(0,0,0,.28)  70%,
-    rgba(0,0,0,.06)  78%,
-    transparent      85%
+  mask-image:linear-gradient(to right,
+    black       0%,
+    black       55%,
+    rgba(0,0,0,.7) 72%,
+    rgba(0,0,0,.4) 85%,
+    rgba(0,0,0,.2) 100%
   );
 }
 .hero-blend{display:none;}
@@ -774,11 +752,13 @@ nav{
 
   <section class="hero">
 
-    <!-- Layer 0: split banner image — right-side branding base -->
-    <img class="hero-right-img"
-      src="assets/banner/TheLinkPanda banner split.jpg"
+    <!-- Layer 0: full-width video background sits on #07090D base — no split needed -->
+
+    <!-- Layer 0b: transparent logo/branding PNG — right side foreground -->
+    <img class="hero-logo-banner"
+      src="assets/banner/transparent logo banner.png"
       alt="TheLinkPanda — Infrastructure Before Narratives"
-      onerror="this.style.opacity='.1'"/>
+      onerror="this.style.display='none'"/>
 
     <!-- Layer 1: panda video — feathered mask dissolves into banner -->
     <video class="hero-panda-video" autoplay muted loop playsinline
