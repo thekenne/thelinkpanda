@@ -96,13 +96,13 @@ nav{
 
 .hero-logo-banner{
   position:absolute;
-  right:0;top:50%;
-  transform:translateY(-50%);   /* vertically centred in hero */
-  width:clamp(420px,44vw,900px);
+  left:50%;top:50%;
+  transform:translate(-10%, -50%);  /* centred in right half, breathing room */
+  width:clamp(420px,42vw,820px);
+  max-width:46%;
   height:auto;
-  object-fit:contain;           /* transparent PNG — no cropping */
-  object-position:center center;
-  z-index:4;                    /* above video and decorative layers */
+  object-fit:contain;
+  z-index:4;
   pointer-events:none;
 }
 .hero-panda-video{
@@ -110,40 +110,35 @@ nav{
   left:0;top:0;
   width:100%;height:100%;
   object-fit:cover;
-  object-position:30% center;  /* panda stays left */
+  object-position:30% center;  /* panda stays left, city fills right */
   filter:brightness(1.18) contrast(1.04);
   z-index:1;
-  /* No horizontal mask needed — transparent logo PNG sits above the video.
-     The city background fills the right side naturally.
-     Subtle right-edge fade keeps focus on panda without a hard cutoff. */
-  -webkit-mask-image:linear-gradient(to right,
-    black       0%,
-    black       55%,
-    rgba(0,0,0,.7) 72%,
-    rgba(0,0,0,.4) 85%,
-    rgba(0,0,0,.2) 100%
-  );
-  mask-image:linear-gradient(to right,
-    black       0%,
-    black       55%,
-    rgba(0,0,0,.7) 72%,
-    rgba(0,0,0,.4) 85%,
-    rgba(0,0,0,.2) 100%
-  );
+  /* No mask — video is the full background for both panda and city atmosphere.
+     Transparent logo sits above at z-index:4. */
 }
 .hero-blend{display:none;}
 /* Corner vignette — fades outer corners of video frame naturally.
    Centre (where panda face is) stays bright. Not a full-frame darken. */
 .hero-vignette{
-  position:absolute;left:0;top:0;width:62%;height:100%;
-  background:radial-gradient(
-    ellipse 65% 72% at 52% 32%,
-    transparent           0%,
-    transparent           38%,
-    rgba(4,6,10,.10)      55%,
-    rgba(4,6,10,.30)      75%,
-    rgba(4,6,10,.52)      100%
-  );
+  position:absolute;left:0;top:0;width:100%;height:100%;
+  background:
+    /* left: frame the panda with subtle darkening at corners */
+    radial-gradient(
+      ellipse 55% 70% at 28% 30%,
+      transparent        0%,
+      transparent        35%,
+      rgba(4,6,10,.12)   55%,
+      rgba(4,6,10,.38)   85%,
+      rgba(4,6,10,.55)   100%
+    ),
+    /* edges: gentle dark frame on all sides for cinematic feel */
+    radial-gradient(
+      ellipse 90% 80% at 50% 50%,
+      transparent        0%,
+      transparent        55%,
+      rgba(4,6,10,.10)   72%,
+      rgba(4,6,10,.28)   100%
+    );
   z-index:2;pointer-events:none;
 }
 .hero-text-grad{display:none;}
