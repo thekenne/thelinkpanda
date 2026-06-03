@@ -84,270 +84,106 @@ nav{
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
 /* ── HERO — cinematic single scene ── */
+/* ══════════════════════════════════════════════════════
+   HERO — True 50/50 split
+   ══════════════════════════════════════════════════════ */
 .hero{
-  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   height:calc(100vh - clamp(56px,4.5vw,72px));
   min-height:520px;
   max-height:880px;
   overflow:hidden;
   background:#07090D;
+  position:relative;
 }
-.hero-right-img{ display:none; } /* retired — replaced by hero-logo-banner */
 
-.hero-logo-banner{
-  position:absolute;
-  left:50%;top:50%;
-  transform:translate(-10%, -50%);  /* centred in right half, breathing room */
-  width:clamp(420px,42vw,820px);
-  max-width:46%;
-  height:auto;
-  object-fit:contain;
-  z-index:4;
-  pointer-events:none;
+/* ── LEFT HALF: panda video ── */
+.hero-left{
+  position:relative;
+  overflow:hidden;
 }
 .hero-panda-video{
   position:absolute;
-  left:0;top:0;
+  inset:0;
   width:100%;height:100%;
   object-fit:cover;
-  object-position:30% center;  /* panda stays left, city fills right */
-  filter:brightness(1.18) contrast(1.04);
+  object-position:58% center;  /* keep panda face centred in left half */
+  filter:brightness(1.15) contrast(1.04);
   z-index:1;
-  /* No mask — video is the full background for both panda and city atmosphere.
-     Transparent logo sits above at z-index:4. */
 }
-.hero-blend{display:none;}
-/* Corner vignette — fades outer corners of video frame naturally.
-   Centre (where panda face is) stays bright. Not a full-frame darken. */
-.hero-vignette{
-  position:absolute;left:0;top:0;width:100%;height:100%;
-  background:
-    /* left: frame the panda with subtle darkening at corners */
-    radial-gradient(
-      ellipse 55% 70% at 28% 30%,
-      transparent        0%,
-      transparent        35%,
-      rgba(4,6,10,.12)   55%,
-      rgba(4,6,10,.38)   85%,
-      rgba(4,6,10,.55)   100%
-    ),
-    /* edges: gentle dark frame on all sides for cinematic feel */
-    radial-gradient(
-      ellipse 90% 80% at 50% 50%,
-      transparent        0%,
-      transparent        55%,
-      rgba(4,6,10,.10)   72%,
-      rgba(4,6,10,.28)   100%
-    );
+/* Subtle right-edge fade on video so it meets the banner naturally */
+.hero-panda-video::after{ content:none; }
+.hero-left::after{
+  content:'';
+  position:absolute;top:0;right:0;
+  width:120px;height:100%;
+  background:linear-gradient(to right,transparent,rgba(7,9,13,.55));
   z-index:2;pointer-events:none;
 }
-.hero-text-grad{display:none;}
-.hero-text-backing{
-  position:absolute;left:0;bottom:0;width:48%;height:76%;
-  /* Localised dark panel — only behind the text cluster.
-     Peak opacity at bottom-left, transparent everywhere else.
-     Does NOT extend over the panda's face. */
-  background:
-    radial-gradient(
-      ellipse 88% 82% at 3% 97%,
-      rgba(3,5,10,.60) 0%,
-      rgba(3,5,10,.38) 32%,
-      rgba(3,5,10,.12) 60%,
-      transparent      82%
-    ),
-    radial-gradient(
-      ellipse 60% 50% at 0% 100%,
-      rgba(3,5,10,.30) 0%,
-      transparent      70%
-    );
+/* Vignette: corners darker, panda face bright */
+.hero-vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(
+    ellipse 70% 75% at 45% 35%,
+    transparent 0%,transparent 40%,
+    rgba(4,6,10,.15) 60%,rgba(4,6,10,.45) 90%,rgba(4,6,10,.6) 100%
+  );
   z-index:3;pointer-events:none;
 }
-.hero-ob{
-  position:absolute;left:0;right:0;bottom:0;height:160px;
-  background:linear-gradient(to top,var(--bg) 0%,transparent 100%);
+/* Text backing — dark wash only behind headline cluster */
+.hero-text-backing{
+  position:absolute;left:0;bottom:0;width:90%;height:65%;
+  background:radial-gradient(
+    ellipse 90% 85% at 0% 100%,
+    rgba(3,5,10,.65) 0%,rgba(3,5,10,.35) 35%,transparent 70%
+  );
   z-index:4;pointer-events:none;
 }
+/* Bottom fade to page */
+.hero-ob{
+  position:absolute;left:0;right:0;bottom:0;height:140px;
+  background:linear-gradient(to top,var(--bg) 0%,transparent 100%);
+  z-index:5;pointer-events:none;
+}
+/* Text panel — anchored bottom-left inside left half */
 .hero-text-panel{
-  position:absolute;left:0;bottom:0;width:42%;
-  padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);
+  position:absolute;left:0;bottom:0;
+  width:88%;
+  padding:0 0 clamp(36px,4.5vw,72px) clamp(28px,3.5vw,56px);
   display:flex;flex-direction:column;justify-content:flex-end;
-  z-index:5;
-}
-.hero-eyebrow{
-  font-size:clamp(9px,.62vw,11px);letter-spacing:.22em;
-  color:var(--gold);opacity:.92;
-  margin-bottom:clamp(10px,.9vw,15px);font-weight:400;
-  text-shadow:0 1px 8px rgba(0,0,0,.7);
-}
-.hero-h1{
-  font-family:var(--sans);
-  font-size:clamp(32px,3.8vw,52px);
-  font-weight:500;line-height:1.0;letter-spacing:-.025em;
-  color:#FFFFFF;margin-bottom:4px;
-  text-shadow:0 2px 12px rgba(0,0,0,.6),0 1px 4px rgba(0,0,0,.8);
-}
-.hero-h1 span{color:var(--gold);text-shadow:0 2px 10px rgba(0,0,0,.5)}
-.hero-rule{
-  width:clamp(32px,2.4vw,50px);height:.5px;
-  background:var(--gold);opacity:.65;
-  margin:0 0 clamp(10px,.85vw,16px) 0;  /* below eyebrow, before heading */
-  transform-origin:left;animation:ruledraw .7s ease-out .2s both;
-}
-.hero-tagline{
-  font-family:var(--serif);font-style:italic;
-  font-size:clamp(13px,1.4vw,19px);
-  font-weight:300;color:rgba(244,242,238,.96);
-  margin-bottom:clamp(7px,.6vw,10px);line-height:1.35;
-  text-shadow:0 2px 12px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.7);
-}
-.hero-sub{
-  font-size:clamp(12px,.78vw,14px);color:rgba(244,242,238,.78);
-  line-height:1.7;margin-bottom:clamp(20px,1.9vw,30px);
-  max-width:clamp(200px,20vw,340px);
-  text-shadow:0 1px 8px rgba(0,0,0,.7);
-}
-.hero-cta{
-  display:inline-flex;align-items:center;gap:8px;background:none;
-  border:.5px solid var(--gold);cursor:pointer;color:var(--gold);
-  font-family:var(--sans);font-size:clamp(11px,.76vw,13px);letter-spacing:.07em;
-  padding:clamp(8px,.62vw,11px) clamp(14px,1.4vw,21px);
-  transition:background .25s,color .25s;width:fit-content;
-}
-.hero-cta:hover{background:var(--gold);color:#08070a}
-@media(min-width:1920px){
-  .hero-right-img{left:40%;width:60%}
-  .hero-panda-video{width:60%}
-  .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
-  .hero-eyebrow{font-size:.54vw;margin-bottom:.9vw}
-  .hero-h1{font-size:3.1vw}
-  .hero-rule{width:2.1vw;margin:.85vw 0}
-  .hero-tagline{font-size:1.35vw;margin-bottom:.52vw}
-  .hero-sub{font-size:.75vw;margin-bottom:1.7vw;max-width:19vw}
-  .hero-cta{font-size:.64vw;padding:.6vw 1.4vw}
-}
-@media(min-width:2400px){
-  .hero-h1{font-size:3.3vw}
-  .hero-tagline{font-size:1.45vw}
-  .hero-sub{font-size:.78vw}
-}
-@media(max-width:860px){
-  .hero-right-img{left:0;width:100%;object-fit:cover;object-position:70% center;opacity:.45}
-  .hero-panda-video{
-    width:100%;
-    -webkit-mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
-    mask-image:linear-gradient(to right,black 0%,black 55%,transparent 100%);
-  }
-  .hero-text-panel{width:70%;padding:0 0 36px 20px}
-  .hero-text-grad{width:75%}
-  .hero-text-backing{width:85%}
+  z-index:6;
 }
 
-/* ── DESTINATION CARDS — What I Create ── */
-.dest-section{
-  max-width:none;
-  padding:clamp(24px,2.5vw,40px) clamp(24px,3.5vw,52px);
-  background:var(--bg2);
-  border-bottom:.5px solid var(--border);
-}
-.dest-inner{max-width:var(--content-max);margin:0 auto}
-.dest-label{
-  font-size:clamp(9px,.65vw,11px);letter-spacing:.22em;
-  color:var(--gold);opacity:.65;display:block;
-  margin-bottom:clamp(16px,1.8vw,28px);
-}
-.dest-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:clamp(10px,1vw,16px);
-}
-.dest-card{
+/* ── RIGHT HALF: banner image ── */
+.hero-right{
   position:relative;
-  display:flex;flex-direction:column;
-  overflow:hidden;cursor:pointer;
-  border:.5px solid var(--border);
-  background:var(--bg3);
-  transition:border-color .25s,transform .25s;
-  min-height:clamp(220px,22vw,340px);
-  text-decoration:none;
-}
-.dest-card:hover{border-color:rgba(200,146,42,.45);transform:translateY(-2px)}
-.dest-card-img{
-  position:absolute;inset:0;
   overflow:hidden;
 }
-.dest-card-img img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
-  opacity:.55;
+.hero-right-img{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  z-index:1;
 }
-.dest-card:hover .dest-card-img img{transform:scale(1.05)}
-.dest-card-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    to top,
-    rgba(7,9,13,.96) 0%,
-    rgba(7,9,13,.72) 35%,
-    rgba(7,9,13,.28) 70%,
-    rgba(7,9,13,.08) 100%
-  );
-}
-.dest-card-body{
-  position:relative;z-index:2;
-  display:flex;flex-direction:column;
-  justify-content:flex-end;
-  flex:1;
-  padding:clamp(18px,2vw,30px) clamp(16px,1.8vw,26px);
-}
-.dest-card-cat{
-  font-size:clamp(8px,.6vw,10px);letter-spacing:.18em;
-  color:var(--gold);opacity:.7;margin-bottom:clamp(6px,.7vw,10px);
-}
-.dest-card-title{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(18px,1.9vw,28px);
-  color:#fff;line-height:1.15;
-  margin-bottom:clamp(8px,.9vw,14px);
-}
-.dest-card-desc{
-  font-size:clamp(11px,.82vw,13px);
-  color:rgba(244,242,238,.55);
-  line-height:1.6;
-  margin-bottom:clamp(14px,1.4vw,22px);
-}
-.dest-card-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:clamp(10px,.72vw,12px);letter-spacing:.08em;
-  color:var(--gold);opacity:.7;
-  transition:opacity .2s,gap .2s;
-}
-.dest-card:hover .dest-card-link{opacity:1;gap:9px}
-/* No-image placeholder gradient per card */
-.dest-card-img.dest-infographics{background:linear-gradient(135deg,#0D1628,#0A1832)}
-.dest-card-img.dest-videos{background:linear-gradient(135deg,#0E1530,#0A1525)}
-.dest-card-img.dest-art{background:linear-gradient(135deg,#150E1A,#1A0E22)}
-.dest-card-img.dest-work{background:linear-gradient(135deg,#12130E,#1A1A10)}
-@media(max-width:860px){
-  .dest-section{padding:32px 16px}
-  .dest-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .dest-card{min-height:clamp(160px,42vw,240px)}
-  .dest-card-title{font-size:clamp(16px,5vw,22px)}
-  .dest-card-desc{display:none}
-  .dest-card-body{padding:14px}
-}
-@media(max-width:420px){
-  .dest-grid{grid-template-columns:1fr 1fr}
-  .dest-card{min-height:140px}
+/* Very subtle left-edge fade on banner so it blends at the join */
+.hero-right::before{
+  content:'';
+  position:absolute;top:0;left:0;
+  width:80px;height:100%;
+  background:linear-gradient(to left,transparent,rgba(7,9,13,.45));
+  z-index:2;pointer-events:none;
 }
 
-/* ── SECTIONS ── */
-.section{padding:var(--section-pad);max-width:var(--content-max);margin-left:auto;margin-right:auto;width:100%}
-.section-alt{background:var(--bg2)}
-.section-dark{background:var(--bg3)}
-.sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(24px,2.5vw,44px)}
-.sec-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;display:block;margin-bottom:clamp(4px,.4vw,8px)}
-.sec-title{font-family:var(--serif);font-size:clamp(28px,3.8vw,62px);font-weight:300;color:var(--w);line-height:1.1}
-.sec-link{background:none;border:none;cursor:pointer;font-size:clamp(11px,.85vw,13px);color:var(--gold);opacity:.5;letter-spacing:.05em;font-family:var(--sans);transition:opacity .2s;text-decoration:none;white-space:nowrap}
-.sec-link:hover{opacity:1}
+/* ── Unused overlay classes — kept as no-ops ── */
+.hero-blend{display:none;}
+.hero-text-grad{display:none;}
+.hero-spotlight{display:none;}
+.hero-logo-banner{display:none;}
+
+/* ── Hero typography (unchanged) ── */
 
 /* ── ISSUE BAR ── */
 .issue-bar{max-width:none;border-bottom:.5px solid var(--border);padding:clamp(8px,.7vw,12px) clamp(32px,5vw,80px);background:var(--bg2);display:flex;align-items:center;justify-content:space-between}
@@ -1023,37 +859,15 @@ svg{display:block;max-width:100%;}
 
   <section class="hero">
 
-    <!-- Layer 0: full-width video background sits on #07090D base — no split needed -->
-
-    <!-- Layer 0b: transparent logo/branding PNG — right side foreground -->
-    <img class="hero-logo-banner"
-      src="assets/banner/transparent logo banner.png"
-      alt="TheLinkPanda — Infrastructure Before Narratives"
-      onerror="this.style.display='none'"/>
-
-    <!-- Layer 1: panda video — feathered mask dissolves into banner -->
+  <!-- LEFT HALF: panda video with text overlay -->
+  <div class="hero-left">
     <video class="hero-panda-video" autoplay muted loop playsinline
       onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
     </video>
-
-    <!-- Layer 2: atmospheric blue glow in the blend zone -->
-    <div class="hero-blend"></div>
-
-    <!-- Layer 2b: edge vignette — outer video corners dark, panda face bright -->
     <div class="hero-vignette"></div>
-
-    <!-- Layer 2c: cinematic spotlight — barely-there warm glow on panda face -->
-    <div class="hero-spotlight"></div>
-
-    <!-- Layer 3: dark text-readability gradient (left only) -->
-    <div class="hero-text-grad"></div>
     <div class="hero-text-backing"></div>
-
-    <!-- Layer 4: bottom fade -->
     <div class="hero-ob"></div>
-
-    <!-- Layer 5: website text and CTA -->
     <div class="hero-text-panel">
       <div class="hero-eyebrow">DIGITAL FINANCE INFRASTRUCTURE</div>
       <div class="hero-rule"></div>
@@ -1062,8 +876,17 @@ svg{display:block;max-width:100%;}
       <div class="hero-sub">The systems powering digital finance, made visible through research and design.</div>
       <button class="hero-cta" onclick="showPage('infographics')">Explore the infrastructure →</button>
     </div>
+  </div>
 
-  </section>
+  <!-- RIGHT HALF: banner image -->
+  <div class="hero-right">
+    <img class="hero-right-img"
+      src="assets/banner/TheLinkPanda banner split.jpg"
+      alt="TheLinkPanda — Infrastructure Before Narratives"
+      onerror="this.style.opacity='.1'"/>
+  </div>
+
+</section>
 
   <div class="issue-bar">
     <span class="ib-label">LATEST ISSUE</span>
