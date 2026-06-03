@@ -187,11 +187,11 @@ nav{
 
 /* ── ISSUE BAR ── */
 .issue-bar{max-width:none;border-bottom:.5px solid var(--border);padding:clamp(8px,.7vw,12px) clamp(32px,5vw,80px);background:var(--bg2);display:flex;align-items:center;justify-content:space-between}
-.ib-label{font-size:clamp(9px,.65vw,11px);letter-spacing:.18em;color:var(--w20)}
+.ib-label{font-size:clamp(11px,.82vw,13px);letter-spacing:.18em;color:var(--w20)}
 .ib-topics{display:flex;gap:clamp(12px,1.4vw,22px)}
-.ib-t{font-size:clamp(9px,.65vw,11px);letter-spacing:.07em;color:var(--w40);cursor:pointer;transition:color .15s;background:none;border:none;font-family:var(--sans)}
+.ib-t{font-size:clamp(11px,.82vw,14px);letter-spacing:.07em;color:var(--w40);cursor:pointer;transition:color .15s;background:none;border:none;font-family:var(--sans)}
 .ib-t:hover,.ib-t.on{color:var(--gold)}
-.ib-date{font-size:clamp(9px,.65vw,11px);letter-spacing:.1em;color:var(--w20);font-family:var(--mono)}
+.ib-date{font-size:clamp(11px,.82vw,13px);letter-spacing:.1em;color:var(--w20);font-family:var(--mono)}
 
 /* ── IMAGE WRAPPER + FALLBACK ── */
 .img-wrap{position:relative;width:100%;height:100%;overflow:hidden}
@@ -294,16 +294,16 @@ nav{
 .ex-services{
   border-right:.5px solid rgba(255,255,255,.05);
   padding:12px 12px;
-  display:flex;flex-direction:column;gap:1px;
+  display:flex;flex-direction:column;gap:3px;
   overflow-y:auto;scrollbar-width:none;
   min-height:0;                  /* constrain to grid row */
   max-height:100%;
 }
 .ex-services::-webkit-scrollbar{display:none}
 .ex-svc-header{
-  font-size:9px;letter-spacing:.18em;
-  color:var(--gold);opacity:.60;
-  margin-bottom:clamp(8px,.8vw,12px);
+  font-size:11px;letter-spacing:.18em;
+  color:var(--gold);opacity:.65;
+  margin-bottom:clamp(10px,1vw,16px);
   flex-shrink:0;
   display:flex;align-items:center;gap:6px;
 }
@@ -312,8 +312,8 @@ nav{
   background:var(--gold);opacity:.5;flex-shrink:0;
 }
 .ex-svc{
-  display:flex;align-items:center;gap:10px;
-  padding:5px 10px;
+  display:flex;align-items:center;gap:12px;
+  padding:8px 12px;
   border-radius:6px;cursor:pointer;
   transition:background .18s,opacity .18s;
   border:.5px solid transparent;
@@ -322,7 +322,7 @@ nav{
 .ex-svc:hover{background:rgba(255,255,255,.04);border-color:rgba(200,146,42,.2)}
 
 .ex-svc.active-svc .ex-svc-icon{background:rgba(200,146,42,.25);border-color:rgba(200,146,42,.6)}
-.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600}
+.ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600;font-size:15px;line-height:1.2}
 .ex-svc.active-svc img{opacity:1!important;filter:drop-shadow(0 0 4px rgba(200,146,42,.55));}
 .ex-svc img{transition:opacity .18s,filter .18s;}
 .ex-svc-icon-text{
@@ -405,8 +405,8 @@ nav{
 .ex-svc-text{}
 .ex-svc-name{color:var(--gold);font-weight:600;font-size:12px;line-height:1.15}
 .ex-svc-desc{
-  font-size:10px;color:rgba(244,242,238,.48);
-  line-height:1.3;margin-top:1px;
+  font-size:12px;color:rgba(244,242,238,.50);
+  line-height:1.35;margin-top:2px;
 }
 
 /* ── Lightbox ── */
@@ -722,7 +722,7 @@ img{max-width:100%;height:auto;}
 /* ── Explorer hint (outside shell) ── */
 .ex-hint{
   padding:8px clamp(24px,3.5vw,52px);
-  font-size:11px;color:rgba(244,242,238,.28);
+  font-size:13px;color:rgba(244,242,238,.30);
   font-family:var(--mono);letter-spacing:.04em;
   display:flex;align-items:center;gap:6px;
 }
@@ -802,6 +802,47 @@ svg{display:block;max-width:100%;}
 .yt-sub{font-size:11px;color:rgba(244,242,238,.38);margin-top:3px;line-height:1.4;}
 .yt-title{font-size:clamp(12px,.9vw,14px);color:rgba(244,242,238,.9);line-height:1.4;font-weight:500;}
 .yt-thumb-wrap{position:relative;overflow:hidden;aspect-ratio:9/16;background:#070A14;}
+
+/* ── Section labels and headings ── */
+.sec-label{
+  font-size:clamp(11px,.82vw,14px);
+  letter-spacing:.2em;color:var(--gold);opacity:.7;
+  display:block;margin-bottom:clamp(5px,.5vw,10px);
+  font-family:var(--mono);text-transform:uppercase;
+}
+.sec-title{
+  font-family:var(--serif);
+  font-size:clamp(28px,3.8vw,62px);
+  font-weight:300;color:var(--w);line-height:1.1;
+}
+.sec-link{
+  background:none;border:none;cursor:pointer;
+  font-size:clamp(11px,.85vw,13px);color:var(--gold);
+  opacity:.5;letter-spacing:.05em;font-family:var(--sans);
+  transition:opacity .2s;text-decoration:none;white-space:nowrap;
+}
+.sec-link:hover{opacity:1}
+
+/* ── Destination / What I Create cards ── */
+.dest-card-cat{
+  font-size:clamp(11px,.7vw,12px);
+  letter-spacing:.14em;color:var(--gold);opacity:.8;
+  margin-bottom:clamp(6px,.6vw,9px);
+  font-family:var(--mono);display:block;
+}
+.dest-card-title{
+  font-family:var(--serif);
+  font-size:clamp(19px,5.5vw,26px);
+  font-weight:300;color:var(--w);line-height:1.15;
+  margin-bottom:clamp(6px,.6vw,10px);
+}
+.dest-card-desc{display:none;}
+.dest-card-body{padding:14px 16px;}
+.dest-card-link{
+  font-size:clamp(11px,.8vw,13px);
+  color:var(--gold);opacity:.65;
+  letter-spacing:.05em;
+}
 </style>
 </head>
 <body>
@@ -985,9 +1026,9 @@ svg{display:block;max-width:100%;}
   <!-- ══ INFRASTRUCTURE EXPLORER — title ══ -->
   <div style="background:linear-gradient(180deg,#07090D 0%,#050A18 100%);padding:clamp(20px,2vw,32px) clamp(20px,4vw,72px) clamp(12px,1.2vw,20px);border-top:.5px solid rgba(200,146,42,.10)">
     <div style="max-width:900px">
-      <div style="font-size:clamp(9px,.62vw,10px);letter-spacing:.22em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,14px);font-family:var(--mono);text-transform:uppercase">Infrastructure Explorer</div>
-      <div style="font-family:var(--serif);font-size:clamp(20px,2vw,30px);font-weight:300;color:#fff;line-height:1.12;margin-bottom:clamp(12px,1.2vw,18px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
-      <div style="font-size:clamp(13px,.92vw,15px);color:rgba(244,242,238,.45);line-height:1.65;font-family:var(--sans)">Click any node to explore relationships, services used, and infrastructure dependencies.</div>
+      <div style="font-size:clamp(11px,.78vw,13px);letter-spacing:.22em;color:var(--gold);opacity:.7;margin-bottom:clamp(12px,1.1vw,16px);font-family:var(--mono);text-transform:uppercase">Infrastructure Explorer</div>
+      <div style="font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);font-weight:300;color:#fff;line-height:1.12;margin-bottom:clamp(14px,1.4vw,22px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
+      <div style="font-size:clamp(16px,1.1vw,19px);color:rgba(244,242,238,.50);line-height:1.65;font-family:var(--sans)">Click any node to explore relationships, services used, and infrastructure dependencies.</div>
     </div>
   </div>
   <div class="ex-shell" id="explorer-shell">
@@ -2096,7 +2137,7 @@ function exBuildSVG(){
   var clFo=document.createElementNS(ns,'foreignObject');clFo.setAttribute('x',EX.CX-22);clFo.setAttribute('y',EX.CY-22);clFo.setAttribute('width','44');clFo.setAttribute('height','44');clFo.setAttribute('clip-path','url(#clip-cl)');clFo.setAttribute('pointer-events','none');var clIm=document.createElement('img');clIm.src='assets/logos/chainlink.png';clIm.style.cssText='width:44px;height:44px;object-fit:contain;display:block';clIm.onerror=function(){console.warn('chainlink logo failed');};clFo.appendChild(clIm);clG.appendChild(clFo);
   var clL=document.createElementNS(ns,'text');clL.setAttribute('x',EX.CX);clL.setAttribute('y',EX.CY+24);clL.setAttribute('text-anchor','middle');clL.setAttribute('fill','rgba(255,255,255,.92)');clL.setAttribute('font-size','11');clL.setAttribute('font-family','DM Sans,sans-serif');clL.setAttribute('font-weight','600');clL.textContent='Chainlink';clG.appendChild(clL);
   svg.appendChild(clG);
-  [{cat:'tradfi',label:'TRADITIONAL FINANCE',x:12,y:14,a:'start'},{cat:'assets',label:'DIGITAL ASSETS',x:888,y:14,a:'end'},{cat:'chains',label:'BLOCKCHAINS',x:12,y:668,a:'start'},{cat:'apps',label:'APPLICATIONS',x:888,y:668,a:'end'}].forEach(function(cl){var t=document.createElementNS(ns,'text');t.setAttribute('x',cl.x);t.setAttribute('y',cl.y);t.setAttribute('text-anchor',cl.a);t.setAttribute('fill',cats[cl.cat]);t.setAttribute('font-size','11');t.setAttribute('font-family','DM Sans,sans-serif');t.setAttribute('letter-spacing','0.14em');t.setAttribute('font-weight','600');t.setAttribute('opacity','0.82');t.setAttribute('pointer-events','none');t.textContent=cl.label;svg.appendChild(t);});
+  [{cat:'tradfi',label:'TRADITIONAL FINANCE',x:12,y:14,a:'start'},{cat:'assets',label:'DIGITAL ASSETS',x:888,y:14,a:'end'},{cat:'chains',label:'BLOCKCHAINS',x:12,y:668,a:'start'},{cat:'apps',label:'APPLICATIONS',x:888,y:668,a:'end'}].forEach(function(cl){var t=document.createElementNS(ns,'text');t.setAttribute('x',cl.x);t.setAttribute('y',cl.y);t.setAttribute('text-anchor',cl.a);t.setAttribute('fill',cats[cl.cat]);t.setAttribute('font-size','13');t.setAttribute('font-family','DM Sans,sans-serif');t.setAttribute('letter-spacing','0.14em');t.setAttribute('font-weight','600');t.setAttribute('opacity','0.82');t.setAttribute('pointer-events','none');t.textContent=cl.label;svg.appendChild(t);});
   svg.addEventListener('click',function(e){if(e.target===svg){EX.selectedNode=null;EX.reachableSet={};EX.selectedSvc=null;exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}});
 }
 
