@@ -1513,7 +1513,7 @@ var EXD = {
       services:['ccip','data-feeds'],
       chainlinkRole:"Chainlink connects XRPL to the broader blockchain ecosystem through CCIP.",
       status:'future',connects:['chainlink'],reachable:['swift','cbanks','stablecoins','ethereum']},
-    {id:'stellar',     cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png',         x:0.42, y:0.67,
+    {id:'stellar',     cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png',         x:0.42, y:0.645,
       desc:'Blockchain network for cross-border payments and stablecoin settlement.',
       services:['data-feeds','data-streams','ccip'],
       chainlinkRole:"Chainlink enables Stellar payment workflows to connect with other blockchains.",
@@ -1528,7 +1528,7 @@ var EXD = {
       services:['data-feeds','data-streams','automation','functions','ccip'],
       chainlinkRole:"Chainlink provides oracle feeds and CCIP for Optimism.",
       status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','aave','stablecoins']},
-    {id:'polygon',     cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png',         x:0.38, y:0.72,
+    {id:'polygon',     cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png',         x:0.38, y:0.745,
       desc:'Ethereum scaling network with major institutional adoption.',
       services:['data-feeds','data-streams','automation','functions','ccip'],
       chainlinkRole:"Chainlink powers Polygon DeFi and institutional applications.",
@@ -1718,10 +1718,10 @@ function exBuildSVG(){
   var pr=document.createElementNS(ns,'circle');pr.setAttribute('cx',EX.CX);pr.setAttribute('cy',EX.CY);pr.setAttribute('r','24');pr.setAttribute('fill','none');pr.setAttribute('stroke','rgba(60,120,255,.15)');pr.setAttribute('stroke-width','1.2');var pa=document.createElementNS(ns,'animate');pa.setAttribute('attributeName','r');pa.setAttribute('values','52;70;52');pa.setAttribute('dur','4s');pa.setAttribute('repeatCount','indefinite');pr.appendChild(pa);clG.appendChild(pr);
   var clBg=document.createElementNS(ns,'circle');clBg.setAttribute('cx',EX.CX);clBg.setAttribute('cy',EX.CY);clBg.setAttribute('r','26');clBg.setAttribute('fill','#1A2D55');clBg.setAttribute('filter','url(#glow-cl)');clBg.setAttribute('stroke','rgba(60,140,255,.55)');clBg.setAttribute('stroke-width','1.8');clG.appendChild(clBg);
   var clFo=document.createElementNS(ns,'foreignObject');clFo.setAttribute('x',EX.CX-22);clFo.setAttribute('y',EX.CY-22);clFo.setAttribute('width','44');clFo.setAttribute('height','44');clFo.setAttribute('clip-path','url(#clip-cl)');clFo.setAttribute('pointer-events','none');var clIm=document.createElement('img');clIm.src='assets/logos/chainlink.png';clIm.style.cssText='width:44px;height:44px;object-fit:contain;display:block';clIm.onerror=function(){console.warn('chainlink logo failed');};clFo.appendChild(clIm);clG.appendChild(clFo);
-  var clL=document.createElementNS(ns,'text');clL.setAttribute('x',EX.CX);clL.setAttribute('y',EX.CY+24);clL.setAttribute('text-anchor','middle');clL.setAttribute('fill','rgba(255,255,255,.92)');clL.setAttribute('font-size','11');clL.setAttribute('font-family','DM Sans,sans-serif');clL.setAttribute('font-weight','600');clL.textContent='Chainlink';clG.appendChild(clL);
+  var clL=document.createElementNS(ns,'text');clL.setAttribute('x',EX.CX);clL.setAttribute('y',EX.CY+34);clL.setAttribute('text-anchor','middle');clL.setAttribute('fill','rgba(255,255,255,.92)');clL.setAttribute('font-size','11');clL.setAttribute('font-family','DM Sans,sans-serif');clL.setAttribute('font-weight','600');clL.textContent='Chainlink';clG.appendChild(clL);
   svg.appendChild(clG);
   [{cat:'tradfi',label:'TRADITIONAL FINANCE',x:12,y:14,a:'start'},{cat:'assets',label:'DIGITAL ASSETS',x:888,y:14,a:'end'},{cat:'chains',label:'BLOCKCHAINS',x:12,y:668,a:'start'},{cat:'apps',label:'APPLICATIONS',x:888,y:668,a:'end'}].forEach(function(cl){var t=document.createElementNS(ns,'text');t.setAttribute('x',cl.x);t.setAttribute('y',cl.y);t.setAttribute('text-anchor',cl.a);t.setAttribute('fill',cats[cl.cat]);t.setAttribute('font-size','13');t.setAttribute('font-family','DM Sans,sans-serif');t.setAttribute('letter-spacing','0.14em');t.setAttribute('font-weight','600');t.setAttribute('opacity','0.82');t.setAttribute('pointer-events','none');t.textContent=cl.label;svg.appendChild(t);});
-  svg.addEventListener('click',function(e){if(e.target===svg){EX.selectedNode=null;EX.reachableSet={};EX.selectedSvc=null;exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}});
+  svg.addEventListener('click',function(e){if(e.target===svg){EX.selectedNode=null;EX.reachableSet={};EX.selectedSvc=null;exApplyVisuals();exHighlightServices([]);exClearAnimations();exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}});
 }
 
 function exSelectNode(node){EX.selectedNode=node.id;EX.selectedSvc=null;EX.reachableSet={};if(node.reachable)node.reachable.forEach(function(r){EX.reachableSet[r]=true;});exApplyVisuals();exHighlightServices(node.services||[]);exUpdateRightPanel(node);exAnimateEdges(node);document.getElementById('ex-ctx-svcs').style.display='';document.getElementById('ex-how').style.display='none';}
