@@ -385,42 +385,273 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .form-input:focus{border-color:rgba(200,146,42,.5)}
 
 /* ── RESPONSIVE MOBILE (Doc1) ── */
-@media(max-width:860px){
-  :root{--section-pad:48px 24px;--gap-card:10px}
-  nav{padding:0 16px}
-  .nav-links .nav-link{padding:0 8px;font-size:11px}
-  .issue-bar,.work-section,.follow-section,footer{padding-left:20px;padding-right:20px}
-  .feat-grid{grid-template-columns:1fr 1fr}
-  .feat-card.large{grid-column:1/3;grid-row:auto}
-  .about-split,.work-grid{grid-template-columns:1fr}
-  .about-right{min-height:260px}
-  .work-grid{gap:28px}
-  .srv-grid{grid-template-columns:repeat(3,1fr)}
-  .home-video-row{grid-template-columns:1fr 1fr}
-  .follow-inner{flex-direction:column}
-  .follow-channels{min-width:0;width:100%}
-  .dest-section{padding:32px 16px}
+/* ═══════════════════════════════════════════════
+   MOBILE — below 768px
+   ═══════════════════════════════════════════════ */
+@media(max-width:768px){
+  :root{--section-pad:64px 20px;--gap-card:10px}
+
+  /* ── Nav: hide desktop elements, show hamburger ── */
+  .nav-links{display:none}
+  .nav-right-desktop{display:none!important}
+  .nav-hamburger{display:flex}
+
+  /* ── Hero: full-width centered panda ── */
+  .hero{
+    height:92vw;
+    min-height:380px;
+    max-height:520px;
+  }
+  .hero-right-img{
+    left:0;width:100%;
+    object-fit:cover;
+    object-position:62% center;
+    opacity:.35;
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+  .hero-panda-video{
+    left:-10%;
+    width:120%;
+    object-position:48% center;
+    -webkit-mask-image:linear-gradient(to bottom,black 0%,black 70%,transparent 100%);
+    mask-image:linear-gradient(to bottom,black 0%,black 70%,transparent 100%);
+  }
+  .hero-blend{left:0;width:100%}
+  .hero-text-grad{width:100%;background:linear-gradient(to top,rgba(7,9,13,.72) 0%,rgba(7,9,13,.30) 50%,transparent 100%)}
+  .hero-text-backing{width:100%;height:60%}
+  .hero-text-panel{
+    width:100%;
+    padding:0 20px 32px;
+    align-items:flex-start;
+  }
+  .hero-h1{font-size:clamp(28px,9vw,40px)}
+  .hero-tagline{font-size:clamp(14px,4.5vw,18px)}
+  .hero-sub{font-size:13px;max-width:85vw;color:var(--w80)}
+  .hero-eyebrow{font-size:9px}
+  .hero-cta{font-size:12px;padding:10px 18px}
+  .hero-rule{margin:8px 0}
+
+  /* ── About page hero ── */
+  .hero[style*="max-height:420px"]{
+    height:80vw;
+    min-height:320px;
+    max-height:420px;
+  }
+
+  /* ── Issue bar ── */
+  .issue-bar{padding:10px 16px;flex-wrap:wrap;gap:6px}
+  .ib-topics{gap:10px;flex-wrap:wrap}
+
+  /* ── Sections ── */
+  .section{padding:64px 20px}
+
+  /* ── Featured grid ── */
+  .feat-grid{grid-template-columns:1fr}
+  .feat-card.large{grid-column:1;grid-row:auto;min-height:56vw}
+  .feat-card.small{min-height:48vw}
+
+  /* ── Destination cards ── */
+  .dest-section{padding:64px 20px}
   .dest-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .dest-card{min-height:clamp(160px,42vw,240px)}
+  .dest-card{min-height:clamp(160px,42vw,230px)}
   .dest-card-desc{display:none}
-  .dest-card-body{padding:14px}
-  .hero-right-img{left:0;width:100%;object-fit:cover;object-position:70% center;opacity:.45}
-  .hero-panda-video{width:100%;-webkit-mask-image:linear-gradient(to right,black 0%,black 70%,transparent 100%);mask-image:linear-gradient(to right,black 0%,black 70%,transparent 100%)}
-  .hero-text-panel{width:70%;padding:0 0 36px 20px}
-  .hero-text-grad{width:75%}
+  .dest-card-body{padding:12px}
+  .dest-card-title{font-size:clamp(15px,5vw,20px)}
+
+  /* ── Thesis ── */
+  .thesis{padding:64px 20px}
+  .thesis-hed{font-size:clamp(22px,7vw,34px)}
+  .thesis-body{font-size:14px;max-width:100%}
+
+  /* ── Explorer ── */
   .ex-shell{height:auto;max-height:none;min-height:auto;overflow:visible;}
   .ex-body{grid-template-columns:1fr;overflow:visible;height:auto;}
-  .ex-canvas{height:clamp(300px,60vw,460px)}
-  .ex-services{border-right:none;border-bottom:.5px solid rgba(255,255,255,.05);flex-direction:row;flex-wrap:wrap;padding:10px 14px;gap:5px;height:auto;}
+  .ex-canvas{height:clamp(340px,88vw,480px)}
+  /* Service chips — horizontal swipe row */
+  .ex-services{
+    border-right:none;
+    border-bottom:.5px solid rgba(255,255,255,.05);
+    flex-direction:row;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding:10px 16px;
+    gap:6px;
+    height:auto;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .ex-services::-webkit-scrollbar{display:none}
   .ex-svc-header{display:none}
+  .ex-svc{
+    flex-shrink:0;
+    padding:5px 12px;
+    border-radius:20px;
+    border:.5px solid rgba(200,146,42,.25);
+    background:rgba(255,255,255,.03);
+    gap:6px;
+  }
   .ex-svc-desc{display:none}
+  .ex-svc-name{font-size:11px;white-space:nowrap}
+  .ex-svc-img-wrap{width:16px;height:16px;flex:0 0 16px}
   .ex-ctx{height:auto;border-left:none;border-top:.5px solid rgba(255,255,255,.05);overflow:visible;}
   .ex-ctx-scroll{overflow-y:visible;}
   .ex-stats{grid-template-columns:repeat(4,1fr)}
+  .ex-filterbar{padding:0 10px}
+  .ex-filter{padding:0 12px;font-size:10px}
+  .ex-filter-hint{display:none}
+  .ex-search-wrap{padding:6px 12px 0}
+
+  /* ── Topics ── */
+  .topics-grid{grid-template-columns:repeat(4,1fr)}
+  .topic-cell{padding:14px 8px}
+  .tc-icon{font-size:18px}
+  .tc-name{font-size:9px}
+
+  /* ── Video row ── */
+  .home-video-row{grid-template-columns:1fr 1fr}
+
+  /* ── About section (homepage) ── */
+  .about-split{grid-template-columns:1fr}
+  .about-right{min-height:220px}
+
+  /* ── Follow ── */
+  .follow-section{padding:64px 20px}
+  .follow-inner{flex-direction:column;gap:28px}
+  .follow-channels{min-width:0;width:100%}
+  .follow-ch{padding:14px 16px}
+
+  /* ── Work ── */
+  .work-section{padding:64px 20px}
+  .work-grid{grid-template-columns:1fr;gap:28px}
+  .srv-grid{grid-template-columns:repeat(3,1fr)}
+
+  /* ── Footer ── */
+  footer{padding:20px 20px;flex-wrap:wrap;gap:14px}
+
+  /* ── Lightbox ── */
   .lb-main{padding:12px 40px}
   .lb-footer{padding:0 40px 12px}
+
   body{font-size:14px}
 }
+
+/* ── Hamburger CSS (always present, hidden on desktop) ── */
+.nav-hamburger{
+  display:none;
+  flex-direction:column;justify-content:center;align-items:center;
+  gap:5px;
+  width:40px;height:40px;
+  background:none;border:none;cursor:pointer;
+  padding:4px;
+}
+.nav-hamburger span{
+  display:block;width:22px;height:1.5px;
+  background:var(--w60);
+  transition:transform .25s,opacity .25s,width .25s;
+  transform-origin:center;
+}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;width:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* Drawer */
+.mob-drawer{
+  position:fixed;top:0;right:0;
+  width:min(300px,85vw);
+  height:100%;
+  background:rgba(7,9,13,.98);
+  border-left:.5px solid var(--border);
+  z-index:300;
+  transform:translateX(100%);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;
+  display:flex;flex-direction:column;
+  backdrop-filter:blur(20px);
+}
+.mob-drawer.open{transform:translateX(0)}
+.mob-drawer-inner{
+  padding:clamp(72px,12vw,90px) 28px 40px;
+  display:flex;flex-direction:column;gap:0;
+  flex:1;
+}
+.mob-nav-links{display:flex;flex-direction:column;gap:2px}
+.mob-nav-link{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:18px;font-weight:300;
+  color:var(--w60);letter-spacing:.01em;
+  padding:14px 0;
+  text-align:left;
+  border-bottom:.5px solid rgba(244,242,238,.05);
+  transition:color .15s;
+}
+.mob-nav-link:last-child{border-bottom:none}
+.mob-nav-link:hover{color:var(--w)}
+.mob-drawer-divider{height:.5px;background:var(--border);margin:24px 0}
+.mob-social{display:flex;flex-direction:column;gap:4px}
+.mob-social-link{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 0;
+  text-decoration:none;
+  border-bottom:.5px solid rgba(244,242,238,.05);
+  transition:background .15s;
+}
+.mob-social-link:last-child{border-bottom:none}
+.mob-social-icon{
+  width:32px;height:32px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:.5px solid var(--border);
+  color:var(--gold);
+}
+.mob-social-icon svg{width:14px;height:14px;fill:var(--gold)}
+.mob-social-name{font-size:14px;color:var(--w80);font-family:var(--sans)}
+.mob-social-sub{font-size:11px;color:var(--w40);font-family:var(--mono);margin-top:2px}
+.mob-cta{
+  margin-top:auto;
+  background:var(--gold);color:#08070a;
+  font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.06em;
+  border:none;padding:14px 24px;cursor:pointer;
+  transition:background .2s;text-align:center;
+}
+.mob-cta:hover{background:var(--gold2)}
+.mob-overlay{
+  position:fixed;inset:0;z-index:299;
+  background:rgba(0,0,0,.5);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+  backdrop-filter:blur(2px);
+}
+.mob-overlay.show{opacity:1;pointer-events:auto}
+
+/* About page mobile: mission 2-col → 1-col, quote full-width */
+@media(max-width:768px){
+  /* Mission 2-col grid → 1-col */
+  [style*="grid-template-columns:1fr 1fr"][style*="gap:clamp(40px"]{
+    grid-template-columns:1fr!important;
+    gap:32px!important;
+  }
+  /* Quote block — remove border-left, center */
+  [style*="border-left:2px solid var(--gold)"]{
+    border-left:none!important;
+    border-top:2px solid var(--gold)!important;
+    padding-left:0!important;
+    padding-top:24px!important;
+    text-align:center;
+  }
+  /* Stats grid → 2x2 */
+  [style*="grid-template-columns:repeat(4,1fr)"]{
+    grid-template-columns:1fr 1fr!important;
+  }
+  /* Work showcase cards → 1 col */
+  [style*="grid-template-columns:repeat(3,1fr)"][style*="gap:var(--gap-card)"]{
+    grid-template-columns:1fr!important;
+  }
+  /* Topics strip → wrap */
+  [style*="TOPICS COVERED"] ~ div{flex-wrap:wrap}
+  /* Narrow mission text */
+  .ab-body{max-width:100%}
+}
+
 /* ── WIDE 1400px+ (Doc1) ── */
 @media(min-width:1400px){
   :root{--section-pad:96px 80px;--gap-card:18px}
@@ -511,6 +742,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </svg>
     <div class="nav-wordmark">TheLink<span>Panda</span></div>
   </button>
+  <!-- Desktop nav links -->
   <div class="nav-links">
     <button class="nav-link active" id="nl-home"         onclick="showPage('home')">Home</button>
     <button class="nav-link"        id="nl-infographics" onclick="showPage('infographics')">Infographics</button>
@@ -518,7 +750,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <button class="nav-link"        id="nl-art"          onclick="showPage('art')">Art &amp; NFTs</button>
     <button class="nav-link"        id="nl-about"        onclick="showPage('about')">About</button>
   </div>
-  <div style="display:flex;align-items:center;gap:6px">
+  <!-- Desktop right -->
+  <div class="nav-right-desktop" style="display:flex;align-items:center;gap:6px">
     <div class="social-bar">
       <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
       <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
@@ -526,7 +759,39 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
     <button class="nav-cta" onclick="showPage('contact')">Work With Me</button>
   </div>
+  <!-- Mobile hamburger button -->
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile menu drawer -->
+<div class="mob-drawer" id="mob-drawer">
+  <div class="mob-drawer-inner">
+    <div class="mob-nav-links">
+      <button class="mob-nav-link" onclick="showPage('home');closeMobileMenu()">Home</button>
+      <button class="mob-nav-link" onclick="showPage('infographics');closeMobileMenu()">Infographics</button>
+      <button class="mob-nav-link" onclick="showPage('videos');closeMobileMenu()">Videos</button>
+      <button class="mob-nav-link" onclick="showPage('art');closeMobileMenu()">Art &amp; NFTs</button>
+      <button class="mob-nav-link" onclick="showPage('about');closeMobileMenu()">About</button>
+    </div>
+    <div class="mob-drawer-divider"></div>
+    <div class="mob-social">
+      <a class="mob-social-link" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener">
+        <span class="mob-social-icon"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></span><div><div class="mob-social-name">YouTube</div><div class="mob-social-sub">@TheLinkPanda</div></div>
+      </a>
+      <a class="mob-social-link" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener">
+        <span class="mob-social-icon"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></span><div><div class="mob-social-name">TikTok</div><div class="mob-social-sub">@thelinkpanda</div></div>
+      </a>
+      <a class="mob-social-link" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener">
+        <span class="mob-social-icon"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></span><div><div class="mob-social-name">Instagram</div><div class="mob-social-sub">@thechainlinkpanda</div></div>
+      </a>
+    </div>
+    <div class="mob-drawer-divider"></div>
+    <button class="mob-cta" onclick="showPage('contact');closeMobileMenu()">Work With Me →</button>
+  </div>
+</div>
+<div class="mob-overlay" id="mob-overlay" onclick="closeMobileMenu()"></div>
 
 <!-- ════════════════════════════ HOME ════════════════════════════ -->
 <div class="page active" id="page-home">
@@ -2031,6 +2296,23 @@ buildHomeVideos();
 exInit();
 
 
+
+// ── Mobile menu ──
+function toggleMobileMenu(){
+  var drawer  = document.getElementById('mob-drawer');
+  var overlay = document.getElementById('mob-overlay');
+  var btn     = document.getElementById('nav-hamburger');
+  var open    = drawer.classList.toggle('open');
+  overlay.classList.toggle('show', open);
+  btn.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeMobileMenu(){
+  document.getElementById('mob-drawer').classList.remove('open');
+  document.getElementById('mob-overlay').classList.remove('show');
+  document.getElementById('nav-hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>
