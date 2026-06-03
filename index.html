@@ -45,7 +45,7 @@ body{
 @keyframes cardreveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes lbfadein{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
 
-.page{display:none;min-height:100vh}
+.page{display:none;}
 .page.active{display:block;animation:fadein .35s ease-out}
 
 /* ── CONTENT WRAPPER ── keeps all content ≤ 1440px and centered ── */
@@ -370,7 +370,7 @@ nav{
 /* ── FEATURED INFOGRAPHICS ── */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card)}
 .feat-card{position:relative;overflow:hidden;cursor:pointer;background:var(--bg3);border:.5px solid var(--border)}
-.feat-card.large{grid-column:1/2;grid-row:1/3;min-height:clamp(400px,50vh,640px)}
+.feat-card.large{grid-column:1/2;grid-row:1/3;min-height:clamp(260px,32vh,420px)}
 .feat-card.small{min-height:clamp(160px,18vh,260px)}
 .feat-card>.img-wrap{position:absolute;inset:0}
 .feat-card:hover .img-wrap img{transform:scale(1.05)}
@@ -907,6 +907,40 @@ img{max-width:100%;height:auto;}
 @media(max-width:560px){
   .topics-grid{grid-template-columns:repeat(3,1fr);}
 }
+
+/* ── Footer ── */
+footer{
+  background:var(--bg);
+  border-top:.5px solid rgba(255,255,255,.07);
+  padding:clamp(32px,3vw,52px) clamp(24px,3.5vw,52px) clamp(20px,2vw,32px);
+}
+.ft-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:clamp(20px,3vw,48px);
+  align-items:start;
+  max-width:var(--content-max);
+  margin:0 auto;
+}
+.ft-col{}
+.ft-brand{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:500;color:rgba(244,242,238,.85);
+  margin-bottom:6px;
+}
+.ft-logo-img{width:22px;height:22px;object-fit:contain;flex-shrink:0;}
+.ft-tag{font-size:11px;color:rgba(244,242,238,.35);letter-spacing:.04em;display:block;margin-bottom:14px;}
+.ft-nav-label{font-size:9px;letter-spacing:.18em;color:var(--gold);opacity:.55;margin-bottom:10px;display:block;font-family:var(--mono);}
+.ft-nav{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;}
+.ft-nav a{font-size:12px;color:rgba(244,242,238,.45);text-decoration:none;transition:color .15s;}
+.ft-nav a:hover{color:rgba(244,242,238,.8);}
+.ft-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:.5px solid rgba(255,255,255,.05);
+  padding-top:clamp(14px,1.4vw,20px);margin-top:clamp(24px,2.5vw,40px);
+  max-width:var(--content-max);margin-left:auto;margin-right:auto;
+}
+.ft-copy{font-size:11px;color:rgba(244,242,238,.22);font-family:var(--mono);}
 </style>
 </head>
 <body>
@@ -1346,6 +1380,180 @@ img{max-width:100%;height:auto;}
       <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
     </div>
   </footer>
+</div>
+
+<!-- ════════════════════════════ INFOGRAPHICS ════════════════════════════ -->
+<div class="page" id="page-infographics">
+  <div class="section">
+    <div class="sec-header" style="margin-bottom:20px">
+      <div><span class="sec-label">INFOGRAPHIC LIBRARY</span><div class="sec-title">Full archive</div></div>
+    </div>
+    <div class="filter-bar" id="filter-bar"></div>
+    <div class="lib-grid" id="lib-grid"></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════ VIDEOS ════════════════════════════ -->
+<div class="page" id="page-videos">
+  <div class="section">
+    <div class="sec-header">
+      <div><span class="sec-label">SHORTS LIBRARY</span><div class="sec-title">Infrastructure in 60 seconds</div></div>
+      <a class="sec-link" href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener">YouTube channel →</a>
+    </div>
+    <p style="font-size:13px;color:var(--w40);line-height:1.65;max-width:520px;margin-bottom:32px">Short-form visual explainers on digital finance infrastructure. Each Short is designed to stand alone as a clear, researched answer to one infrastructure question.</p>
+    <div class="video-section-grid" id="videos-full-grid"></div>
+    <div style="text-align:center;margin-top:36px;padding-top:28px;border-top:.5px solid var(--border)">
+      <a href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:.07em;color:var(--gold);opacity:.6;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">VIEW ALL ON YOUTUBE →</a>
+    </div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════ ART ════════════════════════════ -->
+<div class="page" id="page-art">
+  <div id="art-hero-zone"></div>
+  <div class="section">
+    <div class="sec-header">
+      <div><span class="sec-label">COLLECTION</span><div class="sec-title">Works on canvas</div></div>
+    </div>
+    <div class="art-grid" id="art-grid"></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════ ABOUT ════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="hero" style="max-height:400px">
+    <img class="hero-banner" src="assets/banner/TheLinkPanda banner.jpg" alt="TheLinkPanda" onerror="this.style.opacity='.2'"/>
+    <div class="hero-ol"></div>
+    <div class="hero-ob"></div>
+    <div class="hero-content" style="padding-bottom:40px">
+      <div class="hero-eyebrow">ABOUT</div>
+      <div class="hero-h1" style="font-size:clamp(24px,3vw,38px)">TheLink<span>Panda</span></div>
+      <div class="hero-rule"></div>
+      <div class="hero-tagline">Infrastructure Before Narratives.</div>
+    </div>
+  </div>
+  <div class="section" style="max-width:760px">
+    <div class="ab-label">MISSION</div>
+    <div class="ab-hed" style="font-size:clamp(20px,2.5vw,30px);margin-bottom:20px">The systems behind digital finance are knowable. Most explanations just aren't good enough.</div>
+    <div class="ab-body" style="font-size:14px">TheLinkPanda exists to make digital finance infrastructure legible — through rigorous research, precise visual systems, and a commitment to clarity over hype. Every infographic, video, and piece of analysis starts with one question: what is actually happening beneath the narrative?</div>
+    <div class="ab-body" style="font-size:14px;margin-top:16px">The focus is on the systems that process, settle, and secure global value: SWIFT, DTCC, Chainlink, stablecoins, tokenisation, interoperability — the architecture of the emerging financial internet.</div>
+    <div class="ab-tags" style="margin-top:24px">
+      <span class="ab-tag">Digital Finance</span>
+      <span class="ab-tag">Infrastructure</span>
+      <span class="ab-tag">Chainlink</span>
+      <span class="ab-tag">Visual Systems</span>
+      <span class="ab-tag">Web3</span>
+      <span class="ab-tag">RWA</span>
+    </div>
+    <div class="services-list">
+      <div class="service-row"><div class="srv-row-name">Infographics</div><div class="srv-row-desc">Visual explanations of infrastructure, technology and financial systems — designed to communicate complex ideas at a glance.</div></div>
+      <div class="service-row"><div class="srv-row-name">Video Content</div><div class="srv-row-desc">Short-form and long-form educational content explaining digital finance systems for informed and general audiences.</div></div>
+      <div class="service-row"><div class="srv-row-name">Research &amp; Narrative</div><div class="srv-row-desc">Turning dense technical topics into understandable, compelling stories with clear hierarchy and evidence.</div></div>
+      <div class="service-row"><div class="srv-row-name">Custom Artwork</div><div class="srv-row-desc">Commissioned paintings and visual work at the intersection of finance, technology, and portraiture.</div></div>
+      <div class="service-row"><div class="srv-row-name">Consulting</div><div class="srv-row-desc">Helping projects, companies, and individuals communicate complex ideas more effectively to their target audience.</div></div>
+    </div>
+  </div>
+  <div class="work-section">
+    <div class="work-grid">
+      <div>
+        <div class="wk-label">WORK WITH ME</div>
+        <div class="wk-hed">Let's build clarity through visuals.</div>
+        <div class="wk-desc">Consulting. Infographics. Research. Speaking. Design.</div>
+        <button class="wk-btn" onclick="showPage('contact')">Get in touch →</button>
+      </div>
+      <div class="srv-grid">
+        <div class="srv"><span class="srv-icon">◈</span><div class="srv-name">Visual Storytelling</div><div class="srv-desc">Complex systems made simple</div></div>
+        <div class="srv"><span class="srv-icon">▦</span><div class="srv-name">Infographics</div><div class="srv-desc">High-impact visuals</div></div>
+        <div class="srv"><span class="srv-icon">◉</span><div class="srv-name">Research</div><div class="srv-desc">Infrastructure deep dives</div></div>
+        <div class="srv"><span class="srv-icon">▷</span><div class="srv-name">Speaking</div><div class="srv-desc">Future of finance</div></div>
+        <div class="srv"><span class="srv-icon">⊕</span><div class="srv-name">Consulting</div><div class="srv-desc">Web3 strategy</div></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════ CONTACT ════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="section" style="max-width:620px;margin:0 auto;padding-top:96px">
+    <span class="sec-label">WORK WITH ME</span>
+    <div style="font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);font-weight:300;margin-bottom:24px;line-height:1.1;color:var(--w)">Let's build clarity<br>through visuals.</div>
+    <div style="font-size:13px;color:var(--w40);line-height:1.8;margin-bottom:40px;max-width:460px">Consulting. Infographics. Research. Speaking. Design. Reach out to discuss how we can work together.</div>
+    <div style="border:.5px solid var(--border);padding:32px;background:var(--bg2)">
+      <div class="form-field"><label class="form-label">YOUR NAME</label><input type="text" class="form-input"/></div>
+      <div class="form-field"><label class="form-label">EMAIL</label><input type="email" class="form-input"/></div>
+      <div class="form-field"><label class="form-label">MESSAGE</label><textarea rows="5" class="form-input" style="resize:vertical"></textarea></div>
+      <button class="wk-btn" style="width:100%;text-align:center">Send message →</button>
+    </div>
+  </div>
+  <footer>
+  <div class="ft-inner">
+    <div class="ft-col">
+      <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+      <span class="ft-tag">Infrastructure Before Narratives.</span>
+      <div class="social-bar" style="margin-top:12px">
+        <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+        <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <span class="ft-nav-label">DIGITAL FINANCE</span>
+      <ul class="ft-nav">
+        <li><a href="#" onclick="showPage('infographics');return false">Infrastructure</a></li>
+        <li><a href="#" onclick="showPage('infographics','SWIFT');return false">Chainlink</a></li>
+        <li><a href="#" onclick="showPage('infographics','Global Systems');return false">Visual Systems</a></li>
+        <li><a href="#" onclick="showPage('infographics');return false">Web3</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <span class="ft-nav-label">FOLLOW THE WORK</span>
+      <ul class="ft-nav">
+        <li><a href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener">@TheLinkPanda</a></li>
+        <li><a href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener">@thelinkpanda</a></li>
+        <li><a href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener">@thechainlinkpanda</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 TheLinkPanda</span>
+    <span class="ft-copy">Infrastructure Before Narratives.</span>
+  </div>
+</footer>
 </div>
 
 <!-- ════════════════════════════ INFOGRAPHICS ════════════════════════════ -->
