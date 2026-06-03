@@ -243,9 +243,9 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 /* ── YOUTUBE SHORTS (Doc1) ── */
 .home-video-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card)}
 .video-section-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,18vw,280px),1fr));gap:clamp(14px,1.4vw,24px)}
-.yt-card{position:relative;cursor:pointer;border:.5px solid var(--border);background:var(--bg3);transition:border-color .2s;text-decoration:none;display:block;color:inherit;}
+.yt-card{position:relative;cursor:pointer;border:.5px solid var(--border);background:var(--bg3);transition:border-color .2s;text-decoration:none;display:flex;flex-direction:column;color:inherit;}
 .yt-card:hover{border-color:rgba(200,146,42,.4)}
-.yt-thumb-wrap{position:relative;aspect-ratio:9/16;overflow:hidden;background:#0a0e18}
+.yt-thumb-wrap{position:relative;aspect-ratio:9/16;overflow:hidden;background:#0a0e18;flex-shrink:0}
 .yt-thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.25,.46,.45,.94)}
 .yt-card:hover .yt-thumb-wrap img{transform:scale(1.04)}
 .yt-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,9,13,.25);transition:background .2s}
@@ -254,10 +254,10 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .yt-card:hover .yt-play-btn{border-color:var(--gold);background:rgba(200,146,42,.15)}
 .yt-play-btn svg{width:clamp(12px,1.1vw,16px);height:clamp(12px,1.1vw,16px);fill:var(--w80);margin-left:2px}
 .yt-badge{position:absolute;top:10px;left:10px;font-size:clamp(7px,.55vw,9px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:2px 7px;font-family:var(--sans)}
-.yt-meta{padding:clamp(10px,1vw,16px) clamp(12px,1.2vw,18px)}
+.yt-meta{padding:clamp(10px,1vw,16px) clamp(12px,1.2vw,18px);flex:1;display:flex;flex-direction:column}
 .yt-cat{font-size:clamp(8px,.6vw,10px);letter-spacing:.14em;color:var(--gold);opacity:.65;margin-bottom:clamp(3px,.35vw,6px)}
-.yt-title{font-family:var(--serif);font-size:clamp(13px,1.1vw,17px);font-weight:300;color:var(--w);line-height:1.3;margin-bottom:3px}
-.yt-sub{font-size:clamp(11px,.85vw,13px);color:var(--w40);line-height:1.45}
+.yt-title{font-family:var(--serif);font-size:clamp(13px,1.1vw,17px);font-weight:300;color:var(--w);line-height:1.3;margin-bottom:3px;word-wrap:break-word;overflow-wrap:break-word;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.yt-sub{font-size:clamp(11px,.85vw,13px);color:var(--w40);line-height:1.45;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ── FILTER BAR (Doc1) ── */
 .filter-bar{display:flex;margin-bottom:clamp(20px,2vw,36px);border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none}
@@ -1546,16 +1546,83 @@ const ARTWORKS = [
 ];
 
 // ── YouTube Shorts — real IDs ──
+// ── VIDEO LIBRARY ──────────────────────────────────────────────────────
+// Each entry: id (YouTube), cat, title, sub, thumb (curated), thumbFb (fallback)
+// To swap a thumbnail: change the thumb path only. Layout code untouched.
+// ────────────────────────────────────────────────────────────────────────
 const SHORTS = [
-  {id:'ebMDoPEdWP0', cat:'GLOBAL SYSTEMS', title:'The Global Financial System',       sub:'Chainlink at every layer'},
-  {id:'AHKokXLSwlI', cat:'SWIFT',          title:'SWIFT and the Blockchain Bridge',   sub:'Legacy finance meets new rails'},
-  {id:'p-vNnz7pJsM', cat:'RWA',            title:'BlackRock BUIDL Explained',         sub:'Institutional tokenization'},
-  {id:'D-tpoggrILQ', cat:'SECURITY',       title:'$3B Lost to Exploits',              sub:'Why CCIP changes everything'},
-  {id:'r_5nUwFGt70', cat:'TOKENOMICS',     title:'The LINK Flywheel',                 sub:'Network economics decoded'},
-  {id:'Hli-zu_lnOE', cat:'DTCC',           title:'What is the DTCC?',                 sub:'The clearing house explained'},
-  {id:'ql2KZ4a3UgE', cat:'STABLECOINS',    title:'Stablecoins as Settlement',         sub:'The new global rails'},
-  {id:'ZLsd1eT-enI', cat:'DATA & AI',      title:'Chainlink AI Security',             sub:'The oracle defence layer'},
-  {id:'uY0-ihxHf2M', cat:'ETFs',           title:'The $300T Migration',               sub:'Tokenization at scale'},
+  {
+    id:      'ebMDoPEdWP0',
+    cat:     'INTEROPERABILITY',
+    title:   'Infinite Blockchains, One Link',
+    sub:     'Every chain is a separate island. Only Chainlink connects them all.',
+    thumb:   'https://i.ytimg.com/vi/ebMDoPEdWP0/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/ebMDoPEdWP0/sddefault.jpg',
+  },
+  {
+    id:      'AHKokXLSwlI',
+    cat:     'CRE',
+    title:   'Chainlink C.R.E. Explained',
+    sub:     'The missing OS for Web3 — connecting DeFi to TradFi in 1 minute.',
+    thumb:   'https://i.ytimg.com/vi/AHKokXLSwlI/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/AHKokXLSwlI/sddefault.jpg',
+  },
+  {
+    id:      'p-vNnz7pJsM',
+    cat:     'GLOBAL SYSTEMS',
+    title:   'The Financial System Runs on Chainlink',
+    sub:     'DTCC, BlackRock, JPMorgan — the biggest institutions already use Chainlink.',
+    thumb:   'https://i.ytimg.com/vi/p-vNnz7pJsM/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/p-vNnz7pJsM/sddefault.jpg',
+  },
+  {
+    id:      'D-tpoggrILQ',
+    cat:     'TOKENOMICS',
+    title:   'Chainlink Economics 2.0',
+    sub:     'The $LINK flywheel — staking, protocol fees, and real value flowing back.',
+    thumb:   'https://i.ytimg.com/vi/D-tpoggrILQ/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/D-tpoggrILQ/sddefault.jpg',
+  },
+  {
+    id:      'r_5nUwFGt70',
+    cat:     'INFRASTRUCTURE',
+    title:   'The Books of the Blockchain',
+    sub:     'Every blockchain is a book. Chainlink is the librarian connecting every shelf.',
+    thumb:   'https://i.ytimg.com/vi/r_5nUwFGt70/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/r_5nUwFGt70/sddefault.jpg',
+  },
+  {
+    id:      'Hli-zu_lnOE',
+    cat:     'INFRASTRUCTURE',
+    title:   'The Chainlink Endgame',
+    sub:     'Prices. Payments. Proof. APIs. Why Chainlink is infrastructure, not a feature.',
+    thumb:   'https://i.ytimg.com/vi/Hli-zu_lnOE/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/Hli-zu_lnOE/sddefault.jpg',
+  },
+  {
+    id:      'ql2KZ4a3UgE',
+    cat:     'CCIP',
+    title:   'Why Chainlink Is The Standard',
+    sub:     'One messaging and settlement standard across Web3, finance, and AI.',
+    thumb:   'https://i.ytimg.com/vi/ql2KZ4a3UgE/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/ql2KZ4a3UgE/sddefault.jpg',
+  },
+  {
+    id:      'ZLsd1eT-enI',
+    cat:     'TOKENOMICS',
+    title:   'This Is Why Chainlink Will Keep Growing',
+    sub:     'Protocols pay in LINK. Stakers lock LINK. The real-time flywheel spins faster every day.',
+    thumb:   'https://i.ytimg.com/vi/ZLsd1eT-enI/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/ZLsd1eT-enI/sddefault.jpg',
+  },
+  {
+    id:      'uY0-ihxHf2M',
+    cat:     'ECONOMICS',
+    title:   'The Chainlink Economy in One Transaction',
+    sub:     'The power and cost of a single transaction — now imagine when everyone uses it.',
+    thumb:   'https://i.ytimg.com/vi/uY0-ihxHf2M/maxresdefault.jpg' + id + '/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/uY0-ihxHf2M/sddefault.jpg',
+  },
 ];
 
 // ── helpers ──
@@ -1579,18 +1646,66 @@ function makeImgWrap(file, alt) {
 }
 
 function makeYtCard(item) {
-  const a = document.createElement('a');
+  // Thumbnail priority: curated local → YouTube sddefault → hqdefault
+  var primaryThumb = item.thumb  || ('https://i.ytimg.com/vi/' + item.id + '/sddefault.jpg');
+  var fallbackThumb = item.thumbFb || ('https://i.ytimg.com/vi/' + item.id + '/hqdefault.jpg');
+
+  var a = document.createElement('a');
   a.className = 'yt-card';
   a.href = ytUrl(item.id);
   a.target = '_blank';
   a.rel = 'noopener noreferrer';
-  a.innerHTML =
-    '<div class="yt-thumb-wrap">' +
-      '<img src="' + ytThumb(item.id) + '" alt="' + item.title + '" loading="lazy"/>' +
-      '<div class="yt-play-overlay"><div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>' +
-      '<div class="yt-badge">SHORTS</div>' +
-    '</div>' +
-    '<div class="yt-meta"><div class="yt-cat">' + item.cat + '</div><div class="yt-title">' + item.title + '</div><div class="yt-sub">' + item.sub + '</div></div>';
+
+  // Thumb wrap
+  var thumbWrap = document.createElement('div');
+  thumbWrap.className = 'yt-thumb-wrap';
+
+  var img = document.createElement('img');
+  img.src = primaryThumb;
+  img.alt = item.title;
+  // No lazy loading — avoids blank cards on scroll
+  img.decoding = 'async';
+  // Fallback chain: if curated image fails, try YT thumb
+  img.onerror = function() {
+    if(this.src !== fallbackThumb) { this.src = fallbackThumb; }
+  };
+  thumbWrap.appendChild(img);
+
+  // Play overlay
+  var overlay = document.createElement('div');
+  overlay.className = 'yt-play-overlay';
+  overlay.innerHTML = '<div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>';
+  thumbWrap.appendChild(overlay);
+
+  // Badge
+  var badge = document.createElement('div');
+  badge.className = 'yt-badge';
+  badge.textContent = 'SHORTS';
+  thumbWrap.appendChild(badge);
+
+  a.appendChild(thumbWrap);
+
+  // Meta
+  var meta = document.createElement('div');
+  meta.className = 'yt-meta';
+
+  var cat = document.createElement('div');
+  cat.className = 'yt-cat';
+  cat.textContent = item.cat;
+
+  var title = document.createElement('div');
+  title.className = 'yt-title';
+  title.textContent = item.title;
+
+  var sub = document.createElement('div');
+  sub.className = 'yt-sub';
+  sub.textContent = item.sub;
+
+  meta.appendChild(cat);
+  meta.appendChild(title);
+  meta.appendChild(sub);
+  a.appendChild(meta);
+
   return a;
 }
 
