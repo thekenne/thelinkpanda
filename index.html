@@ -1513,11 +1513,12 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <span class="sec-label">WORK WITH ME</span>
     <div style="font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);font-weight:300;margin-bottom:24px;line-height:1.1;color:var(--w)">Let's build clarity<br>through visuals.</div>
     <div style="font-size:13px;color:var(--w40);line-height:1.8;margin-bottom:40px;max-width:460px">Consulting. Infographics. Research. Speaking. Design. Reach out to discuss how we can work together.</div>
-    <div style="border:.5px solid var(--border);padding:32px;background:var(--bg2)">
-      <div class="form-field"><label class="form-label">YOUR NAME</label><input type="text" class="form-input"/></div>
-      <div class="form-field"><label class="form-label">EMAIL</label><input type="email" class="form-input"/></div>
-      <div class="form-field"><label class="form-label">MESSAGE</label><textarea rows="5" class="form-input" style="resize:vertical"></textarea></div>
-      <button class="wk-btn" style="width:100%;text-align:center">Send message →</button>
+    <div style="border:.5px solid var(--border);padding:32px;background:var(--bg2)" id="contact-box">
+      <div class="form-field"><label class="form-label" for="cf-name">YOUR NAME</label><input id="cf-name" type="text" class="form-input" placeholder="Your name" autocomplete="name"/></div>
+      <div class="form-field"><label class="form-label" for="cf-email">EMAIL</label><input id="cf-email" type="email" class="form-input" placeholder="your@email.com" autocomplete="email"/></div>
+      <div class="form-field"><label class="form-label" for="cf-message">MESSAGE</label><textarea id="cf-message" rows="5" class="form-input" style="resize:vertical" placeholder="Tell me about your project..."></textarea></div>
+      <button class="wk-btn" id="cf-submit" style="width:100%;text-align:center" onclick="submitContact()">Send message →</button>
+      <div id="cf-status" style="display:none;margin-top:16px;font-size:12px;letter-spacing:.06em;font-family:var(--mono);padding:10px 14px"></div>
     </div>
   </div>
   
@@ -1617,21 +1618,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   
 </div>
 
-<!-- ════════════════════════════ CONTACT ════════════════════════════ -->
-<div class="page" id="page-contact">
-  <div class="section" style="max-width:620px;margin:0 auto;padding-top:96px">
-    <span class="sec-label">WORK WITH ME</span>
-    <div style="font-family:var(--serif);font-size:clamp(26px,3.5vw,44px);font-weight:300;margin-bottom:24px;line-height:1.1;color:var(--w)">Let's build clarity<br>through visuals.</div>
-    <div style="font-size:13px;color:var(--w40);line-height:1.8;margin-bottom:40px;max-width:460px">Consulting. Infographics. Research. Speaking. Design. Reach out to discuss how we can work together.</div>
-    <div style="border:.5px solid var(--border);padding:32px;background:var(--bg2)">
-      <div class="form-field"><label class="form-label">YOUR NAME</label><input type="text" class="form-input"/></div>
-      <div class="form-field"><label class="form-label">EMAIL</label><input type="email" class="form-input"/></div>
-      <div class="form-field"><label class="form-label">MESSAGE</label><textarea rows="5" class="form-input" style="resize:vertical"></textarea></div>
-      <button class="wk-btn" style="width:100%;text-align:center">Send message →</button>
-    </div>
-  </div>
-  
-</div>
+
 
 <script>
 // ── INFOGRAPHIC DATA — exact paths ──
@@ -2920,6 +2907,97 @@ function evTagClick(el){evSetTag(el.dataset.tag,null);}function evEsc(s){
 // ── Public API for Explorer integration ──
 function evGetByNode(nodeId){return EVIDENCE.filter(function(e){return e.nodes.indexOf(nodeId)>-1;});}
 function evCountByNode(nodeId){return evGetByNode(nodeId).length;}
+
+
+// ── Contact form ──
+function submitContact(){
+  var name    = document.getElementById('cf-name').value.trim();
+  var email   = document.getElementById('cf-email').value.trim();
+  var message = document.getElementById('cf-message').value.trim();
+  var btn     = document.getElementById('cf-submit');
+
+  console.log('[contact] submit triggered');
+  console.log('[contact] name:', name, '| email:', email, '| message length:', message.length);
+
+  // Client-side validation
+  if(!name){
+    cfStatus('error', 'Please enter your name.');
+    document.getElementById('cf-name').focus();
+    return;
+  }
+  if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+    cfStatus('error', 'Please enter a valid email address.');
+    document.getElementById('cf-email').focus();
+    return;
+  }
+  if(!message || message.length < 10){
+    cfStatus('error', 'Please enter a message (at least 10 characters).');
+    document.getElementById('cf-message').focus();
+    return;
+  }
+
+  // Loading state
+  btn.disabled    = true;
+  btn.textContent = 'Sending…';
+  cfStatus('info', 'Sending your message…');
+
+  var payload = JSON.stringify({name: name, email: email, message: message});
+  console.log('[contact] POSTing to /api/contact:', payload);
+
+  fetch('/api/contact', {
+    method:  'POST',
+    headers: {'Content-Type': 'application/json'},
+    body:    payload
+  })
+  .then(function(r){
+    console.log('[contact] HTTP status:', r.status, r.statusText);
+    return r.text().then(function(text){
+      console.log('[contact] raw response body:', text);
+      try       { return {status: r.status, data: JSON.parse(text)}; }
+      catch(e)  { return {status: r.status, data: {ok: false, error: 'Server returned non-JSON: ' + text.slice(0,120)}}; }
+    });
+  })
+  .then(function(res){
+    console.log('[contact] parsed response:', res);
+    if(res.data.ok){
+      btn.style.display = 'none';
+      document.getElementById('cf-name').value    = '';
+      document.getElementById('cf-email').value   = '';
+      document.getElementById('cf-message').value = '';
+      cfStatus('success', '\u2713 Message sent. I\'ll be in touch shortly.');
+    } else {
+      btn.disabled    = false;
+      btn.textContent = 'Send message \u2192';
+      cfStatus('error', res.data.error || 'Something went wrong (HTTP ' + res.status + '). Please try again.');
+    }
+  })
+  .catch(function(err){
+    console.error('[contact] fetch error:', err);
+    btn.disabled    = false;
+    btn.textContent = 'Send message \u2192';
+    cfStatus('error', 'Network error — ' + (err.message || 'check your connection and try again.'));
+  });
+}
+
+function cfStatus(type, msg){
+  var el = document.getElementById('cf-status');
+  if(!el) return;
+  el.style.display = 'block';
+  var colours = {
+    info:    'rgba(244,242,238,.3)',
+    success: 'rgba(80,200,120,.8)',
+    error:   'rgba(255,100,100,.8)'
+  };
+  var bgs = {
+    info:    'rgba(244,242,238,.04)',
+    success: 'rgba(80,200,120,.08)',
+    error:   'rgba(255,100,100,.08)'
+  };
+  el.style.color      = colours[type] || colours.info;
+  el.style.background = bgs[type]     || bgs.info;
+  el.style.border     = '.5px solid ' + (colours[type] || colours.info).replace('.8',',.2').replace('.3',',.15');
+  el.textContent      = msg;
+}
 
 </script>
 </body>
