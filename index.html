@@ -2944,17 +2944,23 @@ function submitContact(){
   var payload = JSON.stringify({name: name, email: email, message: message});
   console.log('[contact] POSTing to /api/contact:', payload);
 
-  fetch('/api/contact', {
+  var apiUrl = '/api/contact';
+  console.log('[contact] fetching:', apiUrl);
+  fetch(apiUrl, {
     method:  'POST',
     headers: {'Content-Type': 'application/json'},
     body:    payload
   })
   .then(function(r){
-    console.log('[contact] HTTP status:', r.status, r.statusText);
+    console.log('[contact] HTTP status:', r.status, r.statusText, '| URL:', r.url);
     return r.text().then(function(text){
-      console.log('[contact] raw response body:', text);
+      console.log('[contact] raw response body:', text.slice(0, 200));
+      // If Cloudflare returned HTML (SPA fallback), give a clear message
+      if(text.trim().startsWith('<')){
+        return {status: r.status, data: {ok: false, error: 'Routing error: /api/contact returned HTML. Check Cloudflare Functions deployment and _redirects file.'}};
+      }
       try       { return {status: r.status, data: JSON.parse(text)}; }
-      catch(e)  { return {status: r.status, data: {ok: false, error: 'Server returned non-JSON: ' + text.slice(0,120)}}; }
+      catch(e)  { return {status: r.status, data: {ok: false, error: 'Non-JSON response (' + r.status + '): ' + text.slice(0,100)}}; }
     });
   })
   .then(function(res){
