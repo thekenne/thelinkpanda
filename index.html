@@ -728,6 +728,60 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .qt-source{font-size:clamp(9px,.62vw,10px);color:var(--w20);letter-spacing:.06em;margin-top:3px;font-family:var(--mono)}
 @media(max-width:768px){.qt-grid{grid-template-columns:1fr}.qt-filters{flex-wrap:nowrap}}
 
+
+/* ═══════════════════════════ EVIDENCE VAULT ═══════════════════════════ */
+.ev-header{border-bottom:.5px solid var(--border);background:var(--bg2);padding:clamp(16px,1.8vw,28px) clamp(32px,5vw,80px);position:sticky;top:var(--nav-h);z-index:100;}
+.ev-header-inner{max-width:var(--content-max);margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.ev-title-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.ev-title{font-family:var(--serif);font-size:clamp(16px,1.6vw,22px);font-weight:300;color:var(--w);line-height:1.1;}
+.ev-count{font-family:var(--mono);font-size:clamp(9px,.6vw,10px);color:var(--gold);opacity:.65;letter-spacing:.1em;white-space:nowrap;}
+.ev-search-wrap{position:relative;}
+.ev-search{width:100%;background:var(--bg3);border:.5px solid var(--border);color:var(--w);font-family:var(--mono);font-size:clamp(12px,.85vw,13px);padding:clamp(8px,.75vw,11px) clamp(12px,1.2vw,18px) clamp(8px,.75vw,11px) 36px;outline:none;transition:border-color .2s;letter-spacing:.02em;}
+.ev-search:focus{border-color:rgba(200,146,42,.45)}
+.ev-search::placeholder{color:var(--w20)}
+.ev-search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--w20);pointer-events:none;}
+.ev-filters{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border:.5px solid var(--border);}
+.ev-filters::-webkit-scrollbar{display:none}
+.ev-filter{background:none;border:none;border-right:.5px solid var(--border);cursor:pointer;font-family:var(--mono);font-size:clamp(9px,.6vw,10px);letter-spacing:.12em;color:var(--w40);padding:clamp(7px,.62vw,9px) clamp(12px,1.1vw,16px);white-space:nowrap;transition:background .15s,color .15s;flex-shrink:0;}
+.ev-filter:last-child{border-right:none}
+.ev-filter:hover{color:var(--w80);background:var(--w06)}
+.ev-filter.active{color:var(--gold);background:var(--gold3)}
+.ev-tags-row{display:flex;gap:4px;flex-wrap:wrap;}
+.ev-tag-btn{background:none;border:.5px solid var(--border);cursor:pointer;font-family:var(--mono);font-size:clamp(7px,.52vw,9px);letter-spacing:.1em;color:var(--w20);padding:2px 8px;transition:all .15s;white-space:nowrap;}
+.ev-tag-btn:hover{border-color:rgba(200,146,42,.3);color:var(--gold);background:var(--gold3)}
+.ev-tag-btn.active{border-color:rgba(200,146,42,.55);color:var(--gold);background:var(--gold3)}
+.ev-body{max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px);}
+.ev-empty{text-align:center;padding:clamp(48px,5vw,80px) 0;font-family:var(--mono);font-size:clamp(11px,.82vw,13px);color:var(--w20);letter-spacing:.08em;display:none;}
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(300px,30vw,460px),1fr));gap:.5px;background:var(--border);border:.5px solid var(--border);}
+.ev-card{background:var(--bg);padding:clamp(18px,1.7vw,26px) clamp(20px,1.9vw,28px);display:flex;flex-direction:column;gap:0;transition:background .15s;}
+.ev-card:hover{background:var(--bg2)}
+.ev-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(10px,1vw,14px);gap:8px;}
+.ev-type-badge{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.14em;font-weight:500;padding:2px 7px;flex-shrink:0;}
+.ev-type-statement{color:rgba(60,160,255,.85);border:.5px solid rgba(60,160,255,.25);background:rgba(60,160,255,.06)}
+.ev-type-report{color:rgba(200,146,42,.85);border:.5px solid rgba(200,146,42,.25);background:rgba(200,146,42,.06)}
+.ev-type-announcement{color:rgba(120,200,120,.85);border:.5px solid rgba(120,200,120,.25);background:rgba(120,200,120,.06)}
+.ev-date{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);color:var(--w20);letter-spacing:.08em;white-space:nowrap;}
+.ev-org{font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(5px,.5vw,8px);font-family:var(--mono);}
+.ev-card-title{font-size:clamp(12px,.88vw,14px);color:var(--w80);font-weight:500;line-height:1.4;margin-bottom:clamp(9px,.9vw,13px);letter-spacing:.01em;}
+.ev-body-text{font-family:var(--serif);font-size:clamp(13px,.95vw,15px);font-style:italic;font-weight:300;color:var(--w60);line-height:1.72;flex:1;padding-left:clamp(14px,1.3vw,18px);margin-bottom:clamp(12px,1.2vw,16px);border-left:1.5px solid rgba(200,146,42,.3);}
+.ev-significance{font-size:clamp(11px,.78vw,12px);color:var(--w40);line-height:1.6;margin-bottom:clamp(12px,1.2vw,16px);}
+.ev-meta{border-top:.5px solid var(--border);padding-top:clamp(10px,1vw,13px);margin-top:auto;display:flex;flex-direction:column;gap:3px;}
+.ev-person{font-size:clamp(11px,.78vw,13px);color:var(--w80);font-weight:500;letter-spacing:.01em;}
+.ev-role{font-size:clamp(9px,.68vw,11px);color:var(--w40);line-height:1.4;}
+.ev-source{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-family:var(--mono);font-size:clamp(8px,.54vw,9px);letter-spacing:.08em;color:var(--w20);text-decoration:none;transition:color .15s;width:fit-content;}
+.ev-source:hover{color:var(--gold)}
+.ev-verified{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.1em;color:rgba(80,200,120,.65);border:.5px solid rgba(80,200,120,.2);padding:1px 5px;margin-left:auto;flex-shrink:0;align-self:flex-start;}
+.ev-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;}
+.ev-card-tag{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.1em;color:var(--w20);border:.5px solid rgba(244,242,238,.06);padding:1px 5px;cursor:pointer;transition:all .15s;}
+.ev-card-tag:hover{color:var(--gold);border-color:rgba(200,146,42,.25)}
+.ev-nodes{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;}
+.ev-node-chip{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.08em;color:rgba(60,160,255,.45);border:.5px solid rgba(60,160,255,.12);padding:1px 5px;}
+@media(max-width:768px){
+  .ev-header{position:static;padding:16px 16px;}
+  .ev-body{padding:20px 16px;}
+  .ev-grid{grid-template-columns:1fr;}
+  .ev-tags-row{display:none;}
+}
 </style>
 </head>
 <body>
@@ -770,6 +824,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <button class="nav-link"        id="nl-art"          onclick="showPage('art')">Art &amp; NFTs</button>
     <button class="nav-link"        id="nl-about"        onclick="showPage('about')">About</button>
     <button class="nav-link"        id="nl-quotes"       onclick="showPage('quotes')">Quotes</button>
+    <button class="nav-link"        id="nl-evidence"     onclick="showPage('evidence')">Evidence</button>
   </div>
   <!-- Desktop right -->
   <div class="nav-right-desktop" style="display:flex;align-items:center;gap:6px">
@@ -796,6 +851,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <button class="mob-nav-link" onclick="showPage('art');closeMobileMenu()">Art &amp; NFTs</button>
       <button class="mob-nav-link" onclick="showPage('about');closeMobileMenu()">About</button>
       <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">Quotes</button>
+      <button class="mob-nav-link" onclick="showPage('evidence');closeMobileMenu()">Evidence</button>
     </div>
     <div class="mob-drawer-divider"></div>
     <div class="mob-social">
@@ -1393,6 +1449,48 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div>
   <footer>
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════ EVIDENCE VAULT ════════════════════════ -->
+<div class="page" id="page-evidence">
+
+  <!-- Sticky header: title + search + type filters + tag strip -->
+  <div class="ev-header">
+    <div class="ev-header-inner">
+      <div class="ev-title-row">
+        <div class="ev-title">Evidence Vault</div>
+        <span class="ev-count" id="ev-count"></span>
+      </div>
+      <div class="ev-search-wrap">
+        <span class="ev-search-icon">⌕</span>
+        <input class="ev-search" id="ev-search" type="text"
+               placeholder="Search institutions, topics, quotes…"
+               oninput="evSearch(this.value)"
+               onkeydown="if(event.key==='Escape'){this.value='';evSearch('');}" />
+      </div>
+      <div class="ev-filters" id="ev-type-filters">
+        <button class="ev-filter active" data-type="all" onclick="evSetType('all',this)">ALL</button>
+      </div>
+      <div class="ev-tags-row" id="ev-tag-row"></div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="ev-body">
+    <div class="ev-empty" id="ev-empty">NO ENTRIES MATCH YOUR SEARCH</div>
+    <div class="ev-grid" id="ev-grid"></div>
+  </div>
+
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt=""
+         onerror="this.style.display='none'"/> TheLinkPanda</div>
     <span class="ft-tag">Infrastructure Before Narratives.</span>
     <div class="social-bar">
       <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
@@ -2450,8 +2548,8 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','infographics','videos','art','about','quotes','contact'];
-function showPage(page,filter){ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p),nl=document.getElementById('nl-'+p);if(el)el.classList.toggle('active',p===page);if(nl)nl.classList.toggle('active',p===page);});window.scrollTo(0,0);if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}if(page==='quotes'){qtBuildFilters();qtBuildGrid();}if(page==='art')buildArt();if(page==='videos')buildVideosPage();}
+var ALL_PAGES=['home','infographics','videos','art','about','quotes','evidence','contact'];
+function showPage(page,filter){ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p),nl=document.getElementById('nl-'+p);if(el)el.classList.toggle('active',p===page);if(nl)nl.classList.toggle('active',p===page);});window.scrollTo(0,0);if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}if(page==='quotes'){qtBuildFilters();qtBuildGrid();}if(page==='evidence'){evInit();}if(page==='art')buildArt();if(page==='videos')buildVideosPage();}
 
 buildFeatured();
 buildArt();
@@ -2671,6 +2769,147 @@ function escHtml(s){
   if(!s)return'';
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
+
+// ── EVIDENCE VAULT ──
+// ── EVIDENCE VAULT ─────────────────────────────────────────────────────
+// To add entries: append objects to EVIDENCE array. UI rebuilds automatically.
+// nodes[] links entry to Explorer node IDs — used by evGetByNode(nodeId).
+var EVIDENCE=[
+  {id:'ev-001',type:'statement',date:'2024',org:'DTCC',person:'Dan Doney',role:'CTO',title:'On Chainlink and multi-ledger settlement',body:'There will be many ledgers. And there is a need to move value between ledgers and especially the need to move data between ledgers. This is why Chainlink\'s role is so very important.',source_url:'',source_label:'Public statement',tags:['Settlement','Interoperability','DTCC'],nodes:['dtcc'],verified:true,significance:'DTCC\'s CTO publicly naming Chainlink as critical infrastructure for multi-ledger financial systems.'},
+  {id:'ev-002',type:'statement',date:'2024',org:'DTCC',person:'Dan Doney',role:'CTO',title:'On $100T asset modernization',body:'We represent a hundred trillion dollars worth of assets, and by working with partners like Chainlink we\'re able to completely update financial markets to use these new tools.',source_url:'',source_label:'Public statement',tags:['Tokenisation','DTCC','Market Infrastructure'],nodes:['dtcc'],verified:true,significance:'DTCC confirming active partnership with Chainlink to modernize $100T+ in financial market infrastructure.'},
+  {id:'ev-003',type:'statement',date:'2024',org:'SWIFT',person:'Tom Zschach',role:'Chief Innovation Officer',title:'On interoperability as foundational requirement',body:'The world just becomes more complex. And that\'s why interoperability becomes even more important.',source_url:'',source_label:'Public statement',tags:['Interoperability','SWIFT','Infrastructure'],nodes:['swift'],verified:true,significance:'SWIFT\'s CIO framing interoperability as the defining challenge — the exact problem Chainlink CCIP solves.'},
+  {id:'ev-004',type:'statement',date:'2024',org:'J.P. Morgan',person:'Nelli Zaltsman',role:'Head of Platform Settlement Solutions, Kinexys Digital Payments',title:'On cross-chain settlement with Chainlink and Ondo',body:'By securely connecting our institutional payments solution with public and private blockchain infrastructures, we can offer scalable settlement benefits. This cross-chain solution demonstrates what can be achieved through collaboration with Ondo and Chainlink.',source_url:'',source_label:'Public statement',tags:['Settlement','Cross-Chain','CCIP','Institutional'],nodes:['custodians','stablecoins'],verified:true,significance:'J.P. Morgan\'s Kinexys division publicly crediting Chainlink CCIP for enabling cross-chain institutional settlement.'},
+  {id:'ev-005',type:'statement',date:'2024',org:'Fidelity International',person:'Emma Pecenicic',role:'Head of Digital Propositions & Partnerships APACxJ',title:'On using Chainlink for on-chain NAV',body:'We work with Chainlink to bring the NAV of that fund on-chain, so the token can have that NAV associated to it. The client can see that as part of their wallet risk management. Ultimately that\'s why we\'re using Chainlink — we don\'t have to worry too much about that.',source_url:'',source_label:'Public statement',tags:['NAV','Proof of Reserve','Asset Management','Tokenisation'],nodes:['assetmgr','tkfunds'],verified:true,significance:'Fidelity International confirming live use of Chainlink for on-chain NAV delivery in tokenized fund products.'},
+  {id:'ev-006',type:'statement',date:'2024',org:'Franklin Templeton',person:'Andrew Crawford',role:'Vice President, Digital Assets',title:'On daily Proof of Reserves',body:'We will provide Proof of Reserves daily, not monthly, and we\'ll provide the yield. We think that level of transparency is how you establish trust in this new on-chain world.',source_url:'',source_label:'Public statement',tags:['Proof of Reserve','Transparency','Asset Management'],nodes:['assetmgr','tkfunds','treasuries'],verified:true,significance:'Franklin Templeton committing to daily on-chain reserve attestation — institutional adoption of Chainlink Proof of Reserve.'},
+  {id:'ev-007',type:'statement',date:'2024',org:'Euroclear',person:'Stéphanie Lheureux',role:'Head of Digital Assets Competence Center',title:'On tokenization as transformative',body:'I believe that tokenization is a concept which is transformative. Having a kind of golden source of truth for the market is a really big change.',source_url:'',source_label:'Public statement',tags:['Tokenisation','Euroclear','Market Data'],nodes:['euroclear'],verified:true,significance:'Euroclear\'s digital assets lead naming oracle-grade infrastructure as the golden source of truth the market needs.'},
+  {id:'ev-008',type:'statement',date:'2024',org:'BNP Paribas',person:'Wayne Hughes',role:'Head of Digital Assets, Securities Services',title:'On Chainlink-led corporate actions initiative',body:'The Chainlink-led initiative demonstrates how blockchain can deliver attested, real-time corporate actions data across jurisdictions & platforms, reducing operational risk and enabling smart contract automation.',source_url:'',source_label:'Public statement',tags:['Corporate Actions','Automation','Settlement','Data'],nodes:['custodians','assetmgr'],verified:true,significance:'BNP Paribas securities services crediting Chainlink as lead on real-time cross-jurisdictional corporate actions data.'},
+  {id:'ev-009',type:'report',date:'2024',org:'Citi Global Insights',person:'Citigroup Research',role:'Institutional Research',title:'LINK token compared to foundational internet protocols',body:'Developers who utilize the Chainlink network pay with the protocol\'s native token, LINK. A token that facilitates the growth of the on-chain ecosystem may gain prominence over Bitcoin in time as it becomes increasingly critical to the operation of blockchain infrastructure.',source_url:'',source_label:'Citi Global Insights Report',tags:['LINK Token','Market Infrastructure','Research'],nodes:['cbanks','custodians'],verified:true,significance:'Citi institutional research comparing LINK to foundational internet protocols and flagging potential prominence over Bitcoin.'},
+  {id:'ev-010',type:'statement',date:'2024',org:'Coinbase',person:'Josh Leavitt',role:'Senior Director of Product',title:'On choosing Chainlink for cross-chain connectivity',body:'We chose Chainlink because they are an industry leader for cross-chain connectivity.',source_url:'',source_label:'Public statement',tags:['CCIP','Cross-Chain','Integration'],nodes:['mastercard','stablecoins'],verified:true,significance:'Coinbase product leadership naming Chainlink as the industry standard for cross-chain connectivity.'},
+  {id:'ev-011',type:'report',date:'2024',org:'Water Tower Research',person:'John Roy',role:'Managing Director, Technology',title:'On $27T in transaction value enabled by Chainlink',body:'By pioneering decentralized oracle networks and enabling more than $27 trillion in transaction value, Chainlink now provides the infrastructure required for tokenized payments, lending, markets, and asset issuance to operate at scale.',source_url:'',source_label:'Water Tower Research Report',tags:['Infrastructure Scale','Research','Tokenisation','Market Infrastructure'],nodes:['marketdata','tkfunds','rwas'],verified:true,significance:'Independent research quantifying $27T+ in transaction value secured by Chainlink — institutional-grade market sizing.'},
+  {id:'ev-012',type:'statement',date:'2024',org:'Deutsche Börse Group',person:'Dr. Alera Dorfar',role:'Managing Director, Market Data',title:'Chainlink compared to Bloomberg and Refinitiv',body:'Partnering with Chainlink enables a similar multiplicator effect to Bloomberg or Refinitiv.',source_url:'',source_label:'Public statement',tags:['Market Data','Deutsche Börse','Infrastructure'],nodes:['marketdata'],verified:true,significance:'Deutsche Börse market data leadership placing Chainlink in the same category as Bloomberg and Refinitiv.'},
+  {id:'ev-013',type:'statement',date:'2024',org:'Deutsche Börse Group',person:'Stijn Vander Straeten',role:'CEO, Crypto Finance Group',title:'On CRE and trust infrastructure',body:'Powered by CRE — unlocking a higher standard of trust, compliance, and transparency.',source_url:'',source_label:'Public statement',tags:['CRE','Compliance','Trust','Deutsche Börse'],nodes:['marketdata','custodians'],verified:true,significance:'Deutsche Börse Group CEO crediting Chainlink\'s Runtime Environment as basis for their compliance and trust infrastructure.'},
+  {id:'ev-014',type:'statement',date:'2024',org:'DocuSign',person:'Tom Gonser',role:'Founder',title:'On oracle reliability as industry-critical',body:'Super important for the future of this whole industry that these really sophisticated and reliable oracles get built to tie the fabric of smart contracts to the things that they need to make decisions.',source_url:'',source_label:'Public statement',tags:['Oracle Infrastructure','Smart Contracts','Data'],nodes:['marketdata','ethereum'],verified:true,significance:'DocuSign\'s founder naming reliable oracle infrastructure as foundational to the entire smart contract industry.'},
+  {id:'ev-015',type:'statement',date:'2024',org:'Google',person:'Eric Schmidt',role:'Former CEO',title:'On token economics as undiscovered science',body:'The simple way to understand it is that tokens change the economics in a fundamental way. The fact that a token can go up in value directly based on network effects is a real discovery. I don\'t think people understand the economics of this yet.',source_url:'',source_label:'Public statement',tags:['Token Economics','Network Effects','Infrastructure'],nodes:['marketdata'],verified:true,significance:'Google\'s former CEO declaring token-based network economics a \'real discovery\' that most people have yet to understand.'},
+  {id:'ev-016',type:'statement',date:'2024',org:'Bitwise',person:'Ryan Rasmussen',role:'CIO',title:'On the unquantifiable market Chainlink is targeting',body:'The market Chainlink is going after is almost impossible to quantify because it\'s in the hundreds of trillions of dollars.',source_url:'',source_label:'Public statement',tags:['Market Opportunity','Infrastructure','Research'],nodes:['marketdata','tkfunds'],verified:true,significance:'Bitwise CIO framing Chainlink\'s addressable market as hundreds of trillions in financial infrastructure.'},
+  {id:'ev-017',type:'statement',date:'2024',org:'Chainlink Labs',person:'Ari Juels',role:'Chief Scientist',title:'On oracles as foundational, not optional',body:'Blockchains are deterministic systems. They cannot, by themselves, access real-world data. Secure oracles are therefore not optional, they are foundational.',source_url:'',source_label:'Public statement',tags:['Oracle Infrastructure','Security','Foundation'],nodes:['marketdata','ethereum','aave'],verified:true,significance:'Chainlink\'s Chief Scientist defining oracles as structurally foundational — not an optional add-on.'},
+  {id:'ev-018',type:'statement',date:'2024',org:'Chainlink Labs',person:'Sergey Nazarov',role:'Co-Founder',title:'On investing in infrastructure protocols',body:'Imagine if we could all have invested in Linux, SSL, or HTTP with a token that incentivized their development — now that would have been fun.',source_url:'',source_label:'Public statement',tags:['Infrastructure','LINK Token','Protocol'],nodes:['marketdata','ethereum'],verified:true,significance:'Co-founder framing Chainlink as the investable infrastructure layer equivalent to Linux, SSL, and HTTP.'}
+];
+
+var evState={search:'',typeFilter:'all',tagFilter:''};
+
+function evInit(){
+  evBuildTypeFilters();evBuildTagButtons();evRender();
+}
+function evBuildTypeFilters(){
+  var bar=document.getElementById('ev-type-filters');if(!bar)return;
+  var types=[];
+  EVIDENCE.forEach(function(e){if(types.indexOf(e.type)===-1)types.push(e.type);});
+  types.sort();
+  types.forEach(function(t){
+    var b=document.createElement('button');b.className='ev-filter';
+    b.dataset.type=t;b.textContent=t.toUpperCase();
+    b.onclick=function(){evSetType(t,this);};bar.appendChild(b);
+  });
+}
+function evBuildTagButtons(){
+  var row=document.getElementById('ev-tag-row');if(!row)return;
+  var tags=[];
+  EVIDENCE.forEach(function(e){e.tags.forEach(function(t){if(tags.indexOf(t)===-1)tags.push(t);});});
+  tags.sort();
+  tags.forEach(function(tag){
+    var b=document.createElement('button');b.className='ev-tag-btn';
+    b.textContent=tag;b.onclick=function(){evSetTag(tag,this);};row.appendChild(b);
+  });
+}
+function evSetType(type,btn){
+  evState.typeFilter=type;
+  document.querySelectorAll('#ev-type-filters .ev-filter').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');evRender();
+}
+function evSetTag(tag,btn){
+  if(evState.tagFilter===tag){evState.tagFilter='';
+    document.querySelectorAll('.ev-tag-btn').forEach(function(b){b.classList.remove('active');});
+  }else{
+    evState.tagFilter=tag;
+    document.querySelectorAll('.ev-tag-btn').forEach(function(b){b.classList.remove('active');});
+    if(btn)btn.classList.add('active');
+  }
+  evRender();
+}
+function evSearch(val){evState.search=val.toLowerCase().trim();evRender();}
+function evFiltered(){
+  return EVIDENCE.filter(function(e){
+    if(evState.typeFilter!=='all'&&e.type!==evState.typeFilter)return false;
+    if(evState.tagFilter&&e.tags.indexOf(evState.tagFilter)===-1)return false;
+    if(evState.search){
+      var hay=[e.org,e.person,e.role,e.title,e.body,e.significance,e.source_label,e.type,e.date]
+        .concat(e.tags).join(' ').toLowerCase();
+      if(hay.indexOf(evState.search)===-1)return false;
+    }
+    return true;
+  });
+}
+function evRender(){
+  var grid=document.getElementById('ev-grid');
+  var empty=document.getElementById('ev-empty');
+  var cnt=document.getElementById('ev-count');
+  if(!grid)return;
+  var filtered=evFiltered();
+  grid.innerHTML='';
+  if(cnt)cnt.textContent=filtered.length+' / '+EVIDENCE.length+' ENTRIES';
+  if(!filtered.length){if(empty)empty.style.display='block';return;}
+  if(empty)empty.style.display='none';
+  filtered.forEach(function(e,i){grid.appendChild(evBuildCard(e,i));});
+}
+function evBuildCard(e,i){
+  var card=document.createElement('div');
+  card.className='ev-card';
+  card.style.animation='fadein .3s ease-out '+(i*0.025)+'s both';
+  var typeLabel=e.type.charAt(0).toUpperCase()+e.type.slice(1);
+  var roleOrg=e.role?evEsc(e.role):'';
+  var srcHtml=e.source_url
+    ?'<a class="ev-source" href="'+evEsc(e.source_url)+'" target="_blank" rel="noopener">↗ '+evEsc(e.source_label)+'</a>'
+    :(e.source_label?'<span class="ev-source">'+evEsc(e.source_label)+'</span>':'');
+  var tagsHtml='';
+  if(e.tags&&e.tags.length){
+    tagsHtml='<div class="ev-card-tags">';
+    e.tags.forEach(function(t){tagsHtml+='<span class="ev-card-tag" data-tag="'+evEsc(t)+'" onclick="evTagClick(this)">'+evEsc(t)+'</span>';});
+    tagsHtml+='</div>';
+  }
+  var nodesHtml=e.nodes&&e.nodes.length
+    ?'<div class="ev-nodes">'+e.nodes.map(function(n){
+        return '<span class="ev-node-chip">⬡ '+evEsc(n)+'</span>';
+      }).join('')+'</div>':'';
+  card.innerHTML=
+    '<div class="ev-card-top">'
+      +'<span class="ev-type-badge ev-type-'+e.type+'">'+typeLabel+'</span>'
+      +'<span class="ev-date">'+evEsc(e.date)+'</span>'
+    +'</div>'
+    +(e.org?'<div class="ev-org">'+evEsc(e.org.toUpperCase())+'</div>':'')
+    +(e.title?'<div class="ev-card-title">'+evEsc(e.title)+'</div>':'')
+    +(e.body?'<div class="ev-body-text">'+evEsc(e.body)+'</div>':'')
+    +(e.significance?'<div class="ev-significance">'+evEsc(e.significance)+'</div>':'')
+    +'<div class="ev-meta">'
+      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
+        +'<div>'
+          +'<div class="ev-person">'+evEsc(e.person)+'</div>'
+          +(roleOrg?'<div class="ev-role">'+roleOrg+'</div>':'')
+        +'</div>'
+        +(e.verified?'<span class="ev-verified">✓ VERIFIED</span>':'')
+      +'</div>'
+      +(srcHtml?'<div style="margin-top:5px">'+srcHtml+'</div>':'')
+      +tagsHtml+nodesHtml
+    +'</div>';
+  return card;
+}
+function evTagClick(el){evSetTag(el.dataset.tag,null);}function evEsc(s){
+  if(!s)return'';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+// ── Public API for Explorer integration ──
+function evGetByNode(nodeId){return EVIDENCE.filter(function(e){return e.nodes.indexOf(nodeId)>-1;});}
+function evCountByNode(nodeId){return evGetByNode(nodeId).length;}
+
 </script>
 </body>
 </html>
