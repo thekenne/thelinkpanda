@@ -1,118 +1,160 @@
-export async function onRequestPost(context) {
-  try {
-    const { request, env } = context;
+/**
+ * Cloudflare Pages Function — /api/contact
+ *
+ * GET  → {"ok":false,"error":"Method not allowed. Use POST."}
+ * POST → validates + sends email via MailChannels → {"ok":true} or {"ok":false,"error":"..."}
+ *
+ * REQUIRED environment variable (Pages dashboard → Settings → Environment variables):
+ *   CONTACT_TO_EMAIL = your@email.com
+ *
+ * OPTIONAL — add a DKIM TXT record to avoid spam folder:
+ *   https://support.mailchannels.com/hc/en-us/articles/16918954360845
+ */
 
-    const toEmail = env.CONTACT_TO_EMAIL;
-    if (!toEmail) {
-      return json({ ok: false, error: "CONTACT_TO_EMAIL is not configured." }, 500);
-    }
+const HEADERS = {
+  'Content-Type':                'application/json',
+  'Access-Control-Allow-Origin': '*',
+};
 
-    const data = await request.json().catch(() => null);
-
-    if (!data) {
-      return json({ ok: false, error: "Invalid request body." }, 400);
-    }
-
-    const name = String(data.name || "").trim();
-    const email = String(data.email || "").trim();
-    const message = String(data.message || "").trim();
-
-    if (!name || !email || !message) {
-      return json({ ok: false, error: "Name, email, and message are required." }, 400);
-    }
-
-    if (!isValidEmail(email)) {
-      return json({ ok: false, error: "Please enter a valid email address." }, 400);
-    }
-
-    const subject = `New message from TheLinkPanda — ${name}`;
-
-    const payload = {
-      personalizations: [
-        {
-          to: [{ email: toEmail }]
-        }
-      ],
-      from: {
-        email: "contact@thelinkpanda.com",
-        name: "TheLinkPanda Contact Form"
-      },
-      reply_to: {
-        email,
-        name
-      },
-      subject,
-      content: [
-        {
-          type: "text/plain",
-          value:
-`New message from TheLinkPanda.com
-
-Name: ${name}
-Email: ${email}
-
-Message:
-${message}`
-        },
-        {
-          type: "text/html",
-          value: `
-            <div style="font-family:Arial,sans-serif;background:#07090D;color:#F4F2EE;padding:24px;">
-              <h2 style="color:#C8922A;margin-bottom:16px;">New message from TheLinkPanda</h2>
-              <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-              <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-              <hr style="border:0;border-top:1px solid rgba(244,242,238,.15);margin:20px 0;">
-              <p style="white-space:pre-line;line-height:1.6;">${escapeHtml(message)}</p>
-            </div>
-          `
-        }
-      ]
-    };
-
-    const res = await fetch("https://api.mailchannels.net/tx/v1/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (!res.ok) {
-      const errText = await res.text();
-      console.error("MailChannels error:", errText);
-      return json({ ok: false, error: "Email delivery failed." }, 500);
-    }
-
-    return json({ ok: true });
-
-  } catch (err) {
-    console.error("Contact form error:", err);
-    return json({ ok: false, error: "Unexpected server error." }, 500);
-  }
-}
-
+// ── GET — confirms function is reachable ──
 export async function onRequestGet() {
-  return json({ ok: false, error: "Method not allowed. Use POST." }, 405);
+  return json({ ok: false, error: 'Method not allowed. Use POST.' }, 405);
 }
 
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
+// ── OPTIONS — CORS preflight ──
+export async function onRequestOptions() {
+  return new Response(null, {
+    status: 204,
     headers: {
-      "Content-Type": "application/json"
-    }
+      'Access-Control-Allow-Origin':  '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
   });
 }
 
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+// ── POST — main handler ──
+export async function onRequestPost({ request, env }) {
+
+  // Parse JSON body
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: 'Invalid request body — expected JSON.' }, 400);
+  }
+
+  const name    = String(body.name    || '').trim();
+  const email   = String(body.email   || '').trim();
+  const message = String(body.message || '').trim();
+
+  // Server-side validation (mirrors client-side)
+  if (!name || name.length < 2)
+    return json({ ok: false, error: 'Name is required.' }, 422);
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    return json({ ok: false, error: 'A valid email address is required.' }, 422);
+
+  if (!message || message.length < 10)
+    return json({ ok: false, error: 'Message must be at least 10 characters.' }, 422);
+
+  if (message.length > 5000)
+    return json({ ok: false, error: 'Message too long (max 5000 characters).' }, 422);
+
+  // Check env var
+  const toEmail = env.CONTACT_TO_EMAIL;
+  if (!toEmail) {
+    console.error('[contact] CONTACT_TO_EMAIL not set');
+    return json({ ok: false, error: 'Server configuration error. Please try again later.' }, 500);
+  }
+
+  // Plain-text body
+  const textBody = [
+    'New message from TheLinkPanda contact form',
+    '',
+    `Name:    ${name}`,
+    `Email:   ${email}`,
+    '',
+    'Message:',
+    message,
+    '',
+    '---',
+    'Sent via thelinkpanda.com',
+  ].join('\n');
+
+  // HTML body
+  const htmlBody = `
+    <div style="font-family:sans-serif;max-width:560px;color:#1a1a1a">
+      <div style="background:#07090D;padding:24px 28px;margin-bottom:24px">
+        <span style="font-size:14px;color:#C8922A;letter-spacing:.05em">THELINKPANDA</span>
+        <span style="color:rgba(244,242,238,.4);font-size:12px;margin-left:12px">New Contact Message</span>
+      </div>
+      <div style="padding:0 28px 28px">
+        <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #eee;color:#888;font-size:13px;width:70px">Name</td>
+            <td style="padding:8px 0;border-bottom:1px solid #eee;font-size:13px"><strong>${esc(name)}</strong></td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #eee;color:#888;font-size:13px">Email</td>
+            <td style="padding:8px 0;border-bottom:1px solid #eee;font-size:13px">
+              <a href="mailto:${esc(email)}" style="color:#C8922A">${esc(email)}</a>
+            </td>
+          </tr>
+        </table>
+        <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Message</div>
+        <div style="background:#f9f9f9;padding:16px;border-left:3px solid #C8922A;font-size:14px;line-height:1.75;white-space:pre-wrap">${esc(message)}</div>
+        <div style="margin-top:24px;padding-top:16px;border-top:1px solid #eee;font-size:11px;color:#aaa">
+          Reply directly to this email to respond to ${esc(name)}.
+        </div>
+      </div>
+    </div>`;
+
+  // MailChannels payload
+  const mail = {
+    personalizations: [{
+      to: [{ email: toEmail }],
+      headers: { 'Reply-To': `${name} <${email}>` },
+    }],
+    from:    { email: 'contact@thelinkpanda.com', name: 'TheLinkPanda Contact Form' },
+    subject: `New message from ${name} — TheLinkPanda`,
+    content: [
+      { type: 'text/plain', value: textBody },
+      { type: 'text/html',  value: htmlBody },
+    ],
+  };
+
+  let mcRes;
+  try {
+    mcRes = await fetch('https://api.mailchannels.net/tx/v1/send', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(mail),
+    });
+  } catch (err) {
+    console.error('[contact] MailChannels fetch error:', err);
+    return json({ ok: false, error: 'Failed to send. Please try again.' }, 502);
+  }
+
+  if (mcRes.status === 202) {
+    console.log(`[contact] sent OK → ${toEmail} from ${email}`);
+    return json({ ok: true }, 200);
+  }
+
+  const mcBody = await mcRes.text().catch(() => '(unreadable)');
+  console.error(`[contact] MailChannels error ${mcRes.status}:`, mcBody);
+  return json({ ok: false, error: `Send failed (${mcRes.status}). Please try again.` }, 502);
 }
 
-function escapeHtml(str) {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+// ── Helpers ──
+function json(data, status = 200) {
+  return new Response(JSON.stringify(data), { status, headers: HEADERS });
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
