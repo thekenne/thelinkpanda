@@ -1,2 +1,3 @@
-/api/*  /api/:splat  200
-/*      /index.html  200
+# SPA fallback — serves index.html for all client-side routes
+# /api/* is intentionally excluded — Cloudflare Pages Functions handle those natively
+/*  /index.html  200
