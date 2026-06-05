@@ -1,0 +1,4 @@
+# SPA fallback for Cloudflare Pages
+# All routes serve index.html so the JS router can handle them.
+# /api/* is intentionally absent — Pages Functions handle those natively.
+/*    /index.html    200
