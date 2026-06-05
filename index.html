@@ -1639,6 +1639,23 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 /* ── Mobile Navigation Hub ── */
 .mob-nav-hub{display:none}
 @media(max-width:768px){.mob-nav-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px 16px 8px;background:var(--bg)}.mob-nav-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:16px 8px 14px;background:linear-gradient(145deg,rgba(14,22,48,.95),rgba(8,14,32,.98));border:.5px solid rgba(60,100,200,.25);border-radius:10px;cursor:pointer;text-align:center;transition:border-color .2s,transform .15s;-webkit-tap-highlight-color:transparent;font-family:inherit;color:inherit;outline:none}.mob-nav-card:active{transform:scale(.96)}.mob-nav-card:hover{border-color:rgba(200,146,42,.4)}.mob-nav-icon{font-size:22px;line-height:1;filter:drop-shadow(0 0 8px rgba(60,120,255,.35))}.mob-nav-label{font-family:var(--sans);font-size:11px;font-weight:500;color:var(--w80);letter-spacing:.02em;line-height:1.2}.mob-nav-sub{font-family:var(--mono);font-size:8px;color:var(--w20);letter-spacing:.04em;line-height:1.3}}
+
+/* ── Contribute ── */
+.contrib-type-grid{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:.5px solid var(--border)}
+.contrib-type-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:clamp(12px,1.2vw,18px) 8px;background:none;border:none;border-right:.5px solid var(--border);cursor:pointer;font-family:var(--sans);font-size:clamp(10px,.7vw,11px);letter-spacing:.04em;color:var(--w40);transition:background .15s,color .15s;text-align:center;line-height:1.3}
+.contrib-type-btn:nth-child(3n){border-right:none}
+.contrib-type-btn.row2{border-top:.5px solid var(--border)}
+.contrib-type-btn:hover{background:rgba(244,242,238,.04);color:var(--w80)}
+.contrib-type-btn.active{background:rgba(200,146,42,.06);color:var(--gold)}
+.contrib-icon{font-size:18px;line-height:1}
+.contrib-cta{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:clamp(8px,.56vw,9px);letter-spacing:.1em;color:var(--w40);border:.5px solid var(--border);padding:4px 12px;background:none;cursor:pointer;transition:color .15s,border-color .15s;white-space:nowrap}
+.contrib-cta:hover{color:var(--gold);border-color:rgba(200,146,42,.4)}
+.contrib-sidebar-label{font-family:var(--mono);font-size:clamp(8px,.56vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:14px}
+.contrib-badge-chip{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.1em;color:var(--w20);border:.5px solid rgba(244,242,238,.07);padding:2px 7px;opacity:.5}
+@media(max-width:768px){
+  .contrib-type-btn{font-size:10px;padding:10px 6px}
+  .contrib-layout{grid-template-columns:1fr!important}
+}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -1717,6 +1734,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">Quotes</button>
       <button class="mob-nav-link" onclick="showPage('evidence');closeMobileMenu()">Evidence</button>
       <button class="mob-nav-link" onclick="showPage('misconceptions');closeMobileMenu()">Misconceptions</button>
+      <button class="mob-nav-link" onclick="showPage('contribute');closeMobileMenu()">Contribute</button>
     </div>
     <div class="mob-drawer-divider"></div>
     <div class="mob-social">
@@ -2039,7 +2057,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <footer>
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
-    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <span class="ft-tag">Infrastructure Before Narratives. <button class="contrib-cta" onclick="showPage('contribute')" style="margin-left:12px;vertical-align:middle">⬆ Contribute to the vault</button></span>
     <div class="social-bar">
       <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
       <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener" title="Shorts"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
@@ -2317,6 +2335,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
     <p style="font-size:clamp(13px,.95vw,16px);color:var(--w40);line-height:1.7;max-width:640px;margin-bottom:clamp(28px,3vw,48px)">High-signal statements from executives, institutions, and researchers on Chainlink, digital finance infrastructure, tokenisation, and the architecture of the emerging financial system.</p>
     <div class="qt-filters" id="qt-filters">
+    <div style="margin-top:8px"><button class="contrib-cta" onclick="showPage('contribute')">⬆ Submit a quote</button></div>
       <button class="qt-filter active" data-filter="all" onclick="qtFilter('all',this)">ALL</button>
     </div>
     <div class="qt-grid" id="qt-grid"></div>
@@ -2353,6 +2372,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="ev-filter active" data-type="all" onclick="evSetType('all',this)">ALL</button>
       </div>
       <div class="ev-tags-row" id="ev-tag-row"></div>
+      <div style="margin-top:8px"><button class="contrib-cta" onclick="showPage('contribute')">⬆ Submit stronger evidence</button></div>
     </div>
   </div>
 
@@ -2391,6 +2411,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="mc-vault-btn" onclick="showPage('evidence')">Browse the Evidence Vault →</button>
       </div>
       <div class="ev-filters" id="mc-tag-filters">
+      <div style="margin-top:8px"><button class="contrib-cta" onclick="showPage('contribute')">⬆ Suggest a misconception</button></div>
         <button class="ev-filter active" data-tag="all" onclick="mcSetTag('all',this)">ALL</button>
       </div>
     </div>
@@ -2398,6 +2419,71 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <div class="ev-body">
     <div class="ev-empty" id="mc-empty">NO MISCONCEPTIONS MATCH YOUR SEARCH</div>
     <div class="mc-grid" id="mc-grid"></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════ CONTRIBUTE ════════════════════════════ -->
+<div class="page" id="page-contribute">
+  <div class="ev-header" style="position:static">
+    <div class="ev-header-inner">
+      <div class="ev-title-row"><div class="ev-title">Help strengthen the vault</div></div>
+      <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.65;max-width:580px;margin:6px 0 0">Submit evidence, quotes, sources, timestamps, or misconceptions that can improve the Chainlink research archive.</p>
+    </div>
+  </div>
+  <div class="contrib-layout" style="max-width:var(--content-max);margin:0 auto;padding:var(--section-pad);display:grid;grid-template-columns:1fr clamp(260px,26vw,360px);gap:clamp(32px,4vw,64px);align-items:start">
+    <div style="border:.5px solid var(--border);background:var(--bg2)">
+      <div class="contrib-type-grid">
+        <button class="contrib-type-btn active" data-type="Evidence Source" onclick="contribSetType(this)"><span class="contrib-icon">&#128196;</span>Evidence Source</button>
+        <button class="contrib-type-btn" data-type="Quote" onclick="contribSetType(this)"><span class="contrib-icon">&#128172;</span>Quote</button>
+        <button class="contrib-type-btn" data-type="Video Timestamp" onclick="contribSetType(this)"><span class="contrib-icon">&#9654;&#65039;</span>Video Timestamp</button>
+        <button class="contrib-type-btn row2" data-type="Misconception" onclick="contribSetType(this)"><span class="contrib-icon">&#128683;</span>Misconception</button>
+        <button class="contrib-type-btn row2" data-type="Correction" onclick="contribSetType(this)"><span class="contrib-icon">&#9998;&#65039;</span>Correction</button>
+        <button class="contrib-type-btn row2" data-type="Broken Link" onclick="contribSetType(this)"><span class="contrib-icon">&#128279;</span>Broken Link</button>
+      </div>
+      <div style="padding:clamp(20px,2vw,32px);display:flex;flex-direction:column;gap:clamp(14px,1.4vw,20px)">
+        <div class="form-field" style="margin:0"><label class="form-label" for="contrib-name">DISPLAY NAME <span style="opacity:.4;font-weight:400">optional</span></label><input id="contrib-name" type="text" class="form-input" placeholder="e.g. OraclePanda"/></div>
+        <div class="form-field" style="margin:0"><label class="form-label" for="contrib-url">SOURCE URL <span style="opacity:.4;font-weight:400">optional but encouraged</span></label><input id="contrib-url" type="url" class="form-input" placeholder="https://"/></div>
+        <div class="form-field" style="margin:0"><label class="form-label" for="contrib-inst">RELATED INSTITUTION / PROJECT <span style="opacity:.4;font-weight:400">optional</span></label><input id="contrib-inst" type="text" class="form-input" placeholder="e.g. Swift, DTCC, Coinbase"/></div>
+        <div class="form-field" style="margin:0"><label class="form-label" for="contrib-detail">CONTRIBUTION DETAILS <span style="color:var(--gold);opacity:.8">required</span></label><textarea id="contrib-detail" rows="5" class="form-input" style="resize:vertical" placeholder="Describe the evidence, quote, timestamp, or correction…"></textarea></div>
+        <div class="form-field" style="margin:0"><label class="form-label" for="contrib-why">WHY IT MATTERS <span style="opacity:.4;font-weight:400">optional</span></label><textarea id="contrib-why" rows="3" class="form-input" style="resize:vertical" placeholder="Why should this be added to the vault?"></textarea></div>
+        <div class="form-field" style="margin:0"><label class="form-label" for="contrib-email">CONTACT EMAIL <span style="opacity:.4;font-weight:400">optional</span></label><input id="contrib-email" type="email" class="form-input" placeholder="your@email.com"/></div>
+        <button class="wk-btn" id="contrib-submit" style="width:100%;text-align:center" onclick="submitContrib()">Submit contribution →</button>
+        <div id="contrib-status" style="display:none;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:10px 14px;line-height:1.5"></div>
+        <p style="font-size:clamp(9px,.68vw,10px);color:var(--w20);font-family:var(--mono);letter-spacing:.04em;line-height:1.65;border-top:.5px solid var(--border);padding-top:14px;margin:0">Accepted contributions may be credited using your chosen display name.<br>All submissions are reviewed before publication. No accounts required.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px)">
+      <div style="border:.5px solid var(--border);padding:clamp(18px,1.8vw,28px);background:var(--bg2)">
+        <div class="contrib-sidebar-label">WHAT WE ARE LOOKING FOR</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:8px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">EVIDENCE</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Official statements, press releases, or video clips from named institutions</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:8px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">QUOTES</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Verbatim statements with confirmed speaker, role, and source URL</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:8px;color:rgba(80,200,120,.75);border:.5px solid rgba(80,200,120,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">TIMESTAMPS</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Exact video timestamps for evidence entries that currently lack them</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:8px;color:rgba(255,100,100,.75);border:.5px solid rgba(255,100,100,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">MYTHS</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Common misconceptions with verifiable counter-evidence</span></div>
+        </div>
+      </div>
+      <div style="border:.5px solid var(--border);padding:clamp(18px,1.8vw,28px);background:var(--bg2)">
+        <div class="contrib-sidebar-label">CONTRIBUTOR RECOGNITION</div>
+        <p style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.6;margin-bottom:14px">Accepted contributors are credited by display name. Contributor badges coming in a future update.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:5px">
+          <span class="contrib-badge-chip">Evidence Hunter</span>
+          <span class="contrib-badge-chip">Quote Archivist</span>
+          <span class="contrib-badge-chip">Myth Slayer</span>
+          <span class="contrib-badge-chip">Institutional Researcher</span>
+          <span class="contrib-badge-chip">CCIP Specialist</span>
+          <span class="contrib-badge-chip">Tokenization Researcher</span>
+        </div>
+      </div>
+    </div>
   </div>
   <footer>
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
@@ -3445,10 +3531,10 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','infographics','videos','art','about','quotes','evidence','misconceptions','contact'];
+var ALL_PAGES=['home','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contact:'/work'};
-var URL_PAGES={'/':'home','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/work':'contact'};
+var PAGE_URLS={home:'/',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work'};
+var URL_PAGES={'/':'home','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 function showPage(page,filter,noPush){
   // Activate page
@@ -4015,6 +4101,25 @@ function evHighlight(id){
   setTimeout(function(){var cards=document.querySelectorAll('#ev-grid .ev-card');EVIDENCE.forEach(function(e,i){if(e.id===id&&cards[i]){cards[i].scrollIntoView({behavior:'smooth',block:'center'});cards[i].style.outline='1.5px solid rgba(200,146,42,.7)';setTimeout(function(){if(cards[i])cards[i].style.outline='';},2500);}});},300);
 }
 function mcEsc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+
+// ── Contribute ──────────────────────────────────────────────────────
+var contribType='Evidence Source';
+function contribSetType(btn){contribType=btn.dataset.type;document.querySelectorAll('.contrib-type-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');}
+function submitContrib(){
+  var detail=document.getElementById('contrib-detail').value.trim();
+  if(!detail){contribSt('error','Please describe your contribution.');document.getElementById('contrib-detail').focus();return;}
+  var name=document.getElementById('contrib-name').value.trim(),url=document.getElementById('contrib-url').value.trim(),inst=document.getElementById('contrib-inst').value.trim(),why=document.getElementById('contrib-why').value.trim(),email=document.getElementById('contrib-email').value.trim(),btn=document.getElementById('contrib-submit');
+  btn.disabled=true;btn.textContent='Submitting…';contribSt('info','Submitting…');
+  var body=['TYPE: '+contribType,name?'NAME: '+name:'',url?'URL: '+url:'',inst?'INSTITUTION: '+inst:'','DETAILS:',detail,why?'\nWHY:\n'+why:'',email?'\nEMAIL: '+email:''].filter(Boolean).join('\n');
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'ccad23bd-7896-4cf8-9859-516cac3b3f91',subject:'[TheLinkPanda Vault] '+contribType,name:name||'Anonymous',email:email||'vault@thelinkpanda.com',message:body})})
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(d.success){btn.style.display='none';['contrib-name','contrib-url','contrib-inst','contrib-detail','contrib-why','contrib-email'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});contribSt('success','✓ Contribution received. Thank you for strengthening the vault.');}
+    else{btn.disabled=false;btn.textContent='Submit contribution →';contribSt('error',d.message||'Failed. Please try again.');}
+  }).catch(function(){btn.disabled=false;btn.textContent='Submit contribution →';contribSt('error','Network error. Please try again.');});
+}
+function contribSt(type,msg){var el=document.getElementById('contrib-status');if(!el)return;el.style.display='block';var c={info:'rgba(244,242,238,.3)',success:'rgba(80,200,120,.8)',error:'rgba(255,100,100,.8)'};var b={info:'rgba(244,242,238,.04)',success:'rgba(80,200,120,.08)',error:'rgba(255,100,100,.08)'};el.style.color=c[type];el.style.background=b[type];el.style.border='.5px solid '+(c[type]).replace('.8',',.18').replace('.3',',.12');el.textContent=msg;}
 
 // ── Home page init (runs regardless of route) ──
 buildFeatured();
