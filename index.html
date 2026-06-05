@@ -2592,23 +2592,7 @@ window.addEventListener('popstate',function(e){
   showPage(page,filter,true);
 });
 
-// ── Home page init (runs regardless of route) ──
-buildFeatured();
-buildArt();
-buildHomeVideos();
-exInit();
 
-// ── Initial route on load ──
-(function(){
-  var path=window.location.pathname;
-  var qs=window.location.search;
-  var page=URL_PAGES[path]||'home';
-  var filter=null;
-  if(qs){var m=qs.match(/[?&]filter=([^&]+)/);if(m)filter=decodeURIComponent(m[1]);}
-  // Replace state so the initial entry has page metadata
-  try{history.replaceState({page:page,filter:filter},'',window.location.pathname+window.location.search);}catch(e){}
-  showPage(page,filter,true);
-})();
 
 
 
@@ -3054,6 +3038,23 @@ function cfStatus(type, msg){
   el.textContent      = msg;
 }
 
+// ── Home page init (runs regardless of route) ──
+buildFeatured();
+buildArt();
+buildHomeVideos();
+exInit();
+
+// ── Initial route on load ──
+(function(){
+  var path=window.location.pathname;
+  var qs=window.location.search;
+  var page=URL_PAGES[path]||'home';
+  var filter=null;
+  if(qs){var m=qs.match(/[?&]filter=([^&]+)/);if(m)filter=decodeURIComponent(m[1]);}
+  // Replace state so the initial entry has page metadata
+  try{history.replaceState({page:page,filter:filter},'',window.location.pathname+window.location.search);}catch(e){}
+  showPage(page,filter,true);
+})();
 </script>
 </body>
 </html>
