@@ -2556,7 +2556,53 @@ function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
 var ALL_PAGES=['home','infographics','videos','art','about','quotes','evidence','contact'];
-function showPage(page,filter){ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p),nl=document.getElementById('nl-'+p);if(el)el.classList.toggle('active',p===page);if(nl)nl.classList.toggle('active',p===page);});window.scrollTo(0,0);if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}if(page==='quotes'){qtBuildFilters();qtBuildGrid();}if(page==='evidence'){evInit();}if(page==='art')buildArt();if(page==='videos')buildVideosPage();}
+// ── Page → URL map ──
+var PAGE_URLS={home:'/',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',contact:'/work'};
+var URL_PAGES={'/':'home','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/work':'contact'};
+
+function showPage(page,filter,noPush){
+  // Activate page
+  ALL_PAGES.forEach(function(p){
+    var el=document.getElementById('page-'+p);
+    var nl=document.getElementById('nl-'+p);
+    if(el)el.classList.toggle('active',p===page);
+    if(nl)nl.classList.toggle('active',p===page);
+  });
+  window.scrollTo(0,0);
+  // Build page content on first visit
+  if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
+  if(page==='quotes'){qtBuildFilters();qtBuildGrid();}
+  if(page==='evidence'){evInit();}
+  if(page==='art')buildArt();
+  if(page==='videos')buildVideosPage();
+  // Push URL unless called from popstate or initial load
+  if(!noPush){
+    var url=PAGE_URLS[page]||'/';
+    if(filter&&page==='infographics')url+='?filter='+encodeURIComponent(filter);
+    if(window.location.pathname!==url){
+      history.pushState({page:page,filter:filter||null},'',(url));
+    }
+  }
+}
+
+// ── Back / forward ──
+window.addEventListener('popstate',function(e){
+  var page=(e.state&&e.state.page)||URL_PAGES[window.location.pathname]||'home';
+  var filter=e.state&&e.state.filter;
+  showPage(page,filter,true);
+});
+
+// ── Initial route on load ──
+(function(){
+  var path=window.location.pathname;
+  var qs=window.location.search;
+  var page=URL_PAGES[path]||'home';
+  var filter=null;
+  if(qs){var m=qs.match(/[?&]filter=([^&]+)/);if(m)filter=decodeURIComponent(m[1]);}
+  // Replace state so the initial entry has page metadata
+  history.replaceState({page:page,filter:filter},'',(window.location.pathname+window.location.search));
+  showPage(page,filter,true);
+})();
 
 buildFeatured();
 buildArt();
