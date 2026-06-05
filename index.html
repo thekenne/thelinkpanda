@@ -752,23 +752,23 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .ev-tag-btn.active{border-color:rgba(200,146,42,.55);color:var(--gold);background:var(--gold3)}
 .ev-body{max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px);}
 .ev-empty{text-align:center;padding:clamp(48px,5vw,80px) 0;font-family:var(--mono);font-size:clamp(11px,.82vw,13px);color:var(--w20);letter-spacing:.08em;display:none;}
-.ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(300px,30vw,460px),1fr));gap:.5px;background:var(--border);border:.5px solid var(--border);}
-.ev-card{background:var(--bg);padding:clamp(18px,1.7vw,26px) clamp(20px,1.9vw,28px);display:flex;flex-direction:column;gap:0;transition:background .15s;}
+.ev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5px;background:var(--border);border:.5px solid var(--border);}
+.ev-card{background:var(--bg);padding:clamp(24px,2.2vw,36px) clamp(26px,2.4vw,40px);display:flex;flex-direction:column;gap:0;transition:background .15s;}
 .ev-card:hover{background:var(--bg2)}
-.ev-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(10px,1vw,14px);gap:8px;}
+.ev-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(12px,1.2vw,18px);gap:8px;}
 .ev-type-badge{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.14em;font-weight:500;padding:2px 7px;flex-shrink:0;}
 .ev-type-statement{color:rgba(60,160,255,.85);border:.5px solid rgba(60,160,255,.25);background:rgba(60,160,255,.06)}
 .ev-type-report{color:rgba(200,146,42,.85);border:.5px solid rgba(200,146,42,.25);background:rgba(200,146,42,.06)}
 .ev-type-announcement{color:rgba(120,200,120,.85);border:.5px solid rgba(120,200,120,.25);background:rgba(120,200,120,.06)}
 .ev-date{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);color:var(--w20);letter-spacing:.08em;white-space:nowrap;}
 .ev-org{font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(5px,.5vw,8px);font-family:var(--mono);}
-.ev-card-title{font-size:clamp(12px,.88vw,14px);color:var(--w80);font-weight:500;line-height:1.4;margin-bottom:clamp(9px,.9vw,13px);letter-spacing:.01em;}
-.ev-body-text{font-family:var(--serif);font-size:clamp(13px,.95vw,15px);font-style:italic;font-weight:300;color:var(--w60);line-height:1.72;flex:1;padding-left:clamp(14px,1.3vw,18px);margin-bottom:clamp(12px,1.2vw,16px);border-left:1.5px solid rgba(200,146,42,.3);}
-.ev-significance{font-size:clamp(11px,.78vw,12px);color:var(--w40);line-height:1.6;margin-bottom:clamp(12px,1.2vw,16px);}
-.ev-meta{border-top:.5px solid var(--border);padding-top:clamp(10px,1vw,13px);margin-top:auto;display:flex;flex-direction:column;gap:3px;}
-.ev-person{font-size:clamp(11px,.78vw,13px);color:var(--w80);font-weight:500;letter-spacing:.01em;}
-.ev-role{font-size:clamp(9px,.68vw,11px);color:var(--w40);line-height:1.4;}
-.ev-source{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-family:var(--mono);font-size:clamp(8px,.54vw,9px);letter-spacing:.08em;color:var(--w20);text-decoration:none;transition:color .15s;width:fit-content;}
+.ev-card-title{font-size:clamp(14px,1vw,16px);color:var(--w80);font-weight:500;line-height:1.4;margin-bottom:clamp(12px,1.1vw,16px);letter-spacing:.01em;}
+.ev-body-text{font-family:var(--serif);font-size:clamp(15px,1.15vw,18px);font-style:italic;font-weight:300;color:var(--w70,rgba(244,242,238,.7));line-height:1.75;flex:1;padding-left:clamp(16px,1.5vw,22px);margin-bottom:clamp(16px,1.6vw,22px);border-left:2px solid rgba(200,146,42,.35);}
+.ev-significance{font-size:clamp(13px,.9vw,15px);color:var(--w40);line-height:1.7;margin-bottom:clamp(14px,1.4vw,20px);}
+.ev-meta{border-top:.5px solid var(--border);padding-top:clamp(14px,1.3vw,18px);margin-top:auto;display:flex;flex-direction:column;gap:4px;}
+.ev-person{font-size:clamp(13px,.9vw,15px);color:var(--w80);font-weight:500;letter-spacing:.01em;}
+.ev-role{font-size:clamp(11px,.78vw,13px);color:var(--w40);line-height:1.4;}
+.ev-source{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-family:var(--mono);font-size:clamp(10px,.68vw,12px);letter-spacing:.08em;color:var(--w20);text-decoration:none;transition:color .15s;width:fit-content;}
 .ev-source:hover{color:var(--gold)}
 .ev-verified{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.1em;color:rgba(80,200,120,.65);border:.5px solid rgba(80,200,120,.2);padding:1px 5px;margin-left:auto;flex-shrink:0;align-self:flex-start;}
 .ev-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;}
@@ -789,6 +789,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 .ev-watch-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;color:rgba(60,160,255,.85);border:.5px solid rgba(60,160,255,.25);background:rgba(60,160,255,.06);padding:3px 10px;text-decoration:none;transition:background .15s,color .15s;}
 .ev-watch-btn:hover{background:rgba(60,160,255,.15);color:rgba(60,160,255,1)}
+
+/* ── Mobile Navigation Hub ── */
+.mob-nav-hub{display:none}
+@media(max-width:768px){.mob-nav-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px 16px 8px;background:var(--bg)}.mob-nav-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:16px 8px 14px;background:linear-gradient(145deg,rgba(14,22,48,.95),rgba(8,14,32,.98));border:.5px solid rgba(60,100,200,.25);border-radius:10px;cursor:pointer;text-align:center;transition:border-color .2s,transform .15s;-webkit-tap-highlight-color:transparent;font-family:inherit;color:inherit;outline:none}.mob-nav-card:active{transform:scale(.96)}.mob-nav-card:hover{border-color:rgba(200,146,42,.4)}.mob-nav-icon{font-size:22px;line-height:1;filter:drop-shadow(0 0 8px rgba(60,120,255,.35))}.mob-nav-label{font-family:var(--sans);font-size:11px;font-weight:500;color:var(--w80);letter-spacing:.02em;line-height:1.2}.mob-nav-sub{font-family:var(--mono);font-size:8px;color:var(--w20);letter-spacing:.04em;line-height:1.3}}
 </style>
 </head>
 <body>
@@ -914,6 +918,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <button class="ib-t"    onclick="showPage('infographics','Security')">SECURITY</button>
     </div>
     <span class="ib-date">MAY 2026</span>
+  </div>
+
+  <div class="mob-nav-hub">
+    <button class="mob-nav-card" onclick="showPage('infographics')"><span class="mob-nav-icon">🗺</span><span class="mob-nav-label">Explorer</span><span class="mob-nav-sub">Infrastructure map</span></button>
+    <button class="mob-nav-card" onclick="showPage('evidence')"><span class="mob-nav-icon">🔒</span><span class="mob-nav-label">Evidence</span><span class="mob-nav-sub">Verified sources</span></button>
+    <button class="mob-nav-card" onclick="showPage('quotes')"><span class="mob-nav-icon">💬</span><span class="mob-nav-label">Quotes</span><span class="mob-nav-sub">Institutional statements</span></button>
+    <button class="mob-nav-card" onclick="showPage('videos')"><span class="mob-nav-icon">🎥</span><span class="mob-nav-label">Videos</span><span class="mob-nav-sub">Short education</span></button>
+    <button class="mob-nav-card" onclick="showPage('infographics')"><span class="mob-nav-icon">📊</span><span class="mob-nav-label">Infographics</span><span class="mob-nav-sub">Visual explanations</span></button>
+    <button class="mob-nav-card" onclick="showPage('about')"><span class="mob-nav-icon">⬡</span><span class="mob-nav-label">About</span><span class="mob-nav-sub">Who is TheLinkPanda</span></button>
   </div>
 
   <!-- WHAT I CREATE (Doc2 f29b9fc2) -->
