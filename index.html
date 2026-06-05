@@ -2580,7 +2580,7 @@ function showPage(page,filter,noPush){
     var url=PAGE_URLS[page]||'/';
     if(filter&&page==='infographics')url+='?filter='+encodeURIComponent(filter);
     if(window.location.pathname!==url){
-      history.pushState({page:page,filter:filter||null},'',(url));
+      try{history.pushState({page:page,filter:filter||null},'',url);}catch(e){}
     }
   }
 }
@@ -2606,7 +2606,7 @@ exInit();
   var filter=null;
   if(qs){var m=qs.match(/[?&]filter=([^&]+)/);if(m)filter=decodeURIComponent(m[1]);}
   // Replace state so the initial entry has page metadata
-  history.replaceState({page:page,filter:filter},'',(window.location.pathname+window.location.search));
+  try{history.replaceState({page:page,filter:filter},'',window.location.pathname+window.location.search);}catch(e){}
   showPage(page,filter,true);
 })();
 
