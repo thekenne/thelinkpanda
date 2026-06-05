@@ -1523,6 +1523,42 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </footer>
 </div>
 
+<!-- ════════════════════════ MISCONCEPTIONS ════════════════════════ -->
+<div class="page" id="page-misconceptions">
+  <div class="ev-header">
+    <div class="ev-header-inner">
+      <div class="ev-title-row">
+        <div class="ev-title">Common Misconceptions</div>
+        <span class="ev-count" id="mc-count"></span>
+      </div>
+      <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.6;margin:4px 0 10px;max-width:680px">Evidence-based responses to recurring narratives and misunderstandings surrounding Chainlink, interoperability, tokenization, and digital asset infrastructure.</p>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+        <div class="ev-search-wrap" style="flex:1;min-width:200px;max-width:480px">
+          <span class="ev-search-icon">⌕</span>
+          <input class="ev-search" id="mc-search" type="text" placeholder="Search misconceptions…" oninput="mcSearch(this.value)" />
+        </div>
+        <button class="mc-vault-btn" onclick="showPage('evidence')">Browse the Evidence Vault →</button>
+      </div>
+      <div class="ev-filters" id="mc-tag-filters">
+        <button class="ev-filter active" data-tag="all" onclick="mcSetTag('all',this)">ALL</button>
+      </div>
+    </div>
+  </div>
+  <div class="ev-body">
+    <div class="ev-empty" id="mc-empty">NO MISCONCEPTIONS MATCH YOUR SEARCH</div>
+    <div class="mc-grid" id="mc-grid"></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
 <div class="page" id="page-contact">
   <div class="section" style="max-width:620px;margin:0 auto;padding-top:96px">
@@ -2575,7 +2611,7 @@ function showPage(page,filter,noPush){
   // Build page content on first visit
   if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
   if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
-  if(page==='evidence'){evInit();}
+  if(page==='evidence'){evInit();}if(page==='misconceptions'){mcInit();}
   if(page==='art')buildArt();
   if(page==='videos')buildVideosPage();
   // Push URL unless called from popstate or initial load
