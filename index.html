@@ -883,7 +883,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <div class="mob-overlay" id="mob-overlay" onclick="closeMobileMenu()"></div>
 
 <!-- ════════════════════════════ HOME ════════════════════════════ -->
-<div class="page active" id="page-home">
+<div class="page" id="page-home">
 
   <!-- HERO (Doc1 d803a96c) -->
   <section class="hero">
@@ -2571,7 +2571,7 @@ function showPage(page,filter,noPush){
   window.scrollTo(0,0);
   // Build page content on first visit
   if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
-  if(page==='quotes'){qtBuildFilters();qtBuildGrid();}
+  if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
   if(page==='evidence'){evInit();}
   if(page==='art')buildArt();
   if(page==='videos')buildVideosPage();
@@ -2592,6 +2592,12 @@ window.addEventListener('popstate',function(e){
   showPage(page,filter,true);
 });
 
+// ── Home page init (runs regardless of route) ──
+buildFeatured();
+buildArt();
+buildHomeVideos();
+exInit();
+
 // ── Initial route on load ──
 (function(){
   var path=window.location.pathname;
@@ -2603,11 +2609,6 @@ window.addEventListener('popstate',function(e){
   history.replaceState({page:page,filter:filter},'',(window.location.pathname+window.location.search));
   showPage(page,filter,true);
 })();
-
-buildFeatured();
-buildArt();
-buildHomeVideos();
-exInit();
 
 
 
@@ -2859,8 +2860,12 @@ var EVIDENCE=[
 ];
 
 var evState={search:'',typeFilter:'all',tagFilter:''};
+var evInited=false;
+var qtInited=false;
 
 function evInit(){
+  if(evInited){evRender();return;}
+  evInited=true;
   evBuildTypeFilters();evBuildTagButtons();evRender();
 }
 function evBuildTypeFilters(){
