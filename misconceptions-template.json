@@ -1,0 +1,51 @@
+{
+  "_instructions": {
+    "workflow": [
+      "1. Contributions arrive by email via Web3Forms",
+      "2. TheLinkPanda reviews each submission",
+      "3. Approved entries are manually added to the MISCONCEPTIONS array in index.html",
+      "4. Each approved entry must include all required fields below",
+      "5. Push to main branch — Cloudflare deploys automatically"
+    ],
+    "required_fields": ["id","cat","title","myth","reality","status","statusCls","confidence","tags","institutions","ev"],
+    "optional_fields": ["contributor","contributorScore","contributorHandle","dateAdded"],
+    "status_values": ["Verified Evidence-backed","Outdated Narrative","False Claim","Partially True"],
+    "statusCls_values": ["mc-status-verified","mc-status-outdated","mc-status-partial"],
+    "confidence_scale": {
+      "100": "Multiple official sources, all confirmed",
+      "95":  "Single official source, fully verified",
+      "90":  "Confirmed with timestamp",
+      "80":  "Verified, no timestamp",
+      "70":  "Strong secondary sources",
+      "60":  "Plausible, needs more verification"
+    }
+  },
+  "_approved_entry_template": {
+    "id": "mc-031",
+    "cat": "Oracle & Infrastructure",
+    "title": "Short title of the misconception (5-8 words)",
+    "myth": "The exact misconception as people state it on X.",
+    "reality": "The evidence-backed rebuttal. Maximum 3 sentences. Cite institutions by name.",
+    "status": "Verified Evidence-backed",
+    "statusCls": "mc-status-verified",
+    "confidence": 95,
+    "tags": ["Technology","Infrastructure"],
+    "institutions": ["Institution Name"],
+    "ev": ["ev-001"],
+    "contributor": "DisplayName",
+    "contributorHandle": "@handle",
+    "contributorScore": 1,
+    "dateAdded": "2026-06"
+  },
+  "_contributor_scoring": {
+    "description": "Each approved contribution earns points. Display name is credited on the site.",
+    "points": {
+      "misconception_accepted": 3,
+      "evidence_source_accepted": 5,
+      "quote_accepted": 4,
+      "timestamp_provided": 2,
+      "correction_accepted": 1
+    },
+    "note": "Scores are manually tracked. Update contributorScore in each entry when contributor has multiple accepted submissions."
+  }
+}
