@@ -1,51 +1,180 @@
 {
-  "_instructions": {
+  "_admin_guide": {
+    "title": "TheLinkPanda — Contribution Review & Paste Guide",
+    "version": "1.0",
+    "purpose": "Reference for reviewing community submissions and formatting approved entries for pasting into index.html",
     "workflow": [
-      "1. Contributions arrive by email via Web3Forms",
-      "2. TheLinkPanda reviews each submission",
-      "3. Approved entries are manually added to the MISCONCEPTIONS array in index.html",
-      "4. Each approved entry must include all required fields below",
-      "5. Push to main branch — Cloudflare deploys automatically"
-    ],
-    "required_fields": ["id","cat","title","myth","reality","status","statusCls","confidence","tags","institutions","ev"],
-    "optional_fields": ["contributor","contributorScore","contributorHandle","dateAdded"],
-    "status_values": ["Verified Evidence-backed","Outdated Narrative","False Claim","Partially True"],
-    "statusCls_values": ["mc-status-verified","mc-status-outdated","mc-status-partial"],
-    "confidence_scale": {
-      "100": "Multiple official sources, all confirmed",
-      "95":  "Single official source, fully verified",
-      "90":  "Confirmed with timestamp",
-      "80":  "Verified, no timestamp",
-      "70":  "Strong secondary sources",
-      "60":  "Plausible, needs more verification"
+      "1. Submission arrives by email via Web3Forms",
+      "2. TheLinkPanda reviews — verify source, check wording, confirm evidence exists",
+      "3. If approved: format the entry using the examples below",
+      "4. Paste into the correct array in index.html (MISCONCEPTIONS, QUOTES, or EVIDENCE)",
+      "5. Set the next sequential ID (mc-031, ev-027, etc.)",
+      "6. git commit + push → Cloudflare deploys automatically",
+      "7. Contributor credit appears on site immediately after deploy"
+    ]
+  },
+
+  "_worked_example_1_misconception": {
+    "_comment": "SUBMISSION EMAIL RECEIVED — contributor submitted this via /contribute",
+    "_raw_submission": {
+      "type": "Misconception",
+      "contributor_name": "OraclePanda",
+      "source_url": "https://x.com/SomeUser/status/123456789",
+      "institution": "Chainlink",
+      "details": "People keep saying Chainlink only works on Ethereum mainnet and can't support private/permissioned chains used by banks.",
+      "why_it_matters": "This is used to argue that banks will never use Chainlink. SWIFT and DTCC both run on private infrastructure."
+    },
+    "_review_checklist": {
+      "myth_clearly_stated": true,
+      "reality_verifiable": true,
+      "evidence_references_exist": "ev-003 (Swift), ev-001 (DTCC)",
+      "institutions_named": true,
+      "reality_under_3_sentences": true,
+      "no_speculative_claims": true,
+      "approved": true
+    },
+    "_formatted_entry_ready_to_paste": {
+      "array": "MISCONCEPTIONS",
+      "location_in_file": "Inside var MISCONCEPTIONS=[...] in index.html, after the last mc-0XX entry",
+      "entry": {
+        "id": "mc-031",
+        "cat": "Oracle & Infrastructure",
+        "title": "Chainlink only works on public blockchains",
+        "myth": "Chainlink can't connect to private or permissioned chains used by banks and institutions.",
+        "reality": "Chainlink CCIP and its oracle infrastructure are explicitly designed to bridge public and private blockchains. Swift's interoperability experiments and JPMorgan's Kinexys DvP settlement both involved Chainlink connecting across public and private chain boundaries.",
+        "status": "Verified Evidence-backed",
+        "statusCls": "mc-status-verified",
+        "confidence": 97,
+        "tags": ["Infrastructure", "Interoperability", "Institutions"],
+        "institutions": ["Swift", "J.P. Morgan"],
+        "ev": ["ev-003", "ev-004"],
+        "contributor": "OraclePanda",
+        "contributorScore": 3,
+        "dateAdded": "2026-06"
+      }
+    },
+    "_paste_format": "  {id:'mc-031',cat:'Oracle & Infrastructure',title:'Chainlink only works on public blockchains',myth:'Chainlink can\\'t connect to private or permissioned chains used by banks and institutions.',reality:'Chainlink CCIP and its oracle infrastructure are explicitly designed to bridge public and private blockchains. Swift\\'s interoperability experiments and JPMorgan\\'s Kinexys DvP settlement both involved Chainlink connecting across public and private chain boundaries.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Infrastructure','Interoperability','Institutions'],institutions:['Swift','J.P. Morgan'],ev:['ev-003','ev-004'],contributor:'OraclePanda',contributorScore:3,dateAdded:'2026-06'},"
+  },
+
+  "_worked_example_2_quote": {
+    "_comment": "SUBMISSION EMAIL RECEIVED — contributor found a new institutional quote",
+    "_raw_submission": {
+      "type": "Quote",
+      "contributor_name": "ChainResearcher",
+      "source_url": "https://www.bnpparibas.com/en/news/press-release/bnp-paribas-joins-chainlink-corporate-actions-initiative",
+      "institution": "BNP Paribas",
+      "details": "Quote from BNP Paribas press release: 'BNP Paribas Securities Services is proud to be part of this initiative, which demonstrates the potential of blockchain technology to transform corporate actions processing.' — Amine Benabdallah, Head of Digital Innovation",
+      "why_it_matters": "This is a more recent BNP Paribas statement than what is currently in the Evidence Vault (ev-008). The speaker and role are different and the source is a primary press release."
+    },
+    "_review_checklist": {
+      "speaker_confirmed": true,
+      "role_confirmed": "Head of Digital Innovation — verify on LinkedIn or BNP press release byline",
+      "quote_verbatim": "CHECK — compare word for word against source URL before pasting",
+      "source_is_primary": true,
+      "date_confirmed": "check press release date on bnpparibas.com",
+      "approved": true
+    },
+    "_formatted_entry_ready_to_paste": {
+      "array": "EVIDENCE",
+      "location_in_file": "Inside var EVIDENCE=[...] in index.html, after the last ev-0XX entry",
+      "entry": {
+        "id": "ev-027",
+        "type": "statement",
+        "date": "2025",
+        "org": "BNP Paribas",
+        "person": "Amine Benabdallah",
+        "role": "Head of Digital Innovation, Securities Services",
+        "title": "On blockchain transforming corporate actions processing",
+        "body": "BNP Paribas Securities Services is proud to be part of this initiative, which demonstrates the potential of blockchain technology to transform corporate actions processing.",
+        "source_url": "https://www.bnpparibas.com/en/news/press-release/bnp-paribas-joins-chainlink-corporate-actions-initiative",
+        "source_label": "BNP Paribas Press Release — Corporate Actions Initiative",
+        "source_type": "Official Website",
+        "verification": "Official Document",
+        "confidence": 100,
+        "timestamp": "",
+        "transcriptExcerpt": "",
+        "local_pdf": "",
+        "screenshot": "",
+        "context": "From BNP Paribas official press release confirming participation in Chainlink-led corporate actions initiative. Submitted by community contributor ChainResearcher.",
+        "tags": ["Corporate Actions", "BNP Paribas", "Tokenisation"],
+        "nodes": ["custodians", "assetmgr"],
+        "significance": "BNP Paribas Securities Services formally endorsing Chainlink as a mechanism to transform corporate actions processing.",
+        "contributor": "ChainResearcher",
+        "contributorScore": 5
+      }
+    },
+    "_paste_format": "  {id:'ev-027',type:'statement',date:'2025',org:'BNP Paribas',person:'Amine Benabdallah',role:'Head of Digital Innovation, Securities Services',title:'On blockchain transforming corporate actions processing',body:'BNP Paribas Securities Services is proud to be part of this initiative, which demonstrates the potential of blockchain technology to transform corporate actions processing.',source_url:'https://www.bnpparibas.com/en/news/press-release/bnp-paribas-joins-chainlink-corporate-actions-initiative',source_label:'BNP Paribas Press Release — Corporate Actions Initiative',source_type:'Official Website',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'From BNP Paribas official press release confirming participation in Chainlink-led corporate actions initiative. Submitted by community contributor ChainResearcher.',tags:['Corporate Actions','BNP Paribas','Tokenisation'],nodes:['custodians','assetmgr'],significance:'BNP Paribas Securities Services formally endorsing Chainlink as a mechanism to transform corporate actions processing.',contributor:'ChainResearcher',contributorScore:5},"
+  },
+
+  "_worked_example_3_evidence_source": {
+    "_comment": "SUBMISSION EMAIL RECEIVED — contributor found a timestamped video quote",
+    "_raw_submission": {
+      "type": "Video Timestamp",
+      "contributor_name": "LinkMaximalist",
+      "source_url": "https://www.youtube.com/watch?v=EXAMPLE123&t=312s",
+      "institution": "Fidelity International",
+      "details": "At 5:12 in this Fidelity panel at TOKEN2049, Emma Pecenicic says: 'We now provide daily Proof of Reserve for all of our tokenized fund products, and Chainlink is how we do that.' This is a newer and clearer quote than what is currently in ev-005.",
+      "why_it_matters": "The existing ev-005 entry lacks a precise enough quote. This one is direct and unambiguous about daily cadence."
+    },
+    "_review_checklist": {
+      "timestamp_verified": "MUST WATCH — go to youtube.com/watch?v=EXAMPLE123&t=312s and confirm quote at 5:12",
+      "quote_verbatim": "MUST VERIFY — transcribe directly from video, do not rely on contributor transcription",
+      "speaker_confirmed": "Emma Pecenicic — confirm she is still in the same role",
+      "event_confirmed": "TOKEN2049 — check event name and date in video description",
+      "supersedes_existing": "If verified, update ev-005 body + timestamp rather than creating a duplicate",
+      "approved": "PENDING — watch video first"
+    },
+    "_admin_decision": {
+      "options": [
+        "A: Update ev-005 with the new timestamp and corrected body (preferred if quote is better)",
+        "B: Add as ev-027 if it is genuinely a different statement from a different event",
+        "C: Reject if quote is not verbatim or event cannot be confirmed"
+      ],
+      "chosen": "A — update ev-005"
+    },
+    "_formatted_entry_ready_to_paste": {
+      "array": "EVIDENCE",
+      "action": "UPDATE existing ev-005 — replace these fields only",
+      "fields_to_update": {
+        "body": "[EXACT VERBATIM QUOTE FROM VIDEO — transcribe yourself]",
+        "source_url": "https://www.youtube.com/watch?v=EXAMPLE123&t=312s",
+        "source_label": "TOKEN2049 — Fidelity International Panel (2025)",
+        "verification": "Verified + Timestamp",
+        "confidence": 95,
+        "timestamp": "5:12",
+        "transcriptExcerpt": "[VERBATIM TRANSCRIPT — copy directly from video]",
+        "context": "Confirmed on-camera at TOKEN2049 panel 2025. Timestamp 5:12 verified. Original ev-005 timestamp updated by community contributor LinkMaximalist, verified by TheLinkPanda."
+      }
+    },
+    "_contributor_credit": {
+      "note": "Since this updates an existing entry, add contributor credit to the existing ev-005 object",
+      "add_field": "contributor:'LinkMaximalist'",
+      "add_field_2": "contributorScore:2",
+      "scoring_reason": "2 points — timestamp provided for existing entry"
     }
   },
-  "_approved_entry_template": {
-    "id": "mc-031",
-    "cat": "Oracle & Infrastructure",
-    "title": "Short title of the misconception (5-8 words)",
-    "myth": "The exact misconception as people state it on X.",
-    "reality": "The evidence-backed rebuttal. Maximum 3 sentences. Cite institutions by name.",
-    "status": "Verified Evidence-backed",
-    "statusCls": "mc-status-verified",
-    "confidence": 95,
-    "tags": ["Technology","Infrastructure"],
-    "institutions": ["Institution Name"],
-    "ev": ["ev-001"],
-    "contributor": "DisplayName",
-    "contributorHandle": "@handle",
-    "contributorScore": 1,
-    "dateAdded": "2026-06"
+
+  "_scoring_reference": {
+    "misconception_accepted": 3,
+    "evidence_source_new": 5,
+    "quote_new": 4,
+    "timestamp_for_existing_entry": 2,
+    "correction_accepted": 1,
+    "note": "Set contributorScore on the entry itself. The site aggregates all scores from all entries per contributor automatically."
   },
-  "_contributor_scoring": {
-    "description": "Each approved contribution earns points. Display name is credited on the site.",
-    "points": {
-      "misconception_accepted": 3,
-      "evidence_source_accepted": 5,
-      "quote_accepted": 4,
-      "timestamp_provided": 2,
-      "correction_accepted": 1
-    },
-    "note": "Scores are manually tracked. Update contributorScore in each entry when contributor has multiple accepted submissions."
-  }
+
+  "_id_tracker": {
+    "last_mc_id": "mc-030",
+    "last_ev_id": "ev-026",
+    "note": "Update these manually each time you add an entry so you always know the next ID"
+  },
+
+  "_rejection_reasons": [
+    "Quote cannot be verified verbatim against primary source",
+    "Speaker role or attribution is uncertain",
+    "Source URL is behind a paywall with no accessible alternative",
+    "Misconception reality is speculative rather than evidence-backed",
+    "Evidence entry duplicates an existing entry without improvement",
+    "Institution cannot be confirmed as named in the submission"
+  ]
 }
