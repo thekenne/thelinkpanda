@@ -2487,7 +2487,26 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-empty" id="mc-empty">NO MISCONCEPTIONS MATCH YOUR SEARCH</div>
     <div class="mc-grid" id="mc-grid"></div>
   </div>
-  <footer>
+  
+  <!-- RESEARCH FUNNEL -->
+  <div style="border-top:.5px solid var(--border);background:var(--bg2);padding:clamp(28px,3vw,48px) clamp(20px,4vw,72px)">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div style="font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--w20);margin-bottom:clamp(16px,1.6vw,24px)">RESEARCH JOURNEY</div>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0">
+        <button onclick="showPage('misconceptions')" class="funnel-step"><span class="funnel-icon">&#128683;</span><span class="funnel-label">Misconceptions</span><span class="funnel-desc">Evidence-backed rebuttals</span></button>
+        <span class="funnel-arrow">&#8594;</span>
+        <button onclick="showPage('evidence')" class="funnel-step"><span class="funnel-icon">&#128274;</span><span class="funnel-label">Evidence Vault</span><span class="funnel-desc">Verified sources</span></button>
+        <span class="funnel-arrow">&#8594;</span>
+        <button onclick="showPage('quotes')" class="funnel-step"><span class="funnel-icon">&#128172;</span><span class="funnel-label">Quote Library</span><span class="funnel-desc">Institutional statements</span></button>
+        <span class="funnel-arrow">&#8594;</span>
+        <button onclick="showPage('explorer')" class="funnel-step"><span class="funnel-icon">&#127757;</span><span class="funnel-label">Explorer</span><span class="funnel-desc">Infrastructure map</span></button>
+        <span class="funnel-arrow">&#8594;</span>
+        <a href="https://x.com/TheLinkPanda" target="_blank" rel="noopener" class="funnel-step funnel-x"><span class="funnel-icon">&#120143;</span><span class="funnel-label">Follow on X</span><span class="funnel-desc">@TheLinkPanda</span></a>
+      </div>
+    </div>
+  </div>
+
+<footer>
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
     <span class="ft-tag">Infrastructure Before Narratives.</span>
     <div class="social-bar">
