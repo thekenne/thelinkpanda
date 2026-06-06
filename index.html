@@ -1677,6 +1677,26 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .portal-cta{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;color:var(--gold);margin-top:auto}
 @media(max-width:768px){.portal-card{padding:16px 14px}}
 
+
+/* ── Research portal strip ── */
+.rp-strip{border-top:.5px solid var(--border);background:var(--bg2);}
+.rp-inner{max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3.5vw,56px) clamp(32px,5vw,80px);}
+.rp-eyebrow{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(20px,2vw,32px);}
+.rp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5px;background:var(--border);}
+.rp-card{background:var(--bg);padding:clamp(20px,2vw,32px) clamp(20px,2vw,28px);display:flex;flex-direction:column;gap:0;border:none;cursor:pointer;text-align:left;transition:background .15s;}
+.rp-card:hover{background:var(--bg2)}
+.rp-card-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:clamp(10px,1vw,14px);}
+.rp-label{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.16em;color:var(--gold);opacity:.65;}
+.rp-count{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.1em;color:var(--w20);white-space:nowrap;}
+.rp-title{font-family:var(--serif);font-size:clamp(14px,1.1vw,17px);font-weight:300;color:var(--w);line-height:1.3;margin-bottom:clamp(8px,.8vw,12px);}
+.rp-desc{font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.6;flex:1;margin-bottom:clamp(14px,1.4vw,20px);}
+.rp-cta{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;color:var(--gold);opacity:.5;transition:opacity .15s;margin-top:auto;}
+.rp-card:hover .rp-cta{opacity:1}
+@media(max-width:768px){
+  .rp-inner{padding:24px 16px;}
+  .rp-grid{grid-template-columns:repeat(2,1fr);}
+  .rp-card{padding:16px 14px;}
+}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -2488,20 +2508,53 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="mc-grid" id="mc-grid"></div>
   </div>
   
-  <!-- RESEARCH FUNNEL -->
-  <div style="border-top:.5px solid var(--border);background:var(--bg2);padding:clamp(28px,3vw,48px) clamp(20px,4vw,72px)">
-    <div style="max-width:var(--content-max);margin:0 auto">
-      <div style="font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--w20);margin-bottom:clamp(16px,1.6vw,24px)">RESEARCH JOURNEY</div>
-      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0">
-        <button onclick="showPage('misconceptions')" class="funnel-step"><span class="funnel-icon">&#128683;</span><span class="funnel-label">Misconceptions</span><span class="funnel-desc">Evidence-backed rebuttals</span></button>
-        <span class="funnel-arrow">&#8594;</span>
-        <button onclick="showPage('evidence')" class="funnel-step"><span class="funnel-icon">&#128274;</span><span class="funnel-label">Evidence Vault</span><span class="funnel-desc">Verified sources</span></button>
-        <span class="funnel-arrow">&#8594;</span>
-        <button onclick="showPage('quotes')" class="funnel-step"><span class="funnel-icon">&#128172;</span><span class="funnel-label">Quote Library</span><span class="funnel-desc">Institutional statements</span></button>
-        <span class="funnel-arrow">&#8594;</span>
-        <button onclick="showPage('explorer')" class="funnel-step"><span class="funnel-icon">&#127757;</span><span class="funnel-label">Explorer</span><span class="funnel-desc">Infrastructure map</span></button>
-        <span class="funnel-arrow">&#8594;</span>
-        <a href="https://x.com/TheLinkPanda" target="_blank" rel="noopener" class="funnel-step funnel-x"><span class="funnel-icon">&#120143;</span><span class="funnel-label">Follow on X</span><span class="funnel-desc">@TheLinkPanda</span></a>
+  
+  <!-- RESEARCH PORTAL -->
+  <div class="rp-strip">
+    <div class="rp-inner">
+      <div class="rp-eyebrow">RESEARCH ARCHIVE</div>
+      <div class="rp-grid">
+
+        <button class="rp-card" onclick="showPage('misconceptions')">
+          <div class="rp-card-top">
+            <span class="rp-label">MISCONCEPTIONS</span>
+            <span class="rp-count">31 entries</span>
+          </div>
+          <div class="rp-title">Evidence-backed rebuttals</div>
+          <div class="rp-desc">Oracle, CCIP, institutions, LINK tokenomics, and market narratives — each addressed with verified sources.</div>
+          <div class="rp-cta">Browse misconceptions &#8599;</div>
+        </button>
+
+        <button class="rp-card" onclick="showPage('evidence')">
+          <div class="rp-card-top">
+            <span class="rp-label">EVIDENCE VAULT</span>
+            <span class="rp-count">26 entries</span>
+          </div>
+          <div class="rp-title">Verified institutional statements</div>
+          <div class="rp-desc">Official statements, press releases, and timestamped video from DTCC, Swift, JPMorgan, Fidelity, and more.</div>
+          <div class="rp-cta">Browse evidence &#8599;</div>
+        </button>
+
+        <button class="rp-card" onclick="showPage('quotes')">
+          <div class="rp-card-top">
+            <span class="rp-label">QUOTE LIBRARY</span>
+            <span class="rp-count">18 entries</span>
+          </div>
+          <div class="rp-title">Institutional voices on Chainlink</div>
+          <div class="rp-desc">Verbatim statements from Bitwise, Citi, Euroclear, Deutsche Börse, Franklin Templeton, and Google.</div>
+          <div class="rp-cta">Browse quotes &#8599;</div>
+        </button>
+
+        <button class="rp-card" onclick="showPage('explorer')">
+          <div class="rp-card-top">
+            <span class="rp-label">INFRASTRUCTURE EXPLORER</span>
+            <span class="rp-count">28 nodes</span>
+          </div>
+          <div class="rp-title">The infrastructure map</div>
+          <div class="rp-desc">Interactive map of how Chainlink connects traditional finance, blockchains, data, compliance, and settlement.</div>
+          <div class="rp-cta">Open explorer &#8599;</div>
+        </button>
+
       </div>
     </div>
   </div>
