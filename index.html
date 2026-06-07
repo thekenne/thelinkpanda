@@ -2507,7 +2507,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div>
 
   <!-- Content -->
-  <div class="ev-body">
+  
+  <div id="ev-ids-banner" style="display:none;align-items:center;gap:12px;padding:clamp(8px,.7vw,12px) clamp(32px,5vw,80px);background:rgba(200,146,42,.06);border-bottom:.5px solid rgba(200,146,42,.2)"></div>
+<div class="ev-body">
     <div class="ev-empty" id="ev-empty">NO ENTRIES MATCH YOUR SEARCH</div>
     <div class="ev-grid" id="ev-grid"></div>
   </div>
@@ -3749,7 +3751,7 @@ function showPage(page,filter,noPush){
   // Build page content on first visit
   if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
   if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
-  if(page==='explorer'){exInit();}if(page==='evidence'){evInit();}if(page==='misconceptions'){mcInit();}
+  if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}if(page==='misconceptions'){mcInit();}
   if(page==='art')buildArt();
   if(page==='videos')buildVideosPage();
   // Push URL unless called from popstate or initial load
@@ -3766,7 +3768,9 @@ function showPage(page,filter,noPush){
 window.addEventListener('popstate',function(e){
   var page=(e.state&&e.state.page)||URL_PAGES[window.location.pathname]||'home';
   var filter=e.state&&e.state.filter;
+  if(page==='evidence'){evState.evIds=(e.state&&e.state.evIds)||null;}
   showPage(page,filter,true);
+  if(page==='evidence')evRenderBanner();
 });
 
 
@@ -4022,7 +4026,7 @@ var EVIDENCE=[
   {id:'ev-027',type:'statement',date:'2026-05-12',org:'DTCC',person:'DTCC',role:'Official Announcement',title:'DTCC Collateral AppChain to leverage Chainlink CRE and data standard',body:'DTCC collaborates with Chainlink to advance 24/7 collateral management. The DTCC Collateral AppChain will leverage Chainlink CRE and the Chainlink data standard for near real-time collateral management across financial markets and blockchains.',source_url:'https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management',source_label:'DTCC — Collaborates with Chainlink to Advance 24/7 Collateral Management (May 12, 2026)',source_type:'Official Website',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Official DTCC announcement on dtcc.com, May 12 2026. The DTCC Collateral AppChain will integrate Chainlink CRE and the Chainlink data standard for near real-time collateral management across financial markets and multiple blockchains.',tags:['Collateral Management','DTCC','CRE','Settlement','Market Infrastructure'],nodes:['dtcc'],significance:'DTCC — the institution that settles $4.7 quadrillion annually — officially integrating Chainlink CRE and data standards into its Collateral AppChain for 24/7 real-time collateral management.',contributor:null,contributorScore:0},
   {id:'ev-028',type:'report',date:'2022',org:'Chainlink Labs',person:'Sergey Nazarov',role:'Co-Founder',title:'Chainlink Economics 2.0 — Staking, fees, and sustainable network growth',body:'Chainlink Economics 2.0 establishes a sustainable cryptoeconomic model: node operators stake LINK as a performance bond; protocol fees are collected from service users; BUILD partners contribute tokens to stakers; payment abstraction settles in LINK regardless of input token; and reserve accumulation funds long-term security without inflationary issuance.',source_url:'https://blog.chain.link/chainlink-economics-2-0/',source_label:'Chainlink Blog — Chainlink Economics 2.0 (2022)',source_type:'Official Blog',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Official Chainlink Economics 2.0 announcement. Covers staking v0.1 and v0.2, BUILD program incentives, payment abstraction, and reserve accumulation. Staking v0.2 launched 2023 with community access expanding through 2024.',tags:['LINK Token','Staking','Economics','Value Accrual','Network Security','BUILD'],nodes:['marketdata','ethereum'],significance:'Foundational document establishing how LINK accrues value as the network grows: staking demand, protocol fees, BUILD contributions, and payment abstraction all create structural LINK demand proportional to Chainlink network usage.',contributor:null,contributorScore:0}];
 
-var evState={search:'',typeFilter:'all',tagFilter:''};
+var evState={search:'',typeFilter:'all',tagFilter:'',evIds:null};
 var evInited=false;
 var qtInited=false;
 
@@ -4068,8 +4072,59 @@ function evSetTag(tag,btn){
   evRender();
 }
 function evSearch(val){evState.search=val.toLowerCase().trim();evRender();}
+
+function evGoToMc(mcId){
+  var mc=MISCONCEPTIONS.filter(function(m){return m.id===mcId;})[0];
+  var ids=mc&&mc.ev&&mc.ev.length?mc.ev:[];
+  evState.evIds=ids.length?ids:null;
+  showPage('evidence',null,false);
+  setTimeout(function(){
+    evSetIds(ids.length?ids:null,true);
+  },60);
+}
+function evSetIds(ids,noPush){
+  evState.evIds=ids&&ids.length?ids:null;
+  var url='/evidence';
+  if(ids&&ids.length)url+='?ev='+encodeURIComponent(ids.join(','));
+  if(!noPush){try{history.pushState({page:'evidence',evIds:ids||null},'',url);}catch(e){}}
+  evRender();
+  evRenderBanner();
+  if(ids&&ids.length){
+    setTimeout(function(){
+      var g=document.getElementById('ev-grid');
+      if(g&&g.firstChild)g.firstChild.scrollIntoView({behavior:'smooth',block:'start'});
+    },80);
+  }
+}
+function evClearIds(){
+  evState.evIds=null;
+  try{history.pushState({page:'evidence',evIds:null},'','/evidence');}catch(e){}
+  evRender();evRenderBanner();
+}
+function evReadUrlIds(){
+  try{
+    var params=new URLSearchParams(window.location.search);
+    var ev=params.get('ev');
+    if(ev){
+      var ids=decodeURIComponent(ev).split(',').map(function(x){return x.trim();}).filter(Boolean);
+      if(ids.length){evState.evIds=ids;return ids;}
+    }
+  }catch(e){}
+  evState.evIds=null;return null;
+}
+function evRenderBanner(){
+  var b=document.getElementById('ev-ids-banner');if(!b)return;
+  if(!evState.evIds||!evState.evIds.length){b.style.display='none';return;}
+  b.style.display='flex';
+  b.innerHTML='<span style="font-family:var(--mono);font-size:clamp(9px,.65vw,10px);letter-spacing:.1em;color:var(--gold)">'
+    +'Showing '+evState.evIds.length+' evidence '+(evState.evIds.length===1?'entry':'entries')+' for selected misconception'
+    +'</span><button onclick="evClearIds()" style="font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;'
+    +'color:var(--w40);border:.5px solid var(--border);background:none;padding:2px 10px;cursor:pointer;margin-left:auto">&#215; Clear filter</button>';
+}
+
 function evFiltered(){
   return EVIDENCE.filter(function(e){
+    if(evState.evIds&&evState.evIds.indexOf(e.id)===-1)return false;
     if(evState.typeFilter!=='all'&&e.type!==evState.typeFilter)return false;
     if(evState.tagFilter&&e.tags.indexOf(evState.tagFilter)===-1)return false;
     if(evState.search){
@@ -4385,7 +4440,7 @@ function mcBuildCard(m,i){
     +'<div class="mc-reality-block"><div class="mc-reality-lbl">REALITY</div><div class="mc-reality-txt">'+mcEsc(m.reality)+'</div></div>'
     +(chips?'<div class="mc-chips">'+chips+'</div>':'')
     +(evBtns?'<div class="mc-ev-row"><span class="mc-ev-lbl">EVIDENCE</span><div class="mc-ev-btns">'+evBtns+'</div>'
-      +'<button class="mc-more-btn" onclick="showPage(\'evidence\')">View evidence \u2192</button></div>':'')
+      +'<button class="mc-more-btn" onclick="evGoToMc(\''+m.id+'\')" data-mc="'+m.id+'">View evidence \u2192</button></div>':'')
     +relHtml
     +'<div class="mc-actions">'
       +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">\u29c9 Copy rebuttal</button>'
