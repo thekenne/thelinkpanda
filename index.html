@@ -58,7 +58,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
 /* ── HERO (Doc1 d803a96c — the known-good hero) ── */
-.hero{position:relative;height:calc(100vh - var(--nav-h));min-height:520px;max-height:880px;overflow:hidden;background:#07090D;}
+.hero{position:relative;height:clamp(360px,40vw,460px);min-height:360px;max-height:460px;overflow:hidden;background:#07090D;}
 .hero-right-img{
   position:absolute;left:38%;top:0;width:62%;height:100%;
   object-fit:cover;object-position:center center;z-index:0;
@@ -75,7 +75,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .hero-blend{position:absolute;left:30%;top:0;width:40%;height:100%;background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(30,60,180,.13) 0%,rgba(20,40,140,.09) 35%,rgba(10,20,80,.04) 65%,transparent 100%);z-index:2;pointer-events:none;}
 .hero-text-grad{position:absolute;left:0;top:0;bottom:0;width:38%;background:linear-gradient(to right,rgba(7,9,13,.80) 0%,rgba(7,9,13,.55) 30%,rgba(7,9,13,.15) 70%,transparent 100%);z-index:3;pointer-events:none;}
 .hero-ob{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,var(--bg) 0%,transparent 100%);z-index:4;pointer-events:none;}
-.hero-text-panel{position:absolute;left:0;bottom:0;width:42%;padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:flex-end;z-index:5;}
+.hero-text-panel{position:absolute;left:0;bottom:0;width:42%;padding:0 0 clamp(24px,2.8vw,44px) clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:flex-end;z-index:5;}
 .hero-text-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 5% 95%,rgba(7,9,13,.52) 0%,rgba(7,9,13,.10) 55%,transparent 100%);pointer-events:none;z-index:-1;}
 .hero-eyebrow{font-size:clamp(9px,.62vw,11px);letter-spacing:.22em;color:var(--gold);opacity:.78;margin-bottom:clamp(10px,.9vw,15px);font-weight:400;}
 .hero-h1{font-family:var(--sans);font-size:clamp(32px,3.8vw,52px);font-weight:500;line-height:1.0;letter-spacing:-.025em;color:var(--w);margin-bottom:4px;}
@@ -904,7 +904,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
 /* ── HERO (Doc1 d803a96c — the known-good hero) ── */
-.hero{position:relative;height:calc(100vh - var(--nav-h));min-height:520px;max-height:880px;overflow:hidden;background:#07090D;}
+.hero{position:relative;height:clamp(360px,40vw,460px);min-height:360px;max-height:460px;overflow:hidden;background:#07090D;}
 .hero-right-img{
   position:absolute;left:38%;top:0;width:62%;height:100%;
   object-fit:cover;object-position:center center;z-index:0;
@@ -921,7 +921,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .hero-blend{position:absolute;left:30%;top:0;width:40%;height:100%;background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(30,60,180,.13) 0%,rgba(20,40,140,.09) 35%,rgba(10,20,80,.04) 65%,transparent 100%);z-index:2;pointer-events:none;}
 .hero-text-grad{position:absolute;left:0;top:0;bottom:0;width:38%;background:linear-gradient(to right,rgba(7,9,13,.80) 0%,rgba(7,9,13,.55) 30%,rgba(7,9,13,.15) 70%,transparent 100%);z-index:3;pointer-events:none;}
 .hero-ob{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,var(--bg) 0%,transparent 100%);z-index:4;pointer-events:none;}
-.hero-text-panel{position:absolute;left:0;bottom:0;width:42%;padding:0 0 clamp(44px,5vw,88px) clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:flex-end;z-index:5;}
+.hero-text-panel{position:absolute;left:0;bottom:0;width:42%;padding:0 0 clamp(24px,2.8vw,44px) clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:flex-end;z-index:5;}
 .hero-text-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 5% 95%,rgba(7,9,13,.52) 0%,rgba(7,9,13,.10) 55%,transparent 100%);pointer-events:none;z-index:-1;}
 .hero-eyebrow{font-size:clamp(9px,.62vw,11px);letter-spacing:.22em;color:var(--gold);opacity:.78;margin-bottom:clamp(10px,.9vw,15px);font-weight:400;}
 .hero-h1{font-family:var(--sans);font-size:clamp(32px,3.8vw,52px);font-weight:500;line-height:1.0;letter-spacing:-.025em;color:var(--w);margin-bottom:4px;}
