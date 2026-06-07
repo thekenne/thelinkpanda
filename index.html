@@ -1715,6 +1715,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mc-action-btn:hover{color:var(--w80);border-color:rgba(244,242,238,.25)}
 .mc-action-x{color:rgba(244,242,238,.5)}.mc-action-x:hover{color:var(--w);border-color:rgba(244,242,238,.3)}
 .mc-action-link{color:var(--w20);font-size:12px}
+.mc-action-dl{color:rgba(200,146,42,.75)!important;border-color:rgba(200,146,42,.2)!important}
+.mc-action-dl:hover{color:var(--gold)!important;border-color:rgba(200,146,42,.5)!important;background:rgba(200,146,42,.06)!important}
+
 .mc-related{margin-bottom:10px}
 .mc-related-lbl{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.14em;color:var(--w20);margin-bottom:5px}
 .mc-related-btn{display:block;width:100%;text-align:left;background:none;border:none;border-left:1.5px solid rgba(244,242,238,.08);padding:3px 8px;font-size:clamp(10px,.72vw,12px);color:var(--w40);cursor:pointer;transition:color .15s,border-color .15s;margin-bottom:3px;font-family:var(--sans);line-height:1.35}
@@ -4455,6 +4458,7 @@ function mcBuildCard(m,i){
       +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">\u29c9 Copy rebuttal</button>'
       +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
       +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+slug+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+slug+'\');return false;" title="Direct link">&#128279;</a>'
+    +'<button class="mc-action-btn mc-action-dl" onclick="mcDownloadImage(\''+m.id+'\')">&#8659; Download card</button>'
     +'</div>'
     +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>';
   return card;
@@ -4553,6 +4557,149 @@ function mcBuildContributorPanel(){
       }).join('')
     + '</div>'
     + '<p style="font-size:clamp(9px,.65vw,10px);color:var(--w20);font-family:var(--mono);letter-spacing:.04em;margin-top:10px;line-height:1.6">All contributions reviewed and approved by TheLinkPanda before publication.</p>';
+}
+
+
+// ── MC Download Image ─────────────────────────────────────────────
+function mcDownloadImage(mcId){
+  var m=MISCONCEPTIONS.filter(function(x){return x.id===mcId;})[0];
+  if(!m)return;
+  var W=1200,H=675;
+  var cv=document.createElement('canvas');
+  cv.width=W;cv.height=H;
+  var x=cv.getContext('2d');
+
+  // Palette
+  var BG='#07090D',BG2='#0D1117',GOLD='#C8922A',GOLD2='rgba(200,146,42,0.3)';
+  var RED='rgba(255,70,70,0.5)',REDBG='rgba(255,50,50,0.06)';
+  var GREEN='rgba(80,200,120,0.85)',AMBER='rgba(255,160,50,0.85)';
+  var W80='rgba(244,242,238,0.80)',W60='rgba(244,242,238,0.60)';
+  var W40='rgba(244,242,238,0.40)',W20='rgba(244,242,238,0.20)';
+  var BORDER='rgba(244,242,238,0.07)';
+
+  // Background
+  x.fillStyle=BG; x.fillRect(0,0,W,H);
+
+  // Top gold rule
+  x.fillStyle=GOLD; x.fillRect(0,0,W,3);
+
+  // Left red accent bar (full height, subtle)
+  x.fillStyle='rgba(255,70,70,0.12)'; x.fillRect(0,3,3,H-3);
+
+  // ── STATUS BADGE (top-left) ──
+  var statusCol=m.statusCls==='mc-status-verified'?GREEN
+    :m.statusCls==='mc-status-outdated'?AMBER:'rgba(150,150,150,0.8)';
+  x.font='600 10px monospace';
+  var bTxt=m.status.toUpperCase();
+  var bW=x.measureText(bTxt).width+20;
+  x.fillStyle=statusCol.replace('0.85','0.08').replace('0.8','0.08');
+  mcRoundRect(x,24,20,bW,21,3); x.fill();
+  x.strokeStyle=statusCol.replace('0.85','0.4').replace('0.8','0.4');
+  x.lineWidth=0.5;
+  mcRoundRect(x,24,20,bW,21,3); x.stroke();
+  x.fillStyle=statusCol; x.fillText(bTxt,34,34);
+
+  // ── CONFIDENCE (top-right) ──
+  var conf=m.confidence||0;
+  var cCol=conf>=90?GREEN:AMBER;
+  x.font='9px monospace'; x.fillStyle=W20; x.textAlign='right';
+  x.fillText('CONFIDENCE',W-24,31);
+  x.fillStyle='rgba(244,242,238,0.06)'; x.fillRect(W-134,36,100,2);
+  x.fillStyle=cCol; x.fillRect(W-134,36,Math.round(conf),2);
+  x.font='bold 11px monospace'; x.fillStyle=cCol;
+  x.fillText(conf,W-24,50);
+  x.textAlign='left';
+
+  // ── MYTH block ──
+  var mY=62;
+  // label
+  x.font='bold 9px monospace'; x.letterSpacing='0.16em';
+  x.fillStyle='rgba(255,110,110,0.7)'; x.fillText('MYTH',30,mY+14);
+  // wrap myth text first to know height
+  x.font='italic 300 21px Georgia,serif';
+  var mLines=mcWrap(x,'“'+m.myth+'”',30,W-56,30);
+  var mH=mLines.length*30+10;
+  // red bg
+  x.fillStyle=REDBG; x.fillRect(24,mY,W-48,mH+30);
+  x.fillStyle=RED; x.fillRect(24,mY,3,mH+30);
+  // re-draw label over bg
+  x.font='bold 9px monospace'; x.fillStyle='rgba(255,110,110,0.7)';
+  x.fillText('MYTH',30,mY+15);
+  // myth lines
+  x.font='italic 300 21px Georgia,serif'; x.fillStyle=W80;
+  mLines.forEach(function(ln,i){x.fillText(ln,30,mY+36+i*30);});
+
+  // ── REALITY block ──
+  var rY=mY+mH+46;
+  x.font='bold 9px monospace'; x.fillStyle='rgba(80,200,120,0.65)';
+  x.letterSpacing='0.16em'; x.fillText('REALITY',24,rY);
+  x.letterSpacing='0';
+  var rTxt=m.reality.length>240?m.reality.slice(0,237)+'…':m.reality;
+  x.font='14px -apple-system,sans-serif'; x.fillStyle=W60;
+  var rLines=mcWrap(x,rTxt,24,W-48,21);
+  rLines.forEach(function(ln,i){x.fillText(ln,24,rY+17+i*21);});
+  var rH=rLines.length*21+8;
+
+  // ── CHIPS ──
+  var cY=rY+rH+20;
+  var cX=24;
+  (m.institutions||[]).slice(0,7).forEach(function(inst){
+    x.font='9px monospace';
+    var tw=x.measureText(inst).width;
+    var cw=tw+16;
+    if(cX+cw>W-24){cX=24;cY+=24;}
+    x.fillStyle='rgba(200,146,42,0.07)';
+    mcRoundRect(x,cX,cY-12,cw,19,2); x.fill();
+    x.strokeStyle='rgba(200,146,42,0.3)'; x.lineWidth=0.5;
+    mcRoundRect(x,cX,cY-12,cw,19,2); x.stroke();
+    x.fillStyle=GOLD; x.globalAlpha=0.85;
+    x.fillText(inst,cX+8,cY+1); x.globalAlpha=1;
+    cX+=cw+6;
+  });
+
+  // ── FOOTER ──
+  var fY=H-42;
+  x.fillStyle=BORDER; x.fillRect(0,fY-10,W,0.5);
+  x.fillStyle='rgba(7,9,13,0.9)'; x.fillRect(0,fY-10,W,52);
+  // left: hexagon + brand
+  x.font='bold 14px sans-serif'; x.fillStyle=GOLD; x.fillText('⬡ TheLinkPanda',24,fY+8);
+  x.font='10px monospace'; x.fillStyle=W40;
+  x.fillText('thelinkpanda.com/misconceptions',24,fY+24);
+  // right: @TheLinkPanda
+  x.textAlign='right';
+  x.font='10px monospace'; x.fillStyle=W20;
+  x.fillText('@TheLinkPanda on X',W-24,fY+8);
+  x.font='9px monospace'; x.fillStyle='rgba(200,146,42,0.5)';
+  x.fillText(m.id.toUpperCase(),W-24,fY+24);
+  x.textAlign='left';
+
+  // Download
+  var slug=m.id+'-'+m.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,38);
+  var a=document.createElement('a');
+  a.download='thelinkpanda-'+slug+'.png';
+  a.href=cv.toDataURL('image/png');
+  a.click();
+}
+
+function mcWrap(x,text,x0,maxW,lineH){
+  var words=text.split(' '),lines=[],line='';
+  words.forEach(function(w){
+    var t=line?line+' '+w:w;
+    if(x.measureText(t).width>maxW&&line){lines.push(line);line=w;}
+    else{line=t;}
+  });
+  if(line)lines.push(line);
+  return lines;
+}
+
+function mcRoundRect(x,rx,ry,rw,rh,r){
+  x.beginPath();
+  x.moveTo(rx+r,ry);
+  x.lineTo(rx+rw-r,ry);x.arcTo(rx+rw,ry,rx+rw,ry+r,r);
+  x.lineTo(rx+rw,ry+rh-r);x.arcTo(rx+rw,ry+rh,rx+rw-r,ry+rh,r);
+  x.lineTo(rx+r,ry+rh);x.arcTo(rx,ry+rh,rx,ry+rh-r,r);
+  x.lineTo(rx,ry+r);x.arcTo(rx,ry,rx+r,ry,r);
+  x.closePath();
 }
 
 // ── Home page init (runs regardless of route) ──
