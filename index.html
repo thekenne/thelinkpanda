@@ -3785,8 +3785,8 @@ function showPage(page,filter,noPush){
   if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
   if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
   if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}
-  if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','');if(_osl&&_osl.length>1)orgShowInst(_osl);}
-  if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','');if(_osl&&_osl!=='/')orgShowInst(_osl);}if(page==='misconceptions'){mcInit();}
+  if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','').replace('/institutions/','');if(_osl&&_osl.length>1&&_osl!=='org')orgShowInst(_osl);}
+  if(page==='misconceptions'){mcInit();}
   if(page==='art')buildArt();
   if(page==='videos')buildVideosPage();
   // Push URL unless called from popstate or initial load
@@ -4594,7 +4594,6 @@ function qtFilter(cat,btn){
   var filter=null;
   if(qs){var mm=qs.match(/[?&]filter=([^&]+)/);if(mm)filter=decodeURIComponent(mm[1]);}
   showPage(page,filter,true);
-  if(page==='org'){var sl2=path.replace('/organizations/','');if(sl2&&sl2.length>1)orgShowInst(sl2);}
   if(page==='evidence'){var ids2=evReadUrlIds();if(ids2)evRenderBanner();}
 
   window.addEventListener('popstate',function(e){
