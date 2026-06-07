@@ -1746,6 +1746,18 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 }
 
 #page-misconceptions .ev-filters{min-height:0;}
+
+/* ── Org profile ── */
+.org-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.5px;background:var(--border);margin-bottom:clamp(24px,2.4vw,36px)}
+.org-stat{background:var(--bg2);padding:clamp(14px,1.4vw,22px) clamp(16px,1.6vw,24px)}
+.org-stat-n{font-family:var(--sans);font-size:clamp(28px,2.6vw,40px);font-weight:700;color:var(--w);line-height:1;margin-bottom:4px}
+.org-stat-l{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.16em;color:var(--w20)}
+.org-section-label{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,16px)}
+.org-back-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;color:var(--w20);background:none;border:none;cursor:pointer;padding:0;margin-bottom:12px;transition:color .15s}
+.org-back-btn:hover{color:var(--gold)}
+.mc-chip-link{cursor:pointer!important}.mc-chip-link:hover{opacity:1!important;border-color:rgba(200,146,42,.5)!important}
+@media(max-width:768px){.org-stats-row{grid-template-columns:repeat(2,1fr)}}
+
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -2204,6 +2216,20 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </footer>
 </div>
 
+<div class="page" id="page-org">
+  <div class="ev-header" style="position:static"><div class="ev-header-inner" id="org-header-inner" style="min-height:80px"></div></div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px)">
+    <div class="org-stats-row" id="org-stats-row"></div>
+    <div id="org-ev-section"><div class="org-section-label">EVIDENCE ENTRIES</div><div class="ev-grid" id="org-ev-grid" style="min-height:0;contain:none"></div></div>
+    <div id="org-mc-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">RELATED MISCONCEPTIONS</div><div class="mc-grid" id="org-mc-grid" style="margin-top:0"></div></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar"><a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a><a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a><a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a></div>
+  </footer>
+</div>
+
 <div class="page" id="page-infographics">
   <div class="section">
     <div class="sec-header" style="margin-bottom:20px">
@@ -2515,7 +2541,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <!-- Content -->
   
-  <div id="ev-ids-banner" style="display:none;align-items:center;gap:12px;padding:clamp(8px,.7vw,12px) clamp(32px,5vw,80px);background:rgba(200,146,42,.06);border-bottom:.5px solid rgba(200,146,42,.2)"></div>
+  <div id="ev-ids-banner" style="display:none;align-items:flex-start;gap:16px;padding:clamp(12px,1.2vw,18px) clamp(32px,5vw,80px);background:rgba(200,146,42,.05);border-bottom:.5px solid rgba(200,146,42,.2)"></div>
 <div class="ev-body">
     <div class="ev-empty" id="ev-empty">NO ENTRIES MATCH YOUR SEARCH</div>
     <div class="ev-grid" id="ev-grid"></div>
@@ -3741,7 +3767,7 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact'];
+var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org'];
 // ── Page → URL map ──
 var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work'};
 var URL_PAGES={'/':'home','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
@@ -3758,7 +3784,9 @@ function showPage(page,filter,noPush){
   // Build page content on first visit
   if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
   if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
-  if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}if(page==='misconceptions'){mcInit();}
+  if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}
+  if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','');if(_osl&&_osl.length>1)orgShowInst(_osl);}
+  if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','');if(_osl&&_osl!=='/')orgShowInst(_osl);}if(page==='misconceptions'){mcInit();}
   if(page==='art')buildArt();
   if(page==='videos')buildVideosPage();
   // Push URL unless called from popstate or initial load
@@ -3773,9 +3801,11 @@ function showPage(page,filter,noPush){
 
 // ── Back / forward ──
 window.addEventListener('popstate',function(e){
-  var page=(e.state&&e.state.page)||URL_PAGES[window.location.pathname]||'home';
+  var _path=window.location.pathname;
+  var page=(e.state&&e.state.page)||(_path.indexOf('/organizations/')===0?'org':(URL_PAGES[_path]||'home'));
   var filter=e.state&&e.state.filter;
   if(page==='evidence'){evState.evIds=(e.state&&e.state.evIds)||null;}
+  if(page==='org'){var _sl=(e.state&&e.state.slug)||_path.replace('/organizations/','');orgShowInst(_sl);}
   showPage(page,filter,true);
   if(page==='evidence')evRenderBanner();
 });
@@ -4035,7 +4065,51 @@ var EVIDENCE=[
   {id:'ev-029',type:'report',date:'2024',org:'Chainlink Labs',person:'Chainlink Labs',role:'Product',title:'Chainlink Data Streams — sub-second low-latency pull oracle',body:'Chainlink Data Streams is a low-latency pull-based oracle solution delivering sub-second market data updates. Unlike push-based feeds that update on deviation thresholds or heartbeat, Data Streams allows applications to pull verified data on demand at speeds far exceeding what on-chain execution can economically consume.',source_url:'https://docs.chain.link/data-streams',source_label:'Chainlink Documentation — Data Streams (docs.chain.link)',source_type:'Official Documentation',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Chainlink Data Streams launched for production use, adopted by GMX and Synthetix for low-latency derivatives pricing. Pull oracle architecture separates data availability from on-chain consumption, enabling sub-second updates independent of blockchain confirmation times.',tags:['Data Streams','Low Latency','Pull Oracle','Performance','DeFi'],nodes:['marketdata','aave','eth'],significance:'Proves that Chainlink speed is not constrained by Ethereum block times — Data Streams operates on sub-second cadence independently of any blockchain finality.',contributor:null,contributorScore:0},
   {id:'ev-030',type:'report',date:'2024',org:'Chainlink Labs',person:'Chainlink Labs',role:'Product',title:'Chainlink service suite — CCIP, Data Streams, Functions, Automation, SVR, Scale, BUILD',body:'Chainlink\'s revenue model spans multiple services: CCIP (cross-chain messaging fees), Data Streams (subscription and per-pull fees), Functions (serverless compute fees), Automation (trigger execution fees), Scale (subsidized feed programs with partner tokens), BUILD (protocol partner token contributions to stakers), SVR (smart value recapture for MEV-aware oracle updates), and payment abstraction (any-token input settled in LINK).',source_url:'https://chain.link/economics',source_label:'Chainlink — Economics Overview (chain.link/economics)',source_type:'Official Website',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Chainlink\'s monetization model is substantially broader than oracle request fees. Each service category has independent fee mechanics. SVR launched 2024 enabling Chainlink to capture MEV value that would otherwise leak to block builders. BUILD and Scale create non-dilutive LINK flows from ecosystem partners.',tags:['Revenue','CCIP','Data Streams','SVR','BUILD','Economics','Tokenomics'],nodes:['marketdata','ethereum','aave'],significance:'Demonstrates that Chainlink\'s total addressable revenue is not limited to price feed subscriptions — CCIP, Data Streams, SVR, and BUILD each represent independent and growing revenue streams.',contributor:null,contributorScore:0}];
 
-var evState={search:'',typeFilter:'all',tagFilter:'',evIds:null};
+var MISCONCEPTIONS=[
+  {id:'mc-001',cat:'Oracle & Infrastructure',title:'Chainlink is just price feeds',myth:'Chainlink is only used for DeFi price feeds.',reality:'Chainlink runs 12 distinct services: CCIP, Proof of Reserve, Automation, Functions, VRF, Data Streams, DECO, and the Runtime Environment. DTCC, Swift, and JPMorgan use Chainlink — none for price feeds.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:98,tags:['Technology','Infrastructure'],institutions:['DTCC','Swift','JPMorgan'],ev:['ev-001','ev-003','ev-004'],tweetLine:'Chainlink runs 12 services. DTCC, Swift, and JPMorgan all use Chainlink — none of them for price feeds.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-002',cat:'Oracle & Infrastructure',title:'Chainlink is centralized',myth:'Chainlink is a centralized oracle controlled by one company.',reality:'Chainlink is a decentralized network of independent node operators. No single entity controls data delivery. Multiple independent sources and nodes per feed use cryptographic aggregation.',status:'False Claim',statusCls:'mc-status-outdated',confidence:97,tags:['Technology','Oracle Networks'],institutions:['Chainlink Labs'],ev:['ev-017'],tweetLine:'Chainlink uses decentralized node operators with cryptographic aggregation. SWIFT ran experiments across 12+ institutions.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-003',cat:'Oracle & Infrastructure',title:'Oracle networks are replaceable',myth:'Any team can build a secure oracle network and replace Chainlink.',reality:'$27T+ in secured transaction value across 1,000+ integrations on 100+ chains creates a structural network effect. Eric Schmidt confirmed: Chainlink has better technology and it scales better.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Oracle Networks','Technology'],institutions:['Water Tower Research','DocuSign'],ev:['ev-011','ev-014','ev-017'],tweetLine:'$27T+ in secured value across 1,000+ integrations on 100+ chains. DTCC, Swift, JPMorgan, and Coinbase all named Chainlink.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-004',cat:'Oracle & Infrastructure',title:'Chainlink can be forked easily',myth:'Chainlink can simply be forked to create a competing oracle network.',reality:'The software can be forked but not the network — not the node operators, data provider relationships, $27T in secured value, or the institutional trust built over years. Infrastructure is not code.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:94,tags:['Technology','Market Structure'],institutions:['Water Tower Research'],ev:['ev-011'],tweetLine:'The code can be forked. The network cannot. Not the node operators, not the institutional trust, not the $27T in secured value.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-005',cat:'Oracle & Infrastructure',title:'Chainlink is just middleware',myth:'Chainlink is just middleware with no strategic importance.',reality:'DTCC processes $4.7 quadrillion annually and named Chainlink as critical infrastructure for multi-ledger systems. Deutsche Börse compared it to Bloomberg and LSEG/Refinitiv as a market data multiplicator.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:96,tags:['Infrastructure','Market Structure'],institutions:['DTCC','Deutsche Börse Group'],ev:['ev-001','ev-012'],tweetLine:'DTCC processes $4.7 quadrillion annually and calls Chainlink critical infrastructure for multi-ledger systems.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-006',cat:'Oracle & Infrastructure',title:'Chainlink depends on Ethereum',myth:'Chainlink is Ethereum-native and limited to Ethereum\'s ecosystem.',reality:'Chainlink operates across 100+ networks: Solana, BNB Chain, Avalanche, Base, XRPL, Stellar, and Hedera. CCIP is explicitly chain-agnostic by design.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:97,tags:['Infrastructure','Interoperability'],institutions:['Swift'],ev:['ev-003'],tweetLine:'Chainlink runs on 100+ networks: Solana, BNB Chain, Avalanche, Base, XRPL, Stellar, Hedera. CCIP is chain-agnostic by design.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-007',cat:'Oracle & Infrastructure',title:'Chainlink is a blockchain',myth:'Chainlink is its own blockchain competing with Ethereum or Solana.',reality:'Chainlink is not a blockchain. It is an oracle and interoperability network that runs across existing blockchains — no native chain, no block production, no consensus mechanism.',status:'False Claim',statusCls:'mc-status-outdated',confidence:99,tags:['Technology'],institutions:['Chainlink Labs'],ev:['ev-017'],tweetLine:'Chainlink is not a blockchain. It is oracle and interoperability infrastructure that connects existing blockchains.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-008',cat:'CCIP',title:'Nobody uses CCIP',myth:'Chainlink CCIP has no real adoption.',reality:'Coinbase made CCIP their exclusive bridge infrastructure. JPMorgan used it for the first public-private blockchain DvP settlement. Swift ran cross-chain experiments across 12+ major institutions.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['CCIP','Institutions'],institutions:['Coinbase','J.P. Morgan','Swift'],ev:['ev-003','ev-004','ev-010'],tweetLine:'Coinbase made CCIP their exclusive bridge. JPMorgan used it for DvP settlement. DTCC’s Collateral AppChain integrates Chainlink CRE.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-009',cat:'CCIP',title:'CCIP is just another bridge',myth:'CCIP is equivalent to existing cross-chain bridges.',reality:'Standard bridges move assets and have lost $2B+ to exploits. CCIP is a messaging and settlement standard with an independent Risk Management Network. JPMorgan and Swift use it for institutional settlement, not bridging.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:98,tags:['CCIP','Technology'],institutions:['J.P. Morgan','Swift','Coinbase'],ev:['ev-004','ev-010'],tweetLine:'CCIP is a messaging and settlement standard with an independent Risk Management Network. JPMorgan and Swift use it for institutional settlement.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-010',cat:'CCIP',title:'LayerZero makes CCIP unnecessary',myth:'LayerZero or Wormhole already solve cross-chain messaging, making CCIP redundant.',reality:'CCIP targets institutional-grade settlement with regulatory compliance and an independent risk layer. Coinbase and JPMorgan chose CCIP specifically — not LayerZero — for their institutional infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:93,tags:['CCIP','Market Structure'],institutions:['Coinbase','J.P. Morgan'],ev:['ev-004','ev-010'],tweetLine:'Coinbase and JPMorgan chose CCIP specifically — not LayerZero or Wormhole — for their institutional infrastructure.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-011',cat:'CCIP',title:'CCIP has no moat',myth:'CCIP has no competitive advantage over other messaging protocols.',reality:'CCIP is the only cross-chain protocol chosen by both Coinbase and JPMorgan for production institutional infrastructure. The combination of institutional trust, audited security, and independent Risk Management Network is unique.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:94,tags:['CCIP','Market Structure'],institutions:['Coinbase','J.P. Morgan'],ev:['ev-004','ev-010'],tweetLine:'CCIP is the only cross-chain protocol chosen by both Coinbase and JPMorgan for production institutional infrastructure.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-012',cat:'CCIP',title:'Institutions will build their own interoperability',myth:'Major banks will build their own cross-chain infrastructure rather than use Chainlink.',reality:'JPMorgan, the most sophisticated bank in the world, used Chainlink CCIP rather than building their own. If JPMorgan chose not to build in-house, the build-vs-buy argument is effectively settled.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['CCIP','Institutions'],institutions:['J.P. Morgan','Swift'],ev:['ev-004','ev-003'],tweetLine:'JPMorgan used Chainlink CCIP rather than building their own. The world’s most sophisticated bank made the build-vs-buy decision for you.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-013',cat:'CCIP',title:'One blockchain will eliminate CCIP',myth:'One blockchain will dominate and cross-chain infrastructure will become unnecessary.',reality:'Swift\'s CIO stated interoperability is at the heart of everything Swift does in the face of increasing fragmentation. DTCC confirmed they need to move data between many ledgers. The multi-chain future is confirmed by the institutions processing the world\'s financial infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['CCIP','Interoperability'],institutions:['Swift','DTCC'],ev:['ev-001','ev-003'],tweetLine:'Swift’s CIO: interoperability is at the heart of everything Swift does in the face of increasing fragmentation.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-014',cat:'Institutions',title:'Institutions are not using Chainlink',myth:'Chainlink is crypto-native with no institutional adoption.',reality:'10 major institutions have made verified public statements confirming Chainlink use: DTCC, Swift, JPMorgan, Euroclear, BNP Paribas, Fidelity, Franklin Templeton, Deutsche Börse, Coinbase, and Citi.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Adoption'],institutions:['DTCC','Swift','J.P. Morgan','Euroclear','Coinbase'],ev:['ev-001','ev-002','ev-003','ev-004','ev-008','ev-010'],tweetLine:'DTCC, Swift, JPMorgan, Euroclear, BNP Paribas, Fidelity, Franklin Templeton, Deutsche Börse, Coinbase, and Citi. All confirmed. All on record.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-015',cat:'Institutions',title:'Swift is not actually using Chainlink',myth:'Swift\'s involvement with Chainlink is just exploratory.',reality:'Swift published an official press release confirming blockchain interoperability experiments with Chainlink alongside BNY Mellon, BNP Paribas, Citi, Clearstream, Euroclear, and DTCC. The CIO stated interoperability is at the heart of Swift\'s strategy.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Interoperability'],institutions:['Swift','BNP Paribas','Euroclear','DTCC'],ev:['ev-003'],tweetLine:'Swift published an official press release confirming Chainlink experiments with BNY Mellon, BNP Paribas, Citi, Clearstream, Euroclear, and DTCC.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-016',cat:'Institutions',title:'DTCC is not connected to Chainlink',myth:'DTCC has no real connection to Chainlink.',reality:'DTCC\'s CTO published on dtcc.com confirming Chainlink as the mechanism for writing data once across all ledger networks. DTCC is a confirmed partner processing $4.7 quadrillion annually.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Settlement'],institutions:['DTCC'],ev:['ev-001','ev-002'],tweetLine:'DTCC’s CTO published on dtcc.com: Chainlink is the mechanism for writing data once across all ledger networks. $4.7Q annually.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-017',cat:'Institutions',title:'Banks do not need oracles',myth:'Traditional banks have their own data infrastructure and don\'t need oracle networks.',reality:'Fidelity uses Chainlink to deliver NAV data on-chain for tokenized funds. Franklin Templeton credits it for enabling beyond money market fund constraints. The data they need on-chain doesn\'t exist in traditional systems.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Institutions','Oracle Networks'],institutions:['Fidelity International','Franklin Templeton'],ev:['ev-005','ev-006'],tweetLine:'Fidelity uses Chainlink to deliver NAV on-chain. Franklin Templeton credits it for enabling beyond money market fund constraints.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-018',cat:'Institutions',title:'Tokenization does not need Chainlink',myth:'RWA tokenization can scale without Chainlink\'s infrastructure.',reality:'Fidelity uses Chainlink for on-chain NAV. Franklin Templeton credits it for enabling beyond money market funds. DTCC says it enables them to completely update financial markets. Citi projects $4–5T tokenized by 2030.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Institutions','Tokenisation'],institutions:['Fidelity International','Franklin Templeton','DTCC','Citi GPS'],ev:['ev-005','ev-006','ev-002','ev-009'],tweetLine:'Fidelity: on-chain NAV. Franklin Templeton: beyond money market funds. DTCC: completely update financial markets. Citi: $4–5T by 2030.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-019',cat:'Institutions',title:'Institutions only run pilots',myth:'Institutional Chainlink integrations are just proofs of concept.',reality:'Fidelity\'s on-chain NAV delivery is live in production. Coinbase\'s CCIP integration is live for wrapped assets. JPMorgan\'s Kinexys DvP was a confirmed live transaction. DTCC\'s CTO published on dtcc.com.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Institutions','Adoption'],institutions:['Fidelity International','Coinbase','J.P. Morgan','DTCC'],ev:['ev-001','ev-004','ev-005','ev-010'],tweetLine:'Fidelity’s NAV delivery is live. Coinbase CCIP is live. JPMorgan’s Kinexys DvP was a confirmed live transaction.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-020',cat:'LINK Token',title:'LINK has no value accrual',myth:'The LINK token has no mechanism to capture value from network growth.',reality:'Economics 2.0 introduced staking as a performance bond, protocol fees paid in LINK, and BUILD partner token contributions. Citi GPS flagged LINK as potentially gaining more prominence than Bitcoin as infrastructure becomes critical.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Tokenomics','Market Structure'],institutions:['Citi GPS','Water Tower Research'],ev:['ev-009','ev-011'],tweetLine:'Economics 2.0: node operators stake LINK as a bond, protocol fees are paid in LINK, BUILD partners contribute tokens to stakers.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-021',cat:'LINK Token',title:'LINK is only a payment token',myth:'LINK is just a utility token used to pay for oracle services.',reality:'LINK is also a staking asset — node operators must lock LINK as a performance bond. The BUILD program creates additional token flows from protocol integrations. LINK is both payment and collateral.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:92,tags:['Tokenomics'],institutions:['Citi GPS'],ev:['ev-009'],tweetLine:'LINK is both payment and collateral. Node operators must lock LINK as a performance bond. BUILD creates additional token flows.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-022',cat:'LINK Token',title:'LINK has no role in network security',myth:'LINK tokens don\'t contribute to the security of the Chainlink network.',reality:'LINK staking is the core security mechanism — node operators stake LINK as a bond that can be slashed for misbehavior. This cryptoeconomic model aligns incentives between node operators and protocol users.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:93,tags:['Tokenomics','Technology'],institutions:['Chainlink Labs'],ev:['ev-017'],tweetLine:'LINK staking is the core security mechanism — node operators stake LINK as a bond that can be slashed for misbehavior.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-023',cat:'LINK Token',title:'Staking does not matter',myth:'LINK staking is irrelevant to the network\'s operation.',reality:'Staking creates a direct link between network growth and LINK demand: more usage means more fees, more fees attract more stakers, more stakers require more LINK locked. Water Tower Research quantified $27T+ in secured value.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:90,tags:['Tokenomics'],institutions:['Water Tower Research'],ev:['ev-011'],tweetLine:'More usage → more fees → more stakers → more LINK locked. Water Tower Research: $27T+ in transaction value secured by this model.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-024',cat:'LINK Token',title:'LINK inflation prevents appreciation',myth:'LINK\'s token issuance makes long-term appreciation impossible.',reality:'BUILD program and staking rewards are funded by protocol fees from integrations, not dilutive issuance. As institutional adoption scales, fee revenue replaces inflation as the primary economic driver.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:88,tags:['Tokenomics','Market Structure'],institutions:['Water Tower Research','Citi GPS'],ev:['ev-009','ev-011'],tweetLine:'Economics 2.0: BUILD rewards and staking come from protocol fees and partner contributions — not dilutive issuance.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-025',cat:'Market Narratives',title:'Chainlink is only used in DeFi',myth:'Chainlink\'s use cases are limited to decentralized finance.',reality:'DTCC, Swift, Euroclear, BNP Paribas, JPMorgan, Franklin Templeton, and Fidelity are confirmed Chainlink users. These are the core institutions of traditional financial market infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Adoption'],institutions:['DTCC','Swift','Euroclear','J.P. Morgan'],ev:['ev-001','ev-003','ev-004','ev-007','ev-008'],tweetLine:'DTCC, Swift, Euroclear, BNP Paribas, JPMorgan, Franklin Templeton, and Fidelity. These are TradFi institutions — not DeFi protocols.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-026',cat:'Market Narratives',title:'Chainlink missed its opportunity',myth:'Chainlink had its moment in 2020–2021 and the opportunity has passed.',reality:'The institutions now live with Chainlink — JPMorgan, DTCC, Swift, Fidelity — were not participants in the 2020–2021 DeFi cycle. The institutional tokenization wave is just beginning. Citi projects $4–5T tokenized by 2030.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:94,tags:['Adoption','Market Structure'],institutions:['Citi GPS','J.P. Morgan','DTCC'],ev:['ev-004','ev-009','ev-019'],tweetLine:'The institutions now live with Chainlink — JPMorgan, DTCC, Swift, Fidelity — were not in the 2020–2021 DeFi cycle. The wave is starting now.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-027',cat:'Market Narratives',title:'Chainlink has no competitive moat',myth:'Chainlink has no durable competitive advantage.',reality:'Deutsche Börse compared Chainlink\'s multiplicator effect to Bloomberg and LSEG/Refinitiv. Coinbase, JPMorgan, DTCC, and Swift all publicly named Chainlink over alternatives — that is the clearest possible market signal.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Market Structure','Adoption'],institutions:['Deutsche Börse Group','Coinbase','J.P. Morgan','DTCC'],ev:['ev-012','ev-010','ev-004','ev-001'],tweetLine:'Deutsche Börse compared Chainlink’s effect to Bloomberg and LSEG/Refinitiv. DTCC, Swift, JPMorgan, Coinbase all named Chainlink over alternatives.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-028',cat:'Market Narratives',title:'Adoption does not matter for LINK',myth:'Chainlink can have widespread adoption without LINK benefiting.',reality:'Every Chainlink service requires LINK to be staked or spent. The BUILD program creates direct token flows from protocol integrations. Growing adoption directly increases fee revenue, staking demand, and LINK lockup.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:91,tags:['Tokenomics','Adoption'],institutions:['Citi GPS','Water Tower Research'],ev:['ev-009','ev-011'],tweetLine:'Every Chainlink service requires LINK to be staked or spent. Growing adoption increases fee revenue, staking demand, and LINK lockup.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-029',cat:'Market Narratives',title:'Tokenization works without interoperability',myth:'Tokenized assets can function at scale within a single blockchain ecosystem.',reality:'Swift\'s CIO stated interoperability is at the heart of everything Swift does in the face of increasing fragmentation. DTCC confirmed they need to move data between many ledgers. Tokenization without interoperability creates fragmentation with new technology.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Interoperability','Tokenisation'],institutions:['Swift','DTCC'],ev:['ev-001','ev-003'],tweetLine:'Swift’s CIO: interoperability is at the heart of everything Swift does in the face of increasing fragmentation. Tokenization without it creates new silos.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-030',cat:'Market Narratives',title:'Eric Schmidt does not endorse Chainlink',myth:'The Eric Schmidt SmartCon 2022 quotes are taken out of context.',reality:'At SmartCon 2022, Eric Schmidt stated on camera: Chainlink has better technology and it scales better. He also stated: Congratulations to you all for ending up in the right spot in the Web3 space working with Chainlink. Both are timestamped in the Evidence Vault.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Market Structure','Adoption'],institutions:['Google'],ev:['ev-024','ev-026'],tweetLine:'Eric Schmidt at SmartCon 2022: “Chainlink has better technology and it scales better.” Timestamped. On record. Not out of context.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-031',cat:'Institutions',title:'Chainlink partnerships are fake',myth:'Chainlink partnerships are fake marketing announcements.',reality:'Many of Chainlink\'s strongest integrations are not marketing partnerships but public confirmations from the institutions themselves. SWIFT, DTCC, Coinbase, JPMorgan, Fidelity International, Franklin Templeton, and Deutsche Börse have independently published statements, demonstrations, reports, or production integrations involving Chainlink infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Adoption','Evidence'],institutions:['SWIFT','DTCC','Coinbase','JPMorgan','Fidelity International','Franklin Templeton','Deutsche Börse'],ev:['ev-003','ev-001','ev-010','ev-004','ev-005','ev-006','ev-013'],tweetLine:'SWIFT, DTCC, Coinbase, JPMorgan, Fidelity, Franklin Templeton, and Deutsche Börse have all independently published statements confirming Chainlink.',contributor:'TheLinkPanda',contributorScore:3,dateAdded:'2026-06'},
+  {id:'mc-032',cat:'Market Narratives',title:'Chainlink competes with XRP',myth:'Chainlink and XRP are competing technologies.',reality:'XRP is a payment asset and settlement ledger. Chainlink provides oracle data delivery, cross-chain interoperability, compliance infrastructure, automation, proof systems, and settlement orchestration. The two operate at different layers of the same stack and can function in the same institutional workflow. SWIFT, DTCC, and JPMorgan use Chainlink for data and interoperability — not as a payment rail.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Market Narratives','Interoperability','Infrastructure','CCIP'],institutions:['SWIFT','DTCC','J.P. Morgan','Citi Institute'],ev:['ev-003','ev-027','ev-004','ev-019'],tweetLine:'XRP is a payment rail. Chainlink is data, interoperability, compliance, automation, and settlement infrastructure. Different layers. Both can coexist.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-033',cat:'Market Narratives',title:'Google Cloud partnership is fake',myth:'Google Cloud involvement with Chainlink is just marketing.',reality:'Google Cloud is an official Chainlink node operator, running validated oracle infrastructure on the Chainlink network. Eric Schmidt, former CEO of Google, stated at SmartCon 2022 that Chainlink has better technology and it scales better, and closed the fireside chat by congratulating the Chainlink ecosystem for ending up in the right spot working with Chainlink. Google Cloud publishes its Chainlink node operator status on cloud.google.com.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:98,tags:['Market Narratives','Technology','Adoption','Institutions'],institutions:['Google'],ev:['ev-024','ev-026','ev-015'],tweetLine:'Google Cloud is an official Chainlink node operator. Eric Schmidt: Chainlink has better technology and it scales better.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-034',cat:'Economics & Revenue',title:'Chainlink operates at the speed of Ethereum',myth:'Chainlink is slow because it is limited by Ethereum block times.',reality:'Chainlink Data Streams delivers sub-second market data updates using a pull oracle architecture that is entirely independent of blockchain confirmation times. Update frequency on push feeds is constrained by gas costs, blockspace, and application requirements — not by Chainlink\'s underlying capability. The network can deliver data far faster than most blockchains can economically consume it.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Technology','Oracle Networks','Performance','Data Streams'],institutions:['Chainlink Labs'],ev:['ev-029','ev-017'],tweetLine:'Chainlink Data Streams delivers sub-second updates. Update frequency on push feeds is constrained by gas costs — not by Chainlink\'s capability.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-035',cat:'Economics & Revenue',title:'Low-latency oracles will replace Chainlink',myth:'Pyth, Supra, Redstone, or API3 will displace Chainlink as the dominant oracle.',reality:'The oracle market did not consolidate around a single low-latency competitor. While alternatives emerged, Chainlink expanded its product surface — adding Data Streams, CCIP, Functions, Automation, Proof of Reserve, CRE, and SVR. The moat grew larger, not smaller. Institutional integrations at DTCC, SWIFT, and JPMorgan were with Chainlink specifically, not with any emerging oracle competitor.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Market Structure','Oracle Networks','Adoption','Technology'],institutions:['DTCC','SWIFT','J.P. Morgan','Coinbase'],ev:['ev-027','ev-003','ev-004','ev-010','ev-029'],tweetLine:'The market didn\'t consolidate around one competitor. Chainlink expanded to CCIP, Data Streams, Functions, Automation, CRE, and SVR. The moat grew.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-036',cat:'Economics & Revenue',title:'Chainlink only earns revenue from price feeds',myth:'Chainlink\'s entire business model is oracle request fees from DeFi price feeds.',reality:'Chainlink operates seven distinct revenue streams: CCIP cross-chain messaging fees, Data Streams subscription and pull fees, Automation trigger fees, Functions compute fees, BUILD partner token contributions to stakers, Scale ecosystem programs, and SVR — a smart value recapture mechanism that redirects MEV to the oracle network. Payment abstraction further monetizes all network usage regardless of input token. Price feeds are one product among many.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Economics & Revenue','Tokenomics','BUILD','SVR','CCIP','Data Streams'],institutions:['Chainlink Labs'],ev:['ev-030','ev-028','ev-010'],tweetLine:'Chainlink has 7 revenue streams: CCIP fees, Data Streams fees, Automation fees, Functions fees, BUILD contributions, Scale programs, and SVR.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-037',cat:'Economics & Revenue',title:'Chainlink\'s total addressable market is small',myth:'Chainlink is just an oracle network with a limited addressable market.',reality:'Chainlink\'s TAM spans data delivery, identity verification, compliance infrastructure, cross-chain interoperability, automation, privacy (DECO), tokenization infrastructure, and institutional settlement. Citi GPS projects $4–5 trillion in tokenized assets by 2030. DTCC processes $4.7 quadrillion annually. Water Tower Research quantified $27 trillion in transaction value already secured. The addressable market is effectively the entire global financial system moving on-chain.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Economics & Revenue','Market Structure','Tokenisation','Infrastructure'],institutions:['Citi GPS','DTCC','Water Tower Research','Bitwise'],ev:['ev-019','ev-027','ev-011','ev-016'],tweetLine:'Chainlink\'s TAM includes data, identity, compliance, interoperability, automation, privacy, tokenization, and institutional settlement.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-038',cat:'Economics & Revenue',title:'Chainlink partnerships don\'t generate revenue',myth:'Chainlink partnerships are non-commercial and create no economic value for the network.',reality:'Each major integration category has direct revenue mechanics: CCIP charges per-message fees, Data Streams charges subscription and pull fees, SVR captures MEV value, BUILD partners contribute tokens to stakers, and Scale programs create ecosystem token flows. DTCC\'s Collateral AppChain, Coinbase\'s CCIP integration, and JPMorgan\'s Kinexys settlement are production deployments with real transaction volumes — not exploratory pilots.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Economics & Revenue','Adoption','CCIP','BUILD'],institutions:['DTCC','Coinbase','J.P. Morgan'],ev:['ev-030','ev-028','ev-027','ev-010','ev-004'],tweetLine:'CCIP charges per-message fees. Data Streams charges pull fees. SVR captures MEV. BUILD generates partner token flows. These are live revenue streams.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-039',cat:'Economics & Revenue',title:'BUILD and Scale programs don\'t matter for LINK',myth:'The BUILD and Scale programs are marketing exercises with no real economic impact on LINK.',reality:'BUILD creates direct non-dilutive token flows to LINK stakers from ecosystem protocols. Scale subsidizes oracle feed costs for emerging protocols using partner tokens, expanding the network without requiring Chainlink to issue new LINK. Both programs increase LINK staking demand and create sustained relationships between Chainlink and the protocols it secures. Economics 2.0 established these as core value-accrual mechanisms alongside protocol fees.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:93,tags:['Economics & Revenue','Tokenomics','BUILD','Staking','LINK Token'],institutions:['Chainlink Labs'],ev:['ev-028','ev-018'],tweetLine:'BUILD creates direct non-dilutive token flows to LINK stakers. Scale expands the network without new LINK issuance. Both are live and growing.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-040',cat:'Economics & Revenue',title:'SVR is irrelevant to Chainlink\'s economics',myth:'Smart Value Recapture is a minor technical detail with no economic significance.',reality:'SVR (Smart Value Recapture) is a mechanism that redirects MEV value — which would otherwise be extracted by block builders — back to the oracle network and LINK stakers. MEV in DeFi has historically exceeded hundreds of millions of dollars annually. SVR transforms a value leak into a value capture mechanism, creating a new revenue stream proportional to on-chain trading volume secured by Chainlink price feeds.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:92,tags:['Economics & Revenue','SVR','MEV','Tokenomics','LINK Token'],institutions:['Chainlink Labs'],ev:['ev-030','ev-028'],tweetLine:'SVR redirects MEV — historically hundreds of millions annually — back to the oracle network and LINK stakers instead of block builders.',contributor:null,contributorScore:0,dateAdded:'2026-06'}
+];
+
+
+var evState={search:'',typeFilter:'all',tagFilter:'',evIds:null,mcTitle:null};
 var evInited=false;
 var qtInited=false;
 
@@ -4086,6 +4160,7 @@ function evGoToMc(mcId){
   var mc=MISCONCEPTIONS.filter(function(m){return m.id===mcId;})[0];
   var ids=mc&&mc.ev&&mc.ev.length?mc.ev:[];
   evState.evIds=ids.length?ids:null;
+  evState.mcTitle=mc?mc.myth:null;
   showPage('evidence',null,false);
   setTimeout(function(){
     evSetIds(ids.length?ids:null,true);
@@ -4107,6 +4182,7 @@ function evSetIds(ids,noPush){
 }
 function evClearIds(){
   evState.evIds=null;
+  evState.mcTitle=null;
   try{history.pushState({page:'evidence',evIds:null},'','/evidence');}catch(e){}
   evRender();evRenderBanner();
 }
@@ -4124,291 +4200,142 @@ function evReadUrlIds(){
 function evRenderBanner(){
   var b=document.getElementById('ev-ids-banner');if(!b)return;
   if(!evState.evIds||!evState.evIds.length){b.style.display='none';return;}
+  var n=evState.evIds.length,pl=n===1?'source':'sources';
+  var tH=evState.mcTitle
+    ?'<div style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--w40);margin-bottom:3px">SHOWING EVIDENCE FOR</div>'
+     +'<div style="font-family:var(--serif);font-size:clamp(14px,1.1vw,17px);color:var(--w);line-height:1.3;margin-bottom:4px">&#8220;'+orgEsc(evState.mcTitle)+'&#8221;</div>'
+     +'<div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.08em">'+n+' supporting '+pl+' found</div>'
+    :'<span style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold)">Showing '+n+' evidence '+(n===1?'entry':'entries')+' for selected misconception</span>';
   b.style.display='flex';
-  b.innerHTML='<span style="font-family:var(--mono);font-size:clamp(9px,.65vw,10px);letter-spacing:.1em;color:var(--gold)">'
-    +'Showing '+evState.evIds.length+' evidence '+(evState.evIds.length===1?'entry':'entries')+' for selected misconception'
-    +'</span><button onclick="evClearIds()" style="font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.1em;'
-    +'color:var(--w40);border:.5px solid var(--border);background:none;padding:2px 10px;cursor:pointer;margin-left:auto">&#215; Clear filter</button>';
+  b.innerHTML='<div style="flex:1">'+tH+'</div>'
+    +'<button onclick="evClearIds()" style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--w40);border:.5px solid var(--border);background:none;padding:4px 12px;cursor:pointer;flex-shrink:0;align-self:flex-start">&#215; Clear filter</button>';
 }
 
+// ── INSTITUTIONS ─────────────────────────────────────────────────────
+var INSTITUTIONS=[
+  {slug:'dtcc',name:'DTCC',full:'Depository Trust & Clearing Corporation',role:'Post-trade infrastructure. Settles $4.7 quadrillion annually.',evOrg:'DTCC',mcKey:'DTCC',color:'rgba(60,160,255,0.85)'},
+  {slug:'swift',name:'Swift',full:'Society for Worldwide Interbank Financial Telecommunication',role:'Global messaging connecting 11,000+ institutions.',evOrg:'SWIFT',mcKey:'SWIFT',color:'rgba(80,200,120,0.85)'},
+  {slug:'jpmorgan',name:'J.P. Morgan',full:'JPMorgan Chase & Co.',role:'Largest U.S. bank. Kinexys leads institutional blockchain payments.',evOrg:'J.P. Morgan',mcKey:'J.P. Morgan',color:'rgba(200,146,42,0.85)'},
+  {slug:'fidelity',name:'Fidelity International',full:'Fidelity International',role:'Global asset manager. Uses Chainlink for on-chain NAV delivery.',evOrg:'Fidelity International',mcKey:'Fidelity',color:'rgba(80,200,120,0.85)'},
+  {slug:'coinbase',name:'Coinbase',full:'Coinbase Global Inc.',role:'Largest U.S. crypto exchange. Selected CCIP as exclusive bridge.',evOrg:'Coinbase',mcKey:'Coinbase',color:'rgba(60,100,255,0.85)'},
+  {slug:'citi',name:'Citi',full:'Citigroup / Citi Institute',role:'Global bank. Citi GPS projects $4-5T in tokenized assets by 2030.',evOrg:'Citi GPS',mcKey:'Citi',color:'rgba(200,80,60,0.85)'},
+  {slug:'deutsche-borse',name:'Deutsche Borse',full:'Deutsche Borse Group',role:'German exchange. Compared Chainlink to Bloomberg and LSEG.',evOrg:'Deutsche B\u00f6rse Group',mcKey:'Deutsche B',color:'rgba(255,160,50,0.85)'},
+  {slug:'google',name:'Google',full:'Google LLC / Alphabet Inc.',role:'Google Cloud is official Chainlink node operator. Eric Schmidt endorsed Chainlink.',evOrg:'Google',mcKey:'Google',color:'rgba(80,180,80,0.85)'},
+  {slug:'franklin-templeton',name:'Franklin Templeton',full:'Franklin Templeton Investments',role:'Global asset manager. Chainlink enables tokenized funds beyond money markets.',evOrg:'Franklin Templeton',mcKey:'Franklin',color:'rgba(60,160,255,0.85)'}
+];
+var _ISM={};
+_ISM['DTCC']='dtcc';_ISM['SWIFT']='swift';_ISM['Swift']='swift';
+_ISM['J.P. Morgan']='jpmorgan';_ISM['JPMorgan']='jpmorgan';
+_ISM['Fidelity International']='fidelity';_ISM['Fidelity']='fidelity';
+_ISM['Coinbase']='coinbase';
+_ISM['Citi GPS']='citi';_ISM['Citi Institute']='citi';_ISM['Citi']='citi';
+_ISM['Deutsche B\u00f6rse Group']='deutsche-borse';
+_ISM['Deutsche B\u00f6rse']='deutsche-borse';
+_ISM['Google']='google';_ISM['Google Cloud']='google';
+_ISM['Franklin Templeton']='franklin-templeton';
+_ISM['Euroclear']='euroclear';_ISM['BNP Paribas']='bnp-paribas';
+function instSlug(name){return _ISM[name]||null;}
+
+function showOrg(slug){
+  try{history.pushState({page:'org',slug:slug},'','/organizations/'+slug);}catch(e){}
+  ALL_PAGES.forEach(function(p){var el=document.getElementById('page-'+p);if(el)el.classList.toggle('active',p==='org');});
+  window.scrollTo(0,0);orgShowInst(slug);
+}
+function orgShowInst(slug){
+  var inst=INSTITUTIONS.filter(function(x){return x.slug===slug;})[0];if(!inst)return;
+  var evE=EVIDENCE.filter(function(e){return e.org===inst.evOrg;});
+  var mcE=MISCONCEPTIONS.filter(function(m){return(m.institutions||[]).some(function(i){return i.indexOf(inst.mcKey)>-1;});});
+  var hdr=document.getElementById('org-header-inner');
+  if(hdr){hdr.innerHTML='<button class="org-back-btn" onclick="history.back()">&#8592; Back</button>'
+    +'<div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTION PROFILE</div>'
+    +'<div class="ev-title" style="font-size:clamp(20px,2vw,30px);font-weight:600">'+orgEsc(inst.name)+'</div>'
+    +'<div style="font-size:13px;color:var(--w40);margin-top:3px">'+orgEsc(inst.full)+'</div>'
+    +'<p style="font-size:13px;color:var(--w40);line-height:1.6;margin:6px 0 0;max-width:600px">'+orgEsc(inst.role)+'</p>';}
+  var stats=document.getElementById('org-stats-row');
+  if(stats){stats.innerHTML='<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+evE.length+'</div><div class="org-stat-l">EVIDENCE ENTRIES</div></div>'
+    +'<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+mcE.length+'</div><div class="org-stat-l">MISCONCEPTION CARDS</div></div>'
+    +'<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+(evE.length+mcE.length)+'</div><div class="org-stat-l">TOTAL REFERENCES</div></div>';}
+  var evSec=document.getElementById('org-ev-section'),evGrid=document.getElementById('org-ev-grid');
+  if(evGrid){evGrid.innerHTML='';if(evE.length){if(evSec)evSec.style.display='';evE.forEach(function(e,i){evGrid.appendChild(evBuildCard(e,i));});}else{if(evSec)evSec.style.display='none';}}
+  var mcSec=document.getElementById('org-mc-section'),mcGrid=document.getElementById('org-mc-grid');
+  if(mcGrid){mcGrid.innerHTML='';if(mcE.length){if(mcSec)mcSec.style.display='';mcE.forEach(function(m,i){mcGrid.appendChild(mcBuildCard(m,i));});}else{if(mcSec)mcSec.style.display='none';}}
+}
+function orgEsc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ── Evidence Vault rendering ──────────────────────────────────────────
 function evFiltered(){
   return EVIDENCE.filter(function(e){
     if(evState.evIds&&evState.evIds.indexOf(e.id)===-1)return false;
     if(evState.typeFilter!=='all'&&e.type!==evState.typeFilter)return false;
     if(evState.tagFilter&&e.tags.indexOf(evState.tagFilter)===-1)return false;
     if(evState.search){
-      var hay=[e.org,e.person,e.role,e.title,e.body,e.significance,e.source_label,e.type,e.date]
-        .concat(e.tags).join(' ').toLowerCase();
+      var hay=[e.org,e.person,e.role,e.title,e.body,e.significance,e.source_label,e.type,e.date].concat(e.tags).join(' ').toLowerCase();
       if(hay.indexOf(evState.search)===-1)return false;
     }
     return true;
   });
 }
 function evRender(){
-  var grid=document.getElementById('ev-grid');
-  var empty=document.getElementById('ev-empty');
-  var cnt=document.getElementById('ev-count');
-  if(!grid)return;
-  var filtered=evFiltered();
+  var grid=document.getElementById('ev-grid');if(!grid)return;
+  var results=evFiltered();
+  var cEl=document.getElementById('ev-count');
+  if(cEl)cEl.textContent=results.length+' / '+EVIDENCE.length+' sources';
   grid.innerHTML='';
-  if(cnt)cnt.textContent=filtered.length+' / '+EVIDENCE.length+' ENTRIES';
-  if(!filtered.length){if(empty)empty.style.display='block';return;}
-  if(empty)empty.style.display='none';
-  filtered.forEach(function(e,i){grid.appendChild(evBuildCard(e,i));});
+  results.forEach(function(e,i){grid.appendChild(evBuildCard(e,i));});
 }
 function evBuildCard(e,i){
   var card=document.createElement('div');
-  card.className='ev-card';
-  card.style.animation='fadein .3s ease-out '+(i*0.025)+'s both';
-  var typeLabel=e.type.charAt(0).toUpperCase()+e.type.slice(1);
-  var roleOrg=e.role?evEsc(e.role):'';
-  var stBadge=e.source_type?'<span style="font-family:var(--mono);font-size:7px;letter-spacing:.1em;color:rgba(200,146,42,.5);border:.5px solid rgba(200,146,42,.18);padding:1px 5px;margin-left:5px">'+evEsc(e.source_type)+'</span>':'';
-    var srcHtml=e.source_url
-    ?'<a class="ev-source" href="'+evEsc(e.source_url)+'" target="_blank" rel="noopener">↗ '+evEsc(e.source_label)+'</a>'+stBadge
-    :(e.source_label?'<span class="ev-source">'+evEsc(e.source_label)+'</span>'+stBadge:'');
-  var tagsHtml='';
-  if(e.tags&&e.tags.length){
-    tagsHtml='<div class="ev-card-tags">';
-    e.tags.forEach(function(t){tagsHtml+='<span class="ev-card-tag" data-tag="'+evEsc(t)+'" onclick="evTagClick(this)">'+evEsc(t)+'</span>';});
-    tagsHtml+='</div>';
-  }
-  var nodesHtml=e.nodes&&e.nodes.length
-    ?'<div class="ev-nodes">'+e.nodes.map(function(n){
-        return '<span class="ev-node-chip">⬡ '+evEsc(n)+'</span>';
-      }).join('')+'</div>':'';
+  card.className='ev-card';card.id='ev-card-'+e.id;
+  var typeLabel={'video':'Video','report':'Report','article':'Article','official':'Official','podcast':'Podcast','presentation':'Presentation'}[e.type]||e.type||'Source';
+  var confCol=e.confidence>=90?'var(--green)':'var(--amber)';
   card.innerHTML=
-    '<div class="ev-card-top">'
-      +'<span class="ev-type-badge ev-type-'+e.type+'">'+typeLabel+'</span>'
-      +'<span class="ev-date">'+evEsc(e.date)+'</span>'
+    '<div class="ev-card-head">'
+    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">'
+    +'<span class="ev-type-badge">'+escHtml(typeLabel)+'</span>'
+    +(e.verification?'<span class="ev-verify-badge">'+escHtml(e.verification)+'</span>':'')
+    +'<span style="margin-left:auto;font-family:var(--mono);font-size:9px;color:'+confCol+';letter-spacing:.08em">'+e.confidence+'%</span>'
     +'</div>'
-    +(e.org?'<div class="ev-org">'+evEsc(e.org.toUpperCase())+'</div>':'')
-    +(e.title?'<div class="ev-card-title">'+evEsc(e.title)+'</div>':'')
-    +(e.body?'<div class="ev-body-text">'+evEsc(e.body)+'</div>':'')
-    +(function(){var v=e.verification||'';var conf=e.confidence||0;var col=conf>=90?'rgba(80,200,120,.85)':v==='Official Document'||v==='Official Video'?'rgba(200,146,42,.85)':v==='Verified'?'rgba(80,200,120,.8)':v.indexOf('Needs')>-1?'rgba(255,180,60,.75)':'rgba(150,150,150,.6)';var bar=conf?'<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span style="font-family:var(--mono);font-size:8px;color:var(--w20);letter-spacing:.08em">CONFIDENCE</span><div style="flex:1;height:2px;background:rgba(244,242,238,.06)"><div style="height:2px;width:'+conf+'%;background:'+col+'"></div></div><span style="font-family:var(--mono);font-size:8px;color:'+col+'">'+conf+'</span></div>':'';var sig=e.significance?'<div class="ev-significance">'+evEsc(e.significance)+'</div>':'';var ctx=e.context?'<div style="font-size:10px;color:var(--w20);line-height:1.5;margin-bottom:8px;font-family:var(--mono);padding-left:8px;border-left:1px solid rgba(244,242,238,.08)">'+evEsc(e.context)+'</div>':'';return bar+sig+ctx;})()
-    +'<div class="ev-meta">'
-      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">'
-        +'<div>'
-          +'<div class="ev-person">'+evEsc(e.person)+'</div>'
-          +(roleOrg?'<div class="ev-role">'+roleOrg+'</div>':'')
-        +'</div>'
-        +(function(){var v=e.verification||'';if(!v)return'';var col=v==='Official Document'||v==='Official Video'?'rgba(200,146,42,.85)':v==='Verified'?'rgba(80,200,120,.8)':v.indexOf('Needs')>-1?'rgba(255,180,60,.75)':v==='Disputed'?'rgba(255,80,80,.8)':'rgba(150,150,150,.6)';var icon=v==='Official Document'||v==='Official Video'?'★ ':v==='Verified'?'✓ ':'⚠ ';return '<span class="ev-verified" style="color:'+col+';border-color:'+col.replace('.85','.2').replace('.8',',.2').replace(',.2,.2',',.2')+'">'+icon+evEsc(v.toUpperCase())+'</span>';})()
-      +'</div>'
-      +(srcHtml?'<div style="margin-top:5px">'+srcHtml+'</div>':'')+(e.timestamp?'<div style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-family:var(--mono);font-size:8px;color:rgba(60,160,255,.7);border:.5px solid rgba(60,160,255,.2);padding:2px 7px;letter-spacing:.08em">▶ '+evEsc(e.timestamp)+'</div>':'')+(e.timestamp&&e.source_url?'<div style="margin-top:6px"><a class="ev-watch-btn" href="'+evEsc(e.source_url)+'" target="_blank" rel="noopener">▶ WATCH QUOTE</a></div>':'')+(e.local_pdf?'<div style="margin-top:6px"><a class="ev-pdf-btn" href="'+evEsc(e.local_pdf)+'" target="_blank" rel="noopener">&#128196; VIEW PDF</a></div>':'')+(e.screenshot?'<div style="margin-top:4px"><a class="ev-source" href="'+evEsc(e.screenshot)+'" target="_blank" rel="noopener">&#128444;&#65039; Screenshot</a></div>':'')+(e.transcriptExcerpt?'<details style="margin-top:10px"><summary style="font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--w20);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:4px">► EXACT TRANSCRIPT</summary><div style="margin-top:8px;font-size:clamp(10px,.72vw,11px);color:var(--w40);line-height:1.65;font-style:italic;padding:10px 12px;background:rgba(244,242,238,.03);border-left:1.5px solid rgba(244,242,238,.08);">'+evEsc(e.transcriptExcerpt)+'</div></details>':'')
-      +tagsHtml+nodesHtml
+    +'<div class="ev-org">'+escHtml(e.org)+'</div>'
+    +(e.person?'<div class="ev-person">'+escHtml(e.person)+(e.role?'<span class="ev-role"> \u2014 '+escHtml(e.role)+'</span>':'')+'</div>':'')
+    +'<div class="ev-date">'+escHtml(e.date)+'</div>'
+    +'</div>'
+    +'<div class="ev-card-body">'
+    +'<div class="ev-title-text">'+escHtml(e.title)+'</div>'
+    +'<p class="ev-body-text">'+escHtml(e.body)+'</p>'
+    +(e.significance?'<div class="ev-sig"><span class="ev-sig-label">WHY IT MATTERS</span>'+escHtml(e.significance)+'</div>':'')
+    +'<div class="ev-card-foot">'
+    +(e.source_url?'<a class="ev-source-link" href="'+e.source_url+'" target="_blank" rel="noopener">'+escHtml(e.source_label||e.source_url)+'</a>':'')
+    +(e.tags&&e.tags.length?'<div class="ev-tags">'+e.tags.map(function(t){return'<span class="ev-tag">'+escHtml(t)+'</span>';}).join('')+'</div>':'')
+    +'</div>'
     +'</div>';
   return card;
 }
-function evTagClick(el){evSetTag(el.dataset.tag,null);}function evEsc(s){
-  if(!s)return'';
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-// ── Public API for Explorer integration ──
-function evGetByNode(nodeId){return EVIDENCE.filter(function(e){return e.nodes.indexOf(nodeId)>-1;});}
-function evCountByNode(nodeId){return evGetByNode(nodeId).length;}
 
-
-// ── Contact form ──
-function submitContact(){
-  var name    = document.getElementById('cf-name').value.trim();
-  var email   = document.getElementById('cf-email').value.trim();
-  var message = document.getElementById('cf-message').value.trim();
-  var btn     = document.getElementById('cf-submit');
-
-  if(!name){
-    cfStatus('error','Please enter your name.');
-    document.getElementById('cf-name').focus();return;
-  }
-  if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
-    cfStatus('error','Please enter a valid email address.');
-    document.getElementById('cf-email').focus();return;
-  }
-  if(!message||message.length<10){
-    cfStatus('error','Please enter a message (at least 10 characters).');
-    document.getElementById('cf-message').focus();return;
-  }
-
-  btn.disabled=true;
-  btn.textContent='Sending…';
-  cfStatus('info','Sending your message…');
-
-  fetch('https://api.web3forms.com/submit',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({
-      access_key:'ccad23bd-7896-4cf8-9859-516cac3b3f91',
-      name:name,
-      email:email,
-      message:message
-    })
-  })
-  .then(function(r){return r.json();})
-  .then(function(data){
-    if(data.success){
-      btn.style.display='none';
-      document.getElementById('cf-name').value='';
-      document.getElementById('cf-email').value='';
-      document.getElementById('cf-message').value='';
-      cfStatus('success','✓ Message sent. I\'ll be in touch shortly.');
-    } else {
-      btn.disabled=false;
-      btn.textContent='Send message →';
-      cfStatus('error',data.message||'Failed to send message. Please try again.');
-    }
-  })
-  .catch(function(){
-    btn.disabled=false;
-    btn.textContent='Send message →';
-    cfStatus('error','Failed to send message. Please check your connection and try again.');
-  });
-}
-function cfStatus(type, msg){
-  var el = document.getElementById('cf-status');
-  if(!el) return;
-  el.style.display = 'block';
-  var colours = {
-    info:    'rgba(244,242,238,.3)',
-    success: 'rgba(80,200,120,.8)',
-    error:   'rgba(255,100,100,.8)'
-  };
-  var bgs = {
-    info:    'rgba(244,242,238,.04)',
-    success: 'rgba(80,200,120,.08)',
-    error:   'rgba(255,100,100,.08)'
-  };
-  el.style.color      = colours[type] || colours.info;
-  el.style.background = bgs[type]     || bgs.info;
-  el.style.border     = '.5px solid ' + (colours[type] || colours.info).replace('.8',',.2').replace('.3',',.15');
-  el.textContent      = msg;
-}
-
-// ── MISCONCEPTIONS ──────────────────────────────────────────────────────
-var MISCONCEPTIONS=[
-  {id:'mc-001',cat:'Oracle & Infrastructure',title:'Chainlink is just price feeds',myth:'Chainlink is only used for DeFi price feeds.',reality:'Chainlink runs 12 distinct services: CCIP, Proof of Reserve, Automation, Functions, VRF, Data Streams, DECO, and the Runtime Environment. DTCC, Swift, and JPMorgan use Chainlink — none for price feeds.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:98,tags:['Technology','Infrastructure'],institutions:['DTCC','Swift','JPMorgan'],ev:['ev-001','ev-003','ev-004'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink runs 12 services. DTCC, Swift, and JPMorgan all use Chainlink — none of them for price feeds.'},
-  {id:'mc-002',cat:'Oracle & Infrastructure',title:'Chainlink is centralized',myth:'Chainlink is a centralized oracle controlled by one company.',reality:'Chainlink is a decentralized network of independent node operators. No single entity controls data delivery. Multiple independent sources and nodes per feed use cryptographic aggregation.',status:'False Claim',statusCls:'mc-status-outdated',confidence:97,tags:['Technology','Oracle Networks'],institutions:['Chainlink Labs'],ev:['ev-017'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink uses decentralized node operators with cryptographic aggregation. SWIFT ran experiments with it across 12+ institutions.'},
-  {id:'mc-003',cat:'Oracle & Infrastructure',title:'Oracle networks are replaceable',myth:'Any team can build a secure oracle network and replace Chainlink.',reality:'$27T+ in secured transaction value across 1,000+ integrations on 100+ chains creates a structural network effect. Eric Schmidt confirmed: Chainlink has better technology and it scales better.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Oracle Networks','Technology'],institutions:['Water Tower Research','DocuSign'],ev:['ev-011','ev-014','ev-017'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'$27T+ in secured value across 1,000+ integrations on 100+ chains. DTCC, Swift, JPMorgan, and Coinbase all named Chainlink — not an alternative.'},
-  {id:'mc-004',cat:'Oracle & Infrastructure',title:'Chainlink can be forked easily',myth:'Chainlink can simply be forked to create a competing oracle network.',reality:'The software can be forked but not the network — not the node operators, data provider relationships, $27T in secured value, or the institutional trust built over years. Infrastructure is not code.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:94,tags:['Technology','Market Structure'],institutions:['Water Tower Research'],ev:['ev-011'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'The code can be forked. The network cannot. Not the node operators, not the institutional trust, not the $27T in secured value.'},
-  {id:'mc-005',cat:'Oracle & Infrastructure',title:'Chainlink is just middleware',myth:'Chainlink is just middleware with no strategic importance.',reality:'DTCC processes $4.7 quadrillion annually and named Chainlink as critical infrastructure for multi-ledger systems. Deutsche Börse compared it to Bloomberg and LSEG/Refinitiv as a market data multiplicator.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:96,tags:['Infrastructure','Market Structure'],institutions:['DTCC','Deutsche Börse Group'],ev:['ev-001','ev-012','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'DTCC processes $4.7 quadrillion annually and calls Chainlink critical infrastructure for multi-ledger systems.'},
-  {id:'mc-006',cat:'Oracle & Infrastructure',title:'Chainlink depends on Ethereum',myth:'Chainlink is Ethereum-native and limited to Ethereum\'s ecosystem.',reality:'Chainlink operates across 100+ networks: Solana, BNB Chain, Avalanche, Base, XRPL, Stellar, and Hedera. CCIP is explicitly chain-agnostic by design.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:97,tags:['Infrastructure','Interoperability'],institutions:['Swift'],ev:['ev-003'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink runs on 100+ networks: Solana, BNB Chain, Avalanche, Base, XRPL, Stellar, Hedera. CCIP is chain-agnostic by design.'},
-  {id:'mc-007',cat:'Oracle & Infrastructure',title:'Chainlink is a blockchain',myth:'Chainlink is its own blockchain competing with Ethereum or Solana.',reality:'Chainlink is not a blockchain. It is an oracle and interoperability network that runs across existing blockchains — no native chain, no block production, no consensus mechanism.',status:'False Claim',statusCls:'mc-status-outdated',confidence:99,tags:['Technology'],institutions:['Chainlink Labs'],ev:['ev-017'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink is not a blockchain. It is oracle and interoperability infrastructure that connects existing blockchains.'},
-  {id:'mc-008',cat:'CCIP',title:'Nobody uses CCIP',myth:'Chainlink CCIP has no real adoption.',reality:'Coinbase selected Chainlink CCIP as the exclusive bridge infrastructure for Coinbase Wrapped Assets. JPMorgan\'s Kinexys used Chainlink infrastructure with Ondo for cross-chain DvP settlement between public and permissioned blockchains. SWIFT ran interoperability experiments with Chainlink involving major financial institutions. DTCC announced its Collateral AppChain will leverage Chainlink CRE and the Chainlink data standard for near real-time collateral management. Citi\'s Tokenization 2030 report references Chainlink CCIP as an interoperability solution for tokenized markets.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['CCIP','Institutions','Interoperability','Tokenization','Market Infrastructure'],institutions:['Coinbase','J.P. Morgan','SWIFT','DTCC','Citi Institute'],ev:['ev-010','ev-004','ev-003','ev-027','ev-019'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Coinbase made CCIP their exclusive bridge infrastructure. JPMorgan used it for DvP settlement. DTCC\'s Collateral AppChain integrates Chainlink CRE.'},
-  {id:'mc-009',cat:'CCIP',title:'CCIP is just another bridge',myth:'CCIP is equivalent to existing cross-chain bridges.',reality:'Standard bridges move assets and have lost $2B+ to exploits. CCIP is a messaging and settlement standard with an independent Risk Management Network. JPMorgan and Swift use it for institutional settlement, not bridging.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:98,tags:['CCIP','Technology'],institutions:['J.P. Morgan','Swift','Coinbase'],ev:['ev-004','ev-010','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'CCIP is a messaging and settlement standard with an independent Risk Management Network. JPMorgan and Swift use it for institutional settlement.'},
-  {id:'mc-010',cat:'CCIP',title:'LayerZero makes CCIP unnecessary',myth:'LayerZero or Wormhole already solve cross-chain messaging, making CCIP redundant.',reality:'CCIP targets institutional-grade settlement with regulatory compliance and an independent risk layer. Coinbase and JPMorgan chose CCIP specifically — not LayerZero — for their institutional infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:93,tags:['CCIP','Market Structure'],institutions:['Coinbase','J.P. Morgan'],ev:['ev-004','ev-010'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Coinbase and JPMorgan chose CCIP specifically — not LayerZero or Wormhole — for their institutional infrastructure.'},
-  {id:'mc-011',cat:'CCIP',title:'CCIP has no moat',myth:'CCIP has no competitive advantage over other messaging protocols.',reality:'CCIP is the only cross-chain protocol chosen by both Coinbase and JPMorgan for production institutional infrastructure. The combination of institutional trust, audited security, and independent Risk Management Network is unique.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:94,tags:['CCIP','Market Structure'],institutions:['Coinbase','J.P. Morgan'],ev:['ev-004','ev-010','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'CCIP is the only cross-chain protocol chosen by both Coinbase and JPMorgan for production institutional infrastructure.'},
-  {id:'mc-012',cat:'CCIP',title:'Institutions will build their own interoperability',myth:'Major banks will build their own cross-chain infrastructure rather than use Chainlink.',reality:'JPMorgan, the most sophisticated bank in the world, used Chainlink CCIP rather than building their own. If JPMorgan chose not to build in-house, the build-vs-buy argument is effectively settled.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['CCIP','Institutions'],institutions:['J.P. Morgan','Swift'],ev:['ev-004','ev-003','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'JPMorgan used Chainlink CCIP rather than building their own. The world\'s most sophisticated bank made the build-vs-buy decision for you.'},
-  {id:'mc-013',cat:'CCIP',title:'One blockchain will eliminate CCIP',myth:'One blockchain will dominate and cross-chain infrastructure will become unnecessary.',reality:'Swift\'s CIO stated interoperability is at the heart of everything Swift does in the face of increasing fragmentation. DTCC confirmed they need to move data between many ledgers. The multi-chain future is confirmed by the institutions processing the world\'s financial infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['CCIP','Interoperability'],institutions:['Swift','DTCC'],ev:['ev-001','ev-003','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Swift\'s CIO: interoperability is at the heart of everything Swift does in the face of increasing fragmentation. Multi-chain is the confirmed future.'},
-  {id:'mc-014',cat:'Institutions',title:'Institutions are not using Chainlink',myth:'Chainlink is crypto-native with no institutional adoption.',reality:'10 major institutions have made verified public statements confirming Chainlink use: DTCC, Swift, JPMorgan, Euroclear, BNP Paribas, Fidelity, Franklin Templeton, Deutsche Börse, Coinbase, and Citi.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Adoption'],institutions:['DTCC','Swift','J.P. Morgan','Euroclear','Coinbase'],ev:['ev-001','ev-002','ev-003','ev-004','ev-008','ev-010','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'DTCC, Swift, JPMorgan, Euroclear, BNP Paribas, Fidelity, Franklin Templeton, Deutsche Börse, Coinbase, and Citi. All confirmed. All on record.'},
-  {id:'mc-015',cat:'Institutions',title:'Swift is not actually using Chainlink',myth:'Swift\'s involvement with Chainlink is just exploratory.',reality:'Swift published an official press release confirming blockchain interoperability experiments with Chainlink alongside BNY Mellon, BNP Paribas, Citi, Clearstream, Euroclear, and DTCC. The CIO stated interoperability is at the heart of Swift\'s strategy.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Interoperability'],institutions:['Swift','BNP Paribas','Euroclear','DTCC'],ev:['ev-003'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Swift published an official press release confirming Chainlink experiments with BNY Mellon, BNP Paribas, Citi, Clearstream, Euroclear, and DTCC.'},
-  {id:'mc-016',cat:'Institutions',title:'DTCC is not connected to Chainlink',myth:'DTCC has no real connection to Chainlink.',reality:'DTCC\'s CTO published on dtcc.com confirming Chainlink as the mechanism for writing data once across all ledger networks. DTCC is a confirmed partner processing $4.7 quadrillion annually.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Settlement'],institutions:['DTCC'],ev:['ev-001','ev-002','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'DTCC\'s CTO published on dtcc.com: Chainlink is the mechanism for writing data once across all ledger networks. $4.7Q annually.'},
-  {id:'mc-017',cat:'Institutions',title:'Banks do not need oracles',myth:'Traditional banks have their own data infrastructure and don\'t need oracle networks.',reality:'Fidelity uses Chainlink to deliver NAV data on-chain for tokenized funds. Franklin Templeton credits it for enabling beyond money market fund constraints. The data they need on-chain doesn\'t exist in traditional systems.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Institutions','Oracle Networks'],institutions:['Fidelity International','Franklin Templeton'],ev:['ev-005','ev-006','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Fidelity uses Chainlink to deliver NAV on-chain. Franklin Templeton credits it for enabling beyond money market fund constraints.'},
-  {id:'mc-018',cat:'Institutions',title:'Tokenization does not need Chainlink',myth:'RWA tokenization can scale without Chainlink\'s infrastructure.',reality:'Fidelity uses Chainlink for on-chain NAV. Franklin Templeton credits it for enabling beyond money market funds. DTCC says it enables them to completely update financial markets. Citi projects $4–5T tokenized by 2030.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Institutions','Tokenisation'],institutions:['Fidelity International','Franklin Templeton','DTCC','Citi GPS'],ev:['ev-005','ev-006','ev-002','ev-009','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Fidelity: on-chain NAV. Franklin Templeton: beyond money market funds. DTCC: completely update financial markets. Citi: $4–5T tokenized by 2030.'},
-  {id:'mc-019',cat:'Institutions',title:'Institutions only run pilots',myth:'Institutional Chainlink integrations are just proofs of concept.',reality:'Fidelity\'s on-chain NAV delivery is live in production. Coinbase\'s CCIP integration is live for wrapped assets. JPMorgan\'s Kinexys DvP was a confirmed live transaction. DTCC\'s CTO published on dtcc.com.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Institutions','Adoption'],institutions:['Fidelity International','Coinbase','J.P. Morgan','DTCC'],ev:['ev-001','ev-004','ev-005','ev-010','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Fidelity\'s NAV delivery is live in production. Coinbase CCIP is live. JPMorgan\'s Kinexys DvP was a confirmed live transaction.'},
-  {id:'mc-020',cat:'LINK Token',title:'LINK has no value accrual',myth:'The LINK token has no mechanism to capture value from network growth.',reality:'Economics 2.0 introduced staking as a performance bond, protocol fees paid in LINK, and BUILD partner token contributions. Citi GPS flagged LINK as potentially gaining more prominence than Bitcoin as infrastructure becomes critical.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Tokenomics','Market Structure'],institutions:['Citi GPS','Water Tower Research'],ev:['ev-009','ev-011','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Economics 2.0: node operators stake LINK as a bond, protocol fees are paid in LINK, BUILD partners contribute tokens to stakers.'},
-  {id:'mc-021',cat:'LINK Token',title:'LINK is only a payment token',myth:'LINK is just a utility token used to pay for oracle services.',reality:'LINK is also a staking asset — node operators must lock LINK as a performance bond. The BUILD program creates additional token flows from protocol integrations. LINK is both payment and collateral.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:92,tags:['Tokenomics'],institutions:['Citi GPS'],ev:['ev-009','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'LINK is both payment and collateral. Node operators must lock LINK as a performance bond. BUILD creates additional token flows from integrations.'},
-  {id:'mc-022',cat:'LINK Token',title:'LINK has no role in network security',myth:'LINK tokens don\'t contribute to the security of the Chainlink network.',reality:'LINK staking is the core security mechanism — node operators stake LINK as a bond that can be slashed for misbehavior. This cryptoeconomic model aligns incentives between node operators and protocol users.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:93,tags:['Tokenomics','Technology'],institutions:['Chainlink Labs'],ev:['ev-017','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'LINK staking is the core security mechanism — node operators stake LINK as a bond that can be slashed for misbehavior.'},
-  {id:'mc-023',cat:'LINK Token',title:'Staking does not matter',myth:'LINK staking is irrelevant to the network\'s operation.',reality:'Staking creates a direct link between network growth and LINK demand: more usage means more fees, more fees attract more stakers, more stakers require more LINK locked. Water Tower Research quantified $27T+ in secured value.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:90,tags:['Tokenomics'],institutions:['Water Tower Research'],ev:['ev-011','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'More usage → more fees → more stakers → more LINK locked. Water Tower Research: $27T+ in transaction value secured by this model.'},
-  {id:'mc-024',cat:'LINK Token',title:'LINK inflation prevents appreciation',myth:'LINK\'s token issuance makes long-term appreciation impossible.',reality:'Chainlink Economics 2.0 establishes that BUILD rewards and staking incentives come from protocol fees and partner token contributions, not dilutive issuance. As institutional usage scales, fee revenue grows proportionally. The reserve accumulation model funds long-term security without relying on inflation.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:88,tags:['Tokenomics','Market Structure'],institutions:['Water Tower Research','Citi GPS'],ev:['ev-009','ev-011','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Economics 2.0: BUILD rewards and staking come from protocol fees and partner contributions — not dilutive issuance.'},
-  {id:'mc-025',cat:'Market Narratives',title:'Chainlink is only used in DeFi',myth:'Chainlink\'s use cases are limited to decentralized finance.',reality:'DTCC, Swift, Euroclear, BNP Paribas, JPMorgan, Franklin Templeton, and Fidelity are confirmed Chainlink users. These are the core institutions of traditional financial market infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Adoption'],institutions:['DTCC','Swift','Euroclear','J.P. Morgan'],ev:['ev-001','ev-003','ev-004','ev-007','ev-008','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'DTCC, Swift, Euroclear, BNP Paribas, JPMorgan, Franklin Templeton, and Fidelity. These are TradFi institutions — not DeFi protocols.'},
-  {id:'mc-026',cat:'Market Narratives',title:'Chainlink missed its opportunity',myth:'Chainlink had its moment in 2020–2021 and the opportunity has passed.',reality:'The institutions now live with Chainlink — JPMorgan, DTCC, Swift, Fidelity — were not participants in the 2020–2021 DeFi cycle. The institutional tokenization wave is just beginning. Citi projects $4–5T tokenized by 2030.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:94,tags:['Adoption','Market Structure'],institutions:['Citi GPS','J.P. Morgan','DTCC'],ev:['ev-004','ev-009','ev-019','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'The institutions now live with Chainlink — JPMorgan, DTCC, Swift, Fidelity — were not in the 2020–2021 DeFi cycle. The institutional wave is starting now.'},
-  {id:'mc-027',cat:'Market Narratives',title:'Chainlink has no competitive moat',myth:'Chainlink has no durable competitive advantage.',reality:'Deutsche Börse compared Chainlink\'s multiplicator effect to Bloomberg and LSEG/Refinitiv. Coinbase, JPMorgan, DTCC, and Swift all publicly named Chainlink over alternatives — that is the clearest possible market signal.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Market Structure','Adoption'],institutions:['Deutsche Börse Group','Coinbase','J.P. Morgan','DTCC'],ev:['ev-012','ev-010','ev-004','ev-001','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Deutsche Börse compared Chainlink\'s effect to Bloomberg and LSEG/Refinitiv. Coinbase, JPMorgan, DTCC, and Swift all named Chainlink over alternatives.'},
-  {id:'mc-028',cat:'Market Narratives',title:'Adoption does not matter for LINK',myth:'Chainlink can have widespread adoption without LINK benefiting.',reality:'Every Chainlink service requires LINK to be staked or spent. The BUILD program creates direct token flows from protocol integrations. Growing adoption directly increases fee revenue, staking demand, and LINK lockup.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:91,tags:['Tokenomics','Adoption'],institutions:['Citi GPS','Water Tower Research'],ev:['ev-009','ev-011','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Every Chainlink service requires LINK to be staked or spent. Growing adoption directly increases fee revenue, staking demand, and LINK lockup.'},
-  {id:'mc-029',cat:'Market Narratives',title:'Tokenization works without interoperability',myth:'Tokenized assets can function at scale within a single blockchain ecosystem.',reality:'Swift\'s CIO stated interoperability is at the heart of everything Swift does in the face of increasing fragmentation. DTCC confirmed they need to move data between many ledgers. Tokenization without interoperability creates fragmentation with new technology.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Interoperability','Tokenisation'],institutions:['Swift','DTCC'],ev:['ev-001','ev-003','ev-027'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Swift\'s CIO: interoperability is at the heart of everything Swift does in the face of increasing fragmentation. Tokenization without it creates new silos.'},
-  {id:'mc-030',cat:'Market Narratives',title:'Eric Schmidt does not endorse Chainlink',myth:'The Eric Schmidt SmartCon 2022 quotes are taken out of context.',reality:'At SmartCon 2022, Eric Schmidt stated on camera: Chainlink has better technology and it scales better. He also stated: Congratulations to you all for ending up in the right spot in the Web3 space working with Chainlink. Both are timestamped in the Evidence Vault.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Market Structure','Adoption'],institutions:['Google'],ev:['ev-024','ev-026'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Eric Schmidt at SmartCon 2022: “Chainlink has better technology and it scales better.” Timestamped. On record. Not out of context.'}
-,
-  {id:'mc-031',cat:'Institutions',title:'Chainlink partnerships are fake',myth:'Chainlink partnerships are fake marketing announcements.',reality:'Many of Chainlink\'s strongest integrations are not marketing partnerships but public confirmations from the institutions themselves. SWIFT, DTCC, Coinbase, JPMorgan, Fidelity International, Franklin Templeton, and Deutsche B\u00f6rse have independently published statements, demonstrations, reports, or production integrations involving Chainlink infrastructure.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','Adoption','Evidence'],institutions:['SWIFT','DTCC','Coinbase','JPMorgan','Fidelity International','Franklin Templeton','Deutsche B\u00f6rse'],ev:['ev-003','ev-001','ev-010','ev-004','ev-005','ev-006','ev-013','ev-027'],contributor:'TheLinkPanda',contributorScore:3,dateAdded:'2026-06',tweetLine:'SWIFT, DTCC, Coinbase, JPMorgan, Fidelity, Franklin Templeton, and Deutsche Börse have all independently published statements confirming Chainlink.'}
-,
-  {id:'mc-032',cat:'Market Narratives',title:'Chainlink competes with XRP',myth:'Chainlink and XRP are competing technologies.',reality:'XRP is a payment asset and settlement ledger. Chainlink provides oracle data delivery, cross-chain interoperability, compliance infrastructure, automation, proof systems, and settlement orchestration. The two operate at different layers of the same stack and can function in the same institutional workflow. SWIFT, DTCC, and JPMorgan use Chainlink for data and interoperability — not as a payment rail.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Market Narratives','Interoperability','Infrastructure','CCIP'],institutions:['SWIFT','DTCC','J.P. Morgan','Citi Institute'],ev:['ev-003','ev-027','ev-004','ev-019'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'XRP is a payment rail. Chainlink is data, interoperability, compliance, automation, and settlement infrastructure. Different layers. Both can coexist.'},
-  {id:'mc-033',cat:'Market Narratives',title:'Google Cloud partnership is fake',myth:'Google Cloud involvement with Chainlink is just marketing.',reality:'Google Cloud is an official Chainlink node operator, running validated oracle infrastructure on the Chainlink network. Eric Schmidt, former CEO of Google, stated at SmartCon 2022 that Chainlink has better technology and it scales better, and closed the fireside chat by congratulating the Chainlink ecosystem for ending up in the right spot working with Chainlink. Google Cloud publishes its Chainlink node operator status on cloud.google.com.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:98,tags:['Market Narratives','Technology','Adoption','Institutions'],institutions:['Google'],ev:['ev-024','ev-026','ev-015'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Google Cloud is an official Chainlink node operator. Eric Schmidt at SmartCon: Chainlink has better technology and it scales better.'},
-  {id:'mc-034',cat:'Economics & Revenue',title:'Chainlink operates at the speed of Ethereum',myth:'Chainlink is slow because it is limited by Ethereum block times.',reality:'Chainlink Data Streams delivers sub-second market data updates using a pull oracle architecture that is entirely independent of blockchain confirmation times. Update frequency on push feeds is constrained by gas costs, blockspace, and application requirements — not by Chainlink\'s underlying capability. The network can deliver data far faster than most blockchains can economically consume it.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Technology','Oracle Networks','Performance','Data Streams'],institutions:['Chainlink Labs'],ev:['ev-029','ev-017'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink Data Streams delivers sub-second updates. Update frequency on push feeds is constrained by gas costs — not by Chainlink\'s capability.'},
-  {id:'mc-035',cat:'Economics & Revenue',title:'Low-latency oracles will replace Chainlink',myth:'Pyth, Supra, Redstone, or API3 will displace Chainlink as the dominant oracle.',reality:'The oracle market did not consolidate around a single low-latency competitor. While alternatives emerged, Chainlink expanded its product surface — adding Data Streams, CCIP, Functions, Automation, Proof of Reserve, CRE, and SVR. The moat grew larger, not smaller. Institutional integrations at DTCC, SWIFT, and JPMorgan were with Chainlink specifically, not with any emerging oracle competitor.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Market Structure','Oracle Networks','Adoption','Technology'],institutions:['DTCC','SWIFT','J.P. Morgan','Coinbase'],ev:['ev-027','ev-003','ev-004','ev-010','ev-029'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'The market didn\'t consolidate around one competitor. Chainlink expanded to CCIP, Data Streams, Functions, Automation, CRE, and SVR. The moat grew.'},
-  {id:'mc-036',cat:'Economics & Revenue',title:'Chainlink only earns revenue from price feeds',myth:'Chainlink\'s entire business model is oracle request fees from DeFi price feeds.',reality:'Chainlink operates seven distinct revenue streams: CCIP cross-chain messaging fees, Data Streams subscription and pull fees, Automation trigger fees, Functions compute fees, BUILD partner token contributions to stakers, Scale ecosystem programs, and SVR — a smart value recapture mechanism that redirects MEV to the oracle network. Payment abstraction further monetizes all network usage regardless of input token. Price feeds are one product among many.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Economics & Revenue','Tokenomics','BUILD','SVR','CCIP','Data Streams'],institutions:['Chainlink Labs'],ev:['ev-030','ev-028','ev-010'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink has 7 revenue streams: CCIP fees, Data Streams fees, Automation fees, Functions fees, BUILD contributions, Scale programs, and SVR.'},
-  {id:'mc-037',cat:'Economics & Revenue',title:'Chainlink\'s total addressable market is small',myth:'Chainlink is just an oracle network with a limited addressable market.',reality:'Chainlink\'s TAM spans data delivery, identity verification, compliance infrastructure, cross-chain interoperability, automation, privacy (DECO), tokenization infrastructure, and institutional settlement. Citi GPS projects $4–5 trillion in tokenized assets by 2030. DTCC processes $4.7 quadrillion annually. Water Tower Research quantified $27 trillion in transaction value already secured. The addressable market is effectively the entire global financial system moving on-chain.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Economics & Revenue','Market Structure','Tokenisation','Infrastructure'],institutions:['Citi GPS','DTCC','Water Tower Research','Bitwise'],ev:['ev-019','ev-027','ev-011','ev-016'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'Chainlink\'s TAM includes data, identity, compliance, interoperability, automation, privacy, tokenization, and institutional settlement.'},
-  {id:'mc-038',cat:'Economics & Revenue',title:'Chainlink partnerships don\'t generate revenue',myth:'Chainlink partnerships are non-commercial and create no economic value for the network.',reality:'Each major integration category has direct revenue mechanics: CCIP charges per-message fees, Data Streams charges subscription and pull fees, SVR captures MEV value, BUILD partners contribute tokens to stakers, and Scale programs create ecosystem token flows. DTCC\'s Collateral AppChain, Coinbase\'s CCIP integration, and JPMorgan\'s Kinexys settlement are production deployments with real transaction volumes — not exploratory pilots.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:95,tags:['Economics & Revenue','Adoption','CCIP','BUILD'],institutions:['DTCC','Coinbase','J.P. Morgan'],ev:['ev-030','ev-028','ev-027','ev-010','ev-004'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'CCIP charges per-message fees. Data Streams charges pull fees. SVR captures MEV. BUILD generates partner token flows. These are live revenue streams.'},
-  {id:'mc-039',cat:'Economics & Revenue',title:'BUILD and Scale programs don\'t matter for LINK',myth:'The BUILD and Scale programs are marketing exercises with no real economic impact on LINK.',reality:'BUILD creates direct non-dilutive token flows to LINK stakers from ecosystem protocols. Scale subsidizes oracle feed costs for emerging protocols using partner tokens, expanding the network without requiring Chainlink to issue new LINK. Both programs increase LINK staking demand and create sustained relationships between Chainlink and the protocols it secures. Economics 2.0 established these as core value-accrual mechanisms alongside protocol fees.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:93,tags:['Economics & Revenue','Tokenomics','BUILD','Staking','LINK Token'],institutions:['Chainlink Labs'],ev:['ev-028','ev-018'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'BUILD creates direct non-dilutive token flows to LINK stakers. Scale expands the network without new LINK issuance. Both are live and growing.'},
-  {id:'mc-040',cat:'Economics & Revenue',title:'SVR is irrelevant to Chainlink\'s economics',myth:'Smart Value Recapture is a minor technical detail with no economic significance.',reality:'SVR (Smart Value Recapture) is a mechanism that redirects MEV value — which would otherwise be extracted by block builders — back to the oracle network and LINK stakers. MEV in DeFi has historically exceeded hundreds of millions of dollars annually. SVR transforms a value leak into a value capture mechanism, creating a new revenue stream proportional to on-chain trading volume secured by Chainlink price feeds.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:92,tags:['Economics & Revenue','SVR','MEV','Tokenomics','LINK Token'],institutions:['Chainlink Labs'],ev:['ev-030','ev-028'],contributor:null,contributorScore:0,dateAdded:'2026-06',tweetLine:'SVR redirects MEV — historically hundreds of millions annually — back to the oracle network and LINK stakers instead of block builders.'}];
-var mcState={search:'',tagFilter:'all'};
-var mcInited=false;
-function mcInit(){if(mcInited){mcRender();mcHandleHash();return;}mcInited=true;mcBuildTagFilters();mcRender();mcBuildContributorPanel();mcBuildLatest();mcHandleHash();}
-function mcBuildTagFilters(){
-  var bar=document.getElementById('mc-tag-filters');if(!bar)return;
-  var cats=[];MISCONCEPTIONS.forEach(function(m){if(cats.indexOf(m.cat)===-1)cats.push(m.cat);});cats.sort();
-  cats.forEach(function(cat){var b=document.createElement('button');b.className='ev-filter';b.textContent=cat.toUpperCase();b.onclick=function(){mcSetTag(cat,this);};bar.appendChild(b);});
-}
-function mcSetTag(tag,btn){
-  mcState.tagFilter=tag;
-  document.querySelectorAll('#mc-tag-filters .ev-filter').forEach(function(b){b.classList.remove('active');});
-  if(btn)btn.classList.add('active');mcRender();
-}
-function mcFiltered(){
-  return MISCONCEPTIONS.filter(function(m){
-    if(mcState.tagFilter!=='all'&&m.cat!==mcState.tagFilter&&m.tags.indexOf(mcState.tagFilter)===-1)return false;
-    if(mcState.search){var hay=[m.title,m.myth,m.reality,m.cat].concat(m.tags).concat(m.institutions||[]).join(' ').toLowerCase();if(hay.indexOf(mcState.search)===-1)return false;}
-    return true;
-  });
-}
-function mcRender(){
-  var grid=document.getElementById('mc-grid'),empty=document.getElementById('mc-empty'),cnt=document.getElementById('mc-count');
-  if(!grid)return;var filtered=mcFiltered();grid.innerHTML='';
-  if(cnt)cnt.textContent=filtered.length+' / '+MISCONCEPTIONS.length+' ENTRIES';
-  if(!filtered.length){if(empty)empty.style.display='block';return;}if(empty)empty.style.display='none';
-  filtered.forEach(function(m,i){grid.appendChild(mcBuildCard(m,i));});
-}
-
+// ── Misconception rendering ───────────────────────────────────────────
+function mcEsc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function mcSlug(m){return m.id+'-'+m.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);}
 
-function mcEvStrength(m){
-  if(!m.ev||!m.ev.length)return 0;
-  var best=0;
-  m.ev.forEach(function(id){
-    var ev=EVIDENCE.filter(function(e){return e.id===id;})[0];if(!ev)return;
-    var v=ev.verification||'';var c=ev.confidence||0;
-    var score=c>=100?5:c>=90?4:c>=80?3:c>=70?2:1;
-    if(v==='Official Document'||v==='Official Video'||v==='Official Source')score=5;
-    if(score>best)best=score;
+var mcInited=false;
+var mcState={search:'',tagFilter:'all'};
+
+function mcInit(){
+  if(!mcInited){mcInited=true;mcBuildTagFilters();mcBuildLatest();}
+  mcRender();mcHandleHash();
+}
+function mcBuildTagFilters(){
+  var bar=document.getElementById('mc-tag-filters');if(!bar)return;
+  var cats=['ALL','Oracle & Infrastructure','CCIP','Institutions','LINK Token','Market Narratives','Economics & Revenue'];
+  var html2='';
+  cats.forEach(function(c){
+    var tag=c==='ALL'?'all':c;
+    html2+='<button class="ev-filter'+(c==='ALL'?' active':'')+'" data-tag="'+tag+'" onclick="mcSetTag(\''+tag+'\',this)">'+c+'</button>';
   });
-  return best;
+  bar.innerHTML=html2;
+  var cta=document.createElement('div');
+  cta.style.cssText='margin-top:8px';
+  cta.innerHTML='<button class="contrib-cta" onclick="showPage(\'contribute\')">+ Suggest a Misconception</button>';
+  bar.appendChild(cta);
 }
-function mcStrengthHtml(score){
-  if(!score)return'';
-  var col=score>=5?'rgba(200,146,42,.9)':score>=4?'rgba(80,200,120,.8)':'rgba(255,180,60,.75)';
-  return'<div class="mc-strength" title="Evidence strength: '+score+'/5">'
-    +'<span style="color:'+col+'">'+'&#9733;'.repeat(score)+'</span>'
-    +'<span style="color:rgba(244,242,238,.15)">'+'&#9734;'.repeat(5-score)+'</span></div>';
-}
-
-function mcCopyRebuttal(id){
-  var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
-  var line=m.tweetLine||m.reality.split('.')[0]+'.';
-  var text='Myth: "'+ m.myth+'"\n\nReality: '+line+'\n\nthelinkpanda.com/misconceptions#'+m.id;
-  (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).catch(function(){
-    var ta=document.createElement('textarea');ta.value=text;
-    document.body.appendChild(ta);ta.select();
-    document.execCommand('copy');document.body.removeChild(ta);
-  });
-  var btn=document.getElementById('copy-'+id);
-  if(btn){var orig=btn.textContent;btn.textContent='Copied \u2713';
-    setTimeout(function(){btn.textContent=orig;},2000);}
-}
-
-
-function mcShareX(id){
-  var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
-  var url='thelinkpanda.com/misconceptions#'+m.id;
-  // Use pre-authored tweet line — always clean, never auto-truncated
-  var line=m.tweetLine||m.reality.split('.')[0]+'.';
-  var myth=m.myth.length>120?m.myth.slice(0,119)+'\u2026':m.myth;
-  var tweet='\u274c \u201c'+myth+'\u201d\n\n\u2705 '+line+'\n\n'+url;
-  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(tweet),'_blank','noopener');
-}
-
-
-function mcRelated(m,n){
-  return MISCONCEPTIONS.filter(function(x){return x.id!==m.id;}).map(function(x){
-    var sc=0;if(x.cat===m.cat)sc+=3;
-    (m.tags||[]).forEach(function(t){if((x.tags||[]).indexOf(t)>-1)sc++;});
-    return{m:x,s:sc};
-  }).filter(function(x){return x.s>0;}).sort(function(a,b){return b.s-a.s;}).slice(0,n||3).map(function(x){return x.m;});
-}
-
 function mcBuildLatest(){
   var el=document.getElementById('mc-latest');if(!el)return;
   var sorted=MISCONCEPTIONS.slice().sort(function(a,b){
@@ -4416,324 +4343,215 @@ function mcBuildLatest(){
     if(db!==da)return db>da?1:-1;
     return parseInt(b.id.replace('mc-',''))-parseInt(a.id.replace('mc-',''));
   }).slice(0,4);
+  if(!sorted.length)return;
   el.innerHTML='<div class="mc-latest-label">LATEST ADDITIONS</div><div class="mc-latest-grid">'
     +sorted.map(function(m){
       return'<button class="mc-latest-btn" onclick="mcJumpTo(\''+m.id+'\')">'
         +'<span class="mc-latest-cat">'+mcEsc(m.cat)+'</span>'
         +'<span class="mc-latest-title">'+mcEsc(m.title)+'</span></button>';
     }).join('')+'</div>';
-  if(sorted.length){el.style.padding='clamp(10px,1vw,14px) clamp(20px,2.4vw,40px)';el.style.borderBottom='.5px solid var(--border)';}
+  el.style.padding='clamp(10px,1vw,14px) clamp(20px,2.4vw,40px)';
+  el.style.borderBottom='.5px solid var(--border)';
 }
-function mcJumpTo(id){
-  mcState.tagFilter='all';mcState.search='';
+function mcSearch(val){mcState.search=val.toLowerCase().trim();mcRender();}
+function mcSetTag(tag,btn){
+  mcState.tagFilter=tag;
   document.querySelectorAll('#mc-tag-filters .ev-filter').forEach(function(b){b.classList.remove('active');});
-  var ab=document.querySelector('#mc-tag-filters .ev-filter');if(ab)ab.classList.add('active');
+  if(btn)btn.classList.add('active');
   mcRender();
-  setTimeout(function(){
-    var el=document.getElementById('mc-card-'+id);
-    if(el){el.scrollIntoView({behavior:'smooth',block:'center'});
-      el.style.outline='1.5px solid rgba(200,146,42,.6)';setTimeout(function(){el.style.outline='';},2000);}
-  },100);
 }
-function mcHandleHash(){
-  var hash=window.location.hash.slice(1);if(!hash)return;
-  var mc=MISCONCEPTIONS.filter(function(m){return mcSlug(m)===hash||m.id===hash;})[0];
-  if(mc)setTimeout(function(){mcJumpTo(mc.id);},200);
+function mcFiltered(){
+  return MISCONCEPTIONS.filter(function(m){
+    if(mcState.tagFilter&&mcState.tagFilter!=='all'&&m.cat!==mcState.tagFilter)return false;
+    if(mcState.search){
+      var hay=[m.title,m.myth,m.reality,m.cat].concat(m.tags||[]).concat(m.institutions||[]).join(' ').toLowerCase();
+      if(hay.indexOf(mcState.search)===-1)return false;
+    }
+    return true;
+  });
 }
-
+function mcRender(){
+  var grid=document.getElementById('mc-grid');if(!grid)return;
+  var results=mcFiltered();
+  var cnt=document.getElementById('mc-count');
+  if(cnt)cnt.textContent=results.length+' / '+MISCONCEPTIONS.length+' misconceptions';
+  grid.innerHTML='';
+  results.forEach(function(m,i){grid.appendChild(mcBuildCard(m,i));});
+}
 function mcBuildCard(m,i){
-  var card=document.createElement('div');card.className='mc-card';card.id='mc-card-'+m.id;
-  card.style.animation='fadein .3s ease-out '+(i*0.02)+'s both';
-  var slug=mcSlug(m);
-  var col=m.confidence>=90?'rgba(80,200,120,.85)':m.confidence>=70?'rgba(255,160,50,.85)':'rgba(150,150,150,.6)';
-  var chips=(m.institutions||[]).map(function(inst){return '<span class="mc-chip">'+mcEsc(inst)+'</span>';}).join('');
+  var card=document.createElement('div');
+  card.className='mc-card';card.id='mc-card-'+m.id;
+  var chips=(m.institutions||[]).map(function(inst){
+    var sl=instSlug(inst);
+    return sl?'<span class="mc-chip mc-chip-link" onclick="showOrg(\''+sl+'\')">'+mcEsc(inst)+'</span>'
+             :'<span class="mc-chip">'+mcEsc(inst)+'</span>';
+  }).join('');
   var evBtns=(m.ev||[]).slice(0,3).map(function(id){
     var ev=EVIDENCE.filter(function(e){return e.id===id;})[0];
-    return '<button class="mc-ev-btn" onclick="evHighlight(\''+id+'\')">'+mcEsc(ev?ev.org:id)+'</button>';
+    if(!ev)return'';
+    return'<button class="mc-ev-btn" onclick="evGoToMc(\''+m.id+'\')" title="'+mcEsc(ev.title)+'">'+mcEsc(ev.org)+'</button>';
   }).join('');
-  var tagSpans=(m.tags||[]).map(function(t){return '<span class="mc-tag" onclick="mcSetTag(\''+mcEsc(t)+'\',null)">'+mcEsc(t)+'</span>';}).join('');
-  var strHtml=mcStrengthHtml(mcEvStrength(m));
-  var related=mcRelated(m,3);
-  var relHtml=related.length?'<div class="mc-related"><div class="mc-related-lbl">RELATED</div>'
-    +related.map(function(r){return'<button class="mc-related-btn" onclick="mcJumpTo(\''+r.id+'\')">'+mcEsc(r.title)+'</button>';}).join('')+'</div>':'';
-  var contrib=m.contributor&&m.contributor!=='TheLinkPanda'
-    ?'<span class="mc-contrib-credit">contrib: '+mcEsc(m.contributor)+'</span>'
-    :m.contributor==='TheLinkPanda'?'<span class="mc-contrib-credit" style="opacity:.25">TheLinkPanda</span>':'';
+  var tagSpans=(m.tags||[]).map(function(t){return'<span class="mc-tag">'+mcEsc(t)+'</span>';}).join('');
+  var contrib=m.contributor?'<div class="mc-contrib">&#9679; '+mcEsc(m.contributor)+'</div>':'';
   card.innerHTML=
-    '<div class="mc-top"><span class="mc-status '+m.statusCls+'">'+mcEsc(m.status.toUpperCase())+'</span>'
-    +'<div style="display:flex;align-items:center;gap:8px">'+strHtml
-    +'<div class="mc-conf"><div class="mc-conf-track"><div class="mc-conf-fill" style="width:'+m.confidence+'%;background:'+col+'"></div></div>'
-    +'<span class="mc-conf-n" style="color:'+col+'">'+m.confidence+'</span></div></div></div>'
-    +'<div class="mc-myth-block"><div class="mc-myth-lbl">MYTH</div>\u201c'+mcEsc(m.myth)+'\u201d</div>'
-    +'<div class="mc-reality-block"><div class="mc-reality-lbl">REALITY</div><div class="mc-reality-txt">'+mcEsc(m.reality)+'</div></div>'
+    '<div class="mc-card-head">'
+    +'<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">'
+    +'<span class="'+m.statusCls+'">'+mcEsc(m.status)+'</span>'
+    +'<span style="margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:.08em">'+m.confidence+'%</span>'
+    +'</div>'
+    +'<div class="mc-cat">'+mcEsc(m.cat)+'</div>'
+    +'<div class="mc-title">'+mcEsc(m.title)+'</div>'
+    +'</div>'
+    +'<div class="mc-card-body">'
+    +'<div class="mc-myth-label">MYTH</div>'
+    +'<div class="mc-myth">&#8220;'+mcEsc(m.myth)+'&#8221;</div>'
+    +'<div class="mc-reality-label">REALITY</div>'
+    +'<div class="mc-reality">'+mcEsc(m.reality)+'</div>'
     +(chips?'<div class="mc-chips">'+chips+'</div>':'')
     +(evBtns?'<div class="mc-ev-row"><span class="mc-ev-lbl">EVIDENCE</span><div class="mc-ev-btns">'+evBtns+'</div>'
-      +'<button class="mc-more-btn" onclick="evGoToMc(\''+m.id+'\')" data-mc="'+m.id+'">View evidence \u2192</button></div>':'')
-    +relHtml
+      +'<button class="mc-more-btn" onclick="evGoToMc(\''+m.id+'\')" data-mc="'+m.id+'">View evidence &#8594;</button></div>':'')
     +'<div class="mc-actions">'
-      +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">\u29c9 Copy rebuttal</button>'
-      +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
-      +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+m.id+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+m.id+'\');return false;" title="Direct link">&#128279;</a>'
+    +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">&#10825; Copy rebuttal</button>'
+    +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
+    +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+m.id+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+m.id+'\');return false;" title="Direct link">&#128279;</a>'
     +'<button class="mc-action-btn mc-action-dl" onclick="mcDownloadImage(\''+m.id+'\')">&#8659; Download card</button>'
     +'</div>'
-    +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>';
+    +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>'
+    +'</div>';
   return card;
 }
-function evHighlight(id){
-  showPage('evidence');
-  setTimeout(function(){var cards=document.querySelectorAll('#ev-grid .ev-card');EVIDENCE.forEach(function(e,i){if(e.id===id&&cards[i]){cards[i].scrollIntoView({behavior:'smooth',block:'center'});cards[i].style.outline='1.5px solid rgba(200,146,42,.7)';setTimeout(function(){if(cards[i])cards[i].style.outline='';},2500);}});},300);
+function mcJumpTo(id){
+  var card=document.getElementById('mc-card-'+id);
+  if(card){card.scrollIntoView({behavior:'smooth',block:'start'});card.style.outline='.5px solid var(--gold)';setTimeout(function(){card.style.outline='';},2000);}
 }
-function mcEsc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-
-
-// ── Contribute ──────────────────────────────────────────────────────
-var contribType='Evidence Source';
-function contribSetType(btn){contribType=btn.dataset.type;document.querySelectorAll('.contrib-type-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');}
-function submitContrib(){
-  var detail=document.getElementById('contrib-detail').value.trim();
-  if(!detail){contribSt('error','Please describe your contribution.');document.getElementById('contrib-detail').focus();return;}
-  var name=document.getElementById('contrib-name').value.trim(),url=document.getElementById('contrib-url').value.trim(),inst=document.getElementById('contrib-inst').value.trim(),why=document.getElementById('contrib-why').value.trim(),email=document.getElementById('contrib-email').value.trim(),btn=document.getElementById('contrib-submit');
-  btn.disabled=true;btn.textContent='Submitting…';contribSt('info','Submitting…');
-  var today=new Date().toISOString().slice(0,10);
-  var body=[
-    '╔══ THELINKPANDA CONTRIBUTION ══╗',
-    'TYPE:         '+contribType,
-    'DATE:         '+today,
-    'CONTRIBUTOR:  '+(name||'Anonymous'),
-    'CONTACT:      '+(email||'not provided'),
-    'INSTITUTION:  '+(inst||'not provided'),
-    'SOURCE URL:   '+(url||'not provided'),
-    '',
-    'CONTRIBUTION DETAILS:',
-    detail,
-    why?'\nWHY IT MATTERS:\n'+why:'',
-    '',
-    '╔══ ADMIN: PASTE BELOW INTO index.html MISCONCEPTIONS ARRAY AFTER REVIEW ══╗',
-    '{id:"mc-NEW",cat:"[CATEGORY]",title:"[TITLE]",myth:"[MYTH]",reality:"[REALITY]",status:"Verified Evidence-backed",statusCls:"mc-status-verified",confidence:90,tags:[],institutions:["'+(inst||'')+'"],ev:[],contributor:"'+(name||'Anonymous')+'",contributorScore:1,dateAdded:"'+today.slice(0,7)+'"}'
-  ].filter(Boolean).join('\n');
-  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:'ccad23bd-7896-4cf8-9859-516cac3b3f91',subject:'[TheLinkPanda Vault] '+contribType,name:name||'Anonymous',email:email||'vault@thelinkpanda.com',message:body})})
-  .then(function(r){return r.json();})
-  .then(function(d){
-    if(d.success){btn.style.display='none';['contrib-name','contrib-url','contrib-inst','contrib-detail','contrib-why','contrib-email'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});contribSt('success','✓ Contribution received. Thank you for strengthening the vault.');}
-    else{btn.disabled=false;btn.textContent='Submit contribution →';contribSt('error',d.message||'Failed. Please try again.');}
-  }).catch(function(){btn.disabled=false;btn.textContent='Submit contribution →';contribSt('error','Network error. Please try again.');});
+function mcHandleHash(){
+  var hash=window.location.hash.replace('#','');
+  if(!hash)return;
+  setTimeout(function(){mcJumpTo(hash);},100);
 }
-function contribSt(type,msg){var el=document.getElementById('contrib-status');if(!el)return;el.style.display='block';var c={info:'rgba(244,242,238,.3)',success:'rgba(80,200,120,.8)',error:'rgba(255,100,100,.8)'};var b={info:'rgba(244,242,238,.04)',success:'rgba(80,200,120,.08)',error:'rgba(255,100,100,.08)'};el.style.color=c[type];el.style.background=b[type];el.style.border='.5px solid '+(c[type]).replace('.8',',.18').replace('.3',',.12');el.textContent=msg;}
-
-
-// ── Nav More ──
-function navToggleMore(){var dd=document.getElementById('nav-more-dropdown');if(dd)dd.classList.toggle('open');}
-function navCloseMore(){var dd=document.getElementById('nav-more-dropdown');if(dd)dd.classList.remove('open');}
-document.addEventListener('click',function(e){var w=document.getElementById('nav-more-wrap');if(w&&!w.contains(e.target))navCloseMore();});
-
-
-// ── Contributor credit panel ──────────────────────────────────────────
-function mcBuildContributorPanel(){
-  var panel = document.getElementById('mc-contributors');
-  if(!panel) return;
-
-  // Aggregate contributors from approved entries
-  var contribs = {};
-  MISCONCEPTIONS.forEach(function(m){
-    if(!m.contributor) return;
-    var key = m.contributor;
-    if(!contribs[key]){
-      contribs[key] = {
-        name:    m.contributor,
-        handle:  m.contributorHandle || null,
-        score:   0,
-        count:   0
-      };
-    }
-    contribs[key].count++;
-    contribs[key].score += (m.contributorScore || 1);
+function mcCopyRebuttal(id){
+  var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
+  var line=m.tweetLine||m.reality.split('.')[0]+'.';
+  var text='Myth: "'+m.myth+'"\n\nReality: '+line+'\n\nthelinkpanda.com/misconceptions#'+m.id;
+  (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).catch(function(){
+    var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
   });
-
-  var list = Object.values(contribs).sort(function(a,b){ return b.score - a.score; });
-  if(!list.length){
-    panel.style.display = 'none';
-    return;
-  }
-
-  panel.style.display = 'block';
-  panel.innerHTML =
-    '<div style="font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:12px">COMMUNITY CONTRIBUTORS</div>'
-    + '<div style="display:flex;flex-wrap:wrap;gap:6px">'
-    + list.map(function(c){
-        var score_col = c.score >= 10 ? 'rgba(80,200,120,.85)' : c.score >= 5 ? 'rgba(200,146,42,.85)' : 'rgba(244,242,238,.4)';
-        return '<div style="display:flex;align-items:center;gap:6px;border:.5px solid var(--border);padding:5px 10px;background:var(--bg)">'
-          + '<span style="font-size:clamp(10px,.75vw,12px);color:var(--w80);font-family:var(--sans)">'
-          + mcEsc(c.name)
-          + (c.handle ? ' <span style="font-family:var(--mono);font-size:9px;color:var(--w20)">' + mcEsc(c.handle) + '</span>' : '')
-          + '</span>'
-          + '<span style="font-family:var(--mono);font-size:8px;color:'+score_col+';border:.5px solid '+score_col.replace('.85',',.2')+';padding:1px 5px">'
-          + c.count + ' contribution' + (c.count !== 1 ? 's' : '')
-          + '</span>'
-          + '</div>';
-      }).join('')
-    + '</div>'
-    + '<p style="font-size:clamp(9px,.65vw,10px);color:var(--w20);font-family:var(--mono);letter-spacing:.04em;margin-top:10px;line-height:1.6">All contributions reviewed and approved by TheLinkPanda before publication.</p>';
+  var btn=document.getElementById('copy-'+id);
+  if(btn){var orig=btn.textContent;btn.textContent='Copied \u2713';setTimeout(function(){btn.textContent=orig;},2000);}
 }
-
-
-// ── MC Download Image ─────────────────────────────────────────────
+function mcShareX(id){
+  var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
+  var url='thelinkpanda.com/misconceptions#'+m.id;
+  var line=m.tweetLine||m.reality.split('.')[0]+'.';
+  var myth=m.myth.length>120?m.myth.slice(0,119)+'\u2026':m.myth;
+  var tweet='\u274c \u201c'+myth+'\u201d\n\n\u2705 '+line+'\n\n'+url;
+  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(tweet),'_blank','noopener');
+}
 function mcDownloadImage(mcId){
-  var m=MISCONCEPTIONS.filter(function(x){return x.id===mcId;})[0];
-  if(!m)return;
-  var W=1200,H=675;
-  var cv=document.createElement('canvas');
-  cv.width=W;cv.height=H;
+  var m=MISCONCEPTIONS.filter(function(x){return x.id===mcId;})[0];if(!m)return;
+  var W=1200,H=675;var cv=document.createElement('canvas');cv.width=W;cv.height=H;
   var x=cv.getContext('2d');
-
-  // Palette
-  var BG='#07090D',BG2='#0D1117',GOLD='#C8922A',GOLD2='rgba(200,146,42,0.3)';
-  var RED='rgba(255,70,70,0.5)',REDBG='rgba(255,50,50,0.06)';
-  var GREEN='rgba(80,200,120,0.85)',AMBER='rgba(255,160,50,0.85)';
-  var W80='rgba(244,242,238,0.80)',W60='rgba(244,242,238,0.60)';
-  var W40='rgba(244,242,238,0.40)',W20='rgba(244,242,238,0.20)';
-  var BORDER='rgba(244,242,238,0.07)';
-
-  // Background
-  x.fillStyle=BG; x.fillRect(0,0,W,H);
-
-  // Top gold rule
-  x.fillStyle=GOLD; x.fillRect(0,0,W,3);
-
-  // Left red accent bar (full height, subtle)
-  x.fillStyle='rgba(255,70,70,0.12)'; x.fillRect(0,3,3,H-3);
-
-  // ── STATUS BADGE (top-left) ──
-  var statusCol=m.statusCls==='mc-status-verified'?GREEN
-    :m.statusCls==='mc-status-outdated'?AMBER:'rgba(150,150,150,0.8)';
-  x.font='600 10px monospace';
-  var bTxt=m.status.toUpperCase();
-  var bW=x.measureText(bTxt).width+20;
-  x.fillStyle=statusCol.replace('0.85','0.08').replace('0.8','0.08');
-  mcRoundRect(x,24,20,bW,21,3); x.fill();
-  x.strokeStyle=statusCol.replace('0.85','0.4').replace('0.8','0.4');
-  x.lineWidth=0.5;
-  mcRoundRect(x,24,20,bW,21,3); x.stroke();
-  x.fillStyle=statusCol; x.fillText(bTxt,34,34);
-
-  // ── CONFIDENCE (top-right) ──
-  var conf=m.confidence||0;
-  var cCol=conf>=90?GREEN:AMBER;
-  x.font='9px monospace'; x.fillStyle=W20; x.textAlign='right';
-  x.fillText('CONFIDENCE',W-24,31);
-  x.fillStyle='rgba(244,242,238,0.06)'; x.fillRect(W-134,36,100,2);
-  x.fillStyle=cCol; x.fillRect(W-134,36,Math.round(conf),2);
-  x.font='bold 11px monospace'; x.fillStyle=cCol;
-  x.fillText(conf,W-24,50);
-  x.textAlign='left';
-
-  // ── MYTH block ──
-  var mY=62;
-  // label
-  x.font='bold 9px monospace'; x.letterSpacing='0.16em';
-  x.fillStyle='rgba(255,110,110,0.7)'; x.fillText('MYTH',30,mY+14);
-  // wrap myth text first to know height
+  x.fillStyle='#07090D';x.fillRect(0,0,W,H);
+  x.fillStyle='#C8922A';x.fillRect(0,0,W,3);
+  x.fillStyle='rgba(255,70,70,0.12)';x.fillRect(0,3,3,H-3);
+  var sCol=m.statusCls==='mc-status-verified'?'rgba(80,200,120,0.85)':'rgba(255,160,50,0.85)';
+  x.font='600 10px monospace';var bTxt=m.status.toUpperCase();var bW=x.measureText(bTxt).width+20;
+  mcRoundRect(x,24,20,bW,21,3);x.fillStyle=sCol.replace('0.85','0.08');x.fill();
+  x.strokeStyle=sCol.replace('0.85','0.4');x.lineWidth=0.5;mcRoundRect(x,24,20,bW,21,3);x.stroke();
+  x.fillStyle=sCol;x.fillText(bTxt,34,34);
+  var conf=m.confidence||0;var cCol=conf>=90?'rgba(80,200,120,0.85)':'rgba(255,160,50,0.85)';
+  x.font='9px monospace';x.fillStyle='rgba(244,242,238,0.20)';x.textAlign='right';x.fillText('CONFIDENCE',W-24,31);
+  x.fillStyle='rgba(244,242,238,0.06)';x.fillRect(W-134,36,100,2);x.fillStyle=cCol;x.fillRect(W-134,36,Math.round(conf),2);
+  x.font='bold 11px monospace';x.fillStyle=cCol;x.fillText(conf,W-24,50);x.textAlign='left';
+  var mY=62;x.font='bold 9px monospace';x.fillStyle='rgba(255,110,110,0.7)';x.fillText('MYTH',30,mY+15);
   x.font='italic 300 21px Georgia,serif';
-  var mLines=mcWrap(x,'“'+m.myth+'”',30,W-56,30);
-  var mH=mLines.length*30+10;
-  // red bg
-  x.fillStyle=REDBG; x.fillRect(24,mY,W-48,mH+30);
-  x.fillStyle=RED; x.fillRect(24,mY,3,mH+30);
-  // re-draw label over bg
-  x.font='bold 9px monospace'; x.fillStyle='rgba(255,110,110,0.7)';
-  x.fillText('MYTH',30,mY+15);
-  // myth lines
-  x.font='italic 300 21px Georgia,serif'; x.fillStyle=W80;
+  var mLines=mcWrap(x,'\u201c'+m.myth+'\u201d',30,W-56,30);var mH=mLines.length*30+10;
+  x.fillStyle='rgba(255,50,50,0.06)';x.fillRect(24,mY,W-48,mH+30);x.fillStyle='rgba(255,70,70,0.5)';x.fillRect(24,mY,3,mH+30);
+  x.font='bold 9px monospace';x.fillStyle='rgba(255,110,110,0.7)';x.fillText('MYTH',30,mY+15);
+  x.font='italic 300 21px Georgia,serif';x.fillStyle='rgba(244,242,238,0.80)';
   mLines.forEach(function(ln,i){x.fillText(ln,30,mY+36+i*30);});
-
-  // ── REALITY block ──
-  var rY=mY+mH+46;
-  x.font='bold 9px monospace'; x.fillStyle='rgba(80,200,120,0.65)';
-  x.letterSpacing='0.16em'; x.fillText('REALITY',24,rY);
-  x.letterSpacing='0';
-  var rTxt=m.reality.length>240?m.reality.slice(0,237)+'…':m.reality;
-  x.font='14px -apple-system,sans-serif'; x.fillStyle=W60;
-  var rLines=mcWrap(x,rTxt,24,W-48,21);
-  rLines.forEach(function(ln,i){x.fillText(ln,24,rY+17+i*21);});
-  var rH=rLines.length*21+8;
-
-  // ── CHIPS ──
-  var cY=rY+rH+20;
-  var cX=24;
+  var rY=mY+mH+46;x.font='bold 9px monospace';x.fillStyle='rgba(80,200,120,0.65)';x.fillText('REALITY',24,rY);
+  var rTxt=m.reality.length>240?m.reality.slice(0,237)+'\u2026':m.reality;
+  x.font='14px -apple-system,sans-serif';x.fillStyle='rgba(244,242,238,0.60)';
+  var rLines=mcWrap(x,rTxt,24,W-48,21);rLines.forEach(function(ln,i){x.fillText(ln,24,rY+17+i*21);});
+  var cY2=rY+rLines.length*21+20,cX=24;
   (m.institutions||[]).slice(0,7).forEach(function(inst){
-    x.font='9px monospace';
-    var tw=x.measureText(inst).width;
-    var cw=tw+16;
-    if(cX+cw>W-24){cX=24;cY+=24;}
-    x.fillStyle='rgba(200,146,42,0.07)';
-    mcRoundRect(x,cX,cY-12,cw,19,2); x.fill();
-    x.strokeStyle='rgba(200,146,42,0.3)'; x.lineWidth=0.5;
-    mcRoundRect(x,cX,cY-12,cw,19,2); x.stroke();
-    x.fillStyle=GOLD; x.globalAlpha=0.85;
-    x.fillText(inst,cX+8,cY+1); x.globalAlpha=1;
-    cX+=cw+6;
+    x.font='9px monospace';var tw=x.measureText(inst).width;var cw=tw+16;
+    if(cX+cw>W-24){cX=24;cY2+=24;}
+    x.fillStyle='rgba(200,146,42,0.07)';mcRoundRect(x,cX,cY2-12,cw,19,2);x.fill();
+    x.strokeStyle='rgba(200,146,42,0.3)';x.lineWidth=0.5;mcRoundRect(x,cX,cY2-12,cw,19,2);x.stroke();
+    x.fillStyle='#C8922A';x.globalAlpha=0.85;x.fillText(inst,cX+8,cY2+1);x.globalAlpha=1;cX+=cw+6;
   });
-
-  // ── FOOTER ──
-  var fY=H-42;
-  x.fillStyle=BORDER; x.fillRect(0,fY-10,W,0.5);
-  x.fillStyle='rgba(7,9,13,0.9)'; x.fillRect(0,fY-10,W,52);
-  // left: hexagon + brand
-  x.font='bold 14px sans-serif'; x.fillStyle=GOLD; x.fillText('⬡ TheLinkPanda',24,fY+8);
-  x.font='10px monospace'; x.fillStyle=W40;
-  x.fillText('thelinkpanda.com/misconceptions',24,fY+24);
-  // right: @TheLinkPanda
-  x.textAlign='right';
-  x.font='10px monospace'; x.fillStyle=W20;
-  x.fillText('@TheLinkPanda on X',W-24,fY+8);
-  x.font='9px monospace'; x.fillStyle='rgba(200,146,42,0.5)';
-  x.fillText(m.id.toUpperCase(),W-24,fY+24);
-  x.textAlign='left';
-
-  // Download
-  var slug=m.id+'-'+m.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,38);
-  var a=document.createElement('a');
-  a.download='thelinkpanda-'+slug+'.png';
-  a.href=cv.toDataURL('image/png');
-  a.click();
+  var fY=H-42;x.fillStyle='rgba(244,242,238,0.07)';x.fillRect(0,fY-10,W,0.5);
+  x.fillStyle='rgba(7,9,13,0.9)';x.fillRect(0,fY-10,W,52);
+  x.font='bold 14px sans-serif';x.fillStyle='#C8922A';x.fillText('\u2b21 TheLinkPanda',24,fY+8);
+  x.font='10px monospace';x.fillStyle='rgba(244,242,238,0.40)';x.fillText('thelinkpanda.com/misconceptions',24,fY+24);
+  x.textAlign='right';x.font='10px monospace';x.fillStyle='rgba(244,242,238,0.20)';x.fillText('@TheLinkPanda on X',W-24,fY+8);
+  x.font='9px monospace';x.fillStyle='rgba(200,146,42,0.5)';x.fillText(m.id.toUpperCase(),W-24,fY+24);x.textAlign='left';
+  var slug2=m.id+'-'+m.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,38);
+  var a=document.createElement('a');a.download='thelinkpanda-'+slug2+'.png';a.href=cv.toDataURL('image/png');a.click();
 }
-
 function mcWrap(x,text,x0,maxW,lineH){
   var words=text.split(' '),lines=[],line='';
-  words.forEach(function(w){
-    var t=line?line+' '+w:w;
-    if(x.measureText(t).width>maxW&&line){lines.push(line);line=w;}
-    else{line=t;}
-  });
-  if(line)lines.push(line);
-  return lines;
+  words.forEach(function(w){var t=line?line+' '+w:w;if(x.measureText(t).width>maxW&&line){lines.push(line);line=w;}else{line=t;}});
+  if(line)lines.push(line);return lines;
 }
-
 function mcRoundRect(x,rx,ry,rw,rh,r){
-  x.beginPath();
-  x.moveTo(rx+r,ry);
-  x.lineTo(rx+rw-r,ry);x.arcTo(rx+rw,ry,rx+rw,ry+r,r);
+  x.beginPath();x.moveTo(rx+r,ry);x.lineTo(rx+rw-r,ry);x.arcTo(rx+rw,ry,rx+rw,ry+r,r);
   x.lineTo(rx+rw,ry+rh-r);x.arcTo(rx+rw,ry+rh,rx+rw-r,ry+rh,r);
-  x.lineTo(rx+r,ry+rh);x.arcTo(rx,ry+rh,rx,ry+rh-r,r);
-  x.lineTo(rx,ry+r);x.arcTo(rx,ry,rx+r,ry,r);
-  x.closePath();
+  x.lineTo(rx+r,ry+rh);x.arcTo(rx,ry+rh,rx,ry+rh-r,r);x.lineTo(rx,ry+r);x.arcTo(rx,ry,rx+r,ry,r);x.closePath();
 }
 
-// ── Home page init (runs regardless of route) ──
-buildFeatured();
-buildArt();
-buildHomeVideos();
-exInit();
+// ── Quote rendering ───────────────────────────────────────────────────
+function qtBuildFilters(){
+  var bar=document.getElementById('qt-filter-bar');if(!bar)return;
+  var cats=['All'];
+  QUOTES.forEach(function(q){if(q.category&&cats.indexOf(q.category)===-1)cats.push(q.category);});
+  bar.innerHTML=cats.map(function(c){
+    return'<button class="ev-filter'+(c==='All'?' active':'')+'" onclick="qtFilter(\''+c+'\',this)">'+escHtml(c)+'</button>';
+  }).join('');
+}
+function qtBuildGrid(cat){
+  var grid=document.getElementById('qt-grid');if(!grid)return;
+  var items=cat&&cat!=='All'?QUOTES.filter(function(q){return q.category===cat;}):QUOTES;
+  grid.innerHTML=items.map(function(q){
+    return'<div class="qt-card">'
+      +'<div class="qt-quote">&#8220;'+escHtml(q.quote)+'&#8221;</div>'
+      +'<div class="qt-attr">'
+      +'<span class="qt-person">'+escHtml(q.person)+'</span>'
+      +(q.role?'<span class="qt-role">, '+escHtml(q.role)+'</span>':'')
+      +(q.org?'<span class="qt-org"> &#8212; '+escHtml(q.org)+'</span>':'')
+      +'</div>'
+      +(q.source_url?'<a class="qt-src" href="'+q.source_url+'" target="_blank" rel="noopener">Source &#8594;</a>':'')
+      +'</div>';
+  }).join('');
+}
+function qtFilter(cat,btn){
+  document.querySelectorAll('#qt-filter-bar .ev-filter').forEach(function(b){b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  qtBuildGrid(cat);
+}
 
-// ── Initial route on load ──
+// ── Initial route + popstate ──────────────────────────────────────────
 (function(){
   var path=window.location.pathname;
   var qs=window.location.search;
-  var page=URL_PAGES[path]||'home';
+  var page=path.indexOf('/organizations/')===0?'org':(URL_PAGES[path]||'home');
   var filter=null;
-  if(qs){var m=qs.match(/[?&]filter=([^&]+)/);if(m)filter=decodeURIComponent(m[1]);}
-  // Replace state so the initial entry has page metadata
-  try{history.replaceState({page:page,filter:filter},'',window.location.pathname+window.location.search);}catch(e){}
+  if(qs){var mm=qs.match(/[?&]filter=([^&]+)/);if(mm)filter=decodeURIComponent(mm[1]);}
   showPage(page,filter,true);
+  if(page==='org'){var sl2=path.replace('/organizations/','');if(sl2&&sl2.length>1)orgShowInst(sl2);}
+  if(page==='evidence'){var ids2=evReadUrlIds();if(ids2)evRenderBanner();}
+
+  window.addEventListener('popstate',function(e){
+    var pp=window.location.pathname;
+    var pg=(e.state&&e.state.page)||(pp.indexOf('/organizations/')===0?'org':(URL_PAGES[pp]||'home'));
+    var fl=e.state&&e.state.filter;
+    if(pg==='evidence'){evState.evIds=(e.state&&e.state.evIds)||null;}
+    if(pg==='org'){var osl=(e.state&&e.state.slug)||pp.replace('/organizations/','');orgShowInst(osl);}
+    showPage(pg,fl,true);
+    if(pg==='evidence')evRenderBanner();
+  });
 })();
 </script>
 </body>
