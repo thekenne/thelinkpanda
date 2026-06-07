@@ -1733,15 +1733,19 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 /* ── Misconceptions page — tighter header ── */
 #page-misconceptions .ev-header{
-  padding:clamp(8px,.9vw,14px) clamp(32px,5vw,80px) clamp(6px,.6vw,10px);
+  padding:6px clamp(32px,5vw,80px) 4px;
 }
 #page-misconceptions .ev-header-inner{
-  gap:6px;
+  gap:4px;
 }
 #page-misconceptions .ev-title-row{
   margin-bottom:0;
 }
+#page-misconceptions .ev-title{
+  font-size:clamp(14px,1.1vw,17px);
+}
 
+#page-misconceptions .ev-filters{min-height:0;}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -2537,7 +2541,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <div class="ev-title">Common Misconceptions</div>
         <span class="ev-count" id="mc-count"></span>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:2px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
         <div class="ev-search-wrap" style="flex:1;min-width:200px;max-width:480px">
           <span class="ev-search-icon">⌕</span>
           <input class="ev-search" id="mc-search" type="text" placeholder="Search misconceptions…" oninput="mcSearch(this.value)" />
@@ -2553,7 +2557,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <div id="mc-contributors" style="display:none;padding:clamp(14px,1.4vw,20px) clamp(20px,2.4vw,40px);border-bottom:.5px solid var(--border);background:var(--bg2)"></div>
   
-  <div id="mc-latest" style="padding:clamp(10px,1vw,14px) clamp(20px,2.4vw,40px);border-bottom:.5px solid var(--border);background:var(--bg)"></div>
+  <div id="mc-latest" style="border-bottom:none;background:var(--bg)"></div>
 <div class="ev-body">
     <div class="ev-empty" id="mc-empty">NO MISCONCEPTIONS MATCH YOUR SEARCH</div>
     <div class="mc-grid" id="mc-grid"></div>
@@ -4418,6 +4422,7 @@ function mcBuildLatest(){
         +'<span class="mc-latest-cat">'+mcEsc(m.cat)+'</span>'
         +'<span class="mc-latest-title">'+mcEsc(m.title)+'</span></button>';
     }).join('')+'</div>';
+  if(sorted.length){el.style.padding='clamp(10px,1vw,14px) clamp(20px,2.4vw,40px)';el.style.borderBottom='.5px solid var(--border)';}
 }
 function mcJumpTo(id){
   mcState.tagFilter='all';mcState.search='';
