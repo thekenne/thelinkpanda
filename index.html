@@ -1707,6 +1707,26 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .x-cta-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:clamp(13px,.95vw,15px);letter-spacing:.04em;color:#08070a;background:var(--gold);padding:clamp(12px,1.1vw,16px) clamp(24px,2.4vw,36px);text-decoration:none;transition:background .2s,transform .15s;font-weight:500;margin-top:4px;}
 .x-cta-btn:hover{background:var(--gold2);transform:translateY(-1px)}
 
+
+/* ── MC enhancements ── */
+.mc-strength{font-size:clamp(9px,.65vw,11px);letter-spacing:-.02em;line-height:1;flex-shrink:0}
+.mc-actions{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;padding-top:10px;border-top:.5px solid var(--border)}
+.mc-action-btn{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.08em;color:var(--w40);border:.5px solid var(--border);background:none;padding:4px 10px;cursor:pointer;transition:color .15s,border-color .15s;text-decoration:none;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.mc-action-btn:hover{color:var(--w80);border-color:rgba(244,242,238,.25)}
+.mc-action-x{color:rgba(244,242,238,.5)}.mc-action-x:hover{color:var(--w);border-color:rgba(244,242,238,.3)}
+.mc-action-link{color:var(--w20);font-size:12px}
+.mc-related{margin-bottom:10px}
+.mc-related-lbl{font-family:var(--mono);font-size:clamp(7px,.5vw,8px);letter-spacing:.14em;color:var(--w20);margin-bottom:5px}
+.mc-related-btn{display:block;width:100%;text-align:left;background:none;border:none;border-left:1.5px solid rgba(244,242,238,.08);padding:3px 8px;font-size:clamp(10px,.72vw,12px);color:var(--w40);cursor:pointer;transition:color .15s,border-color .15s;margin-bottom:3px;font-family:var(--sans);line-height:1.35}
+.mc-related-btn:hover{color:var(--w80);border-left-color:var(--gold)}
+.mc-contrib-credit{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20);letter-spacing:.06em}
+.mc-latest-label{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:10px}
+.mc-latest-grid{display:flex;flex-wrap:wrap;gap:5px}
+.mc-latest-btn{font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.06em;color:var(--w40);border:.5px solid var(--border);background:none;padding:5px 10px;cursor:pointer;transition:all .15s;text-align:left}
+.mc-latest-btn:hover{color:var(--gold);border-color:rgba(200,146,42,.35)}
+.mc-latest-cat{font-size:7px;letter-spacing:.12em;color:var(--w20);display:block;margin-bottom:2px}
+.mc-latest-title{display:block}
+
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -2516,7 +2536,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div>
 
   <div id="mc-contributors" style="display:none;padding:clamp(14px,1.4vw,20px) clamp(20px,2.4vw,40px);border-bottom:.5px solid var(--border);background:var(--bg2)"></div>
-  <div class="ev-body">
+  
+  <div id="mc-latest" style="padding:clamp(10px,1vw,14px) clamp(20px,2.4vw,40px);border-bottom:.5px solid var(--border);background:var(--bg)"></div>
+<div class="ev-body">
     <div class="ev-empty" id="mc-empty">NO MISCONCEPTIONS MATCH YOUR SEARCH</div>
     <div class="mc-grid" id="mc-grid"></div>
   </div>
@@ -4219,7 +4241,7 @@ var MISCONCEPTIONS=[
 ];
 var mcState={search:'',tagFilter:'all'};
 var mcInited=false;
-function mcInit(){if(mcInited){mcRender();return;}mcInited=true;mcBuildTagFilters();mcRender();mcBuildContributorPanel();}
+function mcInit(){if(mcInited){mcRender();mcHandleHash();return;}mcInited=true;mcBuildTagFilters();mcRender();mcBuildContributorPanel();mcBuildLatest();mcHandleHash();}
 function mcBuildTagFilters(){
   var bar=document.getElementById('mc-tag-filters');if(!bar)return;
   var cats=[];MISCONCEPTIONS.forEach(function(m){if(cats.indexOf(m.cat)===-1)cats.push(m.cat);});cats.sort();
@@ -4244,9 +4266,87 @@ function mcRender(){
   if(!filtered.length){if(empty)empty.style.display='block';return;}if(empty)empty.style.display='none';
   filtered.forEach(function(m,i){grid.appendChild(mcBuildCard(m,i));});
 }
+
+function mcSlug(m){return m.id+'-'+m.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);}
+
+function mcEvStrength(m){
+  if(!m.ev||!m.ev.length)return 0;
+  var best=0;
+  m.ev.forEach(function(id){
+    var ev=EVIDENCE.filter(function(e){return e.id===id;})[0];if(!ev)return;
+    var v=ev.verification||'';var c=ev.confidence||0;
+    var score=c>=100?5:c>=90?4:c>=80?3:c>=70?2:1;
+    if(v==='Official Document'||v==='Official Video'||v==='Official Source')score=5;
+    if(score>best)best=score;
+  });
+  return best;
+}
+function mcStrengthHtml(score){
+  if(!score)return'';
+  var col=score>=5?'rgba(200,146,42,.9)':score>=4?'rgba(80,200,120,.8)':'rgba(255,180,60,.75)';
+  return'<div class="mc-strength" title="Evidence strength: '+score+'/5">'
+    +'<span style="color:'+col+'">'+'&#9733;'.repeat(score)+'</span>'
+    +'<span style="color:rgba(244,242,238,.15)">'+'&#9734;'.repeat(5-score)+'</span></div>';
+}
+
+function mcCopyRebuttal(id){
+  var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
+  var text='Myth: "'+m.myth+'"\n\nReality: '+m.reality+'\n\nthelinkpanda.com/misconceptions#'+mcSlug(m);
+  (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).catch(function(){
+    var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+  }).finally?null:null;
+  var btn=document.getElementById('copy-'+id);
+  if(btn){var orig=btn.textContent;btn.textContent='Copied \u2713';setTimeout(function(){btn.textContent=orig;},2000);}
+}
+function mcShareX(id){
+  var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
+  var tweet='Myth: "'+m.myth+'"\n\n'+m.reality+'\n\nthelinkpanda.com/misconceptions#'+mcSlug(m);
+  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(tweet.slice(0,270)),'_blank','noopener');
+}
+
+function mcRelated(m,n){
+  return MISCONCEPTIONS.filter(function(x){return x.id!==m.id;}).map(function(x){
+    var sc=0;if(x.cat===m.cat)sc+=3;
+    (m.tags||[]).forEach(function(t){if((x.tags||[]).indexOf(t)>-1)sc++;});
+    return{m:x,s:sc};
+  }).filter(function(x){return x.s>0;}).sort(function(a,b){return b.s-a.s;}).slice(0,n||3).map(function(x){return x.m;});
+}
+
+function mcBuildLatest(){
+  var el=document.getElementById('mc-latest');if(!el)return;
+  var sorted=MISCONCEPTIONS.slice().sort(function(a,b){
+    var da=a.dateAdded||'',db=b.dateAdded||'';
+    if(db!==da)return db>da?1:-1;
+    return parseInt(b.id.replace('mc-',''))-parseInt(a.id.replace('mc-',''));
+  }).slice(0,4);
+  el.innerHTML='<div class="mc-latest-label">LATEST ADDITIONS</div><div class="mc-latest-grid">'
+    +sorted.map(function(m){
+      return'<button class="mc-latest-btn" onclick="mcJumpTo(\''+m.id+'\')">'
+        +'<span class="mc-latest-cat">'+mcEsc(m.cat)+'</span>'
+        +'<span class="mc-latest-title">'+mcEsc(m.title)+'</span></button>';
+    }).join('')+'</div>';
+}
+function mcJumpTo(id){
+  mcState.tagFilter='all';mcState.search='';
+  document.querySelectorAll('#mc-tag-filters .ev-filter').forEach(function(b){b.classList.remove('active');});
+  var ab=document.querySelector('#mc-tag-filters .ev-filter');if(ab)ab.classList.add('active');
+  mcRender();
+  setTimeout(function(){
+    var el=document.getElementById('mc-card-'+id);
+    if(el){el.scrollIntoView({behavior:'smooth',block:'center'});
+      el.style.outline='1.5px solid rgba(200,146,42,.6)';setTimeout(function(){el.style.outline='';},2000);}
+  },100);
+}
+function mcHandleHash(){
+  var hash=window.location.hash.slice(1);if(!hash)return;
+  var mc=MISCONCEPTIONS.filter(function(m){return mcSlug(m)===hash||m.id===hash;})[0];
+  if(mc)setTimeout(function(){mcJumpTo(mc.id);},200);
+}
+
 function mcBuildCard(m,i){
-  var card=document.createElement('div');card.className='mc-card';
+  var card=document.createElement('div');card.className='mc-card';card.id='mc-card-'+m.id;
   card.style.animation='fadein .3s ease-out '+(i*0.02)+'s both';
+  var slug=mcSlug(m);
   var col=m.confidence>=90?'rgba(80,200,120,.85)':m.confidence>=70?'rgba(255,160,50,.85)':'rgba(150,150,150,.6)';
   var chips=(m.institutions||[]).map(function(inst){return '<span class="mc-chip">'+mcEsc(inst)+'</span>';}).join('');
   var evBtns=(m.ev||[]).slice(0,3).map(function(id){
@@ -4254,16 +4354,30 @@ function mcBuildCard(m,i){
     return '<button class="mc-ev-btn" onclick="evHighlight(\''+id+'\')">'+mcEsc(ev?ev.org:id)+'</button>';
   }).join('');
   var tagSpans=(m.tags||[]).map(function(t){return '<span class="mc-tag" onclick="mcSetTag(\''+mcEsc(t)+'\',null)">'+mcEsc(t)+'</span>';}).join('');
+  var strHtml=mcStrengthHtml(mcEvStrength(m));
+  var related=mcRelated(m,3);
+  var relHtml=related.length?'<div class="mc-related"><div class="mc-related-lbl">RELATED</div>'
+    +related.map(function(r){return'<button class="mc-related-btn" onclick="mcJumpTo(\''+r.id+'\')">'+mcEsc(r.title)+'</button>';}).join('')+'</div>':'';
+  var contrib=m.contributor&&m.contributor!=='TheLinkPanda'
+    ?'<span class="mc-contrib-credit">contrib: '+mcEsc(m.contributor)+'</span>'
+    :m.contributor==='TheLinkPanda'?'<span class="mc-contrib-credit" style="opacity:.25">TheLinkPanda</span>':'';
   card.innerHTML=
     '<div class="mc-top"><span class="mc-status '+m.statusCls+'">'+mcEsc(m.status.toUpperCase())+'</span>'
+    +'<div style="display:flex;align-items:center;gap:8px">'+strHtml
     +'<div class="mc-conf"><div class="mc-conf-track"><div class="mc-conf-fill" style="width:'+m.confidence+'%;background:'+col+'"></div></div>'
-    +'<span class="mc-conf-n" style="color:'+col+'">'+m.confidence+'</span></div></div>'
-    +'<div class="mc-myth-block"><div class="mc-myth-lbl">MYTH</div>“'+mcEsc(m.myth)+'”</div>'
+    +'<span class="mc-conf-n" style="color:'+col+'">'+m.confidence+'</span></div></div></div>'
+    +'<div class="mc-myth-block"><div class="mc-myth-lbl">MYTH</div>\u201c'+mcEsc(m.myth)+'\u201d</div>'
     +'<div class="mc-reality-block"><div class="mc-reality-lbl">REALITY</div><div class="mc-reality-txt">'+mcEsc(m.reality)+'</div></div>'
     +(chips?'<div class="mc-chips">'+chips+'</div>':'')
     +(evBtns?'<div class="mc-ev-row"><span class="mc-ev-lbl">EVIDENCE</span><div class="mc-ev-btns">'+evBtns+'</div>'
-      +'<button class="mc-more-btn" onclick="showPage(\'evidence\')">View evidence →</button></div>':'')
-    +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+(m.contributor?'<span style="font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20);letter-spacing:.06em">contrib: '+mcEsc(m.contributor)+'</span>':'')+'</div>';
+      +'<button class="mc-more-btn" onclick="showPage(\'evidence\')">View evidence \u2192</button></div>':'')
+    +relHtml
+    +'<div class="mc-actions">'
+      +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">\u29c9 Copy rebuttal</button>'
+      +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
+      +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+slug+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+slug+'\');return false;" title="Direct link">&#128279;</a>'
+    +'</div>'
+    +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>';
   return card;
 }
 function evHighlight(id){
