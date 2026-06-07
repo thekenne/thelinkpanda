@@ -1727,6 +1727,18 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mc-latest-cat{font-size:7px;letter-spacing:.12em;color:var(--w20);display:block;margin-bottom:2px}
 .mc-latest-title{display:block}
 
+
+/* ── Misconceptions page — tighter header ── */
+#page-misconceptions .ev-header{
+  padding:clamp(8px,.9vw,14px) clamp(32px,5vw,80px) clamp(6px,.6vw,10px);
+}
+#page-misconceptions .ev-header-inner{
+  gap:6px;
+}
+#page-misconceptions .ev-title-row{
+  margin-bottom:0;
+}
+
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -2520,8 +2532,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <div class="ev-title">Common Misconceptions</div>
         <span class="ev-count" id="mc-count"></span>
       </div>
-      <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.6;margin:4px 0 10px;max-width:680px">Evidence-based responses to recurring narratives and misunderstandings surrounding Chainlink, interoperability, tokenization, and digital asset infrastructure.</p>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:2px">
         <div class="ev-search-wrap" style="flex:1;min-width:200px;max-width:480px">
           <span class="ev-search-icon">⌕</span>
           <input class="ev-search" id="mc-search" type="text" placeholder="Search misconceptions…" oninput="mcSearch(this.value)" />
