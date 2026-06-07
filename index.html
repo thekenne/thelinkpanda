@@ -1813,6 +1813,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="nav-more-item" id="nl-art"          onclick="showPage('art');navCloseMore()">Art &amp; NFTs</button>
         <button class="nav-more-item" id="nl-about"        onclick="showPage('about');navCloseMore()">About</button>
         <button class="nav-more-item" id="nl-contribute"   onclick="showPage('contribute');navCloseMore()">Contribute</button>
+        <button class="nav-more-item" onclick="showPage('org');showOrg('dtcc');navCloseMore()">DTCC Profile</button>
+        <button class="nav-more-item" onclick="showPage('org');showOrg('swift');navCloseMore()">Swift Profile</button>
+        <button class="nav-more-item" onclick="showPage('org');showOrg('jpmorgan');navCloseMore()">J.P. Morgan Profile</button>
+        <button class="nav-more-item" onclick="showPage('org');showOrg('euroclear');navCloseMore()">Euroclear Profile</button>
       </div>
     </div>
   </div>
@@ -4247,7 +4251,8 @@ var INSTITUTIONS=[
   {slug:'citi',name:'Citi',full:'Citigroup / Citi Institute',role:'Global bank. Citi GPS projects $4-5T in tokenized assets by 2030.',evOrg:'Citi GPS',mcKey:'Citi',color:'rgba(200,80,60,0.85)'},
   {slug:'deutsche-borse',name:'Deutsche Borse',full:'Deutsche Borse Group',role:'German exchange. Compared Chainlink to Bloomberg and LSEG.',evOrg:'Deutsche B\u00f6rse Group',mcKey:'Deutsche B',color:'rgba(255,160,50,0.85)'},
   {slug:'google',name:'Google',full:'Google LLC / Alphabet Inc.',role:'Google Cloud is official Chainlink node operator. Eric Schmidt endorsed Chainlink.',evOrg:'Google',mcKey:'Google',color:'rgba(80,180,80,0.85)'},
-  {slug:'franklin-templeton',name:'Franklin Templeton',full:'Franklin Templeton Investments',role:'Global asset manager. Chainlink enables tokenized funds beyond money markets.',evOrg:'Franklin Templeton',mcKey:'Franklin',color:'rgba(60,160,255,0.85)'}
+  {slug:'franklin-templeton',name:'Franklin Templeton',full:'Franklin Templeton Investments',role:'Global asset manager. Chainlink enables tokenized funds beyond money markets.',evOrg:'Franklin Templeton',mcKey:'Franklin',color:'rgba(60,160,255,0.85)'},
+  {slug:'euroclear',name:'Euroclear',full:'Euroclear Group',role:'Global financial infrastructure provider for securities settlement. Head of Digital Assets at SmartCon 2024: Chainlink enables circular data distribution giving every participant access to the same golden record.',evOrg:'Euroclear',mcKey:'Euroclear',color:'rgba(120,180,255,0.85)'}
 ];
 var _ISM={};
 _ISM['DTCC']='dtcc';_ISM['SWIFT']='swift';_ISM['Swift']='swift';
