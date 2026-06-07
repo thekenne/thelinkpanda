@@ -4373,7 +4373,7 @@ function mcStrengthHtml(score){
 
 function mcCopyRebuttal(id){
   var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
-  var text='Myth: "'+m.myth+'"\n\nReality: '+m.reality+'\n\nthelinkpanda.com/misconceptions#'+mcSlug(m);
+  var text='Myth: "'+m.myth+'"\n\nReality: '+m.reality+'\n\nthelinkpanda.com/misconceptions#'+m.id;
   (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).catch(function(){
     var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
   }).finally?null:null;
@@ -4382,9 +4382,27 @@ function mcCopyRebuttal(id){
 }
 function mcShareX(id){
   var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
-  var tweet='Myth: "'+m.myth+'"\n\n'+m.reality+'\n\nthelinkpanda.com/misconceptions#'+mcSlug(m);
-  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(tweet.slice(0,270)),'_blank','noopener');
+  var MYTH_MAX=120,REALITY_MAX=130;
+  // First sentence of reality
+  var r=m.reality;
+  var fd=r.search(/[.!?](\s|$)/);
+  var fs=fd>0?r.slice(0,fd+1):r.slice(0,REALITY_MAX);
+  if(fs.length>REALITY_MAX)fs=fs.slice(0,REALITY_MAX-1)+'\u2026';
+  // Trim myth
+  var myth=m.myth.length>MYTH_MAX?m.myth.slice(0,MYTH_MAX-1)+'\u2026':m.myth;
+  // URL line (X counts as 23 chars)
+  var url='thelinkpanda.com/misconceptions#'+m.id;
+  // Build text block (must be <=257 raw chars so total X-count <=280)
+  var textOnly='\u274c \u201c'+myth+'\u201d\n\n\u2705 '+fs+'\n\n';
+  if(textOnly.length>257){
+    var over=textOnly.length-257;
+    fs=fs.slice(0,fs.length-over-1)+'\u2026';
+    textOnly='\u274c \u201c'+myth+'\u201d\n\n\u2705 '+fs+'\n\n';
+  }
+  var tweet=textOnly+url;
+  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(tweet),'_blank','noopener');
 }
+
 
 function mcRelated(m,n){
   return MISCONCEPTIONS.filter(function(x){return x.id!==m.id;}).map(function(x){
@@ -4457,7 +4475,7 @@ function mcBuildCard(m,i){
     +'<div class="mc-actions">'
       +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">\u29c9 Copy rebuttal</button>'
       +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
-      +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+slug+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+slug+'\');return false;" title="Direct link">&#128279;</a>'
+      +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+m.id+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+m.id+'\');return false;" title="Direct link">&#128279;</a>'
     +'<button class="mc-action-btn mc-action-dl" onclick="mcDownloadImage(\''+m.id+'\')">&#8659; Download card</button>'
     +'</div>'
     +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>';
