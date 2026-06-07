@@ -4311,29 +4311,37 @@ function evRender(){
 }
 function evBuildCard(e,i){
   var card=document.createElement('div');
-  card.className='ev-card';card.id='ev-card-'+e.id;
-  var typeLabel={'video':'Video','report':'Report','article':'Article','official':'Official','podcast':'Podcast','presentation':'Presentation'}[e.type]||e.type||'Source';
-  var confCol=e.confidence>=90?'var(--green)':'var(--amber)';
-  card.innerHTML=
-    '<div class="ev-card-head">'
-    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">'
-    +'<span class="ev-type-badge">'+escHtml(typeLabel)+'</span>'
-    +(e.verification?'<span class="ev-verify-badge">'+escHtml(e.verification)+'</span>':'')
-    +'<span style="margin-left:auto;font-family:var(--mono);font-size:9px;color:'+confCol+';letter-spacing:.08em">'+e.confidence+'%</span>'
+  card.className='ev-card';
+  card.id='ev-card-'+e.id;
+  // Type badge colour class
+  var typeCls='';
+  if(e.type==='report'||e.type==='presentation')typeCls=' ev-type-report';
+  else if(e.type==='video'||e.type==='podcast')typeCls=' ev-type-statement';
+  else if(e.type==='official'||e.type==='article')typeCls=' ev-type-announcement';
+  var typeLabel={'video':'VIDEO','report':'REPORT','article':'ARTICLE','official':'OFFICIAL',
+    'podcast':'PODCAST','presentation':'PRESENTATION'}[e.type]||(e.type||'SOURCE').toUpperCase();
+  var confCol=e.confidence>=90?'var(--green, rgba(80,200,120,0.85))':'var(--amber, rgba(255,160,50,0.85))';
+  // Build inner HTML using correct CSS class names
+  var topRow='<div class="ev-card-top">'
+    +'<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">'
+    +'<span class="ev-type-badge'+typeCls+'">'+escHtml(typeLabel)+'</span>'
+    +(e.verification?'<span class="ev-verified">&#10003; '+escHtml(e.verification)+'</span>':'')
     +'</div>'
-    +'<div class="ev-org">'+escHtml(e.org)+'</div>'
-    +(e.person?'<div class="ev-person">'+escHtml(e.person)+(e.role?'<span class="ev-role"> \u2014 '+escHtml(e.role)+'</span>':'')+'</div>':'')
-    +'<div class="ev-date">'+escHtml(e.date)+'</div>'
-    +'</div>'
-    +'<div class="ev-card-body">'
-    +'<div class="ev-title-text">'+escHtml(e.title)+'</div>'
-    +'<p class="ev-body-text">'+escHtml(e.body)+'</p>'
-    +(e.significance?'<div class="ev-sig"><span class="ev-sig-label">WHY IT MATTERS</span>'+escHtml(e.significance)+'</div>':'')
-    +'<div class="ev-card-foot">'
-    +(e.source_url?'<a class="ev-source-link" href="'+e.source_url+'" target="_blank" rel="noopener">'+escHtml(e.source_label||e.source_url)+'</a>':'')
-    +(e.tags&&e.tags.length?'<div class="ev-tags">'+e.tags.map(function(t){return'<span class="ev-tag">'+escHtml(t)+'</span>';}).join('')+'</div>':'')
-    +'</div>'
+    +'<span style="font-family:var(--mono);font-size:clamp(9px,.62vw,10px);color:'+confCol+';letter-spacing:.08em;flex-shrink:0">'+e.confidence+'%</span>'
     +'</div>';
+  var orgRow='<div class="ev-org">'+escHtml(e.org)+'</div>'
+    +(e.person?'<div class="ev-person">'+escHtml(e.person)+(e.role?'<span class="ev-role"> \u2014 '+escHtml(e.role)+'</span>':'')+'</div>':'')
+    +'<div class="ev-date">'+escHtml(e.date)+'</div>';
+  var bodyRow='<div class="ev-card-title">'+escHtml(e.title)+'</div>'
+    +(e.body?'<p class="ev-body-text">'+escHtml(e.body)+'</p>':'');
+  var sigRow=e.significance
+    ?'<div class="ev-significance"><span style="font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.18em;color:var(--gold);opacity:.65;display:block;margin-bottom:4px">WHY IT MATTERS</span>'+escHtml(e.significance)+'</div>'
+    :'';
+  var metaRow='<div class="ev-meta">'
+    +(e.source_url?'<a class="ev-source" href="'+e.source_url+'" target="_blank" rel="noopener">'+escHtml(e.source_label||e.source_url)+'</a>':'')
+    +(e.tags&&e.tags.length?'<div class="ev-card-tags">'+e.tags.map(function(t){return'<span class="ev-card-tag">'+escHtml(t)+'</span>';}).join('')+'</div>':'')
+    +'</div>';
+  card.innerHTML=topRow+orgRow+bodyRow+sigRow+metaRow;
   return card;
 }
 
@@ -4406,44 +4414,64 @@ function mcRender(){
 }
 function mcBuildCard(m,i){
   var card=document.createElement('div');
-  card.className='mc-card';card.id='mc-card-'+m.id;
+  card.className='mc-card';
+  card.id='mc-card-'+m.id;
+  // Institution chips
   var chips=(m.institutions||[]).map(function(inst){
     var sl=instSlug(inst);
     return sl?'<span class="mc-chip mc-chip-link" onclick="showOrg(\''+sl+'\')">'+mcEsc(inst)+'</span>'
              :'<span class="mc-chip">'+mcEsc(inst)+'</span>';
   }).join('');
+  // Evidence buttons (up to 3)
   var evBtns=(m.ev||[]).slice(0,3).map(function(id){
     var ev=EVIDENCE.filter(function(e){return e.id===id;})[0];
     if(!ev)return'';
     return'<button class="mc-ev-btn" onclick="evGoToMc(\''+m.id+'\')" title="'+mcEsc(ev.title)+'">'+mcEsc(ev.org)+'</button>';
   }).join('');
   var tagSpans=(m.tags||[]).map(function(t){return'<span class="mc-tag">'+mcEsc(t)+'</span>';}).join('');
-  var contrib=m.contributor?'<div class="mc-contrib">&#9679; '+mcEsc(m.contributor)+'</div>':'';
-  card.innerHTML=
-    '<div class="mc-card-head">'
-    +'<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">'
-    +'<span class="'+m.statusCls+'">'+mcEsc(m.status)+'</span>'
-    +'<span style="margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:.08em">'+m.confidence+'%</span>'
+  var contrib=m.contributor?'<div class="mc-contrib-credit">&#9679; '+mcEsc(m.contributor)+'</div>':'';
+  // Confidence bar
+  var conf=m.confidence||0;
+  var confCol=conf>=90?'rgba(80,200,120,0.85)':'rgba(255,160,50,0.85)';
+  // Top row: status + confidence
+  var topRow='<div class="mc-card-top">'
+    +'<span class="mc-status '+m.statusCls+'">'+mcEsc(m.status)+'</span>'
+    +'<div class="mc-conf-wrap">'
+    +'<div class="mc-conf-track" style="width:60px;height:2px;background:rgba(244,242,238,0.08);position:relative">'
+    +'<div style="position:absolute;top:0;left:0;height:100%;width:'+conf+'%;background:'+confCol+'"></div>'
     +'</div>'
-    +'<div class="mc-cat">'+mcEsc(m.cat)+'</div>'
-    +'<div class="mc-title">'+mcEsc(m.title)+'</div>'
+    +'<span style="font-family:var(--mono);font-size:clamp(9px,.62vw,10px);color:'+confCol+';letter-spacing:.06em">'+conf+'%</span>'
     +'</div>'
-    +'<div class="mc-card-body">'
-    +'<div class="mc-myth-label">MYTH</div>'
-    +'<div class="mc-myth">&#8220;'+mcEsc(m.myth)+'&#8221;</div>'
-    +'<div class="mc-reality-label">REALITY</div>'
-    +'<div class="mc-reality">'+mcEsc(m.reality)+'</div>'
-    +(chips?'<div class="mc-chips">'+chips+'</div>':'')
-    +(evBtns?'<div class="mc-ev-row"><span class="mc-ev-lbl">EVIDENCE</span><div class="mc-ev-btns">'+evBtns+'</div>'
-      +'<button class="mc-more-btn" onclick="evGoToMc(\''+m.id+'\')" data-mc="'+m.id+'">View evidence &#8594;</button></div>':'')
-    +'<div class="mc-actions">'
+    +'</div>';
+  // Category + title
+  var headRow='<div style="font-family:var(--mono);font-size:clamp(8px,.54vw,9px);letter-spacing:.14em;color:var(--gold);opacity:.65;margin-bottom:4px">'+mcEsc(m.cat)+'</div>'
+    +'<div style="font-size:clamp(14px,1vw,16px);font-weight:500;color:var(--w80, rgba(244,242,238,0.80));margin-bottom:clamp(12px,1.2vw,18px)">'+mcEsc(m.title)+'</div>';
+  // Myth block
+  var mythBlock='<div class="mc-myth-block">'
+    +'<div class="mc-myth-lbl">MYTH</div>'
+    +'<div style="font-family:var(--serif);font-size:clamp(15px,1.1vw,17px);font-style:italic;font-weight:300;color:rgba(244,242,238,0.80);line-height:1.55">&#8220;'+mcEsc(m.myth)+'&#8221;</div>'
+    +'</div>';
+  // Reality block
+  var realityBlock='<div class="mc-reality-block">'
+    +'<div class="mc-reality-lbl">REALITY</div>'
+    +'<div class="mc-reality-txt">'+mcEsc(m.reality)+'</div>'
+    +'</div>';
+  // Chips row
+  var chipsRow=chips?'<div class="mc-chips">'+chips+'</div>':'';
+  // Evidence row
+  var evRow=evBtns?'<div class="mc-ev-row"><span class="mc-ev-lbl">EVIDENCE</span>'
+    +'<div class="mc-ev-btns">'+evBtns+'</div>'
+    +'<button class="mc-more-btn" onclick="evGoToMc(\''+m.id+'\')" data-mc="'+m.id+'">View evidence &#8594;</button></div>':'';
+  // Actions
+  var actions='<div class="mc-actions">'
     +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">&#10825; Copy rebuttal</button>'
     +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
     +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+m.id+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+m.id+'\');return false;" title="Direct link">&#128279;</a>'
     +'<button class="mc-action-btn mc-action-dl" onclick="mcDownloadImage(\''+m.id+'\')">&#8659; Download card</button>'
-    +'</div>'
-    +'<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>'
     +'</div>';
+  // Footer
+  var footer='<div class="mc-foot"><div class="mc-tags">'+tagSpans+'</div>'+contrib+'</div>';
+  card.innerHTML=topRow+headRow+mythBlock+realityBlock+chipsRow+evRow+actions+footer;
   return card;
 }
 function mcJumpTo(id){
