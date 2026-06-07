@@ -3815,6 +3815,32 @@ window.addEventListener('popstate',function(e){
 
 
 // ── Mobile menu ──
+
+function navToggleMore(){
+  var dd=document.getElementById('nav-more-dropdown');
+  var btn=document.getElementById('nav-more-btn');
+  if(!dd)return;
+  var open=dd.style.display==='block';
+  dd.style.display=open?'none':'block';
+  if(btn)btn.classList.toggle('active',!open);
+  if(!open){
+    // close on outside click
+    setTimeout(function(){
+      document.addEventListener('click',function _close(e){
+        var wrap=document.getElementById('nav-more-wrap');
+        if(wrap&&!wrap.contains(e.target)){navCloseMore();}
+        document.removeEventListener('click',_close);
+      });
+    },0);
+  }
+}
+function navCloseMore(){
+  var dd=document.getElementById('nav-more-dropdown');
+  var btn=document.getElementById('nav-more-btn');
+  if(dd)dd.style.display='none';
+  if(btn)btn.classList.remove('active');
+}
+
 function toggleMobileMenu(){
   var drawer  = document.getElementById('mob-drawer');
   var overlay = document.getElementById('mob-overlay');
