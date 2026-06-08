@@ -746,7 +746,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .ev-filter:last-child{border-right:none}
 .ev-filter:hover{color:var(--w80);background:var(--w06)}
 .ev-filter.active{color:var(--gold);background:var(--gold3)}
-.ev-tags-row{display:flex;gap:4px;flex-wrap:wrap;}
+.ev-tags-row{display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;mask-image:linear-gradient(to right,black 85%,transparent 100%);-webkit-mask-image:linear-gradient(to right,black 85%,transparent 100%);}.ev-tags-row::-webkit-scrollbar{display:none}
 .ev-tag-btn{background:none;border:.5px solid var(--border);cursor:pointer;font-family:var(--mono);font-size:clamp(7px,.52vw,9px);letter-spacing:.1em;color:var(--w20);padding:2px 8px;transition:all .15s;white-space:nowrap;}
 .ev-tag-btn:hover{border-color:rgba(200,146,42,.3);color:var(--gold);background:var(--gold3)}
 .ev-tag-btn.active{border-color:rgba(200,146,42,.55);color:var(--gold);background:var(--gold3)}
@@ -1766,6 +1766,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .org-tl-year{font-family:var(--mono);font-size:clamp(9px,.62vw,10px);letter-spacing:.1em;color:var(--gold);opacity:.8;padding-top:2px}
 .org-tl-event{font-size:clamp(12px,.85vw,14px);color:var(--w60);line-height:1.55}
 
+
+.ev-tags-row .ev-filter{flex-shrink:0}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
