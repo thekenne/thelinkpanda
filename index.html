@@ -1766,6 +1766,29 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .org-tl-year{font-family:var(--mono);font-size:clamp(9px,.62vw,10px);letter-spacing:.1em;color:var(--gold);opacity:.8;padding-top:2px}
 .org-tl-event{font-size:clamp(12px,.85vw,14px);color:var(--w60);line-height:1.55}
 
+
+/* ── Patents page ── */
+.pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:clamp(12px,1.2vw,20px)}
+.pat-card{background:var(--bg2);border:.5px solid var(--border);display:flex;flex-direction:column}
+.pat-card-head{padding:clamp(16px,1.6vw,24px) clamp(16px,1.6vw,24px) clamp(12px,1.2vw,18px);border-bottom:.5px solid var(--border)}
+.pat-card-body{padding:clamp(16px,1.6vw,24px);flex:1;display:flex;flex-direction:column;gap:clamp(10px,1vw,14px)}
+.pat-number{font-family:var(--mono);font-size:clamp(9px,.62vw,10px);letter-spacing:.12em;color:var(--gold)}
+.pat-status-granted{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);letter-spacing:.12em;padding:2px 8px;background:rgba(80,200,120,0.08);border:.5px solid rgba(80,200,120,0.35);color:rgba(80,200,120,0.85)}
+.pat-status-pending{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);letter-spacing:.12em;padding:2px 8px;background:rgba(255,160,50,0.08);border:.5px solid rgba(255,160,50,0.35);color:rgba(255,160,50,0.85)}
+.pat-status-application{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);letter-spacing:.12em;padding:2px 8px;background:rgba(200,146,42,0.08);border:.5px solid rgba(200,146,42,0.3);color:var(--gold)}
+.pat-title{font-size:clamp(13px,.9vw,15px);font-weight:500;color:var(--w80);line-height:1.4}
+.pat-meta{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);color:var(--w20);margin-top:6px}
+.pat-product-label,.pat-plain-label{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.16em;color:var(--w20)}
+.pat-product-label{color:rgba(200,146,42,0.65)}
+.pat-product{font-size:clamp(12px,.82vw,13px);color:var(--w60)}
+.pat-plain{font-size:clamp(12px,.82vw,13px);color:var(--w40);line-height:1.65}
+.pat-inventors{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);color:var(--w20)}
+.pat-foot{margin-top:auto;display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:.5px solid var(--border)}
+.pat-source-link{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);color:rgba(200,146,42,0.7);text-decoration:none;word-break:break-all;transition:color .15s}
+.pat-source-link:hover{color:var(--gold)}
+.pat-tags{display:flex;flex-wrap:wrap;gap:4px}
+@media(max-width:768px){.pat-grid{grid-template-columns:1fr}}
+
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -1820,6 +1843,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="nav-more-item" id="nl-videos"       onclick="showPage('videos');navCloseMore()">Videos</button>
         <button class="nav-more-item" id="nl-art"          onclick="showPage('art');navCloseMore()">Art &amp; NFTs</button>
         <button class="nav-more-item" id="nl-about"        onclick="showPage('about');navCloseMore()">About</button>
+        <button class="nav-more-item" onclick="showPage('patents');navCloseMore()">Patent Registry</button>
         <button class="nav-more-item" id="nl-contribute"   onclick="showPage('contribute');navCloseMore()">Contribute</button>
         <button class="nav-more-item" onclick="showPage('org');showOrg('dtcc');navCloseMore()">DTCC Profile</button>
         <button class="nav-more-item" onclick="showPage('org');showOrg('swift');navCloseMore()">Swift Profile</button>
@@ -2240,6 +2264,23 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div id="org-mc-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">RELATED MISCONCEPTIONS</div><div class="mc-grid" id="org-mc-grid" style="margin-top:0"></div></div>
     <div id="org-qt-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">QUOTES</div><div class="qt-grid" id="org-qt-grid"></div></div>
     <div id="org-vid-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">RELATED VIDEOS</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px" id="org-vid-grid"></div></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar"><a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a><a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a><a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a></div>
+  </footer>
+</div>
+
+<div class="page" id="page-patents">
+  <div class="ev-header"><div class="ev-header-inner">
+    <div class="ev-title-row"><div class="ev-title">Patent &amp; IP Registry</div>
+    <span style="font-family:var(--mono);font-size:clamp(9px,.62vw,10px);color:var(--w40)">SmartContract Chainlink Limited SEZC</span></div>
+    <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.6;margin:4px 0 0;max-width:680px">Verified USPTO-granted patents and applications. All entries confirmed against official USPTO records, Google Patents, and Justia. Source links provided for every entry.</p>
+  </div></div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px)">
+    <div class="org-section-label" style="margin-bottom:clamp(16px,1.6vw,24px)">GRANTED PATENTS &amp; APPLICATIONS</div>
+    <div id="patents-grid" class="pat-grid"></div>
   </div>
   <footer>
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
@@ -3784,10 +3825,10 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org'];
+var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents'];
 // ── Page → URL map ──
 var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work'};
-var URL_PAGES={'/':'home','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
+var URL_PAGES={'/':'home','/patents':'patents','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 function showPage(page,filter,noPush){
   // Activate page
@@ -3804,6 +3845,7 @@ function showPage(page,filter,noPush){
   if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}
   if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','').replace('/institutions/','');if(_osl&&_osl.length>1&&_osl!=='org')orgShowInst(_osl);}
   if(page==='home'){buildResearchStats();buildLatestUpdates();}
+  if(page==='patents'){patentsInit();}
   if(page==='misconceptions'){mcInit();}
   if(page==='art')buildArt();
   if(page==='videos')buildVideosPage();
@@ -4115,7 +4157,11 @@ var EVIDENCE=[
   {id:'ev-032',type:'report',date:'2024-05',org:'DTCC',person:'DTCC Digital Assets',role:'Financial Market Infrastructure',title:'Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain',body:'DTCC completed the Smart NAV industry pilot using Chainlink CCIP as the interoperability layer to deliver trusted, verifiable net asset value (NAV) data across virtually any public or private blockchain. 10 major institutions participated: American Century Investments, BNY Mellon, Edward Jones, Franklin Templeton, Invesco, JPMorgan, MFS Investment Management, Mid Atlantic Trust, State Street, and U.S. Bank.',source_url:'https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf',source_label:'DTCC Smart NAV Pilot Report — May 2024 (dtcc.com)',source_type:'Official Report',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Published May 16, 2024. DTCC used CCIP as a secure blockchain abstraction layer. DTCC described CCIP as the only cross-chain protocol offering defense-in-depth security and a Risk Management Network.',tags:['DTCC','Smart NAV','CCIP','NAV','Tokenisation','Fund Data','BNY Mellon','JPMorgan','Franklin Templeton'],nodes:['dtcc','marketdata'],significance:'10 of the world\'s largest financial institutions used Chainlink CCIP in a live pilot. Simultaneously refutes: institutions don\'t use Chainlink, CCIP has no adoption, and tokenization doesn\'t need interoperability.'},
   {id:'ev-033',type:'report',date:'2025-09',org:'DTCC',person:'Dan Doney',role:'Managing Director & CTO, DTCC Digital Assets',title:'24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem',body:'Chainlink led an initiative with 24 financial institutions to standardize corporate actions processing using oracles, blockchain, and AI. Achieved near 100% data consensus. Participants: DTCC, Swift, Euroclear, UBS, BNP Paribas, DBS Bank, ANZ, Wellington Management, Schroders, and 15 others. CRE validated AI outputs, CCIP distributed records across DTCC\'s blockchain and public chains. System translates outputs into ISO 20022 messages via Swift.',source_url:'https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html',source_label:'PRNewswire — Chainlink and 24 Financial Market Participants: $58B Corporate Actions Initiative (Sep 2025)',source_type:'Press Release',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Announced September 29, 2025. The $58 billion annual cost estimate comes from Citi\'s 2025 Asset Servicing report. Dan Doney: This ability to bridge between legacy systems and the new blockchain rails is a critical enabler.',tags:['DTCC','Corporate Actions','CRE','CCIP','Swift','Euroclear','ISO 20022','AI','Capital Markets'],nodes:['dtcc','swift'],significance:'24 institutions including DTCC, Swift, and Euroclear using CRE and CCIP simultaneously for production-grade capital markets infrastructure. Near 100% data consensus achieved.'},
   {id:'ev-034',type:'report',date:'2026-05',org:'DTCC',person:'Nadine Chakar',role:'Global Head of DTCC Digital Assets',title:'DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management',body:'DTCC announced its Collateral AppChain will leverage the Chainlink Runtime Environment (CRE) and Chainlink data standard for orchestration, data delivery, and automation. The platform targets near real-time, 24/7 collateral management across global markets and multiple blockchains. Nadine Chakar: The integration of Chainlink\'s CRE and data standard will allow us to deliver a unified on-chain environment, bringing on-chain asset prices, valuations and other collateral agreement data to support this transformative industry initiative. Production launch expected Q4 2026.',source_url:'https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management',source_label:'DTCC.com — DTCC Collaborates with Chainlink to Advance 24/7 Collateral Management (May 2026)',source_type:'Official Announcement',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Announced May 12, 2026. DTCC processes $4.7 quadrillion annually. Sergey Nazarov: Collateral management is the killer app that traditional finance has been waiting for from our industry. Q4 2026 production launch.',tags:['DTCC','CRE','Collateral','AppChain','Data Standard','Settlement','Production'],nodes:['dtcc'],significance:'DTCC using Chainlink CRE as orchestration layer for production-scale collateral management. Q4 2026 production launch. Not a pilot.'},
-  {id:'ev-035',type:'report',date:'2026-03',org:'SoSoValue / Arcamids',person:'SoSoValue',role:'ETF Flow Analytics',title:'US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present',body:'US-based spot Chainlink (LINK) ETFs have recorded net inflows every single week since their December 2025 launch. Not one week of net outflows has been recorded. Weekly inflows ranged between $2 million and $5 million. The ETFs collectively hold approximately $123M in assets, representing ~1.26% of LINK\'s total market capitalization. For comparison: Bitcoin ETFs recorded $357.69M in net outflows on December 15 alone. Ethereum ETFs saw $224.78M exit on the same day. LINK ETF products have not experienced this pattern.',source_url:'https://x.com/arcamids/status/2063917450505118191',source_label:'Arcamids (@arcamids) on X — LINK ETF zero outflows since launch (Mar 2026) \u00b7 AMBCrypto: chainlink-etfs-see-zero-outflows-since-december \u00b7 SoSoValue ETF flow data',source_type:'Market Data',verification:'Multiple Independent Sources',confidence:88,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'First spot LINK ETF launched December 2, 2025 on NYSE Arca (Grayscale Chainlink Trust). On launch day: $37.05M inflows. Since then: zero net outflow weeks. Grayscale product alone accumulated $54.69M net inflows as of Dec 2025. Total ETF complex: $123M AUM, 3.65M LINK held in reserve. Top 100 wallets acquired 20.46M LINK since November 2025 worth ~$263M (Santiment). Context: the zero-outflow streak has continued through a period where LINK price fell from mid-$20s to single digits — investors did not exit despite drawdown.',tags:['Market Structure','ETF','Accumulation','Institutional','LINK Token','SoSoValue','Grayscale'],nodes:['marketdata'],significance:'Most ETF products experience outflow periods. The zero-outflow streak across all US LINK ETF products since launch — through a significant price drawdown — is statistically unusual. It indicates investors are allocating and holding rather than rotating capital. Compare: BTC ETFs and ETH ETFs both experienced hundreds of millions in outflows during the same period.'}];
+  {id:'ev-035',type:'report',date:'2026-03',org:'SoSoValue / Arcamids',person:'SoSoValue',role:'ETF Flow Analytics',title:'US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present',body:'US-based spot Chainlink (LINK) ETFs have recorded net inflows every single week since their December 2025 launch. Not one week of net outflows has been recorded. Weekly inflows ranged between $2 million and $5 million. The ETFs collectively hold approximately $123M in assets, representing ~1.26% of LINK\'s total market capitalization. For comparison: Bitcoin ETFs recorded $357.69M in net outflows on December 15 alone. Ethereum ETFs saw $224.78M exit on the same day. LINK ETF products have not experienced this pattern.',source_url:'https://x.com/arcamids/status/2063917450505118191',source_label:'Arcamids (@arcamids) on X — LINK ETF zero outflows since launch (Mar 2026) \u00b7 AMBCrypto: chainlink-etfs-see-zero-outflows-since-december \u00b7 SoSoValue ETF flow data',source_type:'Market Data',verification:'Multiple Independent Sources',confidence:88,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'First spot LINK ETF launched December 2, 2025 on NYSE Arca (Grayscale Chainlink Trust). On launch day: $37.05M inflows. Since then: zero net outflow weeks. Grayscale product alone accumulated $54.69M net inflows as of Dec 2025. Total ETF complex: $123M AUM, 3.65M LINK held in reserve. Top 100 wallets acquired 20.46M LINK since November 2025 worth ~$263M (Santiment). Context: the zero-outflow streak has continued through a period where LINK price fell from mid-$20s to single digits — investors did not exit despite drawdown.',tags:['Market Structure','ETF','Accumulation','Institutional','LINK Token','SoSoValue','Grayscale'],nodes:['marketdata'],significance:'Most ETF products experience outflow periods. The zero-outflow streak across all US LINK ETF products since launch — through a significant price drawdown — is statistically unusual. It indicates investors are allocating and holding rather than rotating capital. Compare: BTC ETFs and ETH ETFs both experienced hundreds of millions in outflows during the same period.'},
+  {id:'ev-036',type:'official',date:'2023-12',org:'USPTO',person:'Sergey Nazarov / Steve Ellis / Ari Juels',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US11854101 — Decentralized oracle order-matching patent granted',body:'USPTO granted US11854101 to SmartContract Chainlink Limited SEZC, covering the core Chainlink oracle architecture: smart contracts publishing data requirements on-chain, competing providers bidding on fulfillment, and multi-source aggregation into a trusted result. Filed August 2019, granted December 26, 2023.',source_url:'https://patents.justia.com/patent/11854101',source_label:'USPTO US11854101 — SmartContract Chainlink Limited SEZC (granted Dec 26, 2023)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This is the foundational patent protecting Chainlink\'s decentralized oracle order-matching system. Inventors include Sergey Nazarov, Steve Ellis, and Ari Juels — the original Chainlink whitepaper authors.',tags:['Patent','Oracle Networks','Decentralization','Infrastructure','IP'],nodes:['marketdata'],significance:'A granted USPTO patent on the core oracle architecture means Chainlink has formal IP protection over the decentralized order-matching approach that powers Data Feeds. Oracles are not commoditized — the architecture is patented.'},
+  {id:'ev-037',type:'official',date:'2024-08',org:'USPTO',person:'Sergey Nazarov / Alex Coventry / Steve Ellis / Ari Juels / Lorenz Breidenbach',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US12062037 — Secure state machine with off-chain oracle switching granted',body:'USPTO granted US12062037 covering a smart contract system where behavior is controlled by an off-chain oracle monitoring real-world switch parameters. Filed July 2020, granted August 13, 2024. When the oracle reports a trigger condition, the on-chain contract automatically changes state and executes payments.',source_url:'https://patents.justia.com/patent/12062037',source_label:'USPTO US12062037 — SmartContract Chainlink Limited SEZC (granted Aug 13, 2024)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent protects the mechanism underlying Chainlink Automation — the ability to trigger on-chain smart contract state changes based on off-chain conditions reported by an oracle. Co-invented by Lorenz Breidenbach, Ari Juels, Steve Ellis, Alex Coventry, and Sergey Nazarov.',tags:['Patent','Automation','Smart Contracts','Off-Chain Computation','IP'],nodes:['marketdata'],significance:'Chainlink holds a granted patent on oracle-triggered smart contract state machines — the core mechanism behind Chainlink Automation and condition-based contract execution.'},
+  {id:'ev-038',type:'official',date:'2025-12',org:'USPTO',person:'Sergey Nazarov / Alex Coventry / Ari Juels',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US12494909 — Verifiable randomness (VRF) for decentralized computing granted',body:'USPTO granted US12494909 covering the production of verifiable random values within a decentralized oracle network. An oracle applies a private key to an unpredictable seed to produce a random value and a cryptographic proof of correctness that any party can verify on-chain. Filed May 11, 2021, granted December 9, 2025.',source_url:'https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html',source_label:'USPTO Official Gazette US12494909 — SmartContract Chainlink Limited SEZC (granted Dec 9, 2025)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent protects Chainlink VRF — the verifiable random function used by gaming applications, NFT projects, and any protocol requiring provably fair randomness. The proof is published and verified on-chain before any application can use the random value. Priority date May 2020.',tags:['Patent','VRF','Randomness','Cryptography','Gaming','NFT','IP'],nodes:['marketdata'],significance:'Chainlink holds a granted USPTO patent on on-chain verifiable randomness. Any competitor replicating VRF\'s on-chain proof approach faces patent infringement risk. The patent was first filed in May 2021 with priority to May 2020.'},
+  {id:'ev-039',type:'official',date:'2025',org:'USPTO',person:'Chainlink Labs',role:'Applicant — SmartContract Chainlink Limited SEZC',title:'US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published',body:'USPTO published patent application US20250342426 titled Systems and Methods for Risk Management Networks, filed by SmartContract Chainlink Limited SEZC. The system describes an independent validation layer for cross-chain transactions that treats all blockchains as potentially hostile by default. RMN nodes independently reconstruct Merkle trees, bless valid transactions, and curse (pause) cross-chain processing when anomalies are detected.',source_url:'https://patents.justia.com/patent/20250342426',source_label:'USPTO Application US20250342426 — SmartContract Chainlink Limited SEZC (published 2025, Justia)',source_type:'Patent Application',verification:'Official Document',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent application covers the CCIP Risk Management Network — the independent secondary layer that makes CCIP fundamentally different from token bridges. The patent notes that as of late 2023, over $2 billion in value had been lost to cross-chain bridge exploits. The RMN is specifically engineered to prevent those classes of attacks.',tags:['Patent','CCIP','Risk Management','Security','Cross-Chain','Bridge Security','IP'],nodes:['marketdata'],significance:'CCIP is not a bridge. It is a patented cross-chain security system with an independent Risk Management Network. This patent application is the technical evidence that CCIP\'s security model is a novel, IP-protected invention — not a commodity bridge protocol.'}];
 
 var MISCONCEPTIONS=[
   {id:'mc-001',cat:'Oracle & Infrastructure',title:'Chainlink is just price feeds',myth:'Chainlink is only used for DeFi price feeds.',reality:'Chainlink runs 12 distinct services: CCIP, Proof of Reserve, Automation, Functions, VRF, Data Streams, DECO, and the Runtime Environment. DTCC, Swift, and JPMorgan use Chainlink — none for price feeds.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:98,tags:['Technology','Infrastructure'],institutions:['DTCC','Swift','JPMorgan'],ev:['ev-001','ev-003','ev-004'],tweetLine:'Chainlink runs 12 services. DTCC, Swift, and JPMorgan all use Chainlink — none of them for price feeds.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
@@ -4162,7 +4208,10 @@ var MISCONCEPTIONS=[
   {id:'mc-041',cat:'Institutions',title:'DTCC is not using Chainlink',myth:'DTCC has no real relationship with Chainlink.',reality:'DTCC used Chainlink CCIP in the Smart NAV pilot with 10 major financial institutions including JPMorgan, BNY Mellon, and Franklin Templeton. DTCC subsequently integrated Chainlink CRE into its Collateral AppChain for production-scale 24/7 collateral management. DTCC also participated in the 24-institution Corporate Actions initiative using CRE and CCIP. DTCC processes $4.7 quadrillion annually.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Institutions','DTCC','CCIP','CRE','Adoption'],institutions:['DTCC'],ev:['ev-032','ev-034','ev-033','ev-027'],tweetLine:'DTCC used CCIP in Smart NAV with JPMorgan, BNY Mellon, and Franklin Templeton. Then integrated Chainlink CRE into its Collateral AppChain for 24/7 collateral management. DTCC processes $4.7 quadrillion annually.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
   {id:'mc-042',cat:'CCIP',title:'CCIP has no institutional adoption',myth:'Chainlink CCIP is unused by real financial institutions.',reality:'CCIP was the interoperability layer in the DTCC Smart NAV pilot, chosen as the only cross-chain protocol offering defense-in-depth security and a Risk Management Network. 10 major institutions including JPMorgan, BNY Mellon, Franklin Templeton, State Street, and Invesco participated. DTCC described CCIP as a secure blockchain abstraction layer enabling institutions to interact with tokenized assets across any blockchain.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['CCIP','DTCC','Institutional Adoption','Interoperability','Infrastructure'],institutions:['DTCC','J.P. Morgan','Franklin Templeton'],ev:['ev-032','ev-027','ev-010','ev-004'],tweetLine:'CCIP was the interoperability layer in the DTCC Smart NAV pilot. JPMorgan, BNY Mellon, Franklin Templeton, State Street, and Invesco all participated. DTCC called it a secure blockchain abstraction layer.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
   {id:'mc-043',cat:'Institutions',title:'Tokenization does not need interoperability',myth:'Tokenized assets can function on a single chain without cross-chain infrastructure.',reality:'DTCC\'s Smart NAV pilot explicitly required chain-agnostic delivery as a design requirement. The goal was to disseminate NAV data across virtually any private or public blockchain simultaneously. DTCC stated the core capability is applicable across endless use cases and could power a broader range of use cases beyond NAV data across a greater number of blockchains. Without interoperability, tokenized data stays siloed on individual chains.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:100,tags:['Interoperability','DTCC','CCIP','Tokenisation','Capital Markets','Infrastructure'],institutions:['DTCC'],ev:['ev-032','ev-034','ev-027','ev-013'],tweetLine:'DTCC\'s Smart NAV pilot explicitly required chain-agnostic delivery. The goal was NAV data across virtually any blockchain simultaneously. Without CCIP, tokenized data stays siloed.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
-  {id:'mc-044',cat:'Market Structure',title:'LINK ETF flows look like every other crypto ETF',myth:'LINK ETF products follow the same inflow/outflow pattern as Bitcoin and Ethereum ETFs.',reality:'Since their December 2025 launch, US-based spot LINK ETFs have recorded zero net outflow weeks. Bitcoin ETFs recorded $357.69M in net outflows on a single day in December 2025. Ethereum ETFs recorded $224.78M in outflows the same day. LINK ETFs recorded neither. The zero-outflow streak continued through a period where LINK\'s price fell significantly — investors did not exit on the drawdown. The ETF complex now holds $123M with 1.26% of LINK\'s market cap locked in structured investment vehicles.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:85,tags:['Market Structure','ETF','Accumulation','LINK Token','Institutional'],institutions:['Grayscale'],ev:['ev-035'],tweetLine:'US LINK ETFs: zero net outflow weeks since December 2025 launch. Same period: BTC ETFs lost $357M in a single day. ETH ETFs lost $224M. LINK holders did not exit on the drawdown.',contributor:null,contributorScore:0,dateAdded:'2026-06'}];
+  {id:'mc-044',cat:'Market Structure',title:'LINK ETF flows look like every other crypto ETF',myth:'LINK ETF products follow the same inflow/outflow pattern as Bitcoin and Ethereum ETFs.',reality:'Since their December 2025 launch, US-based spot LINK ETFs have recorded zero net outflow weeks. Bitcoin ETFs recorded $357.69M in net outflows on a single day in December 2025. Ethereum ETFs recorded $224.78M in outflows the same day. LINK ETFs recorded neither. The zero-outflow streak continued through a period where LINK\'s price fell significantly — investors did not exit on the drawdown. The ETF complex now holds $123M with 1.26% of LINK\'s market cap locked in structured investment vehicles.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:85,tags:['Market Structure','ETF','Accumulation','LINK Token','Institutional'],institutions:['Grayscale'],ev:['ev-035'],tweetLine:'US LINK ETFs: zero net outflow weeks since December 2025 launch. Same period: BTC ETFs lost $357M in a single day. ETH ETFs lost $224M. LINK holders did not exit on the drawdown.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-045',cat:'Market Narratives',title:'Chainlink has no moat — oracles are a commodity',myth:'Oracle networks are interchangeable. Any project can fork Chainlink and replicate it.',reality:'Chainlink holds multiple granted USPTO patents assigned to SmartContract Chainlink Limited SEZC covering the core oracle order-matching architecture (US11854101, granted Dec 2023), oracle-triggered state machines (US12062037, granted Aug 2024), and verifiable randomness (US12494909, granted Dec 2025). An additional patent application covers the CCIP Risk Management Network (US20250342426, published 2025). The network effects, 7+ years of production operation, and formal IP protection are three separate moat components.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:97,tags:['Market Narratives','Patents','IP','Moat','Infrastructure'],institutions:['Chainlink Labs'],ev:['ev-036','ev-037','ev-038','ev-039'],tweetLine:'Chainlink holds multiple granted USPTO patents on its core oracle architecture (US11854101), oracle automation (US12062037), and VRF (US12494909). CCIP RMN is patent-pending. You cannot simply fork patented architecture.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-046',cat:'CCIP',title:'CCIP is just another token bridge',myth:'CCIP is a standard token bridge, no different from other cross-chain bridges.',reality:'CCIP is a patented cross-chain security system (US20250342426) with an independent Risk Management Network that treats all connected blockchains as hostile by default. RMN nodes independently reconstruct Merkle trees of all cross-chain messages and bless or curse transactions. The patent explicitly notes that $2B+ in value was lost to cross-chain bridge exploits as of 2023 — and that the RMN architecture specifically prevents those attack classes. CCIP has had zero security incidents while competing bridges have been repeatedly exploited.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:99,tags:['CCIP','Security','Patents','Cross-Chain','Bridge Security'],institutions:['Chainlink Labs','Coinbase','J.P. Morgan','DTCC'],ev:['ev-039','ev-038','ev-008','ev-032','ev-010'],tweetLine:'CCIP is a patented Risk Management Network (US20250342426), not a bridge. RMN nodes independently validate every cross-chain message against reconstructed Merkle trees. $2B+ lost to bridge exploits. CCIP: zero incidents.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
+  {id:'mc-047',cat:'Market Narratives',title:'Chainlink has no innovation — it is just data delivery',myth:'Chainlink is a simple data delivery service with no meaningful technical innovation.',reality:'Chainlink holds granted USPTO patents on decentralized oracle order-matching (US11854101), oracle-controlled state machines (US12062037), and on-chain verifiable randomness with cryptographic proofs (US12494909, US12401532). These are not incremental improvements — they are novel cryptographic and distributed systems inventions co-created by Ari Juels (Cornell professor, co-inventor of DECO and Town Crier), Lorenz Breidenbach, and Christian Cachin (distributed systems researchers). Chainlink also has 60+ published research papers from its research team.',status:'Verified Evidence-backed',statusCls:'mc-status-verified',confidence:96,tags:['Market Narratives','Patents','Innovation','Technology','Research'],institutions:['Chainlink Labs'],ev:['ev-036','ev-037','ev-038','ev-039'],tweetLine:'Chainlink holds 4 granted USPTO patents on oracle architecture, smart contract automation, and verifiable randomness. Co-invented by Ari Juels (Cornell) and Lorenz Breidenbach. 60+ published research papers. This is not just data delivery.',contributor:null,contributorScore:0,dateAdded:'2026-06'}];
 
 
 var evState={search:'',typeFilter:'all',tagFilter:'',evIds:null,mcTitle:null};
@@ -4395,6 +4444,126 @@ function buildLatestUpdates(){
   });
   html+='</div>';
   el.innerHTML=html;
+}
+
+
+// ── Patent & IP data ─────────────────────────────────────────────
+var PATENTS=[
+  {
+    id:'pat-001',
+    number:'US11854101',
+    title:'Interfacing smart contracts with external data sources — decentralized oracle order-matching',
+    filed:'2019-08-28',
+    granted:'2023-12-26',
+    status:'Granted',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Sergey Nazarov','Steve Ellis','Ari Juels'],
+    product:'Chainlink Data Feeds / Oracle Network',
+    source_url:'https://patents.justia.com/patent/11854101',
+    source_label:'USPTO US11854101 — granted Dec 26, 2023 (patents.justia.com)',
+    plain_english:'Covers the core Chainlink oracle architecture: a smart contract publishes its data requirements on-chain, competing data providers bid on fulfilling those requirements, and the system selects multiple providers whose data is aggregated into a trusted result. This is the foundational patent protecting Chainlink\'s decentralized order-matching approach to oracle data delivery.',
+    misconceptions:['mc-001','mc-003','mc-004','mc-007'],
+    tags:['Patent','Oracle Networks','Data Feeds','Decentralization','Infrastructure']
+  },
+  {
+    id:'pat-002',
+    number:'US12062037',
+    title:'Secure state machine on distributed ledger with off-chain oracle switching parameter',
+    filed:'2020-07-02',
+    granted:'2024-08-13',
+    status:'Granted',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Alex Coventry','Steve Ellis','Ari Juels','Sergey Nazarov','Lorenz Breidenbach'],
+    product:'Chainlink Automation / Smart Contract Logic',
+    source_url:'https://patents.justia.com/patent/12062037',
+    source_label:'USPTO US12062037 — granted Aug 13, 2024 (patents.justia.com)',
+    plain_english:'Patents a system where a smart contract on a blockchain has its behavior determined by a real-world switch parameter monitored by an off-chain oracle. When the oracle reports a trigger condition (e.g. a market event, a date, a price threshold), the on-chain contract automatically changes state and executes payments. This underpins Chainlink Automation\'s ability to trigger on-chain actions from off-chain conditions.',
+    misconceptions:['mc-001','mc-007','mc-021'],
+    tags:['Patent','Automation','Smart Contracts','Off-Chain Computation','Infrastructure']
+  },
+  {
+    id:'pat-003',
+    number:'US12494909',
+    title:'Method and apparatus for producing verifiable randomness within a decentralized computing network',
+    filed:'2021-05-11',
+    granted:'2025-12-09',
+    status:'Granted',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Sergey Nazarov','Alex Coventry','Ari Juels'],
+    product:'Chainlink VRF (Verifiable Random Function)',
+    source_url:'https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html',
+    source_label:'USPTO Official Gazette US12494909 — granted Dec 9, 2025',
+    plain_english:'Patents a method where a decentralized oracle generates a random number that comes with a cryptographic proof verifiable on-chain. Unlike block hashes (manipulable by miners) or centralized RNG (requiring blind trust), this approach lets anyone verify the randomness was generated fairly. An oracle applies a private key to an unpredictable seed to produce the random value and a mathematical proof. Used by gaming applications, NFT minting, and any protocol requiring provably fair outcomes.',
+    misconceptions:['mc-001','mc-003','mc-004'],
+    tags:['Patent','VRF','Randomness','Cryptography','Gaming','NFT']
+  },
+  {
+    id:'pat-004',
+    number:'US12401532',
+    title:'Distributed verifiable randomness with Distributed Key Generation (DKG) protocol across oracle network',
+    filed:'2023-06-09',
+    granted:'2025',
+    status:'Granted',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Alex Coventry','Lorenz Breidenbach','Christian Cachin'],
+    product:'Chainlink VRF v2 / Threshold Signatures',
+    source_url:'https://patents.google.com/patent/US12401532',
+    source_label:'USPTO US12401532 — Google Patents (continuation of US12494909)',
+    plain_english:'Extends VRF to a full decentralized oracle network rather than a single oracle. Multiple nodes each generate partial proofs, and a leader node aggregates them only once a quorum has responded. The resulting randomness is verifiable on-chain with no single node controlling the outcome. This is Chainlink VRF v2\'s threshold approach — far more attack-resistant than any single-source RNG.',
+    misconceptions:['mc-001','mc-003','mc-004'],
+    tags:['Patent','VRF','Threshold Signatures','Decentralization','Cryptography']
+  },
+  {
+    id:'pat-005',
+    number:'US20250342426',
+    title:'Systems and Methods for Risk Management Networks — cross-chain security for hostile blockchain environments',
+    filed:'2024',
+    granted:'Pending (published 2025)',
+    status:'Application — Published',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Chainlink Labs'],
+    product:'Chainlink CCIP — Risk Management Network (RMN)',
+    source_url:'https://patents.justia.com/patent/20250342426',
+    source_label:'USPTO Application US20250342426 — published 2025 (patents.justia.com)',
+    plain_english:'Patents the independent Risk Management Network that runs alongside CCIP. The system treats all connected blockchains as potentially hostile by default. RMN nodes independently reconstruct Merkle trees of all cross-chain messages and compare them against committed roots. If they match, the RMN blesses the transaction. If anomalies are detected (finality violations, execution mismatches, bridge exploits), the system enters a curse mode that automatically pauses cross-chain processing on the affected chain. This is why CCIP has had zero exploits while other bridges lost $2B+ to attacks.',
+    misconceptions:['mc-008','mc-009','mc-010','mc-011','mc-012'],
+    tags:['Patent','CCIP','Risk Management','Security','Cross-Chain','Bridge Security']
+  }
+];
+
+function patentsInit(){
+  var grid=document.getElementById('patents-grid');
+  if(!grid||typeof PATENTS==='undefined')return;
+  grid.innerHTML='';
+  PATENTS.forEach(function(p){
+    var card=document.createElement('div');
+    card.className='pat-card';
+    var statusCls=p.status==='Granted'?'pat-status-granted':
+      p.status.indexOf('Pending')>-1?'pat-status-pending':'pat-status-application';
+    card.innerHTML='<div class="pat-card-head">'
+      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
+      +'<span class="pat-number">'+orgEsc(p.number)+'</span>'
+      +'<span class="'+statusCls+'">'+orgEsc(p.status)+'</span>'
+      +'</div>'
+      +'<div class="pat-title">'+orgEsc(p.title)+'</div>'
+      +'<div class="pat-meta">'
+      +'<span>Filed '+orgEsc(p.filed)+'</span>'
+      +(p.granted!==p.status?'<span> &middot; Granted '+orgEsc(p.granted)+'</span>':'')
+      +'</div>'
+      +'</div>'
+      +'<div class="pat-card-body">'
+      +'<div class="pat-product-label">COVERS</div>'
+      +'<div class="pat-product">'+orgEsc(p.product)+'</div>'
+      +'<div class="pat-plain-label">IN PLAIN ENGLISH</div>'
+      +'<div class="pat-plain">'+orgEsc(p.plain_english)+'</div>'
+      +'<div class="pat-inventors">Inventors: '+orgEsc(p.inventors.join(', '))+'</div>'
+      +'<div class="pat-foot">'
+      +(p.source_url?'<a class="pat-source-link" href="'+p.source_url+'" target="_blank" rel="noopener">'+orgEsc(p.source_label)+'</a>':'')
+      +'<div class="pat-tags">'+p.tags.map(function(t){return'<span class="ev-card-tag">'+orgEsc(t)+'</span>';}).join('')+'</div>'
+      +'</div>'
+      +'</div>';
+    grid.appendChild(card);
+  });
 }
 
 function orgShowInst(slug){
