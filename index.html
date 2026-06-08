@@ -746,7 +746,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .ev-filter:last-child{border-right:none}
 .ev-filter:hover{color:var(--w80);background:var(--w06)}
 .ev-filter.active{color:var(--gold);background:var(--gold3)}
-.ev-tags-row{display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;mask-image:linear-gradient(to right,black 85%,transparent 100%);-webkit-mask-image:linear-gradient(to right,black 85%,transparent 100%);}.ev-tags-row::-webkit-scrollbar{display:none}
+.ev-tags-row{display:flex;gap:4px;flex-wrap:wrap;}
 .ev-tag-btn{background:none;border:.5px solid var(--border);cursor:pointer;font-family:var(--mono);font-size:clamp(7px,.52vw,9px);letter-spacing:.1em;color:var(--w20);padding:2px 8px;transition:all .15s;white-space:nowrap;}
 .ev-tag-btn:hover{border-color:rgba(200,146,42,.3);color:var(--gold);background:var(--gold3)}
 .ev-tag-btn.active{border-color:rgba(200,146,42,.55);color:var(--gold);background:var(--gold3)}
@@ -1766,8 +1766,6 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .org-tl-year{font-family:var(--mono);font-size:clamp(9px,.62vw,10px);letter-spacing:.1em;color:var(--gold);opacity:.8;padding-top:2px}
 .org-tl-event{font-size:clamp(12px,.85vw,14px);color:var(--w60);line-height:1.55}
 
-
-.ev-tags-row .ev-filter{flex-shrink:0}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -2861,6 +2859,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 
 <script>
+// ── INFOGRAPHIC DATA — exact paths ──
+const INFOGRAPHICS = [
+  {cat:'Data & AI',             file:'assets/infographics/data-and-ai/DATA and AI/AWS Chainlink data standard.jpg',                                            title:'AWS Chainlink Data Standard'},
+  {cat:'Data & AI',             file:'assets/infographics/data-and-ai
 // ── INFOGRAPHIC DATA — exact paths ──
 const INFOGRAPHICS = [
   {cat:'Data & AI',             file:'assets/infographics/data-and-ai/DATA and AI/AWS Chainlink data standard.jpg',                                            title:'AWS Chainlink Data Standard'},
@@ -4118,7 +4120,7 @@ var EVIDENCE=[
   {id:'ev-032',type:'report',date:'2024-05',org:'DTCC',person:'DTCC Digital Assets',role:'Financial Market Infrastructure',title:'Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain',body:'DTCC completed the Smart NAV industry pilot using Chainlink CCIP as the interoperability layer to deliver trusted, verifiable net asset value (NAV) data across virtually any public or private blockchain. 10 major institutions participated: American Century Investments, BNY Mellon, Edward Jones, Franklin Templeton, Invesco, JPMorgan, MFS Investment Management, Mid Atlantic Trust, State Street, and U.S. Bank.',source_url:'https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf',source_label:'DTCC Smart NAV Pilot Report — May 2024 (dtcc.com)',source_type:'Official Report',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Published May 16, 2024. DTCC used CCIP as a secure blockchain abstraction layer. DTCC described CCIP as the only cross-chain protocol offering defense-in-depth security and a Risk Management Network.',tags:['DTCC','Smart NAV','CCIP','NAV','Tokenisation','Fund Data','BNY Mellon','JPMorgan','Franklin Templeton'],nodes:['dtcc','marketdata'],significance:'10 of the world\'s largest financial institutions used Chainlink CCIP in a live pilot. Simultaneously refutes: institutions don\'t use Chainlink, CCIP has no adoption, and tokenization doesn\'t need interoperability.'},
   {id:'ev-033',type:'report',date:'2025-09',org:'DTCC',person:'Dan Doney',role:'Managing Director & CTO, DTCC Digital Assets',title:'24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem',body:'Chainlink led an initiative with 24 financial institutions to standardize corporate actions processing using oracles, blockchain, and AI. Achieved near 100% data consensus. Participants: DTCC, Swift, Euroclear, UBS, BNP Paribas, DBS Bank, ANZ, Wellington Management, Schroders, and 15 others. CRE validated AI outputs, CCIP distributed records across DTCC\'s blockchain and public chains. System translates outputs into ISO 20022 messages via Swift.',source_url:'https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html',source_label:'PRNewswire — Chainlink and 24 Financial Market Participants: $58B Corporate Actions Initiative (Sep 2025)',source_type:'Press Release',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Announced September 29, 2025. The $58 billion annual cost estimate comes from Citi\'s 2025 Asset Servicing report. Dan Doney: This ability to bridge between legacy systems and the new blockchain rails is a critical enabler.',tags:['DTCC','Corporate Actions','CRE','CCIP','Swift','Euroclear','ISO 20022','AI','Capital Markets'],nodes:['dtcc','swift'],significance:'24 institutions including DTCC, Swift, and Euroclear using CRE and CCIP simultaneously for production-grade capital markets infrastructure. Near 100% data consensus achieved.'},
   {id:'ev-034',type:'report',date:'2026-05',org:'DTCC',person:'Nadine Chakar',role:'Global Head of DTCC Digital Assets',title:'DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management',body:'DTCC announced its Collateral AppChain will leverage the Chainlink Runtime Environment (CRE) and Chainlink data standard for orchestration, data delivery, and automation. The platform targets near real-time, 24/7 collateral management across global markets and multiple blockchains. Nadine Chakar: The integration of Chainlink\'s CRE and data standard will allow us to deliver a unified on-chain environment, bringing on-chain asset prices, valuations and other collateral agreement data to support this transformative industry initiative. Production launch expected Q4 2026.',source_url:'https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management',source_label:'DTCC.com — DTCC Collaborates with Chainlink to Advance 24/7 Collateral Management (May 2026)',source_type:'Official Announcement',verification:'Official Source',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'Announced May 12, 2026. DTCC processes $4.7 quadrillion annually. Sergey Nazarov: Collateral management is the killer app that traditional finance has been waiting for from our industry. Q4 2026 production launch.',tags:['DTCC','CRE','Collateral','AppChain','Data Standard','Settlement','Production'],nodes:['dtcc'],significance:'DTCC using Chainlink CRE as orchestration layer for production-scale collateral management. Q4 2026 production launch. Not a pilot.'},
-  {id:'ev-035',type:'report',date:'2026-03',org:'SoSoValue / Arcamids',person:'SoSoValue',role:'ETF Flow Analytics',title:'US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present',body:'US-based spot Chainlink (LINK) ETFs have recorded net inflows every single week since their December 2025 launch. Not one week of net outflows has been recorded. Weekly inflows ranged between $2 million and $5 million. The ETFs collectively hold approximately $123M in assets, representing ~1.26% of LINK\'s total market capitalization. For comparison: Bitcoin ETFs recorded $357.69M in net outflows on December 15 alone. Ethereum ETFs saw $224.78M exit on the same day. LINK ETF products have not experienced this pattern.',source_url:'https://sosovalue.com',source_label:'SoSoValue ETF Flow Data — LINK spot ETFs (sosovalue.com) via AMBCrypto, BSCNews, BeInCrypto March 2026',source_type:'Market Data',verification:'Multiple Independent Sources',confidence:88,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'First spot LINK ETF launched December 2, 2025 on NYSE Arca (Grayscale Chainlink Trust). On launch day: $37.05M inflows. Since then: zero net outflow weeks. Grayscale product alone accumulated $54.69M net inflows as of Dec 2025. Total ETF complex: $123M AUM, 3.65M LINK held in reserve. Top 100 wallets acquired 20.46M LINK since November 2025 worth ~$263M (Santiment). Context: the zero-outflow streak has continued through a period where LINK price fell from mid-$20s to single digits — investors did not exit despite drawdown.',tags:['Market Structure','ETF','Accumulation','Institutional','LINK Token','SoSoValue','Grayscale'],nodes:['marketdata'],significance:'Most ETF products experience outflow periods. The zero-outflow streak across all US LINK ETF products since launch — through a significant price drawdown — is statistically unusual. It indicates investors are allocating and holding rather than rotating capital. Compare: BTC ETFs and ETH ETFs both experienced hundreds of millions in outflows during the same period.'}];
+  {id:'ev-035',type:'report',date:'2026-03',org:'SoSoValue / Arcamids',person:'SoSoValue',role:'ETF Flow Analytics',title:'US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present',body:'US-based spot Chainlink (LINK) ETFs have recorded net inflows every single week since their December 2025 launch. Not one week of net outflows has been recorded. Weekly inflows ranged between $2 million and $5 million. The ETFs collectively hold approximately $123M in assets, representing ~1.26% of LINK\'s total market capitalization. For comparison: Bitcoin ETFs recorded $357.69M in net outflows on December 15 alone. Ethereum ETFs saw $224.78M exit on the same day. LINK ETF products have not experienced this pattern.',source_url:'https://x.com/arcamids/status/2063917450505118191',source_label:'Arcamids (@arcamids) on X — LINK ETF zero outflows since launch (Mar 2026) \u00b7 AMBCrypto: chainlink-etfs-see-zero-outflows-since-december \u00b7 SoSoValue ETF flow data',source_type:'Market Data',verification:'Multiple Independent Sources',confidence:88,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'First spot LINK ETF launched December 2, 2025 on NYSE Arca (Grayscale Chainlink Trust). On launch day: $37.05M inflows. Since then: zero net outflow weeks. Grayscale product alone accumulated $54.69M net inflows as of Dec 2025. Total ETF complex: $123M AUM, 3.65M LINK held in reserve. Top 100 wallets acquired 20.46M LINK since November 2025 worth ~$263M (Santiment). Context: the zero-outflow streak has continued through a period where LINK price fell from mid-$20s to single digits — investors did not exit despite drawdown.',tags:['Market Structure','ETF','Accumulation','Institutional','LINK Token','SoSoValue','Grayscale'],nodes:['marketdata'],significance:'Most ETF products experience outflow periods. The zero-outflow streak across all US LINK ETF products since launch — through a significant price drawdown — is statistically unusual. It indicates investors are allocating and holding rather than rotating capital. Compare: BTC ETFs and ETH ETFs both experienced hundreds of millions in outflows during the same period.'}];
 
 var MISCONCEPTIONS=[
   {id:'mc-001',cat:'Oracle & Infrastructure',title:'Chainlink is just price feeds',myth:'Chainlink is only used for DeFi price feeds.',reality:'Chainlink runs 12 distinct services: CCIP, Proof of Reserve, Automation, Functions, VRF, Data Streams, DECO, and the Runtime Environment. DTCC, Swift, and JPMorgan use Chainlink — none for price feeds.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:98,tags:['Technology','Infrastructure'],institutions:['DTCC','Swift','JPMorgan'],ev:['ev-001','ev-003','ev-004'],tweetLine:'Chainlink runs 12 services. DTCC, Swift, and JPMorgan all use Chainlink — none of them for price feeds.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
@@ -4190,12 +4192,29 @@ function evBuildTypeFilters(){
 }
 function evBuildTagButtons(){
   var row=document.getElementById('ev-tag-row');if(!row)return;
-  var tags=[];
-  EVIDENCE.forEach(function(e){e.tags.forEach(function(t){if(tags.indexOf(t)===-1)tags.push(t);});});
-  tags.sort();
-  tags.forEach(function(tag){
-    var b=document.createElement('button');b.className='ev-tag-btn';
-    b.textContent=tag;b.onclick=function(){evSetTag(tag,this);};row.appendChild(b);
+  // Curated filter chips — institutions + key topics only
+  var chips=[
+    {label:'DTCC',      tag:'DTCC'},
+    {label:'Swift',     tag:'SWIFT'},
+    {label:'JPMorgan',  tag:'JPMorgan'},
+    {label:'Coinbase',  tag:'Coinbase'},
+    {label:'Fidelity',  tag:'Fidelity International'},
+    {label:'Google',    tag:'Google'},
+    {label:'CCIP',      tag:'CCIP'},
+    {label:'Tokenisation',tag:'Tokenisation'},
+    {label:'Staking',   tag:'Staking'},
+    {label:'Data Streams',tag:'Data Streams'},
+    {label:'Market Structure',tag:'Market Structure'},
+    {label:'Economics', tag:'Economics'}
+  ];
+  row.innerHTML='';
+  chips.forEach(function(c){
+    var b=document.createElement('button');
+    b.className='ev-filter';
+    b.textContent=c.label;
+    b.dataset.tag=c.tag;
+    b.onclick=function(){evSetTag(c.tag,b);};
+    row.appendChild(b);
   });
 }
 function evSetType(type,btn){
@@ -4725,6 +4744,3 @@ function qtFilter(cat,btn){
     if(pg==='evidence')evRenderBanner();
   });
 })();
-</script>
-</body>
-</html>
