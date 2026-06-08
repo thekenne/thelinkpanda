@@ -2280,7 +2280,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div></div>
   <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px)">
     <div class="org-section-label" style="margin-bottom:clamp(16px,1.6vw,24px)">GRANTED PATENTS &amp; APPLICATIONS</div>
-    <div id="patents-grid" class="pat-grid"></div>
+    <div id="patents-stats" class="rstat-bar" style="margin-bottom:clamp(24px,2.4vw,36px)"></div>
+    <div id="patents-grid"></div>
   </div>
   <footer>
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
@@ -4161,7 +4162,8 @@ var EVIDENCE=[
   {id:'ev-036',type:'official',date:'2023-12',org:'USPTO',person:'Sergey Nazarov / Steve Ellis / Ari Juels',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US11854101 — Decentralized oracle order-matching patent granted',body:'USPTO granted US11854101 to SmartContract Chainlink Limited SEZC, covering the core Chainlink oracle architecture: smart contracts publishing data requirements on-chain, competing providers bidding on fulfillment, and multi-source aggregation into a trusted result. Filed August 2019, granted December 26, 2023.',source_url:'https://patents.justia.com/patent/11854101',source_label:'USPTO US11854101 — SmartContract Chainlink Limited SEZC (granted Dec 26, 2023)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This is the foundational patent protecting Chainlink\'s decentralized oracle order-matching system. Inventors include Sergey Nazarov, Steve Ellis, and Ari Juels — the original Chainlink whitepaper authors.',tags:['Patent','Oracle Networks','Decentralization','Infrastructure','IP'],nodes:['marketdata'],significance:'A granted USPTO patent on the core oracle architecture means Chainlink has formal IP protection over the decentralized order-matching approach that powers Data Feeds. Oracles are not commoditized — the architecture is patented.'},
   {id:'ev-037',type:'official',date:'2024-08',org:'USPTO',person:'Sergey Nazarov / Alex Coventry / Steve Ellis / Ari Juels / Lorenz Breidenbach',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US12062037 — Secure state machine with off-chain oracle switching granted',body:'USPTO granted US12062037 covering a smart contract system where behavior is controlled by an off-chain oracle monitoring real-world switch parameters. Filed July 2020, granted August 13, 2024. When the oracle reports a trigger condition, the on-chain contract automatically changes state and executes payments.',source_url:'https://patents.justia.com/patent/12062037',source_label:'USPTO US12062037 — SmartContract Chainlink Limited SEZC (granted Aug 13, 2024)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent protects the mechanism underlying Chainlink Automation — the ability to trigger on-chain smart contract state changes based on off-chain conditions reported by an oracle. Co-invented by Lorenz Breidenbach, Ari Juels, Steve Ellis, Alex Coventry, and Sergey Nazarov.',tags:['Patent','Automation','Smart Contracts','Off-Chain Computation','IP'],nodes:['marketdata'],significance:'Chainlink holds a granted patent on oracle-triggered smart contract state machines — the core mechanism behind Chainlink Automation and condition-based contract execution.'},
   {id:'ev-038',type:'official',date:'2025-12',org:'USPTO',person:'Sergey Nazarov / Alex Coventry / Ari Juels',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US12494909 — Verifiable randomness (VRF) for decentralized computing granted',body:'USPTO granted US12494909 covering the production of verifiable random values within a decentralized oracle network. An oracle applies a private key to an unpredictable seed to produce a random value and a cryptographic proof of correctness that any party can verify on-chain. Filed May 11, 2021, granted December 9, 2025.',source_url:'https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html',source_label:'USPTO Official Gazette US12494909 — SmartContract Chainlink Limited SEZC (granted Dec 9, 2025)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent protects Chainlink VRF — the verifiable random function used by gaming applications, NFT projects, and any protocol requiring provably fair randomness. The proof is published and verified on-chain before any application can use the random value. Priority date May 2020.',tags:['Patent','VRF','Randomness','Cryptography','Gaming','NFT','IP'],nodes:['marketdata'],significance:'Chainlink holds a granted USPTO patent on on-chain verifiable randomness. Any competitor replicating VRF\'s on-chain proof approach faces patent infringement risk. The patent was first filed in May 2021 with priority to May 2020.'},
-  {id:'ev-039',type:'official',date:'2025',org:'USPTO',person:'Chainlink Labs',role:'Applicant — SmartContract Chainlink Limited SEZC',title:'US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published',body:'USPTO published patent application US20250342426 titled Systems and Methods for Risk Management Networks, filed by SmartContract Chainlink Limited SEZC. The system describes an independent validation layer for cross-chain transactions that treats all blockchains as potentially hostile by default. RMN nodes independently reconstruct Merkle trees, bless valid transactions, and curse (pause) cross-chain processing when anomalies are detected.',source_url:'https://patents.justia.com/patent/20250342426',source_label:'USPTO Application US20250342426 — SmartContract Chainlink Limited SEZC (published 2025, Justia)',source_type:'Patent Application',verification:'Official Document',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent application covers the CCIP Risk Management Network — the independent secondary layer that makes CCIP fundamentally different from token bridges. The patent notes that as of late 2023, over $2 billion in value had been lost to cross-chain bridge exploits. The RMN is specifically engineered to prevent those classes of attacks.',tags:['Patent','CCIP','Risk Management','Security','Cross-Chain','Bridge Security','IP'],nodes:['marketdata'],significance:'CCIP is not a bridge. It is a patented cross-chain security system with an independent Risk Management Network. This patent application is the technical evidence that CCIP\'s security model is a novel, IP-protected invention — not a commodity bridge protocol.'}];
+  {id:'ev-039',type:'official',date:'2025',org:'USPTO',person:'Chainlink Labs',role:'Applicant — SmartContract Chainlink Limited SEZC',title:'US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published',body:'USPTO published patent application US20250342426 titled Systems and Methods for Risk Management Networks, filed by SmartContract Chainlink Limited SEZC. The system describes an independent validation layer for cross-chain transactions that treats all blockchains as potentially hostile by default. RMN nodes independently reconstruct Merkle trees, bless valid transactions, and curse (pause) cross-chain processing when anomalies are detected.',source_url:'https://patents.justia.com/patent/20250342426',source_label:'USPTO Application US20250342426 — SmartContract Chainlink Limited SEZC (published 2025, Justia)',source_type:'Patent Application',verification:'Official Document',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent application covers the CCIP Risk Management Network — the independent secondary layer that makes CCIP fundamentally different from token bridges. The patent notes that as of late 2023, over $2 billion in value had been lost to cross-chain bridge exploits. The RMN is specifically engineered to prevent those classes of attacks.',tags:['Patent','CCIP','Risk Management','Security','Cross-Chain','Bridge Security','IP'],nodes:['marketdata'],significance:'CCIP is not a bridge. It is a patented cross-chain security system with an independent Risk Management Network. This patent application is the technical evidence that CCIP\'s security model is a novel, IP-protected invention — not a commodity bridge protocol.'},
+  {id:'ev-040',type:'report',date:'2025-03',org:'Chainlink Labs / Aave',person:'Chainlink Labs',role:'Oracle Infrastructure',title:'Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure',body:'Chainlink Smart Value Recapture (SVR) launched on Aave v3 Ethereum mainnet in March 2025 after a 100% in-favor Aave DAO vote. SVR enables DeFi protocols to recapture Oracle Extractable Value (OEV) — the MEV that leaks when liquidations are triggered by oracle updates. Chainlink SVR uses a dual price feed mechanism via Flashbots MEV-Share: a private channel allows searchers to bid for bundled liquidation execution, recapturing value that previously went entirely to MEV bots. Within weeks of launch SVR had recaptured over $1.1M in non-toxic liquidation MEV across $32M in liquidations, with an average recapture rate over 80% and a peak rate over 90%. Revenue splits 65% to Aave, 35% to Chainlink. SVR coverage reached approximately 75% of Aave\'s total Ethereum TVL.',source_url:'https://dashboard.llamarisk.com/protocols/aave/svr',source_label:'LlamaRisk SVR Analytics Dashboard — Aave SVR live metrics (dashboard.llamarisk.com/protocols/aave/svr)',source_type:'Live Dashboard',verification:'Live Production Data',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'SVR was introduced in December 2024 in collaboration with BGD Labs, Flashbots, and the Aave DAO. The Aave DAO vote to activate SVR passed 100% in favor on March 28, 2025. SVR is built specifically for back-running liquidations only — it cannot be used for sandwich attacks. Flashbots noted: this is a big win for MEV minimization on Ethereum. SVR revenue for Chainlink\'s 35% share is converted into LINK and distributed to network service providers, creating a direct revenue loop. The LlamaRisk dashboard at the linked URL provides live tracking of all SVR metrics.',tags:['SVR','MEV','Aave','Oracle Extractable Value','Revenue','DeFi','LINK Token','Economics'],nodes:['marketdata'],significance:'SVR is proof that Chainlink is not just data infrastructure — it is an economic protocol. SVR creates a new revenue stream for both DeFi protocols and the Chainlink Network simultaneously. The Aave DAO voted 100% in favor. $1.1M+ recaptured and counting. This is Chainlink\'s oracle infrastructure actively generating measurable economic value for its ecosystem partners.'}];
 
 var MISCONCEPTIONS=[
   {id:'mc-001',cat:'Oracle & Infrastructure',title:'Chainlink is just price feeds',myth:'Chainlink is only used for DeFi price feeds.',reality:'Chainlink runs 12 distinct services: CCIP, Proof of Reserve, Automation, Functions, VRF, Data Streams, DECO, and the Runtime Environment. DTCC, Swift, and JPMorgan use Chainlink — none for price feeds.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:98,tags:['Technology','Infrastructure'],institutions:['DTCC','Swift','JPMorgan'],ev:['ev-001','ev-003','ev-004'],tweetLine:'Chainlink runs 12 services. DTCC, Swift, and JPMorgan all use Chainlink — none of them for price feeds.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
@@ -4249,7 +4251,9 @@ function evBuildTagButtons(){
     {label:'Staking',   tag:'Staking'},
     {label:'Data Streams',tag:'Data Streams'},
     {label:'Market Structure',tag:'Market Structure'},
-    {label:'Economics', tag:'Economics'}
+    {label:'Economics', tag:'Economics'},
+    {label:'SVR / MEV',   tag:'SVR'},
+    {label:'Patents',     tag:'Patent'}
   ];
   row.innerHTML='';
   chips.forEach(function(c){
@@ -4529,41 +4533,139 @@ var PATENTS=[
     misconceptions:['mc-008','mc-009','mc-010','mc-011','mc-012'],
     tags:['Patent','CCIP','Risk Management','Security','Cross-Chain','Bridge Security']
   }
-];
+,
+  {
+    id:'pat-006',
+    number:'US11829998',
+    title:'Authenticated data feed for blockchains — Town Crier (SGX secure enclave oracle)',
+    filed:'2017-06-06',
+    granted:'2023-11-28',
+    status:'Granted',
+    assignee:'Cornell University (Ari Juels inventor — now Chainlink Labs Chief Scientist)',
+    inventors:['Fan Zhang','Ethan Cecchetti','Kyle Croman','Ari Juels','Runting Shi'],
+    product:'Chainlink Data Feeds / DECO (acquired by Chainlink 2020)',
+    source_url:'https://patents.google.com/patent/US11829998',
+    source_label:'USPTO US11829998 — Cornell University (granted Nov 28, 2023, Google Patents)',
+    plain_english:'The original "Town Crier" patent — the intellectual foundation for authenticated blockchain data feeds. A trusted bridge uses an Intel SGX secure enclave to retrieve data from HTTPS websites and deliver it cryptographically authenticated to smart contracts on a blockchain. Ari Juels (co-inventor of the Chainlink whitepaper and now Chainlink Labs Chief Scientist) is a named inventor. Chainlink acquired the Town Crier technology from Cornell in 2020. This is where the oracle concept was formally patented.',
+    misconceptions:['mc-001','mc-004','mc-047'],
+    tags:['Patent','Town Crier','Data Feeds','SGX','Oracle Origins','Cornell','DECO']
+  },
+  {
+    id:'pat-007',
+    number:'Reported — number unconfirmed',
+    title:'Computer network transaction sequencing method and system — Fair Sequencing Services (FSS)',
+    filed:'2021',
+    granted:'2025-07-15 (reported)',
+    status:'Granted (reported — number unconfirmed at time of publication)',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Chainlink Labs'],
+    product:'Chainlink Fair Sequencing Services (FSS)',
+    source_url:'https://x.com/arcamids/status/1828478981894742033',
+    source_label:'Arcamids (@arcamids) patent thread — FSS granted patent reported Jul 15, 2025',
+    plain_english:'Patents the Fair Sequencing Services (FSS) system — a method for ordering blockchain transactions fairly using decentralized oracle networks. Instead of miners or validators choosing transaction order (which enables MEV, frontrunning, and sandwich attacks), the oracle network determines a fair ordering based on arrival time and other criteria. This directly addresses one of DeFi\'s most damaging problems: Miner/Maximal Extractable Value (MEV). Note: patent number unconfirmed at time of publication — Arcamids reports July 15, 2025 grant date.',
+    misconceptions:['mc-001','mc-004','mc-045','mc-047'],
+    tags:['Patent','FSS','MEV','Transaction Ordering','Fair Sequencing','DeFi']
+  },
+  {
+    id:'pat-008',
+    number:'Pending verification',
+    title:'Method and apparatus for providing secure oracle reporting to decentralized computing environments — Off-Chain Reporting (OCR)',
+    filed:'2020-2021',
+    granted:'Pending verification',
+    status:'Reported — verification in progress',
+    assignee:'SmartContract Chainlink Limited SEZC',
+    inventors:['Alex Coventry','Lorenz Breidenbach','Ari Juels','Steve Ellis'],
+    product:'Chainlink Off-Chain Reporting (OCR / OCR2)',
+    source_url:'https://x.com/arcamids/status/1828478981894742033',
+    source_label:'Arcamids (@arcamids) patent thread — OCR patent reported (number pending verification)',
+    plain_english:'Patents the Off-Chain Reporting (OCR) protocol — the mechanism that allows multiple Chainlink oracle nodes to aggregate data off-chain into a single signed report, submitting it on-chain in one transaction. OCR reduces gas costs by up to 90% while maintaining cryptographic verifiability, since every node\'s observation and signature is included in the aggregate. OCR2 is the production backbone of all Chainlink Data Feeds today. Note: exact patent number pending independent verification.',
+    misconceptions:['mc-001','mc-003','mc-004','mc-047'],
+    tags:['Patent','OCR','Off-Chain Reporting','Scalability','Gas Efficiency','Infrastructure']
+  },
+  {
+    id:'pat-009',
+    number:'US11829998',
+    title:'[Third-Party Reference] Cornell University — Authenticated data feed for blockchains (Town Crier / DECO origin)',
+    filed:'2017-06-06',
+    granted:'2023-11-28',
+    status:'Granted — Third-Party Reference',
+    assignee:'Cornell University',
+    inventors:['Fan Zhang','Ethan Cecchetti','Kyle Croman','Ari Juels','Runting Shi'],
+    product:'Origin of Chainlink DECO (acquired 2020)',
+    source_url:'https://patents.justia.com/patent/11829998',
+    source_label:'USPTO US11829998 — Cornell University (Justia, Google Patents)',
+    plain_english:'Ari Juels — now Chief Scientist at Chainlink Labs and co-author of the Chainlink whitepaper — is a named inventor on this Cornell University patent for Town Crier, the world\'s first SGX-secured oracle for blockchains. Chainlink acquired Town Crier from Cornell in 2020. The patent was granted in 2023. This is the direct IP lineage from which Chainlink DECO descends.',
+    misconceptions:['mc-001','mc-047'],
+    tags:['Third-Party Reference','Cornell','Town Crier','DECO','Oracle Origins','SGX']
+  },
+  {
+    id:'pat-010',
+    number:'US11997107',
+    title:'[Third-Party Reference] Cornell University — DECO: Decentralized verification of data in transport layer security',
+    filed:'2020-09-14',
+    granted:'2024-05-28',
+    status:'Granted — Third-Party Reference',
+    assignee:'Cornell University',
+    inventors:['Fan Zhang','Deepak Maram','Harjasleen Malvai','Steve Goldfeder','Ari Juels'],
+    product:'Chainlink DECO (Privacy Layer)',
+    source_url:'https://patents.google.com/patent/US11997107',
+    source_label:'USPTO US11997107 — Cornell University, granted May 28, 2024 (Google Patents)',
+    plain_english:'The DECO patent — a system for proving properties of TLS-protected web data to a blockchain oracle without revealing the raw data. A user can prove their bank balance is above a threshold, or that they hold a certain credential, without disclosing the actual data. DECO becomes a privacy layer that sits on top of oracle infrastructure. Ari Juels is inventor. Chainlink acquired DECO in 2020. This enables privacy-preserving smart contracts that can interact with real-world authenticated data.',
+    misconceptions:['mc-001','mc-047'],
+    tags:['Third-Party Reference','DECO','Cornell','Privacy','TLS','Oracle Origins','Ari Juels']
+  }];
 
 function patentsInit(){
   var grid=document.getElementById('patents-grid');
   if(!grid||typeof PATENTS==='undefined')return;
   grid.innerHTML='';
-  PATENTS.forEach(function(p){
-    var card=document.createElement('div');
-    card.className='pat-card';
-    var statusCls=p.status==='Granted'?'pat-status-granted':
-      p.status.indexOf('Pending')>-1?'pat-status-pending':'pat-status-application';
-    card.innerHTML='<div class="pat-card-head">'
-      +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
-      +'<span class="pat-number">'+orgEsc(p.number)+'</span>'
-      +'<span class="'+statusCls+'">'+orgEsc(p.status)+'</span>'
-      +'</div>'
-      +'<div class="pat-title">'+orgEsc(p.title)+'</div>'
-      +'<div class="pat-meta">'
-      +'<span>Filed '+orgEsc(p.filed)+'</span>'
-      +(p.granted!==p.status?'<span> &middot; Granted '+orgEsc(p.granted)+'</span>':'')
-      +'</div>'
-      +'</div>'
-      +'<div class="pat-card-body">'
-      +'<div class="pat-product-label">COVERS</div>'
-      +'<div class="pat-product">'+orgEsc(p.product)+'</div>'
-      +'<div class="pat-plain-label">IN PLAIN ENGLISH</div>'
-      +'<div class="pat-plain">'+orgEsc(p.plain_english)+'</div>'
-      +'<div class="pat-inventors">Inventors: '+orgEsc(p.inventors.join(', '))+'</div>'
-      +'<div class="pat-foot">'
-      +(p.source_url?'<a class="pat-source-link" href="'+p.source_url+'" target="_blank" rel="noopener">'+orgEsc(p.source_label)+'</a>':'')
-      +'<div class="pat-tags">'+p.tags.map(function(t){return'<span class="ev-card-tag">'+orgEsc(t)+'</span>';}).join('')+'</div>'
-      +'</div>'
-      +'</div>';
-    grid.appendChild(card);
-  });
+  var owned=PATENTS.filter(function(p){return p.id.indexOf('pat-0')===0&&parseInt(p.id.replace('pat-',''))<=8;});
+  var thirdParty=PATENTS.filter(function(p){return parseInt(p.id.replace('pat-',''))>=9;});
+  function renderSection(title,items){
+    if(!items.length)return;
+    var h=document.createElement('div');
+    h.className='org-section-label';
+    h.style.margin='clamp(24px,2.4vw,36px) 0 clamp(12px,1.2vw,18px)';
+    h.textContent=title;
+    grid.appendChild(h);
+    var g=document.createElement('div');
+    g.className='pat-grid';
+    items.forEach(function(p){
+      var card=document.createElement('div');
+      card.className='pat-card';
+      var statusCls=p.status.indexOf('Granted')>-1&&p.status.indexOf('Third')>-1?'pat-status-application':
+        p.status==='Granted'?'pat-status-granted':
+        p.status.indexOf('Pending')>-1||p.status.indexOf('reported')>-1?'pat-status-pending':'pat-status-application';
+      card.innerHTML='<div class="pat-card-head">'
+        +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">'
+        +'<span class="pat-number">'+orgEsc(p.number)+'</span>'
+        +'<span class="'+statusCls+'">'+orgEsc(p.status.split('—')[0].trim())+'</span>'
+        +'</div>'
+        +'<div class="pat-title">'+orgEsc(p.title.replace(/^\[Third-Party Reference\]\s*/,''))+'</div>'
+        +'<div class="pat-meta"><span>Filed '+orgEsc(p.filed)+'</span><span> &middot; '+orgEsc(p.granted)+'</span></div>'
+        +'</div>'
+        +'<div class="pat-card-body">'
+        +'<div><div class="pat-product-label">COVERS</div><div class="pat-product">'+orgEsc(p.product)+'</div></div>'
+        +'<div><div class="pat-plain-label">IN PLAIN ENGLISH</div><div class="pat-plain">'+orgEsc(p.plain_english)+'</div></div>'
+        +'<div class="pat-inventors">'+orgEsc(p.assignee)+'</div>'
+        +'<div class="pat-foot">'
+        +(p.source_url?'<a class="pat-source-link" href="'+p.source_url+'" target="_blank" rel="noopener">'+orgEsc(p.source_label)+'</a>':'')
+        +'<div class="pat-tags">'+p.tags.map(function(t){return'<span class="ev-card-tag">'+orgEsc(t)+'</span>';}).join('')+'</div>'
+        +'</div>'
+        +'</div>';
+      g.appendChild(card);
+    });
+    grid.appendChild(g);
+  }
+  renderSection('CHAINLINK-OWNED IP',owned);
+  renderSection('THIRD-PARTY REFERENCES',thirdParty);
+  // Stats bar
+  var sb=document.getElementById('patents-stats');
+  if(sb){sb.innerHTML='<div class="rstat-item"><div class="rstat-n">'+owned.length+'</div><div class="rstat-l">owned<br>patents</div></div>'
+    +'<div class="rstat-div"></div>'
+    +'<div class="rstat-item"><div class="rstat-n">'+thirdParty.length+'</div><div class="rstat-l">third-party<br>references</div></div>'
+    +'<div class="rstat-div"></div>'
+    +'<div class="rstat-item"><div class="rstat-n">'+PATENTS.length+'</div><div class="rstat-l">total<br>entries</div></div>';}
 }
 
 function orgShowInst(slug){
