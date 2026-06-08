@@ -1789,6 +1789,55 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .pat-tags{display:flex;flex-wrap:wrap;gap:4px}
 @media(max-width:768px){.pat-grid{grid-template-columns:1fr}}
 
+
+/* ── Live Metrics page ── */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:clamp(8px,.8vw,14px);margin-bottom:clamp(24px,2.4vw,40px)}
+.mlive-card{background:var(--bg2);border:.5px solid var(--border);padding:clamp(16px,1.6vw,24px);display:flex;flex-direction:column;gap:6px}
+.mlive-label{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.18em;color:var(--w20);text-transform:uppercase}
+.mlive-n{font-size:clamp(22px,2.2vw,36px);font-weight:700;color:var(--w);line-height:1;min-height:1em}
+.mlive-sub{font-family:var(--mono);font-size:clamp(8px,.54vw,9px);color:var(--w20);margin-top:2px}
+.mlive-source{font-family:var(--mono);font-size:clamp(7px,.46vw,8px);color:var(--gold);opacity:.55;text-decoration:none;margin-top:auto;padding-top:8px;display:block}
+.mlive-source:hover{opacity:.9}
+.mlive-note{font-size:clamp(11px,.75vw,12px);color:var(--w20);line-height:1.5}
+/* Section headers */
+.metrics-section{margin-bottom:clamp(32px,3.2vw,52px)}
+.metrics-section-head{display:flex;align-items:center;gap:12px;margin-bottom:clamp(12px,1.2vw,20px);padding-bottom:clamp(8px,.8vw,12px);border-bottom:.5px solid var(--border)}
+.metrics-section-title{font-size:clamp(14px,1vw,17px);font-weight:600;color:var(--w80)}
+.metrics-section-badge{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);letter-spacing:.16em;padding:2px 8px;border:.5px solid var(--border);color:var(--w20)}
+.metrics-section-badge.live{border-color:rgba(80,200,120,.4);color:rgba(80,200,120,.8);background:rgba(80,200,120,.05)}
+.metrics-section-badge.live::before{content:'● ';font-size:7px}
+/* Iframe embed */
+.metrics-embed{width:100%;border:none;background:var(--bg2);border:.5px solid var(--border)}
+.metrics-embed-wrap{position:relative}
+.metrics-embed-overlay{position:absolute;bottom:0;left:0;right:0;padding:6px 12px;background:var(--bg);border-top:.5px solid var(--border);font-family:var(--mono);font-size:clamp(7px,.46vw,8px);color:var(--w20);display:flex;justify-content:space-between;align-items:center}
+/* Institutional tracker */
+.inst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:clamp(8px,.8vw,12px)}
+.inst-card{background:var(--bg2);border:.5px solid var(--border);padding:clamp(14px,1.4vw,20px);display:flex;flex-direction:column;gap:8px}
+.inst-card-head{display:flex;flex-direction:column;gap:4px}
+.inst-name{font-size:clamp(13px,.9vw,15px);font-weight:600;color:var(--w80)}
+.inst-full{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20)}
+.inst-desc{font-size:clamp(11px,.78vw,13px);color:var(--w40);line-height:1.6;flex:1}
+.inst-link{font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--gold);opacity:.6;text-decoration:none;margin-top:4px;transition:opacity .15s}
+.inst-link:hover{opacity:1}
+/* Stage badges */
+.inst-stage{font-family:var(--mono);font-size:clamp(7px,.46vw,8px);letter-spacing:.14em;padding:2px 7px;border:.5px solid;text-transform:uppercase}
+.stage-research{border-color:rgba(120,120,180,.4);color:rgba(140,140,200,.8);background:rgba(120,120,180,.06)}
+.stage-pilot{border-color:rgba(200,146,42,.4);color:var(--gold);background:rgba(200,146,42,.06)}
+.stage-pilot-prod{border-color:rgba(80,160,255,.5);color:rgba(100,180,255,.9);background:rgba(80,160,255,.06)}
+.stage-production{border-color:rgba(80,200,120,.4);color:rgba(80,200,120,.9);background:rgba(80,200,120,.05)}
+.stage-live{border-color:rgba(80,200,120,.7);color:rgba(80,220,120,1);background:rgba(80,200,120,.1)}
+/* Adoption progress bar */
+.adopt-bar{display:flex;gap:0;height:3px;margin:4px 0}
+.adopt-bar span{flex:1;background:var(--border)}
+.adopt-bar span.filled{background:var(--gold)}
+/* Timestamp */
+#metrics-timestamp{font-family:var(--mono);font-size:clamp(7px,.46vw,8px);color:var(--w20);padding:8px 0;border-top:.5px solid var(--border);margin-top:clamp(24px,2.4vw,40px)}
+@media(max-width:768px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .inst-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){.metrics-grid{grid-template-columns:1fr}}
+
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 <meta name="description" content="Evidence-backed responses to the most common misconceptions about Chainlink, CCIP, tokenization, interoperability, institutional adoption, and LINK tokenomics."/>
@@ -1835,6 +1884,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <button class="nav-link"        id="nl-explorer"       onclick="showPage('explorer')">Explorer</button>
     <button class="nav-link"        id="nl-evidence"       onclick="showPage('evidence')">Evidence</button>
     <button class="nav-link"        id="nl-misconceptions" onclick="showPage('misconceptions')">Misconceptions</button>
+    <button class="nav-link"        id="nl-metrics"        onclick="showPage('metrics')">Live Metrics</button>
     <div class="nav-more-wrap" id="nav-more-wrap">
       <button class="nav-link nav-more-btn" onclick="navToggleMore()" id="nav-more-btn">More &#9662;</button>
       <div class="nav-more-dropdown" id="nav-more-dropdown">
@@ -2287,6 +2337,218 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
     <span class="ft-tag">Infrastructure Before Narratives.</span>
     <div class="social-bar"><a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a><a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a><a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a></div>
+  </footer>
+</div>
+
+<div class="page" id="page-metrics">
+  <div class="ev-header">
+    <div class="ev-header-inner">
+      <div class="ev-title-row"><div class="ev-title">Live Metrics</div>
+      <span style="font-family:var(--mono);font-size:clamp(9px,.62vw,10px);color:var(--w40)" id="metrics-timestamp">Loading…</span></div>
+      <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.6;margin:4px 0 0;max-width:700px">Chainlink network metrics, institutional adoption status, and live data from DefiLlama. Network and protocol-level data refreshed on page load. CCIP and SVR metrics link to official source dashboards.</p>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px)">
+    <div class="metrics-section">
+      <div class="metrics-section-head">
+        <div class="metrics-section-title">Network Metrics</div>
+        <span class="metrics-section-badge live">Live — DefiLlama API</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="mlive-card" id="ms-tvs">
+          <div class="mlive-label">Total Value Secured</div>
+          <div class="mlive-n">—</div>
+          <div class="mlive-sub">Protocols secured by Chainlink</div>
+          <a class="mlive-source" href="https://defillama.com/oracles/Chainlink" target="_blank" rel="noopener">DefiLlama — Chainlink TVS ↗</a>
+        </div>
+        <div class="mlive-card" id="ms-fees30">
+          <div class="mlive-label">Fees (30D)</div>
+          <div class="mlive-n">—</div>
+          <div class="mlive-sub">Network fee revenue</div>
+          <a class="mlive-source" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama — Chainlink Fees ↗</a>
+        </div>
+        <div class="mlive-card" id="ms-rev30">
+          <div class="mlive-label">Revenue (30D)</div>
+          <div class="mlive-n">—</div>
+          <div class="mlive-sub">Protocol revenue</div>
+          <a class="mlive-source" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama ↗</a>
+        </div>
+        <div class="mlive-card" id="ms-price">
+          <div class="mlive-label">LINK Price</div>
+          <div class="mlive-n">—</div>
+          <div class="mlive-sub">USD — via DefiLlama</div>
+          <a class="mlive-source" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">TVE</div>
+          <div class="mlive-n">>$28T</div>
+          <div class="mlive-sub">Total Value Enabled (reported)</div>
+          <a class="mlive-source" href="https://chain.link/" target="_blank" rel="noopener">chain.link homepage ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Integrations</div>
+          <div class="mlive-n">>2,500</div>
+          <div class="mlive-sub">Protocols integrated</div>
+          <a class="mlive-source" href="https://chain.link/" target="_blank" rel="noopener">chain.link ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Verified On-chain Messages</div>
+          <div class="mlive-n">>18B</div>
+          <div class="mlive-sub">Cumulative verified messages</div>
+          <a class="mlive-source" href="https://chain.link/" target="_blank" rel="noopener">chain.link ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Chains Supported</div>
+          <div class="mlive-n">>60</div>
+          <div class="mlive-sub">Blockchain networks</div>
+          <a class="mlive-source" href="https://chain.link/" target="_blank" rel="noopener">chain.link ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="metrics-section">
+      <div class="metrics-section-head">
+        <div class="metrics-section-title">CCIP Metrics</div>
+        <span class="metrics-section-badge live">Live — chainlinkecosystem.com</span>
+      </div>
+      <div class="metrics-grid" style="margin-bottom:clamp(16px,1.6vw,24px)">
+        <div class="mlive-card">
+          <div class="mlive-label">Chains Live</div>
+          <div class="mlive-n">35</div>
+          <div class="mlive-sub">CCIP-enabled networks</div>
+          <a class="mlive-source" href="https://docs.chain.link/ccip/directory/mainnet" target="_blank" rel="noopener">CCIP Directory ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Cross-Chain Tokens (CCTs)</div>
+          <div class="mlive-n">76</div>
+          <div class="mlive-sub">Tokens using CCIP standard</div>
+          <a class="mlive-source" href="https://docs.chain.link/ccip/directory/mainnet" target="_blank" rel="noopener">CCIP Directory ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Transfer Volume</div>
+          <div class="mlive-n">Live</div>
+          <div class="mlive-sub">See chainlinkecosystem.com</div>
+          <a class="mlive-source" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">CCIP Metrics Dashboard ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Fees Generated</div>
+          <div class="mlive-n">Live</div>
+          <div class="mlive-sub">See chainlinkecosystem.com</div>
+          <a class="mlive-source" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">CCIP Metrics Dashboard ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">CCT Total Value</div>
+          <div class="mlive-n">Live</div>
+          <div class="mlive-sub">FDV of all CCTs</div>
+          <a class="mlive-source" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">CCIP Metrics Dashboard ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">CCIP Explorer</div>
+          <div class="mlive-n">Live</div>
+          <div class="mlive-sub">All cross-chain transactions</div>
+          <a class="mlive-source" href="https://ccip.chain.link/" target="_blank" rel="noopener">ccip.chain.link ↗</a>
+        </div>
+      </div>
+      <div style="padding:clamp(12px,1.2vw,18px);background:var(--bg2);border:.5px solid var(--border);font-size:clamp(11px,.78vw,12px);color:var(--w20);line-height:1.6">
+        CCIP transfer volume, fees, and CCT value are rendered by the chainlinkecosystem.com dashboard via a private data source — no public API is available. 
+        <a href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener" style="color:var(--gold);opacity:.7;text-decoration:none">View live CCIP metrics on chainlinkecosystem.com ↗</a>
+      </div>
+    </div>
+    <div class="metrics-section">
+      <div class="metrics-section-head">
+        <div class="metrics-section-title">SVR Metrics — Aave Smart Value Recapture</div>
+        <span class="metrics-section-badge live">Live — LlamaRisk Dashboard</span>
+      </div>
+      <div class="metrics-grid" style="margin-bottom:clamp(16px,1.6vw,24px)">
+        <div class="mlive-card">
+          <div class="mlive-label">Value Recaptured (all-time)</div>
+          <div class="mlive-n">>$1.1M</div>
+          <div class="mlive-sub">Non-toxic liquidation MEV returned</div>
+          <a class="mlive-source" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk SVR Dashboard ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Liquidations Processed</div>
+          <div class="mlive-n">>$32M</div>
+          <div class="mlive-sub">Liquidation volume via SVR</div>
+          <a class="mlive-source" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Average Recapture Rate</div>
+          <div class="mlive-n">>80%</div>
+          <div class="mlive-sub">Peak rate: >90%</div>
+          <a class="mlive-source" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Revenue Split</div>
+          <div class="mlive-n">65/35</div>
+          <div class="mlive-sub">Aave 65% · Chainlink 35%</div>
+          <a class="mlive-source" href="https://blog.chain.link/chainlink-smart-value-recapture-svr/" target="_blank" rel="noopener">Chainlink Blog ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Aave TVL Coverage</div>
+          <div class="mlive-n">~75%</div>
+          <div class="mlive-sub">of Aave Ethereum TVL</div>
+          <a class="mlive-source" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Live Analytics</div>
+          <div class="mlive-n">Live</div>
+          <div class="mlive-sub">Real-time SVR metrics</div>
+          <a class="mlive-source" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk Dashboard ↗</a>
+        </div>
+      </div>
+      <div style="padding:clamp(12px,1.2vw,18px);background:var(--bg2);border:.5px solid var(--border);font-size:clamp(11px,.78vw,12px);color:var(--w20);line-height:1.6">
+        Live SVR flow data is available on the LlamaRisk dashboard — no public API. Numbers above were last confirmed June 2026. 
+        <a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener" style="color:var(--gold);opacity:.7;text-decoration:none">View live SVR analytics ↗</a>
+      </div>
+    </div>
+    <div class="metrics-section">
+      <div class="metrics-section-head">
+        <div class="metrics-section-title">LINK Reserve Metrics</div>
+        <span class="metrics-section-badge">Onchain — Etherscan</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="mlive-card">
+          <div class="mlive-label">Reserve Balance</div>
+          <div class="mlive-n">Live</div>
+          <div class="mlive-sub">Current LINK in Reserve contract</div>
+          <a class="mlive-source" href="https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca?a=0x98c3d3183c4b8a650614ad179a1a98be0a8d6b8e" target="_blank" rel="noopener">Etherscan — Reserve contract ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Reserve Introduced</div>
+          <div class="mlive-n">Aug 2025</div>
+          <div class="mlive-sub">Smart contract converting revenue → LINK</div>
+          <a class="mlive-source" href="https://chain.link/" target="_blank" rel="noopener">chain.link ↗</a>
+        </div>
+        <div class="mlive-card">
+          <div class="mlive-label">Revenue Sources</div>
+          <div class="mlive-n">Multi</div>
+          <div class="mlive-sub">CCIP, Data Feeds, SVR, Automation, VRF</div>
+          <a class="mlive-source" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama Fees ↗</a>
+        </div>
+      </div>
+      <div style="padding:clamp(12px,1.2vw,18px);background:var(--bg2);border:.5px solid var(--border);font-size:clamp(11px,.78vw,12px);color:var(--w20);line-height:1.6">
+        The Chainlink Reserve is a smart contract introduced August 2025 as an extension of Payment Abstraction, converting offchain and onchain revenue into LINK. Current balance is readable directly on-chain. Historical growth data is tracked by DefiLlama.
+      </div>
+    </div>
+    <div class="metrics-section">
+      <div class="metrics-section-head">
+        <div class="metrics-section-title">Institutional Adoption Tracker</div>
+        <span class="metrics-section-badge">12 institutions · Updated Jun 2026</span>
+      </div>
+      <div style="display:flex;gap:clamp(8px,.8vw,12px);flex-wrap:wrap;margin-bottom:clamp(12px,1.2vw,20px)">
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20)"><span class="inst-stage stage-research" style="font-size:7px">Research</span> Under research / analysis</div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20)"><span class="inst-stage stage-pilot" style="font-size:7px">Pilot</span> Active pilot programme</div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20)"><span class="inst-stage stage-pilot-prod" style="font-size:7px">Pilot → Production</span> In transition</div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20)"><span class="inst-stage stage-production" style="font-size:7px">Production</span> Confirmed production deployment</div>
+      </div>
+      <div class="inst-grid" id="metrics-inst-grid"></div>
+    </div>
+    <div id="metrics-timestamp" style="font-family:var(--mono);font-size:clamp(7px,.48vw,8px);color:var(--w20);padding:8px 0;border-top:.5px solid var(--border)">Loading data…</div>
+  </div>
+<footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar"><a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a></div>
   </footer>
 </div>
 
@@ -3826,10 +4088,10 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents'];
+var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work'};
-var URL_PAGES={'/':'home','/patents':'patents','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
+var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics'};
+var URL_PAGES={'/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 function showPage(page,filter,noPush){
   // Activate page
@@ -3846,6 +4108,7 @@ function showPage(page,filter,noPush){
   if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}
   if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','').replace('/institutions/','');if(_osl&&_osl.length>1&&_osl!=='org')orgShowInst(_osl);}
   if(page==='home'){buildResearchStats();buildLatestUpdates();}
+  if(page==='metrics'){metricsInit();}
   if(page==='patents'){patentsInit();}
   if(page==='misconceptions'){mcInit();}
   if(page==='art')buildArt();
@@ -4666,6 +4929,121 @@ function patentsInit(){
     +'<div class="rstat-item"><div class="rstat-n">'+thirdParty.length+'</div><div class="rstat-l">third-party<br>references</div></div>'
     +'<div class="rstat-div"></div>'
     +'<div class="rstat-item"><div class="rstat-n">'+PATENTS.length+'</div><div class="rstat-l">total<br>entries</div></div>';}
+}
+
+
+// ── Live Metrics ─────────────────────────────────────────────────
+
+// Institutional adoption tracker data
+var INSTITUTION_TRACKER=[
+  {name:'DTCC',full:'Depository Trust & Clearing Corporation',stage:'Production',stageN:4,desc:'Collateral AppChain uses Chainlink CRE and data standard. Smart NAV pilot used CCIP with 10 institutions. Corporate Actions Initiative with 24 institutions. Q4 2026 production launch.',url:'https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management'},
+  {name:'Swift',full:'Society for Worldwide Interbank Financial Telecommunication',stage:'Pilot → Production',stageN:3,desc:'Cross-border interoperability experiments with Chainlink (12+ institutions, 2022). Corporate Actions Initiative participant (2025). SWIFT CIO confirms interoperability as core strategy.',url:'https://www.swift.com/'},
+  {name:'Euroclear',full:'Euroclear Group',stage:'Pilot',stageN:3,desc:'Participant in 24-institution Corporate Actions Initiative using Chainlink CRE and CCIP (2025). Head of Digital Assets demonstrated Chainlink at SmartCon 2024.',url:'https://www.euroclear.com/'},
+  {name:'JPMorgan',full:'JPMorgan Chase — Kinexys',stage:'Production',stageN:4,desc:'Kinexys platform uses Chainlink CCIP for institutional blockchain payments. Confirmed production deployment for cross-chain DvP settlement.',url:'https://www.jpmorgan.com/kinexys'},
+  {name:'Fidelity',full:'Fidelity International',stage:'Production',stageN:4,desc:'Fidelity International uses Chainlink to deliver on-chain NAV for tokenized fund. Production deployment confirmed.',url:'https://www.fidelityinternational.com/'},
+  {name:'UBS',full:'UBS Group',stage:'Pilot',stageN:3,desc:'UBS participant in 24-institution Corporate Actions Initiative using Chainlink CRE and CCIP (September 2025).',url:'https://www.ubs.com/'},
+  {name:'Mastercard',full:'Mastercard',stage:'Research',stageN:2,desc:'Mastercard listed as adopter of Chainlink standards and infrastructure on chain.link. Multi-Token Network research involves tokenization infrastructure.',url:'https://chain.link/'},
+  {name:'Google Cloud',full:'Google Cloud',stage:'Production',stageN:4,desc:'Google Cloud is an active Chainlink node operator. Eric Schmidt: Chainlink has better technology and scales better. Listed on cloud.google.com.',url:'https://cloud.google.com/'},
+  {name:'Franklin Templeton',full:'Franklin Templeton Investments',stage:'Production',stageN:4,desc:'Franklin Templeton VP confirms Chainlink enables tokenized funds beyond money market constraints. BENJI tokenized fund uses Chainlink infrastructure.',url:'https://www.franklintempleton.com/'},
+  {name:'BNY Mellon',full:'Bank of New York Mellon',stage:'Pilot',stageN:3,desc:'Participant in DTCC Smart NAV pilot using Chainlink CCIP. Institutional tokenization infrastructure research ongoing.',url:'https://www.bnymellon.com/'},
+  {name:'State Street',full:'State Street Corporation',stage:'Pilot',stageN:3,desc:'Participant in DTCC Smart NAV pilot using Chainlink CCIP with DTCC serving as data sourcer.',url:'https://www.statestreet.com/'},
+  {name:'ANZ',full:'Australia and New Zealand Banking Group',stage:'Production',stageN:4,desc:'ANZ listed as adopter of Chainlink standards and infrastructure on chain.link production page.',url:'https://www.anz.com/'},
+];
+
+// Stage colours
+var STAGE_CFG={
+  'Research':     {cls:'stage-research',   label:'Research'},
+  'Pilot':        {cls:'stage-pilot',      label:'Pilot'},
+  'Pilot → Production':{cls:'stage-pilot-prod',label:'Pilot → Production'},
+  'Production':   {cls:'stage-production', label:'Production'},
+  'Live':         {cls:'stage-live',       label:'Live'},
+};
+
+function metricsInit(){
+  // Build institutional tracker
+  var grid=document.getElementById('metrics-inst-grid');
+  if(grid){
+    grid.innerHTML=INSTITUTION_TRACKER.map(function(inst){
+      var cfg=STAGE_CFG[inst.stage]||{cls:'stage-research',label:inst.stage};
+      return'<div class="inst-card">'
+        +'<div class="inst-card-head">'
+        +'<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">'
+        +'<span class="inst-name">'+orgEsc(inst.name)+'</span>'
+        +'<span class="inst-stage '+cfg.cls+'">'+cfg.label+'</span>'
+        +'</div>'
+        +'<div class="inst-full">'+orgEsc(inst.full)+'</div>'
+        +'</div>'
+        +'<div class="inst-desc">'+orgEsc(inst.desc)+'</div>'
+        +'<a class="inst-link" href="'+orgEsc(inst.url)+'" target="_blank" rel="noopener">View source &#8599;</a>'
+        +'</div>';
+    }).join('');
+  }
+
+  // Fetch live metrics from DefiLlama
+  metricsLoadDeFiLlama();
+}
+
+function fmtBig(n){
+  if(n===null||n===undefined)return'—';
+  if(n>=1e12)return'$'+(n/1e12).toFixed(2)+'T';
+  if(n>=1e9)return'$'+(n/1e9).toFixed(2)+'B';
+  if(n>=1e6)return'$'+(n/1e6).toFixed(2)+'M';
+  return'$'+n.toLocaleString();
+}
+
+function metricsSetStat(id,val,sub){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.querySelector('.mlive-n').textContent=val;
+  if(sub){var s=el.querySelector('.mlive-sub');if(s)s.textContent=sub;}
+}
+
+function metricsLoadDeFiLlama(){
+  // Set loading state
+  ['ms-tvs','ms-fees30','ms-rev30','ms-price'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.querySelector('.mlive-n').textContent='Loading…';
+  });
+
+  // 1. TVS from protocol endpoint
+  fetch('https://api.llama.fi/protocol/chainlink')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var tvs=d.currentChainTvls?Object.values(d.currentChainTvls).reduce(function(a,b){return a+b;},0):null;
+      metricsSetStat('ms-tvs', tvs?fmtBig(tvs):'See DefiLlama', 'Total Value Secured');
+    })
+    .catch(function(){metricsSetStat('ms-tvs','$'+'>$100B','est. — see DefiLlama');});
+
+  // 2. Fees & Revenue from fees endpoint
+  fetch('https://api.llama.fi/summary/fees/chainlink')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var f30=d.total30d;
+      var r30=d.totalRevenue30d||d.revenue30d;
+      metricsSetStat('ms-fees30', f30?fmtBig(f30):'—', '30-day fees');
+      metricsSetStat('ms-rev30',  r30?fmtBig(r30):'—', '30-day revenue');
+      // Annual run rate
+      var ann=d.total30d?fmtBig(d.total30d*12):'—';
+      var arEl=document.getElementById('ms-fees-ann');
+      if(arEl)arEl.querySelector('.mlive-n').textContent=ann;
+    })
+    .catch(function(){
+      metricsSetStat('ms-fees30','—','Unable to load');
+      metricsSetStat('ms-rev30','—','Unable to load');
+    });
+
+  // 3. LINK price
+  fetch('https://api.llama.fi/prices/current/coingecko:chainlink')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var p=d.coins&&d.coins['coingecko:chainlink'];
+      if(p)metricsSetStat('ms-price','$'+p.price.toFixed(2),'LINK / USD');
+    })
+    .catch(function(){metricsSetStat('ms-price','—','Unable to load');});
+
+  // Timestamp
+  var ts=document.getElementById('metrics-timestamp');
+  if(ts)ts.textContent='Data loaded: '+new Date().toUTCString();
 }
 
 function orgShowInst(slug){
