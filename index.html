@@ -60,20 +60,20 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 /* ── HERO (Doc1 d803a96c — the known-good hero) ── */
 .hero{position:relative;height:clamp(420px,44vw,560px);min-height:420px;max-height:560px;overflow:hidden;background:#07090D;}
 .hero-right-img{
-  position:absolute;left:38%;top:0;width:62%;height:100%;
+  position:absolute;left:44%;top:0;width:56%;height:100%;
   object-fit:cover;object-position:60% center;z-index:0;
   -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.15) 4%,rgba(0,0,0,.55) 8%,rgba(0,0,0,.88) 12%,black 18%,black 100%);
   mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.15) 4%,rgba(0,0,0,.55) 8%,rgba(0,0,0,.88) 12%,black 18%,black 100%);
 }
 .hero-panda-video{
-  position:absolute;left:0;top:0;width:62%;height:100%;
+  position:absolute;left:0;top:0;width:56%;height:100%;
   object-fit:cover;object-position:55% center;
   filter:brightness(1.30) contrast(1.04);z-index:1;
   -webkit-mask-image:linear-gradient(to right,black 0%,black 52%,rgba(0,0,0,.85) 62%,rgba(0,0,0,.50) 72%,rgba(0,0,0,.15) 82%,transparent 100%);
   mask-image:linear-gradient(to right,black 0%,black 52%,rgba(0,0,0,.85) 62%,rgba(0,0,0,.50) 72%,rgba(0,0,0,.15) 82%,transparent 100%);
 }
 .hero-blend{position:absolute;left:30%;top:0;width:40%;height:100%;background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(30,60,180,.13) 0%,rgba(20,40,140,.09) 35%,rgba(10,20,80,.04) 65%,transparent 100%);z-index:2;pointer-events:none;}
-.hero-text-grad{position:absolute;left:0;top:0;bottom:0;width:38%;background:linear-gradient(to right,rgba(7,9,13,.80) 0%,rgba(7,9,13,.55) 30%,rgba(7,9,13,.15) 70%,transparent 100%);z-index:3;pointer-events:none;}
+.hero-text-grad{position:absolute;left:0;top:0;bottom:0;width:44%;background:linear-gradient(to right,rgba(7,9,13,.80) 0%,rgba(7,9,13,.55) 30%,rgba(7,9,13,.15) 70%,transparent 100%);z-index:3;pointer-events:none;}
 .hero-ob{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(to top,var(--bg) 0%,transparent 100%);z-index:4;pointer-events:none;}
 .hero-text-panel{position:absolute;left:0;bottom:0;width:42%;padding:0 0 clamp(24px,2.8vw,44px) clamp(28px,4vw,64px);display:flex;flex-direction:column;justify-content:flex-end;z-index:5;}
 .hero-text-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 5% 95%,rgba(7,9,13,.52) 0%,rgba(7,9,13,.10) 55%,transparent 100%);pointer-events:none;z-index:-1;}
@@ -86,8 +86,8 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .hero-cta{display:inline-flex;align-items:center;gap:8px;background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(16px,1.03vw,18px);letter-spacing:.07em;padding:clamp(12px,0.84vw,15px) clamp(14px,1.4vw,21px);transition:background .25s,color .25s;width:fit-content;}
 .hero-cta:hover{background:var(--gold);color:#08070a}
 @media(min-width:1920px){
-  .hero-right-img{left:40%;width:60%}
-  .hero-panda-video{width:60%}
+  .hero-right-img{left:46%;width:54%}
+  .hero-panda-video{width:54%}
   .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
   .hero-eyebrow{font-size:1.2vw;margin-bottom:.9vw}
   .hero-h1{font-size:3.1vw}
@@ -670,8 +670,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .nav-cta{font-size:1.12vw;padding:.55vw 1.3vw}
   .nav-logo-img,.nav-logo-svg{width:1.8vw;height:1.8vw}
   .soc-btn{width:2vw;height:2vw}.soc-btn svg{width:1vw;height:1vw}
-  .hero-right-img{left:40%;width:60%}
-  .hero-panda-video{width:60%}
+  .hero-right-img{left:46%;width:54%}
+  .hero-panda-video{width:54%}
   .hero-text-panel{padding:0 0 4.6vw 3.8vw;width:38%}
   .hero-eyebrow{font-size:1.22vw;margin-bottom:.9vw}
   .hero-h1{font-size:3.1vw}
@@ -1316,33 +1316,6 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="home-video-row" id="home-video-row"></div>
     <div style="text-align:center;margin-top:20px">
       <button class="sec-link" style="font-size:12px" onclick="showPage('videos')">View full library →</button>
-    </div>
-  </div>
-
-  <!-- ABOUT (Doc3 cfc1dac5 — 1fr 1fr, banner.jpg, about-right-fade) -->
-  <div class="about-split">
-    <div class="about-left">
-      <div class="ab-label">ABOUT</div>
-      <div class="ab-hed">The systems are knowable. Most explanations just aren't good enough.</div>
-      <div class="ab-body">TheLinkPanda exists to make digital finance infrastructure legible — through rigorous research, precise visual systems, and a commitment to clarity over hype.</div>
-      <div class="ab-tags">
-        <span class="ab-tag">Digital Finance</span>
-        <span class="ab-tag">Infrastructure</span>
-        <span class="ab-tag">Chainlink</span>
-        <span class="ab-tag">Visual Systems</span>
-        <span class="ab-tag">Web3</span>
-      </div>
-    </div>
-    <div class="about-right">
-      <div class="img-wrap">
-        <img src="assets/banner/TheLinkPanda banner.jpg" alt="TheLinkPanda" onerror="this.classList.add('broken')"/>
-        <div class="img-fallback">
-          <div class="fb-icon">⬡</div>
-          <div class="fb-label">IMAGE NOT FOUND</div>
-          <div class="fb-path">assets/banner/TheLinkPanda banner.jpg</div>
-        </div>
-      </div>
-      <div class="about-right-fade"></div>
     </div>
   </div>
 
