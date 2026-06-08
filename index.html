@@ -58,7 +58,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
 /* ── HERO (Doc1 d803a96c — the known-good hero) ── */
-.hero{position:relative;height:clamp(380px,38vw,480px);min-height:380px;max-height:480px;overflow:hidden;background:#07090D;}
+.hero{position:relative;height:clamp(437px,43.7vw,552px);min-height:437px;max-height:552px;overflow:hidden;background:#07090D;}
 .hero-right-img{
   position:absolute;left:50%;top:0;width:50%;height:100%;
   object-fit:cover;object-position:60% center;z-index:0;
@@ -81,9 +81,9 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .hero-h1{display:none;font-family:var(--sans);font-size:clamp(32px,3.8vw,52px);font-weight:500;line-height:1.0;letter-spacing:-.025em;color:var(--w);margin-bottom:4px;}
 .hero-h1 span{color:var(--gold)}
 .hero-rule{display:none;width:clamp(32px,2.4vw,50px);height:.5px;background:var(--gold);opacity:.5;margin:clamp(14px,1.15vw,19px) 0;transform-origin:left;animation:ruledraw .7s ease-out .2s both;}
-.hero-tagline{font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.35vw,21px);font-weight:300;color:var(--w);margin-bottom:clamp(6px,0.5vw,9px);line-height:1.3;}
-.hero-sub{font-size:clamp(13px,.82vw,15px);color:var(--w80);line-height:1.6;margin-bottom:clamp(14px,1.2vw,20px);max-width:clamp(180px,18vw,280px);text-shadow:0 1px 12px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.95);}
-.hero-cta{display:inline-flex;align-items:center;gap:8px;background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(12px,.78vw,14px);letter-spacing:.07em;padding:clamp(8px,.6vw,11px) clamp(12px,1.1vw,18px);transition:background .25s,color .25s;width:fit-content;}
+.hero-tagline{font-family:var(--serif);font-style:italic;font-size:clamp(11px,0.94vw,15px);font-weight:300;color:var(--w);margin-bottom:clamp(6px,0.5vw,9px);line-height:1.3;}
+.hero-sub{font-size:clamp(9px,.57vw,10px);color:var(--w80);line-height:1.6;margin-bottom:clamp(14px,1.2vw,20px);max-width:clamp(180px,18vw,280px);text-shadow:0 1px 12px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.95);}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(8px,.55vw,10px);letter-spacing:.07em;padding:clamp(8px,.6vw,11px) clamp(12px,1.1vw,18px);transition:background .25s,color .25s;width:fit-content;}
 .hero-cta:hover{background:var(--gold);color:#08070a}
 @media(min-width:1920px){
   .hero-right-img{left:50%;width:50%}
@@ -92,11 +92,11 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
   .hero-eyebrow{display:none}
   .hero-h1{font-size:3.1vw}
   .hero-rule{width:2.1vw;margin:.85vw 0}
-  .hero-tagline{font-size:1.0vw;margin-bottom:.4vw}
-  .hero-sub{font-size:.78vw;margin-bottom:1.2vw;max-width:15vw}
-  .hero-cta{font-size:.75vw;padding:.45vw 1.0vw}
+  .hero-tagline{font-size:0.70vw;margin-bottom:.4vw}
+  .hero-sub{font-size:.55vw;margin-bottom:1.2vw;max-width:15vw}
+  .hero-cta{font-size:.53vw;padding:.45vw 1.0vw}
 }
-@media(min-width:2400px){.hero-h1{font-size:3.3vw}.hero-tagline{font-size:1.45vw}.hero-sub{font-size:1.17vw}}
+@media(min-width:2400px){.hero-h1{font-size:3.3vw}.hero-tagline{font-size:1.01vw}.hero-sub{font-size:.82vw}}
 
 /* ── ISSUE BAR (Doc1) ── */
 .issue-bar{max-width:none;border-bottom:.5px solid var(--border);padding:clamp(12px,0.94vw,16px) clamp(32px,5vw,80px);background:var(--bg2);display:flex;align-items:center;justify-content:space-between}
@@ -676,7 +676,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .hero-eyebrow{font-size:1.22vw;margin-bottom:.9vw}
   .hero-h1{font-size:3.1vw}
   .hero-rule{width:2.1vw;margin:.85vw 0}
-  .hero-tagline{font-size:1.0vw;margin-bottom:.4vw}
+  .hero-tagline{font-size:0.70vw;margin-bottom:.4vw}
   .hero-sub{font-size:1.12vw;margin-bottom:1.7vw;max-width:19vw}
   .hero-cta{font-size:0.96vw;padding:.6vw 1.4vw}
   .ib-label,.ib-t,.ib-date{font-size:0.98vw}.ib-topics{gap:1.6vw}
@@ -705,7 +705,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 }
 @media(min-width:2400px){
   :root{--content-max:1900px;--section-pad:128px 112px}
-  .hero-h1{font-size:3.3vw}.hero-tagline{font-size:1.45vw}.hero-sub{font-size:1.17vw}
+  .hero-h1{font-size:3.3vw}.hero-tagline{font-size:1.01vw}.hero-sub{font-size:.82vw}
   .sec-title{font-size:3vw}.thesis-hed{font-size:3vw}
 }
 
