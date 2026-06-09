@@ -2952,10 +2952,10 @@ var EXD = {
       chainlinkRole:"Chainlink provides Data Feeds for XRPL-native stablecoin pricing. No CCIP integration has been announced — XRPL does not natively support smart contracts, which limits how CCIP would connect.",
       status:'future',connects:['chainlink'],reachable:['swift','cbanks','stablecoins','ethereum']},
     {id:'stellar',     cat:'chains',  label:'Stellar',          icon:'✦', logo:'assets/logos/stellar.png',         x:0.42, y:0.645,
-      desc:'Blockchain network for cross-border payments and stablecoin settlement.',
+      desc:'Blockchain network for cross-border payments and RWA tokenization. $604M+ RWA inflows in 30 days. Hosts Ondo, Franklin Templeton, Circle, WisdomTree, and Centrifuge.',
       services:['data-feeds','data-streams','ccip'],
-      chainlinkRole:"Chainlink enables Stellar payment workflows to connect with other blockchains.",
-      status:'announced',connects:['chainlink'],reachable:['swift','stablecoins','ethereum','base','mastercard']},
+      chainlinkRole:"Chainlink Data Feeds, Data Streams, and CCIP are being integrated into Stellar via the Chainlink Scale program (announced Oct 2025). Stellar has become a leading RWA chain attracting major institutional tokenization platforms.",
+      status:'announced',connects:['chainlink'],reachable:['swift','stablecoins','rwas','tkfunds','treasuries','ondo','franklin','ethereum','base','mastercard','dtcc']},
     {id:'hedera',      cat:'chains',  label:'Hedera',           icon:'◇', logo:'assets/logos/hedera.png',          x:0.05, y:0.65,
       desc:'Enterprise-grade public DLT with native tokenization.',
       services:['data-feeds','proof-of-reserve','ccip'],
@@ -2981,7 +2981,7 @@ var EXD = {
       desc:'Leading tokenized Treasury platform.',
       services:['data-feeds','proof-of-reserve','ccip'],
       chainlinkRole:"Ondo uses Chainlink for NAV pricing, reserve verification, and cross-chain OUSG distribution.",
-      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','treasuries','ethereum','base','arbitrum']},
+      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','treasuries','ethereum','base','arbitrum','stellar','franklin']},
     {id:'lido',        cat:'apps',    label:'Lido',             icon:'◉', logo:'assets/logos/lido.png',            x:0.78, y:0.82,
       desc:'Largest liquid staking protocol. $30B+ staked ETH.',
       services:['data-feeds','automation'],
@@ -3065,6 +3065,12 @@ var EXD = {
       status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','bloomberg','refinitiv']},
 
     // ── BANKS (group node) ────────────────────────────────────────────
+    {id:'franklin',    cat:'tradfi',  label:'Franklin Templeton', icon:'◎', logo:'assets/logos/franklin.png',        x:0.09, y:0.54,
+      desc:'$1.5T AUM asset manager. Pioneer in tokenized funds — BENJI fund on Stellar, Ethereum, Polygon, and Base.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Franklin Templeton uses Chainlink for NAV pricing and reserve verification for its tokenized BENJI fund across multiple chains.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','tkfunds','treasuries','rwas','stellar','ethereum','polygon','base','ondo','custodians'],
+      subEntities:['BENJI Fund (tokenized money market)','Stellar deployment','Ethereum deployment','Polygon deployment','Base deployment']},
     {id:'banks',       cat:'tradfi',  label:'Global Banks',     icon:'🏦', logo:'assets/logos/global banks.png',            x:0.16, y:0.53,
       desc:'JPMorgan, Citi, BNY Mellon, ANZ, UBS — major banks integrating blockchain rails.',
       services:['ccip','cre','ccid','ace'],
@@ -3129,6 +3135,7 @@ var EXD = {
     'lseg':       {services:['Data Feeds','Data Streams'],                            label:'LSEG'},
     'refinitiv':  {services:['Data Feeds','Data Streams'],                            label:'Refinitiv'},
     'ice':        {services:['Data Feeds','Data Streams'],                            label:'ICE Data'},
+    'franklin':   {services:['Data Feeds','Proof of Reserve','CCIP'],                label:'Franklin Templeton'},
     'banks':      {services:['CCIP','CRE','CCID','ACE'],                              label:'Global Banks'},
   },
 
@@ -3236,6 +3243,36 @@ var EXD = {
     {from:'stablecoins', to:'solana',     type:'RUNS_ON_CHAIN',  style:'assets',  desc:'USDC has a major presence on Solana for high-speed payments.'},
     {from:'stablecoins', to:'base',       type:'RUNS_ON_CHAIN',  style:'assets',  desc:'USDC was co-developed for Base (Coinbase L2).'},
     {from:'stablecoins', to:'avalanche',  type:'RUNS_ON_CHAIN',  style:'assets',  desc:'Stablecoins are widely used across Avalanche DeFi.'},
+
+    // ── Stellar native ecosystem ──
+    {from:'stellar',     to:'stablecoins', type:'RUNS_ON_CHAIN',    style:'assets',  desc:'USDC (Circle) is live on Stellar, making it a major stablecoin settlement network.'},
+    {from:'stellar',     to:'rwas',        type:'OWNS_EXPOSURE_TO', style:'assets',  desc:'Stellar has attracted $604M+ in RWA inflows in 30 days, hosting tokenized bonds, funds, and treasuries.'},
+    {from:'stellar',     to:'tkfunds',     type:'OWNS_EXPOSURE_TO', style:'assets',  desc:'Tokenized funds including Franklin Templeton BENJI are issued natively on Stellar.'},
+    {from:'stellar',     to:'treasuries',  type:'OWNS_EXPOSURE_TO', style:'assets',  desc:'Tokenized US Treasuries are among the largest asset classes on Stellar by TVL.'},
+    {from:'stellar',     to:'ondo',        type:'CONNECTS_TO',      style:'assets',  desc:'Ondo Finance has expanded OUSG tokenized Treasury distribution to Stellar.'},
+    {from:'stellar',     to:'franklin',    type:'CONNECTS_TO',      style:'tradfi',  desc:'Franklin Templeton BENJI tokenized money market fund is live on Stellar.'},
+    {from:'stellar',     to:'dtcc',        type:'CONNECTS_TO',      style:'tradfi',  desc:'DTCC and Stellar have been cited together in institutional tokenization storylines. No live integration confirmed yet.'},
+
+    // ── Franklin Templeton native connections ──
+    {from:'franklin',    to:'assetmgr',    type:'CONNECTS_TO',      style:'tradfi',  desc:'Franklin Templeton is one of the world largest asset managers with $1.5T AUM.'},
+    {from:'franklin',    to:'tkfunds',     type:'ISSUES_ASSET',     style:'tradfi',  desc:'Franklin Templeton issues the BENJI tokenized money market fund across multiple blockchains.'},
+    {from:'franklin',    to:'treasuries',  type:'ISSUES_ASSET',     style:'tradfi',  desc:'BENJI holds US government money market securities — effectively tokenized treasuries.'},
+    {from:'franklin',    to:'rwas',        type:'TOKENIZES_ASSET',  style:'tradfi',  desc:'Franklin Templeton is one of the most active traditional asset managers tokenizing real-world assets.'},
+    {from:'franklin',    to:'stellar',     type:'RUNS_ON_CHAIN',    style:'chain',   desc:'Franklin Templeton BENJI was one of the first tokenized funds launched on Stellar.'},
+    {from:'franklin',    to:'ethereum',    type:'RUNS_ON_CHAIN',    style:'chain',   desc:'Franklin Templeton BENJI is also issued on Ethereum.'},
+    {from:'franklin',    to:'polygon',     type:'RUNS_ON_CHAIN',    style:'chain',   desc:'Franklin Templeton BENJI is deployed on Polygon.'},
+    {from:'franklin',    to:'base',        type:'RUNS_ON_CHAIN',    style:'chain',   desc:'Franklin Templeton BENJI has expanded to Base.'},
+    {from:'franklin',    to:'custodians',  type:'CONNECTS_TO',      style:'tradfi',  desc:'Franklin Templeton works with custodians for safekeeping of underlying fund assets.'},
+    {from:'franklin',    to:'ondo',        type:'CONNECTS_TO',      style:'assets',  desc:'Franklin Templeton and Ondo are both major tokenized Treasury issuers competing in the same market.'},
+
+    // ── Ondo → Stellar ──
+    {from:'ondo',        to:'stellar',     type:'RUNS_ON_CHAIN',    style:'chain',   desc:'Ondo Finance has deployed OUSG tokenized Treasury distribution on Stellar.'},
+
+    // ── Data providers → Market Data (previously missing) ──
+    {from:'bloomberg',   to:'marketdata',  type:'PROVIDES_DATA_TO', style:'data',    desc:'Bloomberg is a premium data provider aggregated by Chainlink node operators into onchain price feeds.'},
+    {from:'ice',         to:'marketdata',  type:'PROVIDES_DATA_TO', style:'data',    desc:'ICE market data is consumed by Chainlink node operators to build tamper-proof price feeds.'},
+    {from:'lseg',        to:'marketdata',  type:'PROVIDES_DATA_TO', style:'data',    desc:'LSEG data and indices are aggregated by Chainlink node operators into onchain price feeds.'},
+    {from:'refinitiv',   to:'marketdata',  type:'PROVIDES_DATA_TO', style:'data',    desc:'Refinitiv real-time data is aggregated by Chainlink into institutional-grade onchain prices.'},
   ],
 };
 
