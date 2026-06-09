@@ -43,10 +43,10 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .nav-brand{display:flex;align-items:center;gap:clamp(12px,1.08vw,16px);cursor:pointer;border:none;background:none}
 .nav-logo-img{width:clamp(26px,2vw,34px);height:clamp(26px,2vw,34px);object-fit:contain;flex-shrink:0}
 .nav-logo-svg{width:clamp(26px,2vw,34px);height:clamp(26px,2vw,34px);flex-shrink:0;display:none}
-.nav-wordmark{font-family:var(--sans);font-size:16px;font-weight:500;color:var(--w);letter-spacing:.01em}
+.nav-wordmark{font-family:var(--sans);font-size:19px;font-weight:500;color:var(--w);letter-spacing:.01em}
 .nav-wordmark span{color:var(--gold)}
 .nav-links{display:flex}
-.nav-link{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:16px;color:var(--w60);letter-spacing:.03em;padding:0 clamp(15px,1.35vw,22px);height:var(--nav-h);display:flex;align-items:center;position:relative;transition:color .2s;}
+.nav-link{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:19px;color:var(--w60);letter-spacing:.03em;padding:0 clamp(15px,1.35vw,22px);height:var(--nav-h);display:flex;align-items:center;position:relative;transition:color .2s;}
 .nav-link:hover{color:var(--w80)}
 .nav-link.active{color:var(--w)}
 .nav-link.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gold)}
@@ -54,7 +54,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .soc-btn{display:flex;align-items:center;justify-content:center;width:clamp(28px,2.2vw,36px);height:clamp(28px,2.2vw,36px);background:none;border:none;cursor:pointer;color:var(--w40);transition:color .2s;text-decoration:none}
 .soc-btn:hover{color:var(--gold)}
 .soc-btn svg{width:clamp(20px,1.35vw,22px);height:clamp(20px,1.35vw,22px);fill:currentColor;flex-shrink:0}
-.nav-cta{background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:16px;letter-spacing:.07em;padding:clamp(9px,0.68vw,12px) clamp(18px,1.62vw,24px);transition:background .2s,color .2s;margin-left:clamp(12px,1.08vw,19px)}
+.nav-cta{background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:19px;letter-spacing:.07em;padding:clamp(9px,0.68vw,12px) clamp(18px,1.62vw,24px);transition:background .2s,color .2s;margin-left:clamp(12px,1.08vw,19px)}
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
 /* ── HERO (Doc1 d803a96c — the known-good hero) ── */
@@ -819,7 +819,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .nav-more-wrap{position:relative;display:inline-block}
 .nav-more-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg2);border:.5px solid var(--border);min-width:160px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.5)}
 .nav-more-dropdown.open{display:block}
-.nav-more-item{display:block;width:100%;padding:10px 18px;text-align:left;background:none;border:none;border-bottom:.5px solid var(--border);font-family:var(--sans);font-size:16px;color:var(--w60);cursor:pointer;transition:color .15s,background .15s;letter-spacing:.03em}
+.nav-more-item{display:block;width:100%;padding:10px 18px;text-align:left;background:none;border:none;border-bottom:.5px solid var(--border);font-family:var(--sans);font-size:19px;color:var(--w60);cursor:pointer;transition:color .15s,background .15s;letter-spacing:.03em}
 .nav-more-item:last-child{border-bottom:none}
 .nav-more-item:hover,.nav-more-item.active{color:var(--w);background:var(--w06)}
 
@@ -3021,38 +3021,43 @@ var EXD = {
       status:'live',connects:['chainlink'],reachable:['stablecoins','ethereum','solana','mastercard','stripe']},
 
     // ── TOKENIZATION PLATFORMS ────────────────────────────────────────
-    {id:'canton',      cat:'apps',    label:'Canton',           icon:'◈', logo:'assets/logos/canton.png',           x:0.55, y:0.52,
+    {id:'canton',      cat:'apps',    label:'Canton',           icon:'◈', logo:'assets/logos/canton.png',           x:0.60, y:0.55,
       desc:'Canton Network — institutional DLT for regulated financial markets. Goldman Sachs, BNP Paribas.',
       services:['ccip','data-feeds','cre'],
       chainlinkRole:"Canton Network uses Chainlink for cross-chain interoperability and verified data for tokenized assets.",
       status:'live',connects:['chainlink'],reachable:['dtcc','assetmgr','custodians','tkfunds','rwas','ethereum']},
-    {id:'kinexys',     cat:'apps',    label:'Kinexys',          icon:'◇', logo:'assets/logos/kinexys.png',          x:0.43, y:0.54,
+    {id:'kinexys',     cat:'apps',    label:'Kinexys',          icon:'◇', logo:'assets/logos/kinexys.png',          x:0.38, y:0.50,
       desc:'JPMorgan Kinexys (formerly Onyx) — institutional blockchain for tokenized deposits and repo.',
       services:['ccip','cre','data-feeds'],
       chainlinkRole:"Kinexys uses Chainlink CCIP and CRE for cross-chain institutional settlement and verified asset data.",
       status:'live',connects:['chainlink'],reachable:['dtcc','swift','assetmgr','custodians','tkfunds','stablecoins','ethereum']},
-    {id:'digift',      cat:'apps',    label:'DigiFT',           icon:'◎', logo:'assets/logos/digift.png',           x:0.55, y:0.42,
+    {id:'digift',      cat:'apps',    label:'DigiFT',           icon:'◎', logo:'assets/logos/digift.png',           x:0.63, y:0.36,
       desc:'Singapore-licensed tokenized asset exchange. RWA and fund tokens.',
       services:['data-feeds','proof-of-reserve','ccip'],
       chainlinkRole:"DigiFT uses Chainlink for NAV pricing and reserve attestation for tokenized funds.",
       status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','assetmgr','ethereum','base']},
-    {id:'libre',       cat:'apps',    label:'Libre',            icon:'◆', logo:'assets/logos/libre.png',            x:0.43, y:0.44,
+    {id:'libre',       cat:'apps',    label:'Libre',            icon:'◆', logo:'assets/logos/libre.png',            x:0.40, y:0.38,
       desc:'Institutional tokenization platform. Brevan Howard, Hamilton Lane.',
       services:['data-feeds','proof-of-reserve','ccip'],
       chainlinkRole:"Libre uses Chainlink for fund NAV data and cross-chain tokenized fund distribution.",
       status:'live',connects:['chainlink'],reachable:['tkfunds','rwas','assetmgr','custodians','ethereum','base']},
 
     // ── DATA PROVIDERS ────────────────────────────────────────────────
-    {id:'bloomberg',   cat:'tradfi',  label:'Bloomberg',        icon:'◆', logo:'assets/logos/bloomberg.png',        x:0.35, y:0.09,
+    {id:'bloomberg',   cat:'tradfi',  label:'Bloomberg',        icon:'◆', logo:'assets/logos/Bloomberg.png',        x:0.35, y:0.09,
       desc:'Bloomberg Terminal — institutional financial data for 300,000+ subscribers.',
       services:['data-feeds','data-streams'],
       chainlinkRole:"Bloomberg data flows into Chainlink Data Feeds as a premium provider, enabling DeFi to access institutional-grade market data.",
       status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','marketdata','tkfunds','rwas']},
-    {id:'refinitiv',   cat:'tradfi',  label:'LSEG / Refinitiv', icon:'◎', logo:'assets/logos/refinitiv.png',        x:0.46, y:0.06,
-      desc:'LSEG Refinitiv — real-time financial data and analytics.',
+    {id:'lseg',        cat:'tradfi',  label:'LSEG',             icon:'◎', logo:'assets/logos/london stock exchange.png', x:0.46, y:0.04,
+      desc:'London Stock Exchange Group — global financial markets infrastructure and data.',
       services:['data-feeds','data-streams'],
-      chainlinkRole:"LSEG/Refinitiv data is aggregated by Chainlink node operators into tamper-proof onchain price feeds.",
-      status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','tkfunds','rwas','bloomberg']},
+      chainlinkRole:"LSEG data and indices are aggregated by Chainlink node operators into tamper-proof onchain price feeds.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','tkfunds','rwas','bloomberg','refinitiv']},
+    {id:'refinitiv',   cat:'tradfi',  label:'Refinitiv',        icon:'◎', logo:'assets/logos/refinitiv.png',        x:0.52, y:0.09,
+      desc:'Refinitiv (LSEG Data & Analytics) — real-time financial data and analytics.',
+      services:['data-feeds','data-streams'],
+      chainlinkRole:"Refinitiv data is aggregated by Chainlink node operators into tamper-proof onchain price feeds.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','tkfunds','rwas','bloomberg','lseg']},
     {id:'ice',         cat:'tradfi',  label:'ICE Data',         icon:'◇', logo:'assets/logos/ice.png',              x:0.35, y:0.20,
       desc:'ICE (Intercontinental Exchange) — global market data and exchange infrastructure.',
       services:['data-feeds','data-streams'],
@@ -3060,7 +3065,7 @@ var EXD = {
       status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','bloomberg','refinitiv']},
 
     // ── BANKS (group node) ────────────────────────────────────────────
-    {id:'banks',       cat:'tradfi',  label:'Global Banks',     icon:'🏦', logo:'assets/logos/banks.png',            x:0.16, y:0.53,
+    {id:'banks',       cat:'tradfi',  label:'Global Banks',     icon:'🏦', logo:'assets/logos/global banks.png',            x:0.16, y:0.53,
       desc:'JPMorgan, Citi, BNY Mellon, ANZ, UBS — major banks integrating blockchain rails.',
       services:['ccip','cre','ccid','ace'],
       chainlinkRole:"Chainlink CCIP and CRE enable banks to connect to tokenized asset networks, blockchain settlement, and cross-chain payment rails.",
@@ -3121,7 +3126,8 @@ var EXD = {
     'digift':     {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'DigiFT'},
     'libre':      {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Libre'},
     'bloomberg':  {services:['Data Feeds','Data Streams'],                            label:'Bloomberg'},
-    'refinitiv':  {services:['Data Feeds','Data Streams'],                            label:'LSEG / Refinitiv'},
+    'lseg':       {services:['Data Feeds','Data Streams'],                            label:'LSEG'},
+    'refinitiv':  {services:['Data Feeds','Data Streams'],                            label:'Refinitiv'},
     'ice':        {services:['Data Feeds','Data Streams'],                            label:'ICE Data'},
     'banks':      {services:['CCIP','CRE','CCID','ACE'],                              label:'Global Banks'},
   },
@@ -3157,10 +3163,13 @@ var EXD = {
 
     // ── Data provider → Chainlink → Apps ──
     {from:'bloomberg',   to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'Bloomberg is a premium data source aggregated by Chainlink node operators into onchain price feeds.'},
-    {from:'refinitiv',   to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'LSEG/Refinitiv data feeds are aggregated by Chainlink into institutional-grade onchain prices.'},
+    {from:'lseg',        to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'LSEG data and indices are aggregated by Chainlink node operators into tamper-proof onchain price feeds.'},
+    {from:'refinitiv',   to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'Refinitiv real-time data is aggregated by Chainlink into institutional-grade onchain prices.'},
     {from:'ice',         to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'ICE market data is consumed by Chainlink node operators to build tamper-proof price feeds.'},
     {from:'bloomberg',   to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'Bloomberg Terminal is the primary data tool for institutional asset managers.'},
-    {from:'refinitiv',   to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'LSEG/Refinitiv provides real-time market data to asset managers globally.'},
+    {from:'lseg',        to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'LSEG provides exchange data, indices, and benchmarks to institutional asset managers.'},
+    {from:'refinitiv',   to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'Refinitiv provides real-time market data and analytics to asset managers globally.'},
+    {from:'lseg',        to:'refinitiv',  type:'CONNECTS_TO',      style:'data',   desc:'Refinitiv is a business division of LSEG (London Stock Exchange Group).'},
     {from:'ice',         to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'ICE provides exchange data and benchmarks used by institutional asset managers.'},
     {from:'bloomberg',   to:'bloomberg',  type:'SELF',           style:'data',    desc:''},  // skip self
     {from:'marketdata',  to:'aave',       type:'PROVIDES_DATA_TO',style:'data',   desc:'Market data aggregated via Chainlink flows into Aave as price feeds for lending markets.'},
