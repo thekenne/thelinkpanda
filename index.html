@@ -182,6 +182,8 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .ex-filter{background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:clamp(15px,1.01vw,16px);letter-spacing:.12em;color:rgba(255,255,255,.32);padding:0 clamp(14px,1.5vw,22px);height:100%;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
 .ex-filter:hover{color:rgba(255,255,255,.6)}
 .ex-filter.active{color:var(--gold);border-bottom-color:var(--gold)}
+.ex-view-btn{border-left:.5px solid rgba(255,255,255,.05);}
+.ex-view-btn.active{color:rgba(100,200,255,.9);border-bottom-color:rgba(100,200,255,.8);}
 .ex-filter-hint{margin-left:auto;flex-shrink:0;font-size:clamp(16px,1.05vw,18px);letter-spacing:.1em;color:rgba(255,255,255,.18);font-family:var(--mono);padding:0 clamp(18px,1.89vw,27px);display:flex;align-items:center;gap:6px;}
 .ex-body{flex:1;min-height:0;display:grid;grid-template-columns:clamp(200px,17vw,260px) 1fr clamp(260px,24vw,360px);overflow:hidden;height:100%;align-items:stretch;}
 .ex-services{border-right:.5px solid rgba(255,255,255,.05);padding:clamp(14px,1.4vw,20px) clamp(18px,1.62vw,24px);display:flex;flex-direction:column;gap:2px;overflow-y:auto;scrollbar-width:none;height:100%;}
@@ -1451,10 +1453,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <button class="ex-filter" data-cat="assets"        onclick="exFilter('assets')">DIGITAL ASSETS</button>
       <button class="ex-filter" data-cat="chains"        onclick="exFilter('chains')">BLOCKCHAINS</button>
       <button class="ex-filter" data-cat="apps"          onclick="exFilter('apps')">APPLICATIONS</button>
-      <div style="width:.5px;height:60%;background:rgba(255,255,255,.08);flex-shrink:0;margin:0 6px"></div>
-      <button class="ex-filter ex-view-btn active" id="ex-view-chainlink" onclick="exSetView('chainlink')" title="Show Chainlink-powered connections">⬡ CHAINLINK PATHWAYS</button>
-      <button class="ex-filter ex-view-btn" id="ex-view-native"    onclick="exSetView('native')"    title="Show native ecosystem connections">◈ NATIVE CONNECTIONS</button>
-      <button class="ex-filter ex-view-btn" id="ex-view-full"      onclick="exSetView('full')"      title="Show all connections">⊕ FULL SYSTEM VIEW</button>
+      <div style="width:.5px;height:55%;background:rgba(255,255,255,.1);flex-shrink:0;margin:0 4px"></div>
+      <button class="ex-filter ex-view-btn active" id="ex-view-chainlink" onclick="exSetView('chainlink')" title="Show Chainlink-powered connections only">⬡ CHAINLINK</button>
+      <button class="ex-filter ex-view-btn"         id="ex-view-native"   onclick="exSetView('native')"    title="Show native ecosystem connections only">◈ NATIVE</button>
+      <button class="ex-filter ex-view-btn"         id="ex-view-full"     onclick="exSetView('full')"      title="Show all connections">⊕ FULL MAP</button>
       <div class="ex-filter-hint"><span style="opacity:.5">ⓘ</span> Click any node to explore</div>
     </div>
     <div class="ex-body">
@@ -3000,6 +3002,70 @@ var EXD = {
       services:['ccip','data-feeds'],
       chainlinkRole:"Securitize uses Chainlink for cross-chain digital security distribution.",
       status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','assetmgr','ethereum','base']},
+
+    // ── PAYMENT NETWORKS ─────────────────────────────────────────────
+    {id:'visa',        cat:'apps',    label:'Visa',             icon:'◇', logo:'assets/logos/visa.png',             x:0.82, y:0.58,
+      desc:'Global payment network. 4B+ cards, $14T+ annual volume.',
+      services:['ccip','data-feeds'],
+      chainlinkRole:"Visa uses Chainlink for blockchain payment settlement and cross-chain stablecoin infrastructure.",
+      status:'announced',connects:['chainlink'],reachable:['mastercard','stablecoins','ethereum','solana','base','swift']},
+    {id:'stripe',      cat:'apps',    label:'Stripe',           icon:'◈', logo:'assets/logos/stripe.png',           x:0.91, y:0.64,
+      desc:'Global payment infrastructure for internet businesses.',
+      services:['ccip','data-feeds'],
+      chainlinkRole:"Stripe integrates blockchain settlement using stablecoin rails where Chainlink provides price integrity.",
+      status:'announced',connects:['chainlink'],reachable:['visa','mastercard','stablecoins','ethereum','solana','base']},
+    {id:'paypal',      cat:'apps',    label:'PayPal',           icon:'◉', logo:'assets/logos/paypal.png',           x:0.82, y:0.72,
+      desc:'200M+ active accounts. PYUSD stablecoin issuer.',
+      services:['proof-of-reserve','data-feeds','ccip'],
+      chainlinkRole:"PayPal PYUSD uses Chainlink Proof of Reserve and price feeds for stablecoin transparency.",
+      status:'live',connects:['chainlink'],reachable:['stablecoins','ethereum','solana','mastercard','stripe']},
+
+    // ── TOKENIZATION PLATFORMS ────────────────────────────────────────
+    {id:'canton',      cat:'apps',    label:'Canton',           icon:'◈', logo:'assets/logos/canton.png',           x:0.55, y:0.52,
+      desc:'Canton Network — institutional DLT for regulated financial markets. Goldman Sachs, BNP Paribas.',
+      services:['ccip','data-feeds','cre'],
+      chainlinkRole:"Canton Network uses Chainlink for cross-chain interoperability and verified data for tokenized assets.",
+      status:'live',connects:['chainlink'],reachable:['dtcc','assetmgr','custodians','tkfunds','rwas','ethereum']},
+    {id:'kinexys',     cat:'apps',    label:'Kinexys',          icon:'◇', logo:'assets/logos/kinexys.png',          x:0.43, y:0.54,
+      desc:'JPMorgan Kinexys (formerly Onyx) — institutional blockchain for tokenized deposits and repo.',
+      services:['ccip','cre','data-feeds'],
+      chainlinkRole:"Kinexys uses Chainlink CCIP and CRE for cross-chain institutional settlement and verified asset data.",
+      status:'live',connects:['chainlink'],reachable:['dtcc','swift','assetmgr','custodians','tkfunds','stablecoins','ethereum']},
+    {id:'digift',      cat:'apps',    label:'DigiFT',           icon:'◎', logo:'assets/logos/digift.png',           x:0.55, y:0.42,
+      desc:'Singapore-licensed tokenized asset exchange. RWA and fund tokens.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"DigiFT uses Chainlink for NAV pricing and reserve attestation for tokenized funds.",
+      status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','assetmgr','ethereum','base']},
+    {id:'libre',       cat:'apps',    label:'Libre',            icon:'◆', logo:'assets/logos/libre.png',            x:0.43, y:0.44,
+      desc:'Institutional tokenization platform. Brevan Howard, Hamilton Lane.',
+      services:['data-feeds','proof-of-reserve','ccip'],
+      chainlinkRole:"Libre uses Chainlink for fund NAV data and cross-chain tokenized fund distribution.",
+      status:'live',connects:['chainlink'],reachable:['tkfunds','rwas','assetmgr','custodians','ethereum','base']},
+
+    // ── DATA PROVIDERS ────────────────────────────────────────────────
+    {id:'bloomberg',   cat:'tradfi',  label:'Bloomberg',        icon:'◆', logo:'assets/logos/bloomberg.png',        x:0.35, y:0.09,
+      desc:'Bloomberg Terminal — institutional financial data for 300,000+ subscribers.',
+      services:['data-feeds','data-streams'],
+      chainlinkRole:"Bloomberg data flows into Chainlink Data Feeds as a premium provider, enabling DeFi to access institutional-grade market data.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','marketdata','tkfunds','rwas']},
+    {id:'refinitiv',   cat:'tradfi',  label:'LSEG / Refinitiv', icon:'◎', logo:'assets/logos/refinitiv.png',        x:0.46, y:0.06,
+      desc:'LSEG Refinitiv — real-time financial data and analytics.',
+      services:['data-feeds','data-streams'],
+      chainlinkRole:"LSEG/Refinitiv data is aggregated by Chainlink node operators into tamper-proof onchain price feeds.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','tkfunds','rwas','bloomberg']},
+    {id:'ice',         cat:'tradfi',  label:'ICE Data',         icon:'◇', logo:'assets/logos/ice.png',              x:0.35, y:0.20,
+      desc:'ICE (Intercontinental Exchange) — global market data and exchange infrastructure.',
+      services:['data-feeds','data-streams'],
+      chainlinkRole:"ICE market data is consumed by Chainlink node operators to build institutional-grade onchain price feeds.",
+      status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','bloomberg','refinitiv']},
+
+    // ── BANKS (group node) ────────────────────────────────────────────
+    {id:'banks',       cat:'tradfi',  label:'Global Banks',     icon:'🏦', logo:'assets/logos/banks.png',            x:0.16, y:0.53,
+      desc:'JPMorgan, Citi, BNY Mellon, ANZ, UBS — major banks integrating blockchain rails.',
+      services:['ccip','cre','ccid','ace'],
+      chainlinkRole:"Chainlink CCIP and CRE enable banks to connect to tokenized asset networks, blockchain settlement, and cross-chain payment rails.",
+      status:'live',connects:['chainlink'],reachable:['swift','dtcc','euroclear','custodians','assetmgr','kinexys','stablecoins','ethereum','avalanche'],
+      subEntities:['JPMorgan / Kinexys','Citi','BNY Mellon','ANZ','UBS','Standard Chartered']},
   ],
 
   serviceInfo:{
@@ -3047,53 +3113,120 @@ var EXD = {
     'gmx':        {services:['Data Streams'],                                         label:'GMX'},
     'mastercard': {services:['CCIP'],                                                 label:'Mastercard'},
     'securitize': {services:['CCIP','Data Feeds'],                                    label:'Securitize'},
+    'visa':       {services:['CCIP','Data Feeds'],                                    label:'Visa'},
+    'stripe':     {services:['CCIP','Data Feeds'],                                    label:'Stripe'},
+    'paypal':     {services:['Proof of Reserve','Data Feeds','CCIP'],                 label:'PayPal'},
+    'canton':     {services:['CCIP','Data Feeds','CRE'],                              label:'Canton Network'},
+    'kinexys':    {services:['CCIP','CRE','Data Feeds'],                              label:'Kinexys'},
+    'digift':     {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'DigiFT'},
+    'libre':      {services:['Data Feeds','Proof of Reserve','CCIP'],                 label:'Libre'},
+    'bloomberg':  {services:['Data Feeds','Data Streams'],                            label:'Bloomberg'},
+    'refinitiv':  {services:['Data Feeds','Data Streams'],                            label:'LSEG / Refinitiv'},
+    'ice':        {services:['Data Feeds','Data Streams'],                            label:'ICE Data'},
+    'banks':      {services:['CCIP','CRE','CCID','ACE'],                              label:'Global Banks'},
   },
 
-  // Native ecosystem edges — relationships that exist without Chainlink
+  // ── NATIVE ECOSYSTEM EDGES ─────────────────────────────────────────
+  // Relationships that exist independently of Chainlink.
+  // style: 'tradfi' | 'assets' | 'chain' | 'payment' | 'data'
   nativeEdges: [
-    // TradFi ↔ TradFi
-    {from:'swift',       to:'dtcc',       type:'MESSAGES_WITH',    style:'tradfi',  desc:'SWIFT messaging connects global banks to DTCC settlement workflows.'},
-    {from:'swift',       to:'euroclear',  type:'MESSAGES_WITH',    style:'tradfi',  desc:'SWIFT connects global banks to Euroclear for European securities settlement.'},
-    {from:'swift',       to:'cbanks',     type:'MESSAGES_WITH',    style:'tradfi',  desc:'SWIFT is the core messaging backbone for central bank interbank communication.'},
-    {from:'swift',       to:'assetmgr',   type:'CONNECTS_TO',      style:'tradfi',  desc:'SWIFT connects asset managers to custodians and settlement networks.'},
-    {from:'dtcc',        to:'custodians', type:'SETTLES_WITH',      style:'tradfi',  desc:'DTCC settles trades through custodians like BNY Mellon and State Street.'},
-    {from:'dtcc',        to:'assetmgr',   type:'CONNECTS_TO',      style:'tradfi',  desc:'DTCC connects asset managers to the US securities settlement system.'},
-    {from:'euroclear',   to:'custodians', type:'CUSTODIES_ASSET',   style:'tradfi',  desc:'Euroclear holds and manages securities on behalf of custodian banks.'},
-    {from:'euroclear',   to:'assetmgr',   type:'CONNECTS_TO',      style:'tradfi',  desc:'Euroclear provides settlement services directly to asset managers.'},
-    {from:'custodians',  to:'assetmgr',   type:'CUSTODIES_ASSET',   style:'tradfi',  desc:'Custodians (BNY Mellon, State Street, Citi) safeguard assets for asset managers.'},
-    {from:'custodians',  to:'tkfunds',    type:'CUSTODIES_ASSET',   style:'tradfi',  desc:'Custodians hold the underlying assets for tokenized fund products.'},
-    {from:'assetmgr',    to:'tkfunds',    type:'ISSUES_ASSET',      style:'tradfi',  desc:'Asset managers like BlackRock and Franklin Templeton issue tokenized funds.'},
-    {from:'assetmgr',    to:'rwas',       type:'TOKENIZES_ASSET',   style:'tradfi',  desc:'Asset managers manage and tokenize real-world assets including bonds and equities.'},
-    {from:'assetmgr',    to:'treasuries', type:'ISSUES_ASSET',      style:'tradfi',  desc:'Asset managers issue tokenized Treasury products.'},
-    // Assets ↔ Assets
-    {from:'rwas',        to:'tkfunds',    type:'ISSUES_ASSET',      style:'assets',  desc:'Real-world assets are the underlying holdings inside tokenized funds.'},
-    {from:'rwas',        to:'treasuries', type:'CONNECTS_TO',       style:'assets',  desc:'Tokenized bonds and government securities are a subset of RWAs.'},
-    {from:'tkfunds',     to:'ondo',       type:'DEPENDS_ON',        style:'assets',  desc:'Ondo Finance is a leading issuer of tokenized fund products like OUSG.'},
-    {from:'treasuries',  to:'ondo',       type:'ISSUES_ASSET',      style:'assets',  desc:'Ondo issues tokenized US Treasuries as OUSG.'},
-    {from:'stablecoins', to:'cbanks',     type:'CONNECTS_TO',       style:'assets',  desc:'Stablecoins are private-sector representations of central bank currency.'},
-    // DeFi native dependencies
-    {from:'aave',        to:'ethereum',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Aave markets run natively on Ethereum mainnet.'},
-    {from:'aave',        to:'base',       type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Aave has deployed markets on Base (Coinbase L2).'},
-    {from:'aave',        to:'arbitrum',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Aave markets are live on Arbitrum.'},
-    {from:'aave',        to:'optimism',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Aave has deployed markets on Optimism.'},
-    {from:'lido',        to:'ethereum',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Lido liquid staking runs natively on Ethereum.'},
-    {from:'gmx',         to:'arbitrum',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'GMX perpetuals exchange runs natively on Arbitrum.'},
-    {from:'gmx',         to:'avalanche',  type:'RUNS_ON_CHAIN',     style:'chain',   desc:'GMX is also deployed on Avalanche.'},
-    {from:'ondo',        to:'ethereum',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Ondo Finance tokenized products are issued on Ethereum.'},
-    {from:'ondo',        to:'base',       type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Ondo has expanded distribution to Base.'},
-    {from:'securitize',  to:'ethereum',   type:'RUNS_ON_CHAIN',     style:'chain',   desc:'Securitize issues digital securities on Ethereum.'},
-    {from:'mastercard',  to:'ethereum',   type:'CONNECTS_TO',       style:'chain',   desc:'Mastercard blockchain programs connect to Ethereum.'},
-    {from:'mastercard',  to:'solana',     type:'CONNECTS_TO',       style:'chain',   desc:'Mastercard payment rails integrate with Solana stablecoin settlement.'},
-    // Chain ↔ Chain
-    {from:'ethereum',    to:'base',       type:'DEPENDS_ON',        style:'chain',   desc:'Base is a Layer 2 built on Ethereum — all Base transactions settle on Ethereum.'},
-    {from:'ethereum',    to:'arbitrum',   type:'DEPENDS_ON',        style:'chain',   desc:'Arbitrum is an Ethereum Layer 2 — transactions settle to Ethereum.'},
-    {from:'ethereum',    to:'optimism',   type:'DEPENDS_ON',        style:'chain',   desc:'Optimism is an Ethereum Layer 2 — transactions settle to Ethereum.'},
-    {from:'ethereum',    to:'polygon',    type:'DEPENDS_ON',        style:'chain',   desc:'Polygon is an Ethereum scaling network with bridged security.'},
-    // Stablecoins ↔ Chains
-    {from:'stablecoins', to:'ethereum',   type:'RUNS_ON_CHAIN',     style:'assets',  desc:'USDC, USDT, and PYUSD run natively on Ethereum.'},
-    {from:'stablecoins', to:'solana',     type:'RUNS_ON_CHAIN',     style:'assets',  desc:'USDC has a major presence on Solana for high-speed payments.'},
-    {from:'stablecoins', to:'base',       type:'RUNS_ON_CHAIN',     style:'assets',  desc:'USDC was co-developed for Base (Coinbase).'},
-    {from:'stablecoins', to:'avalanche',  type:'RUNS_ON_CHAIN',     style:'assets',  desc:'Stablecoins are widely used across Avalanche DeFi.'},
+    // ── TradFi infrastructure ──
+    {from:'swift',       to:'dtcc',       type:'MESSAGES_WITH',  style:'tradfi',  desc:'SWIFT messaging connects global banks to DTCC for US securities settlement.'},
+    {from:'swift',       to:'euroclear',  type:'MESSAGES_WITH',  style:'tradfi',  desc:'SWIFT connects global banks to Euroclear for European securities settlement.'},
+    {from:'swift',       to:'cbanks',     type:'MESSAGES_WITH',  style:'tradfi',  desc:'SWIFT is the core messaging backbone for central bank interbank communication.'},
+    {from:'swift',       to:'assetmgr',   type:'CONNECTS_TO',    style:'tradfi',  desc:'SWIFT connects asset managers to custodians and settlement networks.'},
+    {from:'swift',       to:'banks',      type:'CONNECTS_TO',    style:'tradfi',  desc:'SWIFT is the messaging network used by all major global banks.'},
+    {from:'dtcc',        to:'custodians', type:'SETTLES_WITH',   style:'tradfi',  desc:'DTCC settles trades through custodians like BNY Mellon and State Street.'},
+    {from:'dtcc',        to:'assetmgr',   type:'CONNECTS_TO',    style:'tradfi',  desc:'DTCC connects asset managers to the US securities settlement system.'},
+    {from:'dtcc',        to:'tkfunds',    type:'CONNECTS_TO',    style:'tradfi',  desc:'DTCC is building infrastructure for tokenized fund settlement.'},
+    {from:'dtcc',        to:'treasuries', type:'SETTLES_WITH',   style:'tradfi',  desc:'DTCC settles US Treasury trades through its Fixed Income Clearing Corporation.'},
+    {from:'dtcc',        to:'banks',      type:'CONNECTS_TO',    style:'tradfi',  desc:'DTCC connects banks to the central US securities clearing and settlement system.'},
+    {from:'euroclear',   to:'custodians', type:'CUSTODIES_ASSET',style:'tradfi',  desc:'Euroclear holds and manages securities on behalf of custodian banks.'},
+    {from:'euroclear',   to:'assetmgr',   type:'CONNECTS_TO',    style:'tradfi',  desc:'Euroclear provides settlement services directly to asset managers.'},
+    {from:'euroclear',   to:'tkfunds',    type:'CONNECTS_TO',    style:'tradfi',  desc:'Euroclear is developing tokenized fund settlement infrastructure.'},
+    {from:'custodians',  to:'assetmgr',   type:'CUSTODIES_ASSET',style:'tradfi',  desc:'Custodians (BNY Mellon, State Street, Citi) safeguard assets for asset managers.'},
+    {from:'custodians',  to:'tkfunds',    type:'CUSTODIES_ASSET',style:'tradfi',  desc:'Custodians hold the underlying assets for tokenized fund products.'},
+    {from:'custodians',  to:'rwas',       type:'CUSTODIES_ASSET',style:'tradfi',  desc:'Custodians hold real-world assets being tokenized onchain.'},
+    {from:'custodians',  to:'banks',      type:'CONNECTS_TO',    style:'tradfi',  desc:'Custodian banks like BNY Mellon and Citi serve global bank clients.'},
+    {from:'assetmgr',    to:'tkfunds',    type:'ISSUES_ASSET',   style:'tradfi',  desc:'Asset managers (BlackRock, Fidelity, Franklin Templeton) issue tokenized funds.'},
+    {from:'assetmgr',    to:'rwas',       type:'TOKENIZES_ASSET',style:'tradfi',  desc:'Asset managers tokenize real-world assets including bonds and equities.'},
+    {from:'assetmgr',    to:'treasuries', type:'ISSUES_ASSET',   style:'tradfi',  desc:'Asset managers issue and manage tokenized Treasury products.'},
+    {from:'banks',       to:'cbanks',     type:'CONNECTS_TO',    style:'tradfi',  desc:'Commercial banks operate under central bank oversight and hold reserves there.'},
+    {from:'banks',       to:'kinexys',    type:'DEPENDS_ON',     style:'tradfi',  desc:'JPMorgan Kinexys is a bank-built institutional blockchain platform.'},
+    {from:'banks',       to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'tradfi', desc:'Banks provide custody, lending, and prime brokerage to asset managers.'},
+
+    // ── Data provider → Chainlink → Apps ──
+    {from:'bloomberg',   to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'Bloomberg is a premium data source aggregated by Chainlink node operators into onchain price feeds.'},
+    {from:'refinitiv',   to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'LSEG/Refinitiv data feeds are aggregated by Chainlink into institutional-grade onchain prices.'},
+    {from:'ice',         to:'marketdata', type:'PROVIDES_DATA_TO',style:'data',   desc:'ICE market data is consumed by Chainlink node operators to build tamper-proof price feeds.'},
+    {from:'bloomberg',   to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'Bloomberg Terminal is the primary data tool for institutional asset managers.'},
+    {from:'refinitiv',   to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'LSEG/Refinitiv provides real-time market data to asset managers globally.'},
+    {from:'ice',         to:'assetmgr',   type:'PROVIDES_DATA_TO',style:'data',   desc:'ICE provides exchange data and benchmarks used by institutional asset managers.'},
+    {from:'bloomberg',   to:'bloomberg',  type:'SELF',           style:'data',    desc:''},  // skip self
+    {from:'marketdata',  to:'aave',       type:'PROVIDES_DATA_TO',style:'data',   desc:'Market data aggregated via Chainlink flows into Aave as price feeds for lending markets.'},
+    {from:'marketdata',  to:'gmx',        type:'PROVIDES_DATA_TO',style:'data',   desc:'Market data via Chainlink Data Streams powers GMX perpetuals price execution.'},
+    {from:'marketdata',  to:'ondo',       type:'PROVIDES_DATA_TO',style:'data',   desc:'Market data informs NAV calculations for Ondo tokenized Treasury products.'},
+    {from:'marketdata',  to:'tkfunds',    type:'PROVIDES_DATA_TO',style:'data',   desc:'Market data is the backbone of tokenized fund NAV calculation onchain.'},
+
+    // ── Digital asset relationships ──
+    {from:'rwas',        to:'tkfunds',    type:'ISSUES_ASSET',   style:'assets',  desc:'Real-world assets are the underlying holdings inside tokenized funds.'},
+    {from:'rwas',        to:'treasuries', type:'CONNECTS_TO',    style:'assets',  desc:'Tokenized bonds and government securities are a major RWA category.'},
+    {from:'tkfunds',     to:'ondo',       type:'DEPENDS_ON',     style:'assets',  desc:'Ondo Finance is a leading issuer of tokenized Treasury fund products (OUSG).'},
+    {from:'tkfunds',     to:'libre',      type:'DEPENDS_ON',     style:'assets',  desc:'Libre issues tokenized fund products (Brevan Howard, Hamilton Lane).'},
+    {from:'tkfunds',     to:'digift',     type:'DEPENDS_ON',     style:'assets',  desc:'DigiFT issues and lists tokenized fund tokens on its licensed exchange.'},
+    {from:'tkfunds',     to:'canton',     type:'CONNECTS_TO',    style:'assets',  desc:'Canton Network is used for institutional tokenized fund management.'},
+    {from:'tkfunds',     to:'kinexys',    type:'CONNECTS_TO',    style:'assets',  desc:'JPMorgan Kinexys supports tokenized deposit and repo settlement.'},
+    {from:'tkfunds',     to:'securitize', type:'DEPENDS_ON',     style:'assets',  desc:'Securitize is a major tokenization platform and transfer agent for tokenized funds.'},
+    {from:'treasuries',  to:'ondo',       type:'ISSUES_ASSET',   style:'assets',  desc:'Ondo issues OUSG, a tokenized US Treasury product backed by BlackRock BUIDL.'},
+    {from:'stablecoins', to:'paypal',     type:'ISSUES_ASSET',   style:'assets',  desc:'PayPal issues PYUSD, a dollar stablecoin on Ethereum and Solana.'},
+    {from:'stablecoins', to:'cbanks',     type:'CONNECTS_TO',    style:'assets',  desc:'Stablecoins are private-sector representations of central bank currency.'},
+
+    // ── DeFi native dependencies ──
+    {from:'aave',        to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Aave markets run natively on Ethereum mainnet.'},
+    {from:'aave',        to:'base',       type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Aave has deployed markets on Base (Coinbase L2).'},
+    {from:'aave',        to:'arbitrum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Aave markets are live on Arbitrum.'},
+    {from:'aave',        to:'optimism',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Aave has deployed markets on Optimism.'},
+    {from:'aave',        to:'polygon',    type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Aave markets are live on Polygon.'},
+    {from:'aave',        to:'stablecoins',type:'CONNECTS_TO',    style:'assets',  desc:'Aave's lending markets are primarily denominated in and collateralised by stablecoins.'},
+    {from:'aave',        to:'treasuries', type:'CONNECTS_TO',    style:'assets',  desc:'Tokenized treasuries like OUSG are increasingly used as Aave collateral.'},
+    {from:'lido',        to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Lido liquid staking runs natively on Ethereum.'},
+    {from:'gmx',         to:'arbitrum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'GMX perpetuals exchange runs natively on Arbitrum.'},
+    {from:'gmx',         to:'avalanche',  type:'RUNS_ON_CHAIN',  style:'chain',   desc:'GMX is also deployed on Avalanche.'},
+    {from:'ondo',        to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Ondo Finance tokenized products are issued on Ethereum.'},
+    {from:'ondo',        to:'base',       type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Ondo has expanded distribution to Base.'},
+    {from:'ondo',        to:'arbitrum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Ondo is expanding to Arbitrum for institutional DeFi distribution.'},
+    {from:'securitize',  to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Securitize issues digital securities on Ethereum.'},
+    {from:'securitize',  to:'base',       type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Securitize has expanded to Base for tokenized security issuance.'},
+    {from:'canton',      to:'ethereum',   type:'CONNECTS_TO',    style:'chain',   desc:'Canton Network connects to Ethereum for cross-chain asset movement.'},
+    {from:'kinexys',     to:'ethereum',   type:'CONNECTS_TO',    style:'chain',   desc:'JPMorgan Kinexys bridges to Ethereum for public blockchain interoperability.'},
+    {from:'digift',      to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'DigiFT tokenized assets are issued on Ethereum.'},
+    {from:'libre',       to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Libre tokenized fund products are issued on Ethereum.'},
+    {from:'libre',       to:'base',       type:'RUNS_ON_CHAIN',  style:'chain',   desc:'Libre has expanded to Base for tokenized fund distribution.'},
+
+    // ── Payment network relationships ──
+    {from:'mastercard',  to:'visa',       type:'CONNECTS_TO',    style:'payment', desc:'Mastercard and Visa both operate global card payment networks with parallel infrastructure.'},
+    {from:'mastercard',  to:'stablecoins',type:'CONNECTS_TO',    style:'payment', desc:'Mastercard has integrated stablecoin payment settlement across its network.'},
+    {from:'mastercard',  to:'ethereum',   type:'CONNECTS_TO',    style:'payment', desc:'Mastercard blockchain programs connect to Ethereum for settlement.'},
+    {from:'mastercard',  to:'solana',     type:'CONNECTS_TO',    style:'payment', desc:'Mastercard payment rails integrate with Solana for stablecoin settlement.'},
+    {from:'visa',        to:'stablecoins',type:'CONNECTS_TO',    style:'payment', desc:'Visa has integrated USDC settlement across its payment network.'},
+    {from:'visa',        to:'ethereum',   type:'CONNECTS_TO',    style:'payment', desc:'Visa uses Ethereum for USDC treasury settlement.'},
+    {from:'visa',        to:'solana',     type:'CONNECTS_TO',    style:'payment', desc:'Visa uses Solana for USDC settlement due to its speed and low cost.'},
+    {from:'stripe',      to:'stablecoins',type:'CONNECTS_TO',    style:'payment', desc:'Stripe integrated USDC payments across its global merchant network.'},
+    {from:'stripe',      to:'ethereum',   type:'CONNECTS_TO',    style:'payment', desc:'Stripe uses Ethereum as a settlement layer for blockchain payments.'},
+    {from:'stripe',      to:'solana',     type:'CONNECTS_TO',    style:'payment', desc:'Stripe uses Solana for fast and cheap stablecoin payment settlement.'},
+    {from:'paypal',      to:'stablecoins',type:'ISSUES_ASSET',   style:'payment', desc:'PayPal issues PYUSD, a regulated dollar stablecoin on Ethereum and Solana.'},
+    {from:'paypal',      to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'chain',   desc:'PayPal PYUSD is issued on Ethereum.'},
+    {from:'paypal',      to:'solana',     type:'RUNS_ON_CHAIN',  style:'chain',   desc:'PayPal PYUSD is also issued on Solana for faster payments.'},
+
+    // ── Chain ↔ Chain ──
+    {from:'ethereum',    to:'base',       type:'DEPENDS_ON',     style:'chain',   desc:'Base is a Layer 2 built on Ethereum — all Base transactions settle to Ethereum.'},
+    {from:'ethereum',    to:'arbitrum',   type:'DEPENDS_ON',     style:'chain',   desc:'Arbitrum is an Ethereum Layer 2 — transactions settle to Ethereum.'},
+    {from:'ethereum',    to:'optimism',   type:'DEPENDS_ON',     style:'chain',   desc:'Optimism is an Ethereum Layer 2 — transactions settle to Ethereum.'},
+    {from:'ethereum',    to:'polygon',    type:'DEPENDS_ON',     style:'chain',   desc:'Polygon is an Ethereum scaling network with shared security.'},
+    {from:'stablecoins', to:'ethereum',   type:'RUNS_ON_CHAIN',  style:'assets',  desc:'USDC, USDT, and PYUSD run natively on Ethereum.'},
+    {from:'stablecoins', to:'solana',     type:'RUNS_ON_CHAIN',  style:'assets',  desc:'USDC has a major presence on Solana for high-speed payments.'},
+    {from:'stablecoins', to:'base',       type:'RUNS_ON_CHAIN',  style:'assets',  desc:'USDC was co-developed for Base (Coinbase L2).'},
+    {from:'stablecoins', to:'avalanche',  type:'RUNS_ON_CHAIN',  style:'assets',  desc:'Stablecoins are widely used across Avalanche DeFi.'},
   ],
 };
 
@@ -3183,11 +3316,12 @@ function exBuildSVG(){
   var eg=document.createElementNS(ns,'g');eg.setAttribute('id','ex-edges');eg.setAttribute('pointer-events','none');
   EXD.nodes.forEach(function(n){var ln=document.createElementNS(ns,'line');ln.setAttribute('id','ex-edge-'+n.id);ln.setAttribute('x1',n.x*EX.W);ln.setAttribute('y1',n.y*EX.H);ln.setAttribute('x2',EX.CX);ln.setAttribute('y2',EX.CY);ln.setAttribute('stroke',cats[n.cat]||'rgba(200,146,42,1)');ln.setAttribute('stroke-width','0.5');ln.setAttribute('opacity','0.14');eg.appendChild(ln);});
   svg.appendChild(eg);
-  // Native ecosystem edges group
-  var styleMap={tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chain:'rgba(60,160,255,1)',future:'rgba(120,140,180,1)'};
-  var neg=document.createElementNS(ns,'g');neg.setAttribute('id','ex-native-edges');neg.setAttribute('pointer-events','auto');neg.setAttribute('display','none');
+  // ── Native ecosystem edges ──
+  var nStyleMap={tradfi:'rgba(200,146,42,1)',assets:'rgba(160,100,255,1)',chain:'rgba(60,160,255,1)',payment:'rgba(255,140,60,1)',data:'rgba(60,200,160,1)'};
   var nodeMap={};EXD.nodes.forEach(function(n){nodeMap[n.id]=n;});
+  var neg=document.createElementNS(ns,'g');neg.setAttribute('id','ex-native-edges');neg.setAttribute('pointer-events','auto');
   (EXD.nativeEdges||[]).forEach(function(e,i){
+    if(e.from===e.to)return;
     var nA=nodeMap[e.from],nB=nodeMap[e.to];if(!nA||!nB)return;
     var ln=document.createElementNS(ns,'line');
     ln.setAttribute('id','ex-native-'+i);
@@ -3196,12 +3330,10 @@ function exBuildSVG(){
     ln.setAttribute('data-desc',e.desc||'');ln.setAttribute('data-type',e.type||'');
     ln.setAttribute('x1',nA.x*EX.W);ln.setAttribute('y1',nA.y*EX.H);
     ln.setAttribute('x2',nB.x*EX.W);ln.setAttribute('y2',nB.y*EX.H);
-    var col=styleMap[e.style]||'rgba(180,180,180,1)';
-    ln.setAttribute('stroke',col);ln.setAttribute('stroke-width','0.7');ln.setAttribute('opacity','0.18');
-    if(e.type==='future'||e.type==='FUTURE'){ln.setAttribute('stroke-dasharray','4 4');}
-    ln.style.cursor='pointer';
-    ln.addEventListener('mouseenter',function(ev){exShowNativeTooltip(ev,e);});
-    ln.addEventListener('mouseleave',function(){exHideNativeTooltip();});
+    var col=nStyleMap[e.style]||'rgba(160,160,180,1)';
+    ln.setAttribute('stroke',col);ln.setAttribute('stroke-width','0.7');ln.setAttribute('opacity','0.0');
+    ln.addEventListener('mouseenter',function(ev){exShowNativeTip(ev,e);});
+    ln.addEventListener('mouseleave',exHideNativeTip);
     neg.appendChild(ln);
   });
   svg.appendChild(neg);
@@ -3243,26 +3375,6 @@ function exBuildSVG(){
 
 function exSelectNode(node){EX.selectedNode=node.id;EX.selectedSvc=null;EX.reachableSet={};if(node.reachable)node.reachable.forEach(function(r){EX.reachableSet[r]=true;});exApplyVisuals();exHighlightServices(node.services||[]);exUpdateRightPanel(node);exAnimateEdges(node);document.getElementById('ex-ctx-svcs').style.display='';document.getElementById('ex-how').style.display='none';if(EX_VIEW==='native'||EX_VIEW==='full'){exAppendNativeConnections(node);}}
 
-function exAppendNativeConnections(node){
-  var sl=document.getElementById('ex-ctx-svcs');if(!sl)return;
-  var nodeMap={};EXD.nodes.forEach(function(n){nodeMap[n.id]=n;});
-  var related=(EXD.nativeEdges||[]).filter(function(e){return e.from===node.id||e.to===node.id;});
-  if(!related.length)return;
-  var sep=document.createElement('div');sep.style.cssText='height:.5px;background:rgba(244,242,238,.07);margin:14px 0 10px';sl.appendChild(sep);
-  var hdr=document.createElement('div');hdr.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(160,100,255,.65);margin-bottom:8px';hdr.textContent='NATIVE ECOSYSTEM CONNECTIONS';sl.appendChild(hdr);
-  var typeLabels={RUNS_ON_CHAIN:'Runs on',MESSAGES_WITH:'Messages with',SETTLES_WITH:'Settles with',CONNECTS_TO:'Connects to',CUSTODIES_ASSET:'Custodies for',ISSUES_ASSET:'Issues assets for',DEPENDS_ON:'Depends on',TOKENIZES_ASSET:'Tokenizes for',PROVIDES_DATA_TO:'Provides data to'};
-  related.forEach(function(e){
-    var peerId=(e.from===node.id)?e.to:e.from;
-    var peer=nodeMap[peerId];if(!peer)return;
-    var row=document.createElement('div');row.style.cssText='display:flex;align-items:flex-start;gap:8px;padding:5px 8px;background:rgba(160,100,255,.06);border:.5px solid rgba(160,100,255,.12);border-radius:3px;margin-bottom:4px;';
-    var dot=document.createElement('div');dot.style.cssText='width:4px;height:4px;border-radius:50%;background:rgba(160,100,255,.6);flex-shrink:0;margin-top:5px';
-    var txt=document.createElement('div');
-    var lbl=document.createElement('div');lbl.style.cssText='font-size:10px;color:rgba(160,100,255,.75);letter-spacing:.06em;font-family:var(--mono)';lbl.textContent=(typeLabels[e.type]||e.type||'—')+' '+peer.label;
-    var desc=document.createElement('div');desc.style.cssText='font-size:11px;color:rgba(244,242,238,.45);line-height:1.55;margin-top:2px';desc.textContent=e.desc||'';
-    txt.appendChild(lbl);txt.appendChild(desc);
-    row.appendChild(dot);row.appendChild(txt);sl.appendChild(row);
-  });
-}
 function exClearSelection(){EX.selectedNode=null;EX.selectedSvc=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([]);exClearAnimations();exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}
 
 function exApplyVisuals(){
@@ -3289,37 +3401,58 @@ function exApplyVisuals(){
     else if(EX.selectedSvc){if(isSvcHit){edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','2.0');edge.setAttribute('opacity','0.85');}else{edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','0.4');edge.setAttribute('opacity','0.04');}}
     else{edge.setAttribute('stroke',ec);edge.setAttribute('stroke-width','0.5');edge.setAttribute('opacity','0.14');}
   });
-  // Handle native edges visibility based on EX_VIEW
+  // Native edge visibility
   var neg=document.getElementById('ex-native-edges');
+  var showNative=(EX_VIEW==='native'||EX_VIEW==='full');
+  var showCL=(EX_VIEW==='chainlink'||EX_VIEW==='full');
   if(neg){
-    var showNative=(EX_VIEW==='native'||EX_VIEW==='full');
-    var showChainlink=(EX_VIEW==='chainlink'||EX_VIEW==='full');
-    neg.setAttribute('display',showNative?'':'none');
-    document.getElementById('ex-edges').setAttribute('opacity',showChainlink?'1':'0.15');
-    // If node selected, highlight relevant native edges
-    if(EX.selectedNode&&showNative){
-      neg.querySelectorAll('.ex-native-edge').forEach(function(ln){
-        var isConn=(ln.getAttribute('data-from')===EX.selectedNode||ln.getAttribute('data-to')===EX.selectedNode);
-        ln.setAttribute('opacity',isConn?'0.75':'0.08');
-        ln.setAttribute('stroke-width',isConn?'1.8':'0.5');
-      });
-    } else if(showNative){
-      neg.querySelectorAll('.ex-native-edge').forEach(function(ln){
-        ln.setAttribute('opacity','0.18');ln.setAttribute('stroke-width','0.7');
-      });
-    }
+    var egRoot=document.getElementById('ex-edges');
+    if(egRoot)egRoot.setAttribute('opacity',showCL?'1':'0.12');
+    var selNode=EX.selectedNode;
+    neg.querySelectorAll('.ex-native-edge').forEach(function(ln){
+      if(!showNative){ln.setAttribute('opacity','0.0');return;}
+      if(selNode){
+        var isConn=(ln.getAttribute('data-from')===selNode||ln.getAttribute('data-to')===selNode);
+        ln.setAttribute('opacity',isConn?'0.72':'0.07');
+        ln.setAttribute('stroke-width',isConn?'1.6':'0.5');
+      } else {
+        ln.setAttribute('opacity','0.18');
+        ln.setAttribute('stroke-width','0.7');
+      }
+    });
   }
 }
 
-function exShowNativeTooltip(ev,edge){
-  var tt=document.getElementById('ex-native-tooltip');
-  if(!tt){tt=document.createElement('div');tt.id='ex-native-tooltip';tt.style.cssText='position:fixed;pointer-events:none;z-index:500;background:rgba(4,7,20,.97);border:.5px solid rgba(200,146,42,.35);border-left:2px solid rgba(200,146,42,.8);border-radius:6px;padding:10px 14px;min-width:200px;max-width:300px;box-shadow:0 8px 32px rgba(0,0,0,.7);font-family:var(--sans);opacity:0;transition:opacity .15s;';document.body.appendChild(tt);}
-  var typeLabels={RUNS_ON_CHAIN:'Runs on chain',MESSAGES_WITH:'Messages with',SETTLES_WITH:'Settles with',CONNECTS_TO:'Connects to',CUSTODIES_ASSET:'Custodies assets for',ISSUES_ASSET:'Issues assets for',DEPENDS_ON:'Depends on',TOKENIZES_ASSET:'Tokenizes assets',PROVIDES_DATA_TO:'Provides data to'};
-  var styleColors={tradfi:'rgba(200,146,42,.9)',assets:'rgba(160,100,255,.9)',chain:'rgba(60,160,255,.9)'};
-  tt.innerHTML='<div style="font-size:8px;letter-spacing:.14em;color:rgba(200,146,42,.7);margin-bottom:4px">'+(typeLabels[edge.type]||edge.type||'CONNECTION')+'</div><div style="font-size:12px;color:rgba(244,242,238,.85);line-height:1.6">'+(edge.desc||'')+'</div>';
-  tt.style.opacity='1';tt.style.left=(ev.clientX+14)+'px';tt.style.top=(ev.clientY-10)+'px';
+function exShowNativeTip(ev,edge){
+  var tt=document.getElementById('ex-ntip');
+  if(!tt){tt=document.createElement('div');tt.id='ex-ntip';tt.style.cssText='position:fixed;pointer-events:none;z-index:600;background:rgba(4,7,20,.97);border:.5px solid rgba(200,146,42,.3);border-left:2px solid rgba(200,146,42,.7);border-radius:5px;padding:9px 13px;min-width:180px;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.7);font-family:var(--sans);opacity:0;transition:opacity .12s;font-size:11px';document.body.appendChild(tt);}
+  var tl={RUNS_ON_CHAIN:'Runs on',MESSAGES_WITH:'Messages with',SETTLES_WITH:'Settles with',CONNECTS_TO:'Connects to',CUSTODIES_ASSET:'Custodies for',ISSUES_ASSET:'Issues assets',DEPENDS_ON:'Depends on',TOKENIZES_ASSET:'Tokenizes for',PROVIDES_DATA_TO:'Provides data to'};
+  tt.innerHTML='<div style="font-size:8px;letter-spacing:.14em;color:rgba(200,146,42,.65);margin-bottom:3px">'+(tl[edge.type]||edge.type||'CONNECTION')+'</div><div style="color:rgba(244,242,238,.8);line-height:1.55">'+(edge.desc||'')+'</div>';
+  tt.style.opacity='1';tt.style.left=(ev.clientX+14)+'px';tt.style.top=(ev.clientY-8)+'px';
 }
-function exHideNativeTooltip(){var tt=document.getElementById('ex-native-tooltip');if(tt)tt.style.opacity='0';}
+function exHideNativeTip(){var tt=document.getElementById('ex-ntip');if(tt)tt.style.opacity='0';}
+
+function exAppendNativeConnections(node){
+  var sl=document.getElementById('ex-ctx-svcs');if(!sl)return;
+  var nodeMap={};EXD.nodes.forEach(function(n){nodeMap[n.id]=n;});
+  var related=(EXD.nativeEdges||[]).filter(function(e){return (e.from===node.id||e.to===node.id)&&e.from!==e.to;});
+  if(!related.length)return;
+  var sep=document.createElement('div');sep.style.cssText='height:.5px;background:rgba(244,242,238,.07);margin:12px 0 10px';sl.appendChild(sep);
+  var hdr=document.createElement('div');hdr.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(160,100,255,.7);margin-bottom:7px';hdr.textContent='NATIVE ECOSYSTEM CONNECTIONS';sl.appendChild(hdr);
+  var tl={RUNS_ON_CHAIN:'Runs on',MESSAGES_WITH:'Messages with',SETTLES_WITH:'Settles with',CONNECTS_TO:'Connects to',CUSTODIES_ASSET:'Custodies for',ISSUES_ASSET:'Issues assets',DEPENDS_ON:'Depends on',TOKENIZES_ASSET:'Tokenizes for',PROVIDES_DATA_TO:'Provides data to'};
+  related.forEach(function(e){
+    var peerId=(e.from===node.id)?e.to:e.from;
+    var peer=nodeMap[peerId];if(!peer)return;
+    var row=document.createElement('div');row.style.cssText='display:flex;align-items:flex-start;gap:7px;padding:5px 8px;background:rgba(160,100,255,.05);border:.5px solid rgba(160,100,255,.12);border-radius:3px;margin-bottom:3px';
+    var dot=document.createElement('div');dot.style.cssText='width:3px;height:3px;border-radius:50%;background:rgba(160,100,255,.55);flex-shrink:0;margin-top:5px';
+    var txt=document.createElement('div');
+    var lbl=document.createElement('div');lbl.style.cssText='font-size:10px;color:rgba(160,100,255,.8);letter-spacing:.05em;font-family:var(--mono)';lbl.textContent=(tl[e.type]||e.type||'—')+' '+peer.label;
+    var desc=document.createElement('div');desc.style.cssText='font-size:11px;color:rgba(244,242,238,.4);line-height:1.5;margin-top:1px';desc.textContent=e.desc||'';
+    txt.appendChild(lbl);txt.appendChild(desc);
+    row.appendChild(dot);row.appendChild(txt);sl.appendChild(row);
+  });
+}
+
 function exAnimateEdges(node){exClearAnimations();var ag=document.getElementById('ex-anims');if(!ag)return;var ns='http://www.w3.org/2000/svg';var px=node.x*EX.W,py=node.y*EX.H,cx=EX.CX,cy=EX.CY;function mkP(x1,y1,x2,y2,r,fill,dur,delay){var c=document.createElementNS(ns,'circle');c.setAttribute('r',r);c.setAttribute('fill',fill);c.setAttribute('pointer-events','none');function anim(a,f,t){var an=document.createElementNS(ns,'animate');an.setAttribute('attributeName',a);an.setAttribute('from',f);an.setAttribute('to',t);an.setAttribute('dur',dur+'s');an.setAttribute('repeatCount','indefinite');an.setAttribute('begin',delay+'s');c.appendChild(an);}anim('cx',x1,x2);anim('cy',y1,y2);var ao=document.createElementNS(ns,'animate');ao.setAttribute('attributeName','opacity');ao.setAttribute('values','0;1;1;0');ao.setAttribute('keyTimes','0;0.08;0.88;1');ao.setAttribute('dur',dur+'s');ao.setAttribute('repeatCount','indefinite');ao.setAttribute('begin',delay+'s');c.appendChild(ao);ag.appendChild(c);}mkP(px,py,cx,cy,3.5,'rgba(80,160,255,.95)',1.4,0);mkP(px,py,cx,cy,2.5,'rgba(80,160,255,.7)',1.4,0.7);var delay=0.1;if(node.reachable)node.reachable.forEach(function(rid){var rn=EXD.nodes.filter(function(x){return x.id===rid;})[0];if(!rn)return;mkP(cx,cy,rn.x*EX.W,rn.y*EX.H,2.5,'rgba(200,146,42,.8)',2.0,delay);delay+=0.15;});}
 function exClearAnimations(){var ag=document.getElementById('ex-anims');if(ag)ag.innerHTML='';}
 
@@ -3340,7 +3473,12 @@ function exUpdateRightPanel(node){
   te.appendChild(badge);
   // Path chip
   var rc=node.reachable?node.reachable.length:0;
-  if(rc){var chip=document.createElement('div');chip.style.cssText='font-size:10px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:3px 9px;border-radius:2px;margin-top:4px;display:inline-block;font-family:var(--mono)';chip.textContent=node.label.split('\n').join(' ')+' \u2192 Chainlink \u2192 '+rc+' systems';te.appendChild(chip);}
+  if(rc){var chip=document.createElement('div');chip.style.cssText='font-size:10px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:3px 9px;border-radius:2px;margin-top:4px;display:inline-block;font-family:var(--mono)';chip.textContent=node.label.split('\n').join(' ')+' → Chainlink → '+rc+' systems';te.appendChild(chip);}
+  // Sub-entities for group nodes (Banks, etc.)
+  if(node.subEntities&&node.subEntities.length){
+    var subHdr=document.createElement('div');subHdr.style.cssText='font-size:8px;letter-spacing:.16em;color:rgba(200,146,42,.5);margin-top:10px;margin-bottom:5px';subHdr.textContent='INCLUDES';te.appendChild(subHdr);
+    node.subEntities.forEach(function(s){var c=document.createElement('div');c.style.cssText='font-size:10px;color:rgba(244,242,238,.55);padding:2px 0;display:flex;align-items:center;gap:5px';c.innerHTML='<span style="color:rgba(200,146,42,.4);font-size:8px">▸</span>'+s;te.appendChild(c);});
+  }
   var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
   function sec(l,c){var h=document.createElement('div');h.style.cssText='font-size:9px;letter-spacing:.16em;color:'+c+';margin-bottom:8px;margin-top:14px';h.textContent=l;sl.appendChild(h);}
   var help=node.chainlinkRole||node.explanation||'';
@@ -3763,8 +3901,7 @@ var EVIDENCE=[
   {id:'ev-037',type:'official',date:'2024-08',org:'USPTO',person:'Sergey Nazarov / Alex Coventry / Steve Ellis / Ari Juels / Lorenz Breidenbach',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US12062037 — Secure state machine with off-chain oracle switching granted',body:'USPTO granted US12062037 covering a smart contract system where behavior is controlled by an off-chain oracle monitoring real-world switch parameters. Filed July 2020, granted August 13, 2024. When the oracle reports a trigger condition, the on-chain contract automatically changes state and executes payments.',source_url:'https://patents.justia.com/patent/12062037',source_label:'USPTO US12062037 — SmartContract Chainlink Limited SEZC (granted Aug 13, 2024)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent protects the mechanism underlying Chainlink Automation — the ability to trigger on-chain smart contract state changes based on off-chain conditions reported by an oracle. Co-invented by Lorenz Breidenbach, Ari Juels, Steve Ellis, Alex Coventry, and Sergey Nazarov.',tags:['Patent','Automation','Smart Contracts','Off-Chain Computation','IP'],nodes:['marketdata'],significance:'Chainlink holds a granted patent on oracle-triggered smart contract state machines — the core mechanism behind Chainlink Automation and condition-based contract execution.'},
   {id:'ev-038',type:'official',date:'2025-12',org:'USPTO',person:'Sergey Nazarov / Alex Coventry / Ari Juels',role:'Inventors — SmartContract Chainlink Limited SEZC',title:'US12494909 — Verifiable randomness (VRF) for decentralized computing granted',body:'USPTO granted US12494909 covering the production of verifiable random values within a decentralized oracle network. An oracle applies a private key to an unpredictable seed to produce a random value and a cryptographic proof of correctness that any party can verify on-chain. Filed May 11, 2021, granted December 9, 2025.',source_url:'https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html',source_label:'USPTO Official Gazette US12494909 — SmartContract Chainlink Limited SEZC (granted Dec 9, 2025)',source_type:'Patent',verification:'Official Document',confidence:100,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent protects Chainlink VRF — the verifiable random function used by gaming applications, NFT projects, and any protocol requiring provably fair randomness. The proof is published and verified on-chain before any application can use the random value. Priority date May 2020.',tags:['Patent','VRF','Randomness','Cryptography','Gaming','NFT','IP'],nodes:['marketdata'],significance:'Chainlink holds a granted USPTO patent on on-chain verifiable randomness. Any competitor replicating VRF\'s on-chain proof approach faces patent infringement risk. The patent was first filed in May 2021 with priority to May 2020.'},
   {id:'ev-039',type:'official',date:'2025',org:'USPTO',person:'Chainlink Labs',role:'Applicant — SmartContract Chainlink Limited SEZC',title:'US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published',body:'USPTO published patent application US20250342426 titled Systems and Methods for Risk Management Networks, filed by SmartContract Chainlink Limited SEZC. The system describes an independent validation layer for cross-chain transactions that treats all blockchains as potentially hostile by default. RMN nodes independently reconstruct Merkle trees, bless valid transactions, and curse (pause) cross-chain processing when anomalies are detected.',source_url:'https://patents.justia.com/patent/20250342426',source_label:'USPTO Application US20250342426 — SmartContract Chainlink Limited SEZC (published 2025, Justia)',source_type:'Patent Application',verification:'Official Document',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'This patent application covers the CCIP Risk Management Network — the independent secondary layer that makes CCIP fundamentally different from token bridges. The patent notes that as of late 2023, over $2 billion in value had been lost to cross-chain bridge exploits. The RMN is specifically engineered to prevent those classes of attacks.',tags:['Patent','CCIP','Risk Management','Security','Cross-Chain','Bridge Security','IP'],nodes:['marketdata'],significance:'CCIP is not a bridge. It is a patented cross-chain security system with an independent Risk Management Network. This patent application is the technical evidence that CCIP\'s security model is a novel, IP-protected invention — not a commodity bridge protocol.'},
-  {id:'ev-040',type:'report',date:'2025-03',org:'Chainlink Labs / Aave',person:'Chainlink Labs',role:'Oracle Infrastructure',title:'Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure',body:'Chainlink Smart Value Recapture (SVR) launched on Aave v3 Ethereum mainnet in March 2025 after a 100% in-favor Aave DAO vote. SVR enables DeFi protocols to recapture Oracle Extractable Value (OEV) — the MEV that leaks when liquidations are triggered by oracle updates. Chainlink SVR uses a dual price feed mechanism via Flashbots MEV-Share: a private channel allows searchers to bid for bundled liquidation execution, recapturing value that previously went entirely to MEV bots. Within weeks of launch SVR had recaptured over $1.1M in non-toxic liquidation MEV across $32M in liquidations, with an average recapture rate over 80% and a peak rate over 90%. Revenue splits 65% to Aave, 35% to Chainlink. SVR coverage reached approximately 75% of Aave\'s total Ethereum TVL.',source_url:'https://dashboard.llamarisk.com/protocols/aave/svr',source_label:'LlamaRisk SVR Analytics Dashboard — Aave SVR live metrics (dashboard.llamarisk.com/protocols/aave/svr)',source_type:'Live Dashboard',verification:'Live Production Data',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'SVR was introduced in December 2024 in collaboration with BGD Labs, Flashbots, and the Aave DAO. The Aave DAO vote to activate SVR passed 100% in favor on March 28, 2025. SVR is built specifically for back-running liquidations only — it cannot be used for sandwich attacks. Flashbots noted: this is a big win for MEV minimization on Ethereum. SVR revenue for Chainlink\'s 35% share is converted into LINK and distributed to network service providers, creating a direct revenue loop. The LlamaRisk dashboard at the linked URL provides live tracking of all SVR metrics.',tags:['SVR','MEV','Aave','Oracle Extractable Value','Revenue','DeFi','LINK Token','Economics'],nodes:['marketdata'],significance:'SVR is proof that Chainlink is not just data infrastructure — it is an economic protocol. SVR creates a new revenue stream for both DeFi protocols and the Chainlink Network simultaneously. The Aave DAO voted 100% in favor. $1.1M+ recaptured and counting. This is Chainlink\'s oracle infrastructure actively generating measurable economic value for its ecosystem partners.'},
-  {id:'ev-041',type:'announcement',date:'2026-06',org:'ADI Predictstreet / FIFA / Chainlink',person:'ADI Predictstreet',role:'Official FIFA World Cup 2026 Prediction Market Partner',title:'ADI Predictstreet — Official FIFA World Cup 2026 Prediction Market Partner adopts Chainlink as exclusive oracle infrastructure',body:'ADI Predictstreet, the Official Prediction Market Partner of FIFA World Cup 2026, adopted Chainlink as its exclusive oracle infrastructure to power prediction markets for the world\'s largest sporting event. Chainlink CRE and oracle services power accurate market resolutions, high-quality verified FIFA data delivery, automated market settlement, and instant payouts. This deployment represents Chainlink expanding beyond DeFi and TradFi into consumer-scale global sporting events, using verified data pipelines and automated settlement for hundreds of millions of potential participants.',source_url:'https://www.prnewswire.com/news-releases/official-fifa-world-cup-2026-partner-adi-predictstreet-adopts-chainlink-as-exclusive-oracle-infrastructure-powering-prediction-markets-for-the-worlds-largest-sporting-event-302794475.html',source_label:'PRNewswire — ADI Predictstreet adopts Chainlink for FIFA World Cup 2026 (June 2026)',source_type:'Press Release',verification:'Official Press Release',confidence:98,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'ADI Predictstreet is the Official Prediction Market Partner of FIFA World Cup 2026 — the world\'s largest sporting event. Chainlink was selected as the exclusive oracle infrastructure provider. Chainlink CRE orchestrates automated market creation, resolution, and settlement workflows. This marks a significant expansion of Chainlink\'s use case footprint beyond institutional finance into global consumer-scale applications, demonstrating that oracle infrastructure and automated settlement are required wherever verifiable real-world data must trigger financial outcomes.',tags:['CRE','Sports','Prediction Markets','FIFA','World Cup','Consumer Scale','Oracle Infrastructure','Automation'],nodes:['marketdata'],significance:'ADI Predictstreet is the official FIFA World Cup 2026 prediction market partner. By adopting Chainlink as its exclusive oracle infrastructure, this deployment proves that Chainlink\'s use case extends far beyond DeFi and institutional finance — into the largest sporting events on the planet. CRE automates end-to-end market lifecycle management with verified data and trustless settlement for a global consumer audience.'}];
+  {id:'ev-040',type:'report',date:'2025-03',org:'Chainlink Labs / Aave',person:'Chainlink Labs',role:'Oracle Infrastructure',title:'Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure',body:'Chainlink Smart Value Recapture (SVR) launched on Aave v3 Ethereum mainnet in March 2025 after a 100% in-favor Aave DAO vote. SVR enables DeFi protocols to recapture Oracle Extractable Value (OEV) — the MEV that leaks when liquidations are triggered by oracle updates. Chainlink SVR uses a dual price feed mechanism via Flashbots MEV-Share: a private channel allows searchers to bid for bundled liquidation execution, recapturing value that previously went entirely to MEV bots. Within weeks of launch SVR had recaptured over $1.1M in non-toxic liquidation MEV across $32M in liquidations, with an average recapture rate over 80% and a peak rate over 90%. Revenue splits 65% to Aave, 35% to Chainlink. SVR coverage reached approximately 75% of Aave\'s total Ethereum TVL.',source_url:'https://dashboard.llamarisk.com/protocols/aave/svr',source_label:'LlamaRisk SVR Analytics Dashboard — Aave SVR live metrics (dashboard.llamarisk.com/protocols/aave/svr)',source_type:'Live Dashboard',verification:'Live Production Data',confidence:97,timestamp:'',transcriptExcerpt:'',local_pdf:'',screenshot:'',context:'SVR was introduced in December 2024 in collaboration with BGD Labs, Flashbots, and the Aave DAO. The Aave DAO vote to activate SVR passed 100% in favor on March 28, 2025. SVR is built specifically for back-running liquidations only — it cannot be used for sandwich attacks. Flashbots noted: this is a big win for MEV minimization on Ethereum. SVR revenue for Chainlink\'s 35% share is converted into LINK and distributed to network service providers, creating a direct revenue loop. The LlamaRisk dashboard at the linked URL provides live tracking of all SVR metrics.',tags:['SVR','MEV','Aave','Oracle Extractable Value','Revenue','DeFi','LINK Token','Economics'],nodes:['marketdata'],significance:'SVR is proof that Chainlink is not just data infrastructure — it is an economic protocol. SVR creates a new revenue stream for both DeFi protocols and the Chainlink Network simultaneously. The Aave DAO voted 100% in favor. $1.1M+ recaptured and counting. This is Chainlink\'s oracle infrastructure actively generating measurable economic value for its ecosystem partners.'}];
 
 var MISCONCEPTIONS=[
   {id:'mc-001',cat:'Oracle & Infrastructure',title:'Chainlink is just price feeds',myth:'Chainlink is only used for DeFi price feeds.',reality:'Chainlink runs 12 distinct services: CCIP, Proof of Reserve, Automation, Functions, VRF, Data Streams, DECO, and the Runtime Environment. DTCC, Swift, and JPMorgan use Chainlink — none for price feeds.',status:'Outdated Narrative',statusCls:'mc-status-outdated',confidence:98,tags:['Technology','Infrastructure'],institutions:['DTCC','Swift','JPMorgan'],ev:['ev-001','ev-003','ev-004'],tweetLine:'Chainlink runs 12 services. DTCC, Swift, and JPMorgan all use Chainlink — none of them for price feeds.',contributor:null,contributorScore:0,dateAdded:'2026-06'},
