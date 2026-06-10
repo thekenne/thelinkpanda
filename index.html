@@ -5448,144 +5448,375 @@ function digestInit(){
 }
 
 // ── METCALFE CALCULATOR ──────────────────────────────────────────────
-var MF_PRESETS = [
-  {label:'Chains Only',      n:77,   desc:'Active CCIP networks (live)'},
-  {label:'CCTs',             n:254,  desc:'Cross-Chain Tokens (live)'},
-  {label:'Explorer Nodes',   n:51,   desc:'Mapped institutions + protocols'},
-  {label:'Integrations',     n:1000, desc:'Estimated total integrations'},
-  {label:'Institutional',    n:24,   desc:'Corporate Actions Initiative participants'},
-  {label:'Custom',           n:null, desc:'Enter your own numbers'},
+var MF_MODE = 'simple'; // 'simple' | 'weighted' | 'relationship'
+
+// ── PRESETS ──────────────────────────────────────────────────────────
+var MF_SIMPLE_PRESETS = [
+  {label:'Chains Only',       n1:77,    n2:200,  desc:'Active CCIP networks today vs potential'},
+  {label:'CCTs',              n1:254,   n2:1000, desc:'Cross-Chain Tokens: live vs projected'},
+  {label:'Explorer Nodes',    n1:51,    n2:150,  desc:'Mapped network nodes today vs expanded'},
+  {label:'Integrations',      n1:1000,  n2:5000, desc:'Known integrations vs estimated full market'},
+  {label:'Institutional',     n1:24,    n2:100,  desc:'Corporate Actions participants vs industry'},
+  {label:'Custom',            n1:null,  n2:null, desc:'Enter your own numbers'},
 ];
 
+var MF_WEIGHTED_PRESETS = [
+  {label:'DeFi Network',
+   cats:{chains:77,ccts:254,apps:500,data:4,tokenization:5,institutions:0,infra:0},
+   desc:'DeFi-focused Chainlink network'},
+  {label:'Institutional Network',
+   cats:{chains:12,ccts:20,apps:50,data:6,tokenization:8,institutions:24,infra:4},
+   desc:'Institutional tokenization network (Corp Actions Initiative scale)'},
+  {label:'Tokenized Finance',
+   cats:{chains:30,ccts:100,apps:200,data:6,tokenization:20,institutions:50,infra:6},
+   desc:'Tokenized finance network at mid-adoption'},
+  {label:'Full Chainlink Network',
+   cats:{chains:77,ccts:254,apps:1000,data:6,tokenization:15,institutions:60,infra:8},
+   desc:'Full Chainlink network as of mid-2026'},
+  {label:'Custom',
+   cats:null, desc:'Enter your own category counts'},
+];
+
+var MF_REL_PRESETS = [
+  {label:'Explorer Today',    nodes:51,  edges:85,  desc:'Current explorer: 51 nodes, 85+ native edges'},
+  {label:'DeFi Ecosystem',    nodes:100, edges:400, desc:'DeFi ecosystem with dense protocol connections'},
+  {label:'Institutional Map', nodes:30,  edges:120, desc:'Institutional network with high-value nodes'},
+  {label:'Full Finance',      nodes:200, edges:1200,desc:'Full global finance network at scale'},
+  {label:'Custom',            nodes:null,edges:null,desc:'Enter your own graph data'},
+];
+
+var MF_WEIGHTS = {
+  chains:1, ccts:2, apps:1, data:5, tokenization:10, institutions:25, infra:100
+};
+var MF_CAT_LABELS = {
+  chains:'Chains', ccts:'CCTs', apps:'Applications / Integrations',
+  data:'Data Providers', tokenization:'Tokenization Platforms',
+  institutions:'Institutions', infra:'Global Infrastructure Nodes'
+};
+var MF_CAT_COLORS = {
+  chains:'rgba(60,160,255,.8)', ccts:'rgba(100,180,255,.8)',
+  apps:'rgba(255,140,60,.8)', data:'rgba(60,200,160,.8)',
+  tokenization:'rgba(160,100,255,.8)', institutions:'rgba(200,146,42,.9)',
+  infra:'rgba(80,220,120,.9)'
+};
+
+// ── INIT ─────────────────────────────────────────────────────────────
 function metcalfeInit(){
   var body = document.getElementById('metcalfe-body');
   if(!body) return;
-
   body.innerHTML =
-    '<div style="display:grid;grid-template-columns:1fr clamp(280px,32vw,440px);gap:clamp(32px,4vw,72px);align-items:start">'
-
-    // LEFT: inputs
-    +'<div id="mf-left">'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">PRESETS</div>'
-    +'<div id="mf-presets" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:clamp(24px,2.8vw,44px)"></div>'
-
-    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,1.6vw,24px);margin-bottom:clamp(20px,2vw,32px)">'
-    +'<div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:var(--w40);margin-bottom:8px">CURRENT CONNECTIONS (n₁)</div>'
-    +'<input id="mf-n1" type="number" min="1" max="100000" value="77" style="width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--mono);font-size:clamp(20px,1.62vw,26px);padding:clamp(12px,1.08vw,16px) clamp(14px,1.35vw,20px);outline:none;transition:border-color .2s" oninput="mfCalc()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
-    +'<input id="mf-n1-slider" type="range" min="1" max="10000" value="77" style="width:100%;margin-top:8px;accent-color:var(--gold)" oninput="mfSlider(1,this.value)">'
+    // Mode tabs
+    '<div style="display:flex;gap:0;border:.5px solid var(--border);margin-bottom:clamp(24px,2.8vw,44px);overflow-x:auto;scrollbar-width:none" id="mf-mode-tabs">'
+    +'<button id="mf-tab-simple"      onclick="mfSetMode(\'simple\')"       style="'+mfTabStyle(true) +'">SIMPLE MODE</button>'
+    +'<button id="mf-tab-weighted"    onclick="mfSetMode(\'weighted\')"     style="'+mfTabStyle(false)+'">WEIGHTED MODE</button>'
+    +'<button id="mf-tab-relationship" onclick="mfSetMode(\'relationship\')" style="'+mfTabStyle(false)+'">RELATIONSHIP MODE</button>'
     +'</div>'
-    +'<div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:var(--w40);margin-bottom:8px">FUTURE CONNECTIONS (n₂)</div>'
-    +'<input id="mf-n2" type="number" min="1" max="100000" value="500" style="width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--mono);font-size:clamp(20px,1.62vw,26px);padding:clamp(12px,1.08vw,16px) clamp(14px,1.35vw,20px);outline:none;transition:border-color .2s" oninput="mfCalc()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
-    +'<input id="mf-n2-slider" type="range" min="1" max="10000" value="500" style="width:100%;margin-top:8px;accent-color:var(--gold)" oninput="mfSlider(2,this.value)">'
-    +'</div>'
-    +'</div>'
-
-    +'<div style="margin-bottom:clamp(20px,2vw,32px)">'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:var(--w40);margin-bottom:8px">CURRENT MARKET CAP — OPTIONAL (USD)</div>'
-    +'<input id="mf-mcap" type="number" min="0" value="" placeholder="e.g. 10000000000" style="width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--mono);font-size:clamp(16px,1.22vw,20px);padding:clamp(12px,1.08vw,16px) clamp(14px,1.35vw,20px);outline:none;transition:border-color .2s" oninput="mfCalc()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
-    +'</div>'
-
-    +'<div style="font-size:clamp(10px,0.68vw,11px);color:var(--w30,rgba(244,242,238,.3));line-height:1.7;padding:clamp(12px,1.22vw,18px);border:.5px solid rgba(244,242,238,.05);background:var(--bg2)">'
-    +'<strong style="color:var(--w40);letter-spacing:.06em">METCALFE&#x2019;S LAW</strong> — The value of a network is proportional to the square of its connected users (n²). As connections grow, value grows exponentially. This calculator applies that model to Chainlink&#x2019;s network of connected chains, institutions, and protocols. <em>Illustrative model only. Not financial advice.</em>'
-    +'</div>'
-    +'</div>'
-
-    // RIGHT: outputs
-    +'<div id="mf-right">'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">NETWORK VALUE OUTPUT</div>'
-    +'<div id="mf-output"></div>'
-    +'</div>'
+    +'<div id="mf-mode-desc" style="font-size:clamp(11px,0.74vw,13px);color:var(--w40);line-height:1.7;padding:clamp(12px,1.22vw,18px);border:.5px solid rgba(244,242,238,.05);background:var(--bg2);margin-bottom:clamp(20px,2vw,32px)"></div>'
+    +'<div style="display:grid;grid-template-columns:1fr clamp(280px,34vw,460px);gap:clamp(32px,4vw,72px);align-items:start">'
+    +'<div id="mf-inputs"></div>'
+    +'<div id="mf-right"><div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">NETWORK VALUE OUTPUT</div><div id="mf-output"></div></div>'
     +'</div>';
 
-  // Build preset buttons
-  var presetBar = document.getElementById('mf-presets');
-  MF_PRESETS.forEach(function(p, i){
-    var btn = document.createElement('button');
-    btn.style.cssText = 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.1em;color:var(--w60);border:.5px solid var(--border);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
-    btn.textContent = p.label + (p.n ? ' ('+p.n+')' : '');
-    btn.title = p.desc;
-    btn.onclick = function(){
-      document.querySelectorAll('#mf-presets button').forEach(function(b){ b.style.borderColor='rgba(244,242,238,.08)'; b.style.color='rgba(244,242,238,.6)'; });
-      btn.style.borderColor = 'rgba(200,146,42,.6)'; btn.style.color = 'var(--gold)';
-      if(p.n){
-        document.getElementById('mf-n1').value = p.n;
-        document.getElementById('mf-n1-slider').value = p.n;
-        mfCalc();
-      }
-    };
-    presetBar.appendChild(btn);
-  });
-
-  mfCalc();
+  mfSetMode('simple');
 }
 
+function mfTabStyle(active){
+  return 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.12em;padding:clamp(10px,0.94vw,14px) clamp(16px,1.6vw,24px);background:none;border:none;border-right:.5px solid rgba(244,242,238,.08);cursor:pointer;transition:all .15s;white-space:nowrap;color:'+(active?'var(--gold)':'rgba(244,242,238,.5)')+';border-bottom:2px solid '+(active?'var(--gold)':'transparent')+';';
+}
+
+function mfSetMode(mode){
+  MF_MODE = mode;
+  ['simple','weighted','relationship'].forEach(function(m){
+    var tab = document.getElementById('mf-tab-'+m);
+    if(tab) tab.style.cssText = mfTabStyle(m===mode);
+  });
+  var desc = document.getElementById('mf-mode-desc');
+  var descs = {
+    simple: '<strong style="color:var(--w60)">Simple Mode</strong> counts all connections equally using Metcalfe\'s Law (n²). Good for understanding raw network size growth.',
+    weighted: '<strong style="color:var(--w60)">Weighted Mode</strong> adjusts for connection quality. One global infrastructure node (SWIFT, DTCC) is not equal to one small app. Weights reflect the relative network value each category contributes.',
+    relationship: '<strong style="color:var(--w60)">Relationship Mode</strong> models the network as a graph — nodes and edges. The density of relationships matters as much as the number of nodes. A network with 50 nodes and 500 edges is far richer than one with 50 nodes and 5 edges.'
+  };
+  if(desc) desc.innerHTML = descs[mode] + ' <em style="color:var(--w20)">Illustrative model only. Not financial advice.</em>';
+  mfBuildInputs(mode);
+}
+
+// ── INPUTS ────────────────────────────────────────────────────────────
+function mfInpStyle(){ return 'width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--mono);font-size:clamp(16px,1.22vw,20px);padding:clamp(10px,0.94vw,14px) clamp(12px,1.08vw,18px);outline:none;transition:border-color .2s;'; }
+function mfLblStyle(){ return 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.14em;color:var(--w40);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;'; }
+function mfSecLbl(txt){ return '<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(12px,1.22vw,19px)">'+txt+'</div>'; }
+
+function mfBuildInputs(mode){
+  var wrap = document.getElementById('mf-inputs');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+
+  if(mode === 'simple'){
+    // Preset buttons
+    wrap.innerHTML += mfSecLbl('PRESETS');
+    var pbar = document.createElement('div');
+    pbar.id = 'mf-presets';
+    pbar.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-bottom:clamp(24px,2.8vw,44px);';
+    wrap.appendChild(pbar);
+    MF_SIMPLE_PRESETS.forEach(function(p){
+      var b = document.createElement('button');
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.textContent = p.label+(p.n1?' ('+p.n1+')':'');
+      b.title = p.desc;
+      b.onclick = function(){
+        pbar.querySelectorAll('button').forEach(function(x){x.style.borderColor='rgba(244,242,238,.08)';x.style.color='rgba(244,242,238,.6)';});
+        b.style.borderColor='rgba(200,146,42,.6)';b.style.color='var(--gold)';
+        if(p.n1){document.getElementById('mf-n1').value=p.n1;mfSlider(1,p.n1);}
+        if(p.n2){document.getElementById('mf-n2').value=p.n2;mfSlider(2,p.n2);}
+        mfCalc();
+      };
+      pbar.appendChild(b);
+    });
+    // n1 / n2 inputs
+    var grid = document.createElement('div');
+    grid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,1.6vw,24px);margin-bottom:clamp(20px,2vw,32px);';
+    ['1','2'].forEach(function(i){
+      var def = i==='1'?'77':'500';
+      var lbl = i==='1'?'CURRENT CONNECTIONS (n\u2081)':'FUTURE CONNECTIONS (n\u2082)';
+      grid.innerHTML += '<div>'
+        +'<div style="'+mfLblStyle()+'">'+lbl+'</div>'
+        +'<input id="mf-n'+i+'" type="number" min="1" max="100000" value="'+def+'" style="'+mfInpStyle()+'" oninput="mfCalc()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
+        +'<input id="mf-n'+i+'-slider" type="range" min="1" max="10000" value="'+def+'" style="width:100%;margin-top:8px;accent-color:var(--gold)" oninput="mfSlider('+i+',this.value)">'
+        +'</div>';
+    });
+    wrap.appendChild(grid);
+    // Mcap
+    var mcDiv = document.createElement('div');
+    mcDiv.style.cssText = 'margin-bottom:clamp(20px,2vw,32px);';
+    mcDiv.innerHTML = '<div style="'+mfLblStyle()+'">CURRENT MARKET CAP — OPTIONAL (USD)</div>'
+      +'<input id="mf-mcap" type="number" min="0" value="" placeholder="e.g. 10000000000" style="'+mfInpStyle()+'" oninput="mfCalc()" onfocus="mfFocus(this)" onblur="mfBlur(this)">';
+    wrap.appendChild(mcDiv);
+    mfCalc();
+
+  } else if(mode === 'weighted'){
+    wrap.innerHTML += mfSecLbl('PRESETS');
+    var pbar2 = document.createElement('div');
+    pbar2.id = 'mf-presets';
+    pbar2.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-bottom:clamp(20px,2vw,32px);';
+    wrap.appendChild(pbar2);
+    MF_WEIGHTED_PRESETS.forEach(function(p){
+      var b = document.createElement('button');
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.textContent = p.label;
+      b.title = p.desc;
+      b.onclick = function(){
+        pbar2.querySelectorAll('button').forEach(function(x){x.style.borderColor='rgba(244,242,238,.08)';x.style.color='rgba(244,242,238,.6)';});
+        b.style.borderColor='rgba(200,146,42,.6)';b.style.color='var(--gold)';
+        if(p.cats){
+          Object.keys(p.cats).forEach(function(k){
+            var el=document.getElementById('mf-w-cur-'+k);
+            if(el)el.value=p.cats[k];
+          });
+          mfCalcWeighted();
+        }
+      };
+      pbar2.appendChild(b);
+    });
+    // Category inputs
+    wrap.innerHTML += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2vw,32px);">'
+      +'<div>'+mfSecLbl('CURRENT NETWORK')+'<div id="mf-w-cur-inputs"></div></div>'
+      +'<div>'+mfSecLbl('FUTURE NETWORK')+'<div id="mf-w-fut-inputs"></div></div>'
+      +'</div>';
+    // Populate category rows
+    var curWrap = wrap.querySelector('#mf-w-cur-inputs');
+    var futWrap = wrap.querySelector('#mf-w-fut-inputs');
+    // Default current values from Full Chainlink Network preset
+    var curDefs = {chains:77,ccts:254,apps:1000,data:6,tokenization:15,institutions:60,infra:8};
+    var futDefs = {chains:150,ccts:500,apps:2000,data:8,tokenization:40,institutions:200,infra:15};
+    ['chains','ccts','apps','data','tokenization','institutions','infra'].forEach(function(k){
+      var col = MF_CAT_COLORS[k]||'rgba(200,146,42,.7)';
+      var wt = MF_WEIGHTS[k];
+      [['cur',curWrap,curDefs[k]],['fut',futWrap,futDefs[k]]].forEach(function(arr){
+        var side=arr[0], parent=arr[1], def=arr[2];
+        var row = document.createElement('div');
+        row.style.cssText = 'margin-bottom:10px;';
+        row.innerHTML = '<div style="'+mfLblStyle()+'">'
+          +'<span style="color:'+col+'">'+MF_CAT_LABELS[k]+'</span>'
+          +'<span style="font-size:clamp(8px,0.5vw,9px);color:var(--w20)">weight ×'+wt+'</span>'
+          +'</div>'
+          +'<input id="mf-w-'+side+'-'+k+'" type="number" min="0" value="'+def+'" style="'+mfInpStyle()+';font-size:clamp(14px,1.08vw,18px);" oninput="mfCalcWeighted()" onfocus="mfFocus(this)" onblur="mfBlur(this)">';
+        parent.appendChild(row);
+      });
+    });
+    // Market cap
+    var mcDiv2 = document.createElement('div');
+    mcDiv2.style.cssText = 'margin-top:clamp(16px,1.6vw,24px);';
+    mcDiv2.innerHTML = '<div style="'+mfLblStyle()+'">CURRENT MARKET CAP — OPTIONAL (USD)</div>'
+      +'<input id="mf-w-mcap" type="number" min="0" value="" placeholder="e.g. 10000000000" style="'+mfInpStyle()+'" oninput="mfCalcWeighted()" onfocus="mfFocus(this)" onblur="mfBlur(this)">';
+    wrap.appendChild(mcDiv2);
+    mfCalcWeighted();
+
+  } else if(mode === 'relationship'){
+    wrap.innerHTML += mfSecLbl('PRESETS');
+    var pbar3 = document.createElement('div');
+    pbar3.id = 'mf-presets';
+    pbar3.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-bottom:clamp(24px,2.8vw,44px);';
+    wrap.appendChild(pbar3);
+    MF_REL_PRESETS.forEach(function(p){
+      var b = document.createElement('button');
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.textContent = p.label+(p.nodes?' ('+p.nodes+'n / '+p.edges+'e)':'');
+      b.title = p.desc;
+      b.onclick = function(){
+        pbar3.querySelectorAll('button').forEach(function(x){x.style.borderColor='rgba(244,242,238,.08)';x.style.color='rgba(244,242,238,.6)';});
+        b.style.borderColor='rgba(200,146,42,.6)';b.style.color='var(--gold)';
+        if(p.nodes){document.getElementById('mf-r-nodes').value=p.nodes;}
+        if(p.edges){document.getElementById('mf-r-edges').value=p.edges;}
+        mfCalcRel();
+      };
+      pbar3.appendChild(b);
+    });
+    var rgrid = document.createElement('div');
+    rgrid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,1.6vw,24px);margin-bottom:clamp(20px,2vw,32px);';
+    rgrid.innerHTML =
+      '<div><div style="'+mfLblStyle()+'">NODES (distinct participants)</div>'
+      +'<input id="mf-r-nodes" type="number" min="1" value="51" style="'+mfInpStyle()+'" oninput="mfCalcRel()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
+      +'<input id="mf-r-nodes-slider" type="range" min="1" max="5000" value="51" style="width:100%;margin-top:8px;accent-color:var(--gold)" oninput="document.getElementById(\'mf-r-nodes\').value=this.value;mfCalcRel()">'
+      +'</div>'
+      +'<div><div style="'+mfLblStyle()+'">RELATIONSHIPS (edges / connections)</div>'
+      +'<input id="mf-r-edges" type="number" min="1" value="85" style="'+mfInpStyle()+'" oninput="mfCalcRel()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
+      +'<input id="mf-r-edges-slider" type="range" min="1" max="20000" value="85" style="width:100%;margin-top:8px;accent-color:var(--gold)" oninput="document.getElementById(\'mf-r-edges\').value=this.value;mfCalcRel()">'
+      +'</div>';
+    wrap.appendChild(rgrid);
+    // Future nodes/edges
+    var rfut = document.createElement('div');
+    rfut.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,1.6vw,24px);margin-bottom:clamp(20px,2vw,32px);';
+    rfut.innerHTML =
+      '<div><div style="'+mfLblStyle()+'">FUTURE NODES</div>'
+      +'<input id="mf-r-nodes2" type="number" min="1" value="200" style="'+mfInpStyle()+'" oninput="mfCalcRel()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
+      +'</div>'
+      +'<div><div style="'+mfLblStyle()+'">FUTURE RELATIONSHIPS</div>'
+      +'<input id="mf-r-edges2" type="number" min="1" value="1200" style="'+mfInpStyle()+'" oninput="mfCalcRel()" onfocus="mfFocus(this)" onblur="mfBlur(this)">'
+      +'</div>';
+    wrap.appendChild(rfut);
+    mfCalcRel();
+  }
+}
+
+// ── CALC FUNCTIONS ────────────────────────────────────────────────────
+function mfFmt(n){if(n>=1e12)return(n/1e12).toFixed(2)+'T';if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n.toLocaleString();}
+function mfFmtMc(n){return '$'+mfFmt(n);}
+function mfMultColor(m){return m>=100?'rgba(80,200,120,.9)':m>=10?'rgba(200,146,42,.9)':'rgba(244,242,238,.7)';}
 function mfFocus(el){el.style.borderColor='rgba(200,146,42,.55)';}
 function mfBlur(el){el.style.borderColor='rgba(244,242,238,.08)';}
-function mfSlider(n,v){
-  var inp=document.getElementById('mf-n'+n);
-  if(inp){inp.value=v;}
-  mfCalc();
+function mfSlider(n,v){var inp=document.getElementById('mf-n'+n);if(inp)inp.value=v;mfCalc();}
+
+function mfOutputBox(label,val,sub,color){
+  return '<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(14px,1.4vw,22px);margin-bottom:6px">'
+    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:var(--w40);margin-bottom:5px">'+label+'</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(24px,2.8vw,44px);font-weight:700;color:'+(color||'var(--w)')+';letter-spacing:-.02em;line-height:1">'+val+'</div>'
+    +(sub?'<div style="font-size:clamp(9px,0.61vw,10px);color:var(--w30,rgba(244,242,238,.3));margin-top:4px">'+sub+'</div>':'')
+    +'</div>';
 }
-function mfCalc(){
-  var n1 = parseFloat(document.getElementById('mf-n1').value)||0;
-  var n2 = parseFloat(document.getElementById('mf-n2').value)||0;
-  var mcapRaw = document.getElementById('mf-mcap').value;
-  var mcap = parseFloat(mcapRaw)||0;
-
-  // Sync sliders
-  var s1 = document.getElementById('mf-n1-slider');
-  var s2 = document.getElementById('mf-n2-slider');
-  if(s1 && n1 <= 10000) s1.value = n1;
-  if(s2 && n2 <= 10000) s2.value = n2;
-
-  var v1 = n1 * n1;
-  var v2 = n2 * n2;
-  var multiple = v1 > 0 ? (v2/v1) : 0;
-  var impliedMcap = mcap > 0 ? mcap * multiple : 0;
-
-  var out = document.getElementById('mf-output');
-  if(!out) return;
-
-  function fmtN(n){ if(n>=1e12) return (n/1e12).toFixed(2)+'T'; if(n>=1e9) return (n/1e9).toFixed(2)+'B'; if(n>=1e6) return (n/1e6).toFixed(2)+'M'; if(n>=1e3) return (n/1e3).toFixed(1)+'K'; return n.toLocaleString(); }
-  function fmtMcap(n){ return '$'+fmtN(n); }
-
-  var multipleColor = multiple >= 100 ? 'rgba(80,200,120,.9)' : multiple >= 10 ? 'rgba(200,146,42,.9)' : 'rgba(244,242,238,.7)';
-
-  out.innerHTML =
-    // Current
-    '<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(16px,1.6vw,24px);margin-bottom:6px">'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:var(--w40);margin-bottom:6px">CURRENT NETWORK (n₁ = '+fmtN(n1)+')</div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(28px,3vw,48px);font-weight:700;color:var(--w);letter-spacing:-.02em;line-height:1">'+fmtN(v1)+'</div>'
-    +'<div style="font-size:clamp(10px,0.68vw,11px);color:var(--w40);margin-top:4px">Network value score (n² = '+fmtN(n1)+' × '+fmtN(n1)+')</div>'
-    +'</div>'
-
-    // Future
-    +'<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(16px,1.6vw,24px);margin-bottom:6px">'
-    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:var(--w40);margin-bottom:6px">FUTURE NETWORK (n₂ = '+fmtN(n2)+')</div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(28px,3vw,48px);font-weight:700;color:var(--w);letter-spacing:-.02em;line-height:1">'+fmtN(v2)+'</div>'
-    +'<div style="font-size:clamp(10px,0.68vw,11px);color:var(--w40);margin-top:4px">Network value score (n² = '+fmtN(n2)+' × '+fmtN(n2)+')</div>'
-    +'</div>'
-
-    // Multiple — big centrepiece
-    +'<div style="background:linear-gradient(135deg,rgba(12,20,44,.98),rgba(8,14,32,.98));border:.5px solid rgba(200,146,42,.35);padding:clamp(20px,2.4vw,36px);margin-bottom:6px;text-align:center">'
+function mfMultipleBox(multiple,fromN,toN){
+  var col = mfMultColor(multiple);
+  return '<div style="background:linear-gradient(135deg,rgba(12,20,44,.98),rgba(8,14,32,.98));border:.5px solid rgba(200,146,42,.35);padding:clamp(20px,2.4vw,36px);margin-bottom:6px;text-align:center">'
     +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.2em;color:rgba(200,146,42,.6);margin-bottom:10px">NETWORK GROWTH MULTIPLE</div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(44px,5.5vw,88px);font-weight:700;color:'+multipleColor+';letter-spacing:-.03em;line-height:.9">'+multiple.toFixed(1)+'×</div>'
-    +'<div style="font-size:clamp(11px,0.74vw,13px);color:var(--w40);margin-top:8px">If the network grows from '+fmtN(n1)+' to '+fmtN(n2)+' connections, theoretical network value increases <strong style="color:var(--w60)">'+multiple.toFixed(1)+'×</strong></div>'
-    +'</div>'
-
-    // Implied valuation (only if mcap entered)
-    +(mcap > 0
-      ? '<div style="background:var(--bg2);border:.5px solid rgba(80,200,120,.25);padding:clamp(16px,1.6vw,24px)">'
-        +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:rgba(80,200,120,.6);margin-bottom:6px">IMPLIED VALUATION</div>'
-        +'<div style="font-family:var(--mono);font-size:clamp(28px,3vw,48px);font-weight:700;color:rgba(80,200,120,.9);letter-spacing:-.02em;line-height:1">'+fmtMcap(impliedMcap)+'</div>'
-        +'<div style="font-size:clamp(10px,0.68vw,11px);color:var(--w40);margin-top:4px">If current market cap of '+fmtMcap(mcap)+' scaled proportionally with network growth ('+multiple.toFixed(1)+'×)</div>'
-        +'<div style="font-size:clamp(9px,0.61vw,10px);color:var(--w20);margin-top:8px;font-style:italic">Not financial advice. Metcalfe&#x2019;s Law is a theoretical model. Actual valuations depend on many factors beyond connection count.</div>'
-        +'</div>'
-      : '<div style="font-size:clamp(10px,0.68vw,11px);color:var(--w20);padding:clamp(12px,1.22vw,18px);border:.5px solid rgba(244,242,238,.05);text-align:center;font-style:italic">Enter a market cap above to see implied valuation</div>'
-    );
+    +'<div style="font-family:var(--mono);font-size:clamp(44px,5.5vw,88px);font-weight:700;color:'+col+';letter-spacing:-.03em;line-height:.9">'+multiple.toFixed(1)+'&#xD7;</div>'
+    +'<div style="font-size:clamp(10px,0.68vw,11px);color:var(--w40);margin-top:8px">'+fromN+' &#x2192; '+toN+' &nbsp;&nbsp; theoretical network value: <strong style="color:var(--w60)">'+multiple.toFixed(1)+'&#xD7;</strong></div>'
+    +'</div>';
 }
+function mfMcapBox(mcap,multiple){
+  if(!mcap||mcap<=0) return '<div style="font-size:clamp(9px,0.61vw,10px);color:var(--w20);padding:clamp(10px,1vw,14px);border:.5px solid rgba(244,242,238,.05);text-align:center;font-style:italic">Enter a market cap to see implied valuation</div>';
+  var implied = mcap * multiple;
+  return '<div style="background:var(--bg2);border:.5px solid rgba(80,200,120,.25);padding:clamp(14px,1.4vw,22px)">'
+    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.16em;color:rgba(80,200,120,.6);margin-bottom:5px">IMPLIED VALUATION</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(24px,2.8vw,44px);font-weight:700;color:rgba(80,200,120,.9);letter-spacing:-.02em;line-height:1">'+mfFmtMc(implied)+'</div>'
+    +'<div style="font-size:clamp(9px,0.61vw,10px);color:var(--w30,rgba(244,242,238,.3));margin-top:4px">'+mfFmtMc(mcap)+' market cap &#xD7; '+multiple.toFixed(1)+'&#xD7; growth multiple</div>'
+    +'<div style="font-size:clamp(8px,0.5vw,9px);color:var(--w20);margin-top:6px;font-style:italic">Not financial advice. Theoretical model only.</div>'
+    +'</div>';
+}
+
+function mfCalc(){
+  if(MF_MODE!=='simple') return;
+  var n1=parseFloat(document.getElementById('mf-n1')&&document.getElementById('mf-n1').value)||0;
+  var n2=parseFloat(document.getElementById('mf-n2')&&document.getElementById('mf-n2').value)||0;
+  var mcap=parseFloat(document.getElementById('mf-mcap')&&document.getElementById('mf-mcap').value)||0;
+  var s1=document.getElementById('mf-n1-slider');var s2=document.getElementById('mf-n2-slider');
+  if(s1&&n1<=10000)s1.value=n1;if(s2&&n2<=10000)s2.value=n2;
+  var v1=n1*n1,v2=n2*n2,mult=v1>0?v2/v1:0;
+  var out=document.getElementById('mf-output');if(!out)return;
+  out.innerHTML=
+    mfOutputBox('CURRENT RAW NETWORK SCORE',mfFmt(v1),'n\u00B2 = '+mfFmt(n1)+' \xD7 '+mfFmt(n1))
+    +mfOutputBox('FUTURE RAW NETWORK SCORE',mfFmt(v2),'n\u00B2 = '+mfFmt(n2)+' \xD7 '+mfFmt(n2))
+    +mfMultipleBox(mult,mfFmt(n1)+' connections',mfFmt(n2)+' connections')
+    +mfMcapBox(mcap,mult);
+}
+
+function mfCalcWeighted(){
+  var cats=['chains','ccts','apps','data','tokenization','institutions','infra'];
+  var wCur=0,wFut=0;
+  var breakdown='';
+  cats.forEach(function(k){
+    var cur=parseFloat(document.getElementById('mf-w-cur-'+k)&&document.getElementById('mf-w-cur-'+k).value)||0;
+    var fut=parseFloat(document.getElementById('mf-w-fut-'+k)&&document.getElementById('mf-w-fut-'+k).value)||0;
+    var wt=MF_WEIGHTS[k];
+    wCur+=cur*wt;wFut+=fut*wt;
+    var col=MF_CAT_COLORS[k]||'var(--w40)';
+    breakdown+='<div style="display:flex;align-items:center;justify-content:space-between;padding:3px 0;border-bottom:.5px solid rgba(244,242,238,.04)">'
+      +'<span style="font-size:clamp(9px,0.61vw,10px);color:'+col+'">'+MF_CAT_LABELS[k]+'</span>'
+      +'<span style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);color:var(--w40)">'+cur+' \xD7 '+wt+' = <strong style="color:var(--w60)">'+(cur*wt)+'</strong></span>'
+      +'</div>';
+  });
+  var mcap=parseFloat(document.getElementById('mf-w-mcap')&&document.getElementById('mf-w-mcap').value)||0;
+  var v1=wCur*wCur,v2=wFut*wFut,mult=v1>0?v2/v1:0;
+  var out=document.getElementById('mf-output');if(!out)return;
+  out.innerHTML=
+    '<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(12px,1.22vw,18px);margin-bottom:6px">'
+    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.14em;color:var(--w40);margin-bottom:8px">CURRENT WEIGHT BREAKDOWN</div>'
+    +breakdown
+    +'<div style="display:flex;justify-content:space-between;padding-top:6px;margin-top:4px;border-top:.5px solid rgba(244,242,238,.08)">'
+    +'<span style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);color:var(--w40)">TOTAL WEIGHTED CONNECTIONS</span>'
+    +'<span style="font-family:var(--mono);font-size:clamp(13px,1vw,16px);font-weight:700;color:var(--gold)">'+mfFmt(wCur)+'</span>'
+    +'</div></div>'
+    +mfOutputBox('CURRENT WEIGHTED NETWORK SCORE',mfFmt(v1),'Weighted n\u00B2 = '+mfFmt(wCur)+'\u00B2')
+    +mfOutputBox('FUTURE WEIGHTED NETWORK SCORE',mfFmt(v2),'Weighted n\u00B2 = '+mfFmt(wFut)+'\u00B2')
+    +mfMultipleBox(mult,'current weighted: '+mfFmt(wCur),'future weighted: '+mfFmt(wFut))
+    +mfMcapBox(mcap,mult);
+}
+
+function mfCalcRel(){
+  var nodes=parseFloat(document.getElementById('mf-r-nodes')&&document.getElementById('mf-r-nodes').value)||0;
+  var edges=parseFloat(document.getElementById('mf-r-edges')&&document.getElementById('mf-r-edges').value)||0;
+  var nodes2=parseFloat(document.getElementById('mf-r-nodes2')&&document.getElementById('mf-r-nodes2').value)||0;
+  var edges2=parseFloat(document.getElementById('mf-r-edges2')&&document.getElementById('mf-r-edges2').value)||0;
+  var s_n=document.getElementById('mf-r-nodes-slider');var s_e=document.getElementById('mf-r-edges-slider');
+  if(s_n&&nodes<=5000)s_n.value=nodes;if(s_e&&edges<=20000)s_e.value=edges;
+  var density1=nodes>0?edges/nodes:0,density2=nodes2>0?edges2/nodes2:0;
+  var relScore1=nodes*edges,relScore2=nodes2*edges2;
+  var mfScore1=edges*edges,mfScore2=edges2*edges2;
+  var relMult=relScore1>0?relScore2/relScore1:0;
+  var mfMult=mfScore1>0?mfScore2/mfScore1:0;
+  var densColor=density1>=10?'rgba(80,200,120,.9)':density1>=5?'rgba(200,146,42,.9)':'rgba(244,242,238,.6)';
+  var out=document.getElementById('mf-output');if(!out)return;
+  out.innerHTML=
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:.5px;background:var(--border);margin-bottom:6px">'
+    +'<div style="background:var(--bg2);padding:clamp(12px,1.22vw,18px)">'
+    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.14em;color:var(--w40);margin-bottom:5px">CURRENT GRAPH</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:var(--w)">'+mfFmt(nodes)+' nodes</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:rgba(60,160,255,.9)">'+mfFmt(edges)+' edges</div>'
+    +'</div>'
+    +'<div style="background:var(--bg2);padding:clamp(12px,1.22vw,18px)">'
+    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.14em;color:var(--w40);margin-bottom:5px">FUTURE GRAPH</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:var(--w)">'+mfFmt(nodes2)+' nodes</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:rgba(60,160,255,.9)">'+mfFmt(edges2)+' edges</div>'
+    +'</div>'
+    +'</div>'
+    +mfOutputBox('RELATIONSHIP DENSITY (current)',''+density1.toFixed(2),'edges ÷ nodes = '+mfFmt(edges)+' ÷ '+mfFmt(nodes),densColor)
+    +mfOutputBox('RELATIONSHIP NETWORK SCORE (current)',mfFmt(relScore1),'nodes × edges = '+mfFmt(nodes)+' × '+mfFmt(edges))
+    +mfOutputBox('METCALFE RELATIONSHIP SCORE (current)',mfFmt(mfScore1),'edges² = '+mfFmt(edges)+'²')
+    +mfMultipleBox(relMult,'rel.score '+mfFmt(relScore1),'rel.score '+mfFmt(relScore2))
+    +'<div style="background:var(--bg2);border:.5px solid rgba(60,160,255,.2);padding:clamp(12px,1.22vw,18px);margin-top:6px">'
+    +'<div style="font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.14em;color:rgba(60,160,255,.6);margin-bottom:5px">FUTURE DENSITY</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(18px,1.62vw,26px);font-weight:700;color:rgba(60,160,255,.9)">'+density2.toFixed(2)+'</div>'
+    +'<div style="font-size:clamp(9px,0.61vw,10px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
+    +'</div>';
+}
+
 
 </script>
 </body>
