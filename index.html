@@ -4175,7 +4175,8 @@ function evGoToMc(mcId){
 function evSetIds(ids,noPush){
   evState.evIds=ids&&ids.length?ids:null;
   var url='/evidence';
-  if(ids&&ids.length)url+='?ev='+encodeURIComponent(ids.join(','));
+  if(ids&&ids.length===1&&/^ev-\d+$/.test(ids[0]))url='/evidence/'+ids[0];
+  else if(ids&&ids.length)url+='?ev='+encodeURIComponent(ids.join(','));
   if(!noPush){try{history.pushState({page:'evidence',evIds:ids||null},'',url);}catch(e){}}
   evRender();
   evRenderBanner();
@@ -4803,6 +4804,12 @@ function evRender(){
   grid.innerHTML='';
   results.forEach(function(e,i){grid.appendChild(evBuildCard(e,i));});
 }
+function evCopyLink(id,btn){
+  var url=window.location.origin+'/evidence/'+id;
+  (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).catch(function(){});
+  if(btn){var orig=btn.textContent;btn.textContent='✓ copied';btn.style.color='rgba(80,200,120,.7)';setTimeout(function(){btn.textContent=orig;btn.style.color='rgba(200,146,42,.45)';},1500);}
+  try{history.pushState({page:'evidence',evIds:[id]},'','/evidence/'+id);}catch(e){}
+}
 function evBuildCard(e,i){
   var card=document.createElement('div');
   card.className='ev-card';
@@ -4834,6 +4841,7 @@ function evBuildCard(e,i){
   var metaRow='<div class="ev-meta">'
     +(e.source_url?'<a class="ev-source" href="'+e.source_url+'" target="_blank" rel="noopener">'+escHtml(e.source_label||e.source_url)+'</a>':'')
     +(e.tags&&e.tags.length?'<div class="ev-card-tags">'+e.tags.map(function(t){return'<span class="ev-card-tag">'+escHtml(t)+'</span>';}).join('')+'</div>':'')
+    +'<button onclick="evCopyLink(\''+e.id+'\',this)" style="font-family:var(--mono);font-size:clamp(8px,0.5vw,9px);letter-spacing:.1em;color:rgba(200,146,42,.45);border:.5px solid rgba(200,146,42,.12);background:none;padding:2px 7px;cursor:pointer;margin-top:5px;transition:all .15s" title="Copy permalink"># link</button>'
     +'</div>';
   card.innerHTML=topRow+orgRow+bodyRow+sigRow+metaRow;
   return card;
@@ -4906,6 +4914,13 @@ function mcRender(){
   grid.innerHTML='';
   results.forEach(function(m,i){grid.appendChild(mcBuildCard(m,i));});
 }
+function mcPermanentLink(id){
+  var url=window.location.origin+'/misconceptions/'+id;
+  try{history.pushState({page:'misconceptions',mcId:id},'','/misconceptions/'+id);}catch(e){}
+  (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).catch(function(){});
+  var btn=document.querySelector('a[href="/misconceptions/'+id+'"]');
+  if(btn){var orig=btn.innerHTML;btn.innerHTML='✓';setTimeout(function(){btn.innerHTML=orig;},1500);}
+}
 function mcBuildCard(m,i){
   var card=document.createElement('div');
   card.className='mc-card';
@@ -4960,7 +4975,7 @@ function mcBuildCard(m,i){
   var actions='<div class="mc-actions">'
     +'<button class="mc-action-btn" id="copy-'+m.id+'" onclick="mcCopyRebuttal(\''+m.id+'\')">&#10825; Copy rebuttal</button>'
     +'<button class="mc-action-btn mc-action-x" onclick="mcShareX(\''+m.id+'\')">&#120143; Share on X</button>'
-    +'<a class="mc-action-btn mc-action-link" href="/misconceptions#'+m.id+'" onclick="history.replaceState(null,\'\',\'/misconceptions#'+m.id+'\');return false;" title="Direct link">&#128279;</a>'
+    +'<a class="mc-action-btn mc-action-link" href="/misconceptions/'+m.id+'" onclick="mcPermanentLink(\''+m.id+'\');return false;" title="Copy permalink">&#128279;</a>'
     +'<button class="mc-action-btn mc-action-dl" onclick="mcDownloadImage(\''+m.id+'\')">&#8659; Download card</button>'
     +'</div>';
   // Footer
@@ -4977,10 +4992,11 @@ function mcHandleHash(){
   if(!hash)return;
   setTimeout(function(){mcJumpTo(hash);},100);
 }
+function mcGetUrl(id){return window.location.origin+'/misconceptions/'+id;}
 function mcCopyRebuttal(id){
   var m=MISCONCEPTIONS.filter(function(x){return x.id===id;})[0];if(!m)return;
   var line=m.tweetLine||m.reality.split('.')[0]+'.';
-  var text='Myth: "'+m.myth+'"\n\nReality: '+line+'\n\nthelinkpanda.com/misconceptions#'+m.id;
+  var text='Myth: "'+m.myth+'"\n\nReality: '+line+'\n\n'+mcGetUrl(id);
   (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).catch(function(){
     var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
   });
@@ -5084,17 +5100,26 @@ function qtFilter(cat,btn){
 (function(){
   var path=window.location.pathname;
   var qs=window.location.search;
-  var page=path.indexOf('/organizations/')===0?'org':(URL_PAGES[path]||'home');
+  // Deep-link routes: /evidence/ev-041  /misconceptions/mc-049
+  var _evMatch=path.match(/^\/evidence\/(ev-\d+)$/);
+  var _mcMatch=path.match(/^\/misconceptions\/(mc-\d+)$/);
+  var page=_evMatch?'evidence':_mcMatch?'misconceptions':(path.indexOf('/organizations/')===0?'org':(URL_PAGES[path]||'home'));
   var filter=null;
   if(qs){var mm=qs.match(/[?&]filter=([^&]+)/);if(mm)filter=decodeURIComponent(mm[1]);}
   showPage(page,filter,true);
-  if(page==='evidence'){var ids2=evReadUrlIds();if(ids2)evRenderBanner();}
+  if(_evMatch){evState.evIds=[_evMatch[1]];evRender();evRenderBanner();}
+  else if(page==='evidence'){var ids2=evReadUrlIds();if(ids2)evRenderBanner();}
+  if(_mcMatch){setTimeout(function(){mcJumpTo(_mcMatch[1]);},300);}
 
   window.addEventListener('popstate',function(e){
     var pp=window.location.pathname;
-    var pg=(e.state&&e.state.page)||(pp.indexOf('/organizations/')===0?'org':(URL_PAGES[pp]||'home'));
+    var _evm=pp.match(/^\/evidence\/(ev-\d+)$/);
+    var _mcm=pp.match(/^\/misconceptions\/(mc-\d+)$/);
+    var pg=(e.state&&e.state.page)||(_evm?'evidence':_mcm?'misconceptions':(pp.indexOf('/organizations/')===0?'org':(URL_PAGES[pp]||'home')));
     var fl=e.state&&e.state.filter;
-    if(pg==='evidence'){evState.evIds=(e.state&&e.state.evIds)||null;}
+    if(pg==='evidence'){evState.evIds=_evm?[_evm[1]]:((e.state&&e.state.evIds)||null);}
+    if(_evm){showPage('evidence',null,true);evRender();evRenderBanner();return;}
+    if(_mcm){showPage('misconceptions',null,true);setTimeout(function(){mcJumpTo(_mcm[1]);},300);return;}
     if(pg==='org'){var osl=(e.state&&e.state.slug)||pp.replace('/organizations/','');orgShowInst(osl);}
     showPage(pg,fl,true);
     if(pg==='evidence')evRenderBanner();
