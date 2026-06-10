@@ -196,7 +196,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .ex-svc.active-svc .ex-svc-name{color:var(--gold);font-weight:600}
 .ex-svc.active-svc img{opacity:1!important;filter:drop-shadow(0 0 4px rgba(200,146,42,.55));}
 .ex-svc img{transition:opacity .18s,filter .18s;}
-.ex-svc-img-wrap{width:22px;height:22px;flex:0 0 22px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.ex-svc-img-wrap{width:29px;height:29px;flex:0 0 29px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .ex-svc-img-wrap img{width:100%;height:100%;object-fit:contain;display:block;}
 .ex-svc-icon-text{display:flex;align-items:center;justify-content:center;width:22px;height:22px;flex:0 0 22px;font-size:20px;opacity:.7;}
 .ex-svc-text{}
@@ -1449,15 +1449,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
     <div class="ex-filterbar" id="ex-filterbar">
       <button class="ex-filter active" data-cat="all"    onclick="exFilter('all')">ALL SYSTEMS</button>
-      <button class="ex-filter" data-cat="tradfi"        onclick="exFilter('tradfi')">TRAD FINANCE</button>
-      <button class="ex-filter" data-cat="assets"        onclick="exFilter('assets')">DIGITAL ASSETS</button>
-      <button class="ex-filter" data-cat="chains"        onclick="exFilter('chains')">BLOCKCHAINS</button>
-      <button class="ex-filter" data-cat="apps"          onclick="exFilter('apps')">APPLICATIONS</button>
       <div style="width:.5px;height:55%;background:rgba(255,255,255,.1);flex-shrink:0;margin:0 4px"></div>
       <button class="ex-filter ex-view-btn active" id="ex-view-chainlink" onclick="exSetView('chainlink')" title="Show Chainlink-powered connections only">⬡ CHAINLINK</button>
       <button class="ex-filter ex-view-btn"         id="ex-view-native"   onclick="exSetView('native')"    title="Show native ecosystem connections only">◈ NATIVE</button>
       <button class="ex-filter ex-view-btn"         id="ex-view-full"     onclick="exSetView('full')"      title="Show all connections">⊕ FULL MAP</button>
-      <div class="ex-filter-hint"><span style="opacity:.5">ⓘ</span> Click any node to explore</div>
+      <div class="ex-filter-hint"><span style="opacity:.5">ⓘ</span> Click corner labels or any node</div>
     </div>
     <div class="ex-body">
       <div class="ex-services" id="ex-services">
@@ -2941,7 +2937,7 @@ var EXD = {
       services:['data-feeds','data-streams','automation','functions','ccip'],
       chainlinkRole:"Chainlink connects Avalanche Subnets to the global financial system.",
       status:'live',connects:['chainlink'],reachable:['ethereum','swift','cbanks','stablecoins']},
-    {id:'arbitrum',    cat:'chains',  label:'Arbitrum',         icon:'◇', logo:'assets/logos/arbitrum.png',        x:0.44, y:0.77,
+    {id:'arbitrum',    cat:'chains',  label:'Arbitrum',         icon:'◇', logo:'assets/logos/arbitrum.png',        x:0.49, y:0.80,
       desc:'Leading Ethereum L2 by TVL.',
       services:['data-feeds','data-streams','automation','functions','ccip'],
       chainlinkRole:"Chainlink powers DeFi and institutional settlement on Arbitrum.",
@@ -2966,7 +2962,7 @@ var EXD = {
       services:['data-feeds','data-streams','automation','functions','ccip'],
       chainlinkRole:"Chainlink provides oracle feeds and CCIP for Optimism.",
       status:'live',connects:['chainlink'],reachable:['ethereum','base','arbitrum','aave','stablecoins']},
-    {id:'polygon',     cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png',         x:0.38, y:0.745,
+    {id:'polygon',     cat:'chains',  label:'Polygon',          icon:'◇', logo:'assets/logos/polygon.png',         x:0.34, y:0.78,
       desc:'Ethereum scaling network with major institutional adoption.',
       services:['data-feeds','data-streams','automation','functions','ccip'],
       chainlinkRole:"Chainlink powers Polygon DeFi and institutional applications.",
@@ -2982,7 +2978,7 @@ var EXD = {
       services:['data-feeds','proof-of-reserve','ccip'],
       chainlinkRole:"Ondo uses Chainlink for NAV pricing, reserve verification, and cross-chain OUSG distribution.",
       status:'live',connects:['chainlink'],reachable:['rwas','tkfunds','treasuries','ethereum','base','arbitrum','stellar','franklin']},
-    {id:'lido',        cat:'apps',    label:'Lido',             icon:'◉', logo:'assets/logos/lido.png',            x:0.78, y:0.82,
+    {id:'lido',        cat:'apps',    label:'Lido',             icon:'◉', logo:'assets/logos/lido.png',            x:0.75, y:0.89,
       desc:'Largest liquid staking protocol. $30B+ staked ETH.',
       services:['data-feeds','automation'],
       chainlinkRole:"Lido uses Chainlink Data Feeds for stETH pricing and Automation for reward distribution.",
@@ -3014,7 +3010,7 @@ var EXD = {
       services:['ccip','data-feeds'],
       chainlinkRole:"Stripe integrates blockchain settlement using stablecoin rails where Chainlink provides price integrity.",
       status:'announced',connects:['chainlink'],reachable:['visa','mastercard','stablecoins','ethereum','solana','base']},
-    {id:'paypal',      cat:'apps',    label:'PayPal',           icon:'◉', logo:'assets/logos/paypal.png',           x:0.84, y:0.78,
+    {id:'paypal',      cat:'apps',    label:'PayPal',           icon:'◉', logo:'assets/logos/paypal.png',           x:0.84, y:0.75,
       desc:'200M+ active accounts. PYUSD stablecoin issuer.',
       services:['proof-of-reserve','data-feeds','ccip'],
       chainlinkRole:"PayPal PYUSD uses Chainlink Proof of Reserve and price feeds for stablecoin transparency.",
@@ -3048,12 +3044,12 @@ var EXD = {
       services:['data-feeds','data-streams'],
       chainlinkRole:"Bloomberg data flows into Chainlink Data Feeds as a premium provider, enabling DeFi to access institutional-grade market data.",
       status:'live',connects:['chainlink'],reachable:['assetmgr','custodians','marketdata','tkfunds','rwas']},
-    {id:'lseg',        cat:'tradfi',  label:'LSEG',             icon:'◎', logo:'assets/logos/london stock exchange.png', x:0.46, y:0.04,
+    {id:'lseg',        cat:'tradfi',  label:'LSEG',             icon:'◎', logo:'assets/logos/london stock exchange.png', x:0.41, y:0.02,
       desc:'London Stock Exchange Group — global financial markets infrastructure and data.',
       services:['data-feeds','data-streams'],
       chainlinkRole:"LSEG data and indices are aggregated by Chainlink node operators into tamper-proof onchain price feeds.",
       status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','tkfunds','rwas','bloomberg','refinitiv']},
-    {id:'refinitiv',   cat:'tradfi',  label:'Refinitiv',        icon:'◎', logo:'assets/logos/refinitiv.png',        x:0.52, y:0.09,
+    {id:'refinitiv',   cat:'tradfi',  label:'Refinitiv',        icon:'◎', logo:'assets/logos/refinitiv.png',        x:0.57, y:0.10,
       desc:'Refinitiv (LSEG Data & Analytics) — real-time financial data and analytics.',
       services:['data-feeds','data-streams'],
       chainlinkRole:"Refinitiv data is aggregated by Chainlink node operators into tamper-proof onchain price feeds.",
@@ -3065,13 +3061,13 @@ var EXD = {
       status:'live',connects:['chainlink'],reachable:['assetmgr','marketdata','bloomberg','refinitiv']},
 
     // ── BANKS (group node) ────────────────────────────────────────────
-    {id:'franklin',    cat:'tradfi',  label:'Franklin Templeton', icon:'◎', logo:'assets/logos/franklin.png',        x:0.09, y:0.54,
+    {id:'franklin',    cat:'tradfi',  label:'Franklin Templeton', icon:'◎', logo:'assets/logos/franklin.png',        x:0.03, y:0.54,
       desc:'$1.5T AUM asset manager. Pioneer in tokenized funds — BENJI fund on Stellar, Ethereum, Polygon, and Base.',
       services:['data-feeds','proof-of-reserve','ccip'],
       chainlinkRole:"Franklin Templeton uses Chainlink for NAV pricing and reserve verification for its tokenized BENJI fund across multiple chains.",
       status:'live',connects:['chainlink'],reachable:['assetmgr','tkfunds','treasuries','rwas','stellar','ethereum','polygon','base','ondo','custodians'],
       subEntities:['BENJI Fund (tokenized money market)','Stellar deployment','Ethereum deployment','Polygon deployment','Base deployment']},
-    {id:'banks',       cat:'tradfi',  label:'Global Banks',     icon:'🏦', logo:'assets/logos/global banks.png',            x:0.16, y:0.53,
+    {id:'banks',       cat:'tradfi',  label:'Global Banks',     icon:'🏦', logo:'assets/logos/global banks.png',            x:0.16, y:0.58,
       desc:'JPMorgan, Citi, BNY Mellon, ANZ, UBS — major banks integrating blockchain rails.',
       services:['ccip','cre','ccid','ace'],
       chainlinkRole:"Chainlink CCIP and CRE enable banks to connect to tokenized asset networks, blockchain settlement, and cross-chain payment rails.",
@@ -3409,13 +3405,16 @@ function exBuildSVG(){
     ng.appendChild(g);
   });
   svg.appendChild(ng);
-  var clG=document.createElementNS(ns,'g');clG.setAttribute('id','ex-cl-centre');clG.setAttribute('pointer-events','none');
+  var clG=document.createElementNS(ns,'g');clG.setAttribute('id','ex-cl-centre');clG.setAttribute('pointer-events','auto');clG.style.cursor='pointer';
   var pr=document.createElementNS(ns,'circle');pr.setAttribute('cx',EX.CX);pr.setAttribute('cy',EX.CY);pr.setAttribute('r','24');pr.setAttribute('fill','none');pr.setAttribute('stroke','rgba(60,120,255,.15)');pr.setAttribute('stroke-width','1.2');var pa=document.createElementNS(ns,'animate');pa.setAttribute('attributeName','r');pa.setAttribute('values','52;70;52');pa.setAttribute('dur','4s');pa.setAttribute('repeatCount','indefinite');pr.appendChild(pa);clG.appendChild(pr);
   var clBg=document.createElementNS(ns,'circle');clBg.setAttribute('cx',EX.CX);clBg.setAttribute('cy',EX.CY);clBg.setAttribute('r','26');clBg.setAttribute('fill','#1A2D55');clBg.setAttribute('filter','url(#glow-cl)');clBg.setAttribute('stroke','rgba(60,140,255,.55)');clBg.setAttribute('stroke-width','1.8');clG.appendChild(clBg);
   var clSvgImg=document.createElementNS(ns,'image');clSvgImg.setAttribute('x',EX.CX-22);clSvgImg.setAttribute('y',EX.CY-22);clSvgImg.setAttribute('width','44');clSvgImg.setAttribute('height','44');clSvgImg.setAttribute('href','assets/logos/chainlink.png');clSvgImg.setAttributeNS('http://www.w3.org/1999/xlink','href','assets/logos/chainlink.png');clSvgImg.setAttribute('preserveAspectRatio','xMidYMid meet');clSvgImg.setAttribute('clip-path','url(#clip-cl)');clSvgImg.setAttribute('pointer-events','none');clSvgImg.setAttribute('opacity','0.95');clG.appendChild(clSvgImg);
   var clL=document.createElementNS(ns,'text');clL.setAttribute('x',EX.CX);clL.setAttribute('y',EX.CY+34);clL.setAttribute('text-anchor','middle');clL.setAttribute('fill','rgba(255,255,255,.92)');clL.setAttribute('font-size','11');clL.setAttribute('font-family','DM Sans,sans-serif');clL.setAttribute('font-weight','600');clL.textContent='Chainlink';clG.appendChild(clL);
   svg.appendChild(clG);
-  [{cat:'tradfi',label:'TRADITIONAL FINANCE',x:12,y:14,a:'start'},{cat:'assets',label:'DIGITAL ASSETS',x:888,y:14,a:'end'},{cat:'chains',label:'BLOCKCHAINS',x:12,y:668,a:'start'},{cat:'apps',label:'APPLICATIONS',x:888,y:668,a:'end'}].forEach(function(cl){var t=document.createElementNS(ns,'text');t.setAttribute('x',cl.x);t.setAttribute('y',cl.y);t.setAttribute('text-anchor',cl.a);t.setAttribute('fill',cats[cl.cat]);t.setAttribute('font-size','13');t.setAttribute('font-family','DM Sans,sans-serif');t.setAttribute('letter-spacing','0.14em');t.setAttribute('font-weight','600');t.setAttribute('opacity','0.82');t.setAttribute('pointer-events','none');t.textContent=cl.label;svg.appendChild(t);});
+  clG.addEventListener('click',function(){exSelectChainlinkCenter();});
+  clG.addEventListener('mouseenter',function(){clBg.setAttribute('stroke','rgba(100,180,255,.9)');clBg.setAttribute('fill','#1E3A6E');});
+  clG.addEventListener('mouseleave',function(){clBg.setAttribute('stroke','rgba(60,140,255,.55)');clBg.setAttribute('fill','#1A2D55');});
+  [{cat:'tradfi',label:'TRADITIONAL FINANCE',x:12,y:14,a:'start'},{cat:'assets',label:'DIGITAL ASSETS',x:888,y:14,a:'end'},{cat:'chains',label:'BLOCKCHAINS',x:12,y:668,a:'start'},{cat:'apps',label:'APPLICATIONS',x:888,y:668,a:'end'}].forEach(function(cl){var t=document.createElementNS(ns,'text');t.setAttribute('x',cl.x);t.setAttribute('y',cl.y);t.setAttribute('text-anchor',cl.a);t.setAttribute('fill',cats[cl.cat]);t.setAttribute('font-size','13');t.setAttribute('font-family','DM Sans,sans-serif');t.setAttribute('letter-spacing','0.14em');t.setAttribute('font-weight','600');t.setAttribute('opacity','0.82');t.setAttribute('pointer-events','auto');t.style.cursor='pointer';(function(cat){t.addEventListener('click',function(){exFilter(cat);});t.addEventListener('mouseenter',function(){t.setAttribute('opacity','1');});t.addEventListener('mouseleave',function(){t.setAttribute('opacity','0.82');});}(cl.cat));t.textContent=cl.label;svg.appendChild(t);});
   svg.addEventListener('click',function(e){if(e.target===svg){EX.selectedNode=null;EX.reachableSet={};EX.selectedSvc=null;exApplyVisuals();exHighlightServices([]);exClearAnimations();exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';}});
 }
 
@@ -3469,6 +3468,29 @@ function exApplyVisuals(){
   }
 }
 
+function exSelectChainlinkCenter(){
+  EX.selectedNode=null;EX.selectedSvc=null;EX.reachableSet={};
+  EXD.nodes.forEach(function(n){EX.reachableSet[n.id]=true;});
+  exApplyVisuals();
+  document.querySelectorAll('.ex-svc').forEach(function(s){s.classList.remove('active-svc');});
+  var te=document.getElementById('ex-ctx-title');if(te)te.textContent='Chainlink';
+  var ey=document.getElementById('ex-ctx-eyebrow');if(ey)ey.textContent='INFRASTRUCTURE LAYER';
+  var bd=document.getElementById('ex-ctx-body');
+  if(bd){bd.innerHTML='Chainlink is the trust and coordination layer for the global financial system. Every node on this map connects through Chainlink for data, interoperability, verification, automation, or settlement.';}
+  var sl=document.getElementById('ex-ctx-svcs');
+  if(sl){
+    sl.style.display='';sl.innerHTML='';
+    var hdr=document.createElement('div');hdr.style.cssText='font-size:9px;letter-spacing:.16em;color:rgba(100,180,255,.7);margin-bottom:8px';hdr.textContent='ALL ACTIVE SERVICES';sl.appendChild(hdr);
+    EXD.chainlinkServices.forEach(function(svc){
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:flex-start;gap:8px;padding:6px 10px;background:rgba(60,120,255,.07);border:.5px solid rgba(60,120,255,.18);border-radius:3px;margin-bottom:4px;cursor:pointer';
+      row.innerHTML='<div style="font-size:11px;color:rgba(100,180,255,.9);font-family:var(--mono);letter-spacing:.07em;min-width:90px;flex-shrink:0">'+svc.name+'</div><div style="font-size:11px;color:rgba(244,242,238,.45);line-height:1.5">'+svc.desc+'</div>';
+      row.addEventListener('click',function(){exFilterBySvc(svc.id);});sl.appendChild(row);
+    });
+  }
+  document.getElementById('ex-how').style.display='none';
+  document.querySelectorAll('[id^="ex-edge-"]').forEach(function(e){e.setAttribute('opacity','0.5');e.setAttribute('stroke-width','0.9');});
+}
 function exShowNativeTip(ev,edge){
   var tt=document.getElementById('ex-ntip');
   if(!tt){tt=document.createElement('div');tt.id='ex-ntip';tt.style.cssText='position:fixed;pointer-events:none;z-index:600;background:rgba(4,7,20,.97);border:.5px solid rgba(200,146,42,.3);border-left:2px solid rgba(200,146,42,.7);border-radius:5px;padding:9px 13px;min-width:180px;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.7);font-family:var(--sans);opacity:0;transition:opacity .12s;font-size:11px';document.body.appendChild(tt);}
