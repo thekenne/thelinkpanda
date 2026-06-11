@@ -413,6 +413,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
    MOBILE — below 768px
    ═══════════════════════════════════════════════ */
 @media(max-width:768px){
+  #mob-featured-strip{display:block!important;}
+
   :root{--section-pad:64px 20px;--gap-card:10px}
 
   /* ── Nav: hide desktop elements, show hamburger ── */
@@ -420,11 +422,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .nav-right-desktop{display:none!important}
   .nav-hamburger{display:flex}
 
+/* ── Mobile bottom tab bar ── */
+.mob-bottom-nav{display:grid;}
+body{padding-bottom:60px;}
+
   /* ── Hero: full-width centered panda ── */
   .hero{
-    height:92vw;
-    min-height:380px;
-    max-height:520px;
+    height:56vw;
+    min-height:260px;
+    max-height:340px;
   }
   .hero-right-img{
     left:0;width:100%;
@@ -1295,20 +1301,24 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <div class="mob-drawer" id="mob-drawer">
   <div class="mob-drawer-inner">
     <div class="mob-nav-links">
-      <button class="mob-nav-link" onclick="showPage('home');closeMobileMenu()">Home</button>
-      <button class="mob-nav-link" onclick="showPage('explorer');closeMobileMenu()">Explorer</button>
-      <button class="mob-nav-link" onclick="showPage('infographics');closeMobileMenu()">Infographics</button>
-      <button class="mob-nav-link" onclick="showPage('videos');closeMobileMenu()">Videos</button>
-      <button class="mob-nav-link" onclick="showPage('art');closeMobileMenu()">Art &amp; NFTs</button>
-      <button class="mob-nav-link" onclick="showPage('about');closeMobileMenu()">About</button>
-      <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">Quotes</button>
-      <button class="mob-nav-link" onclick="showPage('evidence');closeMobileMenu()">Evidence</button>
-      <button class="mob-nav-link" onclick="showPage('misconceptions');closeMobileMenu()">Misconceptions</button>
-      <button class="mob-nav-link" onclick="showPage('digest');closeMobileMenu()">Research Digest</button>
-      <button class="mob-nav-link" onclick="showPage('metcalfe');closeMobileMenu()">Network Calculator</button>
-      <button class="mob-nav-link" onclick="showPage('timeline');closeMobileMenu()">Adoption Timeline</button>
-      <button class="mob-nav-link" onclick="showPage('concepts');closeMobileMenu()">Chainlink Explained</button>
-      <button class="mob-nav-link" onclick="showPage('contribute');closeMobileMenu()">Contribute</button>
+      <div style="font-size:9px;letter-spacing:.18em;color:rgba(200,146,42,.5);padding:0 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">RESEARCH</div>
+      <button class="mob-nav-link" onclick="showPage('evidence');closeMobileMenu()">📄 Evidence Vault</button>
+      <button class="mob-nav-link" onclick="showPage('misconceptions');closeMobileMenu()">❌ Misconceptions</button>
+      <button class="mob-nav-link" onclick="showPage('metrics');closeMobileMenu()">📊 Live Metrics</button>
+      <button class="mob-nav-link" onclick="showPage('explorer');closeMobileMenu()">🌐 Infrastructure Explorer</button>
+      <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">💬 Quote Library</button>
+      <div style="font-size:9px;letter-spacing:.18em;color:rgba(200,146,42,.5);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">LEARN</div>
+      <button class="mob-nav-link" onclick="showPage('concepts');closeMobileMenu()">⬡ Chainlink Explained</button>
+      <button class="mob-nav-link" onclick="showPage('timeline');closeMobileMenu()">📅 Adoption Timeline</button>
+      <button class="mob-nav-link" onclick="showPage('patents');closeMobileMenu()">🔏 Patent Registry</button>
+      <button class="mob-nav-link" onclick="showPage('digest');closeMobileMenu()">🐼 Research Digest</button>
+      <button class="mob-nav-link" onclick="showPage('metcalfe');closeMobileMenu()">📈 Network Calculator</button>
+      <div style="font-size:9px;letter-spacing:.18em;color:rgba(200,146,42,.5);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">CONTENT</div>
+      <button class="mob-nav-link" onclick="showPage('infographics');closeMobileMenu()">🗺 Infographics</button>
+      <button class="mob-nav-link" onclick="showPage('videos');closeMobileMenu()">🎥 Videos</button>
+      <button class="mob-nav-link" onclick="showPage('art');closeMobileMenu()">🎨 Art &amp; NFTs</button>
+      <button class="mob-nav-link" onclick="showPage('about');closeMobileMenu()">⬡ About</button>
+      <button class="mob-nav-link" onclick="showPage('contribute');closeMobileMenu()">⬆ Contribute</button>
     </div>
     <div class="mob-drawer-divider"></div>
     <div class="mob-social">
@@ -1398,6 +1408,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 <!-- ══════════════════════════════════════════════════════════════════════════ -->
 <!-- ════════════════════════════ HOME ════════════════════════════ -->
+<main id="main-content">
 <div class="page" id="page-home">
 
   <!-- HERO (Doc1 d803a96c) -->
@@ -1410,7 +1421,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       fetchpriority="high"
       decoding="sync"
       onerror="this.style.opacity='.1'"/>
-    <video class="hero-panda-video" autoplay muted loop playsinline
+    <video class="hero-panda-video" autoplay muted loop playsinline preload="none"
       onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
     </video>
@@ -1440,15 +1451,35 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div>
 
   <div class="mob-nav-hub">
-    <button class="mob-nav-card" onclick="showPage('infographics')"><span class="mob-nav-icon">🗺</span><span class="mob-nav-label">Explorer</span><span class="mob-nav-sub">Infrastructure map</span></button>
-    <button class="mob-nav-card" onclick="showPage('evidence')"><span class="mob-nav-icon">🔒</span><span class="mob-nav-label">Evidence</span><span class="mob-nav-sub">Verified sources</span></button>
-    <button class="mob-nav-card" onclick="showPage('quotes')"><span class="mob-nav-icon">💬</span><span class="mob-nav-label">Quotes</span><span class="mob-nav-sub">Institutional statements</span></button>
-    <button class="mob-nav-card" onclick="showPage('videos')"><span class="mob-nav-icon">🎥</span><span class="mob-nav-label">Videos</span><span class="mob-nav-sub">Short education</span></button>
-    <button class="mob-nav-card" onclick="showPage('infographics')"><span class="mob-nav-icon">📊</span><span class="mob-nav-label">Infographics</span><span class="mob-nav-sub">Visual explanations</span></button>
-    <button class="mob-nav-card" onclick="showPage('about')"><span class="mob-nav-icon">⬡</span><span class="mob-nav-label">About</span><span class="mob-nav-sub">Who is TheLinkPanda</span></button>
+    <button class="mob-nav-card" onclick="showPage('explorer')"><span class="mob-nav-icon">🌐</span><span class="mob-nav-label">Explorer</span><span class="mob-nav-sub">Network map</span></button>
+    <button class="mob-nav-card" onclick="showPage('evidence')"><span class="mob-nav-icon">📄</span><span class="mob-nav-label">Evidence</span><span class="mob-nav-sub">52 sources</span></button>
+    <button class="mob-nav-card" onclick="showPage('metrics')"><span class="mob-nav-icon">📊</span><span class="mob-nav-label">Metrics</span><span class="mob-nav-sub">Live data</span></button>
+    <button class="mob-nav-card" onclick="showPage('misconceptions')"><span class="mob-nav-icon">❌</span><span class="mob-nav-label">Myths</span><span class="mob-nav-sub">50 corrected</span></button>
+    <button class="mob-nav-card" onclick="showPage('concepts')"><span class="mob-nav-icon">⬡</span><span class="mob-nav-label">Concepts</span><span class="mob-nav-sub">CCIP, CRE, SVR</span></button>
+    <button class="mob-nav-card" onclick="showPage('timeline')"><span class="mob-nav-icon">📅</span><span class="mob-nav-label">Timeline</span><span class="mob-nav-sub">Adoption history</span></button>
   </div>
 
   <!-- WHAT I CREATE (Doc2 f29b9fc2) -->
+  <!-- Mobile featured research strip (hidden on desktop) -->
+  <div style="display:none" id="mob-featured-strip">
+    <div style="padding:0 16px 16px;background:var(--bg)">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:rgba(200,146,42,.55);margin-bottom:10px;padding-top:4px">FEATURED RESEARCH</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <button onclick="showPage('metrics')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(60,160,255,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
+          <span style="font-size:20px">📊</span><div><div>Live Metrics</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">Real-time data</div></div>
+        </button>
+        <button onclick="showPage('evidence')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(200,146,42,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
+          <span style="font-size:20px">📄</span><div><div>Evidence Vault</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">52 sources</div></div>
+        </button>
+        <button onclick="showPage('misconceptions')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(220,80,80,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
+          <span style="font-size:20px">❌</span><div><div>Misconceptions</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">50 corrected</div></div>
+        </button>
+        <button onclick="showPage('org');showOrg('dtcc')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(160,100,255,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
+          <span style="font-size:20px">🏦</span><div><div>Institutions</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">DTCC, Swift...</div></div>
+        </button>
+      </div>
+    </div>
+  </div>
   <div class="dest-section">
     <div class="dest-inner">
       <span class="dest-label">WHAT I CREATE</span>
@@ -2021,7 +2052,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <img class="hero-right-img"
       src="assets/banner/TheLinkPanda banner split.jpg"
       alt="TheLinkPanda" onerror="this.style.opacity='.1'"/>
-    <video class="hero-panda-video" autoplay muted loop playsinline
+    <video class="hero-panda-video" autoplay muted loop playsinline preload="none"
       style="opacity:.7" onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
     </video>
@@ -3907,6 +3938,15 @@ function showPage(page,filter,noPush){
     if(nl)nl.classList.toggle('active',p===page);
   });
   updatePageMeta(page);
+  // Sync bottom nav active tab
+  var _btabs = ['home','explorer','evidence','metrics'];
+  _btabs.forEach(function(t){
+    var el = document.getElementById('mbt-'+t);
+    if(el) el.classList.toggle('active', t===page);
+  });
+  // More tab active if not a main tab
+  var moreBtn = document.getElementById('mbt-more');
+  if(moreBtn) moreBtn.classList.toggle('active', _btabs.indexOf(page)===-1);
   window.scrollTo(0,0);
   // Build page content on first visit
   if(page==='infographics'){buildFilterBar();buildLibrary(filter||'All');}
@@ -6045,5 +6085,28 @@ function mfCalcRel(){
 
 
 </script>
+</main>
+<nav class="mob-bottom-nav" id="mob-bottom-nav" role="navigation" aria-label="Mobile navigation">
+  <button class="mob-bottom-tab active" id="mbt-home" onclick="showPage('home')" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    Home
+  </button>
+  <button class="mob-bottom-tab" id="mbt-explorer" onclick="showPage('explorer')" aria-label="Explorer">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    Explorer
+  </button>
+  <button class="mob-bottom-tab" id="mbt-evidence" onclick="showPage('evidence')" aria-label="Evidence">
+    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+    Evidence
+  </button>
+  <button class="mob-bottom-tab" id="mbt-metrics" onclick="showPage('metrics')" aria-label="Metrics">
+    <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+    Metrics
+  </button>
+  <button class="mob-bottom-tab" id="mbt-more" onclick="toggleMobileMenu()" aria-label="More">
+    <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    More
+  </button>
+</nav>
 </body>
 </html>
