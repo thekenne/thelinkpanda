@@ -676,6 +676,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .ab-body{max-width:100%}
 }
 
+/* ── Mobile-only elements: hidden on desktop by default ── */
+.mob-drawer,.mob-overlay,.mob-bottom-nav,.mob-nav-hub{display:none}
+/* ── END mobile-only defaults ── */
+
 /* ── WIDE 1400px+ (Doc1) ── */
 @media(min-width:1400px){
   :root{--section-pad:96px 80px;--gap-card:18px}
