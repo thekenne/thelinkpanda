@@ -58,7 +58,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .nav-cta:hover{background:var(--gold);color:#08070a}
 
 /* ── HERO (Doc1 d803a96c — the known-good hero) ── */
-.hero{position:relative;height:clamp(459px,45.9vw,580px);min-height:459px;max-height:580px;overflow:hidden;background:#07090D;}
+.hero{position:relative;height:clamp(459px,45.9vw,580px);min-height:459px;max-height:580px;overflow:hidden;background:#07090D;contain:layout style;}
 .hero-right-img{
   position:absolute;left:50%;top:0;width:50%;height:100%;
   object-fit:cover;object-position:60% center;z-index:0;
@@ -1069,7 +1069,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <meta name="twitter:card" content="summary_large_image"/>
 
   <link rel="canonical" href="https://thelinkpanda.com/"/>
-  <link rel="preload" as="image" href="/assets/banner/TheLinkPanda banner split.jpg" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/banner/TheLinkPanda-banner-split-desktop.webp" imagesrcset="/assets/banner/TheLinkPanda-banner-split-mobile.webp 768w, /assets/banner/TheLinkPanda-banner-split-tablet.webp 1280w, /assets/banner/TheLinkPanda-banner-split-desktop.webp 1920w" imagesizes="100vw" fetchpriority="high" type="image/webp"/>
   <meta name="description" content="The largest independent Chainlink research platform. 40+ verified evidence entries, 47 misconceptions corrected, institution profiles for DTCC, SWIFT, JPMorgan, live metrics and patent registry."/>
   <meta name="robots" content="index, follow"/>
   <meta property="og:type" content="website"/>
@@ -1271,10 +1271,30 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <!-- HERO (Doc1 d803a96c) -->
   <section class="hero">
-    <img class="hero-right-img" loading="eager" fetchpriority="high"
-      src="assets/banner/TheLinkPanda banner split.jpg"
-      alt="TheLinkPanda — Infrastructure Before Narratives"
-      onerror="this.style.opacity='.1'"/>
+    <picture>
+      <source
+        type="image/webp"
+        srcset="
+          assets/banner/TheLinkPanda-banner-split-mobile.webp  768w,
+          assets/banner/TheLinkPanda-banner-split-tablet.webp  1280w,
+          assets/banner/TheLinkPanda-banner-split-desktop.webp 1920w"
+        sizes="(max-width:768px) 100vw, 50vw"/>
+      <source
+        type="image/jpeg"
+        srcset="
+          assets/banner/TheLinkPanda-banner-split-mobile.jpg  768w,
+          assets/banner/TheLinkPanda-banner-split-tablet.jpg  1280w,
+          assets/banner/TheLinkPanda banner split.jpg         1920w"
+        sizes="(max-width:768px) 100vw, 50vw"/>
+      <img class="hero-right-img"
+        src="assets/banner/TheLinkPanda banner split.jpg"
+        alt="TheLinkPanda — Infrastructure Before Narratives"
+        width="960" height="580"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        onerror="this.style.opacity='.1'"/>
+    </picture>
     <video class="hero-panda-video" autoplay muted loop playsinline
       onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
