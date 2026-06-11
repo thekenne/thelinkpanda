@@ -139,10 +139,10 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .fb-label{font-size:18px;letter-spacing:.1em;color:var(--w20);text-align:center}
 
 /* ── DESTINATION CARDS — WHAT I CREATE (Doc2, padding from Doc3) ── */
-.dest-section{max-width:none;padding:clamp(40px,4.5vw,72px) clamp(32px,5vw,80px);background:var(--bg2);border-bottom:.5px solid var(--border);}
-.dest-inner{max-width:var(--content-max);margin:0 auto}
+.dest-section{max-width:none;padding:clamp(24px,2vw,36px) clamp(32px,5vw,80px);background:var(--bg2);border-bottom:.5px solid var(--border);}
+.dest-inner{max-width:1260px;margin:0 auto}
 .dest-label{font-size:clamp(16px,1.05vw,18px);letter-spacing:.22em;color:var(--gold2);opacity:.9;display:block;margin-bottom:clamp(16px,1.8vw,28px);}
-.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,0.7vw,12px);}
+.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 .dest-card{position:relative;display:flex;flex-direction:column;overflow:hidden;cursor:pointer;border:none;background:var(--bg3);transition:box-shadow .25s,transform .25s;aspect-ratio:675/1200;text-decoration:none;box-shadow:inset 0 0 0 .5px rgba(244,242,238,.07);}
 .dest-card:hover{box-shadow:inset 0 0 0 1px rgba(200,146,42,.45);transform:translateY(-2px)}
 .dest-card-img{position:absolute;inset:0;overflow:hidden;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important;}
@@ -1531,7 +1531,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <div class="dest-section">
     <div class="dest-inner">
       <span class="dest-label">RESEARCH DESTINATIONS</span>
-      <div class="dest-grid" id="dest-grid" style="grid-template-columns:repeat(6,1fr);max-width:1020px">
+      <div class="dest-grid" id="dest-grid" style="grid-template-columns:repeat(6,1fr)">
 
         <div class="dest-card" onclick="showPage('evidence')">
           <div class="dest-card-img" style="background:url('assets/cards/evidence.jpg') center/contain no-repeat">
