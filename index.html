@@ -1408,75 +1408,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 <!-- ══════════════════════════════ ADOPTION TIMELINE ══════════════════════════ -->
 <!-- ══════════════════════════════ DIGEST ════════════════════════════════════ -->
-<div class="page" id="page-digest">
-  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
-    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">🐼 THELINKPANDA</div>
-          <div class="ev-title">Research Digest</div>
-        </div>
-        <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);color:var(--w20);letter-spacing:.1em">PUBLISHED EVERY UPDATE</div>
-      </div>
-    </div>
-  </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
-    <div id="digest-body"></div>
-  </div>
-</div>
 
-<!-- ══════════════════════════════ METCALFE ══════════════════════════════════ -->
-<div class="page" id="page-metcalfe">
-  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
-    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">NETWORK EFFECT CALCULATOR</div>
-          <div class="ev-title">The Chainlink Network Value Model</div>
-        </div>
-        <div style="font-size:clamp(10px,0.68vw,11px);color:var(--w40);letter-spacing:.04em;max-width:260px;text-align:right;line-height:1.5">Illustrative model only. Not financial advice.</div>
-      </div>
-    </div>
-  </div>
-  <div id="metcalfe-body" style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)"></div>
-</div>
 
-<div class="page" id="page-timeline">
-  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
-    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK ADOPTION HISTORY</div>
-          <div class="ev-title">Institutional Adoption Timeline</div>
-        </div>
-        <div id="tl-type-filters" style="display:flex;gap:0;border:.5px solid var(--border);flex-wrap:wrap"></div>
-      </div>
-    </div>
-  </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
-    <div id="tl-body"></div>
-  </div>
-</div>
 
-<!-- ══════════════════════════════ CONCEPTS ══════════════════════════════════ -->
-<div class="page" id="page-concepts">
-  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
-    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK EXPLAINED</div>
-          <div class="ev-title">What is <span id="concept-name-header">CCIP</span>?</div>
-        </div>
-        <div id="concept-nav" style="display:flex;gap:0;border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none"></div>
-      </div>
-    </div>
-  </div>
-  <div id="concept-body" style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)"></div>
-</div>
 
-<!-- ══════════════════════════════════════════════════════════════════════════ -->
-<!-- ════════════════════════════ HOME ════════════════════════════ -->
-<main id="main-content">
 <div class="page" id="page-home">
 
   <!-- HERO (Doc1 d803a96c) -->
@@ -1692,76 +1627,417 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div>
 
   <!-- ════════════════════════════════════════ EXPLORER ════════════════════════════════════ -->
-<div class="page" id="page-explorer">
-  <div class="ex-shell" id="ex-shell">
-    <div class="ex-top">
-      <div class="ex-filterbar" id="ex-filterbar"></div>
+
+
+<div class="page" id="page-digest">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">🐼 THELINKPANDA</div>
+          <div class="ev-title">Research Digest</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);color:var(--w20);letter-spacing:.1em">PUBLISHED EVERY UPDATE</div>
+      </div>
     </div>
-    <div class="ex-body" id="ex-body">
-      <div class="ex-services" id="ex-services"></div>
-      <div class="ex-canvas-wrap">
-        <canvas class="ex-canvas" id="ex-canvas"></canvas>
-        <div class="ex-filter-hint" id="ex-filter-hint"></div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div id="digest-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ METCALFE ══════════════════════════════════ -->
+<div class="page" id="page-metcalfe">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">NETWORK EFFECT CALCULATOR</div>
+          <div class="ev-title">The Chainlink Network Value Model</div>
+        </div>
+        <div style="font-size:clamp(10px,0.68vw,11px);color:var(--w40);letter-spacing:.04em;max-width:260px;text-align:right;line-height:1.5">Illustrative model only. Not financial advice.</div>
+      </div>
+    </div>
+  </div>
+  <div id="metcalfe-body" style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)"></div>
+</div>
+
+<div class="page" id="page-timeline">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK ADOPTION HISTORY</div>
+          <div class="ev-title">Institutional Adoption Timeline</div>
+        </div>
+        <div id="tl-type-filters" style="display:flex;gap:0;border:.5px solid var(--border);flex-wrap:wrap"></div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div id="tl-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ CONCEPTS ══════════════════════════════════ -->
+<div class="page" id="page-concepts">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK EXPLAINED</div>
+          <div class="ev-title">What is <span id="concept-name-header">CCIP</span>?</div>
+        </div>
+        <div id="concept-nav" style="display:flex;gap:0;border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none"></div>
+      </div>
+    </div>
+  </div>
+  <div id="concept-body" style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════ HOME ════════════════════════════ -->
+<main id="main-content">
+<div class="page" id="page-explorer">
+<!-- EXPLORER TITLE (Doc2/Doc3) -->
+  <div style="background:linear-gradient(180deg,#07090D 0%,#050A18 100%);padding:clamp(32px,3.5vw,56px) clamp(20px,4vw,72px) clamp(20px,2vw,32px);border-top:.5px solid rgba(200,146,42,.10)">
+    <div style="max-width:900px">
+      <div style="font-size:clamp(9px,.62vw,10px);letter-spacing:.22em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,14px);font-family:var(--mono);text-transform:uppercase">Infrastructure Explorer</div>
+      <div style="font-family:var(--serif);font-size:clamp(22px,2.2vw,34px);font-weight:300;color:#fff;line-height:1.12;margin-bottom:clamp(12px,1.2vw,18px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
+      <div style="font-size:clamp(13px,.92vw,15px);color:rgba(244,242,238,.45);line-height:1.65;font-family:var(--sans)">Click any node to explore relationships, services used, and infrastructure dependencies.</div>
+    </div>
+  </div>
+
+  <!-- EXPLORER SHELL (Doc2 f29b9fc2 HTML + Doc3 cfc1dac5 CSS) -->
+  <div class="ex-shell" id="explorer-shell">
+    <div class="ex-search-wrap">
+      <div class="ex-search-wrap-inner">
+        <span class="ex-search-icon">🔍</span>
+        <input class="ex-search-input" id="ex-search" type="text"
+               placeholder="Search institutions, chains, protocols…"
+               oninput="exSearch(this.value)"
+               onkeydown="if(event.key==='Escape'){this.value='';exSearch('');}"
+        />
+      </div>
+    </div>
+    <div class="ex-filterbar" id="ex-filterbar">
+      <button class="ex-filter active" data-cat="all"    onclick="exFilter('all')">ALL SYSTEMS</button>
+      <button class="ex-filter" data-cat="tradfi"        onclick="exFilter('tradfi')">TRAD FINANCE</button>
+      <button class="ex-filter" data-cat="assets"        onclick="exFilter('assets')">DIGITAL ASSETS</button>
+      <button class="ex-filter" data-cat="chains"        onclick="exFilter('chains')">BLOCKCHAINS</button>
+      <button class="ex-filter" data-cat="apps"          onclick="exFilter('apps')">APPLICATIONS</button>
+      <div class="ex-filter-hint"><span style="opacity:.5">ⓘ</span> Click any node to explore</div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-services" id="ex-services">
+        <div class="ex-svc-header">CHAINLINK SERVICES</div>
+      </div>
+      <div class="ex-canvas" id="ex-canvas">
+        <svg class="ex-svg" id="ex-svg"
+          width="100%" height="100%"
+          viewBox="0 0 900 680"
+          preserveAspectRatio="xMidYMin meet"
+          style="display:block;overflow:visible"></svg>
       </div>
       <div class="ex-ctx" id="ex-ctx">
-        <div class="ex-ctx-scroll" id="ex-ctx-scroll"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════ PATENTS ════════════════════════════════════ -->
-<div class="page" id="page-patents">
-  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
-    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INTELLECTUAL PROPERTY</div>
-          <div class="ev-title">Patent Registry</div>
+        <div class="ex-ctx-header">
+          <div class="ex-ctx-eyebrow" id="ex-ctx-eyebrow">EXPLORER</div>
+          <div class="ex-ctx-title"   id="ex-ctx-title">Chainlink connects every layer of the global financial system.</div>
+          <div class="ex-ctx-body"    id="ex-ctx-body">Click any node to see how Chainlink powers the connections between systems.</div>
+          <div class="ex-ctx-tags"    id="ex-ctx-tags"></div>
         </div>
-        <div id="pat-filters" style="display:flex;gap:0;border:.5px solid var(--border)"></div>
-      </div>
-    </div>
-  </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
-    <div id="pat-grid"></div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════ METRICS ════════════════════════════════════ -->
-<div class="page" id="page-metrics">
-  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
-    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">LIVE NETWORK DATA</div>
-          <div class="ev-title">Live Metrics</div>
+        <div class="ex-ctx-scroll-wrap" id="ex-ctx-scroll-wrap">
+          <div class="ex-ctx-scroll" id="ex-ctx-scroll">
+            <div class="ex-ctx-svc-list" id="ex-ctx-svcs" style="display:none"></div>
+            <div id="ex-how">
+              <div style="font-size:clamp(9px,.65vw,10px);letter-spacing:.16em;color:var(--gold);opacity:.55;margin-bottom:10px">HOW IT WORKS</div>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">⊞</div><div style="font-size:9px;color:rgba(244,242,238,.3);letter-spacing:.05em">Real World<br>Data</div></div>
+                <div style="color:var(--gold);opacity:.4;font-size:12px">→</div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,80,200,.4);border:.5px solid rgba(100,160,255,.3);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">⬡</div><div style="font-size:9px;color:rgba(244,242,238,.3);letter-spacing:.05em">Chainlink<br>Network</div></div>
+                <div style="color:var(--gold);opacity:.4;font-size:12px">→</div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">◎</div><div style="font-size:9px;color:rgba(244,242,238,.3);letter-spacing:.05em">Onchain<br>Execution</div></div>
+                <div style="color:var(--gold);opacity:.4;font-size:12px">→</div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">🌐</div><div style="font-size:9px;color:rgba(244,242,238,.3);letter-spacing:.05em">Global<br>Impact</div></div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="ex-stats">
+          <div class="ex-stat"><span class="ex-stat-n">100+</span><span class="ex-stat-l">Networks</span></div>
+          <div class="ex-stat"><span class="ex-stat-n">20K+</span><span class="ex-stat-l">Data Feeds</span></div>
+          <div class="ex-stat"><span class="ex-stat-n">$20T+</span><span class="ex-stat-l">Secured Value</span></div>
+          <div class="ex-stat"><span class="ex-stat-n">1,000+</span><span class="ex-stat-l">Integrations</span></div>
+        </div>
+        <div style="font-size:8px;text-align:center;color:rgba(244,242,238,.15);letter-spacing:.08em;padding:4px 0;background:rgba(4,6,16,.9);font-family:var(--mono)">ECOSYSTEM SCALE — UPDATED PERIODICALLY</div>
       </div>
     </div>
+    <div class="ex-hint"><span class="ex-hint-icon">ⓘ</span> Click any node to see how Chainlink powers the connections between systems.</div>
   </div>
-  <div id="metrics-body" style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)"></div>
+  <div class="ex-tooltip" id="ex-tooltip"></div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </footer>
 </div>
 
-<!-- ════════════════════════════════════════ ORG ════════════════════════════════════════ -->
+
 <div class="page" id="page-org">
-  <div id="org-header" style="position:sticky;top:var(--nav-h);z-index:100;background:var(--bg2);border-bottom:.5px solid var(--border)">
-    <div id="org-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) clamp(32px,5vw,80px)">
-      <div class="ev-title-row">
-        <div>
-          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTION PROFILE</div>
-          <div class="ev-title" id="org-title">Institution</div>
+  <div class="ev-header" style="position:static"><div class="ev-header-inner" id="org-header-inner" style="min-height:80px"></div></div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px)">
+    <div class="org-stats-row" id="org-stats-row" style="grid-template-columns:repeat(4,1fr)"></div>
+    <div id="org-tl-section" style="margin-bottom:clamp(32px,3vw,48px)">
+      <div class="org-section-label">TIMELINE</div>
+      <div id="org-tl-body" class="org-tl"></div>
+    </div>
+    <div id="org-ev-section"><div class="org-section-label">EVIDENCE ENTRIES</div><div class="ev-grid" id="org-ev-grid" style="min-height:0;contain:none"></div></div>
+    <div id="org-mc-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">RELATED MISCONCEPTIONS</div><div class="mc-grid" id="org-mc-grid" style="margin-top:0"></div></div>
+    <div id="org-qt-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">QUOTES</div><div class="qt-grid" id="org-qt-grid"></div></div>
+    <div id="org-vid-section" style="margin-top:clamp(32px,3vw,48px)"><div class="org-section-label">RELATED VIDEOS</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px" id="org-vid-grid"></div></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar"><a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a><a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a><a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a></div>
+  </footer>
+</div>
+
+
+<div class="page" id="page-patents">
+  <div class="ev-header"><div class="ev-header-inner">
+    <div class="ev-title-row"><div class="ev-title">Patent &amp; IP Registry</div>
+    <span style="font-family:var(--mono);font-size:clamp(9px,.62vw,10px);color:var(--w40)">SmartContract Chainlink Limited SEZC</span></div>
+    <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.6;margin:4px 0 0;max-width:680px">Verified USPTO-granted patents and applications. All entries confirmed against official USPTO records, Google Patents, and Justia. Source links provided for every entry.</p>
+  </div></div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(24px,2.8vw,44px) clamp(32px,5vw,80px)">
+    <div class="org-section-label" style="margin-bottom:clamp(16px,1.6vw,24px)">GRANTED PATENTS &amp; APPLICATIONS</div>
+    <div id="patents-stats" class="rstat-bar" style="margin-bottom:clamp(24px,2.4vw,36px)"></div>
+    <div id="patents-grid"></div>
+  </div>
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar"><a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a><a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a><a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a><a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a></div>
+  </footer>
+</div>
+
+
+<div class="page" id="page-metrics">
+  <div class="mhero">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="mhero-eyebrow">LIVE INTELLIGENCE DASHBOARD</div>
+      <div class="mhero-grid">
+
+        <div class="mhero-cell">
+          <div class="mhero-cell-label">Total Value Enabled</div>
+          <div class="mhero-cell-n" id="mh-tve">$30.64T</div>
+          <div class="mhero-cell-sub">Aggregate dollar value of transactions powered by Chainlink — the broadest measure of economic dependence on the network.</div>
+          <span class="mhero-cell-trend trend-up">&#8599;</span>
+          <a class="mhero-cell-src" href="https://chain.link/" target="_blank" rel="noopener">chain.link</a>
         </div>
-        <div id="org-services-row" style="display:flex;flex-wrap:wrap;gap:5px"></div>
+
+        <div class="mhero-cell">
+          <div class="mhero-cell-label">Verified On-Chain Messages</div>
+          <div class="mhero-cell-n" id="mh-msgs">19.43B</div>
+          <div class="mhero-cell-sub">Cumulative cryptographically verified messages processed by the network. A direct measure of protocol usage.</div>
+          <span class="mhero-cell-trend trend-up">&#8599;</span>
+          <a class="mhero-cell-src" href="https://chain.link/" target="_blank" rel="noopener">chain.link</a>
+        </div>
+
+        <div class="mhero-cell">
+          <div class="mhero-cell-label">Ecosystem Integrations</div>
+          <div class="mhero-cell-n" id="mh-int">2,500+</div>
+          <div class="mhero-cell-sub">Protocols and applications that have integrated Chainlink services. Measures depth of ecosystem adoption.</div>
+          <span class="mhero-cell-trend trend-up">&#8599;</span>
+          <a class="mhero-cell-src" href="https://chain.link/" target="_blank" rel="noopener">chain.link</a>
+        </div>
+
+        <div class="mhero-cell">
+          <div class="mhero-cell-label">Chains Supported</div>
+          <div class="mhero-cell-n" id="mh-chains">77+</div>
+          <div class="mhero-cell-sub">Blockchain networks where Chainlink oracles and services are deployed and operational, EVM and non-EVM chains connected to Chainlink.</div>
+          <span class="mhero-cell-trend trend-up">&#8599;</span>
+          <a class="mhero-cell-src" href="https://chain.link/" target="_blank" rel="noopener">chain.link</a>
+        </div>
+
+        <div class="mhero-cell">
+          <div class="mhero-cell-label">CCIP Chains Live</div>
+          <div class="mhero-cell-n" style="color:rgba(120,190,255,.95)" id="mh-ccipchains">77</div>
+          <div class="mhero-cell-sub">Networks connected to CCIP. Each addition represents institutional infrastructure expansion.</div>
+          <span class="mhero-cell-trend trend-up">&#8599;</span>
+          <a class="mhero-cell-src" href="https://docs.chain.link/ccip/directory/mainnet" target="_blank" rel="noopener">docs.chain.link/ccip/directory/mainnet</a>
+        </div>
+
+        <div class="mhero-cell">
+          <div class="mhero-cell-label">Cross-Chain Tokens (CCTs)</div>
+          <div class="mhero-cell-n" style="color:rgba(120,190,255,.95)" id="mh-ccts">254</div>
+          <div class="mhero-cell-sub">Tokens that adopted the CCIP standard &#8212; each one has chosen Chainlink as its cross-chain security layer.</div>
+          <span class="mhero-cell-trend trend-up">&#8599;</span>
+          <a class="mhero-cell-src" href="https://docs.chain.link/ccip/directory/mainnet" target="_blank" rel="noopener">docs.chain.link/ccip/directory/mainnet</a>
+        </div>
+
       </div>
     </div>
   </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
-    <div id="org-body"></div>
-    <div id="org-mc-section"></div>
-  </div>
-</div>
 
+  <div class="msec">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="msec-head">
+        <div class="msec-title-block">
+          <div class="msec-pre ccip">NETWORK METRICS</div>
+          <div class="msec-title">Oracle Network Scale</div>
+        </div>
+        <span class="mlive-badge">Live &#8212; DefiLlama</span>
+      </div>
+      <div class="mcard-row cols-4">
+        <div class="mcard"><div class="mcard-label">Total Value Secured</div><div class="mcard-n" id="ms-tvs">&#8212;</div><div class="mcard-sub">Assets dependent on Chainlink oracles</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://defillama.com/oracles/Chainlink" target="_blank" rel="noopener">DefiLlama Oracles</a></div>
+        <div class="mcard"><div class="mcard-label">30D Fees</div><div class="mcard-n" id="ms-fees30">&#8212;</div><div class="mcard-sub">Network fee revenue</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+        <div class="mcard"><div class="mcard-label">30D Revenue</div><div class="mcard-n" id="ms-rev30">&#8212;</div><div class="mcard-sub">Protocol revenue</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+        <div class="mcard"><div class="mcard-label">Annual Run Rate</div><div class="mcard-n" id="ms-fees-ann">&#8212;</div><div class="mcard-sub">30D fees &#215; 12</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="msec">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="msec-head">
+        <div class="msec-title-block">
+          <div class="msec-pre ccip">CROSS-CHAIN INTEROPERABILITY</div>
+          <div class="msec-title">CCIP Dashboard</div>
+        </div>
+        <a class="msec-link ccip" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">View Live CCIP Metrics</a>
+      </div>
+      <div class="mcard-row cols-3">
+        <div class="mcard"><div class="mcard-label">Chains Live</div><div class="mcard-n ccip">77</div><div class="mcard-sub">Active CCIP-enabled networks</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://docs.chain.link/ccip/directory/mainnet" target="_blank" rel="noopener">docs.chain.link/ccip/directory/mainnet</a></div>
+        <div class="mcard"><div class="mcard-label">Cross-Chain Tokens</div><div class="mcard-n ccip">254</div><div class="mcard-sub">Tokens on CCIP standard</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://docs.chain.link/ccip/directory/mainnet" target="_blank" rel="noopener">docs.chain.link/ccip/directory/mainnet</a></div>
+        <div class="mcard"><div class="mcard-label">CCIP Explorer</div><div class="mcard-n ccip" style="font-size:clamp(16px,1.4vw,22px);padding-top:6px">All transactions</div><div class="mcard-sub">Real-time cross-chain transfers</div><a class="mcard-src" href="https://ccip.chain.link/" target="_blank" rel="noopener">ccip.chain.link</a></div>
+      </div>
+      <div class="mcard-row cols-3">
+        <div class="mcard"><div class="mcard-label">Transfer Volume <span style="font-size:11px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$20.71B</div><div class="mcard-sub">Cumulative cross-chain transfer volume via CCIP since launch</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
+        <div class="mcard"><div class="mcard-label">Total CCIP Fees <span style="font-size:11px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$1.85M</div><div class="mcard-sub">Total onchain fees paid for CCIP transfers since launch</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
+        <div class="mcard"><div class="mcard-label">Total CCT Value <span style="font-size:11px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$61.84B</div><div class="mcard-sub">FDV of all Cross-Chain Tokens using the CCIP standard</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
+      </div>
+      <div class="msec-note">Transfer volume, fees, and CCT value are served by chainlinkecosystem.com with no public API &#8212; live values require the official dashboard.<a href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Open CCIP Metrics</a></div>
+    </div>
+  </div>
+
+  <div class="msec">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="msec-head">
+        <div class="msec-title-block">
+          <div class="msec-pre svr">SMART VALUE RECAPTURE</div>
+          <div class="msec-title">SVR &#8212; Returning Value to Participants</div>
+        </div>
+        <a class="msec-link svr" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">View Live SVR Analytics</a>
+      </div>
+      <div class="mcard-row cols-3">
+        <div class="mcard"><div class="mcard-label">Value Recaptured &#8212; All-time</div><div class="mcard-n svr">&gt;$1.1M</div><div class="mcard-sub">Non-toxic liquidation MEV returned to Aave and Chainlink rather than MEV bots</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk Dashboard</a></div>
+        <div class="mcard"><div class="mcard-label">Liquidations Processed</div><div class="mcard-n svr">&gt;$32M</div><div class="mcard-sub">Total liquidation volume routed through SVR oracle infrastructure</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk</a></div>
+        <div class="mcard"><div class="mcard-label">Average Recapture Rate</div><div class="mcard-n svr">&gt;80%</div><div class="mcard-sub">Peak: over 90% in recent transactions. Growing as searchers adapt.</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk</a></div>
+      </div>
+      <div class="mcard-row cols-3">
+        <div class="mcard"><div class="mcard-label">Revenue Split</div><div class="mcard-n svr">65 / 35</div><div class="mcard-sub">Aave receives 65%. Chainlink receives 35% &#8212; converted to LINK, distributed to node operators.</div><a class="mcard-src" href="https://blog.chain.link/chainlink-smart-value-recapture-svr/" target="_blank" rel="noopener">Chainlink Blog</a></div>
+        <div class="mcard"><div class="mcard-label">Aave TVL Coverage</div><div class="mcard-n svr">~75%</div><div class="mcard-sub">of Aave Ethereum TVL is SVR-enabled, ~95% of OEV-relevant TVL</div><a class="mcard-src" href="https://x.com/chainlink/status/1960401960663748934" target="_blank" rel="noopener">Chainlink on X</a></div>
+        <div class="mcard"><div class="mcard-label">Aave DAO Vote</div><div class="mcard-n svr" style="font-size:clamp(20px,1.8vw,28px)">100% in favour</div><div class="mcard-sub">SVR activation passed unanimously, March 28, 2025</div><a class="mcard-src" href="https://governance.aave.com/t/arfc-aave-chainlink-svr-v1-phase-1-activation/21247" target="_blank" rel="noopener">Aave Governance</a></div>
+      </div>
+      <div class="msec-note">SVR data sourced from LlamaRisk. Figures confirmed June 2026. For live updates visit the LlamaRisk dashboard.<a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">Open Live Dashboard</a></div>
+    </div>
+  </div>
+
+  <div class="msec">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="msec-head">
+        <div class="msec-title-block">
+          <div class="msec-pre reserve">CHAINLINK RESERVE</div>
+          <div class="msec-title">Protocol Revenue Accumulation</div>
+        </div>
+        <a class="msec-link" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a>
+      </div>
+      <div class="mcard-row cols-3">
+        <div class="mcard"><div class="mcard-label">Reserve Balance</div><div class="mcard-n reserve">$32.7M</div><div class="mcard-sub">USD value of Reserve (4.06M LINK at avg cost basis $12.2). Publicly verifiable on Etherscan.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
+        <div class="mcard"><div class="mcard-label">Reserve Size</div><div class="mcard-n reserve">4.06M LINK</div><div class="mcard-sub">Current holdings. Avg cost basis $12.2. Accumulating weekly from all Chainlink product revenue.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
+        <div class="mcard"><div class="mcard-label">Latest Weekly Inflow</div><div class="mcard-n reserve">148,258 LINK</div><div class="mcard-sub">04 Jun 2026 inflow. Previous: 132,002 LINK on 28 May 2026. Revenue from CCIP, Data Feeds, SVR, Automation, VRF.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
+      </div>
+      <div class="msec-note">Balance: $32.7M (4.06M LINK). Latest inflow: 148,258 LINK (04 Jun 2026). Avg cost basis: $12.2. All data from metrics.chain.link/reserve.<a href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+    </div>
+  </div>
+
+  <div class="msec">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="msec-head">
+        <div class="msec-title-block">
+          <div class="msec-pre reserve">CHAINLINK STAKING</div>
+          <div class="msec-title">Staking v0.2 &#8212; Cryptoeconomic Security</div>
+        </div>
+        <a class="msec-link" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link &#8599;</a>
+      </div>
+      <div class="mcard-row cols-4">
+        <div class="mcard">
+          <div class="mcard-label">Total Pool Capacity</div>
+          <div class="mcard-n reserve">45M LINK</div>
+          <div class="mcard-sub">Maximum staking capacity across community and node operator pools</div>
+          <a class="mcard-src" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link</a>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Community Pool Status</div>
+          <div class="mcard-n reserve" style="color:rgba(80,200,120,.9)">FULL</div>
+          <div class="mcard-sub">40,875,000 LINK community pool at capacity. Node operators: 4,125,000 LINK.</div>
+          <a class="mcard-src" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link</a>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Effective APY</div>
+          <div class="mcard-n reserve">~4.32%</div>
+          <div class="mcard-sub">Via token emissions, Chainlink Build allocations, and future user fees as the program expands</div>
+          <a class="mcard-src" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link</a>
+        </div>
+        <div class="mcard">
+          <div class="mcard-label">Unbonding Period</div>
+          <div class="mcard-n reserve">28 days</div>
+          <div class="mcard-sub">28-day unbonding cooldown + 7-day claim window. Slashing applies to node operators only.</div>
+          <a class="mcard-src" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link</a>
+        </div>
+      </div>
+      <div class="msec-note">Staking v0.2 is live on Ethereum mainnet. Community pool is full at 40.875M LINK. Max per address: 15,000 LINK. Node operators: 1,000&#8211;75,000 LINK each.<a href="https://staking.chain.link/" target="_blank" rel="noopener">Open Staking Dashboard</a></div>
+    </div>
+  </div>
+
+  <div class="msec">
+    <div style="max-width:var(--content-max);margin:0 auto">
+      <div class="msec-head">
+        <div class="msec-title-block">
+          <div class="msec-pre inst">INSTITUTIONAL ADOPTION</div>
+          <div class="msec-title">Adoption Tracker &#8212; 12 Institutions</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span class="mstage ms-research">Research</span>
+          <span class="mstage ms-pilot">Pilot</span>
+          <span class="mstage ms-transition">Pilot &#8594; Production</span>
+          <span class="mstage ms-production">Production</span>
+        </div>
+      </div>
+      <div class="minst-grid" id="metrics-inst-grid"></div>
+    </div>
+  </div>
+
+  <div class="mts" id="metrics-timestamp">
+    <span class="mts-dot"></span>
+    <span>DefiLlama data refreshed on page load</span>
+  </div>
+
+  <footer>
+    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+    <span class="ft-tag">Infrastructure Before Narratives.</span>
+    <div class="social-bar">
+      <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://x.com/TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a>
+    </div>
+  </footer>
+</div>
 <div class="page" id="page-infographics">
   <div class="section">
     <div class="sec-header" style="margin-bottom:20px">
