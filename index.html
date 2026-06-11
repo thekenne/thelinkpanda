@@ -4952,6 +4952,26 @@ var STAGE_CFG={
   'Live':         {cls:'stage-live',       label:'Live'},
 };
 
+function fmtBig(n){
+  if(!n&&n!==0)return'—';
+  if(n>=1e12)return'$'+(n/1e12).toFixed(2)+'T';
+  if(n>=1e9)return'$'+(n/1e9).toFixed(2)+'B';
+  if(n>=1e6)return'$'+(n/1e6).toFixed(2)+'M';
+  if(n>=1e3)return'$'+(n/1e3).toFixed(1)+'K';
+  return'$'+n.toLocaleString();
+}
+function metricsSetStat(id,val,sub){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.textContent=val||'—';
+  if(sub){var s=el.nextElementSibling;if(s&&s.classList.contains('mcard-sub'))s.textContent=sub;}
+}
+function metricsSetCard(id,val,sub){
+  var el=document.querySelector('#'+id+' .mcard-n');
+  if(el)el.textContent=val||'—';
+  if(sub){var s=document.querySelector('#'+id+' .mcard-sub');if(s)s.textContent=sub;}
+}
+
 function metricsInit(){
   // Build institutional tracker
   var grid=document.getElementById('metrics-inst-grid');
