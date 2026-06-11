@@ -1091,7 +1091,7 @@ body{padding-bottom:60px;}
 
   <link rel="canonical" href="https://thelinkpanda.com/" id="meta-canonical"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
-  <link rel="preload" as="image" href="/assets/banner/TheLinkPanda banner split.jpg" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/banner/TheLinkPanda banner split.jpg" fetchpriority="high" media="(min-width:769px)"/>
   
   
   
@@ -1406,14 +1406,20 @@ body{padding-bottom:60px;}
 
   <!-- HERO (Doc1 d803a96c) -->
   <section class="hero">
-    <img class="hero-right-img"
-      src="assets/banner/TheLinkPanda banner split.jpg"
-      alt="TheLinkPanda — Infrastructure Before Narratives"
-      width="960" height="580"
-      loading="eager"
-      fetchpriority="high"
-      decoding="sync"
-      onerror="this.style.opacity='.1'"/>
+    <picture>
+      <source
+        media="(min-width:769px)"
+        srcset="assets/banner/TheLinkPanda banner split.jpg"
+        width="960" height="580"/>
+      <img class="hero-right-img"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        alt=""
+        width="1" height="1"
+        loading="eager"
+        fetchpriority="low"
+        decoding="async"
+        aria-hidden="true"/>
+    </picture>
     <video class="hero-panda-video" autoplay muted loop playsinline preload="none"
       onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
