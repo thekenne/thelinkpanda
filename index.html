@@ -143,7 +143,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .dest-inner{max-width:var(--content-max);margin:0 auto}
 .dest-label{font-size:clamp(16px,1.05vw,18px);letter-spacing:.22em;color:var(--gold2);opacity:.9;display:block;margin-bottom:clamp(16px,1.8vw,28px);}
 .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(15px,1.35vw,22px);}
-.dest-card{position:relative;display:flex;flex-direction:column;overflow:hidden;cursor:pointer;border:.5px solid var(--border);background:var(--bg3);transition:border-color .25s,transform .25s;min-height:clamp(220px,22vw,340px);text-decoration:none;}
+.dest-card{position:relative;display:flex;flex-direction:column;overflow:hidden;cursor:pointer;border:.5px solid var(--border);background:var(--bg3);transition:border-color .25s,transform .25s;min-height:clamp(200px,18vw,300px);text-decoration:none;}
 .dest-card:hover{border-color:rgba(200,146,42,.45);transform:translateY(-2px)}
 .dest-card-img{position:absolute;inset:0;overflow:hidden;}
 .dest-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94);opacity:.55;}
@@ -415,6 +415,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 @media(max-width:768px){
   #mob-featured-strip{display:block!important;}
   .mob-hide{display:none!important;}
+  .dest-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important}
   html,body{overflow-x:hidden!important;max-width:100vw;}
   .page{overflow-x:hidden;max-width:100vw;}
   /* Hide wide desktop grids on mobile */
@@ -1477,8 +1478,95 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <button class="mob-nav-card" onclick="showPage('timeline')"><span class="mob-nav-icon">📅</span><span class="mob-nav-label">Timeline</span><span class="mob-nav-sub">Adoption history</span></button>
   </div>
 
-  <!-- WHAT I CREATE (Doc2 f29b9fc2) -->
-  <!-- Mobile featured research strip (hidden on desktop) -->
+  <!-- RESEARCH DESTINATIONS ════════════════════════════════════════ -->
+  <div class="dest-section">
+    <div class="dest-inner">
+      <span class="dest-label">RESEARCH DESTINATIONS</span>
+      <div class="dest-grid" id="dest-grid" style="grid-template-columns:repeat(6,1fr)">
+
+        <div class="dest-card" onclick="showPage('evidence')">
+          <div class="dest-card-img" style="background:linear-gradient(145deg,#060d1e 0%,#0a1833 50%,#071426 100%)">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(40px,4vw,64px);opacity:.6">📄</div>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">INSTITUTIONAL RESEARCH</div>
+            <div class="dest-card-title">Evidence Vault</div>
+            <div class="dest-card-desc">52 verified sources.<br>DTCC, Swift, JPMorgan.</div>
+            <div class="dest-card-link">Browse evidence →</div>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="showPage('metrics')">
+          <div class="dest-card-img" style="background:linear-gradient(145deg,#040e1a 0%,#071828 50%,#050f1c 100%)">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(40px,4vw,64px);opacity:.6">📊</div>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">LIVE DATA</div>
+            <div class="dest-card-title">Live Metrics</div>
+            <div class="dest-card-desc">TVE, CCIP volume,<br>Reserve, Staking.</div>
+            <div class="dest-card-link">View metrics →</div>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="showPage('misconceptions')">
+          <div class="dest-card-img" style="background:linear-gradient(145deg,#130808 0%,#1e0d0d 50%,#150909 100%)">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(40px,4vw,64px);opacity:.6">❌</div>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">FACT-CHECKING</div>
+            <div class="dest-card-title">Misconceptions</div>
+            <div class="dest-card-desc">50 myths corrected.<br>Evidence-backed.</div>
+            <div class="dest-card-link">Read rebuttals →</div>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="showPage('explorer')">
+          <div class="dest-card-img" style="background:linear-gradient(145deg,#050a1a 0%,#08102a 50%,#060c1e 100%)">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(40px,4vw,64px);opacity:.6">🌐</div>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">INTERACTIVE MAP</div>
+            <div class="dest-card-title">Explorer</div>
+            <div class="dest-card-desc">51 nodes, 85+ edges.<br>The full network.</div>
+            <div class="dest-card-link">Open explorer →</div>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="showPage('concepts')">
+          <div class="dest-card-img" style="background:linear-gradient(145deg,#0a0814 0%,#120e20 50%,#0b0916 100%)">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(40px,4vw,64px);opacity:.6">⬡</div>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">EDUCATION</div>
+            <div class="dest-card-title">Chainlink Explained</div>
+            <div class="dest-card-desc">CCIP, CRE, SVR,<br>Data Feeds, VRF.</div>
+            <div class="dest-card-link">Learn the tech →</div>
+          </div>
+        </div>
+
+        <div class="dest-card" onclick="showPage('timeline')">
+          <div class="dest-card-img" style="background:linear-gradient(145deg,#060e0a 0%,#0a1810 50%,#07110c 100%)">
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(40px,4vw,64px);opacity:.6">📅</div>
+          </div>
+          <div class="dest-card-overlay"></div>
+          <div class="dest-card-body">
+            <div class="dest-card-cat">HISTORY</div>
+            <div class="dest-card-title">Adoption Timeline</div>
+            <div class="dest-card-desc">2017 to 2026.<br>Every milestone.</div>
+            <div class="dest-card-link">View timeline →</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Mobile featured research strip (hidden on desktop) -->
   <div style="display:none" id="mob-featured-strip">
     <div style="padding:0 16px 16px;background:var(--bg)">
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:rgba(200,146,42,.55);margin-bottom:10px;padding-top:4px">FEATURED RESEARCH</div>
@@ -1575,18 +1663,6 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
   </div>
 
-<!-- PORTAL DESTINATIONS -->
-  <div style="padding:clamp(40px,4vw,64px) clamp(20px,4vw,72px);background:var(--bg)">
-    <div style="max-width:var(--content-max);margin:0 auto">
-      <div style="font-family:var(--mono);font-size:clamp(8px,.58vw,9px);letter-spacing:.18em;color:var(--w20);margin-bottom:clamp(20px,2vw,28px)">RESEARCH DESTINATIONS</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5px;background:var(--border)">
-        <button onclick="showPage('explorer')" class="portal-card"><div class="portal-icon">&#127757;</div><div class="portal-title">Infrastructure Explorer</div><div class="portal-desc">28 interactive nodes mapping how Chainlink connects institutions, blockchains, and settlement.</div><div class="portal-cta">Open Explorer &#8594;</div></button>
-        <button onclick="showPage('evidence')" class="portal-card"><div class="portal-icon">&#128274;</div><div class="portal-title">Evidence Vault</div><div class="portal-desc">26 verified institutional statements from DTCC, Swift, JPMorgan, Fidelity, and more.</div><div class="portal-cta">Browse Evidence &#8594;</div></button>
-        <button onclick="showPage('misconceptions')" class="portal-card"><div class="portal-icon">&#128683;</div><div class="portal-title">Misconceptions</div><div class="portal-desc">30 evidence-backed rebuttals across Oracle, CCIP, institutions, LINK tokenomics, and narratives.</div><div class="portal-cta">Browse Misconceptions &#8594;</div></button>
-        <button onclick="showPage('quotes')" class="portal-card"><div class="portal-icon">&#128172;</div><div class="portal-title">Quote Library</div><div class="portal-desc">Verbatim statements from DTCC, Swift, Citi, Euroclear, JPMorgan, and Deutsche Börse.</div><div class="portal-cta">Browse Quotes &#8594;</div></button>
-      </div>
-    </div>
-  </div>
 
   <!-- FEATURED INFOGRAPHICS (Doc1) -->
   <div class="section">
