@@ -1411,20 +1411,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <!-- HERO (Doc1 d803a96c) -->
   <section class="hero">
-    <picture>
-      <source
-        media="(min-width:769px)"
-        srcset="assets/banner/TheLinkPanda banner split.jpg"
-        width="960" height="580"/>
-      <img class="hero-right-img"
-        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        alt=""
-        width="1" height="1"
-        loading="eager"
-        fetchpriority="low"
-        decoding="async"
-        aria-hidden="true"/>
-    </picture>
+    <img class="hero-right-img"
+      src="assets/banner/TheLinkPanda banner split.jpg"
+      alt="TheLinkPanda — Infrastructure Before Narratives"
+      width="960" height="580"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+      onerror="this.style.opacity='.1'"/>
     <video class="hero-panda-video" autoplay muted loop playsinline preload="none"
       onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
