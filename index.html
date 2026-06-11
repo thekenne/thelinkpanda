@@ -1691,7 +1691,78 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
   </div>
 
-  <div class="page" id="page-infographics">
+  <!-- ════════════════════════════════════════ EXPLORER ════════════════════════════════════ -->
+<div class="page" id="page-explorer">
+  <div class="ex-shell" id="ex-shell">
+    <div class="ex-top">
+      <div class="ex-filterbar" id="ex-filterbar"></div>
+    </div>
+    <div class="ex-body" id="ex-body">
+      <div class="ex-services" id="ex-services"></div>
+      <div class="ex-canvas-wrap">
+        <canvas class="ex-canvas" id="ex-canvas"></canvas>
+        <div class="ex-filter-hint" id="ex-filter-hint"></div>
+      </div>
+      <div class="ex-ctx" id="ex-ctx">
+        <div class="ex-ctx-scroll" id="ex-ctx-scroll"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ PATENTS ════════════════════════════════════ -->
+<div class="page" id="page-patents">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INTELLECTUAL PROPERTY</div>
+          <div class="ev-title">Patent Registry</div>
+        </div>
+        <div id="pat-filters" style="display:flex;gap:0;border:.5px solid var(--border)"></div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div id="pat-grid"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ METRICS ════════════════════════════════════ -->
+<div class="page" id="page-metrics">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">LIVE NETWORK DATA</div>
+          <div class="ev-title">Live Metrics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="metrics-body" style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)"></div>
+</div>
+
+<!-- ════════════════════════════════════════ ORG ════════════════════════════════════════ -->
+<div class="page" id="page-org">
+  <div id="org-header" style="position:sticky;top:var(--nav-h);z-index:100;background:var(--bg2);border-bottom:.5px solid var(--border)">
+    <div id="org-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) clamp(32px,5vw,80px)">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTION PROFILE</div>
+          <div class="ev-title" id="org-title">Institution</div>
+        </div>
+        <div id="org-services-row" style="display:flex;flex-wrap:wrap;gap:5px"></div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div id="org-body"></div>
+    <div id="org-mc-section"></div>
+  </div>
+</div>
+
+<div class="page" id="page-infographics">
   <div class="section">
     <div class="sec-header" style="margin-bottom:20px">
       <div><span class="sec-label">INFOGRAPHIC LIBRARY</span><div class="sec-title">Full archive</div></div>
