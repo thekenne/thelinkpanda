@@ -145,7 +145,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(15px,1.35vw,22px);}
 .dest-card{position:relative;display:flex;flex-direction:column;overflow:hidden;cursor:pointer;border:none;background:var(--bg3);transition:box-shadow .25s,transform .25s;height:clamp(255px,23vw,375px);text-decoration:none;box-shadow:inset 0 0 0 .5px rgba(244,242,238,.07);}
 .dest-card:hover{box-shadow:inset 0 0 0 1px rgba(200,146,42,.45);transform:translateY(-2px)}
-.dest-card-img{position:absolute;inset:0;overflow:hidden;background-size:90%!important;background-position:center!important;background-repeat:no-repeat!important;}
+.dest-card-img{position:absolute;inset:0;overflow:hidden;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;}
 .dest-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94);opacity:.55;}
 .dest-card:hover .dest-card-img img{transform:scale(1.05)}
 .dest-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.96) 0%,rgba(7,9,13,.72) 35%,rgba(7,9,13,.28) 70%,rgba(7,9,13,.08) 100%);}
@@ -1534,7 +1534,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <div class="dest-grid" id="dest-grid" style="grid-template-columns:repeat(6,1fr)">
 
         <div class="dest-card" onclick="showPage('evidence')">
-          <div class="dest-card-img" style="background:url('assets/cards/evidence.jpg') center/90% no-repeat">
+          <div class="dest-card-img" style="background:url('assets/cards/evidence.jpg') center/cover no-repeat">
             
           </div>
           <div class="dest-card-overlay"></div>
@@ -1547,7 +1547,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
 
         <div class="dest-card" onclick="showPage('metrics')">
-          <div class="dest-card-img" style="background:url('assets/cards/metrics.jpg') center/90% no-repeat">
+          <div class="dest-card-img" style="background:url('assets/cards/metrics.jpg') center/cover no-repeat">
             
           </div>
           <div class="dest-card-overlay"></div>
@@ -1560,7 +1560,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
 
         <div class="dest-card" onclick="showPage('misconceptions')">
-          <div class="dest-card-img" style="background:url('assets/cards/misconceptions.jpg') center/90% no-repeat">
+          <div class="dest-card-img" style="background:url('assets/cards/misconceptions.jpg') center/cover no-repeat">
             
           </div>
           <div class="dest-card-overlay"></div>
@@ -1573,7 +1573,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
 
         <div class="dest-card" onclick="showPage('explorer')">
-          <div class="dest-card-img" style="background:url('assets/cards/explorer.jpg') center/90% no-repeat">
+          <div class="dest-card-img" style="background:url('assets/cards/explorer.jpg') center/cover no-repeat">
             
           </div>
           <div class="dest-card-overlay"></div>
@@ -1586,7 +1586,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
 
         <div class="dest-card" onclick="showPage('concepts')">
-          <div class="dest-card-img" style="background:url('assets/cards/education.jpg') center/90% no-repeat">
+          <div class="dest-card-img" style="background:url('assets/cards/education.jpg') center/cover no-repeat">
             
           </div>
           <div class="dest-card-overlay"></div>
@@ -1599,7 +1599,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
 
         <div class="dest-card" onclick="showPage('timeline')">
-          <div class="dest-card-img" style="background:url('assets/cards/timeline.jpg') center/90% no-repeat">
+          <div class="dest-card-img" style="background:url('assets/cards/timeline.jpg') center/cover no-repeat">
             
           </div>
           <div class="dest-card-overlay"></div>
