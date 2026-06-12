@@ -5963,32 +5963,16 @@ function mfBuildInputs(mode){
     pbar2.id = 'mf-presets';
     pbar2.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;margin-bottom:clamp(20px,2vw,32px);';
     wrap.appendChild(pbar2);
-    MF_WEIGHTED_PRESETS.forEach(function(p){
-      var b = document.createElement('button');
-      b.style.cssText = 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
-      b.textContent = p.label;
-      b.title = p.desc;
-      b.onclick = function(){
-        pbar2.querySelectorAll('button').forEach(function(x){x.style.borderColor='rgba(244,242,238,.08)';x.style.color='rgba(244,242,238,.6)';});
-        b.style.borderColor='rgba(200,146,42,.6)';b.style.color='var(--gold)';
-        if(p.cats){
-          Object.keys(p.cats).forEach(function(k){
-            var el=document.getElementById('mf-w-cur-'+k);
-            if(el)el.value=p.cats[k];
-          });
-          mfCalcWeighted();
-        }
-      };
-      pbar2.appendChild(b);
-    });
-    // Category inputs
-    wrap.innerHTML += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2vw,32px);">'
-      +'<div>'+mfSecLbl('CURRENT NETWORK')+'<div id="mf-w-cur-inputs"></div></div>'
-      +'<div>'+mfSecLbl('FUTURE NETWORK')+'<div id="mf-w-fut-inputs"></div></div>'
-      +'</div>';
+    // Category inputs structure — build BEFORE attaching preset handlers
+    // so innerHTML rebuild doesn't strip preset button event listeners
+    var catGrid = document.createElement('div');
+    catGrid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2vw,32px);';
+    catGrid.innerHTML = '<div>'+mfSecLbl('CURRENT NETWORK')+'<div id="mf-w-cur-inputs"></div></div>'
+      +'<div>'+mfSecLbl('FUTURE NETWORK')+'<div id="mf-w-fut-inputs"></div></div>';
+    wrap.appendChild(catGrid);
     // Populate category rows
-    var curWrap = wrap.querySelector('#mf-w-cur-inputs');
-    var futWrap = wrap.querySelector('#mf-w-fut-inputs');
+    var curWrap = catGrid.querySelector('#mf-w-cur-inputs');
+    var futWrap = catGrid.querySelector('#mf-w-fut-inputs');
     // Default current values from Full Chainlink Network preset
     var curDefs = {chains:77,ccts:254,apps:1000,data:6,tokenization:15,institutions:60,infra:8};
     var futDefs = {chains:150,ccts:500,apps:2000,data:8,tokenization:40,institutions:200,infra:15};
@@ -6006,6 +5990,26 @@ function mfBuildInputs(mode){
           +'<input id="mf-w-'+side+'-'+k+'" type="number" min="0" value="'+def+'" style="'+mfInpStyle()+';font-size:clamp(14px,1.08vw,18px);" oninput="mfCalcWeighted()" onfocus="mfFocus(this)" onblur="mfBlur(this)">';
         parent.appendChild(row);
       });
+    });
+
+    // Now attach preset buttons (after category inputs exist in DOM)
+    MF_WEIGHTED_PRESETS.forEach(function(p){
+      var b = document.createElement('button');
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(9px,0.61vw,10px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.textContent = p.label;
+      b.title = p.desc;
+      b.onclick = function(){
+        pbar2.querySelectorAll('button').forEach(function(x){x.style.borderColor='rgba(244,242,238,.08)';x.style.color='rgba(244,242,238,.6)';});
+        b.style.borderColor='rgba(200,146,42,.6)';b.style.color='var(--gold)';
+        if(p.cats){
+          Object.keys(p.cats).forEach(function(k){
+            var el=document.getElementById('mf-w-cur-'+k);
+            if(el)el.value=p.cats[k];
+          });
+          mfCalcWeighted();
+        }
+      };
+      pbar2.appendChild(b);
     });
     // Market cap
     var mcDiv2 = document.createElement('div');
