@@ -1776,13 +1776,29 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ex-hint"><span class="ex-hint-icon">ⓘ</span> Click any node to see how Chainlink powers the connections between systems.</div>
   </div>
   <div class="ex-tooltip" id="ex-tooltip"></div>
-  <footer>
-    <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
-    <span class="ft-tag">Infrastructure Before Narratives.</span>
+  <footer style="flex-direction:column;align-items:stretch;gap:0;padding:0">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:24px clamp(20px,5vw,80px)">
+      <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
+      <span class="ft-tag">Infrastructure Before Narratives.</span>
     <div class="social-bar">
       <a class="soc-btn" href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
       <a class="soc-btn" href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3V11a6.5 6.5 0 1 1-4.6-6.2v3.6a2.9 2.9 0 1 0 2 2.8V1h4a5.6 5.6 0 0 0 5.5 5v3.5A9 9 0 0 1 19.6 9V3z"/></svg></a>
       <a class="soc-btn" href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.9c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.1 15.6 2 15.3 2 12s0-3.6.1-4.9C2.3 3.9 3.8 2.3 7.1 2.2 8.4 2.1 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 2.7.3.3 2.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.3 2.6 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.3-.2 6.7-2.6 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C23.7 2.7 21.3.3 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+    </div>
+    <div style="border-top:.5px solid var(--border);padding:16px clamp(20px,5vw,80px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:var(--w40)">
+      <div style="display:flex;flex-wrap:wrap;gap:18px">
+        <span>The Link Panda — Independent research platform — Belgium</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px">
+        <button onclick="showPage('privacy')" style="background:none;border:none;color:var(--w40);font-size:12px;cursor:pointer;font-family:var(--sans);padding:0">Privacy Policy</button>
+        <button onclick="showPage('terms')" style="background:none;border:none;color:var(--w40);font-size:12px;cursor:pointer;font-family:var(--sans);padding:0">Terms</button>
+        <button onclick="showPage('disclaimer')" style="background:none;border:none;color:var(--w40);font-size:12px;cursor:pointer;font-family:var(--sans);padding:0">Disclaimer</button>
+        <a href="mailto:thelinkpanda@proton.me" style="color:var(--w40);text-decoration:none">Contact</a>
+      </div>
+    </div>
+    <div style="border-top:.5px solid var(--border);padding:12px clamp(20px,5vw,80px);font-size:11px;color:var(--w20);line-height:1.6">
+      The information on this website is provided for educational and informational purposes only and should not be considered investment, legal, or financial advice.
     </div>
   </footer>
 </div>
@@ -2537,6 +2553,115 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 </div>
 
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
+<!-- ════════════════════════════════════════ PRIVACY ════════════════════════════════════ -->
+<div class="page" id="page-privacy">
+<style>
+.legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
+.legal-body h1{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;margin-bottom:8px;color:var(--w)}
+.legal-body .legal-updated{font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
+.legal-body h2{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--w);margin:clamp(28px,2.5vw,40px) 0 clamp(10px,1vw,14px)}
+.legal-body p{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:16px}
+.legal-body a{color:var(--gold)}
+.legal-body ul{margin:0 0 16px 0;padding-left:22px}
+.legal-body li{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:6px}
+</style>
+<div class="legal-body">
+  <h1>Privacy Policy</h1>
+  <div class="legal-updated">LAST UPDATED — JUNE 2026</div>
+
+  <p>TheLinkPanda ("we", "this site") is an independent research platform operated from Belgium. This page explains what data is collected when you visit thelinkpanda.com, why, and how you can contact us about it.</p>
+
+  <h2>What we collect</h2>
+  <p>This site uses Cloudflare Web Analytics, a privacy-friendly analytics service that does not use cookies or collect personal data, and does not track you across other websites. It provides us with aggregate information such as page views and approximate visitor counts.</p>
+  <p>If you use the contact form on the Work With Me page, we collect the name, email address, and message you provide, solely to respond to your enquiry. This information is not shared with third parties and is not used for marketing without your consent.</p>
+
+  <h2>Embedded content</h2>
+  <p>Some pages may embed content from third-party platforms such as YouTube, X (Twitter), TikTok, or Instagram. These platforms may set their own cookies or collect data according to their own privacy policies when you interact with embedded content.</p>
+
+  <h2>Cookies</h2>
+  <p>This site does not use tracking cookies, advertising cookies, or cross-site tracking technology. Cloudflare Web Analytics operates without cookies.</p>
+
+  <h2>Your rights</h2>
+  <p>Under the GDPR, you have the right to access, correct, or request deletion of any personal data we hold about you (for example, information submitted via the contact form). To exercise these rights, contact us using the details below.</p>
+
+  <h2>Contact</h2>
+  <p>For privacy-related questions or requests, contact: <a href="mailto:thelinkpanda@proton.me">thelinkpanda@proton.me</a></p>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════ TERMS ════════════════════════════════════ -->
+<div class="page" id="page-terms">
+<style>
+.legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
+.legal-body h1{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;margin-bottom:8px;color:var(--w)}
+.legal-body .legal-updated{font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
+.legal-body h2{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--w);margin:clamp(28px,2.5vw,40px) 0 clamp(10px,1vw,14px)}
+.legal-body p{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:16px}
+.legal-body a{color:var(--gold)}
+.legal-body ul{margin:0 0 16px 0;padding-left:22px}
+.legal-body li{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:6px}
+</style>
+<div class="legal-body">
+  <h1>Terms of Use</h1>
+  <div class="legal-updated">LAST UPDATED — JUNE 2026</div>
+
+  <p>By accessing TheLinkPanda (thelinkpanda.com), you agree to the following terms.</p>
+
+  <h2>Content</h2>
+  <p>All content on this site &mdash; including the Evidence Vault, Infrastructure Explorer, Misconceptions library, Quote Library, articles, and visualisations &mdash; is provided as-is, for educational and informational purposes. While every effort is made to verify sources and cite them accurately, we make no guarantees of completeness, accuracy, or that information remains current after publication.</p>
+
+  <h2>Independent platform</h2>
+  <p>TheLinkPanda is an independent research project and is not affiliated with, endorsed by, or operated on behalf of Chainlink Labs, SmartContract Chainlink Ltd, or any institution referenced on this site (including but not limited to DTCC, Swift, JPMorgan, Circle, Coinbase, Euroclear, and others). Institution names, logos, and quotes are used for identification and commentary purposes under fair use.</p>
+
+  <h2>External links</h2>
+  <p>This site links to external sources, press releases, and third-party websites for citation purposes. We are not responsible for the content, accuracy, or availability of external sites, which belong to their respective owners.</p>
+
+  <h2>No professional advice</h2>
+  <p>Nothing on this site constitutes financial, investment, legal, or tax advice. See our <a href="https://thelinkpanda.com/disclaimer">Disclaimer</a> for further detail.</p>
+
+  <h2>Changes</h2>
+  <p>These terms may be updated from time to time. Continued use of the site after changes constitutes acceptance of the revised terms.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about these terms: <a href="mailto:thelinkpanda@proton.me">thelinkpanda@proton.me</a></p>
+</div>
+</div>
+
+<!-- ════════════════════════════════════════ DISCLAIMER ════════════════════════════════════ -->
+<div class="page" id="page-disclaimer">
+<style>
+.legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
+.legal-body h1{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;margin-bottom:8px;color:var(--w)}
+.legal-body .legal-updated{font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
+.legal-body h2{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--w);margin:clamp(28px,2.5vw,40px) 0 clamp(10px,1vw,14px)}
+.legal-body p{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:16px}
+.legal-body a{color:var(--gold)}
+.legal-body ul{margin:0 0 16px 0;padding-left:22px}
+.legal-body li{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:6px}
+</style>
+<div class="legal-body">
+  <h1>Disclaimer</h1>
+  <div class="legal-updated">LAST UPDATED — JUNE 2026</div>
+
+  <p>The information on this website is provided for educational and informational purposes only and should not be considered investment, legal, or financial advice.</p>
+
+  <h2>Not financial advice</h2>
+  <p>TheLinkPanda discusses topics including cryptocurrency, blockchain infrastructure, tokenization, and institutional finance. Nothing published here &mdash; including the Evidence Vault, Live Metrics, Misconceptions library, Network Calculator, or any commentary &mdash; should be interpreted as a recommendation to buy, sell, or hold any asset, token, or security. Cryptocurrency markets are highly volatile and carry significant risk of loss.</p>
+
+  <h2>Independent research</h2>
+  <p>TheLinkPanda is an independent research project. We are not a licensed financial advisor, broker-dealer, or investment professional. Always conduct your own research and consult a qualified, licensed professional before making financial decisions.</p>
+
+  <h2>Accuracy of information</h2>
+  <p>We aim to cite verified, primary sources for all evidence presented on this site, with direct links where possible. However, information about live metrics, institutional partnerships, and announcements may change after publication. We do not guarantee that any figure, quote, or status shown on this site remains accurate at the time of your visit. Always refer to the linked primary source for the most current information.</p>
+
+  <h2>No liability</h2>
+  <p>TheLinkPanda and its operator accept no liability for any loss or damage arising from reliance on information published on this site.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this disclaimer: <a href="mailto:thelinkpanda@proton.me">thelinkpanda@proton.me</a></p>
+</div>
+</div>
+
 <div class="page" id="page-contact">
   <div class="section" style="max-width:960px;margin:0 auto;padding-top:64px">
     <span class="sec-label">WORK WITH ME</span>
@@ -3922,9 +4047,9 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe'];
+var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','privacy','terms','disclaimer'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator'};
+var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer'};
 var URL_PAGES={'/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 var PAGE_META_MAP = {
@@ -3941,6 +4066,9 @@ var PAGE_META_MAP = {
   'digest': {title:'Research Digest — Issue #1 | TheLinkPanda', desc:'TheLinkPanda Research Digest: the latest Chainlink institutional evidence, explorer updates, and metric snapshots.', path:'/digest'},
   'metcalfe': {title:'Chainlink Network Value Calculator | TheLinkPanda', desc:'Calculate the network effect of Chainlink using Metcalfe\'s Law with Simple, Weighted, and Relationship modes.', path:'/network-calculator'},
   'about': {title:'About TheLinkPanda — Infrastructure Before Narratives', desc:'TheLinkPanda is the largest independent Chainlink research platform. Infrastructure Before Narratives.', path:'/about'},
+  'privacy': {title:'Privacy Policy | TheLinkPanda', desc:'How TheLinkPanda collects and handles data, including Cloudflare Analytics and contact form submissions.', path:'/privacy'},
+  'terms': {title:'Terms of Use | TheLinkPanda', desc:'Terms governing use of TheLinkPanda, an independent Chainlink research platform.', path:'/terms'},
+  'disclaimer': {title:'Disclaimer | TheLinkPanda', desc:'TheLinkPanda content is for educational purposes only and is not financial, investment, or legal advice.', path:'/disclaimer'},
 };
 
 function updatePageMeta(page, subTitle, subDesc, subPath){
