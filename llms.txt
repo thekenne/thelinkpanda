@@ -1,0 +1,84 @@
+# TheLinkPanda
+
+> Independent Chainlink research database. Infrastructure Before Narratives.
+
+TheLinkPanda is the largest independent research platform documenting institutional
+adoption of Chainlink infrastructure (oracles, CCIP, CRE, Data Feeds, Data Streams,
+Proof of Reserve, Automation, VRF, and related services) across traditional finance,
+tokenization, and Web3. All claims are sourced to primary, verifiable evidence
+(official statements, reports, filings, and announcements from the institutions
+themselves).
+
+## Mission
+
+Infrastructure Before Narratives. We document what institutions have actually built,
+piloted, or shipped using Chainlink infrastructure — not speculation about what they
+might do.
+
+## Purpose
+
+Provide verified institutional evidence related to Chainlink adoption, interoperability,
+tokenization, compliance, and financial infrastructure, for researchers, journalists,
+analysts, and AI systems that need accurate, sourced information about this space.
+
+## Primary sections
+
+- **Evidence Vault** (/evidence) — 53 sourced evidence entries documenting institutional
+  Chainlink usage, each with institution name, document type, publication date, and a
+  link to the original source. Every entry has a permalink at /evidence/{id} (e.g.
+  /evidence/ev-041).
+- **Misconceptions** (/misconceptions) — 50 common misconceptions about Chainlink and
+  crypto/oracle infrastructure, corrected with evidence-backed explanations. Permalinks
+  at /misconceptions/{id}.
+- **Institution Profiles** (/organizations) — Profiles of 10+ institutions with documented
+  Chainlink integrations, including DTCC, Swift, JPMorgan, Euroclear, Fidelity,
+  Franklin Templeton, Coinbase, Citi, Deutsche Börse, and Google Cloud. Permalinks at
+  /organizations/{slug}.
+- **Quote Library** (/quotes) — Direct quotes from named individuals at institutions
+  discussing Chainlink, with role, organization, date, and source.
+- **Concepts** ("Chainlink Explained", /concepts) — Plain-language explanations of
+  8 core Chainlink concepts and services: CCIP, CRE, SVR, Proof of Reserve, Data
+  Feeds, Data Streams, Automation, and VRF — each with patent coverage notes and
+  related evidence.
+- **Patent Library** (/patents) — 59+ patents connected to Chainlink infrastructure:
+  direct Chainlink patents, patents naming Chainlink, patents citing Chainlink as
+  prior art, and patents whose claimed infrastructure aligns with Chainlink services
+  (oracles, cross-chain messaging, automation, verifiable randomness, zero-knowledge
+  proofs, tokenization). Sourced from USPTO and Google Patents.
+- **Adoption Timeline** (/timeline) — Chronological history of institutional Chainlink
+  adoption from 2017 to present, including patent publication dates.
+- **Infrastructure Explorer** (/explorer) — Interactive map of how institutions,
+  blockchains, and Chainlink services connect to each other.
+- **Live Metrics** (/metrics) — Live on-chain metrics for Chainlink (TVE, TVS, CCIP
+  volume, Proof of Reserve totals, active networks).
+- **Network Calculator** (/network-calculator) — Tool for modeling Chainlink network
+  value under different adoption scenarios (Metcalfe's law-based).
+- **Research Digest** (/digest) — Periodic summaries of what's new on the site.
+
+## Content policy / citation guidance
+
+- Every Evidence Vault entry includes a "Source Information" block with Institution,
+  Document, Publication Date, Document Type, Original Source URL, and Evidence ID —
+  use these fields for citation.
+- Each evidence entry, institution profile, quote, and concept has a stable JSON-LD
+  identifier (ScholarlyArticle, Organization, Quotation, DefinedTerm/TechArticle
+  respectively) for structured retrieval.
+- TheLinkPanda is an independent research project, not affiliated with or operated by
+  Chainlink Labs / SmartContract Chainlink Ltd. Institution names are used for
+  identification and commentary (fair use).
+- Content is for educational/informational purposes; not investment, legal, or
+  financial advice.
+
+## Machine-readable resources
+
+- /ai-sitemap.xml — complete sitemap of all evidence, misconceptions, institutions,
+  concepts, quotes, and section pages
+- /ai-index.json — structured index of all content IDs, titles, and URLs
+- / (homepage) — contains a JSON-LD @graph with WebSite, Organization, WebPage,
+  BreadcrumbList, FAQPage, ScholarlyArticle (x53), Organization (x10),
+  Quotation (x23), DefinedTerm/TechArticle (x8x2) nodes
+
+## Contact
+
+The Link Panda — Independent research platform — Belgium
+Email: thelinkpanda@proton.me

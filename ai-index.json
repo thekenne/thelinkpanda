@@ -1,0 +1,1571 @@
+{
+  "site": "TheLinkPanda",
+  "url": "https://thelinkpanda.com",
+  "description": "Independent Chainlink research database. Infrastructure Before Narratives.",
+  "lastUpdated": "2026-06-12",
+  "sections": {
+    "evidence": {
+      "url": "https://thelinkpanda.com/evidence",
+      "count": 53,
+      "items": [
+        {
+          "id": "ev-001",
+          "url": "https://thelinkpanda.com/evidence/ev-001",
+          "title": "On writing data once across all ledger networks",
+          "institution": "DTCC",
+          "date": "2024-09-24",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=zxAgrSbwXZQ"
+        },
+        {
+          "id": "ev-002",
+          "url": "https://thelinkpanda.com/evidence/ev-002",
+          "title": "On updating financial markets using Chainlink",
+          "institution": "DTCC",
+          "date": "2024-09-30",
+          "type": "statement",
+          "sourceUrl": "https://www.dtcc.com/dtcc-connection/articles/2024/september/30/leveraging-blockchain-for-capital-market-efficiency"
+        },
+        {
+          "id": "ev-003",
+          "url": "https://thelinkpanda.com/evidence/ev-003",
+          "title": "Interoperability is at the heart of SWIFT strategy",
+          "institution": "SWIFT",
+          "date": "2023-08-31",
+          "type": "statement",
+          "sourceUrl": "https://www.swift.com/news-events/press-releases/swift-unlocks-potential-tokenisation-successful-blockchain-experiments"
+        },
+        {
+          "id": "ev-004",
+          "url": "https://thelinkpanda.com/evidence/ev-004",
+          "title": "On Kinexys-Ondo-Chainlink cross-chain DvP settlement",
+          "institution": "J.P. Morgan",
+          "date": "2025-05-14",
+          "type": "statement",
+          "sourceUrl": "https://www.jpmorgan.com/payments/newsroom/kinexys-chainlink-ondo-tokenized-asset-test"
+        },
+        {
+          "id": "ev-005",
+          "url": "https://thelinkpanda.com/evidence/ev-005",
+          "title": "On using Chainlink for on-chain NAV",
+          "institution": "Fidelity International",
+          "date": "2024-10",
+          "type": "statement",
+          "sourceUrl": "https://youtu.be/uO-BlozjWj4?t=1898"
+        },
+        {
+          "id": "ev-006",
+          "url": "https://thelinkpanda.com/evidence/ev-006",
+          "title": "On providing daily Proof of Reserves on-chain",
+          "institution": "Franklin Templeton",
+          "date": "2024-10",
+          "type": "statement",
+          "sourceUrl": "https://youtu.be/uO-BlozjWj4?t=2543"
+        },
+        {
+          "id": "ev-007",
+          "url": "https://thelinkpanda.com/evidence/ev-007",
+          "title": "On creating unified golden records on-chain",
+          "institution": "Euroclear",
+          "date": "2024-12",
+          "type": "statement",
+          "sourceUrl": "https://chainlinktoday.com/euroclears-stephanie-lheureux-on-the-benefits-of-creating-unified-golden-records-onchain/"
+        },
+        {
+          "id": "ev-008",
+          "url": "https://thelinkpanda.com/evidence/ev-008",
+          "title": "On Chainlink-led real-time corporate actions initiative",
+          "institution": "BNP Paribas",
+          "date": "2025",
+          "type": "statement",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html"
+        },
+        {
+          "id": "ev-009",
+          "url": "https://thelinkpanda.com/evidence/ev-009",
+          "title": "LINK potentially gaining prominence over Bitcoin",
+          "institution": "Citi GPS",
+          "date": "2021-03",
+          "type": "report",
+          "sourceUrl": "https://www.3bit-lab.com/documents/citi-bitcoin-at-the-tipping-point_202103.pdf"
+        },
+        {
+          "id": "ev-010",
+          "url": "https://thelinkpanda.com/evidence/ev-010",
+          "title": "Coinbase selects Chainlink CCIP as exclusive bridge infrastructure",
+          "institution": "Coinbase",
+          "date": "2025",
+          "type": "statement",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/coinbase-selects-chainlink-ccip-as-the-exclusive-bridge-infrastructure-to-supercharge-coinbase-wrapped-asset-growth-302638753.html"
+        },
+        {
+          "id": "ev-011",
+          "url": "https://thelinkpanda.com/evidence/ev-011",
+          "title": "$27 trillion in transaction value enabled by Chainlink",
+          "institution": "Water Tower Research",
+          "date": "2024",
+          "type": "report",
+          "sourceUrl": "https://www.watertowerresearch.com/"
+        },
+        {
+          "id": "ev-012",
+          "url": "https://thelinkpanda.com/evidence/ev-012",
+          "title": "Chainlink as a distribution multiplier comparable to Bloomberg and LSEG",
+          "institution": "Deutsche Börse Group",
+          "date": "2025-09",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=55mUaYzDL2k"
+        },
+        {
+          "id": "ev-013",
+          "url": "https://thelinkpanda.com/evidence/ev-013",
+          "title": "Chainlink as a distribution multiplier comparable to Bloomberg and LSEG",
+          "institution": "Deutsche Börse Group",
+          "date": "2025-09",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=55mUaYzDL2k"
+        },
+        {
+          "id": "ev-014",
+          "url": "https://thelinkpanda.com/evidence/ev-014",
+          "title": "On oracle reliability as a critical prerequisite for smart contracts",
+          "institution": "DocuSign",
+          "date": "2023",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=SZ3iy_jYFS4&t=854s"
+        },
+        {
+          "id": "ev-015",
+          "url": "https://thelinkpanda.com/evidence/ev-015",
+          "title": "Token network effects are a real discovery",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84&t=207s"
+        },
+        {
+          "id": "ev-016",
+          "url": "https://thelinkpanda.com/evidence/ev-016",
+          "title": "The unquantifiable scale of Chainlink's addressable market",
+          "institution": "Bitwise",
+          "date": "2024",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/shorts/8H2quL6SfO8"
+        },
+        {
+          "id": "ev-017",
+          "url": "https://thelinkpanda.com/evidence/ev-017",
+          "title": "Secure oracles are foundational, not optional",
+          "institution": "Chainlink Labs",
+          "date": "2023",
+          "type": "statement",
+          "sourceUrl": "https://blog.chain.link/oracles-the-key-to-unlocking-smart-contracts/"
+        },
+        {
+          "id": "ev-018",
+          "url": "https://thelinkpanda.com/evidence/ev-018",
+          "title": "Infrastructure standards create the most value",
+          "institution": "Chainlink",
+          "date": "2017-05-09",
+          "type": "statement",
+          "sourceUrl": "https://x.com/SergeyNazarov/status/862157769813643264"
+        },
+        {
+          "id": "ev-019",
+          "url": "https://thelinkpanda.com/evidence/ev-019",
+          "title": "Tokenization 2030 — Wall Street On-Chain",
+          "institution": "Citi GPS",
+          "date": "2026",
+          "type": "report",
+          "sourceUrl": ""
+        },
+        {
+          "id": "ev-020",
+          "url": "https://thelinkpanda.com/evidence/ev-020",
+          "title": "A whole new industrial system",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-021",
+          "url": "https://thelinkpanda.com/evidence/ev-021",
+          "title": "Cryptographic truth is always the right answer",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-022",
+          "url": "https://thelinkpanda.com/evidence/ev-022",
+          "title": "Faith in mathematics stronger than faith in institutions",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-023",
+          "url": "https://thelinkpanda.com/evidence/ev-023",
+          "title": "Don't ask for regulation early",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-024",
+          "url": "https://thelinkpanda.com/evidence/ev-024",
+          "title": "Chainlink has better technology that scales better",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-025",
+          "url": "https://thelinkpanda.com/evidence/ev-025",
+          "title": "A piece of Google in everyone's computation",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-026",
+          "url": "https://thelinkpanda.com/evidence/ev-026",
+          "title": "Congratulations for ending up in the right spot working with Chainlink",
+          "institution": "Google",
+          "date": "2022",
+          "type": "statement",
+          "sourceUrl": "https://www.youtube.com/watch?v=u2kOmSh4h84"
+        },
+        {
+          "id": "ev-027",
+          "url": "https://thelinkpanda.com/evidence/ev-027",
+          "title": "DTCC Collateral AppChain to leverage Chainlink CRE and data standard",
+          "institution": "DTCC",
+          "date": "2026-05-12",
+          "type": "statement",
+          "sourceUrl": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management"
+        },
+        {
+          "id": "ev-028",
+          "url": "https://thelinkpanda.com/evidence/ev-028",
+          "title": "Chainlink Economics 2.0 — Staking, fees, and sustainable network growth",
+          "institution": "Chainlink Labs",
+          "date": "2022",
+          "type": "report",
+          "sourceUrl": "https://blog.chain.link/chainlink-economics-2-0/"
+        },
+        {
+          "id": "ev-029",
+          "url": "https://thelinkpanda.com/evidence/ev-029",
+          "title": "Chainlink Data Streams — sub-second low-latency pull oracle",
+          "institution": "Chainlink Labs",
+          "date": "2024",
+          "type": "report",
+          "sourceUrl": "https://docs.chain.link/data-streams"
+        },
+        {
+          "id": "ev-030",
+          "url": "https://thelinkpanda.com/evidence/ev-030",
+          "title": "Chainlink service suite — CCIP, Data Streams, Functions, Automation, SVR, Scale, BUILD",
+          "institution": "Chainlink Labs",
+          "date": "2024",
+          "type": "report",
+          "sourceUrl": "https://chain.link/economics"
+        },
+        {
+          "id": "ev-031",
+          "url": "https://thelinkpanda.com/evidence/ev-031",
+          "title": "Bringing Capital Markets Onchain — DTCC and Chainlink collaboration",
+          "institution": "DTCC",
+          "date": "2023",
+          "type": "article",
+          "sourceUrl": "https://www.chainlinkecosystem.com/ecosystem/dtcc"
+        },
+        {
+          "id": "ev-032",
+          "url": "https://thelinkpanda.com/evidence/ev-032",
+          "title": "Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain",
+          "institution": "DTCC",
+          "date": "2024-05",
+          "type": "report",
+          "sourceUrl": "https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf"
+        },
+        {
+          "id": "ev-033",
+          "url": "https://thelinkpanda.com/evidence/ev-033",
+          "title": "24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem",
+          "institution": "DTCC",
+          "date": "2025-09",
+          "type": "report",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html"
+        },
+        {
+          "id": "ev-034",
+          "url": "https://thelinkpanda.com/evidence/ev-034",
+          "title": "DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management",
+          "institution": "DTCC",
+          "date": "2026-05",
+          "type": "report",
+          "sourceUrl": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management"
+        },
+        {
+          "id": "ev-035",
+          "url": "https://thelinkpanda.com/evidence/ev-035",
+          "title": "US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present",
+          "institution": "SoSoValue / Arcamids",
+          "date": "2026-03",
+          "type": "report",
+          "sourceUrl": "https://x.com/arcamids/status/2063917450505118191"
+        },
+        {
+          "id": "ev-036",
+          "url": "https://thelinkpanda.com/evidence/ev-036",
+          "title": "US11854101 — Decentralized oracle order-matching patent granted",
+          "institution": "USPTO",
+          "date": "2023-12",
+          "type": "official",
+          "sourceUrl": "https://patents.justia.com/patent/11854101"
+        },
+        {
+          "id": "ev-037",
+          "url": "https://thelinkpanda.com/evidence/ev-037",
+          "title": "US12062037 — Secure state machine with off-chain oracle switching granted",
+          "institution": "USPTO",
+          "date": "2024-08",
+          "type": "official",
+          "sourceUrl": "https://patents.justia.com/patent/12062037"
+        },
+        {
+          "id": "ev-038",
+          "url": "https://thelinkpanda.com/evidence/ev-038",
+          "title": "US12494909 — Verifiable randomness (VRF) for decentralized computing granted",
+          "institution": "USPTO",
+          "date": "2025-12",
+          "type": "official",
+          "sourceUrl": "https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html"
+        },
+        {
+          "id": "ev-039",
+          "url": "https://thelinkpanda.com/evidence/ev-039",
+          "title": "US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published",
+          "institution": "USPTO",
+          "date": "2025",
+          "type": "official",
+          "sourceUrl": "https://patents.justia.com/patent/20250342426"
+        },
+        {
+          "id": "ev-040",
+          "url": "https://thelinkpanda.com/evidence/ev-040",
+          "title": "Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure",
+          "institution": "Chainlink Labs / Aave",
+          "date": "2025-03",
+          "type": "report",
+          "sourceUrl": "https://dashboard.llamarisk.com/protocols/aave/svr"
+        },
+        {
+          "id": "ev-041",
+          "url": "https://thelinkpanda.com/evidence/ev-041",
+          "title": "ADI Predictstreet — Official FIFA World Cup 2026 Prediction Market Partner adopts Chainlink as exclusive oracle infrastructure",
+          "institution": "ADI Predictstreet / FIFA / Chainlink",
+          "date": "2026-06",
+          "type": "announcement",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/official-fifa-world-cup-2026-partner-adi-predictstreet-adopts-chainlink-as-exclusive-oracle-infrastructure-powering-prediction-markets-for-the-worlds-largest-sporting-event-302794475.html"
+        },
+        {
+          "id": "ev-042",
+          "url": "https://thelinkpanda.com/evidence/ev-042",
+          "title": "DTCC Collateral AppChain — Chainlink CRE and data standard selected for 24/7 collateral management",
+          "institution": "DTCC",
+          "date": "2026-05",
+          "type": "official",
+          "sourceUrl": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management"
+        },
+        {
+          "id": "ev-043",
+          "url": "https://thelinkpanda.com/evidence/ev-043",
+          "title": "DTCC Smart NAV Pilot — Chainlink CCIP used to deliver mutual fund NAV data onchain across 10 major financial institutions",
+          "institution": "DTCC",
+          "date": "2024-05",
+          "type": "report",
+          "sourceUrl": "https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf"
+        },
+        {
+          "id": "ev-044",
+          "url": "https://thelinkpanda.com/evidence/ev-044",
+          "title": "Swift used Chainlink and CCIP for tokenized asset settlement experiments across 12+ major financial institutions",
+          "institution": "Swift / Chainlink",
+          "date": "2023-09",
+          "type": "official",
+          "sourceUrl": "https://www.swift.com/news-events/press-releases/swift-unlocks-potential-tokenisation-successful-blockchain-experiments"
+        },
+        {
+          "id": "ev-045",
+          "url": "https://thelinkpanda.com/evidence/ev-045",
+          "title": "Euroclear and 23 institutions achieve near-100% data consensus in Corporate Actions Initiative using Chainlink CRE and CCIP",
+          "institution": "Euroclear / Chainlink Labs / DTCC / Swift",
+          "date": "2025-09",
+          "type": "report",
+          "sourceUrl": "https://chain.link/resources/establishing-unified-standard-asset-servicing"
+        },
+        {
+          "id": "ev-046",
+          "url": "https://thelinkpanda.com/evidence/ev-046",
+          "title": "Google Cloud operates as official Chainlink node operator; demonstrated BigQuery blockchain data integration",
+          "institution": "Google Cloud / Chainlink",
+          "date": "2022-09",
+          "type": "official",
+          "sourceUrl": "https://cloud.google.com/blog/products/data-analytics/building-hybrid-blockchain-cloud-applications-with-ethereum-and-google-cloud"
+        },
+        {
+          "id": "ev-047",
+          "url": "https://thelinkpanda.com/evidence/ev-047",
+          "title": "Coinbase adopts Chainlink CCIP as exclusive bridge for $7B in wrapped assets; Coinbase DataLink brings exchange data onchain",
+          "institution": "Coinbase / Chainlink",
+          "date": "2025-09",
+          "type": "announcement",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/coinbase-and-chainlink-bring-exchange-data-powering-billions-in-trading-onchain-for-the-first-time-302724162.html"
+        },
+        {
+          "id": "ev-048",
+          "url": "https://thelinkpanda.com/evidence/ev-048",
+          "title": "Mastercard and Chainlink partner to enable 3.5 billion cardholders to purchase crypto directly onchain",
+          "institution": "Mastercard / Chainlink",
+          "date": "2025-04",
+          "type": "announcement",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/chainlink-and-mastercard-partner-to-enable-over-3-billion-cardholders-to-purchase-crypto-directly-onchain-302489729.html"
+        },
+        {
+          "id": "ev-049",
+          "url": "https://thelinkpanda.com/evidence/ev-049",
+          "title": "Securitize and VanEck adopt Chainlink NAVLink feeds for VBILL tokenized Treasury; integrate with Aave Horizon",
+          "institution": "Securitize / VanEck / Chainlink",
+          "date": "2025-10",
+          "type": "announcement",
+          "sourceUrl": "https://securitize.io/learn/blog/Securitize-and-VanEck-Bring-VBILL-to-Aave-Horizon-and-Adopt-Chainlink-NAVLink-Feeds"
+        },
+        {
+          "id": "ev-050",
+          "url": "https://thelinkpanda.com/evidence/ev-050",
+          "title": "Project Acacia — Reserve Bank of Australia uses Chainlink CRE for DvP settlement in 20-use-case wholesale tokenisation research project",
+          "institution": "Reserve Bank of Australia / Chainlink Labs / Westpac",
+          "date": "2026-05",
+          "type": "report",
+          "sourceUrl": "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/pdf/project-acacia-final-report.pdf"
+        },
+        {
+          "id": "ev-051",
+          "url": "https://thelinkpanda.com/evidence/ev-051",
+          "title": "Chainlink CCIP integrates Circle CCTP — enabling secure native cross-chain USDC transfers",
+          "institution": "Chainlink / Circle",
+          "date": "2024-01",
+          "type": "announcement",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/chainlink-ccip-integrates-circles-cctp-to-support-cross-chain-usdc-transfers-302034925.html"
+        },
+        {
+          "id": "ev-052",
+          "url": "https://thelinkpanda.com/evidence/ev-052",
+          "title": "Chainlink and Circle formal partnership — CCIP, Data Feeds, and Proof of Reserve across USDC and EURC stablecoin infrastructure",
+          "institution": "Chainlink / Circle",
+          "date": "2024-05",
+          "type": "official",
+          "sourceUrl": "https://www.circle.com/pressroom/chainlink-and-circle-partner-to-expand-enterprise-and-developer-defi-engagement"
+        },
+        {
+          "id": "ev-053",
+          "url": "https://thelinkpanda.com/evidence/ev-053",
+          "title": "ICMA DLT Repo Report Part I — explicitly identifies oracles as future infrastructure; interoperability emerges as the central institutional challenge",
+          "institution": "ICMA / International Capital Market Association",
+          "date": "2026-06",
+          "type": "report",
+          "sourceUrl": "https://www.icmagroup.org/News/news-in-brief/icma-publishes-the-first-part-of-its-report-on-dlt-repo/"
+        }
+      ]
+    },
+    "organizations": {
+      "url": "https://thelinkpanda.com/organizations",
+      "count": 10,
+      "items": [
+        {
+          "slug": "dtcc",
+          "url": "https://thelinkpanda.com/organizations/dtcc",
+          "name": "DTCC",
+          "fullName": "Depository Trust & Clearing Corporation"
+        },
+        {
+          "slug": "swift",
+          "url": "https://thelinkpanda.com/organizations/swift",
+          "name": "Swift",
+          "fullName": "Society for Worldwide Interbank Financial Telecommunication"
+        },
+        {
+          "slug": "jpmorgan",
+          "url": "https://thelinkpanda.com/organizations/jpmorgan",
+          "name": "J.P. Morgan",
+          "fullName": "JPMorgan Chase & Co."
+        },
+        {
+          "slug": "fidelity",
+          "url": "https://thelinkpanda.com/organizations/fidelity",
+          "name": "Fidelity International",
+          "fullName": "Fidelity International"
+        },
+        {
+          "slug": "coinbase",
+          "url": "https://thelinkpanda.com/organizations/coinbase",
+          "name": "Coinbase",
+          "fullName": "Coinbase Global Inc."
+        },
+        {
+          "slug": "citi",
+          "url": "https://thelinkpanda.com/organizations/citi",
+          "name": "Citi",
+          "fullName": "Citigroup / Citi Institute"
+        },
+        {
+          "slug": "deutsche-borse",
+          "url": "https://thelinkpanda.com/organizations/deutsche-borse",
+          "name": "Deutsche Borse",
+          "fullName": "Deutsche Borse Group"
+        },
+        {
+          "slug": "google",
+          "url": "https://thelinkpanda.com/organizations/google",
+          "name": "Google",
+          "fullName": "Google LLC / Alphabet Inc."
+        },
+        {
+          "slug": "franklin-templeton",
+          "url": "https://thelinkpanda.com/organizations/franklin-templeton",
+          "name": "Franklin Templeton",
+          "fullName": "Franklin Templeton Investments"
+        },
+        {
+          "slug": "euroclear",
+          "url": "https://thelinkpanda.com/organizations/euroclear",
+          "name": "Euroclear",
+          "fullName": "Euroclear Group"
+        }
+      ]
+    },
+    "concepts": {
+      "url": "https://thelinkpanda.com/concepts",
+      "count": 8,
+      "items": [
+        {
+          "id": "ccip",
+          "url": "https://thelinkpanda.com/concepts/ccip",
+          "name": "CCIP",
+          "fullName": "Cross-Chain Interoperability Protocol"
+        },
+        {
+          "id": "cre",
+          "url": "https://thelinkpanda.com/concepts/cre",
+          "name": "CRE",
+          "fullName": "Chainlink Runtime Environment"
+        },
+        {
+          "id": "svr",
+          "url": "https://thelinkpanda.com/concepts/svr",
+          "name": "SVR",
+          "fullName": "Smart Value Recapture"
+        },
+        {
+          "id": "proof-of-reserve",
+          "url": "https://thelinkpanda.com/concepts/proof-of-reserve",
+          "name": "Proof of Reserve",
+          "fullName": "Chainlink Proof of Reserve"
+        },
+        {
+          "id": "data-feeds",
+          "url": "https://thelinkpanda.com/concepts/data-feeds",
+          "name": "Data Feeds",
+          "fullName": "Chainlink Data Feeds"
+        },
+        {
+          "id": "data-streams",
+          "url": "https://thelinkpanda.com/concepts/data-streams",
+          "name": "Data Streams",
+          "fullName": "Chainlink Data Streams"
+        },
+        {
+          "id": "automation",
+          "url": "https://thelinkpanda.com/concepts/automation",
+          "name": "Automation",
+          "fullName": "Chainlink Automation"
+        },
+        {
+          "id": "vrf",
+          "url": "https://thelinkpanda.com/concepts/vrf",
+          "name": "VRF",
+          "fullName": "Verifiable Random Function"
+        }
+      ]
+    },
+    "misconceptions": {
+      "url": "https://thelinkpanda.com/misconceptions",
+      "count": 50,
+      "items": [
+        {
+          "id": "mc-001",
+          "url": "https://thelinkpanda.com/misconceptions/mc-001",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-002",
+          "url": "https://thelinkpanda.com/misconceptions/mc-002",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-003",
+          "url": "https://thelinkpanda.com/misconceptions/mc-003",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-004",
+          "url": "https://thelinkpanda.com/misconceptions/mc-004",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-005",
+          "url": "https://thelinkpanda.com/misconceptions/mc-005",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-006",
+          "url": "https://thelinkpanda.com/misconceptions/mc-006",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-007",
+          "url": "https://thelinkpanda.com/misconceptions/mc-007",
+          "category": "Oracle & Infrastructure"
+        },
+        {
+          "id": "mc-008",
+          "url": "https://thelinkpanda.com/misconceptions/mc-008",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-009",
+          "url": "https://thelinkpanda.com/misconceptions/mc-009",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-010",
+          "url": "https://thelinkpanda.com/misconceptions/mc-010",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-011",
+          "url": "https://thelinkpanda.com/misconceptions/mc-011",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-012",
+          "url": "https://thelinkpanda.com/misconceptions/mc-012",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-013",
+          "url": "https://thelinkpanda.com/misconceptions/mc-013",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-014",
+          "url": "https://thelinkpanda.com/misconceptions/mc-014",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-015",
+          "url": "https://thelinkpanda.com/misconceptions/mc-015",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-016",
+          "url": "https://thelinkpanda.com/misconceptions/mc-016",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-017",
+          "url": "https://thelinkpanda.com/misconceptions/mc-017",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-018",
+          "url": "https://thelinkpanda.com/misconceptions/mc-018",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-019",
+          "url": "https://thelinkpanda.com/misconceptions/mc-019",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-020",
+          "url": "https://thelinkpanda.com/misconceptions/mc-020",
+          "category": "LINK Token"
+        },
+        {
+          "id": "mc-021",
+          "url": "https://thelinkpanda.com/misconceptions/mc-021",
+          "category": "LINK Token"
+        },
+        {
+          "id": "mc-022",
+          "url": "https://thelinkpanda.com/misconceptions/mc-022",
+          "category": "LINK Token"
+        },
+        {
+          "id": "mc-023",
+          "url": "https://thelinkpanda.com/misconceptions/mc-023",
+          "category": "LINK Token"
+        },
+        {
+          "id": "mc-024",
+          "url": "https://thelinkpanda.com/misconceptions/mc-024",
+          "category": "LINK Token"
+        },
+        {
+          "id": "mc-025",
+          "url": "https://thelinkpanda.com/misconceptions/mc-025",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-026",
+          "url": "https://thelinkpanda.com/misconceptions/mc-026",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-027",
+          "url": "https://thelinkpanda.com/misconceptions/mc-027",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-028",
+          "url": "https://thelinkpanda.com/misconceptions/mc-028",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-029",
+          "url": "https://thelinkpanda.com/misconceptions/mc-029",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-030",
+          "url": "https://thelinkpanda.com/misconceptions/mc-030",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-031",
+          "url": "https://thelinkpanda.com/misconceptions/mc-031",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-032",
+          "url": "https://thelinkpanda.com/misconceptions/mc-032",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-033",
+          "url": "https://thelinkpanda.com/misconceptions/mc-033",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-034",
+          "url": "https://thelinkpanda.com/misconceptions/mc-034",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-035",
+          "url": "https://thelinkpanda.com/misconceptions/mc-035",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-036",
+          "url": "https://thelinkpanda.com/misconceptions/mc-036",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-037",
+          "url": "https://thelinkpanda.com/misconceptions/mc-037",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-038",
+          "url": "https://thelinkpanda.com/misconceptions/mc-038",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-039",
+          "url": "https://thelinkpanda.com/misconceptions/mc-039",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-040",
+          "url": "https://thelinkpanda.com/misconceptions/mc-040",
+          "category": "Economics & Revenue"
+        },
+        {
+          "id": "mc-041",
+          "url": "https://thelinkpanda.com/misconceptions/mc-041",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-042",
+          "url": "https://thelinkpanda.com/misconceptions/mc-042",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-043",
+          "url": "https://thelinkpanda.com/misconceptions/mc-043",
+          "category": "Institutions"
+        },
+        {
+          "id": "mc-044",
+          "url": "https://thelinkpanda.com/misconceptions/mc-044",
+          "category": "Market Structure"
+        },
+        {
+          "id": "mc-045",
+          "url": "https://thelinkpanda.com/misconceptions/mc-045",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-046",
+          "url": "https://thelinkpanda.com/misconceptions/mc-046",
+          "category": "CCIP"
+        },
+        {
+          "id": "mc-048",
+          "url": "https://thelinkpanda.com/misconceptions/mc-048",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-049",
+          "url": "https://thelinkpanda.com/misconceptions/mc-049",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-050",
+          "url": "https://thelinkpanda.com/misconceptions/mc-050",
+          "category": "Market Narratives"
+        },
+        {
+          "id": "mc-047",
+          "url": "https://thelinkpanda.com/misconceptions/mc-047",
+          "category": "Market Narratives"
+        }
+      ]
+    },
+    "quotes": {
+      "url": "https://thelinkpanda.com/quotes",
+      "count": 23,
+      "items": [
+        {
+          "id": "qt-001",
+          "person": "Dan Doney",
+          "role": "Managing Director, CTO of DTCC Digital Assets",
+          "org": "DTCC",
+          "year": "2024"
+        },
+        {
+          "id": "qt-002",
+          "person": "Dan Doney",
+          "role": "Managing Director, CTO of DTCC Digital Assets",
+          "org": "DTCC",
+          "year": "2024"
+        },
+        {
+          "id": "qt-003",
+          "person": "Swift CIO",
+          "role": "Chief Information Officer",
+          "org": "Swift",
+          "year": "2024"
+        },
+        {
+          "id": "qt-004",
+          "person": "Eric Schmidt",
+          "role": "Former CEO, Google",
+          "org": "Google",
+          "year": "2022"
+        },
+        {
+          "id": "qt-005",
+          "person": "Eric Schmidt",
+          "role": "Former CEO, Google",
+          "org": "Google",
+          "year": "2022"
+        },
+        {
+          "id": "qt-006",
+          "person": "Salman Banaei",
+          "role": "Head of Public Policy, Coinbase",
+          "org": "Coinbase",
+          "year": "2025"
+        },
+        {
+          "id": "qt-007",
+          "person": "Franklin Templeton VP",
+          "role": "Vice President, Digital Assets",
+          "org": "Franklin Templeton",
+          "year": "2024"
+        },
+        {
+          "id": "qt-008",
+          "person": "Euroclear Head of Digital Assets",
+          "role": "Head of Digital Assets",
+          "org": "Euroclear",
+          "year": "2024"
+        },
+        {
+          "id": "qt-009",
+          "person": "Deutsche Borse Head of Market Data",
+          "role": "Head of Market Data",
+          "org": "Deutsche Borse",
+          "year": "2024"
+        },
+        {
+          "id": "qt-010",
+          "person": "Fidelity International",
+          "role": "Digital Assets Team",
+          "org": "Fidelity International",
+          "year": "2024"
+        },
+        {
+          "id": "qt-011",
+          "person": "Sergey Nazarov",
+          "role": "Co-Founder, Chainlink",
+          "org": "Chainlink Labs",
+          "year": "2023"
+        },
+        {
+          "id": "qt-012",
+          "person": "Sergey Nazarov",
+          "role": "Co-Founder, Chainlink",
+          "org": "Chainlink Labs",
+          "year": "2024"
+        },
+        {
+          "id": "qt-013",
+          "person": "Sergey Nazarov",
+          "role": "Co-Founder, Chainlink",
+          "org": "Chainlink Labs",
+          "year": "2024"
+        },
+        {
+          "id": "qt-014",
+          "person": "RBA / DFCRC",
+          "role": "Reserve Bank of Australia",
+          "org": "Reserve Bank of Australia",
+          "year": "2026"
+        },
+        {
+          "id": "qt-015",
+          "person": "Westpac Institutional Bank",
+          "role": "Global Transaction Services",
+          "org": "Westpac",
+          "year": "2025"
+        },
+        {
+          "id": "qt-016",
+          "person": "Brad Jones",
+          "role": "Assistant Governor (Financial System), RBA",
+          "org": "Reserve Bank of Australia",
+          "year": "2025"
+        },
+        {
+          "id": "qt-017",
+          "person": "Water Tower Research",
+          "role": "Institutional Research",
+          "org": "Water Tower Research",
+          "year": "2024"
+        },
+        {
+          "id": "qt-018",
+          "person": "Citi GPS",
+          "role": "Research Division",
+          "org": "Citi",
+          "year": "2023"
+        },
+        {
+          "id": "qt-019",
+          "person": "Jeff Byrne",
+          "role": "Managing Director, Global Transaction Services",
+          "org": "Westpac",
+          "year": "2025"
+        },
+        {
+          "id": "qt-020",
+          "person": "ADI Predictstreet",
+          "role": "Official FIFA World Cup 2026 Prediction Market Partner",
+          "org": "ADI Predictstreet",
+          "year": "2026"
+        },
+        {
+          "id": "qt-021",
+          "person": "DTCC",
+          "role": "Post-Trade Infrastructure",
+          "org": "DTCC",
+          "year": "2026"
+        },
+        {
+          "id": "qt-022",
+          "person": "ICMA",
+          "role": "International Capital Market Association — DLT and Repo Report Part I",
+          "org": "ICMA",
+          "year": "2026"
+        },
+        {
+          "id": "qt-023",
+          "person": "ICMA",
+          "role": "International Capital Market Association — DLT and Repo Report Part I",
+          "org": "ICMA",
+          "year": "2026"
+        }
+      ]
+    },
+    "patents": {
+      "url": "https://thelinkpanda.com/patents",
+      "count": 59,
+      "items": [
+        {
+          "id": "pl-001",
+          "number": "US20260163725A1",
+          "title": "Computing System and Method with Threshold Encryption",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2026",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-002",
+          "number": "US20260111886",
+          "title": "Privacy for a Cross-Chain Interoperability Protocol",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2026",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-003",
+          "number": "US20260120095A1",
+          "title": "System and Methods for Abstracting Use of Blockchains",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2026",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-004",
+          "number": "US20260019267A1",
+          "title": "Cross-Chain Interoperability Protocol",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2026",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-005",
+          "number": "US12494909B1",
+          "title": "Method and Apparatus for Producing Verifiable Randomness Within a Decentralized Computing Network",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2025",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-006",
+          "number": "US12489649B1",
+          "title": "Method and Apparatus for Providing Secure Information to a Decentralized Computing Environment",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2025",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-007",
+          "number": "US20250342426A1",
+          "title": "Systems and Methods for Risk Management Networks",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2025",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-008",
+          "number": "20240273170A1",
+          "title": "Push-Mode Multi-Factor Authentication",
+          "assignee": "Telefónica",
+          "date": "2024",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-009",
+          "number": "US12489630B2",
+          "title": "Multi-factor Authentication Method and System for WEB3 Services",
+          "assignee": "Telefónica",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-010",
+          "number": "US12585740B2",
+          "title": "Push-Mode 2FA",
+          "assignee": "Telefónica",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-011",
+          "number": "US20260165192A1",
+          "title": "Method System and Computer Program for Verifying False or Misleading Information",
+          "assignee": "ValiDAO",
+          "date": "2026",
+          "connection": "CHAINLINK_NAMED",
+          "score": 4
+        },
+        {
+          "id": "pl-012",
+          "number": "US12541763B2",
+          "title": "Multi-layer Digital Asset Architecture for Virtual and Mixed Reality Environments",
+          "assignee": "Nike, Inc.",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-013",
+          "number": "US12632858B2",
+          "title": "Cryptographic Digital Asset Architecture With Selectively-Lockable Dynamic Evolution",
+          "assignee": "Nike, Inc.",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-014",
+          "number": "US20260154685A1",
+          "title": "Method of Providing Automated Advertising Compensation to a User Within a Digital Environment",
+          "assignee": "Nike, Inc.",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-015",
+          "number": "US12537702B2",
+          "title": "Fact Verification Using Blockchain and Machine Learning Technologies",
+          "assignee": "JPMorgan Chase & Co.",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-016",
+          "number": "US20260044632A1",
+          "title": "Systems and Methods for Authenticating Qualifications to Prevent Fraud",
+          "assignee": "Fidelity Investments",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-017",
+          "number": "US12505455B1",
+          "title": "Tokenized Structured Provenance Tracking",
+          "assignee": "Wells Fargo & Company",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-018",
+          "number": "US12361778B1",
+          "title": "Generation and Validation of NFTs Linked With Physical Environments",
+          "assignee": "Wells Fargo & Company",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-019",
+          "number": "US12309276B1",
+          "title": "Tokenized Structured Data Sharing",
+          "assignee": "Wells Fargo & Company",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-020",
+          "number": "US12483408B2",
+          "title": "Anonymous Non-fungible Token Transfer Using Private Blockchain",
+          "assignee": "Capital One Services, LLC",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-021",
+          "number": "US12488343B2",
+          "title": "Interoperable Composite Data Units For Use In Distributed Computing Execution Environments",
+          "assignee": "Futureverse",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-022",
+          "number": "US12634338B2",
+          "title": "Secure Blockchain-Based Consensus",
+          "assignee": "nChain Licensing AG",
+          "date": "2026",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 3
+        },
+        {
+          "id": "pl-023",
+          "number": "US12289408B2",
+          "title": "Smart Contract Execution via Distributed Coordination",
+          "assignee": "nChain Licensing AG",
+          "date": "2025",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 3
+        },
+        {
+          "id": "pl-024",
+          "number": "US12574234B2",
+          "title": "Secure Cross-Chain Atomic Swaps",
+          "assignee": "DegenSoft",
+          "date": "2026",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 3
+        },
+        {
+          "id": "pl-025",
+          "number": "US12608709",
+          "title": "Decentralized Systems and Methods For Response Generation To API Calls",
+          "assignee": "DegenSoft",
+          "date": "2026",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 3
+        },
+        {
+          "id": "pl-026",
+          "number": "Sealance-001",
+          "title": "Systems and Methods for Enforcing Compliance for Private Transactions",
+          "assignee": "Sealance",
+          "date": "2026",
+          "connection": "CHAINLINK_NAMED",
+          "score": 4
+        },
+        {
+          "id": "pl-027",
+          "number": "US20260141377A1",
+          "title": "Hybrid Control of Digital Asset Private Keys",
+          "assignee": "Trofi Ventures",
+          "date": "2026",
+          "connection": "CHAINLINK_NAMED",
+          "score": 4
+        },
+        {
+          "id": "pl-028",
+          "number": "US12544676B2",
+          "title": "Cross-channel Blockchain and Non-fungible Token Solutions Integrated in a Gaming System",
+          "assignee": "LNW Gaming, Inc.",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-029",
+          "number": "US12377351B2",
+          "title": "Cross-channel Blockchain and Metaverse Integration Solutions for Gaming Systems",
+          "assignee": "LNW Gaming, Inc.",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-030",
+          "number": "US20250390352A1",
+          "title": "AI Serving Hardware and Software Frontier Enhancements",
+          "assignee": "QOMPLX, Inc.",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-031",
+          "number": "QOMPLX-CHQEO",
+          "title": "Content-Aware Hybrid Quantum Enhanced Optimization and Orchestration Layer",
+          "assignee": "QOMPLX, Inc.",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-032",
+          "number": "US20260050671A1",
+          "title": "Universal Treaty-Aware Operating System For AI-Native Sovereign Applications",
+          "assignee": "Independent / Odeh Family",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-033",
+          "number": "US20260019267A1-BSP",
+          "title": "Blockspace Sovereignty Protocol",
+          "assignee": "Independent / Odeh Family",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-034",
+          "number": "US20260016834A1",
+          "title": "Self-Reproducing Autonomous Robotics System",
+          "assignee": "Independent / Odeh Family",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-035",
+          "number": "US20260141397A1",
+          "title": "Blockchain-Based Artificial Intelligence Risk Detection and Intervention Systems",
+          "assignee": "Independent / Financial Systems Research",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-036",
+          "number": "US20260080473A1",
+          "title": "Methods and Systems For Facilitating Trading Non-Negotiable Financial Assets With Artificial Intelligence Enhancements",
+          "assignee": "Independent / Financial Systems Research",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-037",
+          "number": "BEI-001",
+          "title": "Behavioral Economic Identity — Economic Sovereign Genesis Architecture",
+          "assignee": "Independent Research",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-038",
+          "number": "US20260031991A1",
+          "title": "Method For Generating an Asset-Backed Token With a Digital Value-Add — Pulse Tokenization",
+          "assignee": "Independent / Pulse Tokenization",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-039",
+          "number": "Enneking-001",
+          "title": "Tokenization of the Appreciation of Assets",
+          "assignee": "Timothy Enneking",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-040",
+          "number": "US20260057445A1",
+          "title": "System and Method For Transferring Value To a Physical Asset Through Staged Digital Integration",
+          "assignee": "Independent Research",
+          "date": "2026",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-041",
+          "number": "US20260037965A1",
+          "title": "Blockchain-Based Certified Random Function Using Quantum Random Circuit Generator",
+          "assignee": "Independent Research",
+          "date": "2026",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 2
+        },
+        {
+          "id": "pl-042",
+          "number": "US20250365168A1",
+          "title": "System and Method For Storing Input Data and/or Output Data of a Quantum Computer in a Blockchain",
+          "assignee": "Independent Research",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-043",
+          "number": "US20250378436A1",
+          "title": "Methods and Systems For Facilitating Collection of Road User Charges Using a Digital Currency Based on a Distributed Ledger Technology",
+          "assignee": "U.S. Department of Transportation",
+          "date": "2025",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-044",
+          "number": "US20260012366A1",
+          "title": "Decentralized Consensus Network",
+          "assignee": "Krypton Labs",
+          "date": "2026",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 2
+        },
+        {
+          "id": "pl-045",
+          "number": "US-PUB-2025-0529-STEEL",
+          "title": "Data Management Systems and Methods for Asset Tokenization, Blockchain-Based Verification, and Intrinsic Valuation",
+          "assignee": "STEEL American Luxury, LLC",
+          "date": "2025-05-29",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-046",
+          "number": "US-PUB-2025-0522-IBM",
+          "title": "Nomadic Smart Contracts Migrated Across Blockchain Ledgers",
+          "assignee": "IBM",
+          "date": "2025-05-22",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-047",
+          "number": "US-PUB-2025-0520-WF",
+          "title": "Tokenized Structured Data Sharing",
+          "assignee": "Wells Fargo",
+          "date": "2025-05-20",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-048",
+          "number": "US-PUB-2025-0501-AUTOMATION",
+          "title": "System and Method for Schedule Message and Automated Smart Contracts in Blockchain Network",
+          "assignee": "Independent / Unassigned",
+          "date": "2025-05-01",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-049",
+          "number": "US-PUB-2025-0429-NCHAIN2",
+          "title": "Smart Contract Execution Using Distributed Coordination",
+          "assignee": "nChain Licensing AG",
+          "date": "2025-04-29",
+          "connection": "CHAINLINK_PRIOR_ART",
+          "score": 3
+        },
+        {
+          "id": "pl-050",
+          "number": "US-PUB-2025-0408-GENESYS",
+          "title": "Technologies for Blockchain-Based Data Transparency and Authentication",
+          "assignee": "Genesys Cloud Services",
+          "date": "2025-04-08",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-051",
+          "number": "US-PUB-2025-0401-ORACLE",
+          "title": "Using Multiple Blockchains for Applying Transactions to a Set of Persistent Data Objects in Persistent Storage Systems",
+          "assignee": "Oracle Corporation",
+          "date": "2025-04-01",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-052",
+          "number": "US-PUB-2025-0327-CHAINLINK-FA",
+          "title": "Decentralized Computing Capabilities with Functions and Automation",
+          "assignee": "SmartContract Chainlink Limited SEZC",
+          "date": "2025-03-27",
+          "connection": "DIRECT_CHAINLINK_PATENT",
+          "score": 5
+        },
+        {
+          "id": "pl-053",
+          "number": "US-PUB-2025-0325-GENDIGITAL",
+          "title": "Systems and Methods for Identifying Security Threats in Smart Contract-Based Services to Protect Against Malicious Attacks Utilizing Off-Blockchain Resources",
+          "assignee": "Gen Digital",
+          "date": "2025-03-25",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-054",
+          "number": "US-PUB-2025-0313-FUTUREVERSE2",
+          "title": "System and Method for Blending Interoperable Composite Data Units for Use in Distributed Computing Execution Environments",
+          "assignee": "Futureverse",
+          "date": "2025-03-13",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-055",
+          "number": "US-PUB-2025-0311-TURBO",
+          "title": "Methods and Systems for Selecting an Optimal Proof System for Zero-Knowledge and Other Proofs",
+          "assignee": "Turbo Protocol",
+          "date": "2025-03-11",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-056",
+          "number": "US-PUB-2025-0304-CPLABS",
+          "title": "Method for Providing Oracle Service of Blockchain Network by Using Zero-Knowledge Proof and Aggregator Terminal Using the Same",
+          "assignee": "CPLABS",
+          "date": "2025-03-04",
+          "connection": "CHAINLINK_NAMED",
+          "score": 4
+        },
+        {
+          "id": "pl-057",
+          "number": "US-PUB-2025-0227-OPENMIND",
+          "title": "Systems, Methods, and Apparatus for Composting and Waste Reduction Digital Currency Creation, Validation and Storage",
+          "assignee": "Open Mind Developments Corporation",
+          "date": "2025-02-27",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        },
+        {
+          "id": "pl-058",
+          "number": "US-PUB-2025-0218-NIKE2",
+          "title": "Cryptographic Digital Asset Architecture with Selectively-Lockable Dynamic Evolution",
+          "assignee": "Nike",
+          "date": "2025-02-18",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 2
+        },
+        {
+          "id": "pl-059",
+          "number": "US-PUB-2025-0128-DISNEY",
+          "title": "Systems and Methods to Compile an Experience Summary Based on Real-World Experiences",
+          "assignee": "Disney",
+          "date": "2025-01-28",
+          "connection": "INFRASTRUCTURE_ALIGNMENT",
+          "score": 1
+        }
+      ]
+    }
+  }
+}
