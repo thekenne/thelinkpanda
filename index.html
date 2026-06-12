@@ -18,6 +18,9 @@
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="TheLinkPanda — Infrastructure Before Narratives"/>
 <meta property="og:locale" content="en_US"/>
+<meta property="article:published_time" content="2025-01-01" id="meta-published"/>
+<meta property="article:modified_time" content="2026-06-12" id="meta-modified"/>
+<meta property="article:author" content="The Link Panda"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@TheLinkPanda"/>
 <meta name="twitter:creator" content="@TheLinkPanda"/>
@@ -7400,7 +7403,7 @@ var PAGE_META_MAP = {
   'disclaimer': {title:'Disclaimer | TheLinkPanda', desc:'TheLinkPanda content is for educational purposes only and is not financial, investment, or legal advice.', path:'/disclaimer'},
 };
 
-function updatePageMeta(page, subTitle, subDesc, subPath){
+function updatePageMeta(page, subTitle, subDesc, subPath, articleMeta){
   var m = PAGE_META_MAP[page] || PAGE_META_MAP['home'];
   var t = subTitle || m.title;
   var d = subDesc  || m.desc;
@@ -7418,6 +7421,14 @@ function updatePageMeta(page, subTitle, subDesc, subPath){
   byId('meta-tw-desc', d);   byName('twitter:description', d);
   var cn = document.getElementById('meta-canonical');
   if(cn) cn.setAttribute('href', url);
+  // Article-level meta (evidence entries, concept pages): published/modified dates + og:type
+  if(articleMeta&&articleMeta.published){
+    byProp('og:type','article');
+    byProp('article:published_time', articleMeta.published);
+    byProp('article:modified_time', articleMeta.modified||articleMeta.published);
+  }else{
+    byProp('og:type','website');
+  }
 }
 
 function showPage(page,filter,noPush){
@@ -7932,6 +7943,17 @@ function evReadUrlIds(){
 function evRenderBanner(){
   var b=document.getElementById('ev-ids-banner');if(!b)return;
   if(!evState.evIds||!evState.evIds.length){b.style.display='none';return;}
+  // Single evidence entry: update article meta (published date, og:type=article, canonical permalink)
+  if(evState.evIds.length===1){
+    var _e=EVIDENCE.filter(function(x){return x.id===evState.evIds[0];})[0];
+    if(_e){
+      updatePageMeta('evidence',
+        _e.title+' | TheLinkPanda Evidence Vault',
+        (_e.significance||_e.body||'').slice(0,200),
+        '/evidence/'+_e.id,
+        {published:_e.date,modified:_e.date});
+    }
+  }
   var n=evState.evIds.length,pl=n===1?'source':'sources';
   var tH=evState.mcTitle
     ?'<div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--w40);margin-bottom:3px">SHOWING EVIDENCE FOR</div>'
