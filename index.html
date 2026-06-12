@@ -864,6 +864,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .ev-body-text{font-family:var(--serif);font-size:clamp(17px,1.35vw,22px);font-style:italic;font-weight:300;color:var(--w70,rgba(244,242,238,.7));line-height:1.75;flex:1;padding-left:clamp(16px,1.5vw,22px);margin-bottom:clamp(16px,1.6vw,22px);border-left:2px solid rgba(200,146,42,.35);}
 .ev-significance{font-size:clamp(15px,1.1vw,18px);color:var(--w40);line-height:1.7;margin-bottom:clamp(14px,1.4vw,20px);}
 .ev-meta{border-top:.5px solid var(--border);padding-top:clamp(14px,1.3vw,18px);margin-top:auto;display:flex;flex-direction:column;gap:4px;}
+.ev-source-info{border-top:.5px solid rgba(244,242,238,.05);margin-top:clamp(12px,1.1vw,16px);padding-top:clamp(10px,0.9vw,14px)}
+.ev-source-info-title{font-family:var(--mono);font-size:clamp(8px,0.5vw,9px);letter-spacing:.18em;color:var(--w40);text-transform:uppercase;margin-bottom:8px}
+.ev-source-info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px 16px}
+.ev-source-info-grid > div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ev-source-info-label{font-family:var(--mono);font-size:clamp(7px,0.42vw,8px);letter-spacing:.12em;color:var(--w20);text-transform:uppercase}
+.ev-source-info-value{font-family:var(--mono);font-size:clamp(9px,0.58vw,10px);color:var(--w40);line-height:1.5;word-break:break-word}
+.ev-source-info-value a{color:var(--gold);opacity:.7;text-decoration:none;word-break:break-all}
+.ev-source-info-value a:hover{opacity:1}
 .ev-person{font-size:clamp(20px,1.22vw,20px);color:var(--w80);font-weight:500;letter-spacing:.01em;}
 .ev-role{font-size:clamp(16px,1.05vw,18px);color:var(--w40);line-height:1.4;}
 .ev-source{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-family:var(--mono);font-size:clamp(15px,0.92vw,16px);letter-spacing:.08em;color:var(--w20);text-decoration:none;transition:color .15s;width:fit-content;}
@@ -1190,10 +1198,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       "name": "TheLinkPanda",
       "alternateName": "The Link Panda",
       "description": "The largest independent Chainlink research platform. Institutional evidence vault, Infrastructure Explorer, live metrics, patent registry, and misconceptions library.",
-      "publisher": {"@id": "https://thelinkpanda.com/#organization"},
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": {"@type": "EntryPoint", "urlTemplate": "https://thelinkpanda.com/evidence?q={search_term_string}"},
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://thelinkpanda.com/evidence?q={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       },
       "inLanguage": "en-US"
@@ -1222,22 +1235,63 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       "@id": "https://thelinkpanda.com/#webpage",
       "url": "https://thelinkpanda.com/",
       "name": "TheLinkPanda — The Chainlink Intelligence Platform",
-      "isPartOf": {"@id": "https://thelinkpanda.com/#website"},
-      "about": {"@id": "https://thelinkpanda.com/#organization"},
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "about": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
       "description": "The largest independent Chainlink research platform. 52 verified institutional evidence entries, 50 misconceptions corrected, Infrastructure Explorer, live metrics.",
-      "breadcrumb": {"@id": "https://thelinkpanda.com/#breadcrumb"}
+      "breadcrumb": {
+        "@id": "https://thelinkpanda.com/#breadcrumb"
+      }
     },
     {
       "@type": "BreadcrumbList",
       "@id": "https://thelinkpanda.com/#breadcrumb",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thelinkpanda.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Evidence Vault", "item": "https://thelinkpanda.com/evidence"},
-        {"@type": "ListItem", "position": 3, "name": "Misconceptions", "item": "https://thelinkpanda.com/misconceptions"},
-        {"@type": "ListItem", "position": 4, "name": "Infrastructure Explorer", "item": "https://thelinkpanda.com/explorer"},
-        {"@type": "ListItem", "position": 5, "name": "Live Metrics", "item": "https://thelinkpanda.com/metrics"},
-        {"@type": "ListItem", "position": 6, "name": "Adoption Timeline", "item": "https://thelinkpanda.com/timeline"},
-        {"@type": "ListItem", "position": 7, "name": "Chainlink Explained", "item": "https://thelinkpanda.com/concepts"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thelinkpanda.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Evidence Vault",
+          "item": "https://thelinkpanda.com/evidence"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Misconceptions",
+          "item": "https://thelinkpanda.com/misconceptions"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Infrastructure Explorer",
+          "item": "https://thelinkpanda.com/explorer"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Live Metrics",
+          "item": "https://thelinkpanda.com/metrics"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Adoption Timeline",
+          "item": "https://thelinkpanda.com/timeline"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Chainlink Explained",
+          "item": "https://thelinkpanda.com/concepts"
+        }
       ]
     },
     {
@@ -1246,44 +1300,3355 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         {
           "@type": "Question",
           "name": "Is DTCC using Chainlink?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes. DTCC selected Chainlink CRE as the orchestration layer for its Collateral AppChain for 24/7 automated collateral management (announced May 2026, targeted Q4 2026 production). DTCC also used Chainlink CCIP in the Smart NAV Pilot with JPMorgan, BNY Mellon, Franklin Templeton, and 7 other institutions."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DTCC selected Chainlink CRE as the orchestration layer for its Collateral AppChain for 24/7 automated collateral management (announced May 2026, targeted Q4 2026 production). DTCC also used Chainlink CCIP in the Smart NAV Pilot with JPMorgan, BNY Mellon, Franklin Templeton, and 7 other institutions."
+          }
         },
         {
           "@type": "Question",
           "name": "Is Chainlink just price feeds?",
-          "acceptedAnswer": {"@type": "Answer", "text": "No. Chainlink operates 12+ services: CCIP, CRE (Runtime Environment), Data Feeds, Proof of Reserve, Automation, Functions, VRF, SVR, Data Streams, NAVLink, CCID, and ACE. DTCC uses CRE for collateral management. Swift used CCIP for interoperability experiments. Mastercard uses Chainlink to bring 3.5B cardholders onchain. None of these are price feeds."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Chainlink operates 12+ services: CCIP, CRE (Runtime Environment), Data Feeds, Proof of Reserve, Automation, Functions, VRF, SVR, Data Streams, NAVLink, CCID, and ACE. DTCC uses CRE for collateral management. Swift used CCIP for interoperability experiments. Mastercard uses Chainlink to bring 3.5B cardholders onchain. None of these are price feeds."
+          }
         },
         {
           "@type": "Question",
           "name": "What is Chainlink CCIP?",
-          "acceptedAnswer": {"@type": "Answer", "text": "CCIP (Cross-Chain Interoperability Protocol) is Chainlink's patented cross-chain messaging and settlement standard. It includes an independent Risk Management Network and has processed billions in cross-chain transfer volume. Users include Coinbase ($7B in wrapped assets), Swift (12+ institutions), DTCC Smart NAV (10 institutions), and Circle (USDC cross-chain transfers)."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CCIP (Cross-Chain Interoperability Protocol) is Chainlink's patented cross-chain messaging and settlement standard. It includes an independent Risk Management Network and has processed billions in cross-chain transfer volume. Users include Coinbase ($7B in wrapped assets), Swift (12+ institutions), DTCC Smart NAV (10 institutions), and Circle (USDC cross-chain transfers)."
+          }
         },
         {
           "@type": "Question",
           "name": "What is Chainlink CRE?",
-          "acceptedAnswer": {"@type": "Answer", "text": "CRE (Chainlink Runtime Environment) is Chainlink's enterprise workflow orchestration platform. It connects blockchain infrastructure with legacy financial systems. Used by DTCC for Collateral AppChain, the Reserve Bank of Australia for DvP settlement (Project Acacia), and 24 institutions in the Corporate Actions Initiative."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CRE (Chainlink Runtime Environment) is Chainlink's enterprise workflow orchestration platform. It connects blockchain infrastructure with legacy financial systems. Used by DTCC for Collateral AppChain, the Reserve Bank of Australia for DvP settlement (Project Acacia), and 24 institutions in the Corporate Actions Initiative."
+          }
         },
         {
           "@type": "Question",
           "name": "Does Chainlink have patents?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes. SmartContract Chainlink holds US11854101 (oracle order-matching, 2023), US12062037 (automation/state machines, 2024), US12494909 (VRF, 2025), US12401532 (distributed VRF, 2025), and patent application US20250342426 for the CCIP Risk Management Network."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SmartContract Chainlink holds US11854101 (oracle order-matching, 2023), US12062037 (automation/state machines, 2024), US12494909 (VRF, 2025), US12401532 (distributed VRF, 2025), and patent application US20250342426 for the CCIP Risk Management Network."
+          }
         },
         {
           "@type": "Question",
           "name": "Is Circle (USDC) connected to Chainlink?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes. Circle and Chainlink have a formal official partnership (May 2024). Chainlink CCIP integrates Circle CCTP for native cross-chain USDC transfers (January 2024). Chainlink price oracles had already enabled over $1.3 trillion in USDC transaction value across 6 blockchains before the formal partnership was announced."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Circle and Chainlink have a formal official partnership (May 2024). Chainlink CCIP integrates Circle CCTP for native cross-chain USDC transfers (January 2024). Chainlink price oracles had already enabled over $1.3 trillion in USDC transaction value across 6 blockchains before the formal partnership was announced."
+          }
         },
         {
           "@type": "Question",
           "name": "What is Chainlink SVR?",
-          "acceptedAnswer": {"@type": "Answer", "text": "SVR (Smart Value Recapture) returns liquidation MEV to DeFi protocols and Chainlink. Launched March 2025 with 100% Aave DAO vote. Over $1.1M recaptured with 80%+ recapture rate. Granted patent US12494909 covers related randomness infrastructure."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SVR (Smart Value Recapture) returns liquidation MEV to DeFi protocols and Chainlink. Launched March 2025 with 100% Aave DAO vote. Over $1.1M recaptured with 80%+ recapture rate. Granted patent US12494909 covers related randomness infrastructure."
+          }
         },
         {
           "@type": "Question",
           "name": "Which institutions are using Chainlink?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Confirmed Chainlink users include: DTCC ($4.7 quadrillion processed annually), Swift (11,500+ connected institutions), JPMorgan Kinexys, Fidelity International, Franklin Templeton, Coinbase, Circle, Mastercard, Euroclear, Deutsche Borse, Google Cloud, Reserve Bank of Australia, and ADI Predictstreet (FIFA World Cup 2026)."}
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Confirmed Chainlink users include: DTCC ($4.7 quadrillion processed annually), Swift (11,500+ connected institutions), JPMorgan Kinexys, Fidelity International, Franklin Templeton, Coinbase, Circle, Mastercard, Euroclear, Deutsche Borse, Google Cloud, Reserve Bank of Australia, and ADI Predictstreet (FIFA World Cup 2026)."
+          }
         }
       ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-001#article",
+      "url": "https://thelinkpanda.com/evidence/ev-001",
+      "identifier": "EV-001",
+      "headline": "On writing data once across all ledger networks",
+      "name": "On writing data once across all ledger networks",
+      "description": "DTCC CTO naming Chainlink as the infrastructure enabling write-once, proliferate-everywhere data across any ledger network.",
+      "datePublished": "2024-09-24",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=zxAgrSbwXZQ",
+      "sameAs": "https://www.youtube.com/watch?v=zxAgrSbwXZQ",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Dan Doney",
+          "jobTitle": "Managing Director, CTO of DTCC Digital Assets"
+        }
+      ],
+      "keywords": "Settlement, Interoperability, DTCC, Multi-Chain",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-002#article",
+      "url": "https://thelinkpanda.com/evidence/ev-002",
+      "identifier": "EV-002",
+      "headline": "On updating financial markets using Chainlink",
+      "name": "On updating financial markets using Chainlink",
+      "description": "DTCC confirming Chainlink as the mechanism for modernizing markets — DTCC processed $4.7 quadrillion in securities transactions in 2025.",
+      "datePublished": "2024-09-30",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.dtcc.com/dtcc-connection/articles/2024/september/30/leveraging-blockchain-for-capital-market-efficiency",
+      "sameAs": "https://www.dtcc.com/dtcc-connection/articles/2024/september/30/leveraging-blockchain-for-capital-market-efficiency",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Dan Doney",
+          "jobTitle": "Managing Director, CTO of DTCC Digital Assets"
+        }
+      ],
+      "keywords": "Tokenisation, DTCC, Market Infrastructure, Settlement",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-003#article",
+      "url": "https://thelinkpanda.com/evidence/ev-003",
+      "identifier": "EV-003",
+      "headline": "Interoperability is at the heart of SWIFT strategy",
+      "name": "Interoperability is at the heart of SWIFT strategy",
+      "description": "SWIFT's CIO officially naming interoperability as core strategic mission — the exact problem Chainlink CCIP solves, published on swift.com.",
+      "datePublished": "2023-08-31",
+      "author": {
+        "@type": "Organization",
+        "name": "SWIFT"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.swift.com/news-events/press-releases/swift-unlocks-potential-tokenisation-successful-blockchain-experiments",
+      "sameAs": "https://www.swift.com/news-events/press-releases/swift-unlocks-potential-tokenisation-successful-blockchain-experiments",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Tom Zschach",
+          "jobTitle": "Chief Innovation Officer"
+        }
+      ],
+      "keywords": "Interoperability, SWIFT, Infrastructure, CCIP",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-004#article",
+      "url": "https://thelinkpanda.com/evidence/ev-004",
+      "identifier": "EV-004",
+      "headline": "On Kinexys-Ondo-Chainlink cross-chain DvP settlement",
+      "name": "On Kinexys-Ondo-Chainlink cross-chain DvP settlement",
+      "description": "J.P. Morgan's Kinexys officially crediting Chainlink as the cross-chain orchestration layer for their first public-private blockchain DvP settlement. Published on jpmorgan.com.",
+      "datePublished": "2025-05-14",
+      "author": {
+        "@type": "Organization",
+        "name": "J.P. Morgan"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.jpmorgan.com/payments/newsroom/kinexys-chainlink-ondo-tokenized-asset-test",
+      "sameAs": "https://www.jpmorgan.com/payments/newsroom/kinexys-chainlink-ondo-tokenized-asset-test",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Nelli Zaltsman",
+          "jobTitle": "Head of Platform Settlement Solutions, Kinexys Digital Payments"
+        }
+      ],
+      "keywords": "Cross-Chain, Settlement, CCIP, DvP, Institutional",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-005#article",
+      "url": "https://thelinkpanda.com/evidence/ev-005",
+      "identifier": "EV-005",
+      "headline": "On using Chainlink for on-chain NAV",
+      "name": "On using Chainlink for on-chain NAV",
+      "description": "Direct institutional confirmation that Chainlink is live in Fidelity International's tokenized fund infrastructure for on-chain NAV delivery, enabling real-world asset tokens to carry verifiable fund data.",
+      "datePublished": "2024-10",
+      "author": {
+        "@type": "Organization",
+        "name": "Fidelity International"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://youtu.be/uO-BlozjWj4?t=1898",
+      "sameAs": "https://youtu.be/uO-BlozjWj4?t=1898",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Emma Pecenicic",
+          "jobTitle": "Head of Digital Propositions & Partnerships APACxJ"
+        }
+      ],
+      "keywords": "NAV, Proof of Reserve, Asset Management, Tokenisation, Fidelity International, Tokenized Funds",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-006#article",
+      "url": "https://thelinkpanda.com/evidence/ev-006",
+      "identifier": "EV-006",
+      "headline": "On providing daily Proof of Reserves on-chain",
+      "name": "On providing daily Proof of Reserves on-chain",
+      "description": "Franklin Templeton VP Digital Assets committing to daily on-chain reserve attestation — institutional adoption of Chainlink Proof of Reserve as a transparency standard.",
+      "datePublished": "2024-10",
+      "author": {
+        "@type": "Organization",
+        "name": "Franklin Templeton"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://youtu.be/uO-BlozjWj4?t=2543",
+      "sameAs": "https://youtu.be/uO-BlozjWj4?t=2543",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Andrew Crawford",
+          "jobTitle": "Vice President, Digital Assets"
+        }
+      ],
+      "keywords": "Proof of Reserve, Transparency, Asset Management, Franklin Templeton, Trust",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-007#article",
+      "url": "https://thelinkpanda.com/evidence/ev-007",
+      "identifier": "EV-007",
+      "headline": "On creating unified golden records on-chain",
+      "name": "On creating unified golden records on-chain",
+      "description": "Euroclear Head of Digital Assets describing the shift from sequential to circular data distribution where Chainlink powers a golden record giving every participant simultaneous access.",
+      "datePublished": "2024-12",
+      "author": {
+        "@type": "Organization",
+        "name": "Euroclear"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://chainlinktoday.com/euroclears-stephanie-lheureux-on-the-benefits-of-creating-unified-golden-records-onchain/",
+      "sameAs": "https://chainlinktoday.com/euroclears-stephanie-lheureux-on-the-benefits-of-creating-unified-golden-records-onchain/",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Stéphanie Lheureux",
+          "jobTitle": "Head of Digital Assets Competence Center"
+        }
+      ],
+      "keywords": "Tokenisation, Euroclear, Market Data, Oracle Infrastructure, Corporate Actions",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-008#article",
+      "url": "https://thelinkpanda.com/evidence/ev-008",
+      "identifier": "EV-008",
+      "headline": "On Chainlink-led real-time corporate actions initiative",
+      "name": "On Chainlink-led real-time corporate actions initiative",
+      "description": "BNP Paribas securities services formally endorsing Chainlink as the lead on real-time cross-jurisdictional corporate actions data, in an official multi-institution press release targeting the $58 billion annual cost of corporate actions processing.",
+      "datePublished": "2025",
+      "author": {
+        "@type": "Organization",
+        "name": "BNP Paribas"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Wayne Hughes",
+          "jobTitle": "Head of Digital Assets, Securities Services"
+        }
+      ],
+      "keywords": "Corporate Actions, Automation, Settlement, Data, BNP Paribas, Market Infrastructure",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-009#article",
+      "url": "https://thelinkpanda.com/evidence/ev-009",
+      "identifier": "EV-009",
+      "headline": "LINK potentially gaining prominence over Bitcoin",
+      "name": "LINK potentially gaining prominence over Bitcoin",
+      "description": "One of the earliest major institutional research reports to name Chainlink, framing LINK as potentially more significant than Bitcoin due to its role in critical blockchain infrastructure.",
+      "datePublished": "2021-03",
+      "author": {
+        "@type": "Organization",
+        "name": "Citi GPS"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.3bit-lab.com/documents/citi-bitcoin-at-the-tipping-point_202103.pdf",
+      "sameAs": "https://www.3bit-lab.com/documents/citi-bitcoin-at-the-tipping-point_202103.pdf",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Citi Global Perspectives & Solutions",
+          "jobTitle": "Institutional Research"
+        }
+      ],
+      "keywords": "LINK Token, Market Infrastructure, Research, Citi",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-010#article",
+      "url": "https://thelinkpanda.com/evidence/ev-010",
+      "identifier": "EV-010",
+      "headline": "Coinbase selects Chainlink CCIP as exclusive bridge infrastructure",
+      "name": "Coinbase selects Chainlink CCIP as exclusive bridge infrastructure",
+      "description": "Coinbase formally selecting Chainlink CCIP as their exclusive bridge infrastructure — not just an endorsement but a confirmed production deployment for wrapped asset growth.",
+      "datePublished": "2025",
+      "author": {
+        "@type": "Organization",
+        "name": "Coinbase"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/coinbase-selects-chainlink-ccip-as-the-exclusive-bridge-infrastructure-to-supercharge-coinbase-wrapped-asset-growth-302638753.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/coinbase-selects-chainlink-ccip-as-the-exclusive-bridge-infrastructure-to-supercharge-coinbase-wrapped-asset-growth-302638753.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Josh Leavitt",
+          "jobTitle": "Senior Director, Product Management"
+        }
+      ],
+      "keywords": "CCIP, Cross-Chain, Integration, Coinbase, Wrapped Assets, Bridge Infrastructure",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-011#article",
+      "url": "https://thelinkpanda.com/evidence/ev-011",
+      "identifier": "EV-011",
+      "headline": "$27 trillion in transaction value enabled by Chainlink",
+      "name": "$27 trillion in transaction value enabled by Chainlink",
+      "description": "Independent research quantifying $27T+ in transaction value secured by Chainlink — institutional-grade market sizing from a non-crypto-native firm.",
+      "datePublished": "2024",
+      "author": {
+        "@type": "Organization",
+        "name": "Water Tower Research"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.watertowerresearch.com/",
+      "sameAs": "https://www.watertowerresearch.com/",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "John Roy",
+          "jobTitle": "Managing Director, Technology"
+        }
+      ],
+      "keywords": "Infrastructure Scale, Research, Tokenisation, Market Infrastructure",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-012#article",
+      "url": "https://thelinkpanda.com/evidence/ev-012",
+      "identifier": "EV-012",
+      "headline": "Chainlink as a distribution multiplier comparable to Bloomberg and LSEG",
+      "name": "Chainlink as a distribution multiplier comparable to Bloomberg and LSEG",
+      "description": "Deutsche Börse's Head of Market Data placing Chainlink in the same category as Bloomberg and LSEG/Refinitiv — the dominant financial data distribution platforms — as a multiplier for institutional market data infrastructure.",
+      "datePublished": "2025-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Deutsche Börse Group"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=55mUaYzDL2k",
+      "sameAs": "https://www.youtube.com/watch?v=55mUaYzDL2k",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Dr. Alera Dorfar",
+          "jobTitle": "Managing Director, Market Data"
+        }
+      ],
+      "keywords": "Market Data, Deutsche Börse, Infrastructure, Data Feeds, Bloomberg, LSEG, Interoperability",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-013#article",
+      "url": "https://thelinkpanda.com/evidence/ev-013",
+      "identifier": "EV-013",
+      "headline": "Chainlink as a distribution multiplier comparable to Bloomberg and LSEG",
+      "name": "Chainlink as a distribution multiplier comparable to Bloomberg and LSEG",
+      "description": "Deutsche Börse's Head of Market Data placing Chainlink in the same category as Bloomberg and LSEG/Refinitiv — the dominant financial data distribution platforms — as a multiplier for institutional market data infrastructure.",
+      "datePublished": "2025-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Deutsche Börse Group"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=55mUaYzDL2k",
+      "sameAs": "https://www.youtube.com/watch?v=55mUaYzDL2k",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Dr. Alera Dorfar",
+          "jobTitle": "Managing Director, Market Data"
+        }
+      ],
+      "keywords": "Market Data, Deutsche Börse, Infrastructure, Data Feeds, Bloomberg, LSEG, Interoperability",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-014#article",
+      "url": "https://thelinkpanda.com/evidence/ev-014",
+      "identifier": "EV-014",
+      "headline": "On oracle reliability as a critical prerequisite for smart contracts",
+      "name": "On oracle reliability as a critical prerequisite for smart contracts",
+      "description": "DocuSign's founder — the person who digitized legal agreements — naming reliable oracle infrastructure as foundational to the entire smart contract industry.",
+      "datePublished": "2023",
+      "author": {
+        "@type": "Organization",
+        "name": "DocuSign"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=SZ3iy_jYFS4&t=854s",
+      "sameAs": "https://www.youtube.com/watch?v=SZ3iy_jYFS4&t=854s",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Tom Gonser",
+          "jobTitle": "Founder"
+        }
+      ],
+      "keywords": "Oracle Infrastructure, Smart Contracts, Data, DocuSign, Trust",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-015#article",
+      "url": "https://thelinkpanda.com/evidence/ev-015",
+      "identifier": "EV-015",
+      "headline": "Token network effects are a real discovery",
+      "name": "Token network effects are a real discovery",
+      "description": "Former Google CEO declaring token-based network economics a real discovery at Chainlink's SmartCon 2022 conference.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84&t=207s",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84&t=207s",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "Token Economics, Network Effects, Infrastructure, Eric Schmidt",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-016#article",
+      "url": "https://thelinkpanda.com/evidence/ev-016",
+      "identifier": "EV-016",
+      "headline": "The unquantifiable scale of Chainlink's addressable market",
+      "name": "The unquantifiable scale of Chainlink's addressable market",
+      "description": "Bitwise CIO framing Chainlink's addressable market as literally unquantifiable — hundreds of trillions across global financial infrastructure.",
+      "datePublished": "2024",
+      "author": {
+        "@type": "Organization",
+        "name": "Bitwise"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/shorts/8H2quL6SfO8",
+      "sameAs": "https://www.youtube.com/shorts/8H2quL6SfO8",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Ryan Rasmussen",
+          "jobTitle": "CIO"
+        }
+      ],
+      "keywords": "Market Opportunity, Infrastructure, Research, Bitwise, Tokenization, Capital Markets, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-017#article",
+      "url": "https://thelinkpanda.com/evidence/ev-017",
+      "identifier": "EV-017",
+      "headline": "Secure oracles are foundational, not optional",
+      "name": "Secure oracles are foundational, not optional",
+      "description": "The architect of Chainlink's oracle system defining oracles as structurally foundational — not an optional feature.",
+      "datePublished": "2023",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink Labs"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://blog.chain.link/oracles-the-key-to-unlocking-smart-contracts/",
+      "sameAs": "https://blog.chain.link/oracles-the-key-to-unlocking-smart-contracts/",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Ari Juels",
+          "jobTitle": "Chief Scientist"
+        }
+      ],
+      "keywords": "Oracle Infrastructure, Security, Foundation, Smart Contracts",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-018#article",
+      "url": "https://thelinkpanda.com/evidence/ev-018",
+      "identifier": "EV-018",
+      "headline": "Infrastructure standards create the most value",
+      "name": "Infrastructure standards create the most value",
+      "description": "Sergey Nazarov's 2017 original statement of the infrastructure investment thesis — the foundational idea behind LINK. Posted before Chainlink was publicly known, framing tokenized infrastructure as the missing economic model for protocols like Linux, SSL, and HTTP.",
+      "datePublished": "2017-05-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://x.com/SergeyNazarov/status/862157769813643264",
+      "sameAs": "https://x.com/SergeyNazarov/status/862157769813643264",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sergey Nazarov",
+          "jobTitle": "Co-Founder"
+        }
+      ],
+      "keywords": "Infrastructure, Internet Standards, Network Effects, Token Economics, Vision",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-019#article",
+      "url": "https://thelinkpanda.com/evidence/ev-019",
+      "identifier": "EV-019",
+      "headline": "Tokenization 2030 — Wall Street On-Chain",
+      "name": "Tokenization 2030 — Wall Street On-Chain",
+      "description": "Citi GPS projecting $4–5 trillion in tokenized assets by 2030 — the most-cited institutional market sizing for the tokenization opportunity.",
+      "datePublished": "2026",
+      "author": {
+        "@type": "Organization",
+        "name": "Citi GPS"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Citi Global Perspectives & Solutions",
+          "jobTitle": "Institutional Research"
+        }
+      ],
+      "keywords": "Tokenisation, Market Infrastructure, Research, Citi, RWA",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-020#article",
+      "url": "https://thelinkpanda.com/evidence/ev-020",
+      "identifier": "EV-020",
+      "headline": "A whole new industrial system",
+      "name": "A whole new industrial system",
+      "description": "Former Google CEO characterising Chainlink's infrastructure as a fundamentally new industrial system, not merely a technology product.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-021#article",
+      "url": "https://thelinkpanda.com/evidence/ev-021",
+      "identifier": "EV-021",
+      "headline": "Cryptographic truth is always the right answer",
+      "name": "Cryptographic truth is always the right answer",
+      "description": "Former Google CEO endorsing cryptographic truth as the foundational trust model — the principle underpinning Chainlink's oracle and proof systems.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-022#article",
+      "url": "https://thelinkpanda.com/evidence/ev-022",
+      "identifier": "EV-022",
+      "headline": "Faith in mathematics stronger than faith in institutions",
+      "name": "Faith in mathematics stronger than faith in institutions",
+      "description": "Former Google CEO predicting a civilisational shift in trust toward mathematics — a direct validation of the oracle and cryptographic proof model Chainlink is built on.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-023#article",
+      "url": "https://thelinkpanda.com/evidence/ev-023",
+      "identifier": "EV-023",
+      "headline": "Don't ask for regulation early",
+      "name": "Don't ask for regulation early",
+      "description": "Former Google CEO — who navigated Google through its regulatory period — advising Web3 builders to avoid premature regulatory engagement.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-024#article",
+      "url": "https://thelinkpanda.com/evidence/ev-024",
+      "identifier": "EV-024",
+      "headline": "Chainlink has better technology that scales better",
+      "name": "Chainlink has better technology that scales better",
+      "description": "Former Google CEO making a direct, unambiguous technical endorsement of Chainlink — citing both quality and scalability — at Chainlink's own conference.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-025#article",
+      "url": "https://thelinkpanda.com/evidence/ev-025",
+      "identifier": "EV-025",
+      "headline": "A piece of Google in everyone's computation",
+      "name": "A piece of Google in everyone's computation",
+      "description": "Former Google CEO drawing an explicit parallel between Google's infrastructure distribution model and the vision for Chainlink nodes in every computation.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-026#article",
+      "url": "https://thelinkpanda.com/evidence/ev-026",
+      "identifier": "EV-026",
+      "headline": "Congratulations for ending up in the right spot working with Chainlink",
+      "name": "Congratulations for ending up in the right spot working with Chainlink",
+      "description": "Former Google CEO closing a 42-minute fireside chat by explicitly telling the Chainlink ecosystem they chose the right infrastructure layer in Web3.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "sameAs": "https://www.youtube.com/watch?v=u2kOmSh4h84",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Eric Schmidt",
+          "jobTitle": "Former CEO"
+        }
+      ],
+      "keywords": "SmartCon 2022, Eric Schmidt, Infrastructure, Chainlink",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-027#article",
+      "url": "https://thelinkpanda.com/evidence/ev-027",
+      "identifier": "EV-027",
+      "headline": "DTCC Collateral AppChain to leverage Chainlink CRE and data standard",
+      "name": "DTCC Collateral AppChain to leverage Chainlink CRE and data standard",
+      "description": "DTCC — the institution that settles $4.7 quadrillion annually — officially integrating Chainlink CRE and data standards into its Collateral AppChain for 24/7 real-time collateral management.",
+      "datePublished": "2026-05-12",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management",
+      "sameAs": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "DTCC",
+          "jobTitle": "Official Announcement"
+        }
+      ],
+      "keywords": "Collateral Management, DTCC, CRE, Settlement, Market Infrastructure",
+      "genre": "Statement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-028#article",
+      "url": "https://thelinkpanda.com/evidence/ev-028",
+      "identifier": "EV-028",
+      "headline": "Chainlink Economics 2.0 — Staking, fees, and sustainable network growth",
+      "name": "Chainlink Economics 2.0 — Staking, fees, and sustainable network growth",
+      "description": "Foundational document establishing how LINK accrues value as the network grows: staking demand, protocol fees, BUILD contributions, and payment abstraction all create structural LINK demand proportional to Chainlink network usage.",
+      "datePublished": "2022",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink Labs"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://blog.chain.link/chainlink-economics-2-0/",
+      "sameAs": "https://blog.chain.link/chainlink-economics-2-0/",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sergey Nazarov",
+          "jobTitle": "Co-Founder"
+        }
+      ],
+      "keywords": "LINK Token, Staking, Economics, Value Accrual, Network Security, BUILD",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-029#article",
+      "url": "https://thelinkpanda.com/evidence/ev-029",
+      "identifier": "EV-029",
+      "headline": "Chainlink Data Streams — sub-second low-latency pull oracle",
+      "name": "Chainlink Data Streams — sub-second low-latency pull oracle",
+      "description": "Proves that Chainlink speed is not constrained by Ethereum block times — Data Streams operates on sub-second cadence independently of any blockchain finality.",
+      "datePublished": "2024",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink Labs"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://docs.chain.link/data-streams",
+      "sameAs": "https://docs.chain.link/data-streams",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Chainlink Labs",
+          "jobTitle": "Product"
+        }
+      ],
+      "keywords": "Data Streams, Low Latency, Pull Oracle, Performance, DeFi",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-030#article",
+      "url": "https://thelinkpanda.com/evidence/ev-030",
+      "identifier": "EV-030",
+      "headline": "Chainlink service suite — CCIP, Data Streams, Functions, Automation, SVR, Scale, BUILD",
+      "name": "Chainlink service suite — CCIP, Data Streams, Functions, Automation, SVR, Scale, BUILD",
+      "description": "Demonstrates that Chainlink's total addressable revenue is not limited to price feed subscriptions — CCIP, Data Streams, SVR, and BUILD each represent independent and growing revenue streams.",
+      "datePublished": "2024",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink Labs"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://chain.link/economics",
+      "sameAs": "https://chain.link/economics",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Chainlink Labs",
+          "jobTitle": "Product"
+        }
+      ],
+      "keywords": "Revenue, CCIP, Data Streams, SVR, BUILD, Economics, Tokenomics",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-031#article",
+      "url": "https://thelinkpanda.com/evidence/ev-031",
+      "identifier": "EV-031",
+      "headline": "Bringing Capital Markets Onchain — DTCC and Chainlink collaboration",
+      "name": "Bringing Capital Markets Onchain — DTCC and Chainlink collaboration",
+      "description": "The beginning of the DTCC-Chainlink institutional relationship. DTCC processes $4.7 quadrillion annually.",
+      "datePublished": "2023",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.chainlinkecosystem.com/ecosystem/dtcc",
+      "sameAs": "https://www.chainlinkecosystem.com/ecosystem/dtcc",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "DTCC Digital Assets",
+          "jobTitle": "Financial Market Infrastructure"
+        }
+      ],
+      "keywords": "DTCC, Capital Markets, Tokenisation, Infrastructure, Interoperability",
+      "genre": "NewsArticle"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-032#article",
+      "url": "https://thelinkpanda.com/evidence/ev-032",
+      "identifier": "EV-032",
+      "headline": "Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain",
+      "name": "Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain",
+      "description": "10 of the world's largest financial institutions used Chainlink CCIP in a live pilot. Simultaneously refutes: institutions don't use Chainlink, CCIP has no adoption, and tokenization doesn't need interoperability.",
+      "datePublished": "2024-05",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf",
+      "sameAs": "https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "DTCC Digital Assets",
+          "jobTitle": "Financial Market Infrastructure"
+        }
+      ],
+      "keywords": "DTCC, Smart NAV, CCIP, NAV, Tokenisation, Fund Data, BNY Mellon, JPMorgan, Franklin Templeton",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-033#article",
+      "url": "https://thelinkpanda.com/evidence/ev-033",
+      "identifier": "EV-033",
+      "headline": "24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem",
+      "name": "24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem",
+      "description": "24 institutions including DTCC, Swift, and Euroclear using CRE and CCIP simultaneously for production-grade capital markets infrastructure. Near 100% data consensus achieved.",
+      "datePublished": "2025-09",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/chainlink-and-24-leading-financial-market-participants-advance-industry-initiative-to-solve-58-billion-corporate-actions-problem-302569071.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Dan Doney",
+          "jobTitle": "Managing Director & CTO, DTCC Digital Assets"
+        }
+      ],
+      "keywords": "DTCC, Corporate Actions, CRE, CCIP, Swift, Euroclear, ISO 20022, AI, Capital Markets",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-034#article",
+      "url": "https://thelinkpanda.com/evidence/ev-034",
+      "identifier": "EV-034",
+      "headline": "DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management",
+      "name": "DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management",
+      "description": "DTCC using Chainlink CRE as orchestration layer for production-scale collateral management. Q4 2026 production launch. Not a pilot.",
+      "datePublished": "2026-05",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management",
+      "sameAs": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Nadine Chakar",
+          "jobTitle": "Global Head of DTCC Digital Assets"
+        }
+      ],
+      "keywords": "DTCC, CRE, Collateral, AppChain, Data Standard, Settlement, Production",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-035#article",
+      "url": "https://thelinkpanda.com/evidence/ev-035",
+      "identifier": "EV-035",
+      "headline": "US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present",
+      "name": "US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present",
+      "description": "Most ETF products experience outflow periods. The zero-outflow streak across all US LINK ETF products since launch — through a significant price drawdown — is statistically unusual. It indicates investors are allocating and holding rather than rotating capital. Compare: BTC ETFs and ETH ETFs both experienced hundreds of millions in outflows during the same period.",
+      "datePublished": "2026-03",
+      "author": {
+        "@type": "Organization",
+        "name": "SoSoValue / Arcamids"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://x.com/arcamids/status/2063917450505118191",
+      "sameAs": "https://x.com/arcamids/status/2063917450505118191",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "SoSoValue",
+          "jobTitle": "ETF Flow Analytics"
+        }
+      ],
+      "keywords": "Market Structure, ETF, Accumulation, Institutional, LINK Token, SoSoValue, Grayscale",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-036#article",
+      "url": "https://thelinkpanda.com/evidence/ev-036",
+      "identifier": "EV-036",
+      "headline": "US11854101 — Decentralized oracle order-matching patent granted",
+      "name": "US11854101 — Decentralized oracle order-matching patent granted",
+      "description": "A granted USPTO patent on the core oracle architecture means Chainlink has formal IP protection over the decentralized order-matching approach that powers Data Feeds. Oracles are not commoditized — the architecture is patented.",
+      "datePublished": "2023-12",
+      "author": {
+        "@type": "Organization",
+        "name": "USPTO"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://patents.justia.com/patent/11854101",
+      "sameAs": "https://patents.justia.com/patent/11854101",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sergey Nazarov / Steve Ellis / Ari Juels",
+          "jobTitle": "Inventors — SmartContract Chainlink Limited SEZC"
+        }
+      ],
+      "keywords": "Patent, Oracle Networks, Decentralization, Infrastructure, IP",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-037#article",
+      "url": "https://thelinkpanda.com/evidence/ev-037",
+      "identifier": "EV-037",
+      "headline": "US12062037 — Secure state machine with off-chain oracle switching granted",
+      "name": "US12062037 — Secure state machine with off-chain oracle switching granted",
+      "description": "Chainlink holds a granted patent on oracle-triggered smart contract state machines — the core mechanism behind Chainlink Automation and condition-based contract execution.",
+      "datePublished": "2024-08",
+      "author": {
+        "@type": "Organization",
+        "name": "USPTO"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://patents.justia.com/patent/12062037",
+      "sameAs": "https://patents.justia.com/patent/12062037",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sergey Nazarov / Alex Coventry / Steve Ellis / Ari Juels / Lorenz Breidenbach",
+          "jobTitle": "Inventors — SmartContract Chainlink Limited SEZC"
+        }
+      ],
+      "keywords": "Patent, Automation, Smart Contracts, Off-Chain Computation, IP",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-038#article",
+      "url": "https://thelinkpanda.com/evidence/ev-038",
+      "identifier": "EV-038",
+      "headline": "US12494909 — Verifiable randomness (VRF) for decentralized computing granted",
+      "name": "US12494909 — Verifiable randomness (VRF) for decentralized computing granted",
+      "description": "Chainlink holds a granted USPTO patent on on-chain verifiable randomness. Any competitor replicating VRF's on-chain proof approach faces patent infringement risk. The patent was first filed in May 2021 with priority to May 2020.",
+      "datePublished": "2025-12",
+      "author": {
+        "@type": "Organization",
+        "name": "USPTO"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html",
+      "sameAs": "https://patentsgazette.uspto.gov/week49/OG/html/1541-2/US12494909-20251209.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sergey Nazarov / Alex Coventry / Ari Juels",
+          "jobTitle": "Inventors — SmartContract Chainlink Limited SEZC"
+        }
+      ],
+      "keywords": "Patent, VRF, Randomness, Cryptography, Gaming, NFT, IP",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-039#article",
+      "url": "https://thelinkpanda.com/evidence/ev-039",
+      "identifier": "EV-039",
+      "headline": "US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published",
+      "name": "US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published",
+      "description": "CCIP is not a bridge. It is a patented cross-chain security system with an independent Risk Management Network. This patent application is the technical evidence that CCIP's security model is a novel, IP-protected invention — not a commodity bridge protocol.",
+      "datePublished": "2025",
+      "author": {
+        "@type": "Organization",
+        "name": "USPTO"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://patents.justia.com/patent/20250342426",
+      "sameAs": "https://patents.justia.com/patent/20250342426",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Chainlink Labs",
+          "jobTitle": "Applicant — SmartContract Chainlink Limited SEZC"
+        }
+      ],
+      "keywords": "Patent, CCIP, Risk Management, Security, Cross-Chain, Bridge Security, IP",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-040#article",
+      "url": "https://thelinkpanda.com/evidence/ev-040",
+      "identifier": "EV-040",
+      "headline": "Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure",
+      "name": "Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure",
+      "description": "SVR is proof that Chainlink is not just data infrastructure — it is an economic protocol. SVR creates a new revenue stream for both DeFi protocols and the Chainlink Network simultaneously. The Aave DAO voted 100% in favor. $1.1M+ recaptured and counting. This is Chainlink's oracle infrastructure actively generating measurable economic value for its ecosystem partners.",
+      "datePublished": "2025-03",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink Labs / Aave"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://dashboard.llamarisk.com/protocols/aave/svr",
+      "sameAs": "https://dashboard.llamarisk.com/protocols/aave/svr",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Chainlink Labs",
+          "jobTitle": "Oracle Infrastructure"
+        }
+      ],
+      "keywords": "SVR, MEV, Aave, Oracle Extractable Value, Revenue, DeFi, LINK Token, Economics",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-041#article",
+      "url": "https://thelinkpanda.com/evidence/ev-041",
+      "identifier": "EV-041",
+      "headline": "ADI Predictstreet — Official FIFA World Cup 2026 Prediction Market Partner adopts Chainlink as exclusive oracle infrastructure",
+      "name": "ADI Predictstreet — Official FIFA World Cup 2026 Prediction Market Partner adopts Chainlink as exclusive oracle infrastructure",
+      "description": "ADI Predictstreet is the official FIFA World Cup 2026 prediction market partner. By adopting Chainlink as exclusive oracle infrastructure, this deployment proves Chainlink use cases extend far beyond DeFi and institutional finance — into the largest sporting events on the planet.",
+      "datePublished": "2026-06",
+      "author": {
+        "@type": "Organization",
+        "name": "ADI Predictstreet / FIFA / Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/official-fifa-world-cup-2026-partner-adi-predictstreet-adopts-chainlink-as-exclusive-oracle-infrastructure-powering-prediction-markets-for-the-worlds-largest-sporting-event-302794475.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/official-fifa-world-cup-2026-partner-adi-predictstreet-adopts-chainlink-as-exclusive-oracle-infrastructure-powering-prediction-markets-for-the-worlds-largest-sporting-event-302794475.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "ADI Predictstreet",
+          "jobTitle": "Official FIFA World Cup 2026 Prediction Market Partner"
+        }
+      ],
+      "keywords": "CRE, Sports, Prediction Markets, FIFA, Consumer Scale, Oracle Infrastructure, Automation",
+      "genre": "Document"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-042#article",
+      "url": "https://thelinkpanda.com/evidence/ev-042",
+      "identifier": "EV-042",
+      "headline": "DTCC Collateral AppChain — Chainlink CRE and data standard selected for 24/7 collateral management",
+      "name": "DTCC Collateral AppChain — Chainlink CRE and data standard selected for 24/7 collateral management",
+      "description": "DTCC — which processes $4.7 quadrillion annually — chose Chainlink CRE as the orchestration layer for its Collateral AppChain. This is not a pilot. This is production infrastructure for the world's largest post-trade system.",
+      "datePublished": "2026-05",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management",
+      "sameAs": "https://www.dtcc.com/news/2026/may/12/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "DTCC",
+          "jobTitle": "Post-Trade Financial Infrastructure"
+        }
+      ],
+      "keywords": "DTCC, CRE, Collateral Management, Automation, Orchestration, Production, AppChain",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-043#article",
+      "url": "https://thelinkpanda.com/evidence/ev-043",
+      "identifier": "EV-043",
+      "headline": "DTCC Smart NAV Pilot — Chainlink CCIP used to deliver mutual fund NAV data onchain across 10 major financial institutions",
+      "name": "DTCC Smart NAV Pilot — Chainlink CCIP used to deliver mutual fund NAV data onchain across 10 major financial institutions",
+      "description": "10 of the most important financial institutions in the world — including DTCC, JPMorgan, BNY Mellon, and Franklin Templeton — validated that Chainlink CCIP is the interoperability layer for tokenized fund data delivery onchain.",
+      "datePublished": "2024-05",
+      "author": {
+        "@type": "Organization",
+        "name": "DTCC"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf",
+      "sameAs": "https://www.dtcc.com/-/media/Files/Downloads/DTCC-Connection/Smart_NAV-Report.pdf",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "DTCC / Chainlink Labs",
+          "jobTitle": "Post-Trade Research Initiative"
+        }
+      ],
+      "keywords": "DTCC, CCIP, Smart NAV, Tokenized Funds, NAV Data, Institutions, JPMorgan, Franklin Templeton",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-044#article",
+      "url": "https://thelinkpanda.com/evidence/ev-044",
+      "identifier": "EV-044",
+      "headline": "Swift used Chainlink and CCIP for tokenized asset settlement experiments across 12+ major financial institutions",
+      "name": "Swift used Chainlink and CCIP for tokenized asset settlement experiments across 12+ major financial institutions",
+      "description": "Swift — which connects 11,500+ financial institutions — published official confirmation of using Chainlink CCIP for tokenized asset settlement. This is the largest financial messaging network in the world endorsing Chainlink as its interoperability layer.",
+      "datePublished": "2023-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Swift / Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.swift.com/news-events/press-releases/swift-unlocks-potential-tokenisation-successful-blockchain-experiments",
+      "sameAs": "https://www.swift.com/news-events/press-releases/swift-unlocks-potential-tokenisation-successful-blockchain-experiments",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Swift",
+          "jobTitle": "Global Financial Messaging Network"
+        }
+      ],
+      "keywords": "Swift, CCIP, Interoperability, Tokenisation, Institutions, BNY Mellon, BNP Paribas, DTCC, Euroclear",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-045#article",
+      "url": "https://thelinkpanda.com/evidence/ev-045",
+      "identifier": "EV-045",
+      "headline": "Euroclear and 23 institutions achieve near-100% data consensus in Corporate Actions Initiative using Chainlink CRE and CCIP",
+      "name": "Euroclear and 23 institutions achieve near-100% data consensus in Corporate Actions Initiative using Chainlink CRE and CCIP",
+      "description": "24 institutions including Euroclear, DTCC, and Swift achieved near-100% data consensus on corporate actions using Chainlink CRE and CCIP. This is the financial industry solving its biggest data standardization problem using Chainlink as the coordination layer.",
+      "datePublished": "2025-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Euroclear / Chainlink Labs / DTCC / Swift"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://chain.link/resources/establishing-unified-standard-asset-servicing",
+      "sameAs": "https://chain.link/resources/establishing-unified-standard-asset-servicing",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Multiple Institutions",
+          "jobTitle": "Corporate Actions Working Group"
+        }
+      ],
+      "keywords": "Euroclear, CRE, CCIP, Corporate Actions, Data Standards, Institutions, DTCC, Swift, Golden Record",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-046#article",
+      "url": "https://thelinkpanda.com/evidence/ev-046",
+      "identifier": "EV-046",
+      "headline": "Google Cloud operates as official Chainlink node operator; demonstrated BigQuery blockchain data integration",
+      "name": "Google Cloud operates as official Chainlink node operator; demonstrated BigQuery blockchain data integration",
+      "description": "The world's largest cloud provider operates as a Chainlink node operator and demonstrated integrating its data analytics platform with blockchain via Chainlink. Former Google CEO Eric Schmidt publicly endorsed Chainlink on camera.",
+      "datePublished": "2022-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Google Cloud / Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://cloud.google.com/blog/products/data-analytics/building-hybrid-blockchain-cloud-applications-with-ethereum-and-google-cloud",
+      "sameAs": "https://cloud.google.com/blog/products/data-analytics/building-hybrid-blockchain-cloud-applications-with-ethereum-and-google-cloud",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Google Cloud",
+          "jobTitle": "Node Operator / Enterprise Partner"
+        }
+      ],
+      "keywords": "Google Cloud, BigQuery, Node Operator, Oracles, External Data, Eric Schmidt",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-047#article",
+      "url": "https://thelinkpanda.com/evidence/ev-047",
+      "identifier": "EV-047",
+      "headline": "Coinbase adopts Chainlink CCIP as exclusive bridge for $7B in wrapped assets; Coinbase DataLink brings exchange data onchain",
+      "name": "Coinbase adopts Chainlink CCIP as exclusive bridge for $7B in wrapped assets; Coinbase DataLink brings exchange data onchain",
+      "description": "Coinbase — the largest US crypto exchange — chose Chainlink CCIP as its exclusive bridge for $7B in assets, explicitly naming Chainlink as the industry leader for cross-chain connectivity. The most credible brand in US crypto made the clearest possible endorsement.",
+      "datePublished": "2025-09",
+      "author": {
+        "@type": "Organization",
+        "name": "Coinbase / Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/coinbase-and-chainlink-bring-exchange-data-powering-billions-in-trading-onchain-for-the-first-time-302724162.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/coinbase-and-chainlink-bring-exchange-data-powering-billions-in-trading-onchain-for-the-first-time-302724162.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Coinbase",
+          "jobTitle": "US Exchange / Base L2"
+        }
+      ],
+      "keywords": "Coinbase, CCIP, DataLink, Wrapped Assets, Exchange Data, Cross-Chain, Adoption",
+      "genre": "Document"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-048#article",
+      "url": "https://thelinkpanda.com/evidence/ev-048",
+      "identifier": "EV-048",
+      "headline": "Mastercard and Chainlink partner to enable 3.5 billion cardholders to purchase crypto directly onchain",
+      "name": "Mastercard and Chainlink partner to enable 3.5 billion cardholders to purchase crypto directly onchain",
+      "description": "Mastercard — with 3.5B cardholders — partnered with Chainlink to bring their payment network onchain. This is the clearest proof yet that Chainlink is not just DeFi infrastructure — it is the bridge between the existing payment system and the onchain economy.",
+      "datePublished": "2025-04",
+      "author": {
+        "@type": "Organization",
+        "name": "Mastercard / Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/chainlink-and-mastercard-partner-to-enable-over-3-billion-cardholders-to-purchase-crypto-directly-onchain-302489729.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/chainlink-and-mastercard-partner-to-enable-over-3-billion-cardholders-to-purchase-crypto-directly-onchain-302489729.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Mastercard",
+          "jobTitle": "Global Payment Network"
+        }
+      ],
+      "keywords": "Mastercard, Payments, Consumer Scale, Onchain Access, Interoperability, Adoption",
+      "genre": "Document"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-049#article",
+      "url": "https://thelinkpanda.com/evidence/ev-049",
+      "identifier": "EV-049",
+      "headline": "Securitize and VanEck adopt Chainlink NAVLink feeds for VBILL tokenized Treasury; integrate with Aave Horizon",
+      "name": "Securitize and VanEck adopt Chainlink NAVLink feeds for VBILL tokenized Treasury; integrate with Aave Horizon",
+      "description": "Securitize and VanEck chose Chainlink NAVLink to bring a tokenized Treasury fund into institutional DeFi. This is the institutional TradFi-to-DeFi bridge in action — and Chainlink is the data infrastructure making it work.",
+      "datePublished": "2025-10",
+      "author": {
+        "@type": "Organization",
+        "name": "Securitize / VanEck / Chainlink"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://securitize.io/learn/blog/Securitize-and-VanEck-Bring-VBILL-to-Aave-Horizon-and-Adopt-Chainlink-NAVLink-Feeds",
+      "sameAs": "https://securitize.io/learn/blog/Securitize-and-VanEck-Bring-VBILL-to-Aave-Horizon-and-Adopt-Chainlink-NAVLink-Feeds",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Securitize / VanEck",
+          "jobTitle": "Tokenization Platform / Asset Manager"
+        }
+      ],
+      "keywords": "Securitize, VanEck, NAVLink, Tokenized Funds, Aave, DeFi, Treasuries, Institutions",
+      "genre": "Document"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-050#article",
+      "url": "https://thelinkpanda.com/evidence/ev-050",
+      "identifier": "EV-050",
+      "headline": "Project Acacia — Reserve Bank of Australia uses Chainlink CRE for DvP settlement in 20-use-case wholesale tokenisation research project",
+      "name": "Project Acacia — Reserve Bank of Australia uses Chainlink CRE for DvP settlement in 20-use-case wholesale tokenisation research project",
+      "description": "The Reserve Bank of Australia — one of the world's most respected central banks — led a 20-use-case wholesale tokenisation project where Chainlink CRE was the orchestration layer connecting blockchain assets to real payment infrastructure. This is not a DeFi experiment. This is a central bank validating Chainlink as the connective tissue between tokenised markets and traditional settlement systems across multiple chains simultaneously.",
+      "datePublished": "2026-05",
+      "author": {
+        "@type": "Organization",
+        "name": "Reserve Bank of Australia / Chainlink Labs / Westpac"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/pdf/project-acacia-final-report.pdf",
+      "sameAs": "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/pdf/project-acacia-final-report.pdf",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Reserve Bank of Australia / DFCRC",
+          "jobTitle": "Central Bank Research Initiative"
+        }
+      ],
+      "keywords": "CRE, Central Bank, CBDC, Tokenisation, RBA, Australia, DvP Settlement, Westpac, JPMorgan, Interoperability, Real-World Assets, Orchestration",
+      "genre": "Report"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-051#article",
+      "url": "https://thelinkpanda.com/evidence/ev-051",
+      "identifier": "EV-051",
+      "headline": "Chainlink CCIP integrates Circle CCTP — enabling secure native cross-chain USDC transfers",
+      "name": "Chainlink CCIP integrates Circle CCTP — enabling secure native cross-chain USDC transfers",
+      "description": "Circle USDC is the most institutionally trusted dollar stablecoin. Chainlink CCIP is the security and interoperability layer enabling USDC to move natively across every major blockchain. This integration embeds Chainlink infrastructure into the movement of the world largest regulated stablecoin.",
+      "datePublished": "2024-01",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink / Circle"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.prnewswire.com/news-releases/chainlink-ccip-integrates-circles-cctp-to-support-cross-chain-usdc-transfers-302034925.html",
+      "sameAs": "https://www.prnewswire.com/news-releases/chainlink-ccip-integrates-circles-cctp-to-support-cross-chain-usdc-transfers-302034925.html",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sergey Nazarov — Co-Founder, Chainlink",
+          "jobTitle": "Cross-Chain Infrastructure Integration"
+        }
+      ],
+      "keywords": "CCIP, CCTP, Circle, USDC, Cross-Chain, Interoperability, Security, Stablecoins",
+      "genre": "Document"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-052#article",
+      "url": "https://thelinkpanda.com/evidence/ev-052",
+      "identifier": "EV-052",
+      "headline": "Chainlink and Circle formal partnership — CCIP, Data Feeds, and Proof of Reserve across USDC and EURC stablecoin infrastructure",
+      "name": "Chainlink and Circle formal partnership — CCIP, Data Feeds, and Proof of Reserve across USDC and EURC stablecoin infrastructure",
+      "description": "Chainlink price oracles enabled $1.3 trillion in USDC transaction value before the formal partnership was even announced. The partnership formalises CCIP, Data Feeds, and Proof of Reserve as the infrastructure layer for USDC and EURC across the full tokenised asset lifecycle.",
+      "datePublished": "2024-05",
+      "author": {
+        "@type": "Organization",
+        "name": "Chainlink / Circle"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.circle.com/pressroom/chainlink-and-circle-partner-to-expand-enterprise-and-developer-defi-engagement",
+      "sameAs": "https://www.circle.com/pressroom/chainlink-and-circle-partner-to-expand-enterprise-and-developer-defi-engagement",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "Sandra Persing — VP Product, Developer and Ecosystem Marketing, Circle",
+          "jobTitle": "Official Partnership Announcement"
+        }
+      ],
+      "keywords": "Circle, USDC, EURC, CCIP, Data Feeds, Proof of Reserve, Partnership, Enterprise, Stablecoins",
+      "genre": "Official Announcement"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://thelinkpanda.com/evidence/ev-053#article",
+      "url": "https://thelinkpanda.com/evidence/ev-053",
+      "identifier": "EV-053",
+      "headline": "ICMA DLT Repo Report Part I — explicitly identifies oracles as future infrastructure; interoperability emerges as the central institutional challenge",
+      "name": "ICMA DLT Repo Report Part I — explicitly identifies oracles as future infrastructure; interoperability emerges as the central institutional challenge",
+      "description": "ICMA — the global standards body for capital markets — explicitly names oracles as necessary future infrastructure in a DLT world. The same report confirms interoperability between ledgers as the central unsolved problem, validates Canton Network and Kinexys as the leading institutional implementations, and describes the exact tokenized collateral workflows that Chainlink CCIP, CRE, Proof of Reserve, and NAVLink are built to serve.",
+      "datePublished": "2026-06",
+      "author": {
+        "@type": "Organization",
+        "name": "ICMA / International Capital Market Association"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Chainlink institutional adoption"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/evidence#vault"
+      },
+      "creditText": "TheLinkPanda",
+      "isAccessibleForFree": true,
+      "citation": "https://www.icmagroup.org/News/news-in-brief/icma-publishes-the-first-part-of-its-report-on-dlt-repo/",
+      "sameAs": "https://www.icmagroup.org/News/news-in-brief/icma-publishes-the-first-part-of-its-report-on-dlt-repo/",
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "ICMA FinTech & Digitalisation",
+          "jobTitle": "Global Capital Markets Standards Body"
+        }
+      ],
+      "keywords": "ICMA, Oracles, Interoperability, Canton, Kinexys, Repo, DLT, Tokenization, Infrastructure, Capital Markets, Swift, JPMorgan",
+      "genre": "Report"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/dtcc#organization",
+      "url": "https://thelinkpanda.com/organizations/dtcc",
+      "name": "DTCC",
+      "legalName": "Depository Trust & Clearing Corporation",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-001#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-002#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-027#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-031#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-032#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-033#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-034#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-042#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-043#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-044#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-045#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/swift#organization",
+      "url": "https://thelinkpanda.com/organizations/swift",
+      "name": "Swift",
+      "legalName": "Society for Worldwide Interbank Financial Telecommunication",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-003#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-033#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-044#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-045#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-053#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/jpmorgan#organization",
+      "url": "https://thelinkpanda.com/organizations/jpmorgan",
+      "name": "J.P. Morgan",
+      "legalName": "JPMorgan Chase & Co.",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-004#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-032#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-043#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-050#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-053#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/fidelity#organization",
+      "url": "https://thelinkpanda.com/organizations/fidelity",
+      "name": "Fidelity International",
+      "legalName": "Fidelity International",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-005#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/coinbase#organization",
+      "url": "https://thelinkpanda.com/organizations/coinbase",
+      "name": "Coinbase",
+      "legalName": "Coinbase Global Inc.",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-010#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-047#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/citi#organization",
+      "url": "https://thelinkpanda.com/organizations/citi",
+      "name": "Citi",
+      "legalName": "Citigroup / Citi Institute",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-009#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-019#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-044#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/deutsche-borse#organization",
+      "url": "https://thelinkpanda.com/organizations/deutsche-borse",
+      "name": "Deutsche Borse",
+      "legalName": "Deutsche Borse Group",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-012#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-013#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/google#organization",
+      "url": "https://thelinkpanda.com/organizations/google",
+      "name": "Google",
+      "legalName": "Google LLC / Alphabet Inc.",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-015#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-020#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-021#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-022#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-023#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-024#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-025#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-026#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-046#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/franklin-templeton#organization",
+      "url": "https://thelinkpanda.com/organizations/franklin-templeton",
+      "name": "Franklin Templeton",
+      "legalName": "Franklin Templeton Investments",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-006#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-032#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-043#article"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://thelinkpanda.com/organizations/euroclear#organization",
+      "url": "https://thelinkpanda.com/organizations/euroclear",
+      "name": "Euroclear",
+      "legalName": "Euroclear Group",
+      "description": "",
+      "subjectOf": {
+        "@id": "https://thelinkpanda.com/#website"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-007#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-033#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-044#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-045#article"
+        }
+      ]
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-001",
+      "text": "Chainlink is the mechanism for writing data once across all ledger networks — it is the critical infrastructure that enables us to completely update financial markets.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Dan Doney",
+        "jobTitle": "Managing Director, CTO of DTCC Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DTCC"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Dan Doney",
+        "jobTitle": "Managing Director, CTO of DTCC Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DTCC"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "DTCC.com — official publication",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-001#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-002",
+      "text": "The Smart NAV Pilot demonstrates that CCIP provides a secure blockchain abstraction layer enabling institutions to interact with tokenized assets across any blockchain with defense-in-depth security.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Dan Doney",
+        "jobTitle": "Managing Director, CTO of DTCC Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DTCC"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Dan Doney",
+        "jobTitle": "Managing Director, CTO of DTCC Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DTCC"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "DTCC Smart NAV Report 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-043#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-003",
+      "text": "Interoperability is at the heart of everything Swift does in the face of increasing fragmentation.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Swift CIO",
+        "jobTitle": "Chief Information Officer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Swift"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Swift CIO",
+        "jobTitle": "Chief Information Officer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Swift"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Interoperability",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Swift official communications 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-044#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-004",
+      "text": "Chainlink has better technology and it scales better.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Eric Schmidt",
+        "jobTitle": "Former CEO, Google",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Google"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Eric Schmidt",
+        "jobTitle": "Former CEO, Google",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Google"
+        }
+      },
+      "dateCreated": "2022",
+      "about": "Technology",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "SmartCon 2022 — on camera, timestamped",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-046#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-005",
+      "text": "Congratulations to you all for ending up in the right spot in the Web3 space working with Chainlink.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Eric Schmidt",
+        "jobTitle": "Former CEO, Google",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Google"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Eric Schmidt",
+        "jobTitle": "Former CEO, Google",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Google"
+        }
+      },
+      "dateCreated": "2022",
+      "about": "Technology",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "SmartCon 2022 — on camera, timestamped",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-046#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-006",
+      "text": "We chose Chainlink because they are an industry leader for cross-chain connectivity.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Salman Banaei",
+        "jobTitle": "Head of Public Policy, Coinbase",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Coinbase"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Salman Banaei",
+        "jobTitle": "Head of Public Policy, Coinbase",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Coinbase"
+        }
+      },
+      "dateCreated": "2025",
+      "about": "CCIP",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Coinbase/Chainlink CCIP announcement — December 2025",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-047#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-007",
+      "text": "Chainlink enables us to go beyond money market fund constraints and deliver tokenized fund infrastructure that simply was not possible before.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Franklin Templeton VP",
+        "jobTitle": "Vice President, Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Franklin Templeton"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Franklin Templeton VP",
+        "jobTitle": "Vice President, Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Franklin Templeton"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Tokenization",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Franklin Templeton SmartCon presentation 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-006#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-008",
+      "text": "Chainlink enables circular data distribution — it allows you to give every participant access to the same golden record.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Euroclear Head of Digital Assets",
+        "jobTitle": "Head of Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Euroclear"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Euroclear Head of Digital Assets",
+        "jobTitle": "Head of Digital Assets",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Euroclear"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "SmartCon 2024 — on camera",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-045#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-009",
+      "text": "Chainlink acts as a data multiplicator — similar to how Bloomberg and LSEG/Refinitiv transformed market data access, Chainlink will transform on-chain data infrastructure.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Deutsche Borse Head of Market Data",
+        "jobTitle": "Head of Market Data",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Deutsche Borse"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Deutsche Borse Head of Market Data",
+        "jobTitle": "Head of Market Data",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Deutsche Borse"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Market Data",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Deutsche Borse SmartCon 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-013#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-010",
+      "text": "Chainlink oracles are being used to deliver on-chain NAV for our tokenized fund, providing institutional-grade verified pricing that connects our traditional fund infrastructure with blockchain rails.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Fidelity International",
+        "jobTitle": "Digital Assets Team",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Fidelity International"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Fidelity International",
+        "jobTitle": "Digital Assets Team",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Fidelity International"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Tokenization",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Fidelity International tokenized fund announcement 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-005#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-011",
+      "text": "The world is moving toward a multi-chain, multi-institution financial system. Chainlink is the trust layer that makes it possible for all of these systems to connect and interact with verified data.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Sergey Nazarov",
+        "jobTitle": "Co-Founder, Chainlink",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Chainlink Labs"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Sergey Nazarov",
+        "jobTitle": "Co-Founder, Chainlink",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Chainlink Labs"
+        }
+      },
+      "dateCreated": "2023",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "SmartCon 2023",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-017#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-012",
+      "text": "CCIP is not a bridge. CCIP is a universal messaging standard for the global financial system — the same way that SWIFT is a messaging standard, CCIP is the equivalent for the blockchain economy.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Sergey Nazarov",
+        "jobTitle": "Co-Founder, Chainlink",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Chainlink Labs"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Sergey Nazarov",
+        "jobTitle": "Co-Founder, Chainlink",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Chainlink Labs"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "CCIP",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Chainlink Labs — public communications 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-017#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-013",
+      "text": "Every tokenized asset needs verified data to function. Without an oracle, a tokenized bond is just a file on a computer. Chainlink is what makes tokenized assets real.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Sergey Nazarov",
+        "jobTitle": "Co-Founder, Chainlink",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Chainlink Labs"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Sergey Nazarov",
+        "jobTitle": "Co-Founder, Chainlink",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Chainlink Labs"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Tokenization",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "SmartCon 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-017#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-014",
+      "text": "Project Acacia demonstrated that Chainlink CRE can coordinate the asset and cash legs of DvP settlement across multiple blockchain networks simultaneously, connecting tokenised assets to existing payment infrastructure.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "RBA / DFCRC",
+        "jobTitle": "Reserve Bank of Australia",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Reserve Bank of Australia"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "RBA / DFCRC",
+        "jobTitle": "Reserve Bank of Australia",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Reserve Bank of Australia"
+        }
+      },
+      "dateCreated": "2026",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Project Acacia Final Report — May 2026, rba.gov.au",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-050#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-015",
+      "text": "Chainlink CRE enabled us to connect tokenized assets on DLT with PayTo — Australia's domestic payment infrastructure — for real-time Delivery versus Payment settlement.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Westpac Institutional Bank",
+        "jobTitle": "Global Transaction Services",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Westpac"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Westpac Institutional Bank",
+        "jobTitle": "Global Transaction Services",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Westpac"
+        }
+      },
+      "dateCreated": "2025",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Project Acacia / Westpac announcement 2025",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-050#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-016",
+      "text": "Ensuring that Australia's payments and monetary arrangements are fit for purpose in the digital age is a strategic priority for the RBA and the Payments System Board.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Brad Jones",
+        "jobTitle": "Assistant Governor (Financial System), RBA",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Reserve Bank of Australia"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Brad Jones",
+        "jobTitle": "Assistant Governor (Financial System), RBA",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Reserve Bank of Australia"
+        }
+      },
+      "dateCreated": "2025",
+      "about": "Tokenization",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Project Acacia industry participant announcement — July 2025",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-050#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-017",
+      "text": "Chainlink has secured over $27 trillion in transaction value and enabled more than 1,000 integrations across 100+ networks — a network effect that is structural and not easily replicated.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Water Tower Research",
+        "jobTitle": "Institutional Research",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Water Tower Research"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Water Tower Research",
+        "jobTitle": "Institutional Research",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Water Tower Research"
+        }
+      },
+      "dateCreated": "2024",
+      "about": "Market Structure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Water Tower Research institutional analysis 2024",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-011#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-018",
+      "text": "Tokenized assets could reach $4 to $5 trillion by 2030. The infrastructure required to verify, deliver, and settle tokenized asset data on-chain will be critical to that growth.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Citi GPS",
+        "jobTitle": "Research Division",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Citi"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Citi GPS",
+        "jobTitle": "Research Division",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Citi"
+        }
+      },
+      "dateCreated": "2023",
+      "about": "Tokenization",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Citi GPS Tokenization Report 2023",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-009#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-019",
+      "text": "We are exploring how a central bank-backed digital currency could support wholesale use cases, especially in areas like bond issuance, institutional lending, and asset custody.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "Jeff Byrne",
+        "jobTitle": "Managing Director, Global Transaction Services",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Westpac"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Jeff Byrne",
+        "jobTitle": "Managing Director, Global Transaction Services",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Westpac"
+        }
+      },
+      "dateCreated": "2025",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "Westpac / Project Acacia press release 2025",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-050#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-020",
+      "text": "Chainlink was selected as our exclusive oracle infrastructure because it provides the verified data, automated settlement, and instant payout capabilities required for a prediction market at the scale of the FIFA World Cup.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "ADI Predictstreet",
+        "jobTitle": "Official FIFA World Cup 2026 Prediction Market Partner",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ADI Predictstreet"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "ADI Predictstreet",
+        "jobTitle": "Official FIFA World Cup 2026 Prediction Market Partner",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ADI Predictstreet"
+        }
+      },
+      "dateCreated": "2026",
+      "about": "Consumer Scale",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "PRNewswire — ADI Predictstreet / Chainlink announcement June 2026",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-041#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-021",
+      "text": "Chainlink CRE will serve as the orchestration layer for our Collateral AppChain, enabling automated 24/7 collateral management workflows that connect blockchain infrastructure to real-time settlement.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "DTCC",
+        "jobTitle": "Post-Trade Infrastructure",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DTCC"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "DTCC",
+        "jobTitle": "Post-Trade Infrastructure",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DTCC"
+        }
+      },
+      "dateCreated": "2026",
+      "about": "CRE",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "DTCC.com — Collateral AppChain announcement May 2026",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-042#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-022",
+      "text": "DLT will need new types of intermediary (eg wallet-providers and oracles).",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "ICMA",
+        "jobTitle": "International Capital Market Association — DLT and Repo Report Part I",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ICMA"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "ICMA",
+        "jobTitle": "International Capital Market Association — DLT and Repo Report Part I",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ICMA"
+        }
+      },
+      "dateCreated": "2026",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "ICMA — DLT and Repo Report Part I (June 2026, icmagroup.org)",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-053#article"
+      }
+    },
+    {
+      "@type": "Quotation",
+      "@id": "https://thelinkpanda.com/quotes#qt-023",
+      "text": "The future path and prospects for DLT in the repo market will be the subject of the next part of the report.",
+      "spokenByCharacter": {
+        "@type": "Person",
+        "name": "ICMA",
+        "jobTitle": "International Capital Market Association — DLT and Repo Report Part I",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ICMA"
+        }
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "ICMA",
+        "jobTitle": "International Capital Market Association — DLT and Repo Report Part I",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ICMA"
+        }
+      },
+      "dateCreated": "2026",
+      "about": "Infrastructure",
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/quotes#library"
+      },
+      "citation": "ICMA — DLT and Repo Report Part I (June 2026, icmagroup.org) — published after concluding that interoperability and coordination layers remain the central unsolved challenge",
+      "mentions": {
+        "@id": "https://thelinkpanda.com/evidence/ev-053#article"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/ccip#term",
+      "url": "https://thelinkpanda.com/concepts/ccip",
+      "name": "Cross-Chain Interoperability Protocol",
+      "alternateName": "CCIP",
+      "description": "CCIP is Chainlink's cross-chain protocol that enables secure transfer of data, tokens, and instructions between different blockchain networks. Unlike standard bridges, CCIP includes an independent Risk Management Network (RMN) that treats all connected blockchains as potentially hostile and independently validates every cross-chain message.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-043#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-044#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-004#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-047#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/ccip#article",
+      "url": "https://thelinkpanda.com/concepts/ccip",
+      "headline": "What is CCIP? — Cross-Chain Interoperability Protocol",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/ccip#term"
+      },
+      "description": "The universal messaging standard for the multi-chain financial system.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "CCIP is Chainlink's cross-chain protocol that enables secure transfer of data, tokens, and instructions between different blockchain networks. Unlike standard bridges, CCIP includes an independent Risk Management Network (RMN) that treats all connected blockchains as potentially hostile and independently validates every cross-chain message. The financial system is becoming multi-chain. Tokenized assets issued on Ethereum need to interact with applications on Solana, Base, Arbitrum, and private institutional chains. CCIP is the standard that makes this possible without trusting any single bridge operator."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/cre#term",
+      "url": "https://thelinkpanda.com/concepts/cre",
+      "name": "Chainlink Runtime Environment",
+      "alternateName": "CRE",
+      "description": "CRE is Chainlink's workflow orchestration platform that connects blockchain infrastructure with legacy financial systems. It enables complex multi-step automated workflows across both on-chain and off-chain systems — coordinating data delivery, settlement instructions, compliance checks, and payment rails in real time.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-042#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-050#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-045#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-041#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/cre#article",
+      "url": "https://thelinkpanda.com/concepts/cre",
+      "headline": "What is CRE? — Chainlink Runtime Environment",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/cre#term"
+      },
+      "description": "Enterprise-grade orchestration for the tokenized financial system.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "CRE is Chainlink's workflow orchestration platform that connects blockchain infrastructure with legacy financial systems. It enables complex multi-step automated workflows across both on-chain and off-chain systems — coordinating data delivery, settlement instructions, compliance checks, and payment rails in real time. Tokenizing an asset is the easy part. Making it function in the real financial system — with custody, settlement, compliance, NAV calculation, and reporting — requires orchestration across many systems. CRE is the layer that connects them."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/svr#term",
+      "url": "https://thelinkpanda.com/concepts/svr",
+      "name": "Smart Value Recapture",
+      "alternateName": "SVR",
+      "description": "SVR is a mechanism that redirects liquidation MEV — value that was previously extracted by block builders — back to the DeFi protocol and the Chainlink oracle network. When Chainlink price feeds trigger liquidations in protocols like Aave, SVR uses a dual-feed architecture via Flashbots MEV-Share to capture the liquidation premium and split it between the protocol and Chainlink.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-040#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/svr#article",
+      "url": "https://thelinkpanda.com/concepts/svr",
+      "headline": "What is SVR? — Smart Value Recapture",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/svr#term"
+      },
+      "description": "Oracle infrastructure that generates economic value for DeFi protocols.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "SVR is a mechanism that redirects liquidation MEV — value that was previously extracted by block builders — back to the DeFi protocol and the Chainlink oracle network. When Chainlink price feeds trigger liquidations in protocols like Aave, SVR uses a dual-feed architecture via Flashbots MEV-Share to capture the liquidation premium and split it between the protocol and Chainlink. MEV in DeFi has historically been worth hundreds of millions of dollars annually. SVR transforms what was a pure value extraction by bots into a revenue stream for protocols and oracle infrastructure."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/proof-of-reserve#term",
+      "url": "https://thelinkpanda.com/concepts/proof-of-reserve",
+      "name": "Chainlink Proof of Reserve",
+      "alternateName": "Proof of Reserve",
+      "description": "Proof of Reserve (PoR) uses Chainlink oracle networks to automatically verify that a tokenized asset or stablecoin is backed by the reserves it claims. PoR continuously monitors custody accounts, custodian APIs, and financial data sources and publishes verifiable attestations on-chain.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-005#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-049#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/proof-of-reserve#article",
+      "url": "https://thelinkpanda.com/concepts/proof-of-reserve",
+      "headline": "What is Proof of Reserve? — Chainlink Proof of Reserve",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/proof-of-reserve#term"
+      },
+      "description": "Automated, real-time verification of real-world asset backing.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "Proof of Reserve (PoR) uses Chainlink oracle networks to automatically verify that a tokenized asset or stablecoin is backed by the reserves it claims. PoR continuously monitors custody accounts, custodian APIs, and financial data sources and publishes verifiable attestations on-chain. Tokenized assets are only as valuable as the underlying reserves. Without independent, automated verification, stablecoins and tokenized funds require blind trust in the issuer. PoR removes that trust requirement."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/data-feeds#term",
+      "url": "https://thelinkpanda.com/concepts/data-feeds",
+      "name": "Chainlink Data Feeds",
+      "alternateName": "Data Feeds",
+      "description": "Chainlink Data Feeds aggregate price and market data from multiple independent node operators and data providers, delivering tamper-proof reference data on-chain. Each feed combines inputs from Bloomberg, Refinitiv, ICE, and other institutional providers, aggregated by independent nodes using cryptographic methods.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-001#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-005#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-011#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-017#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/data-feeds#article",
+      "url": "https://thelinkpanda.com/concepts/data-feeds",
+      "headline": "What is Data Feeds? — Chainlink Data Feeds",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/data-feeds#term"
+      },
+      "description": "The most widely used decentralized oracle data infrastructure in existence.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "Chainlink Data Feeds aggregate price and market data from multiple independent node operators and data providers, delivering tamper-proof reference data on-chain. Each feed combines inputs from Bloomberg, Refinitiv, ICE, and other institutional providers, aggregated by independent nodes using cryptographic methods. Smart contracts cannot access external data natively. Every DeFi protocol that references an asset price — lending, derivatives, stablecoins, structured products — depends on a price feed. Data Feeds secure more value than any other oracle service."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/data-streams#term",
+      "url": "https://thelinkpanda.com/concepts/data-streams",
+      "name": "Chainlink Data Streams",
+      "alternateName": "Data Streams",
+      "description": "Data Streams is a pull-based oracle architecture that delivers low-latency market data off-chain, allowing applications to retrieve verified price updates only when needed. This enables sub-second data delivery independent of blockchain block times — critical for perpetuals, options, and other latency-sensitive instruments.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-029#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-017#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/data-streams#article",
+      "url": "https://thelinkpanda.com/concepts/data-streams",
+      "headline": "What is Data Streams? — Chainlink Data Streams",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/data-streams#term"
+      },
+      "description": "Sub-second institutional market data for latency-sensitive on-chain applications.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "Data Streams is a pull-based oracle architecture that delivers low-latency market data off-chain, allowing applications to retrieve verified price updates only when needed. This enables sub-second data delivery independent of blockchain block times — critical for perpetuals, options, and other latency-sensitive instruments. Push-based price feeds update on a schedule or deviation threshold. High-frequency trading, perpetual futures, and options protocols need faster, more granular data. Data Streams decouples oracle data delivery from on-chain confirmation timing."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/automation#term",
+      "url": "https://thelinkpanda.com/concepts/automation",
+      "name": "Chainlink Automation",
+      "alternateName": "Automation",
+      "description": "Chainlink Automation (formerly Keepers) enables smart contracts to be automatically executed when predefined conditions are met — without requiring a centralized server or manual trigger. Node operators monitor conditions off-chain and submit transactions on-chain when triggers fire.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-037#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-041#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/automation#article",
+      "url": "https://thelinkpanda.com/concepts/automation",
+      "headline": "What is Automation? — Chainlink Automation",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/automation#term"
+      },
+      "description": "Decentralized, condition-based smart contract execution.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "Chainlink Automation (formerly Keepers) enables smart contracts to be automatically executed when predefined conditions are met — without requiring a centralized server or manual trigger. Node operators monitor conditions off-chain and submit transactions on-chain when triggers fire. Smart contracts cannot execute themselves. A liquidation that should fire when collateral falls below a threshold, a rebalancing that should trigger at month end, a payment that should execute on a schedule — all require an external trigger. Automation provides that trigger in a decentralized, trust-minimized way."
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://thelinkpanda.com/concepts/vrf#term",
+      "url": "https://thelinkpanda.com/concepts/vrf",
+      "name": "Verifiable Random Function",
+      "alternateName": "VRF",
+      "description": "VRF generates a random number with a cryptographic proof that anyone can verify on-chain. Unlike block hashes (which miners can manipulate) or centralized RNG (which requires blind trust), VRF produces randomness that is demonstrably unpredictable and tamper-proof.",
+      "inDefinedTermSet": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "mentions": [
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-038#article"
+        },
+        {
+          "@id": "https://thelinkpanda.com/evidence/ev-017#article"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://thelinkpanda.com/concepts/vrf#article",
+      "url": "https://thelinkpanda.com/concepts/vrf",
+      "headline": "What is VRF? — Verifiable Random Function",
+      "about": {
+        "@id": "https://thelinkpanda.com/concepts/vrf#term"
+      },
+      "description": "Cryptographically provable randomness for smart contracts.",
+      "author": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://thelinkpanda.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://thelinkpanda.com/concepts#glossary"
+      },
+      "articleBody": "VRF generates a random number with a cryptographic proof that anyone can verify on-chain. Unlike block hashes (which miners can manipulate) or centralized RNG (which requires blind trust), VRF produces randomness that is demonstrably unpredictable and tamper-proof. Any application that requires provably fair outcomes — NFT minting, gaming, lotteries, governance selection — needs randomness that cannot be predicted or manipulated by any party, including the application developer."
     }
   ]
 }
@@ -5205,7 +8570,17 @@ function evBuildCard(e,i){
     +(e.tags&&e.tags.length?'<div class="ev-card-tags">'+e.tags.map(function(t){return'<span class="ev-card-tag">'+escHtml(t)+'</span>';}).join('')+'</div>':'')
     +'<button onclick="evCopyLink(\''+e.id+'\',this)" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:clamp(9px,0.58vw,10px);letter-spacing:.1em;color:rgba(200,146,42,.65);border:.5px solid rgba(200,146,42,.25);background:none;padding:4px 10px;cursor:pointer;margin-top:6px;transition:all .15s;border-radius:2px" title="Copy a direct link to this evidence entry" onmouseover="this.style.background=\'rgba(200,146,42,.08)\'" onmouseout="this.style.background=\'none\'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>SHARE</button>'
     +'</div>';
-  card.innerHTML=topRow+orgRow+bodyRow+sigRow+metaRow;
+  var sourceInfo='<div class="ev-source-info">'
+    +'<div class="ev-source-info-title">Source Information</div>'
+    +'<div class="ev-source-info-grid">'
+    +'<div><span class="ev-source-info-label">Institution</span><span class="ev-source-info-value">'+escHtml(e.org||'\u2014')+'</span></div>'
+    +'<div><span class="ev-source-info-label">Document</span><span class="ev-source-info-value">'+escHtml(e.source_label||e.title||'\u2014')+'</span></div>'
+    +'<div><span class="ev-source-info-label">Publication Date</span><span class="ev-source-info-value">'+escHtml(e.date||'\u2014')+'</span></div>'
+    +'<div><span class="ev-source-info-label">Document Type</span><span class="ev-source-info-value">'+escHtml((e.source_type||e.type||'\u2014'))+'</span></div>'
+    +'<div><span class="ev-source-info-label">Original Source</span><span class="ev-source-info-value">'+(e.source_url?'<a href="'+e.source_url+'" target="_blank" rel="noopener">'+escHtml(e.source_url)+'</a>':'\u2014')+'</span></div>'
+    +'<div><span class="ev-source-info-label">Evidence ID</span><span class="ev-source-info-value">'+escHtml(e.id.toUpperCase())+'</span></div>'
+    +'</div></div>';
+  card.innerHTML=topRow+orgRow+bodyRow+sigRow+metaRow+sourceInfo;
   return card;
 }
 
