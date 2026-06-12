@@ -1187,11 +1187,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mc-tag{font-family:var(--mono);font-size:clamp(13px,0.72vw,13px);letter-spacing:.1em;padding:2px 8px;border:.5px solid var(--border);color:var(--w20)}
 
 /* ── Patents stats bar override ── */
-#patents-stats.rstat-bar{justify-content:flex-start;padding:clamp(12px,1.2vw,18px) clamp(20px,2vw,32px)}
-#patents-stats .rstat-item{flex:0 0 auto;min-width:0;padding:0 clamp(16px,1.6vw,28px) 0 0;text-align:left;display:flex;align-items:center;gap:10px}
-#patents-stats .rstat-n{font-size:clamp(24px,2vw,32px);margin-bottom:0}
-#patents-stats .rstat-l{font-size:clamp(11px,.72vw,13px);line-height:1.3;text-align:left}
-#patents-stats .rstat-div{align-self:stretch;margin:0 clamp(16px,1.6vw,28px) 0 0}
+#pl-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;width:100%;padding:0}
+#pl-stats .rstat-item{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex:none;width:auto;min-width:0;max-width:none;padding:clamp(12px,1.2vw,18px);border:.5px solid var(--border);background:rgba(255,255,255,.012);white-space:normal}
+#pl-stats .rstat-n{font-size:clamp(22px,2vw,32px);margin-bottom:0;line-height:1;white-space:nowrap}
+#pl-stats .rstat-l{font-size:clamp(10px,.7vw,12px);line-height:1.35;text-align:left;color:var(--w40);font-family:var(--mono);letter-spacing:.06em;white-space:normal}
+#pl-stats .rstat-div{display:none}
 
 .qt-org{font-size:clamp(13px,.88vw,15px);color:var(--w50);letter-spacing:.02em}
 .qt-src{font-family:var(--mono);font-size:clamp(11px,.72vw,13px);color:var(--gold);opacity:.6;text-decoration:none;margin-top:auto;padding-top:8px;display:block;transition:opacity .15s}
@@ -8462,15 +8462,13 @@ function plRenderStats(){
   var tokenization=list.filter(function(p){return p.categories.indexOf('Tokenization')>-1;}).length;
   var smartContracts=list.filter(function(p){return p.categories.indexOf('Smart Contracts')>-1;}).length;
   var oracles=list.filter(function(p){return p.categories.indexOf('Oracles')>-1;}).length;
-  function stat(n,l){return '<div class="rstat-item"><div class="rstat-n">'+n+'</div><div class="rstat-l">'+l+'</div></div><div class="rstat-div"></div>';}
-  sb.innerHTML=stat(total,'total<br>patents')
-    +stat(companies,'companies<br>represented')
-    +stat(chainlinkRelated,'Chainlink-<br>related')
-    +stat(tokenization,'tokenization<br>patents')
-    +stat(smartContracts,'smart contract<br>patents')
-    +stat(oracles,'oracle<br>patents');
-  // remove trailing divider
-  sb.innerHTML=sb.innerHTML.replace(/<div class="rstat-div"><\/div>$/,'');
+  function stat(n,l){return '<div class="rstat-item"><div class="rstat-n">'+n+'</div><div class="rstat-l">'+l+'</div></div>';}
+  sb.innerHTML=stat(total,'Total patents')
+    +stat(companies,'Companies represented')
+    +stat(chainlinkRelated,'Chainlink-related')
+    +stat(tokenization,'Tokenization patents')
+    +stat(smartContracts,'Smart contract patents')
+    +stat(oracles,'Oracle patents');
 }
 
 function plSetType(type,btn){
