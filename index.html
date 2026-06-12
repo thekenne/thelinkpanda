@@ -4535,6 +4535,34 @@ function evRenderBanner(){
 }
 
 // ── INSTITUTIONS ─────────────────────────────────────────────────────
+// Alternate evidence-matching terms per institution (handles naming variations,
+// e.g. "J.P. Morgan" vs "JPMorgan" vs "Kinexys")
+var ORG_EV_TERMS = {
+  'dtcc': ['dtcc'],
+  'swift': ['swift'],
+  'jpmorgan': ['j.p. morgan','jpmorgan','jp morgan','kinexys'],
+  'fidelity': ['fidelity'],
+  'coinbase': ['coinbase'],
+  'citi': ['citi','citigroup'],
+  'deutsche-borse': ['deutsche b\u00f6rse','deutsche borse','deutsche b'],
+  'google': ['google'],
+  'franklin-templeton': ['franklin templeton','franklin'],
+  'euroclear': ['euroclear'],
+};
+function orgWordMatch(hay,term){
+  var esc=term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  var re=new RegExp('(^|[^a-z0-9])'+esc+'([^a-z0-9]|$)','i');
+  return re.test(hay);
+}
+function orgRelatedEvidence(inst){
+  var terms=ORG_EV_TERMS[inst.slug]||[inst.mcKey.toLowerCase(),inst.name.toLowerCase()];
+  return EVIDENCE.filter(function(e){
+    if(e.org===inst.evOrg)return true;
+    var hay=[e.org,e.title,e.body,e.significance].concat(e.tags||[]).join(' ').toLowerCase();
+    return terms.some(function(t){return orgWordMatch(hay,t);});
+  });
+}
+
 var INSTITUTIONS=[
   {slug:'dtcc',name:'DTCC',full:'Depository Trust & Clearing Corporation',role:'Post-trade infrastructure. Settles $4.7 quadrillion annually.',evOrg:'DTCC',mcKey:'DTCC',color:'rgba(60,160,255,0.85)'},
   {slug:'swift',name:'Swift',full:'Society for Worldwide Interbank Financial Telecommunication',role:'Global messaging connecting 11,000+ institutions.',evOrg:'SWIFT',mcKey:'SWIFT',color:'rgba(80,200,120,0.85)'},
@@ -5097,7 +5125,7 @@ function metricsLoadDeFiLlama(){
 
 function orgShowInst(slug){
   var inst=INSTITUTIONS.filter(function(x){return x.slug===slug;})[0];if(!inst)return;
-  var evE=EVIDENCE.filter(function(e){return e.org===inst.evOrg;});
+  var evE=orgRelatedEvidence(inst);
   var mcE=MISCONCEPTIONS.filter(function(m){return(m.institutions||[]).some(function(i){return i.indexOf(inst.mcKey)>-1;});});
   var qtE=(typeof QUOTES!=='undefined'?QUOTES:[]).filter(function(q){return q.org&&q.org.indexOf(inst.mcKey)>-1;});
   var vidE=(typeof SHORTS!=='undefined'?SHORTS:[]).filter(function(v){var hay=(v.title+' '+(v.sub||'')+' '+(v.cat||'')).toLowerCase();return hay.indexOf(inst.name.toLowerCase())>-1||hay.indexOf(inst.mcKey.toLowerCase())>-1;});
