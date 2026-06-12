@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://thelinkpanda.com/sitemap.xml
+Sitemap: https://thelinkpanda.com/ai-sitemap.xml
+
+# AI / LLM discovery
+# See https://thelinkpanda.com/llms.txt for an LLM-readable summary of this site.
