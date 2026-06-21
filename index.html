@@ -4690,6 +4690,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   ]
 }
 </script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VEMJHSX1LD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VEMJHSX1LD', {send_page_view: true});
+</script>
 </head>
 <body>
 
@@ -7456,6 +7464,14 @@ function showPage(page,filter,noPush){
     if(nl)nl.classList.toggle('active',p===page);
   });
   updatePageMeta(page);
+  // GA4 SPA route tracking — skip on initial load (gtag fires page_view automatically)
+  if(!noPush && typeof gtag === 'function'){
+    gtag('event', 'page_view', {
+      page_path: window.location.pathname,
+      page_title: document.title,
+      send_to: 'G-VEMJHSX1LD'
+    });
+  }
   // Sync bottom nav active tab
   var _btabs = ['home','explorer','evidence','metrics'];
   _btabs.forEach(function(t){
