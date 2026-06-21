@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/></noscript>
+<noscript></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -7082,7 +7082,7 @@ function exBuildServicePanel(){
       iconEl.alt=svc.name;
       (function(path,icon){
         iconEl.onerror=function(){
-          console.warn('Failed service logo path:',path);
+          /* service logo path warn removed */;
           this.style.display='none';
           var fb=document.createElement('span');
           fb.style.cssText='font-size:12px;opacity:.7';
@@ -7113,7 +7113,7 @@ function exBuildServicePanel(){
 function exBuildSVG(){
   var svg=document.getElementById('ex-svg');if(!svg)return;
   var ns='http://www.w3.org/2000/svg';svg.innerHTML='';
-  EXD.nodes.forEach(function(n){if(typeof n.x!=='number'||isNaN(n.x)||typeof n.y!=='number'||isNaN(n.y)){console.warn('[Explorer] bad coords:',n.id);n.x=0.5;n.y=0.5;}});
+  EXD.nodes.forEach(function(n){if(typeof n.x!=='number'||isNaN(n.x)||typeof n.y!=='number'||isNaN(n.y)){/* explorer coord warn removed */;n.x=0.5;n.y=0.5;}});
   var defs=document.createElementNS(ns,'defs');
   function mkF(id,col,blur){var f=document.createElementNS(ns,'filter');f.setAttribute('id',id);f.setAttribute('x','-80%');f.setAttribute('y','-80%');f.setAttribute('width','260%');f.setAttribute('height','260%');var fe=document.createElementNS(ns,'feGaussianBlur');fe.setAttribute('in','SourceGraphic');fe.setAttribute('stdDeviation',blur||'6');fe.setAttribute('result','blur');var fl=document.createElementNS(ns,'feFlood');fl.setAttribute('flood-color',col);fl.setAttribute('flood-opacity','1');fl.setAttribute('result','color');var co=document.createElementNS(ns,'feComposite');co.setAttribute('in','color');co.setAttribute('in2','SourceAlpha');co.setAttribute('operator','in');co.setAttribute('result','cb');var b2=document.createElementNS(ns,'feGaussianBlur');b2.setAttribute('in','cb');b2.setAttribute('stdDeviation',blur||'6');b2.setAttribute('result','sb');var m=document.createElementNS(ns,'feMerge');var n1=document.createElementNS(ns,'feMergeNode');n1.setAttribute('in','sb');var n2=document.createElementNS(ns,'feMergeNode');n2.setAttribute('in','SourceGraphic');m.appendChild(n1);m.appendChild(n2);f.appendChild(fe);f.appendChild(fl);f.appendChild(co);f.appendChild(b2);f.appendChild(m);return f;}
   defs.appendChild(mkF('glow-sel','rgba(60,140,255,.9)','8'));defs.appendChild(mkF('glow-reach','rgba(200,146,42,.8)','6'));defs.appendChild(mkF('glow-cl','rgba(40,100,255,.7)','10'));
@@ -7173,7 +7173,7 @@ function exBuildSVG(){
     g.appendChild(lbl);
     var hit=document.createElementNS(ns,'circle');hit.setAttribute('cx',px);hit.setAttribute('cy',py);hit.setAttribute('r','26');hit.setAttribute('fill','transparent');hit.setAttribute('stroke','none');g.appendChild(hit);
     EX.els[n.id]={g:g,glow:glow,ring:ring,bg:bg,lbl:lbl};
-    g.addEventListener('click',function(e){e.stopPropagation();console.log('[Explorer] clicked:',n.id,'svcs:',n.services);if(EX.selectedNode===n.id){exClearSelection();}else{exSelectNode(n);}});
+    g.addEventListener('click',function(e){e.stopPropagation();;if(EX.selectedNode===n.id){exClearSelection();}else{exSelectNode(n);}});
     ng.appendChild(g);
   });
   svg.appendChild(ng);
@@ -7348,7 +7348,7 @@ function exUpdateRightPanel(node){
 function exUpdateCtxDefault(){document.getElementById('ex-ctx-eyebrow').textContent='EXPLORER';document.getElementById('ex-ctx-title').textContent='Chainlink connects every layer of the global financial system.';document.getElementById('ex-ctx-body').textContent='Click any node to see how Chainlink powers the connections between systems.';document.getElementById('ex-ctx-tags').innerHTML='';setTimeout(exCheckScrollFade,60);}
 
 function exClickService(svcName){
-  console.log('[Explorer] service:',svcName);exClearAnimations();
+  ;exClearAnimations();
   if(EX.selectedSvc===svcName){EX.selectedSvc=null;EX.selectedNode=null;EX.reachableSet={};exApplyVisuals();exHighlightServices([]);exUpdateCtxDefault();document.getElementById('ex-ctx-svcs').style.display='none';document.getElementById('ex-how').style.display='';return;}
   // Look up service data FIRST — must be before any use of svcData
   var svcData=EXD.chainlinkServices.filter(function(sv){return sv.id===svcName;})[0];
