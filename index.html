@@ -1210,7 +1210,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <link rel="canonical" href="https://thelinkpanda.com/" id="meta-canonical"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
-  <link rel="preload" as="image" href="/assets/banner/TheLinkPanda banner split.jpg" fetchpriority="high" media="(min-width:769px)"/>
+  <link rel="preload" as="image" href="/assets/banner/TheLinkPanda banner split.webp" type="image/webp" fetchpriority="high" media="(min-width:769px)"/>
+<link rel="preload" as="image" href="/assets/banner/TheLinkPanda banner split.jpg" fetchpriority="high" media="(min-width:769px)"/>
   
   
   
@@ -4817,14 +4818,24 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <!-- HERO (Doc1 d803a96c) -->
   <section class="hero">
-    <img class="hero-right-img"
-      src="assets/banner/TheLinkPanda banner split.jpg"
-      alt="TheLinkPanda — Infrastructure Before Narratives"
-      width="960" height="580"
-      loading="eager"
-      fetchpriority="high"
-      decoding="sync"
-      onerror="this.style.opacity='.1'"/>
+    <picture>
+      <source
+        srcset="assets/banner/TheLinkPanda banner split.webp"
+        type="image/webp"
+        media="(min-width:769px)"/>
+      <source
+        srcset="assets/banner/TheLinkPanda banner split.avif"
+        type="image/avif"
+        media="(min-width:769px)"/>
+      <img class="hero-right-img"
+        src="assets/banner/TheLinkPanda banner split.jpg"
+        alt="TheLinkPanda — Infrastructure Before Narratives"
+        width="960" height="580"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        onerror="this.style.opacity='.1'"/>
+    </picture>
     <video class="hero-panda-video" autoplay muted loop playsinline preload="none"
       onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
@@ -5474,7 +5485,12 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <div class="hero" style="max-height:420px">
     <img class="hero-right-img"
       src="assets/banner/TheLinkPanda banner split.jpg"
-      alt="TheLinkPanda" onerror="this.style.opacity='.1'"/>
+      alt="TheLinkPanda"
+      width="960" height="580"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+      onerror="this.style.opacity='.1'"/>
     <video class="hero-panda-video" autoplay muted loop playsinline preload="none"
       style="opacity:.7" onerror="this.style.display='none'">
       <source src="assets/video/Panda background.mp4" type="video/mp4"/>
