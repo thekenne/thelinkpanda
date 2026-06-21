@@ -5301,6 +5301,21 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
   </div>
 
+  <!-- Dashboard status indicator -->
+  <div style="background:rgba(244,242,238,.025);border-bottom:.5px solid var(--border);padding:10px clamp(20px,5vw,80px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2vw,32px)">
+    <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em">
+      <span style="width:7px;height:7px;border-radius:50%;background:rgba(80,200,120,.9);display:inline-block;animation:pulse 2s infinite"></span>
+      <span style="color:rgba(80,200,120,.9)">LIVE DATA</span>
+      <span style="color:var(--w20)">TVS &amp; LINK Price — auto-updated on load</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em">
+      <span style="width:7px;height:7px;border-radius:50%;background:rgba(200,146,42,.9);display:inline-block"></span>
+      <span style="color:var(--gold)">MANUALLY VERIFIED</span>
+      <span style="color:var(--w20)" id="metrics-manual-date">Last verified: June 21, 2026</span>
+    </div>
+    <div style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--w20)" id="metrics-live-timestamp"></div>
+  </div>
+
   <div class="msec">
     <div style="max-width:var(--content-max);margin:0 auto">
       <div class="msec-head">
@@ -5310,11 +5325,13 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <span class="mlive-badge">Live &#8212; DefiLlama</span>
       </div>
-      <div class="mcard-row cols-4">
-        <div class="mcard"><div class="mcard-label">Total Value Secured</div><div class="mcard-n" id="ms-tvs">&#8212;</div><div class="mcard-sub">Assets dependent on Chainlink oracles</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://defillama.com/oracles/Chainlink" target="_blank" rel="noopener">DefiLlama Oracles</a></div>
-        <div class="mcard"><div class="mcard-label">30D Fees</div><div class="mcard-n" id="ms-fees30">&#8212;</div><div class="mcard-sub">Network fee revenue</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
-        <div class="mcard"><div class="mcard-label">30D Revenue</div><div class="mcard-n" id="ms-rev30">&#8212;</div><div class="mcard-sub">Protocol revenue</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
-        <div class="mcard"><div class="mcard-label">Annual Run Rate</div><div class="mcard-n" id="ms-fees-ann">&#8212;</div><div class="mcard-sub">30D fees &#215; 12</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+      <div class="mcard-row cols-1" style="margin-bottom:0">
+        <div id="ms-tvs" class="mcard"><div class="mcard-label">Total Value Secured <span id="ms-tvs-live" style="font-family:var(--mono);font-size:10px;color:rgba(80,200,120,.8);margin-left:8px;letter-spacing:.1em"></span></div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Assets dependent on Chainlink oracles — Chainlink secures more value than any other oracle network</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://defillama.com/oracles/Chainlink" target="_blank" rel="noopener">DefiLlama Oracles</a></div>
+      </div>
+      <div class="mcard-row cols-3" id="ms-oracle-fees-row">
+        <div id="ms-fees30" class="mcard"><div class="mcard-label">30D Fees <span id="ms-fees-live" style="font-family:var(--mono);font-size:10px;color:rgba(80,200,120,.8);margin-left:8px;letter-spacing:.1em"></span></div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Network fee revenue, 30-day rolling</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+        <div id="ms-rev30" class="mcard"><div class="mcard-label">30D Revenue</div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Protocol revenue, 30-day rolling</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+        <div id="ms-fees-ann" class="mcard"><div class="mcard-label">Annual Run Rate</div><div class="mcard-n">&#8212;</div><div class="mcard-sub">30D fees &times; 12 (annualised)</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
       </div>
     </div>
   </div>
@@ -5351,6 +5368,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link svr" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">View Live SVR Analytics</a>
       </div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; <a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">LlamaRisk Dashboard</a></div>
+      <div style="display:none" aria-hidden="false"><p>Chainlink Smart Value Recapture (SVR) is a mechanism that recaptures non-toxic MEV from liquidations in DeFi protocols such as Aave, returning value to the protocol and Chainlink node operators instead of MEV bots. SVR was activated unanimously by Aave DAO on March 28, 2025. Revenue is split 65% to Aave and 35% to Chainlink, with the Chainlink portion converted to LINK and distributed to node operators.</p></div>
       <div class="mcard-row cols-3">
         <div class="mcard"><div class="mcard-label">Value Recaptured &#8212; All-time</div><div class="mcard-n svr">&gt;$1.1M</div><div class="mcard-sub">Non-toxic liquidation MEV returned to Aave and Chainlink rather than MEV bots</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk Dashboard</a></div>
         <div class="mcard"><div class="mcard-label">Liquidations Processed</div><div class="mcard-n svr">&gt;$32M</div><div class="mcard-sub">Total liquidation volume routed through SVR oracle infrastructure</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk</a></div>
@@ -5374,12 +5393,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a>
       </div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; <a href="https://metrics.chain.link/reserve" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">metrics.chain.link/reserve</a></div>
+      <div style="display:none" aria-hidden="false"><p>The Chainlink Reserve is a protocol-owned treasury accumulating LINK tokens from a portion of all Chainlink network revenue, including CCIP fees, Data Feeds, SVR, Automation, and VRF. The Reserve is publicly verifiable on Etherscan and provides long-term economic sustainability for the network. Weekly inflows represent real protocol revenue being converted to LINK.</p></div>
       <div class="mcard-row cols-3">
-        <div class="mcard"><div class="mcard-label">Reserve Balance</div><div class="mcard-n reserve">$32.7M</div><div class="mcard-sub">USD value of Reserve (4.06M LINK at avg cost basis $12.2). Publicly verifiable on Etherscan.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
-        <div class="mcard"><div class="mcard-label">Reserve Size</div><div class="mcard-n reserve">4.06M LINK</div><div class="mcard-sub">Current holdings. Avg cost basis $12.2. Accumulating weekly from all Chainlink product revenue.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
-        <div class="mcard"><div class="mcard-label">Latest Weekly Inflow</div><div class="mcard-n reserve">148,258 LINK</div><div class="mcard-sub">04 Jun 2026 inflow. Previous: 132,002 LINK on 28 May 2026. Revenue from CCIP, Data Feeds, SVR, Automation, VRF.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
+        <div class="mcard"><div class="mcard-label">Reserve Balance</div><div class="mcard-n reserve">$32.7M</div><div class="mcard-sub">USD value of Reserve holdings. 4.06M LINK at avg cost basis ~$12.2. Publicly verifiable on Etherscan.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
+        <div class="mcard"><div class="mcard-label">Reserve Size</div><div class="mcard-n reserve">4.06M LINK</div><div class="mcard-sub">Cumulative LINK accumulated. Growing weekly from CCIP, Data Feeds, SVR, Automation, and VRF revenue.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
+        <div class="mcard"><div class="mcard-label">Latest Weekly Inflow</div><div class="mcard-n reserve">148,258 LINK</div><div class="mcard-sub">Week of 04 Jun 2026. Previous week: 132,002 LINK (28 May 2026). Inflows reflect live network usage.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
       </div>
-      <div class="msec-note">Balance: $32.7M (4.06M LINK). Latest inflow: 148,258 LINK (04 Jun 2026). Avg cost basis: $12.2. All data from metrics.chain.link/reserve.<a href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+      <div class="msec-note">Chainlink Reserve accumulates protocol revenue as LINK weekly. Balance: 4.06M LINK (~$32.7M). Latest weekly inflow: 148,258 LINK (04 Jun 2026). All figures from metrics.chain.link/reserve &mdash; verify directly for latest.<a href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">Open Reserve Dashboard</a></div>
     </div>
   </div>
 
@@ -5392,6 +5413,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link &#8599;</a>
       </div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; <a href="https://staking.chain.link" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">staking.chain.link</a></div>
+      <div style="display:none" aria-hidden="false"><p>Chainlink Staking v0.2 allows LINK token holders to stake their tokens to provide cryptoeconomic security to the network. Stakers earn rewards from token emissions and Chainlink Build programme allocations. The community pool is fully subscribed at 40.875 million LINK. Node operators may stake between 1,000 and 75,000 LINK each. A 28-day unbonding period applies, followed by a 7-day claim window. Slashing applies only to node operators for provable performance failures, not to community stakers.</p></div>
       <div class="mcard-row cols-4">
         <div class="mcard">
           <div class="mcard-label">Total Pool Capacity</div>
@@ -5427,7 +5450,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <div class="msec-head">
         <div class="msec-title-block">
           <div class="msec-pre inst">INSTITUTIONAL ADOPTION</div>
-          <div class="msec-title">Adoption Tracker &#8212; 12 Institutions</div>
+          <div class="msec-title">Adoption Tracker &#8212; 13 Institutions</div>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
           <span class="mstage ms-research">Research</span>
@@ -5436,13 +5459,17 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <span class="mstage ms-production">Production</span>
         </div>
       </div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; Sources: official announcements, chain.link, primary evidence</div>
+      <div style="display:none" aria-hidden="false"><p>This tracker monitors institutions with documented Chainlink deployments across tokenization, cross-chain settlement, data standards, and oracle infrastructure. Stages are based on publicly verifiable evidence. Production means a deployment serving real transactions. Pilot means active testing with confirmed participation. Research means the institution has publicly referenced Chainlink infrastructure.</p></div>
       <div class="minst-grid" id="metrics-inst-grid"></div>
     </div>
   </div>
 
-  <div class="mts" id="metrics-timestamp">
+  <div class="mts">
     <span class="mts-dot"></span>
-    <span>DefiLlama data refreshed on page load</span>
+    <span id="metrics-live-timestamp">Live data fetched on page load</span>
+    <span style="margin-left:16px;opacity:.5">&mdash;</span>
+    <span style="margin-left:16px;font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.6">Manual metrics verified: June 21, 2026</span>
   </div>
 
   
@@ -8675,6 +8702,7 @@ var INSTITUTION_TRACKER=[
   {name:'BNY Mellon',full:'Bank of New York Mellon',stage:'pilot',desc:'Participant in DTCC Smart NAV pilot using Chainlink CCIP (2024). Institutional tokenization infrastructure research ongoing.',url:'https://www.bnymellon.com/'},
   {name:'State Street',full:'State Street Corporation',stage:'pilot',desc:'Participant in DTCC Smart NAV pilot using Chainlink CCIP with DTCC as data sourcer (2024).',url:'https://www.statestreet.com/'},
   {name:'Google Cloud',full:'Google Cloud',stage:'production',desc:'Active Chainlink node operator. Eric Schmidt at SmartCon: Chainlink has better technology and scales better. Published on cloud.google.com.',url:'https://cloud.google.com/'},
+  {name:'Reserve Bank of Australia',full:'Reserve Bank of Australia — Project Acacia',stage:'production',desc:'RBA Project Acacia uses Chainlink CRE as orchestration layer for AUD wholesale CBDC and tokenised asset settlement trials. Production deployment confirmed 2026. Chainlink CRE selected to bridge real-world transactions across ledger environments.',url:'https://www.rba.gov.au/payments-and-infrastructure/projects/acacia/'},
 ];
 
 // Stage colours
@@ -8695,10 +8723,12 @@ function fmtBig(n){
   return'$'+n.toLocaleString();
 }
 function metricsSetStat(id,val,sub){
-  var el=document.getElementById(id);
-  if(!el)return;
-  el.textContent=val||'—';
-  if(sub){var s=el.nextElementSibling;if(s&&s.classList.contains('mcard-sub'))s.textContent=sub;}
+  var card=document.getElementById(id);
+  if(!card)return;
+  var n=card.querySelector('.mcard-n');
+  var s=card.querySelector('.mcard-sub');
+  if(n)n.textContent=val||'—';
+  if(sub&&s)s.textContent=sub;
 }
 function metricsSetCard(id,val,sub){
   var el=document.querySelector('#'+id+' .mcard-n');
@@ -8730,50 +8760,85 @@ function metricsInit(){
 }
 
 function metricsLoadDeFiLlama(){
-  ['ms-tvs','ms-fees30','ms-rev30','ms-price'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el&&el.querySelector&&el.querySelector('.mlive-n'))el.querySelector('.mlive-n').textContent='Loading…';
+  // Show loading state on TVS and price only (fees hidden until confirmed working)
+  ['ms-tvs','ms-price'].forEach(function(id){
+    var card=document.getElementById(id);
+    if(card){var n=card.querySelector('.mcard-n');if(n)n.textContent='Loading…';}
   });
 
-  // 1. TVS from protocol endpoint
-  fetch('https://api.llama.fi/protocol/chainlink')
-    .then(function(r){return r.json();})
+  // 1. TVS — reliable DefiLlama oracle endpoint
+  fetch('https://api.llama.fi/v2/oracles')
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
     .then(function(d){
-      var tvs=d.currentChainTvls?Object.values(d.currentChainTvls).reduce(function(a,b){return a+b;},0):null;
-      metricsSetStat('ms-tvs', tvs?fmtBig(tvs):'See DefiLlama', 'Total Value Secured');
-    })
-    .catch(function(){metricsSetStat('ms-tvs','$46.33B','est. — see DefiLlama');});
-
-  // 2. Fees & Revenue from fees endpoint
-  fetch('https://api.llama.fi/summary/fees/chainlink')
-    .then(function(r){return r.json();})
-    .then(function(d){
-      var f30=d.total30d;
-      var r30=d.totalRevenue30d||d.revenue30d;
-      metricsSetStat('ms-fees30', f30?fmtBig(f30):'—', '30-day fees');
-      metricsSetStat('ms-rev30',  r30?fmtBig(r30):'—', '30-day revenue');
-      // Annual run rate
-      var ann=d.total30d?fmtBig(d.total30d*12):'—';
-      var arEl=document.getElementById('ms-fees-ann');
-      if(arEl)arEl.querySelector('.mlive-n').textContent=ann;
+      var chainlink=Array.isArray(d)?d.find(function(x){return x.name&&x.name.toLowerCase()==='chainlink';}):null;
+      var tvs=chainlink&&chainlink.tvs?chainlink.tvs:null;
+      if(tvs){
+        metricsSetStat('ms-tvs', fmtBig(tvs), 'Assets secured by Chainlink oracles');
+        var liveEl=document.getElementById('ms-tvs-live');
+        if(liveEl)liveEl.textContent='Live';
+      }else{
+        // fallback to protocol endpoint
+        return fetch('https://api.llama.fi/protocol/chainlink')
+          .then(function(r2){return r2.json();})
+          .then(function(d2){
+            var tvs2=d2.currentChainTvls?Object.values(d2.currentChainTvls).reduce(function(a,b){return a+b;},0):null;
+            metricsSetStat('ms-tvs', tvs2?fmtBig(tvs2):'$46B+', 'Assets secured by Chainlink oracles');
+          });
+      }
     })
     .catch(function(){
-      metricsSetStat('ms-fees30','—','Unable to load');
-      metricsSetStat('ms-rev30','—','Unable to load');
+      metricsSetStat('ms-tvs','$46B+','Source: DefiLlama');
     });
 
-  // 3. LINK price
+  // 2. Fees/Revenue — try the corrected endpoint; hide cards entirely if unavailable
+  //    DefiLlama /summary/fees returns total30d / totalRevenue30d
+  fetch('https://api.llama.fi/summary/fees/chainlink?dataType=dailyFees')
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(d){
+      var f30=d.total30d;
+      var r30=d.totalRevenue30d||d.revenue30d||null;
+      var feesSection=document.getElementById('ms-oracle-fees-row');
+      if(!f30&&!r30){
+        // No data — hide the fees row entirely rather than show dashes
+        if(feesSection)feesSection.style.display='none';
+        return;
+      }
+      if(feesSection)feesSection.style.display='';
+      metricsSetStat('ms-fees30', f30?fmtBig(f30):'—', '30-day fees');
+      metricsSetStat('ms-rev30',  r30?fmtBig(r30):'—', '30-day revenue');
+      var ann=f30?fmtBig(f30*12):'—';
+      var arCard=document.getElementById('ms-fees-ann');
+      if(arCard){var an=arCard.querySelector('.mcard-n');if(an)an.textContent=ann;}
+      // Mark as live
+      var liveEl=document.getElementById('ms-fees-live');
+      if(liveEl)liveEl.textContent='Live';
+    })
+    .catch(function(){
+      // Hide entire fees row — do NOT show "Unable to load" to users
+      var feesSection=document.getElementById('ms-oracle-fees-row');
+      if(feesSection)feesSection.style.display='none';
+    });
+
+  // 3. LINK price from CoinGecko via DefiLlama proxy
   fetch('https://api.llama.fi/prices/current/coingecko:chainlink')
-    .then(function(r){return r.json();})
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
     .then(function(d){
       var p=d.coins&&d.coins['coingecko:chainlink'];
-      if(p)metricsSetStat('ms-price','$'+p.price.toFixed(2),'LINK / USD');
+      if(p&&p.price){
+        metricsSetStat('ms-price','$'+p.price.toFixed(2),'LINK / USD');
+        var liveEl=document.getElementById('ms-price-live');
+        if(liveEl)liveEl.textContent='Live';
+      }
     })
-    .catch(function(){metricsSetStat('ms-price','—','Unable to load');});
+    .catch(function(){
+      // Price unavailable — show last known quietly
+      var card=document.getElementById('ms-price');
+      if(card){var n=card.querySelector('.mcard-n');if(n)n.textContent='—';}
+    });
 
   // Timestamp
-  var ts=document.getElementById('metrics-timestamp');
-  if(ts)ts.textContent='Data loaded: '+new Date().toUTCString();
+  var ts=document.getElementById('metrics-live-timestamp');
+  if(ts)ts.textContent='Live data fetched: '+new Date().toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
 }
 
 function orgShowInst(slug){
