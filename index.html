@@ -6226,6 +6226,7 @@ const ARTWORKS = [
 // Each entry: id (YouTube), cat, title, sub, thumb (curated), thumbFb (fallback)
 // To swap a thumbnail: change the thumb path only. Layout code untouched.
 // ────────────────────────────────────────────────────────────────────────
+var VIDEO_SLUG_MAP={'ebMDoPEdWP0':'infinite-blockchains-one-link','AHKokXLSwlI':'chainlink-cre-explained','p-vNnz7pJsM':'financial-system-runs-on-chainlink','D-tpoggrILQ':'chainlink-economics-2','r_5nUwFGt70':'books-of-the-blockchain','Hli-zu_lnOE':'chainlink-endgame','ql2KZ4a3UgE':'why-chainlink-is-the-standard','ZLsd1eT-enI':'why-chainlink-keeps-growing','uY0-ihxHf2M':'chainlink-economy-one-transaction'};
 const SHORTS = [
   {
     id:      'ebMDoPEdWP0',
@@ -6328,9 +6329,9 @@ function makeYtCard(item) {
 
   var a = document.createElement('a');
   a.className = 'yt-card';
-  a.href = ytUrl(item.id);
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
+  var _slug = VIDEO_SLUG_MAP && VIDEO_SLUG_MAP[item.id];
+  a.href = _slug ? ('/video/' + _slug) : ytUrl(item.id);
+  if (!_slug) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
 
   // Thumb wrap
   var thumbWrap = document.createElement('div');
