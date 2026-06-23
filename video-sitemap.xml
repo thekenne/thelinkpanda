@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://thelinkpanda.com/video/infinite-blockchains-one-link</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/ebMDoPEdWP0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Infinite Blockchains, One Link]]></video:title>
+      <video:description><![CDATA[Every blockchain is a separate island — Ethereum cannot talk to Avalanche, Solana cannot talk to Polygon, and traditional financial systems cannot talk to any of them. Chainlink's Cross-Chain Interoperability Protocol (CCIP) and the Chainlink Runtime Environment (CRE) solve this by providing a universal messaging and settlement layer that connects every major blockchain, private ledger, and enterprise system. This Short explains why interoperability is the foundational problem of the multi-chain era and how Chainlink functions as the connective tissue of Web3.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/ebMDoPEdWP0</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/ebMDoPEdWP0</video:player_loc>
+      <video:duration>58</video:duration>
+      <video:publication_date>2024-10-15</video:publication_date>
+      <video:tag>Interoperability</video:tag>
+      <video:tag><![CDATA[CCIP]]></video:tag>
+      <video:tag><![CDATA[interoperability]]></video:tag>
+      <video:tag><![CDATA[cross-chain]]></video:tag>
+      <video:tag><![CDATA[Chainlink]]></video:tag>
+      <video:tag><![CDATA[blockchain]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-cre-explained</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/AHKokXLSwlI/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Chainlink C.R.E. Explained]]></video:title>
+      <video:description><![CDATA[The Chainlink Runtime Environment (CRE) is the orchestration layer that connects enterprise systems, blockchains, and Chainlink services into unified institutional workflows. Think of it as the operating system layer between TradFi and DeFi — the piece that makes Chainlink capable of running DTCC's Collateral AppChain, the Reserve Bank of Australia's Project Acacia, and complex cross-chain settlement workflows. This Short explains what CRE is, why institutions need it, and why it represents Chainlink's expansion beyond oracle data delivery into full workflow orchestration.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/AHKokXLSwlI</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/AHKokXLSwlI</video:player_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2024-11-20</video:publication_date>
+      <video:tag>Cre</video:tag>
+      <video:tag><![CDATA[CRE]]></video:tag>
+      <video:tag><![CDATA[Chainlink Runtime Environment]]></video:tag>
+      <video:tag><![CDATA[DTCC]]></video:tag>
+      <video:tag><![CDATA[institutional]]></video:tag>
+      <video:tag><![CDATA[TradFi]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/financial-system-runs-on-chainlink</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/p-vNnz7pJsM/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[The Financial System Runs on Chainlink]]></video:title>
+      <video:description><![CDATA[The world's largest post-trade infrastructure provider (DTCC, $4.7 quadrillion processed annually), the world's largest asset manager (BlackRock), and the world's largest custodian bank (BNY Mellon) are all live with Chainlink. JPMorgan Kinexys uses Chainlink CCIP for cross-chain DvP settlement. Fidelity International uses Chainlink for on-chain NAV data for its tokenised fund. This Short documents what's already live — not what might happen — showing that institutional adoption of Chainlink infrastructure is not speculative but operational.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/p-vNnz7pJsM</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/p-vNnz7pJsM</video:player_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2024-09-05</video:publication_date>
+      <video:tag>Global Systems</video:tag>
+      <video:tag><![CDATA[DTCC]]></video:tag>
+      <video:tag><![CDATA[BlackRock]]></video:tag>
+      <video:tag><![CDATA[JPMorgan]]></video:tag>
+      <video:tag><![CDATA[institutional adoption]]></video:tag>
+      <video:tag><![CDATA[Chainlink]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-economics-2</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/D-tpoggrILQ/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Chainlink Economics 2.0]]></video:title>
+      <video:description><![CDATA[Chainlink Economics 2.0 is the framework introduced by Chainlink Labs to align network growth with LINK token value accrual. Key mechanisms include: Chainlink BUILD (protocols commit LINK or tokens in exchange for Chainlink services), Chainlink SCALE (protocols fund their own oracle infrastructure), Chainlink Staking v0.2 (community and node operator staking with slashing for misbehaviour), and the Chainlink Reserve (weekly accumulation of LINK from network revenue). This Short explains the flywheel dynamic and why real protocol usage translates into measurable value for LINK holders.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/D-tpoggrILQ</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/D-tpoggrILQ</video:player_loc>
+      <video:duration>57</video:duration>
+      <video:publication_date>2024-08-12</video:publication_date>
+      <video:tag>Tokenomics</video:tag>
+      <video:tag><![CDATA[LINK]]></video:tag>
+      <video:tag><![CDATA[tokenomics]]></video:tag>
+      <video:tag><![CDATA[staking]]></video:tag>
+      <video:tag><![CDATA[Economics 2.0]]></video:tag>
+      <video:tag><![CDATA[Chainlink Reserve]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/books-of-the-blockchain</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/r_5nUwFGt70/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[The Books of the Blockchain]]></video:title>
+      <video:description><![CDATA[Blockchains are like books — each one stores a complete record, but they cannot read each other. Ethereum doesn't know what Solana contains. Bitcoin doesn't know what Avalanche processed. The result is a fragmented digital infrastructure where value and data are siloed by design. Chainlink acts as the librarian — the universal translation and delivery layer that allows any blockchain to read, verify, and act on information from any other blockchain or off-chain system. This Short uses the library metaphor to explain why a neutral infrastructure layer is necessary and why Chainlink occupies that role.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/r_5nUwFGt70</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/r_5nUwFGt70</video:player_loc>
+      <video:duration>54</video:duration>
+      <video:publication_date>2024-07-22</video:publication_date>
+      <video:tag>Infrastructure</video:tag>
+      <video:tag><![CDATA[blockchain infrastructure]]></video:tag>
+      <video:tag><![CDATA[interoperability]]></video:tag>
+      <video:tag><![CDATA[oracles]]></video:tag>
+      <video:tag><![CDATA[Chainlink]]></video:tag>
+      <video:tag><![CDATA[data delivery]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-endgame</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/Hli-zu_lnOE/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[The Chainlink Endgame]]></video:title>
+      <video:description><![CDATA[The Chainlink endgame is full-stack blockchain infrastructure — not a single oracle product, but the complete layer between the real world and all blockchains. Prices (Data Feeds for DeFi and institutional finance), Payments (CCIP for cross-chain token transfers and settlement), Proof (Proof of Reserve for verified asset backing, DECO for privacy-preserving proofs), and APIs (Chainlink Functions for arbitrary off-chain computation). This Short argues that the category Chainlink occupies — the trust-minimised external data and computation layer — becomes more valuable as every major institution and application builds on blockchains.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/Hli-zu_lnOE</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/Hli-zu_lnOE</video:player_loc>
+      <video:duration>59</video:duration>
+      <video:publication_date>2024-12-03</video:publication_date>
+      <video:tag>Infrastructure</video:tag>
+      <video:tag><![CDATA[Data Feeds]]></video:tag>
+      <video:tag><![CDATA[CCIP]]></video:tag>
+      <video:tag><![CDATA[Proof of Reserve]]></video:tag>
+      <video:tag><![CDATA[Chainlink Functions]]></video:tag>
+      <video:tag><![CDATA[infrastructure]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/why-chainlink-is-the-standard</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/ql2KZ4a3UgE/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Why Chainlink Is The Standard]]></video:title>
+      <video:description><![CDATA[CCIP — the Cross-Chain Interoperability Protocol — is emerging as the standard for cross-chain messaging and token transfer because it is the only cross-chain protocol with an independently-operated Risk Management Network (RMN) that re-verifies every message before it executes. Coinbase uses CCIP to wrap $7B+ in assets across chains. Circle's CCTP for native USDC transfers is built on CCIP. DTCC's Smart NAV pilot used CCIP across 10 major financial institutions. Swift has explored CCIP for cross-border settlement. This Short explains why the combination of security, adoption, and institutional trust makes CCIP the de facto standard for cross-chain communication.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/ql2KZ4a3UgE</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/ql2KZ4a3UgE</video:player_loc>
+      <video:duration>56</video:duration>
+      <video:publication_date>2025-01-14</video:publication_date>
+      <video:tag>Ccip</video:tag>
+      <video:tag><![CDATA[CCIP]]></video:tag>
+      <video:tag><![CDATA[Cross-Chain Interoperability Protocol]]></video:tag>
+      <video:tag><![CDATA[Coinbase]]></video:tag>
+      <video:tag><![CDATA[Swift]]></video:tag>
+      <video:tag><![CDATA[DTCC]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/why-chainlink-keeps-growing</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/ZLsd1eT-enI/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[This Is Why Chainlink Will Keep Growing]]></video:title>
+      <video:description><![CDATA[The Chainlink growth flywheel is driven by real demand, not speculation. As more protocols and institutions integrate Chainlink services, fee revenue increases. Fee revenue flows to node operators and into the Chainlink Reserve (accumulating LINK weekly). Stakers lock LINK to earn yield, reducing circulating supply. The BUILD programme creates additional demand from protocols committing LINK for service access. This Short explains why organic growth in Chainlink usage creates sustainable upward pressure on the network's economics rather than depending on token price speculation.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/ZLsd1eT-enI</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/ZLsd1eT-enI</video:player_loc>
+      <video:duration>58</video:duration>
+      <video:publication_date>2025-02-28</video:publication_date>
+      <video:tag>Tokenomics</video:tag>
+      <video:tag><![CDATA[LINK growth]]></video:tag>
+      <video:tag><![CDATA[flywheel]]></video:tag>
+      <video:tag><![CDATA[BUILD programme]]></video:tag>
+      <video:tag><![CDATA[staking]]></video:tag>
+      <video:tag><![CDATA[Reserve]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-economy-one-transaction</loc>
+    <lastmod>2026-06-21</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/uY0-ihxHf2M/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[The Chainlink Economy in One Transaction]]></video:title>
+      <video:description><![CDATA[Every single Chainlink service call — a price feed update, a CCIP message, a VRF response, a Proof of Reserve verification — generates a fee that flows through the Chainlink economic system. Node operators are paid. A portion flows to the Chainlink Reserve as LINK. Stakers earn yield. As the volume of Chainlink service calls grows from millions to billions to trillions (matching the scale of the financial system it now underpins), the compounding effect of per-transaction economics becomes significant. This Short visualises the micro-economics of a single Chainlink transaction and projects what that means at global financial system scale.]]></video:description>
+      <video:content_loc>https://www.youtube.com/shorts/uY0-ihxHf2M</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/uY0-ihxHf2M</video:player_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2025-03-15</video:publication_date>
+      <video:tag>Economics</video:tag>
+      <video:tag><![CDATA[Chainlink economics]]></video:tag>
+      <video:tag><![CDATA[transaction fees]]></video:tag>
+      <video:tag><![CDATA[node operators]]></video:tag>
+      <video:tag><![CDATA[DTCC]]></video:tag>
+      <video:tag><![CDATA[scale]]></video:tag>
+      <video:uploader info="https://www.youtube.com/@TheLinkPanda">TheLinkPanda</video:uploader>
+    </video:video>
+  </url>
+</urlset>
