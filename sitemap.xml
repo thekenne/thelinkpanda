@@ -506,4 +506,59 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://thelinkpanda.com/video/infinite-blockchains-one-link</loc>
+    <lastmod>2024-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-cre-explained</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/financial-system-runs-on-chainlink</loc>
+    <lastmod>2024-09-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-economics-2</loc>
+    <lastmod>2024-08-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/books-of-the-blockchain</loc>
+    <lastmod>2024-07-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-endgame</loc>
+    <lastmod>2024-12-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/why-chainlink-is-the-standard</loc>
+    <lastmod>2025-01-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/why-chainlink-keeps-growing</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thelinkpanda.com/video/chainlink-economy-one-transaction</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
