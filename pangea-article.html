@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>How 47 Banks Are Using SWIFT, Stablecoins, and Chainlink to Move FX Settlement from T+2 to T+0 | TheLinkPanda</title>
+<meta name="description" content="Project Pangea: 47 European and South Korean banks, $10 trillion AUM, targeting same-day foreign exchange settlement using atomic Payment-versus-Payment and Chainlink infrastructure."/>
+<meta name="author" content="The Link Panda"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="How 47 Banks Are Using SWIFT, Stablecoins, and Chainlink to Move FX Settlement from T+2 to T+0"/>
+<meta property="og:description" content="Project Pangea demonstrates why banks are pursuing interoperability between existing systems, not replacing them — and why Chainlink is the coordination layer."/>
+<meta property="og:image" content="https://thelinkpanda.com/assets/banner/TheLinkPanda banner split.jpg"/>
+<meta property="og:site_name" content="TheLinkPanda"/>
+<meta property="article:published_time" content="2026-06-23"/>
+<link rel="icon" type="image/png" href="https://thelinkpanda.com/assets/logo/PANDA LOGO WEBSITE.png"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07090D;--bg2:#0B0E15;--bg3:#0F1320;
+  --gold:#C8922A;--gold-dim:rgba(200,146,42,.15);
+  --w:rgba(244,242,238,1);--w70:rgba(244,242,238,.7);
+  --w50:rgba(244,242,238,.5);--w25:rgba(244,242,238,.25);
+  --w10:rgba(244,242,238,.08);
+  --border:rgba(244,242,238,.08);
+  --sans:'DM Sans','Helvetica Neue',sans-serif;
+  --serif:'Georgia','Times New Roman',serif;
+  --mono:'DM Mono','Courier New',monospace;
+  --max:760px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--w);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.75}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+.nav{height:64px;padding:0 clamp(20px,5vw,80px);display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,13,.97);border-bottom:.5px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:18px;font-weight:500;color:var(--w)}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--w50);font-size:14px;letter-spacing:.02em}
+.nav-links a:hover{color:var(--w);text-decoration:none}
+
+/* HERO */
+.hero{max-width:var(--max);margin:0 auto;padding:clamp(56px,8vw,120px) clamp(20px,5vw,40px) clamp(40px,5vw,72px)}
+.hero-label{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);opacity:.7;margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,46px);font-weight:400;line-height:1.1;margin-bottom:24px;color:var(--w)}
+.hero-sub{font-size:clamp(15px,1.2vw,19px);color:var(--w50);line-height:1.75;margin-bottom:32px}
+.hero-meta{font-family:var(--mono);font-size:11px;color:var(--w25);letter-spacing:.1em;display:flex;gap:20px;flex-wrap:wrap}
+.hero-meta a{color:var(--gold);opacity:.7}
+
+/* STAT STRIP */
+.stat-strip{background:var(--bg2);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);padding:clamp(24px,3vw,40px) clamp(20px,5vw,40px)}
+.stat-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:0 24px;border-right:.5px solid var(--border);text-align:center}
+.stat:first-child{padding-left:0;text-align:left}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--mono);font-size:clamp(20px,2.5vw,32px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.stat-l{font-size:11px;letter-spacing:.1em;color:var(--w25)}
+
+/* ARTICLE BODY */
+.article{max-width:var(--max);margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,40px)}
+.article h2{font-family:var(--serif);font-size:clamp(20px,2vw,28px);font-weight:400;color:var(--w);line-height:1.2;margin:clamp(40px,4vw,64px) 0 clamp(16px,1.5vw,20px)}
+.article h2:first-child{margin-top:0}
+.article p{font-size:clamp(15px,1.05vw,17px);color:var(--w70);line-height:1.85;margin-bottom:clamp(16px,1.6vw,22px)}
+.article p strong{color:var(--w);font-weight:500}
+
+/* PULLQUOTE */
+.pullquote{border-left:2px solid rgba(200,146,42,.5);padding:20px 28px;margin:clamp(32px,3.5vw,48px) 0;background:var(--gold-dim)}
+.pullquote p{font-size:clamp(16px,1.2vw,20px);color:var(--w);font-style:italic;line-height:1.65;margin-bottom:8px}
+.pullquote cite{font-size:12px;font-family:var(--mono);letter-spacing:.08em;color:var(--w25);font-style:normal}
+
+/* FLOW DIAGRAM */
+.flow{background:var(--bg2);border:.5px solid rgba(200,146,42,.2);padding:clamp(24px,2.5vw,36px);margin:clamp(28px,3vw,44px) 0;text-align:center}
+.flow-row{font-family:var(--mono);font-size:clamp(13px,1vw,15px);letter-spacing:.1em;color:var(--w50);padding:10px 0}
+.flow-row.highlight{color:var(--gold);font-size:clamp(14px,1.1vw,17px);font-weight:600;letter-spacing:.14em}
+.flow-arrow{color:rgba(200,146,42,.4);font-size:20px;display:block;padding:2px 0;line-height:1}
+.flow-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--w25);margin-bottom:20px}
+.flow-result{margin-top:20px;padding-top:20px;border-top:.5px solid var(--border);font-family:var(--mono);font-size:clamp(15px,1.3vw,18px);color:var(--gold);letter-spacing:.12em}
+
+/* ASIDE / NOTE BOX */
+.aside{background:var(--bg3);border-left:2px solid var(--border);padding:16px 20px;margin:24px 0}
+.aside p{font-size:13px;color:var(--w25);margin-bottom:0;line-height:1.7}
+
+/* EVIDENCE CTA */
+.ev-cta{background:var(--bg2);border:.5px solid var(--border);padding:24px 28px;margin:clamp(32px,3.5vw,48px) 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ev-cta-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--w25);margin-bottom:6px}
+.ev-cta-title{font-size:15px;color:var(--w70);line-height:1.4}
+.ev-btn{display:inline-flex;align-items:center;gap:8px;border:.5px solid var(--gold);color:var(--gold);padding:10px 20px;font-size:13px;letter-spacing:.06em;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:all .15s}
+.ev-btn:hover{background:var(--gold);color:#07090D;text-decoration:none}
+
+/* CTA BAR */
+.cta-bar{background:var(--bg2);border-top:.5px solid var(--border);padding:clamp(40px,5vw,72px) clamp(20px,5vw,40px);text-align:center;margin-top:clamp(48px,6vw,96px)}
+.cta-bar h2{font-family:var(--serif);font-size:clamp(18px,2vw,28px);font-weight:400;margin-bottom:10px}
+.cta-bar p{font-size:15px;color:var(--w50);margin-bottom:28px}
+.cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:.5px solid var(--gold);color:var(--gold);padding:13px 26px;font-size:13px;letter-spacing:.07em;text-decoration:none;transition:all .15s}
+.btn:hover{background:var(--gold);color:#07090D;text-decoration:none}
+.btn-fill{background:var(--gold);color:#07090D}
+
+/* FOOTER */
+footer{padding:24px clamp(20px,5vw,80px);border-top:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--w25)}
+footer a{color:var(--gold)}
+
+@media(max-width:640px){
+  .stat-inner{grid-template-columns:1fr 1fr;gap:20px}
+  .stat{border-right:none;text-align:left;padding:0}
+  .nav-links{display:none}
+  .ev-cta{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://thelinkpanda.com" class="nav-brand">
+    <img src="https://thelinkpanda.com/assets/logo/PANDA LOGO WEBSITE.png" alt="" style="width:26px;height:26px;object-fit:contain"/>
+    TheLink<span>Panda</span>
+  </a>
+  <div class="nav-links">
+    <a href="https://thelinkpanda.com/evidence">Evidence Vault</a>
+    <a href="https://thelinkpanda.com/explorer">Explorer</a>
+    <a href="https://thelinkpanda.com/misconceptions">Misconceptions</a>
+    <a href="https://thelinkpanda.com/metrics">Live Metrics</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">RESEARCH &mdash; JUNE 23, 2026 &mdash; CROSS-BORDER PAYMENTS</div>
+  <h1>How 47 Banks Are Using SWIFT, Stablecoins, and Chainlink to Move FX Settlement from T+2 to T+0</h1>
+  <p class="hero-sub">Project Pangea is not a blockchain pilot. It is a live infrastructure programme targeting same-day foreign exchange settlement — and it tells you something important about how the financial system is actually going to change.</p>
+  <div class="hero-meta">
+    <span>By TheLinkPanda</span>
+    <span>&mdash;</span>
+    <span>June 23, 2026</span>
+    <span>&mdash;</span>
+    <a href="https://thelinkpanda.com/evidence/ev-054">Evidence: EV-054 &#8599;</a>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-inner">
+    <div class="stat"><div class="stat-n">47</div><div class="stat-l">Banks</div></div>
+    <div class="stat"><div class="stat-n">$10T+</div><div class="stat-l">AUM represented</div></div>
+    <div class="stat"><div class="stat-n">$150B+</div><div class="stat-l">Annual FX flow</div></div>
+    <div class="stat"><div class="stat-n">T+0</div><div class="stat-l">Target settlement</div></div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<div class="article">
+
+  <h2>Why does foreign exchange take two days?</h2>
+  <p>When a European company pays a South Korean supplier, the money doesn't move instantly. It travels through a chain of correspondent banks, each holding a piece of the transaction overnight so balances can be reconciled the following morning. The process was designed in an era of paper ledgers and fixed working hours. The two-day standard — T+2 — is a product of operational friction, not a technical requirement.</p>
+  <p>The consequences are real. Capital is locked for 48 hours. Settlement risk — the risk that one side pays and the other doesn't — is live for the entire period. For a $150 billion-per-year trade corridor like EUR/KRW, that two-day window represents an enormous amount of money sitting idle in transit.</p>
+  <p>Project Pangea is a consortium formed specifically to eliminate that window.</p>
+
+  <h2>What is Project Pangea?</h2>
+  <p>Project Pangea is a joint initiative between <strong>Qivalis</strong> (a consortium of 37 European banks) and <strong>UniKA</strong> (a network of 10+ South Korean banks), with <strong>Chainlink</strong> providing interoperability infrastructure and <strong>SWIFT</strong> messaging as the communication layer.</p>
+  <p>The goal is atomic Payment-versus-Payment (PvP) settlement. Both sides of a currency exchange — the euro payment and the won payment — settle simultaneously or not at all. No more settlement risk. No more two-day wait. The target is live transactions within 12 months.</p>
+
+  <div class="pullquote">
+    <p>&ldquo;Everyone&rsquo;s coming in with their eyes wide open. Appetite is very much about building real infrastructure &hellip; The target is live transactions within a legal, regulatory compliance framework within the next 12 months.&rdquo;</p>
+    <cite>Niki Ariyasinghe, VP APAC &amp; Middle East, Chainlink</cite>
+  </div>
+
+  <h2>Why atomic settlement matters</h2>
+  <p>In a traditional FX transaction, the two legs of the trade settle independently. Bank A sends euros. Bank B sends won. If Bank B fails between those two moments, Bank A has already sent its currency and receives nothing in return. This is Herstatt risk — named after a German bank that collapsed in 1974 mid-settlement, leaving counterparties holding half-completed trades.</p>
+  <p>Atomic settlement eliminates this by linking both legs cryptographically. The euro payment and the won payment are encoded as a single operation: both succeed or both revert. There is no intermediate state where one party has paid and the other hasn't.</p>
+  <p>This is not a new idea. It is, however, an idea that traditional financial infrastructure couldn't implement. Regulated stablecoins and programmable settlement rails are what make it technically feasible at institutional scale.</p>
+
+  <h2>Why are the banks keeping SWIFT?</h2>
+  <p>This is the part of Project Pangea that matters most for understanding how the financial system is actually going to change.</p>
+  <p>The banks are not replacing SWIFT. They are using SWIFT as the messaging layer — to initiate and confirm the intent to transact — and adding a new settlement layer beneath it.</p>
+
+  <div class="aside"><p>SWIFT connects 11,500+ financial institutions across 200+ countries. It is the universal addressing and messaging standard for global finance. No institution is replacing it. Every serious institutional blockchain project — including Project Pangea — treats SWIFT as the given starting point, not the thing to be disrupted.</p></div>
+
+  <p>SWIFT sends the message. Chainlink coordinates the execution. Regulated stablecoins carry the value. The ledgers on which those stablecoins are issued settle the actual transfer. The architecture looks like this:</p>
+
+  <div class="flow">
+    <div class="flow-label">SETTLEMENT ARCHITECTURE</div>
+    <div class="flow-row">SWIFT MESSAGING</div>
+    <div class="flow-arrow">&#8595;</div>
+    <div class="flow-row highlight">CHAINLINK</div>
+    <div class="flow-arrow">&#8595;</div>
+    <div class="flow-row">ATOMIC STABLECOIN SETTLEMENT</div>
+    <div class="flow-result">T+2 &nbsp;&rarr;&nbsp; T+0</div>
+  </div>
+
+  <h2>Why stablecoins, not CBDCs or bridge assets?</h2>
+  <p>Regulated stablecoins — a euro-denominated stablecoin issued by a regulated European entity and a won-denominated stablecoin issued by a regulated Korean entity — solve a specific problem: how do you move value across ledgers instantly without needing a common settlement asset that neither jurisdiction has issued?</p>
+  <p>The answer is to tokenize the local currencies directly, and then settle the exchange atomically. Bank A sends euro stablecoin. Bank B sends won stablecoin. Both transactions execute in the same block. Both are redeemable for real currency through the regulated issuer. Neither party assumes any cross-currency exposure. No bridge token is required. No central bank has to issue a CBDC.</p>
+  <p>This is why the Project Pangea architecture is notable. It requires no new monetary infrastructure. It works with existing regulated currencies, existing SWIFT messaging, and existing bank balance sheets. The innovation is the settlement layer — and the coordination layer that connects everything.</p>
+
+  <h2>What does Chainlink actually do in this?</h2>
+  <p>Chainlink's role is interoperability middleware. Specifically, the Chainlink infrastructure handles the coordination between systems that don't share a common ledger or technical standard.</p>
+  <p>The European stablecoin and the Korean won stablecoin likely exist on different networks. The SWIFT messaging system is not a blockchain. The banks' internal systems are legacy infrastructure. Chainlink provides the verified, trust-minimised connection between all of them — ensuring that the settlement instruction from SWIFT triggers the correct atomic execution on both stablecoin networks simultaneously.</p>
+  <p>This is what the Cross-Chain Interoperability Protocol (CCIP) and the Chainlink Runtime Environment (CRE) are built for: connecting heterogeneous systems — different ledgers, different messaging standards, different institutional workflows — through a neutral coordination layer that no single participant controls.</p>
+
+  <div class="ev-cta">
+    <div>
+      <div class="ev-cta-label">SUPPORTING EVIDENCE</div>
+      <div class="ev-cta-title">EV-054 — Project Pangea / CoinDesk / Chainlink</div>
+    </div>
+    <a class="ev-btn" href="https://thelinkpanda.com/evidence/ev-054">View Evidence &#8599;</a>
+  </div>
+
+  <h2>Why this is evidence for &ldquo;many ledgers, one coordination layer&rdquo;</h2>
+  <p>The debate about blockchain in finance has, for years, been framed as a choice: which chain will win? Ethereum or a permissioned network? A public ledger or a private one? A digital dollar or a tokenized treasury?</p>
+  <p>Project Pangea demonstrates why that framing is wrong.</p>
+  <p>The 47 banks in this consortium are not choosing a blockchain. They are keeping SWIFT. They are keeping their existing balance sheets. They are using regulated stablecoins that stay within existing legal frameworks. And they are adding Chainlink as the coordination layer that connects all of those things together.</p>
+  <p>The future financial infrastructure is not a single dominant ledger. It is many ledgers — many stablecoin networks, many bank systems, many national payment infrastructures — all interoperating through a shared standard. The entity that provides that shared standard occupies the most structurally important position in the architecture.</p>
+  <p>That is exactly what Chainlink is being built to be. And Project Pangea, with 47 banks and $10 trillion in assets behind it, is a significant data point that this is where the industry is heading.</p>
+
+  <h2>Implications for tokenized finance</h2>
+  <p>If Project Pangea succeeds — live transactions within 12 months of June 2026 — it will demonstrate something that matters beyond FX settlement. It will demonstrate that institutional-scale atomic settlement is operational, that regulated stablecoins can function as interbank settlement assets, and that multi-ledger coordination through a neutral infrastructure layer is viable.</p>
+  <p>Each of those proofs unlocks the next category. Atomic settlement for FX becomes atomic settlement for securities. Regulated euro stablecoins become regulated tokenized bonds. SWIFT messaging becomes any ISO 20022-compatible communication. The architecture generalizes.</p>
+  <p>The question was never whether the financial system would tokenize. The question was always what the coordination layer would look like, and who would provide it. Project Pangea is a 47-bank answer.</p>
+
+</div><!-- /article -->
+
+<div class="cta-bar">
+  <h2>Infrastructure Before Narratives.</h2>
+  <p>TheLinkPanda tracks institutional Chainlink adoption with 54 verified evidence entries. All claims are sourced.</p>
+  <div class="cta-btns">
+    <a class="btn btn-fill" href="https://thelinkpanda.com/evidence/ev-054">View EV-054 &rarr;</a>
+    <a class="btn" href="https://thelinkpanda.com/evidence">Evidence Vault</a>
+    <a class="btn" href="https://thelinkpanda.com/explorer">Infrastructure Explorer</a>
+  </div>
+</div>
+
+<footer>
+  <span>&copy; 2026 TheLinkPanda &mdash; Infrastructure Before Narratives</span>
+  <a href="https://thelinkpanda.com">thelinkpanda.com</a>
+</footer>
+
+</body>
+</html>
