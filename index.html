@@ -1200,6 +1200,54 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .qt-src{font-family:var(--mono);font-size:clamp(11px,.72vw,13px);color:var(--gold);opacity:.6;text-decoration:none;margin-top:auto;padding-top:8px;display:block;transition:opacity .15s}
 .qt-src:hover{opacity:1}
 .qt-attr{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px;margin-top:clamp(8px,.8vw,12px)}
+
+/* ── Technology Matrix ── */
+.mx-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mx-table{border-collapse:collapse;min-width:700px;width:100%}
+.mx-th-inst{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--w40);padding:8px 10px;text-align:center;border-bottom:.5px solid var(--border);white-space:nowrap;writing-mode:vertical-rl;transform:rotate(180deg);height:90px;vertical-align:bottom}
+.mx-th-svc{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--w60);padding:10px 14px;text-align:left;border-bottom:.5px solid var(--border);white-space:nowrap;min-width:160px}
+.mx-cell{padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(244,242,238,.04);border-right:.5px solid rgba(244,242,238,.04)}
+.mx-cell.yes{color:rgba(80,200,120,.9);font-size:15px}
+.mx-cell.partial{color:var(--gold);font-size:13px}
+.mx-cell.no{color:rgba(244,242,238,.12);font-size:13px}
+.mx-inst-head{background:var(--bg2)}
+.mx-svc-row:hover .mx-th-svc{color:var(--w)}
+.mx-svc-row:hover .mx-cell{background:rgba(244,242,238,.02)}
+.mx-stage-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.mx-legend{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:clamp(16px,1.6vw,24px);font-family:var(--mono);font-size:11px;color:var(--w40)}
+.mx-legend span{display:flex;align-items:center;gap:6px}
+
+/* ── Compare ── */
+.cmp-pickers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,32px);margin-bottom:clamp(24px,2.5vw,40px)}
+.cmp-select{width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--sans);font-size:clamp(14px,1vw,16px);padding:12px 16px;cursor:pointer;appearance:none;-webkit-appearance:none}
+.cmp-select:focus{outline:none;border-color:rgba(200,146,42,.5)}
+.cmp-grid{display:grid;grid-template-columns:200px 1fr 1fr;gap:0}
+.cmp-row{display:contents}
+.cmp-row-label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--w20);padding:12px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center}
+.cmp-row-val{padding:12px 16px;border-bottom:.5px solid var(--border);font-size:clamp(14px,1vw,15px);color:var(--w60);border-left:.5px solid var(--border)}
+.cmp-header-cell{font-size:clamp(15px,1.2vw,20px);font-family:var(--serif);color:var(--w);padding:16px 16px 20px;border-bottom:.5px solid var(--border);border-left:.5px solid var(--border)}
+.cmp-yes{color:rgba(80,200,120,.9)}
+.cmp-no{color:rgba(244,242,238,.2)}
+.cmp-placeholder{display:flex;align-items:center;justify-content:center;min-height:300px;color:var(--w20);font-family:var(--mono);font-size:13px;letter-spacing:.1em;border:.5px dashed var(--border)}
+@media(max-width:768px){.cmp-pickers{grid-template-columns:1fr}.cmp-grid{grid-template-columns:120px 1fr 1fr}}
+
+/* ── Production Tracker ── */
+.tracker-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,20px)}
+.tracker-col-head{font-family:var(--mono);font-size:10px;letter-spacing:.2em;padding:10px 14px;margin-bottom:12px;border-bottom:2px solid}
+.tracker-col-head.tc-research{color:rgba(100,150,255,.8);border-color:rgba(100,150,255,.4)}
+.tracker-col-head.tc-pilot{color:var(--gold);border-color:rgba(200,146,42,.4)}
+.tracker-col-head.tc-transition{color:rgba(200,120,60,.9);border-color:rgba(200,120,60,.4)}
+.tracker-col-head.tc-production{color:rgba(80,200,120,.9);border-color:rgba(80,200,120,.4)}
+.tracker-card{background:var(--bg2);border:.5px solid var(--border);padding:clamp(14px,1.4vw,20px);margin-bottom:10px;transition:border-color .2s}
+.tracker-card:hover{border-color:rgba(200,146,42,.3)}
+.tracker-card-name{font-size:clamp(14px,1.1vw,16px);font-weight:500;color:var(--w);margin-bottom:4px}
+.tracker-card-full{font-size:11px;color:var(--w20);margin-bottom:8px;line-height:1.4}
+.tracker-card-ev{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--w20);margin-bottom:8px}
+.tracker-card-services{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.tracker-svc-tag{font-family:var(--mono);font-size:9px;letter-spacing:.08em;padding:2px 7px;border:.5px solid rgba(200,146,42,.25);color:rgba(200,146,42,.7);background:rgba(200,146,42,.06)}
+.tracker-card-fact{font-size:12px;color:var(--w40);line-height:1.4;font-style:italic}
+@media(max-width:900px){.tracker-cols{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.tracker-cols{grid-template-columns:1fr}}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 
@@ -4795,6 +4843,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button>
         <button class="nav-more-item" onclick="showPage('concepts');navCloseMore()">Chainlink Explained</button>
         <button class="nav-more-item" id="nl-contribute"   onclick="showPage('contribute');navCloseMore()">Contribute</button>
+        <button class="nav-more-item" onclick="showPage('matrix');navCloseMore()">Technology Matrix</button>
+        <button class="nav-more-item" onclick="showPage('compare');navCloseMore()">Compare Institutions</button>
+        <button class="nav-more-item" onclick="showPage('tracker');navCloseMore()">Production Tracker</button>
         <button class="nav-more-item" onclick="showPage('org');showOrg('dtcc');navCloseMore()">DTCC Profile</button>
         <button class="nav-more-item" onclick="showPage('org');showOrg('swift');navCloseMore()">Swift Profile</button>
         <button class="nav-more-item" onclick="showPage('org');showOrg('jpmorgan');navCloseMore()">J.P. Morgan Profile</button>
@@ -5086,6 +5137,33 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- MOST CITED + WHAT'S NEW -->
+  <div style="max-width:var(--content-max);margin:0 auto;padding:0 clamp(32px,5vw,80px) clamp(48px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)">
+    <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">MOST CITED INSTITUTIONS</div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">01</span>DTCC</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">13 entries</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">02</span>Google Cloud</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">9 entries</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">03</span>SWIFT</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">8 entries</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">04</span>Citi</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">7 entries</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">05</span>Euroclear</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">6 entries</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">06</span>JPMorgan / Kinexys</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">5 entries</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">07</span>BNY Mellon &amp; UBS</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">4 each</span></div>
+      </div>
+      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">All 54 evidence entries &rarr;</button>
+    </div>
+    <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LATEST EVIDENCE</div>
+      <div style="display:flex;flex-direction:column">
+        <a href="/evidence/ev-054" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:10px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-054 &mdash; Jun 23, 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">Project Pangea &mdash; 47 banks, T+0 FX settlement with SWIFT &amp; Chainlink</div></a>
+        <a href="/evidence/ev-053" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:10px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-053 &mdash; Jun 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">ICMA DLT Repo Report &mdash; oracles named as necessary future infrastructure</div></a>
+        <a href="/evidence/ev-052" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:10px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-052 &mdash; 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">Chainlink &amp; Circle formal partnership &mdash; CCIP, Data Feeds, Proof of Reserve</div></a>
+        <a href="/evidence/ev-050" style="display:block;padding:10px 0;text-decoration:none"><div style="font-family:var(--mono);font-size:10px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-050 &mdash; 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">RBA Project Acacia &mdash; Chainlink CRE for DvP wholesale settlement</div></a>
+      </div>
+      <button onclick="showPage('research')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Research conclusions &rarr;</button>
     </div>
   </div>
 
@@ -5980,6 +6058,75 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
 <!-- ════════════════════════════════════════ PRIVACY ════════════════════════════════════ -->
+<div class="page" id="page-research">
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(48px,6vw,96px) clamp(32px,5vw,80px);text-align:center">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.7;margin-bottom:16px">THELINKPANDA RESEARCH</div>
+    <div style="font-family:var(--serif);font-size:clamp(22px,3vw,40px);font-weight:400;margin-bottom:20px">10 Conclusions from 54 Institutional Sources</div>
+    <p style="font-size:clamp(14px,1vw,16px);color:var(--w40);max-width:560px;margin:0 auto 32px;line-height:1.7">What DTCC, SWIFT, JPMorgan, Euroclear, and 50 more institutions reveal when you read all the evidence together.</p>
+    <a href="/research" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#08070a;padding:14px 28px;font-size:14px;font-weight:600;letter-spacing:.05em;text-decoration:none">Read the Research &rarr;</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ MATRIX ══════════════════════════════════════ -->
+<div class="page" id="page-matrix">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK SERVICES</div>
+          <div class="ev-title">Technology Matrix</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);color:var(--w20);letter-spacing:.1em">10 SERVICES &times; 15 INSTITUTIONS</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div style="display:none" aria-hidden="false"><p>The Chainlink Technology Matrix shows which institutions use which Chainlink services including CCIP, CRE, Data Feeds, Data Streams, Proof of Reserve, Automation, VRF, Functions, SVR, and DECO. Institutions tracked include DTCC, Swift, Euroclear, JPMorgan, Fidelity, UBS, Mastercard, Citi, BNY Mellon, State Street, Google Cloud, Reserve Bank of Australia, Circle, Coinbase, and Project Pangea.</p></div>
+    <div id="matrix-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ COMPARE ══════════════════════════════════════ -->
+<div class="page" id="page-compare">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTIONAL ANALYSIS</div>
+          <div class="ev-title">Compare Institutions</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);color:var(--w20);letter-spacing:.1em">SIDE BY SIDE</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div id="compare-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ TRACKER ══════════════════════════════════════ -->
+<div class="page" id="page-tracker">
+  <div class="ev-header" style="position:sticky;top:var(--nav-h);z-index:100">
+    <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
+      <div class="ev-title-row">
+        <div>
+          <div style="font-family:var(--mono);font-size:clamp(10px,0.68vw,11px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">DEPLOYMENT STATUS</div>
+          <div class="ev-title">Production Tracker</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="tracker-filter-all" onclick="trackerFilter('all')" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:5px 12px;border:.5px solid var(--gold);background:var(--gold);color:#08070a;cursor:pointer">ALL</button>
+          <button id="tracker-filter-production" onclick="trackerFilter('production')" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:5px 12px;border:.5px solid var(--border);background:none;color:var(--w40);cursor:pointer">PRODUCTION ONLY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+    <div style="display:none" aria-hidden="false"><p>The Chainlink Production Tracker shows the deployment stage of every tracked institution: Research, Pilot, Pilot to Production transition, and Production. Current production deployments include DTCC, JPMorgan Kinexys, Fidelity International, Google Cloud, Reserve Bank of Australia, Circle, and Coinbase. Pilot deployments include Euroclear, UBS, BNY Mellon, and State Street.</p></div>
+    <div id="tracker-body"></div>
+  </div>
+</div>
+
 <div class="page" id="page-privacy">
 <style>
 .legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
@@ -7474,9 +7621,9 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','privacy','terms','disclaimer'];
+var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','privacy','terms','disclaimer','research','matrix','compare','tracker'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents'};
+var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker'};
 var URL_PAGES={'/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 var PAGE_META_MAP = {
@@ -7493,6 +7640,10 @@ var PAGE_META_MAP = {
   'digest': {title:'Research Digest — Issue #1 | TheLinkPanda', desc:'TheLinkPanda Research Digest: the latest Chainlink institutional evidence, explorer updates, and metric snapshots.', path:'/digest'},
   'metcalfe': {title:'Chainlink Network Value Calculator | TheLinkPanda', desc:'Calculate the network effect of Chainlink using Metcalfe\'s Law with Simple, Weighted, and Relationship modes.', path:'/network-calculator'},
   'about': {title:'About TheLinkPanda — Infrastructure Before Narratives', desc:'TheLinkPanda is the largest independent Chainlink research platform. Infrastructure Before Narratives.', path:'/about'},
+  'matrix':   {title:'Chainlink Technology Matrix — Services by Institution | TheLinkPanda', desc:'Which institutions use CCIP, CRE, Data Feeds, SVR, Proof of Reserve, VRF, Automation, and Functions. Interactive Chainlink service matrix across 15 institutions.', path:'/matrix'},
+  'compare':  {title:'Compare Institutions — Chainlink Adoption Scorecards | TheLinkPanda', desc:'Side-by-side comparison of institutional Chainlink adoption. Compare services used, evidence count, deployment stage, and quotes across any two institutions.', path:'/compare'},
+  'tracker':  {title:'Production Tracker — Chainlink Institutional Deployments | TheLinkPanda', desc:'Track every institutional Chainlink deployment by stage: Research, Pilot, Pilot→Production, and Production. Filter by deployment status.', path:'/tracker'},
+  'research': {title:'Research: 10 Conclusions from 54 Institutional Sources | TheLinkPanda', desc:'What DTCC, SWIFT, JPMorgan, Euroclear, and 50 more institutions reveal about the direction of financial infrastructure. Research findings from 54 primary evidence sources.', path:'/research'},
   'privacy': {title:'Privacy Policy | TheLinkPanda', desc:'How TheLinkPanda collects and handles data, including Cloudflare Analytics and contact form submissions.', path:'/privacy'},
   'terms': {title:'Terms of Use | TheLinkPanda', desc:'Terms governing use of TheLinkPanda, an independent Chainlink research platform.', path:'/terms'},
   'disclaimer': {title:'Disclaimer | TheLinkPanda', desc:'TheLinkPanda content is for educational purposes only and is not financial, investment, or legal advice.', path:'/disclaimer'},
@@ -7565,6 +7716,9 @@ function showPage(page,filter,noPush){
   if(page==='art')buildArt();
   if(page==='timeline'){tlInit();}
   if(page==='digest'){digestInit();}
+  if(page==='matrix'){matrixInit();}
+  if(page==='compare'){compareInit();}
+  if(page==='tracker'){trackerInit();}
   if(page==='metcalfe'){metcalfeInit();}
   if(page==='concepts'){conceptsInit();}
   if(page==='videos')buildVideosPage();
@@ -8751,6 +8905,155 @@ var INSTITUTION_TRACKER=[
   {name:'Reserve Bank of Australia',full:'Reserve Bank of Australia — Project Acacia',stage:'production',desc:'RBA Project Acacia uses Chainlink CRE as orchestration layer for AUD wholesale CBDC and tokenised asset settlement trials. Production deployment confirmed 2026. Chainlink CRE selected to bridge real-world transactions across ledger environments.',url:'https://www.rba.gov.au/payments-and-infrastructure/projects/acacia/'},
 ];
 
+// ── Technology Matrix ── which institutions use which Chainlink services
+// Columns: institution slug matching INSTITUTION_TRACKER names
+// Values: true=confirmed, 'partial'=experimental/pilot, false=no evidence
+var CHAINLINK_MATRIX = {
+  services: [
+    {id:'ccip',          label:'CCIP',                  full:'Cross-Chain Interoperability Protocol'},
+    {id:'cre',           label:'CRE',                   full:'Chainlink Runtime Environment'},
+    {id:'data-feeds',    label:'Data Feeds',             full:'Chainlink Data Feeds'},
+    {id:'data-streams',  label:'Data Streams',           full:'Chainlink Data Streams'},
+    {id:'proof-reserve', label:'Proof of Reserve',       full:'Chainlink Proof of Reserve'},
+    {id:'automation',    label:'Automation',             full:'Chainlink Automation'},
+    {id:'vrf',           label:'VRF',                   full:'Verifiable Random Function'},
+    {id:'functions',     label:'Functions',              full:'Chainlink Functions'},
+    {id:'svr',           label:'SVR',                   full:'Smart Value Recapture'},
+    {id:'deco',          label:'DECO',                  full:'Privacy-preserving proofs'},
+  ],
+  institutions: [
+    {
+      slug:'dtcc', name:'DTCC', country:'USA', countryCode:'us',
+      stage:'production', evidenceCount:13, quoteCount:4,
+      services:{ccip:true, cre:true, 'data-feeds':true, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-001','ev-002','ev-027','ev-031','ev-032','ev-033','ev-034','ev-042','ev-043','ev-044','ev-045'],
+      keyFact:'$4.7 quadrillion processed annually',
+    },
+    {
+      slug:'swift', name:'Swift', country:'Belgium', countryCode:'be',
+      stage:'transition', evidenceCount:8, quoteCount:2,
+      services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-003','ev-033','ev-044','ev-045','ev-053','ev-054'],
+      keyFact:'11,500+ connected institutions',
+    },
+    {
+      slug:'euroclear', name:'Euroclear', country:'Belgium', countryCode:'be',
+      stage:'pilot', evidenceCount:6, quoteCount:1,
+      services:{ccip:true, cre:true, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-007','ev-033','ev-044','ev-045'],
+      keyFact:'Corporate Actions Initiative participant',
+    },
+    {
+      slug:'jpmorgan', name:'JPMorgan', country:'USA', countryCode:'us',
+      stage:'production', evidenceCount:5, quoteCount:1,
+      services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-004','ev-032','ev-043','ev-050','ev-053'],
+      keyFact:'$2B daily turnover via Kinexys',
+    },
+    {
+      slug:'fidelity', name:'Fidelity', country:'USA', countryCode:'us',
+      stage:'production', evidenceCount:1, quoteCount:1,
+      services:{ccip:false, cre:false, 'data-feeds':true, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-005'],
+      keyFact:'On-chain NAV for tokenized fund',
+    },
+    {
+      slug:'ubs', name:'UBS', country:'Switzerland', countryCode:'ch',
+      stage:'pilot', evidenceCount:4, quoteCount:0,
+      services:{ccip:true, cre:true, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-033','ev-044','ev-045'],
+      keyFact:'Corporate Actions Initiative participant',
+    },
+    {
+      slug:'mastercard', name:'Mastercard', country:'USA', countryCode:'us',
+      stage:'research', evidenceCount:1, quoteCount:0,
+      services:{ccip:false, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-048'],
+      keyFact:'3.5B cardholders + stablecoin access',
+    },
+    {
+      slug:'citi', name:'Citi', country:'USA', countryCode:'us',
+      stage:'research', evidenceCount:7, quoteCount:1,
+      services:{ccip:false, cre:false, 'data-feeds':true, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-009','ev-019','ev-044'],
+      keyFact:'$4-5T tokenized assets projected by 2030',
+    },
+    {
+      slug:'bnymellow', name:'BNY Mellon', country:'USA', countryCode:'us',
+      stage:'pilot', evidenceCount:4, quoteCount:0,
+      services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-032','ev-043','ev-044','ev-045'],
+      keyFact:'Smart NAV pilot participant',
+    },
+    {
+      slug:'statestreet', name:'State Street', country:'USA', countryCode:'us',
+      stage:'pilot', evidenceCount:2, quoteCount:0,
+      services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-032','ev-043'],
+      keyFact:'Smart NAV pilot participant',
+    },
+    {
+      slug:'google', name:'Google Cloud', country:'USA', countryCode:'us',
+      stage:'production', evidenceCount:9, quoteCount:2,
+      services:{ccip:false, cre:false, 'data-feeds':true, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-015','ev-020','ev-021','ev-022','ev-023','ev-024','ev-025','ev-026','ev-046'],
+      keyFact:'Active node operator — cloud.google.com',
+    },
+    {
+      slug:'rba', name:'Reserve Bank of Australia', country:'Australia', countryCode:'au',
+      stage:'production', evidenceCount:2, quoteCount:0,
+      services:{ccip:false, cre:true, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-050'],
+      keyFact:'Project Acacia — wholesale CBDC trials',
+    },
+    {
+      slug:'circle', name:'Circle', country:'USA', countryCode:'us',
+      stage:'production', evidenceCount:2, quoteCount:0,
+      services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':true, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-051','ev-052'],
+      keyFact:'Native USDC cross-chain via CCIP',
+    },
+    {
+      slug:'coinbase', name:'Coinbase', country:'USA', countryCode:'us',
+      stage:'production', evidenceCount:2, quoteCount:1,
+      services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-010','ev-047'],
+      keyFact:'$7B+ wrapped assets via CCIP',
+    },
+    {
+      slug:'pangea', name:'Project Pangea', country:'Multi', countryCode:'multi',
+      stage:'pilot', evidenceCount:1, quoteCount:1,
+      services:{ccip:true, cre:true, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
+      ev:['ev-054'],
+      keyFact:'47 banks, $10T+ AUM, T+0 FX target',
+    },
+  ]
+};
+
+// ── Country/region lookup for Atlas feature
+var INST_COUNTRIES = {
+  'USA':         ['DTCC','JPMorgan','Fidelity International','Mastercard','Citi','ANZ','BNY Mellon','State Street','Google Cloud','Circle','Coinbase'],
+  'Belgium':     ['Swift','Euroclear'],
+  'Switzerland': ['UBS'],
+  'Australia':   ['Reserve Bank of Australia','ANZ'],
+  'Multi':       ['Project Pangea'],
+};
+
+// ── Heatmap tag frequencies — computed from EVIDENCE.tags
+var EV_TAG_FREQ = (function(){
+  var freq={};
+  EVIDENCE.forEach(function(e){(e.tags||[]).forEach(function(t){freq[t]=(freq[t]||0)+1;});});
+  return Object.entries(freq).sort(function(a,b){return b[1]-a[1];}).slice(0,20);
+})();
+
+// ── Production deployment count — computed live
+var INST_STAGE_COUNTS = (function(){
+  var counts={production:0,transition:0,pilot:0,research:0};
+  INSTITUTION_TRACKER.forEach(function(i){if(counts[i.stage]!==undefined)counts[i.stage]++;});
+  return counts;
+})();
+
+
 // Stage colours
 var STAGE_CFG={
   'Research':     {cls:'stage-research',   label:'Research'},
@@ -9203,6 +9506,259 @@ function mcRoundRect(x,rx,ry,rw,rh,r){
 }
 
 // ── Quote rendering ───────────────────────────────────────────────────
+
+// ════════════════════════════════════════════════════════════════════════════
+// TECHNOLOGY MATRIX
+// ════════════════════════════════════════════════════════════════════════════
+var matrixInited = false;
+function matrixInit(){
+  if(matrixInited) return;
+  matrixInited = true;
+  var body = document.getElementById('matrix-body');
+  if(!body) return;
+
+  var services = CHAINLINK_MATRIX.services;
+  var insts    = CHAINLINK_MATRIX.institutions;
+
+  // Legend
+  var legend = '<div class="mx-legend">'
+    + '<span><span style="color:rgba(80,200,120,.9);font-size:15px">✓</span> Confirmed</span>'
+    + '<span><span style="color:var(--gold);font-size:13px">◑</span> Experimental / Partial</span>'
+    + '<span><span style="color:rgba(244,242,238,.15)">—</span> No evidence</span>'
+    + '</div>';
+
+  // Stage color helper
+  function stageColor(s){
+    return s==='production'?'rgba(80,200,120,.9)':s==='transition'?'rgba(200,120,60,.9)':s==='pilot'?'var(--gold)':'rgba(100,150,255,.8)';
+  }
+
+  // Table
+  var t = '<div class="mx-wrap"><table class="mx-table">';
+
+  // Header row — institution names
+  t += '<thead><tr><th style="min-width:160px;border-bottom:.5px solid var(--border)"></th>';
+  insts.forEach(function(inst){
+    var dot = '<span class="mx-stage-dot" style="background:'+stageColor(inst.stage)+'"></span>';
+    t += '<th class="mx-th-inst mx-inst-head">' + dot + inst.name + '</th>';
+  });
+  t += '</tr></thead><tbody>';
+
+  // One row per service
+  services.forEach(function(svc){
+    t += '<tr class="mx-svc-row">';
+    t += '<th class="mx-th-svc">'
+      + '<div style="font-size:13px;color:var(--w60)">' + svc.label + '</div>'
+      + '<div style="font-size:10px;color:var(--w20);margin-top:2px;font-weight:300">' + svc.full + '</div>'
+      + '</th>';
+    insts.forEach(function(inst){
+      var val = inst.services[svc.id];
+      if(val === true){
+        t += '<td class="mx-cell yes" title="'+inst.name+' — '+svc.label+' confirmed">✓</td>';
+      } else if(val === 'partial'){
+        t += '<td class="mx-cell partial" title="'+inst.name+' — '+svc.label+' experimental">◑</td>';
+      } else {
+        t += '<td class="mx-cell no">—</td>';
+      }
+    });
+    t += '</tr>';
+  });
+
+  t += '</tbody></table></div>';
+
+  // Summary row below table
+  t += '<div style="margin-top:clamp(24px,2.5vw,40px);display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">';
+  insts.forEach(function(inst){
+    var svcs = Object.keys(inst.services).filter(function(k){return inst.services[k]===true;});
+    t += '<div style="background:var(--bg2);border:.5px solid var(--border);padding:14px 16px;cursor:pointer" onclick="showPage(\'compare\')">'
+      + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">'
+      + '<span style="width:7px;height:7px;border-radius:50%;background:'+stageColor(inst.stage)+';display:inline-block;flex-shrink:0"></span>'
+      + '<span style="font-size:13px;color:var(--w);font-weight:500">' + inst.name + '</span>'
+      + '</div>'
+      + '<div style="font-family:var(--mono);font-size:10px;color:var(--w20)">' + svcs.length + ' service' + (svcs.length!==1?'s':'') + ' &mdash; ' + inst.evidenceCount + ' evidence entries</div>'
+      + '</div>';
+  });
+  t += '</div>';
+
+  body.innerHTML = legend + t;
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// COMPARE INSTITUTIONS
+// ════════════════════════════════════════════════════════════════════════════
+var compareInited = false;
+function compareInit(){
+  if(compareInited) return;
+  compareInited = true;
+  var body = document.getElementById('compare-body');
+  if(!body) return;
+
+  var insts = CHAINLINK_MATRIX.institutions;
+  var services = CHAINLINK_MATRIX.services;
+
+  // Build select options
+  function buildOptions(selectedSlug){
+    return insts.map(function(i){
+      return '<option value="'+i.slug+'"'+(i.slug===selectedSlug?' selected':'')+'>'+i.name+'</option>';
+    }).join('');
+  }
+
+  body.innerHTML =
+    '<div class="cmp-pickers">'
+    + '<div style="position:relative">'
+    + '<select class="cmp-select" id="cmp-a" onchange="compareRender()">'
+    + buildOptions('dtcc')
+    + '</select>'
+    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--w40);pointer-events:none">&#8595;</span>'
+    + '</div>'
+    + '<div style="position:relative">'
+    + '<select class="cmp-select" id="cmp-b" onchange="compareRender()">'
+    + buildOptions('swift')
+    + '</select>'
+    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--w40);pointer-events:none">&#8595;</span>'
+    + '</div>'
+    + '</div>'
+    + '<div id="cmp-scorecard"></div>';
+
+  compareRender();
+}
+
+function compareRender(){
+  var slugA = document.getElementById('cmp-a').value;
+  var slugB = document.getElementById('cmp-b').value;
+  var insts = CHAINLINK_MATRIX.institutions;
+  var services = CHAINLINK_MATRIX.services;
+  var iA = insts.find(function(i){return i.slug===slugA;});
+  var iB = insts.find(function(i){return i.slug===slugB;});
+  var card = document.getElementById('cmp-scorecard');
+  if(!iA||!iB){card.innerHTML=''; return;}
+
+  function stageLabel(s){
+    return s==='production'?'<span style="color:rgba(80,200,120,.9)">&#9679; Production</span>'
+          :s==='transition'?'<span style="color:rgba(200,120,60,.9)">&#9679; Pilot &#8594; Production</span>'
+          :s==='pilot'?'<span style="color:var(--gold)">&#9679; Pilot</span>'
+          :'<span style="color:rgba(100,150,255,.8)">&#9679; Research</span>';
+  }
+  function svcCell(val){
+    return val===true?'<span class="cmp-yes">&#10003;</span>'
+          :val==='partial'?'<span style="color:var(--gold)">&#9680;</span>'
+          :'<span class="cmp-no">&#8212;</span>';
+  }
+
+  var rows = [
+    ['DEPLOYMENT STAGE', stageLabel(iA.stage), stageLabel(iB.stage)],
+    ['COUNTRY', iA.country, iB.country],
+    ['EVIDENCE ENTRIES', iA.evidenceCount, iB.evidenceCount],
+    ['QUOTES ON RECORD', iA.quoteCount, iB.quoteCount],
+    ['KEY FACT', '<span style="font-size:12px;color:var(--w40);font-style:italic">'+iA.keyFact+'</span>', '<span style="font-size:12px;color:var(--w40);font-style:italic">'+iB.keyFact+'</span>'],
+  ];
+
+  services.forEach(function(svc){
+    rows.push([svc.label, svcCell(iA.services[svc.id]), svcCell(iB.services[svc.id])]);
+  });
+
+  var t = '<div class="cmp-grid">';
+  // Header row
+  t += '<div class="cmp-row-label"></div>';
+  t += '<div class="cmp-header-cell">'+iA.name+'</div>';
+  t += '<div class="cmp-header-cell">'+iB.name+'</div>';
+
+  rows.forEach(function(row){
+    t += '<div class="cmp-row-label">'+row[0]+'</div>';
+    t += '<div class="cmp-row-val">'+row[1]+'</div>';
+    t += '<div class="cmp-row-val">'+row[2]+'</div>';
+  });
+
+  // Evidence links row
+  t += '<div class="cmp-row-label">EVIDENCE</div>';
+  function evLinks(inst){
+    return (inst.ev||[]).slice(0,4).map(function(eid){
+      return '<a href="/evidence/'+eid+'" style="display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:3px 8px;border:.5px solid rgba(200,146,42,.25);color:var(--gold);background:rgba(200,146,42,.06);margin:2px;text-decoration:none">'+eid.toUpperCase()+'</a>';
+    }).join('');
+  }
+  t += '<div class="cmp-row-val">'+evLinks(iA)+'</div>';
+  t += '<div class="cmp-row-val">'+evLinks(iB)+'</div>';
+  t += '</div>';
+
+  card.innerHTML = t;
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// PRODUCTION TRACKER
+// ════════════════════════════════════════════════════════════════════════════
+var trackerInited = false;
+var trackerCurrentFilter = 'all';
+
+function trackerInit(){
+  if(trackerInited) return;
+  trackerInited = true;
+  trackerRender('all');
+}
+
+function trackerFilter(f){
+  trackerCurrentFilter = f;
+  // Update button styles
+  ['all','production'].forEach(function(id){
+    var btn = document.getElementById('tracker-filter-'+id);
+    if(!btn) return;
+    var active = id===f;
+    btn.style.background = active ? 'var(--gold)' : 'none';
+    btn.style.color       = active ? '#08070a'    : 'var(--w40)';
+    btn.style.borderColor = active ? 'var(--gold)' : 'var(--border)';
+  });
+  trackerRender(f);
+}
+
+function trackerRender(filter){
+  var body = document.getElementById('tracker-body');
+  if(!body) return;
+
+  var stages = [
+    {id:'research',   label:'RESEARCH',              cls:'tc-research',   desc:'Institutions studying or referencing Chainlink infrastructure'},
+    {id:'pilot',      label:'PILOT',                  cls:'tc-pilot',      desc:'Active testing or experimental deployment'},
+    {id:'transition', label:'PILOT &#8594; PRODUCTION', cls:'tc-transition', desc:'Confirmed production target within 12 months'},
+    {id:'production', label:'PRODUCTION',             cls:'tc-production', desc:'Live deployment serving real transactions'},
+  ];
+
+  var insts = CHAINLINK_MATRIX.institutions;
+
+  function stageColor(s){
+    return s==='production'?'rgba(80,200,120,.9)':s==='transition'?'rgba(200,120,60,.9)':s==='pilot'?'var(--gold)':'rgba(100,150,255,.8)';
+  }
+
+  function buildCard(inst){
+    var svcs = Object.keys(inst.services).filter(function(k){return inst.services[k]===true;});
+    var svcTags = svcs.map(function(s){
+      var svcObj = CHAINLINK_MATRIX.services.find(function(x){return x.id===s;});
+      return '<span class="tracker-svc-tag">'+(svcObj?svcObj.label:s)+'</span>';
+    }).join('');
+    return '<div class="tracker-card">'
+      + '<div class="tracker-card-name">'+inst.name+'</div>'
+      + '<div class="tracker-card-full">'+inst.country+'</div>'
+      + '<div class="tracker-card-ev">'+inst.evidenceCount+' evidence entr'+(inst.evidenceCount===1?'y':'ies')+'</div>'
+      + (svcTags?'<div class="tracker-card-services">'+svcTags+'</div>':'')
+      + '<div class="tracker-card-fact">'+inst.keyFact+'</div>'
+      + '</div>';
+  }
+
+  var cols = '';
+  stages.forEach(function(stage){
+    if(filter==='production' && stage.id!=='production' && stage.id!=='transition') return;
+    var stageInsts = insts.filter(function(i){return i.stage===stage.id;});
+    cols += '<div>'
+      + '<div class="tracker-col-head '+stage.cls+'">'+stage.label
+      + '<div style="font-size:9px;font-weight:300;letter-spacing:.06em;color:inherit;opacity:.6;margin-top:3px">'+stage.desc+'</div>'
+      + '</div>';
+    if(stageInsts.length===0){
+      cols += '<div style="font-family:var(--mono);font-size:11px;color:var(--w20);padding:16px;text-align:center">No entries</div>';
+    } else {
+      stageInsts.forEach(function(inst){ cols += buildCard(inst); });
+    }
+    cols += '</div>';
+  });
+
+  var colCount = filter==='production' ? 2 : 4;
+  body.innerHTML = '<div class="tracker-cols" style="grid-template-columns:repeat('+colCount+',1fr)">'+cols+'</div>';
+}
 
 // ── Initial route + popstate ──────────────────────────────────────────
 (function(){
