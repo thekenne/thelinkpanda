@@ -470,7 +470,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .hero-blend{left:0;width:100%}
   .hero-text-grad{width:100%;background:linear-gradient(to top,rgba(7,9,13,.72) 0%,rgba(7,9,13,.30) 50%,transparent 100%)}
   .hero-text-backing{width:100%;height:60%}
-  .hero-text-panel{display:none!important;}
+  .hero-text-panel{display:none!important;
   .hero-h1{font-size:clamp(28px,9vw,40px)}
   .hero-tagline{font-size:clamp(14px,4.5vw,18px)}
   .hero-sub{font-size:20px;max-width:85vw;color:var(--w80)}
@@ -6160,7 +6160,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       </div>
     </div>
   </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(48px,5vw,80px) clamp(32px,5vw,80px) clamp(32px,3vw,56px)">
     <div style="display:none" aria-hidden="false"><p>The Chainlink Production Tracker shows the deployment stage of every tracked institution: Research, Pilot, Pilot to Production transition, and Production. Current production deployments include DTCC, JPMorgan Kinexys, Fidelity International, Google Cloud, Reserve Bank of Australia, Circle, and Coinbase. Pilot deployments include Euroclear, UBS, BNY Mellon, and State Street.</p></div>
     <div id="tracker-body"></div>
   </div>
@@ -6330,54 +6330,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   
 </div>
 
-<!-- ════════════════════════════ ABOUT ════════════════════════════ -->
-<div class="page" id="page-about">
-  <div class="hero" style="max-height:400px">
-    <img class="hero-banner" src="assets/banner/TheLinkPanda banner.jpg" alt="TheLinkPanda" onerror="this.style.opacity='.2'"/>
-    <div class="hero-ol"></div>
-    <div class="hero-ob"></div>
-    <div class="hero-content" style="padding-bottom:40px">
-      <div class="hero-eyebrow">ABOUT</div>
-      <div class="hero-h1" style="font-size:clamp(24px,3vw,38px)">TheLink<span>Panda</span></div>
-      <div class="hero-rule"></div>
-      <div class="hero-tagline">Infrastructure Before Narratives.</div>
-    </div>
-  </div>
-  <div class="section" style="max-width:760px">
-    <div class="ab-label">MISSION</div>
-    <div class="ab-hed" style="font-size:clamp(20px,2.5vw,30px);margin-bottom:20px">The systems behind digital finance are knowable. Most explanations just aren't good enough.</div>
-    <div class="ab-body" style="font-size:14px">TheLinkPanda exists to make digital finance infrastructure legible — through rigorous research, precise visual systems, and a commitment to clarity over hype. Every infographic, video, and piece of analysis starts with one question: what is actually happening beneath the narrative?</div>
-    <div class="ab-body" style="font-size:14px;margin-top:16px">The focus is on the systems that process, settle, and secure global value: SWIFT, DTCC, Chainlink, stablecoins, tokenisation, interoperability — the architecture of the emerging financial internet.</div>
-    <div class="ab-tags" style="margin-top:24px">
-      <span class="ab-tag">Digital Finance</span>
-      <span class="ab-tag">Infrastructure</span>
-      <span class="ab-tag">Chainlink</span>
-      <span class="ab-tag">Visual Systems</span>
-      <span class="ab-tag">Web3</span>
-      <span class="ab-tag">RWA</span>
-    </div>
-    <div class="services-list">
-      <div class="service-row"><div class="srv-row-name">Infographics</div><div class="srv-row-desc">Visual explanations of infrastructure, technology and financial systems — designed to communicate complex ideas at a glance.</div></div>
-      <div class="service-row"><div class="srv-row-name">Video Content</div><div class="srv-row-desc">Short-form and long-form educational content explaining digital finance systems for informed and general audiences.</div></div>
-      <div class="service-row"><div class="srv-row-name">Research &amp; Narrative</div><div class="srv-row-desc">Turning dense technical topics into understandable, compelling stories with clear hierarchy and evidence.</div></div>
-      <div class="service-row"><div class="srv-row-name">Custom Artwork</div><div class="srv-row-desc">Commissioned paintings and visual work at the intersection of finance, technology, and portraiture.</div></div>
-      <div class="service-row"><div class="srv-row-name">Consulting</div><div class="srv-row-desc">Helping projects, companies, and individuals communicate complex ideas more effectively to their target audience.</div></div>
-    </div>
-  </div>
-  <div class="work-section">
-    <div class="work-grid">
-      <div>
-        <div class="wk-label">WORK WITH ME</div>
-        <div class="wk-hed">Let's build clarity through visuals.</div>
-        <div class="wk-desc">Consulting. Infographics. Research. Speaking. Design.</div>
-        <button class="wk-btn" onclick="showPage('contact')">Get in touch →</button>
-      </div>
-      <div class="srv-grid">
-        <div class="srv"><span class="srv-icon">◈</span><div class="srv-name">Visual Storytelling</div><div class="srv-desc">Complex systems made simple</div></div>
-        <div class="srv"><span class="srv-icon">▦</span><div class="srv-name">Infographics</div><div class="srv-desc">High-impact visuals</div></div>
-        <div class="srv"><span class="srv-icon">◉</span><div class="srv-name">Research</div><div class="srv-desc">Infrastructure deep dives</div></div>
-        <div class="srv"><span class="srv-icon">▷</span><div class="srv-name">Speaking</div><div class="srv-desc">Future of finance</div></div>
-        <div class="srv"><span class=// ── INFOGRAPHIC DATA — exact paths ──
+
+<script>
+// ── INFOGRAPHIC DATA — exact paths ──
 const INFOGRAPHICS = [
   {cat:'Data & AI',             file:'assets/infographics/data-and-ai/DATA and AI/AWS Chainlink data standard.jpg',                                            title:'AWS Chainlink Data Standard'},
   {cat:'Data & AI',             file:'assets/infographics/data-and-ai/DATA and AI/CHAINLINK AI SECURITY LAYER.jpg',                                            title:'Chainlink AI Security Layer'},
@@ -9642,7 +9597,7 @@ function matrixInit(){
   t += '<div style="margin-top:clamp(24px,2.5vw,40px);display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">';
   insts.forEach(function(inst){
     var svcs = Object.keys(inst.services).filter(function(k){return inst.services[k]===true;});
-    t += '<div style="background:var(--bg2);border:.5px solid var(--border);padding:14px 16px;cursor:pointer" onclick="showPage(\'compare\')">'
+    t += '<div style="background:var(--bg2);border:.5px solid var(--border);padding:14px 16px;cursor:pointer" onclick="showPage(\x27compare\x27)">'
       + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">'
       + '<span style="width:7px;height:7px;border-radius:50%;background:'+stageColor(inst.stage)+';display:inline-block;flex-shrink:0"></span>'
       + '<span style="font-size:13px;color:var(--w);font-weight:500">' + inst.name + '</span>'
@@ -10621,16 +10576,7 @@ function mfCalcRel(){
     +'<div style="font-family:var(--mono);font-size:clamp(18px,1.62vw,26px);font-weight:700;color:rgba(60,160,255,.9)">'+density2.toFixed(2)+'</div>'
     +'<div style="font-size:clamp(10px,0.61vw,10px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
     +'</div>';
-}
-
-
-ixed(2)+'</div>'
-    +'<div style="font-size:clamp(10px,0.61vw,10px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
-    +'</div>';
-}
-
-
-</script>
+}</script>
 <footer style="flex-direction:column;align-items:stretch;gap:0;padding:0">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:24px clamp(20px,5vw,80px)">
       <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
