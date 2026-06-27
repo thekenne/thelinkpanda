@@ -1218,9 +1218,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mx-legend span{display:flex;align-items:center;gap:6px}
 
 /* ── Compare ── */
-.cmp-pickers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,32px);margin-bottom:clamp(24px,2.5vw,40px)}
-.cmp-select{width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--sans);font-size:clamp(14px,1vw,16px);padding:12px 16px;cursor:pointer;appearance:none;-webkit-appearance:none}
-.cmp-select:focus{outline:none;border-color:rgba(200,146,42,.5)}
+.cmp-pickers{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,32px);margin-bottom:clamp(32px,3vw,48px)}
+.cmp-select{width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--sans);font-size:clamp(14px,1vw,16px);padding:12px 40px 12px 16px;cursor:pointer;appearance:none;-webkit-appearance:none;border-radius:0;outline:none;transition:border-color .2s}
+.cmp-select:focus{border-color:var(--gold)}
+.cmp-select:hover{border-color:rgba(200,146,42,.4)}
+.cmp-select option{background:var(--bg2);color:var(--w);padding:8px 16px}
 .cmp-grid{display:grid;grid-template-columns:200px 1fr 1fr;gap:0}
 .cmp-row{display:contents}
 .cmp-row-label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--w20);padding:12px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center}
@@ -6081,7 +6083,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       </div>
     </div>
   </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(48px,5vw,80px) clamp(32px,5vw,80px) clamp(32px,3vw,56px)">
     <div style="display:none" aria-hidden="false"><p>The Chainlink Technology Matrix shows which institutions use which Chainlink services including CCIP, CRE, Data Feeds, Data Streams, Proof of Reserve, Automation, VRF, Functions, SVR, and DECO. Institutions tracked include DTCC, Swift, Euroclear, JPMorgan, Fidelity, UBS, Mastercard, Citi, BNY Mellon, State Street, Google Cloud, Reserve Bank of Australia, Circle, Coinbase, and Project Pangea.</p></div>
     <div id="matrix-body"></div>
   </div>
@@ -6100,7 +6102,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       </div>
     </div>
   </div>
-  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(32px,3vw,56px) clamp(32px,5vw,80px)">
+  <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(48px,5vw,80px) clamp(32px,5vw,80px) clamp(32px,3vw,56px)">
     <div id="compare-body"></div>
   </div>
 </div>
@@ -9521,10 +9523,12 @@ function matrixInit(){
   var insts    = CHAINLINK_MATRIX.institutions;
 
   // Legend
-  var legend = '<div class="mx-legend">'
-    + '<span><span style="color:rgba(80,200,120,.9);font-size:15px">✓</span> Confirmed</span>'
-    + '<span><span style="color:var(--gold);font-size:13px">◑</span> Experimental / Partial</span>'
-    + '<span><span style="color:rgba(244,242,238,.15)">—</span> No evidence</span>'
+  var legend = '<div style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(16px,2vw,32px);margin-bottom:clamp(20px,2vw,32px);padding:14px 18px;background:var(--bg2);border:.5px solid var(--border)">'
+    + '<span style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--w20);text-transform:uppercase;margin-right:8px">LEGEND</span>'
+    + '<span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w60)"><span style="color:rgba(80,200,120,.9);font-size:17px;font-weight:700">✓</span> Confirmed deployment</span>'
+    + '<span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w60)"><span style="color:var(--gold);font-size:15px">◑</span> Experimental / partial</span>'
+    + '<span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w40)"><span style="color:rgba(244,242,238,.2);font-size:15px">—</span> No evidence</span>'
+    + '<span style="margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--w20);letter-spacing:.08em">All cells sourced to Evidence Vault</span>'
     + '</div>';
 
   // Stage color helper
@@ -9604,17 +9608,23 @@ function compareInit(){
 
   body.innerHTML =
     '<div class="cmp-pickers">'
+    + '<div>'
+    + '<div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:8px">INSTITUTION A</div>'
     + '<div style="position:relative">'
     + '<select class="cmp-select" id="cmp-a" onchange="compareRender()">'
     + buildOptions('dtcc')
     + '</select>'
-    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--w40);pointer-events:none">&#8595;</span>'
+    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none;font-size:12px">&#9660;</span>'
     + '</div>'
+    + '</div>'
+    + '<div>'
+    + '<div style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:8px">INSTITUTION B</div>'
     + '<div style="position:relative">'
     + '<select class="cmp-select" id="cmp-b" onchange="compareRender()">'
     + buildOptions('swift')
     + '</select>'
-    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--w40);pointer-events:none">&#8595;</span>'
+    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none;font-size:12px">&#9660;</span>'
+    + '</div>'
     + '</div>'
     + '</div>'
     + '<div id="cmp-scorecard"></div>';
