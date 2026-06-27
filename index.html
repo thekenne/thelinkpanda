@@ -1250,6 +1250,21 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .tracker-card-fact{font-size:12px;color:var(--w40);line-height:1.4;font-style:italic}
 @media(max-width:900px){.tracker-cols{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){.tracker-cols{grid-template-columns:1fr}}
+
+/* ── Evidence Heatmap ── */
+.heatmap-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.heatmap-label{font-size:12px;color:var(--w60);width:clamp(100px,12vw,160px);flex-shrink:0;letter-spacing:.02em}
+.heatmap-track{flex:1;height:6px;background:rgba(244,242,238,.06);border-radius:0;overflow:hidden}
+.heatmap-fill{height:100%;background:var(--gold);border-radius:0;transition:width .6s ease}
+.heatmap-count{font-family:var(--mono);font-size:11px;color:var(--w20);width:28px;text-align:right;flex-shrink:0}
+
+/* ── Live Adoption Counter ── */
+.lac-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.lac-item{padding:clamp(16px,1.8vw,28px) 12px;text-align:center;border-right:.5px solid var(--border)}
+.lac-item:last-child{border-right:none}
+.lac-n{font-family:var(--mono);font-size:clamp(22px,2.5vw,38px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
+.lac-l{font-size:11px;letter-spacing:.1em;color:var(--w20);line-height:1.4}
+@media(max-width:600px){.lac-grid{grid-template-columns:repeat(3,1fr)}.lac-item:nth-child(3){border-right:none}.lac-item:nth-child(n+4){border-top:.5px solid var(--border)}}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 
@@ -4845,6 +4860,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button>
         <button class="nav-more-item" onclick="showPage('concepts');navCloseMore()">Chainlink Explained</button>
         <button class="nav-more-item" id="nl-contribute"   onclick="showPage('contribute');navCloseMore()">Contribute</button>
+        <button class="nav-more-item" onclick="window.location='/ai-research';navCloseMore()" style="color:var(--gold)">&#9998; AI Research Assistant</button>
         <button class="nav-more-item" onclick="showPage('matrix');navCloseMore()">Technology Matrix</button>
         <button class="nav-more-item" onclick="showPage('compare');navCloseMore()">Compare Institutions</button>
         <button class="nav-more-item" onclick="showPage('tracker');navCloseMore()">Production Tracker</button>
@@ -5169,7 +5185,28 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════ EXPLORER ════════════════════════════════════ -->
+
+  <!-- EVIDENCE HEATMAP + LIVE COUNTER ════════════════════════════════ -->
+  <div style="max-width:var(--content-max);margin:0 auto;padding:0 clamp(32px,5vw,80px) clamp(48px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)">
+
+    <!-- Evidence Heatmap -->
+    <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">EVIDENCE BY TOPIC</div>
+      <div id="heatmap-bars"></div>
+      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Browse evidence by topic &rarr;</button>
+    </div>
+
+    <!-- Live Adoption Counter -->
+    <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LIVE ADOPTION COUNTER</div>
+      <div id="lac-grid" class="lac-grid" style="border:.5px solid var(--border);margin-bottom:16px"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--w20);text-align:center;letter-spacing:.06em">Computed live from Evidence Vault &amp; Institution Tracker</div>
+      <button onclick="showPage('tracker')" style="margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Production tracker &rarr;</button>
+    </div>
+
+  </div>
+
+    <!-- ════════════════════════════════════════ EXPLORER ════════════════════════════════════ -->
 
 
 </div>
@@ -6340,16 +6377,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <div class="srv"><span class="srv-icon">▦</span><div class="srv-name">Infographics</div><div class="srv-desc">High-impact visuals</div></div>
         <div class="srv"><span class="srv-icon">◉</span><div class="srv-name">Research</div><div class="srv-desc">Infrastructure deep dives</div></div>
         <div class="srv"><span class="srv-icon">▷</span><div class="srv-name">Speaking</div><div class="srv-desc">Future of finance</div></div>
-        <div class="srv"><span class="srv-icon">⊕</span><div class="srv-name">Consulting</div><div class="srv-desc">Web3 strategy</div></div>
-      </div>
-    </div>
-  </div>
-  
-</div>
-
-
-
-<script>// ── INFOGRAPHIC DATA — exact paths ──
+        <div class="srv"><span class=// ── INFOGRAPHIC DATA — exact paths ──
 const INFOGRAPHICS = [
   {cat:'Data & AI',             file:'assets/infographics/data-and-ai/DATA and AI/AWS Chainlink data standard.jpg',                                            title:'AWS Chainlink Data Standard'},
   {cat:'Data & AI',             file:'assets/infographics/data-and-ai/DATA and AI/CHAINLINK AI SECURITY LAYER.jpg',                                            title:'Chainlink AI Security Layer'},
@@ -7625,7 +7653,7 @@ function exSvcFilter(s){exClickService(s);}
 
 var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','privacy','terms','disclaimer','research','matrix','compare','tracker'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker'};
+var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker','ai-research':'/ai-research'};
 var URL_PAGES={'/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 var PAGE_META_MAP = {
@@ -7711,7 +7739,7 @@ function showPage(page,filter,noPush){
   if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
   if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}
   if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','').replace('/institutions/','');if(_osl&&_osl.length>1&&_osl!=='org')orgShowInst(_osl);}
-  if(page==='home'){buildResearchStats();buildLatestUpdates();}
+  if(page==='home'){buildResearchStats(); buildHeatmap(); buildLiveCounter();buildLatestUpdates();}
   if(page==='metrics'){metricsInit();}
   if(page==='patents'){patentsInit();}
   if(page==='misconceptions'){mcInit();}
@@ -8430,6 +8458,47 @@ var CONCEPTS = [
    ev:['ev-038','ev-017'],
    color:'rgba(200,100,255,0.8)'},
 ];
+
+
+function buildHeatmap(){
+  var el = document.getElementById('heatmap-bars');
+  if(!el) return;
+  // EV_TAG_FREQ is already computed: [[tag, count], ...]
+  var top = EV_TAG_FREQ.slice(0, 10);
+  if(!top || !top.length) return;
+  var max = top[0][1];
+  el.innerHTML = top.map(function(item){
+    var tag = item[0], count = item[1];
+    var pct = Math.round((count / max) * 100);
+    return '<div class="heatmap-bar">'
+      + '<span class="heatmap-label">' + tag + '</span>'
+      + '<div class="heatmap-track"><div class="heatmap-fill" style="width:' + pct + '%"></div></div>'
+      + '<span class="heatmap-count">' + count + '</span>'
+      + '</div>';
+  }).join('');
+}
+
+function buildLiveCounter(){
+  var el = document.getElementById('lac-grid');
+  if(!el) return;
+  var prodCount = INST_STAGE_COUNTS.production || 0;
+  var pilotCount = (INST_STAGE_COUNTS.pilot || 0) + (INST_STAGE_COUNTS.transition || 0);
+  var researchCount = INST_STAGE_COUNTS.research || 0;
+  // Count countries from CHAINLINK_MATRIX
+  var countries = {};
+  CHAINLINK_MATRIX.institutions.forEach(function(i){ if(i.country&&i.country!=='Multi') countries[i.country]=1; });
+  var countryCount = Object.keys(countries).length;
+  var items = [
+    {n: EVIDENCE.length,        l: 'Evidence<br>Entries'},
+    {n: prodCount,              l: 'Production<br>Deployments'},
+    {n: pilotCount,             l: 'Active<br>Pilots'},
+    {n: countryCount + '+',     l: 'Countries<br>Tracked'},
+    {n: INSTITUTION_TRACKER.length, l: 'Institutions<br>Monitored'},
+  ];
+  el.innerHTML = items.map(function(s){
+    return '<div class="lac-item"><div class="lac-n">' + s.n + '</div><div class="lac-l">' + s.l + '</div></div>';
+  }).join('');
+}
 
 function buildResearchStats(){
   var el=document.getElementById('research-stats-bar');if(!el)return;
@@ -10550,6 +10619,12 @@ function mfCalcRel(){
     +'<div style="background:var(--bg2);border:.5px solid rgba(60,160,255,.2);padding:clamp(12px,1.22vw,18px);margin-top:6px">'
     +'<div style="font-family:var(--mono);font-size:clamp(10px,0.61vw,10px);letter-spacing:.14em;color:rgba(60,160,255,.6);margin-bottom:5px">FUTURE DENSITY</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(18px,1.62vw,26px);font-weight:700;color:rgba(60,160,255,.9)">'+density2.toFixed(2)+'</div>'
+    +'<div style="font-size:clamp(10px,0.61vw,10px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
+    +'</div>';
+}
+
+
+ixed(2)+'</div>'
     +'<div style="font-size:clamp(10px,0.61vw,10px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
     +'</div>';
 }
