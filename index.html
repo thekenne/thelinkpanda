@@ -4860,7 +4860,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button>
         <button class="nav-more-item" onclick="showPage('concepts');navCloseMore()">Chainlink Explained</button>
         <button class="nav-more-item" id="nl-contribute"   onclick="showPage('contribute');navCloseMore()">Contribute</button>
+        <!-- TODO: Re-enable AI Assistant — restore the button below when ready
         <button class="nav-more-item" onclick="window.location='/ai-research';navCloseMore()" style="color:var(--gold)">&#9998; AI Research Assistant</button>
+        -->
         <button class="nav-more-item" onclick="showPage('matrix');navCloseMore()">Technology Matrix</button>
         <button class="nav-more-item" onclick="showPage('compare');navCloseMore()">Compare Institutions</button>
         <button class="nav-more-item" onclick="showPage('tracker');navCloseMore()">Production Tracker</button>
@@ -7608,7 +7610,9 @@ function exSvcFilter(s){exClickService(s);}
 
 var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','privacy','terms','disclaimer','research','matrix','compare','tracker'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker','ai-research':'/ai-research'};
+var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker',/* TODO: Re-enable AI Assistant — restore entry below
+  'ai-research':'/ai-research'
+*/};
 var URL_PAGES={'/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 var PAGE_META_MAP = {
