@@ -924,9 +924,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 /* ── Nav More ── */
 .nav-more-wrap{position:relative;display:inline-block}
-.nav-more-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg2);border:.5px solid var(--border);min-width:280px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.nav-more-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg2);border:.5px solid var(--border);min-width:220px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.5);max-height:80vh;overflow-y:auto}
 .nav-more-dropdown.open{display:block}
-.nav-more-item{display:block;width:100%;padding:10px 18px;text-align:left;background:none;border:none;border-bottom:.5px solid var(--border);font-family:var(--sans);font-size:19px;color:var(--w60);cursor:pointer;transition:color .15s,background .15s;letter-spacing:.03em;white-space:nowrap}
+.nav-more-group-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold);opacity:.55;padding:10px 18px 5px;pointer-events:none;user-select:none}
+.nav-more-group-label:first-child{padding-top:14px}
+.nav-more-item{display:block;width:100%;padding:8px 18px 8px 18px;text-align:left;background:none;border:none;border-bottom:.5px solid var(--border);font-family:var(--sans);font-size:13px;color:var(--w60);cursor:pointer;transition:color .15s,background .15s;letter-spacing:.03em;white-space:nowrap}
 .nav-more-item:last-child{border-bottom:none}
 .nav-more-item:hover,.nav-more-item.active{color:var(--w);background:var(--w06)}
 
@@ -4849,27 +4851,31 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="nav-more-wrap" id="nav-more-wrap">
       <button class="nav-link nav-more-btn" onclick="navToggleMore()" id="nav-more-btn">More &#9662;</button>
       <div class="nav-more-dropdown" id="nav-more-dropdown">
-        <button class="nav-more-item" id="nl-quotes"       onclick="showPage('quotes');navCloseMore()">Quotes</button>
+        <!-- RESEARCH TOOLS -->
+        <div class="nav-more-group-label">RESEARCH TOOLS</div>
+        <button class="nav-more-item" onclick="showPage('matrix');navCloseMore()">Technology Matrix</button>
+        <button class="nav-more-item" onclick="showPage('compare');navCloseMore()">Compare Institutions</button>
+        <button class="nav-more-item" onclick="showPage('tracker');navCloseMore()">Production Tracker</button>
+        <button class="nav-more-item" onclick="showPage('patents');navCloseMore()">Patent Registry</button>
+        <button class="nav-more-item" onclick="showPage('metcalfe');navCloseMore()">Network Calculator</button>
+        <!-- LEARN -->
+        <div class="nav-more-group-label">LEARN</div>
+        <button class="nav-more-item" onclick="showPage('concepts');navCloseMore()">Chainlink Explained</button>
+        <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button>
+        <button class="nav-more-item" onclick="showPage('digest');navCloseMore()">Research Digest</button>
+        <!-- CONTENT -->
+        <div class="nav-more-group-label">CONTENT</div>
         <button class="nav-more-item" id="nl-infographics" onclick="showPage('infographics');navCloseMore()">Infographics</button>
         <button class="nav-more-item" id="nl-videos"       onclick="showPage('videos');navCloseMore()">Videos</button>
+        <button class="nav-more-item" id="nl-quotes"       onclick="showPage('quotes');navCloseMore()">Quotes</button>
         <button class="nav-more-item" id="nl-art"          onclick="showPage('art');navCloseMore()">Art &amp; NFTs</button>
+        <!-- SITE -->
+        <div class="nav-more-group-label">SITE</div>
         <button class="nav-more-item" id="nl-about"        onclick="showPage('about');navCloseMore()">About</button>
-        <button class="nav-more-item" onclick="showPage('patents');navCloseMore()">Patent Registry</button>
-        <button class="nav-more-item" onclick="showPage('digest');navCloseMore()">Research Digest</button>
-        <button class="nav-more-item" onclick="showPage('metcalfe');navCloseMore()">Network Calculator</button>
-        <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button>
-        <button class="nav-more-item" onclick="showPage('concepts');navCloseMore()">Chainlink Explained</button>
         <button class="nav-more-item" id="nl-contribute"   onclick="showPage('contribute');navCloseMore()">Contribute</button>
         <!-- TODO: Re-enable AI Assistant — restore the button below when ready
         <button class="nav-more-item" onclick="window.location='/ai-research';navCloseMore()" style="color:var(--gold)">&#9998; AI Research Assistant</button>
         -->
-        <button class="nav-more-item" onclick="showPage('matrix');navCloseMore()">Technology Matrix</button>
-        <button class="nav-more-item" onclick="showPage('compare');navCloseMore()">Compare Institutions</button>
-        <button class="nav-more-item" onclick="showPage('tracker');navCloseMore()">Production Tracker</button>
-        <button class="nav-more-item" onclick="showPage('org');showOrg('dtcc');navCloseMore()">DTCC Profile</button>
-        <button class="nav-more-item" onclick="showPage('org');showOrg('swift');navCloseMore()">Swift Profile</button>
-        <button class="nav-more-item" onclick="showPage('org');showOrg('jpmorgan');navCloseMore()">J.P. Morgan Profile</button>
-        <button class="nav-more-item" onclick="showPage('org');showOrg('euroclear');navCloseMore()">Euroclear Profile</button>
       </div>
     </div>
   </div>
