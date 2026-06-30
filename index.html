@@ -107,8 +107,8 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .hero-h1 span{color:var(--gold)}
 .hero-rule{display:none;width:clamp(32px,2.4vw,50px);height:.5px;background:var(--gold);opacity:.5;margin:clamp(14px,1.15vw,19px) 0;transform-origin:left;animation:ruledraw .7s ease-out .2s both;}
 .hero-tagline{font-family:var(--serif);font-style:italic;font-size:clamp(11px,0.94vw,15px);font-weight:300;color:var(--w);margin-bottom:clamp(6px,0.5vw,9px);line-height:1.3;}
-.hero-sub{font-size:clamp(11px,.57vw,12px);color:var(--w80);line-height:1.6;margin-bottom:clamp(14px,1.2vw,20px);max-width:clamp(180px,18vw,280px);text-shadow:0 1px 12px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.95);}
-.hero-cta{display:inline-flex;align-items:center;gap:8px;background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(11px,.55vw,12px);letter-spacing:.07em;padding:clamp(8px,.6vw,11px) clamp(12px,1.1vw,18px);transition:background .25s,color .25s;width:fit-content;}
+.hero-sub{font-size:clamp(14px,.57vw,16px);color:var(--w80);line-height:1.6;margin-bottom:clamp(14px,1.2vw,20px);max-width:clamp(180px,18vw,280px);text-shadow:0 1px 12px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.95);}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:none;border:.5px solid var(--gold);cursor:pointer;color:var(--gold);font-family:var(--sans);font-size:clamp(14px,.55vw,16px);letter-spacing:.07em;padding:clamp(8px,.6vw,11px) clamp(12px,1.1vw,18px);transition:background .25s,color .25s;width:fit-content;}
 .hero-cta:hover{background:var(--gold);color:#08070a}
 @media(min-width:1920px){
   .hero-right-img{left:50%;width:50%}
@@ -153,10 +153,10 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .dest-card:hover .dest-card-img img{transform:scale(1.05)}
 .dest-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.96) 0%,rgba(7,9,13,.72) 35%,rgba(7,9,13,.28) 70%,rgba(7,9,13,.08) 100%);}
 .dest-card-body{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;flex:1;padding:clamp(6px,0.6vw,10px) clamp(6px,0.6vw,10px);min-width:0;}
-.dest-card-cat{font-size:clamp(11px,0.5vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7;margin-bottom:clamp(2px,0.2vw,4px);white-space:normal;line-height:1.3;overflow:visible;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:2.6em;}
+.dest-card-cat{font-size:clamp(14px,0.5vw,16px);letter-spacing:.06em;color:var(--gold);opacity:.7;margin-bottom:clamp(2px,0.2vw,4px);white-space:normal;line-height:1.3;overflow:visible;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:2.6em;}
 .dest-card-title{font-family:var(--serif);font-weight:300;font-size:clamp(13px,1vw,16px);color:#fff;line-height:1.2;margin-bottom:clamp(2px,0.2vw,4px);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.4em;word-break:break-word;overflow-wrap:break-word;}
-.dest-card-desc{font-size:clamp(11px,0.42vw,12px);color:rgba(244,242,238,.5);line-height:1.35;margin-bottom:clamp(3px,0.3vw,5px);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.dest-card-link{display:inline-flex;align-items:center;gap:2px;font-size:clamp(11px,0.4vw,12px);letter-spacing:.04em;color:var(--gold);opacity:.7;transition:opacity .2s,gap .2s;}
+.dest-card-desc{font-size:clamp(14px,0.42vw,16px);color:rgba(244,242,238,.5);line-height:1.35;margin-bottom:clamp(3px,0.3vw,5px);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.dest-card-link{display:inline-flex;align-items:center;gap:2px;font-size:clamp(14px,0.4vw,16px);letter-spacing:.04em;color:var(--gold);opacity:.7;transition:opacity .2s,gap .2s;}
 .dest-card:hover .dest-card-link{opacity:1;gap:9px}
 .dest-card-img.dest-infographics{background:linear-gradient(135deg,#0D1628,#0A1832)}
 .dest-card-img.dest-videos{background:linear-gradient(135deg,#0E1530,#0A1525)}
@@ -244,7 +244,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .ex-stat{padding:clamp(12px,1.08vw,16px) clamp(9px,0.81vw,14px);background:rgba(4,6,16,.9);text-align:center;}
 .ex-stat-n{font-family:var(--mono);font-size:clamp(20px,1.62vw,24px);color:#fff;font-weight:400;line-height:1;display:block;margin-bottom:2px;}
 .ex-stat-l{font-size:clamp(15px,0.89vw,16px);letter-spacing:.1em;color:rgba(244,242,238,.5);}
-.ex-hint{flex-shrink:0;text-align:center;padding:clamp(10px,0.94vw,14px);border-top:.5px solid rgba(255,255,255,.04);font-size:clamp(11px,0.61vw,12px);color:rgba(244,242,238,.45);letter-spacing:.05em;font-family:var(--mono);background:rgba(4,6,14,.8);display:flex;align-items:center;justify-content:center;gap:8px;}
+.ex-hint{flex-shrink:0;text-align:center;padding:clamp(10px,0.94vw,14px);border-top:.5px solid rgba(255,255,255,.04);font-size:clamp(14px,0.61vw,16px);color:rgba(244,242,238,.45);letter-spacing:.05em;font-family:var(--mono);background:rgba(4,6,14,.8);display:flex;align-items:center;justify-content:center;gap:8px;}
 .ex-hint-icon{width:14px;height:14px;border-radius:50%;border:.5px solid rgba(244,242,238,.2);display:inline-flex;align-items:center;justify-content:center;font-size:18px;color:rgba(244,242,238,.52);flex-shrink:0;}
 /* Explorer search */
 .ex-search-wrap{flex-shrink:0;padding:5px clamp(18px,2.03vw,22px) 0;}
@@ -265,7 +265,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .topic-cell:hover{background:var(--w06)}
 .topic-cell:hover .tc-icon{color:var(--gold)}
 .tc-icon{font-size:clamp(16px,1.6vw,24px);color:var(--w40);display:block;margin-bottom:clamp(9px,0.81vw,14px);transition:color .15s}
-.tc-name{font-size:clamp(11px,0.61vw,12px);letter-spacing:.05em;color:var(--w60)}
+.tc-name{font-size:clamp(14px,0.61vw,16px);letter-spacing:.05em;color:var(--w60)}
 
 /* ── YOUTUBE SHORTS (Doc1) ── */
 .home-video-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card)}
@@ -322,7 +322,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .service-row{padding:clamp(14px,1.4vw,22px) clamp(16px,1.8vw,28px);border-bottom:.5px solid var(--border);display:grid;grid-template-columns:clamp(160px,16vw,240px) 1fr;gap:clamp(16px,2vw,32px);align-items:start;}
 .service-row:last-child{border-bottom:none}
 .srv-row-name{font-size:clamp(18px,1.28vw,20px);color:var(--w80);font-weight:400;letter-spacing:.02em}
-.srv-row-desc{font-size:clamp(11px,0.64vw,12px);color:var(--w40);line-height:1.65}
+.srv-row-desc{font-size:clamp(14px,0.64vw,16px);color:var(--w40);line-height:1.65}
 
 /* ── FOLLOW (Doc3) ── */
 .follow-section{max-width:none;padding:var(--section-pad);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
@@ -385,7 +385,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .ac-title{font-family:var(--serif);font-size:clamp(15px,1.4vw,22px);font-weight:300;color:var(--w);margin-bottom:4px;line-height:1.2}
 .ac-meta{font-size:clamp(16px,1.15vw,18px);color:var(--w40);line-height:1.6}
 .ac-sold{font-size:clamp(15px,1.05vw,18px);letter-spacing:.14em;color:var(--gold);margin-top:6px;display:inline-block;border:.5px solid rgba(200,146,42,.35);padding:2px 8px}
-.art-opensea{display:inline-flex;align-items:center;gap:5px;font-size:clamp(11px,0.61vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.65;margin-top:8px;border:.5px solid rgba(200,146,42,.25);padding:3px 8px;text-decoration:none;transition:opacity .2s}
+.art-opensea{display:inline-flex;align-items:center;gap:5px;font-size:clamp(14px,0.61vw,16px);letter-spacing:.06em;color:var(--gold);opacity:.65;margin-top:8px;border:.5px solid rgba(200,146,42,.25);padding:3px 8px;text-decoration:none;transition:opacity .2s}
 .art-opensea:hover{opacity:1}
 
 /* ── LIGHTBOX (Doc1) ── */
@@ -439,7 +439,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   .mob-bottom-tab{
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:3px;background:none;border:none;cursor:pointer;
-    color:rgba(244,242,238,.52);font-family:var(--sans);font-size:11px;
+    color:rgba(244,242,238,.52);font-family:var(--sans);font-size:13px;
     letter-spacing:.04em;padding:6px 2px;transition:color .15s;
     -webkit-tap-highlight-color:transparent;position:relative;flex:1;
   }
@@ -540,7 +540,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     max-width:100vw;
   }
   .ex-filterbar::-webkit-scrollbar{display:none}
-  .ex-filter{padding:0 10px;font-size:11px;letter-spacing:.06em;height:38px;}
+  .ex-filter{padding:0 10px;font-size:13px;letter-spacing:.06em;height:38px;}
   .ex-filter-hint{display:none}
   .ex-view-btn{border-left:.5px solid rgba(255,255,255,.05);}
   /* Search */
@@ -572,7 +572,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     gap:5px;
   }
   .ex-svc-desc{display:none}
-  .ex-svc-name{font-size:11px;white-space:nowrap}
+  .ex-svc-name{font-size:13px;white-space:nowrap}
   .ex-svc-img-wrap{width:14px;height:14px;flex:0 0 14px}
   /* Context panel — stacks below canvas */
   .ex-ctx{
@@ -868,11 +868,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .ev-significance{font-size:clamp(15px,1.1vw,18px);color:var(--w40);line-height:1.7;margin-bottom:clamp(14px,1.4vw,20px);}
 .ev-meta{border-top:.5px solid var(--border);padding-top:clamp(14px,1.3vw,18px);margin-top:auto;display:flex;flex-direction:column;gap:4px;}
 .ev-source-info{border-top:.5px solid rgba(244,242,238,.05);margin-top:clamp(12px,1.1vw,16px);padding-top:clamp(10px,0.9vw,14px)}
-.ev-source-info-title{font-family:var(--mono);font-size:clamp(11px,0.5vw,12px);letter-spacing:.18em;color:var(--w40);text-transform:uppercase;margin-bottom:8px}
+.ev-source-info-title{font-family:var(--mono);font-size:clamp(14px,0.5vw,16px);letter-spacing:.18em;color:var(--w40);text-transform:uppercase;margin-bottom:8px}
 .ev-source-info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px 16px}
 .ev-source-info-grid > div{display:flex;flex-direction:column;gap:2px;min-width:0}
-.ev-source-info-label{font-family:var(--mono);font-size:clamp(11px,0.42vw,12px);letter-spacing:.12em;color:var(--w20);text-transform:uppercase}
-.ev-source-info-value{font-family:var(--mono);font-size:clamp(11px,0.58vw,12px);color:var(--w40);line-height:1.5;word-break:break-word}
+.ev-source-info-label{font-family:var(--mono);font-size:clamp(14px,0.42vw,16px);letter-spacing:.12em;color:var(--w20);text-transform:uppercase}
+.ev-source-info-value{font-family:var(--mono);font-size:clamp(14px,0.58vw,16px);color:var(--w40);line-height:1.5;word-break:break-word}
 .ev-source-info-value a{color:var(--gold);opacity:.7;text-decoration:none;word-break:break-all}
 .ev-source-info-value a:hover{opacity:1}
 .ev-person{font-size:clamp(20px,1.22vw,20px);color:var(--w80);font-weight:500;letter-spacing:.01em;}
@@ -926,7 +926,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .nav-more-wrap{position:relative;display:inline-block}
 .nav-more-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--bg2);border:.5px solid var(--border);min-width:220px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.5);max-height:80vh;overflow-y:auto}
 .nav-more-dropdown.open{display:block}
-.nav-more-group-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);opacity:.65;padding:10px 18px 5px;pointer-events:none;user-select:none}
+.nav-more-group-label{font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);opacity:.65;padding:10px 18px 5px;pointer-events:none;user-select:none}
 .nav-more-group-label:first-child{padding-top:14px}
 .nav-more-item{display:block;width:100%;padding:8px 18px 8px 18px;text-align:left;background:none;border:none;border-bottom:.5px solid var(--border);font-family:var(--sans);font-size:13px;color:var(--w60);cursor:pointer;transition:color .15s,background .15s;letter-spacing:.03em;white-space:nowrap}
 .nav-more-item:last-child{border-bottom:none}
@@ -938,7 +938,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .portal-card:hover{background:var(--w06)}
 .portal-icon{font-size:24px;line-height:1}
 .portal-title{font-family:var(--sans);font-size:clamp(20px,1.35vw,22px);font-weight:600;color:var(--w);letter-spacing:.02em}
-.portal-desc{font-size:clamp(11px,0.61vw,12px);color:var(--w40);line-height:1.55;flex:1}
+.portal-desc{font-size:clamp(14px,0.61vw,16px);color:var(--w40);line-height:1.55;flex:1}
 .portal-cta{font-family:var(--mono);font-size:clamp(15px,0.94vw,16px);letter-spacing:.1em;color:var(--gold);margin-top:auto}
 @media(max-width:768px){.portal-card{padding:16px 14px}}
 
@@ -954,7 +954,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .rp-label{font-family:var(--mono);font-size:clamp(16px,1.0vw,18px);letter-spacing:.16em;color:var(--gold);opacity:.65;}
 .rp-count{font-family:var(--mono);font-size:clamp(16px,1.0vw,18px);letter-spacing:.1em;color:var(--w20);white-space:nowrap;}
 .rp-title{font-family:var(--serif);font-size:clamp(14px,1.1vw,17px);font-weight:300;color:var(--w);line-height:1.3;margin-bottom:clamp(12px,1.08vw,16px);}
-.rp-desc{font-size:clamp(11px,0.61vw,12px);color:var(--w40);line-height:1.6;flex:1;margin-bottom:clamp(14px,1.4vw,20px);}
+.rp-desc{font-size:clamp(14px,0.61vw,16px);color:var(--w40);line-height:1.6;flex:1;margin-bottom:clamp(14px,1.4vw,20px);}
 .rp-cta{font-family:var(--mono);font-size:clamp(15px,0.94vw,16px);letter-spacing:.1em;color:var(--gold);opacity:.65;transition:opacity .15s;margin-top:auto;}
 .rp-card:hover .rp-cta{opacity:1}
 @media(max-width:768px){
@@ -1040,7 +1040,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .pl-card-head{padding:clamp(16px,1.6vw,22px) clamp(16px,1.6vw,22px) clamp(14px,1.3vw,18px);border-bottom:.5px solid var(--border)}
 .pl-card-body{padding:clamp(14px,1.4vw,20px) clamp(16px,1.6vw,22px) clamp(16px,1.6vw,22px);display:flex;flex-direction:column;gap:clamp(10px,1vw,14px)}
 .pl-conn-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:clamp(10px,1vw,14px) clamp(16px,1.6vw,22px);border-bottom:.5px solid rgba(244,242,238,.04);background:rgba(255,255,255,.012)}
-.pl-conn-badge{font-family:var(--mono);font-size:clamp(11px,0.58vw,12px);letter-spacing:.12em;padding:3px 9px;border-radius:2px;text-transform:uppercase}
+.pl-conn-badge{font-family:var(--mono);font-size:clamp(14px,0.58vw,16px);letter-spacing:.12em;padding:3px 9px;border-radius:2px;text-transform:uppercase}
 .pl-conn-5{color:var(--gold);background:rgba(200,146,42,.12);border:.5px solid rgba(200,146,42,.3)}
 .pl-conn-4{color:rgba(120,200,255,.9);background:rgba(80,160,255,.08);border:.5px solid rgba(80,160,255,.25)}
 .pl-conn-3{color:rgba(180,160,255,.9);background:rgba(150,120,255,.08);border:.5px solid rgba(150,120,255,.25)}
@@ -1049,14 +1049,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .pl-score{display:inline-flex;align-items:center;gap:5px}
 .pl-score-dot{width:6px;height:6px;border-radius:50%;background:rgba(244,242,238,.1);display:inline-block}
 .pl-score-dot-on{background:var(--gold)}
-.pl-score-label{font-family:var(--mono);font-size:clamp(11px,0.55vw,12px);color:var(--w40);letter-spacing:.08em;margin-left:2px}
-.pl-status{font-family:var(--mono);font-size:clamp(11px,0.55vw,12px);letter-spacing:.1em;padding:2px 8px;border-radius:2px;text-transform:uppercase;flex-shrink:0}
+.pl-score-label{font-family:var(--mono);font-size:clamp(14px,0.55vw,16px);color:var(--w40);letter-spacing:.08em;margin-left:2px}
+.pl-status{font-family:var(--mono);font-size:clamp(14px,0.55vw,16px);letter-spacing:.1em;padding:2px 8px;border-radius:2px;text-transform:uppercase;flex-shrink:0}
 .pl-status-granted{color:rgba(80,200,120,.85);background:rgba(80,200,120,.08);border:.5px solid rgba(80,200,120,.2)}
 .pl-status-application{color:var(--gold);background:rgba(200,146,42,.08);border:.5px solid rgba(200,146,42,.2)}
 .pl-status-published{color:rgba(255,160,50,.85);background:rgba(255,160,50,.08);border:.5px solid rgba(255,160,50,.2)}
 .pl-services,.pl-summary{display:flex;flex-direction:column;gap:6px}
 .pl-rel-row{padding:0 clamp(16px,1.6vw,22px) clamp(10px,1vw,14px);border-bottom:.5px solid rgba(244,242,238,.04)}
-.pl-rel-badge{font-family:var(--mono);font-size:clamp(11px,0.5vw,12px);letter-spacing:.1em;padding:2px 8px;border-radius:2px;text-transform:uppercase;display:inline-block}
+.pl-rel-badge{font-family:var(--mono);font-size:clamp(14px,0.5vw,16px);letter-spacing:.1em;padding:2px 8px;border-radius:2px;text-transform:uppercase;display:inline-block}
 .pl-rel-direct{color:var(--gold);background:rgba(200,146,42,.1);border:.5px solid rgba(200,146,42,.25)}
 .pl-rel-oracle{color:rgba(120,200,255,.85);background:rgba(80,160,255,.06);border:.5px solid rgba(80,160,255,.18)}
 .pl-rel-automation{color:rgba(160,220,160,.85);background:rgba(120,200,120,.06);border:.5px solid rgba(120,200,120,.18)}
@@ -1064,7 +1064,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .pl-rel-potential{color:var(--w20);background:rgba(244,242,238,.02);border:.5px solid var(--border)}
 .pl-related{display:flex;flex-direction:column;gap:4px;border-top:.5px solid rgba(244,242,238,.04);padding-top:clamp(10px,1vw,14px)}
 .pl-related-list{display:flex;flex-wrap:wrap;gap:6px}
-.pl-related-item{font-family:var(--mono);font-size:clamp(11px,0.55vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7;border:.5px solid rgba(200,146,42,.2);padding:2px 8px;border-radius:2px;cursor:pointer;transition:all .15s}
+.pl-related-item{font-family:var(--mono);font-size:clamp(14px,0.55vw,16px);letter-spacing:.06em;color:var(--gold);opacity:.7;border:.5px solid rgba(200,146,42,.2);padding:2px 8px;border-radius:2px;cursor:pointer;transition:all .15s}
 .pl-related-item:hover{opacity:1;background:rgba(200,146,42,.08)}
 .pl-tags{display:flex;flex-wrap:wrap;gap:4px}
 .pat-card{background:var(--bg2);border:.5px solid var(--border);display:flex;flex-direction:column}
@@ -1090,7 +1090,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 /* ── Live Metrics ─ Premium Intelligence Dashboard ── */
 .mhero{background:var(--bg);border-bottom:.5px solid var(--border);padding:clamp(48px,6vw,100px) clamp(32px,5vw,80px) clamp(40px,5vw,80px)}
-.mhero-eyebrow{font-family:var(--mono);font-size:clamp(12px,0.86vw,14px);letter-spacing:.22em;color:var(--gold);opacity:.85;margin-bottom:clamp(40px,4vw,64px);display:flex;align-items:center;gap:12px}
+.mhero-eyebrow{font-family:var(--mono);font-size:clamp(13px,0.86vw,16px);letter-spacing:.22em;color:var(--gold);opacity:.85;margin-bottom:clamp(40px,4vw,64px);display:flex;align-items:center;gap:12px}
 .mhero-eyebrow::before{content:'';display:block;width:24px;height:.5px;background:var(--gold);opacity:.5}
 .mhero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .mhero-cell{padding:clamp(24px,2.8vw,44px) clamp(20px,2.4vw,40px);border-right:.5px solid var(--border);border-bottom:.5px solid var(--border);display:flex;flex-direction:column;gap:clamp(12px,1.08vw,19px);position:relative;transition:background .18s}
@@ -1100,7 +1100,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mhero-cell-label{font-family:var(--mono);font-size:clamp(15px,0.86vw,16px);letter-spacing:.18em;color:var(--w40);text-transform:uppercase}
 .mhero-cell-n{font-size:clamp(44px,5.5vw,88px);font-weight:700;color:var(--w);line-height:.9;letter-spacing:-.02em}
 .mhero-cell-sub{font-size:clamp(16px,1.01vw,18px);color:var(--w40);line-height:1.5;margin-top:2px}
-.mhero-cell-src{font-family:var(--mono);font-size:clamp(11px,.68vw,12px);color:var(--gold);opacity:.65;text-decoration:none;margin-top:auto;padding-top:clamp(10px,1vw,14px);display:block;transition:opacity .15s}
+.mhero-cell-src{font-family:var(--mono);font-size:clamp(14px,.68vw,16px);color:var(--gold);opacity:.65;text-decoration:none;margin-top:auto;padding-top:clamp(10px,1vw,14px);display:block;transition:opacity .15s}
 .mhero-cell-src:hover{opacity:1}
 .mhero-cell-src_TEMP{font-size:clamp(14px,0.78vw,15px);color:var(--gold);opacity:.65;text-decoration:none;margin-top:auto;padding-top:clamp(18px,1.62vw,27px);transition:opacity .15s}
 .mhero-cell-src:hover{opacity:.9}
@@ -1180,34 +1180,34 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mc-reality-lbl{font-family:var(--mono);font-size:clamp(13px,0.9vw,15px);letter-spacing:.2em;color:rgba(80,200,120,.7);margin-bottom:8px}
 .mc-reality-txt{font-size:clamp(15px,1.05vw,17px);color:var(--w60);line-height:1.75}
 .mc-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:clamp(10px,1vw,14px)}
-.mc-chip{font-family:var(--mono);font-size:clamp(13px,0.75vw,13px);letter-spacing:.1em;padding:3px 10px;border:.5px solid rgba(200,146,42,.3);color:var(--gold);background:rgba(200,146,42,.05);cursor:default}
+.mc-chip{font-family:var(--mono);font-size:clamp(15px,0.75vw,15px);letter-spacing:.1em;padding:3px 10px;border:.5px solid rgba(200,146,42,.3);color:var(--gold);background:rgba(200,146,42,.05);cursor:default}
 .mc-ev-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:clamp(10px,1vw,14px);padding:clamp(8px,.8vw,12px);background:var(--bg);border:.5px solid var(--border)}
-.mc-ev-lbl{font-family:var(--mono);font-size:clamp(13px,0.75vw,13px);letter-spacing:.16em;color:var(--w20);margin-right:4px}
-.mc-ev-btn{font-family:var(--mono);font-size:clamp(13px,0.75vw,13px);letter-spacing:.1em;padding:2px 9px;border:.5px solid var(--border);background:none;color:var(--w40);cursor:pointer;transition:color .15s,border-color .15s}
+.mc-ev-lbl{font-family:var(--mono);font-size:clamp(15px,0.75vw,15px);letter-spacing:.16em;color:var(--w20);margin-right:4px}
+.mc-ev-btn{font-family:var(--mono);font-size:clamp(15px,0.75vw,15px);letter-spacing:.1em;padding:2px 9px;border:.5px solid var(--border);background:none;color:var(--w40);cursor:pointer;transition:color .15s,border-color .15s}
 .mc-ev-btn:hover{color:var(--w80);border-color:var(--w40)}
-.mc-more-btn{font-family:var(--mono);font-size:clamp(13px,0.75vw,13px);letter-spacing:.1em;background:none;border:none;color:var(--gold);cursor:pointer;opacity:.7;padding:0;margin-left:auto;transition:opacity .15s}
+.mc-more-btn{font-family:var(--mono);font-size:clamp(15px,0.75vw,15px);letter-spacing:.1em;background:none;border:none;color:var(--gold);cursor:pointer;opacity:.7;padding:0;margin-left:auto;transition:opacity .15s}
 .mc-more-btn:hover{opacity:1}
 .mc-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;padding-top:clamp(8px,.8vw,12px);border-top:.5px solid var(--border)}
 .mc-tags{display:flex;flex-wrap:wrap;gap:4px}
-.mc-tag{font-family:var(--mono);font-size:clamp(13px,0.72vw,13px);letter-spacing:.1em;padding:2px 8px;border:.5px solid var(--border);color:var(--w20)}
+.mc-tag{font-family:var(--mono);font-size:clamp(15px,0.72vw,15px);letter-spacing:.1em;padding:2px 8px;border:.5px solid var(--border);color:var(--w20)}
 
 /* ── Patents stats bar override ── */
 #pl-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;width:100%;padding:0}
 #pl-stats .rstat-item{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex:none;width:auto;min-width:0;max-width:none;padding:clamp(12px,1.2vw,18px);border:.5px solid var(--border);background:rgba(255,255,255,.012);white-space:normal}
 #pl-stats .rstat-n{font-size:clamp(22px,2vw,32px);margin-bottom:0;line-height:1;white-space:nowrap}
-#pl-stats .rstat-l{font-size:clamp(11px,.7vw,12px);line-height:1.35;text-align:left;color:var(--w40);font-family:var(--mono);letter-spacing:.06em;white-space:normal}
+#pl-stats .rstat-l{font-size:clamp(14px,.7vw,16px);line-height:1.35;text-align:left;color:var(--w40);font-family:var(--mono);letter-spacing:.06em;white-space:normal}
 #pl-stats .rstat-div{display:none}
 
 .qt-org{font-size:clamp(13px,.88vw,15px);color:var(--w50);letter-spacing:.02em}
-.qt-src{font-family:var(--mono);font-size:clamp(11px,.72vw,13px);color:var(--gold);opacity:.6;text-decoration:none;margin-top:auto;padding-top:8px;display:block;transition:opacity .15s}
+.qt-src{font-family:var(--mono);font-size:clamp(13px,.72vw,15px);color:var(--gold);opacity:.6;text-decoration:none;margin-top:auto;padding-top:8px;display:block;transition:opacity .15s}
 .qt-src:hover{opacity:1}
 .qt-attr{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px;margin-top:clamp(8px,.8vw,12px)}
 
 /* ── Technology Matrix ── */
 .mx-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .mx-table{border-collapse:collapse;min-width:700px;width:100%}
-.mx-th-inst{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--w40);padding:8px 10px;text-align:center;border-bottom:.5px solid var(--border);white-space:nowrap;writing-mode:vertical-rl;transform:rotate(180deg);height:90px;vertical-align:bottom}
-.mx-th-svc{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--w60);padding:10px 14px;text-align:left;border-bottom:.5px solid var(--border);white-space:nowrap;min-width:160px}
+.mx-th-inst{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--w40);padding:8px 10px;text-align:center;border-bottom:.5px solid var(--border);white-space:nowrap;writing-mode:vertical-rl;transform:rotate(180deg);height:90px;vertical-align:bottom}
+.mx-th-svc{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--w60);padding:10px 14px;text-align:left;border-bottom:.5px solid var(--border);white-space:nowrap;min-width:160px}
 .mx-cell{padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(244,242,238,.04);border-right:.5px solid rgba(244,242,238,.04)}
 .mx-cell.yes{color:rgba(80,200,120,.9);font-size:15px}
 .mx-cell.partial{color:var(--gold);font-size:13px}
@@ -1216,7 +1216,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mx-svc-row:hover .mx-th-svc{color:var(--w)}
 .mx-svc-row:hover .mx-cell{background:rgba(244,242,238,.02)}
 .mx-stage-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
-.mx-legend{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:clamp(16px,1.6vw,24px);font-family:var(--mono);font-size:11px;color:var(--w40)}
+.mx-legend{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:clamp(16px,1.6vw,24px);font-family:var(--mono);font-size:13px;color:var(--w40)}
 .mx-legend span{display:flex;align-items:center;gap:6px}
 
 /* ── Compare ── */
@@ -1227,7 +1227,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .cmp-select option{background:var(--bg2);color:var(--w);padding:8px 16px}
 .cmp-grid{display:grid;grid-template-columns:200px 1fr 1fr;gap:0}
 .cmp-row{display:contents}
-.cmp-row-label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--w20);padding:12px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center}
+.cmp-row-label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--w20);padding:12px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center}
 .cmp-row-val{padding:12px 16px;border-bottom:.5px solid var(--border);font-size:clamp(14px,1vw,15px);color:var(--w60);border-left:.5px solid var(--border)}
 .cmp-header-cell{font-size:clamp(15px,1.2vw,20px);font-family:var(--serif);color:var(--w);padding:16px 16px 20px;border-bottom:.5px solid var(--border);border-left:.5px solid var(--border)}
 .cmp-yes{color:rgba(80,200,120,.9)}
@@ -1237,7 +1237,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
 /* ── Production Tracker ── */
 .tracker-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,20px)}
-.tracker-col-head{font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:10px 14px;margin-bottom:12px;border-bottom:2px solid}
+.tracker-col-head{font-family:var(--mono);font-size:13px;letter-spacing:.2em;padding:10px 14px;margin-bottom:12px;border-bottom:2px solid}
 .tracker-col-head.tc-research{color:rgba(100,150,255,.8);border-color:rgba(100,150,255,.4)}
 .tracker-col-head.tc-pilot{color:var(--gold);border-color:rgba(200,146,42,.4)}
 .tracker-col-head.tc-transition{color:rgba(200,120,60,.9);border-color:rgba(200,120,60,.4)}
@@ -1245,27 +1245,27 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .tracker-card{background:var(--bg2);border:.5px solid var(--border);padding:clamp(14px,1.4vw,20px);margin-bottom:10px;transition:border-color .2s}
 .tracker-card:hover{border-color:rgba(200,146,42,.3)}
 .tracker-card-name{font-size:clamp(14px,1.1vw,16px);font-weight:500;color:var(--w);margin-bottom:4px}
-.tracker-card-full{font-size:11px;color:var(--w20);margin-bottom:8px;line-height:1.4}
-.tracker-card-ev{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--w20);margin-bottom:8px}
+.tracker-card-full{font-size:13px;color:var(--w20);margin-bottom:8px;line-height:1.4}
+.tracker-card-ev{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--w20);margin-bottom:8px}
 .tracker-card-services{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
-.tracker-svc-tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:2px 7px;border:.5px solid rgba(200,146,42,.25);color:rgba(200,146,42,.7);background:rgba(200,146,42,.06)}
-.tracker-card-fact{font-size:12px;color:var(--w40);line-height:1.4;font-style:italic}
+.tracker-svc-tag{font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:2px 7px;border:.5px solid rgba(200,146,42,.25);color:rgba(200,146,42,.7);background:rgba(200,146,42,.06)}
+.tracker-card-fact{font-size:14px;color:var(--w40);line-height:1.4;font-style:italic}
 @media(max-width:900px){.tracker-cols{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){.tracker-cols{grid-template-columns:1fr}}
 
 /* ── Evidence Heatmap ── */
 .heatmap-bar{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.heatmap-label{font-size:12px;color:var(--w60);width:clamp(100px,12vw,160px);flex-shrink:0;letter-spacing:.02em}
+.heatmap-label{font-size:14px;color:var(--w60);width:clamp(100px,12vw,160px);flex-shrink:0;letter-spacing:.02em}
 .heatmap-track{flex:1;height:6px;background:rgba(244,242,238,.06);border-radius:0;overflow:hidden}
 .heatmap-fill{height:100%;background:var(--gold);border-radius:0;transition:width .6s ease}
-.heatmap-count{font-family:var(--mono);font-size:11px;color:var(--w20);width:28px;text-align:right;flex-shrink:0}
+.heatmap-count{font-family:var(--mono);font-size:13px;color:var(--w20);width:28px;text-align:right;flex-shrink:0}
 
 /* ── Live Adoption Counter ── */
 .lac-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
 .lac-item{padding:clamp(16px,1.8vw,28px) 12px;text-align:center;border-right:.5px solid var(--border)}
 .lac-item:last-child{border-right:none}
 .lac-n{font-family:var(--mono);font-size:clamp(22px,2.5vw,38px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
-.lac-l{font-size:11px;letter-spacing:.1em;color:var(--w20);line-height:1.4}
+.lac-l{font-size:13px;letter-spacing:.1em;color:var(--w20);line-height:1.4}
 @media(max-width:600px){.lac-grid{grid-template-columns:repeat(3,1fr)}.lac-item:nth-child(3){border-right:none}.lac-item:nth-child(n+4){border-top:.5px solid var(--border)}}
 
 /* ── Footer nav ── */
@@ -4911,19 +4911,19 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <div class="mob-drawer" id="mob-drawer">
   <div class="mob-drawer-inner">
     <div class="mob-nav-links">
-      <div style="font-size:11px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:0 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">RESEARCH</div>
+      <div style="font-size:13px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:0 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">RESEARCH</div>
       <button class="mob-nav-link" onclick="showPage('evidence');closeMobileMenu()">📄 Evidence Vault</button>
       <button class="mob-nav-link" onclick="showPage('misconceptions');closeMobileMenu()">❌ Misconceptions</button>
       <button class="mob-nav-link" onclick="showPage('metrics');closeMobileMenu()">📊 Live Metrics</button>
       <button class="mob-nav-link" onclick="showPage('explorer');closeMobileMenu()">🌐 Infrastructure Explorer</button>
       <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">💬 Quote Library</button>
-      <div style="font-size:11px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">LEARN</div>
+      <div style="font-size:13px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">LEARN</div>
       <button class="mob-nav-link" onclick="showPage('concepts');closeMobileMenu()">⬡ Chainlink Explained</button>
       <button class="mob-nav-link" onclick="showPage('timeline');closeMobileMenu()">📅 Adoption Timeline</button>
       <button class="mob-nav-link" onclick="showPage('patents');closeMobileMenu()">🔏 Patent Registry</button>
       <button class="mob-nav-link" onclick="showPage('digest');closeMobileMenu()">🐼 Research Digest</button>
       <button class="mob-nav-link" onclick="showPage('metcalfe');closeMobileMenu()">📈 Network Calculator</button>
-      <div style="font-size:11px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">CONTENT</div>
+      <div style="font-size:13px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">CONTENT</div>
       <button class="mob-nav-link" onclick="showPage('infographics');closeMobileMenu()">🗺 Infographics</button>
       <button class="mob-nav-link" onclick="showPage('videos');closeMobileMenu()">🎥 Videos</button>
       <button class="mob-nav-link" onclick="showPage('art');closeMobileMenu()">🎨 Art &amp; NFTs</button>
@@ -5105,19 +5105,19 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <!-- Mobile featured research strip (hidden on desktop) -->
   <div style="display:none" id="mob-featured-strip">
     <div style="padding:0 16px 16px;background:var(--bg)">
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(200,146,42,.68);margin-bottom:10px;padding-top:4px">FEATURED RESEARCH</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:rgba(200,146,42,.68);margin-bottom:10px;padding-top:4px">FEATURED RESEARCH</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
         <button onclick="showPage('metrics')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(60,160,255,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
-          <span style="font-size:20px">📊</span><div><div>Live Metrics</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">Real-time data</div></div>
+          <span style="font-size:20px">📊</span><div><div>Live Metrics</div><div style="font-size:13px;color:rgba(244,242,238,.4);font-weight:300">Real-time data</div></div>
         </button>
         <button onclick="showPage('evidence')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(200,146,42,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
-          <span style="font-size:20px">📄</span><div><div>Evidence Vault</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">54 sources</div></div>
+          <span style="font-size:20px">📄</span><div><div>Evidence Vault</div><div style="font-size:13px;color:rgba(244,242,238,.4);font-weight:300">54 sources</div></div>
         </button>
         <button onclick="showPage('misconceptions')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(220,80,80,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
-          <span style="font-size:20px">❌</span><div><div>Misconceptions</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">50 corrected</div></div>
+          <span style="font-size:20px">❌</span><div><div>Misconceptions</div><div style="font-size:13px;color:rgba(244,242,238,.4);font-weight:300">50 corrected</div></div>
         </button>
         <button onclick="showPage('org');showOrg('dtcc')" style="display:flex;align-items:center;gap:10px;padding:14px 12px;background:var(--bg2);border:.5px solid rgba(160,100,255,.2);border-radius:8px;color:var(--w);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent">
-          <span style="font-size:20px">🏦</span><div><div>Institutions</div><div style="font-size:11px;color:rgba(244,242,238,.4);font-weight:300">DTCC, Swift...</div></div>
+          <span style="font-size:20px">🏦</span><div><div>Institutions</div><div style="font-size:13px;color:rgba(244,242,238,.4);font-weight:300">DTCC, Swift...</div></div>
         </button>
       </div>
     </div>
@@ -5181,19 +5181,19 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <!-- MOST CITED + WHAT'S NEW -->
   <div style="max-width:var(--content-max);margin:0 auto;padding:0 clamp(32px,5vw,80px) clamp(48px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)">
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">MOST CITED INSTITUTIONS</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">MOST CITED INSTITUTIONS</div>
       <div id="most-cited-list" style="display:flex;flex-direction:column"></div>
-      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">All 54 evidence entries &rarr;</button>
+      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">All 54 evidence entries &rarr;</button>
     </div>
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LATEST EVIDENCE</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LATEST EVIDENCE</div>
       <div style="display:flex;flex-direction:column">
-        <a href="/evidence/ev-054" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:11px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-054 &mdash; Jun 23, 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">Project Pangea &mdash; 47 banks, T+0 FX settlement with SWIFT &amp; Chainlink</div></a>
-        <a href="/evidence/ev-053" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:11px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-053 &mdash; Jun 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">ICMA DLT Repo Report &mdash; oracles named as necessary future infrastructure</div></a>
-        <a href="/evidence/ev-052" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:11px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-052 &mdash; 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">Chainlink &amp; Circle formal partnership &mdash; CCIP, Data Feeds, Proof of Reserve</div></a>
-        <a href="/evidence/ev-050" style="display:block;padding:10px 0;text-decoration:none"><div style="font-family:var(--mono);font-size:11px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-050 &mdash; 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">RBA Project Acacia &mdash; Chainlink CRE for DvP wholesale settlement</div></a>
+        <a href="/evidence/ev-054" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:13px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-054 &mdash; Jun 23, 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">Project Pangea &mdash; 47 banks, T+0 FX settlement with SWIFT &amp; Chainlink</div></a>
+        <a href="/evidence/ev-053" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:13px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-053 &mdash; Jun 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">ICMA DLT Repo Report &mdash; oracles named as necessary future infrastructure</div></a>
+        <a href="/evidence/ev-052" style="display:block;padding:10px 0;border-bottom:.5px solid var(--border);text-decoration:none"><div style="font-family:var(--mono);font-size:13px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-052 &mdash; 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">Chainlink &amp; Circle formal partnership &mdash; CCIP, Data Feeds, Proof of Reserve</div></a>
+        <a href="/evidence/ev-050" style="display:block;padding:10px 0;text-decoration:none"><div style="font-family:var(--mono);font-size:13px;color:rgba(200,146,42,.6);margin-bottom:3px">EV-050 &mdash; 2026</div><div style="font-size:13px;color:var(--w60);line-height:1.4">RBA Project Acacia &mdash; Chainlink CRE for DvP wholesale settlement</div></a>
       </div>
-      <button onclick="showPage('research')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Research conclusions &rarr;</button>
+      <button onclick="showPage('research')" style="margin-top:16px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Research conclusions &rarr;</button>
     </div>
   </div>
 
@@ -5203,17 +5203,17 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
     <!-- Evidence Heatmap -->
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">EVIDENCE BY TOPIC</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">EVIDENCE BY TOPIC</div>
       <div id="heatmap-bars"></div>
-      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Browse evidence by topic &rarr;</button>
+      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Browse evidence by topic &rarr;</button>
     </div>
 
     <!-- Live Adoption Counter -->
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LIVE ADOPTION COUNTER</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LIVE ADOPTION COUNTER</div>
       <div id="lac-grid" class="lac-grid" style="border:.5px solid var(--border);margin-bottom:16px"></div>
-      <div style="font-family:var(--mono);font-size:11px;color:var(--w20);text-align:center;letter-spacing:.06em">Computed live from Evidence Vault &amp; Institution Tracker</div>
-      <button onclick="showPage('tracker')" style="margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Production tracker &rarr;</button>
+      <div style="font-family:var(--mono);font-size:13px;color:var(--w20);text-align:center;letter-spacing:.06em">Computed live from Evidence Vault &amp; Institution Tracker</div>
+      <button onclick="showPage('tracker')" style="margin-top:12px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">Production tracker &rarr;</button>
     </div>
 
   </div>
@@ -5228,10 +5228,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">🐼 THELINKPANDA</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">🐼 THELINKPANDA</div>
           <div class="ev-title">Research Digest</div>
         </div>
-        <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);color:var(--w20);letter-spacing:.1em">PUBLISHED EVERY UPDATE</div>
+        <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);color:var(--w20);letter-spacing:.1em">PUBLISHED EVERY UPDATE</div>
       </div>
     </div>
   </div>
@@ -5246,10 +5246,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">NETWORK EFFECT CALCULATOR</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">NETWORK EFFECT CALCULATOR</div>
           <div class="ev-title">The Chainlink Network Value Model</div>
         </div>
-        <div style="font-size:clamp(11px,0.68vw,12px);color:var(--w40);letter-spacing:.04em;max-width:260px;text-align:right;line-height:1.5">Illustrative model only. Not financial advice.</div>
+        <div style="font-size:clamp(14px,0.68vw,16px);color:var(--w40);letter-spacing:.04em;max-width:260px;text-align:right;line-height:1.5">Illustrative model only. Not financial advice.</div>
       </div>
     </div>
   </div>
@@ -5261,7 +5261,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK ADOPTION HISTORY</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK ADOPTION HISTORY</div>
           <div class="ev-title">Institutional Adoption Timeline</div>
         </div>
         <div id="tl-type-filters" style="display:flex;gap:0;border:.5px solid var(--border);flex-wrap:wrap"></div>
@@ -5279,7 +5279,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(16px,1.6vw,24px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK EXPLAINED</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK EXPLAINED</div>
           <div class="ev-title">What is <span id="concept-name-header">CCIP</span>?</div>
         </div>
         <div id="concept-nav" style="display:flex;gap:0;border:.5px solid var(--border);overflow-x:auto;scrollbar-width:none"></div>
@@ -5295,7 +5295,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <!-- EXPLORER TITLE (Doc2/Doc3) -->
   <div style="background:linear-gradient(180deg,#07090D 0%,#050A18 100%);padding:clamp(32px,3.5vw,56px) clamp(20px,4vw,72px) clamp(20px,2vw,32px);border-top:.5px solid rgba(200,146,42,.10)">
     <div style="max-width:900px">
-      <div style="font-size:clamp(11px,.62vw,12px);letter-spacing:.22em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,14px);font-family:var(--mono);text-transform:uppercase">Infrastructure Explorer</div>
+      <div style="font-size:clamp(14px,.62vw,16px);letter-spacing:.22em;color:var(--gold);opacity:.65;margin-bottom:clamp(10px,1vw,14px);font-family:var(--mono);text-transform:uppercase">Infrastructure Explorer</div>
       <div style="font-family:var(--serif);font-size:clamp(22px,2.2vw,34px);font-weight:300;color:#fff;line-height:1.12;margin-bottom:clamp(12px,1.2vw,18px)">Explore how institutions, assets,<br>blockchains and applications connect<br>through Chainlink infrastructure.</div>
       <div style="font-size:clamp(13px,.92vw,15px);color:rgba(244,242,238,.45);line-height:1.65;font-family:var(--sans)">Click any node to explore relationships, services used, and infrastructure dependencies.</div>
     </div>
@@ -5343,15 +5343,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <div class="ex-ctx-scroll" id="ex-ctx-scroll">
             <div class="ex-ctx-svc-list" id="ex-ctx-svcs" style="display:none"></div>
             <div id="ex-how">
-              <div style="font-size:clamp(11px,.65vw,12px);letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:10px">HOW IT WORKS</div>
+              <div style="font-size:clamp(14px,.65vw,16px);letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:10px">HOW IT WORKS</div>
               <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">⊞</div><div style="font-size:11px;color:rgba(244,242,238,.5);letter-spacing:.05em">Real World<br>Data</div></div>
-                <div style="color:var(--gold);opacity:.65;font-size:12px">→</div>
-                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,80,200,.4);border:.5px solid rgba(100,160,255,.3);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">⬡</div><div style="font-size:11px;color:rgba(244,242,238,.5);letter-spacing:.05em">Chainlink<br>Network</div></div>
-                <div style="color:var(--gold);opacity:.65;font-size:12px">→</div>
-                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">◎</div><div style="font-size:11px;color:rgba(244,242,238,.5);letter-spacing:.05em">Onchain<br>Execution</div></div>
-                <div style="color:var(--gold);opacity:.65;font-size:12px">→</div>
-                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">🌐</div><div style="font-size:11px;color:rgba(244,242,238,.5);letter-spacing:.05em">Global<br>Impact</div></div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">⊞</div><div style="font-size:13px;color:rgba(244,242,238,.5);letter-spacing:.05em">Real World<br>Data</div></div>
+                <div style="color:var(--gold);opacity:.65;font-size:14px">→</div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,80,200,.4);border:.5px solid rgba(100,160,255,.3);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">⬡</div><div style="font-size:13px;color:rgba(244,242,238,.5);letter-spacing:.05em">Chainlink<br>Network</div></div>
+                <div style="color:var(--gold);opacity:.65;font-size:14px">→</div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">◎</div><div style="font-size:13px;color:rgba(244,242,238,.5);letter-spacing:.05em">Onchain<br>Execution</div></div>
+                <div style="color:var(--gold);opacity:.65;font-size:14px">→</div>
+                <div style="text-align:center"><div style="width:36px;height:36px;border-radius:50%;background:rgba(30,50,120,.4);border:.5px solid rgba(100,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;margin:0 auto 4px">🌐</div><div style="font-size:13px;color:rgba(244,242,238,.5);letter-spacing:.05em">Global<br>Impact</div></div>
               </div>
             </div>
           </div>
@@ -5362,7 +5362,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <div class="ex-stat"><span class="ex-stat-n">$20T+</span><span class="ex-stat-l">Secured Value</span></div>
           <div class="ex-stat"><span class="ex-stat-n">1,000+</span><span class="ex-stat-l">Integrations</span></div>
         </div>
-        <div style="font-size:11px;text-align:center;color:rgba(244,242,238,.15);letter-spacing:.08em;padding:4px 0;background:rgba(4,6,16,.9);font-family:var(--mono)">ECOSYSTEM SCALE — UPDATED PERIODICALLY</div>
+        <div style="font-size:13px;text-align:center;color:rgba(244,242,238,.15);letter-spacing:.08em;padding:4px 0;background:rgba(4,6,16,.9);font-family:var(--mono)">ECOSYSTEM SCALE — UPDATED PERIODICALLY</div>
       </div>
     </div>
     <div class="ex-hint"><span class="ex-hint-icon">ⓘ</span> Click any node to see how Chainlink powers the connections between systems.</div>
@@ -5475,17 +5475,17 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 
   <!-- Dashboard status indicator -->
   <div style="background:rgba(244,242,238,.025);border-bottom:.5px solid var(--border);padding:10px clamp(20px,5vw,80px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2vw,32px)">
-    <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em">
+    <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;letter-spacing:.1em">
       <span style="width:7px;height:7px;border-radius:50%;background:rgba(80,200,120,.9);display:inline-block;animation:pulse 2s infinite"></span>
       <span style="color:rgba(80,200,120,.9)">LIVE DATA</span>
       <span style="color:var(--w20)">TVS &amp; LINK Price — auto-updated on load</span>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em">
+    <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;letter-spacing:.1em">
       <span style="width:7px;height:7px;border-radius:50%;background:rgba(200,146,42,.9);display:inline-block"></span>
       <span style="color:var(--gold)">MANUALLY VERIFIED</span>
       <span style="color:var(--w20)" id="metrics-manual-date">Last verified: <span class="metrics-verified-date">June 21, 2026</span></span>
     </div>
-    <div style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--w20)" id="metrics-live-timestamp"></div>
+    <div style="margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--w20)" id="metrics-live-timestamp"></div>
   </div>
 
   <div class="msec">
@@ -5498,10 +5498,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <span class="mlive-badge">Live &#8212; DefiLlama</span>
       </div>
       <div class="mcard-row cols-1" style="margin-bottom:0">
-        <div id="ms-tvs" class="mcard"><div class="mcard-label">Total Value Secured <span id="ms-tvs-live" style="font-family:var(--mono);font-size:11px;color:rgba(80,200,120,.8);margin-left:8px;letter-spacing:.1em"></span></div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Assets dependent on Chainlink oracles — Chainlink secures more value than any other oracle network</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://defillama.com/oracles/Chainlink" target="_blank" rel="noopener">DefiLlama Oracles</a></div>
+        <div id="ms-tvs" class="mcard"><div class="mcard-label">Total Value Secured <span id="ms-tvs-live" style="font-family:var(--mono);font-size:13px;color:rgba(80,200,120,.8);margin-left:8px;letter-spacing:.1em"></span></div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Assets dependent on Chainlink oracles — Chainlink secures more value than any other oracle network</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://defillama.com/oracles/Chainlink" target="_blank" rel="noopener">DefiLlama Oracles</a></div>
       </div>
       <div class="mcard-row cols-3" id="ms-oracle-fees-row">
-        <div id="ms-fees30" class="mcard"><div class="mcard-label">30D Fees <span id="ms-fees-live" style="font-family:var(--mono);font-size:11px;color:rgba(80,200,120,.8);margin-left:8px;letter-spacing:.1em"></span></div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Network fee revenue, 30-day rolling</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
+        <div id="ms-fees30" class="mcard"><div class="mcard-label">30D Fees <span id="ms-fees-live" style="font-family:var(--mono);font-size:13px;color:rgba(80,200,120,.8);margin-left:8px;letter-spacing:.1em"></span></div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Network fee revenue, 30-day rolling</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
         <div id="ms-rev30" class="mcard"><div class="mcard-label">30D Revenue</div><div class="mcard-n">&#8212;</div><div class="mcard-sub">Protocol revenue, 30-day rolling</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
         <div id="ms-fees-ann" class="mcard"><div class="mcard-label">Annual Run Rate</div><div class="mcard-n">&#8212;</div><div class="mcard-sub">30D fees &times; 12 (annualised)</div><a class="mcard-src" href="https://defillama.com/protocol/chainlink" target="_blank" rel="noopener">DefiLlama</a></div>
       </div>
@@ -5523,9 +5523,9 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <div class="mcard"><div class="mcard-label">CCIP Explorer</div><div class="mcard-n ccip" style="font-size:clamp(16px,1.4vw,22px);padding-top:6px">All transactions</div><div class="mcard-sub">Real-time cross-chain transfers</div><a class="mcard-src" href="https://ccip.chain.link/" target="_blank" rel="noopener">ccip.chain.link</a></div>
       </div>
       <div class="mcard-row cols-3">
-        <div class="mcard"><div class="mcard-label">Transfer Volume <span style="font-size:11px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$20.71B</div><div class="mcard-sub">Cumulative cross-chain transfer volume via CCIP since launch</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
-        <div class="mcard"><div class="mcard-label">Total CCIP Fees <span style="font-size:11px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$1.85M</div><div class="mcard-sub">Total onchain fees paid for CCIP transfers since launch</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
-        <div class="mcard"><div class="mcard-label">Total CCT Value <span style="font-size:11px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$61.84B</div><div class="mcard-sub">FDV of all Cross-Chain Tokens using the CCIP standard</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
+        <div class="mcard"><div class="mcard-label">Transfer Volume <span style="font-size:13px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$20.71B</div><div class="mcard-sub">Cumulative cross-chain transfer volume via CCIP since launch</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
+        <div class="mcard"><div class="mcard-label">Total CCIP Fees <span style="font-size:13px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$1.85M</div><div class="mcard-sub">Total onchain fees paid for CCIP transfers since launch</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
+        <div class="mcard"><div class="mcard-label">Total CCT Value <span style="font-size:13px;opacity:.4;font-family:var(--mono);letter-spacing:.1em">Jun 2026</span></div><div class="mcard-n ccip">$61.84B</div><div class="mcard-sub">FDV of all Cross-Chain Tokens using the CCIP standard</div><a class="mcard-src" href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Live: chainlinkecosystem.com/ccip-metrics</a></div>
       </div>
       <div class="msec-note">Transfer volume, fees, and CCT value are served by chainlinkecosystem.com with no public API &#8212; live values require the official dashboard.<a href="https://www.chainlinkecosystem.com/ccip-metrics" target="_blank" rel="noopener">Open CCIP Metrics</a></div>
     </div>
@@ -5540,7 +5540,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link svr" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">View Live SVR Analytics</a>
       </div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">LlamaRisk Dashboard</a></div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">LlamaRisk Dashboard</a></div>
       <div style="display:none" aria-hidden="false"><p>Chainlink Smart Value Recapture (SVR) is a mechanism that recaptures non-toxic MEV from liquidations in DeFi protocols such as Aave, returning value to the protocol and Chainlink node operators instead of MEV bots. SVR was activated unanimously by Aave DAO on March 28, 2025. Revenue is split 65% to Aave and 35% to Chainlink, with the Chainlink portion converted to LINK and distributed to node operators.</p></div>
       <div class="mcard-row cols-3">
         <div class="mcard"><div class="mcard-label">Value Recaptured &#8212; All-time</div><div class="mcard-n svr">&gt;$1.1M</div><div class="mcard-sub">Non-toxic liquidation MEV returned to Aave and Chainlink rather than MEV bots</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk Dashboard</a></div>
@@ -5565,7 +5565,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a>
       </div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://metrics.chain.link/reserve" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">metrics.chain.link/reserve</a></div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://metrics.chain.link/reserve" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">metrics.chain.link/reserve</a></div>
       <div style="display:none" aria-hidden="false"><p>The Chainlink Reserve is a protocol-owned treasury accumulating LINK tokens from a portion of all Chainlink network revenue, including CCIP fees, Data Feeds, SVR, Automation, and VRF. The Reserve is publicly verifiable on Etherscan and provides long-term economic sustainability for the network. Weekly inflows represent real protocol revenue being converted to LINK.</p></div>
       <div class="mcard-row cols-3">
         <div class="mcard"><div class="mcard-label">Reserve Balance</div><div class="mcard-n reserve">$32.7M</div><div class="mcard-sub">USD value of Reserve holdings. 4.06M LINK at avg cost basis ~$12.2. Publicly verifiable on Etherscan.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
@@ -5585,7 +5585,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link &#8599;</a>
       </div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://staking.chain.link" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">staking.chain.link</a></div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://staking.chain.link" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">staking.chain.link</a></div>
       <div style="display:none" aria-hidden="false"><p>Chainlink Staking v0.2 allows LINK token holders to stake their tokens to provide cryptoeconomic security to the network. Stakers earn rewards from token emissions and Chainlink Build programme allocations. The community pool is fully subscribed at 40.875 million LINK. Node operators may stake between 1,000 and 75,000 LINK each. A 28-day unbonding period applies, followed by a 7-day claim window. Slashing applies only to node operators for provable performance failures, not to community stakers.</p></div>
       <div class="mcard-row cols-4">
         <div class="mcard">
@@ -5631,7 +5631,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <span class="mstage ms-production">Production</span>
         </div>
       </div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; Sources: official announcements, chain.link, primary evidence</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; Sources: official announcements, chain.link, primary evidence</div>
       <div style="display:none" aria-hidden="false"><p>This tracker monitors institutions with documented Chainlink deployments across tokenization, cross-chain settlement, data standards, and oracle infrastructure. Stages are based on publicly verifiable evidence. Production means a deployment serving real transactions. Pilot means active testing with confirmed participation. Research means the institution has publicly referenced Chainlink infrastructure.</p></div>
       <div class="minst-grid" id="metrics-inst-grid"></div>
     </div>
@@ -5641,7 +5641,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <span class="mts-dot"></span>
     <span id="metrics-live-timestamp">Live data fetched on page load</span>
     <span style="margin-left:16px;opacity:.5">&mdash;</span>
-    <span style="margin-left:16px;font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.6">Manual metrics verified: <span class="metrics-verified-date">June 21, 2026</span></span>
+    <span style="margin-left:16px;font-family:var(--mono);font-size:13px;color:var(--gold);opacity:.6">Manual metrics verified: <span class="metrics-verified-date">June 21, 2026</span></span>
   </div>
 
   
@@ -5667,7 +5667,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <p style="font-size:13px;color:var(--w40);line-height:1.65;max-width:520px;margin-bottom:32px">Short-form visual explainers on digital finance infrastructure. Each Short is designed to stand alone as a clear, researched answer to one infrastructure question.</p>
     <div class="video-section-grid" id="videos-full-grid"></div>
     <div style="text-align:center;margin-top:36px;padding-top:28px;border-top:.5px solid var(--border)">
-      <a href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:.07em;color:var(--gold);opacity:.6;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">VIEW ALL ON YOUTUBE →</a>
+      <a href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener" style="font-size:13px;letter-spacing:.07em;color:var(--gold);opacity:.6;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">VIEW ALL ON YOUTUBE →</a>
     </div>
   </div>
   
@@ -5735,11 +5735,11 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <!-- Signature statement -->
         <div style="border-left:2px solid var(--gold);padding-left:clamp(20px,2vw,32px)">
           <div style="font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.6vw,24px);font-weight:300;color:var(--w80);line-height:1.5;margin-bottom:10px">"Most people focus on price. I focus on the systems that make price possible."</div>
-          <div style="font-size:clamp(11px,.75vw,12px);letter-spacing:.12em;color:var(--gold);opacity:.6">THELINKPANDA</div>
+          <div style="font-size:clamp(14px,.75vw,16px);letter-spacing:.12em;color:var(--gold);opacity:.6">THELINKPANDA</div>
         </div>
         <!-- Context block -->
         <div style="padding:clamp(20px,2vw,32px);background:var(--bg3);border:.5px solid var(--border)">
-          <div style="font-size:clamp(11px,.72vw,12px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(12px,1.2vw,18px);font-family:var(--mono)">WHY THIS WORK EXISTS</div>
+          <div style="font-size:clamp(14px,.72vw,16px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:clamp(12px,1.2vw,18px);font-family:var(--mono)">WHY THIS WORK EXISTS</div>
           <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.8">The institutions processing trillions in value daily — SWIFT, DTCC, Euroclear, central banks — are rarely explained well. As tokenisation and blockchain infrastructure moves from experiment to standard, the gap between what is actually happening and what most people understand is widening.</div>
           <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.8;margin-top:14px">TheLinkPanda exists to close that gap.</div>
         </div>
@@ -5752,19 +5752,19 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div style="max-width:var(--content-max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
       <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);border-right:.5px solid var(--border);text-align:center">
         <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">16M+</div>
-        <div style="font-size:clamp(11px,.65vw,12px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Content Impressions</div>
+        <div style="font-size:clamp(14px,.65vw,16px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Content Impressions</div>
       </div>
       <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);border-right:.5px solid var(--border);text-align:center">
         <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">60+</div>
-        <div style="font-size:clamp(11px,.65vw,12px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Educational Videos</div>
+        <div style="font-size:clamp(14px,.65vw,16px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Educational Videos</div>
       </div>
       <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);border-right:.5px solid var(--border);text-align:center">
         <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">20+</div>
-        <div style="font-size:clamp(11px,.65vw,12px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Original Infographics</div>
+        <div style="font-size:clamp(14px,.65vw,16px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Original Infographics</div>
       </div>
       <div style="padding:clamp(28px,3vw,52px) clamp(24px,2.5vw,40px);text-align:center">
         <div style="font-family:var(--mono);font-size:clamp(28px,3.5vw,52px);font-weight:400;color:var(--w);letter-spacing:-.02em;line-height:1;margin-bottom:8px">10K+</div>
-        <div style="font-size:clamp(11px,.65vw,12px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Followers Across Platforms</div>
+        <div style="font-size:clamp(14px,.65vw,16px);letter-spacing:.16em;color:var(--gold);opacity:.7;text-transform:uppercase">Followers Across Platforms</div>
       </div>
     </div>
   </div>
@@ -5788,15 +5788,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
                onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
                onerror="this.style.display='none'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.7) 0%,transparent 60%);pointer-events:none"></div>
-          <div style="position:absolute;top:14px;left:14px;font-size:clamp(11px,.55vw,12px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">RESEARCH &amp; DESIGN</div>
+          <div style="position:absolute;top:14px;left:14px;font-size:clamp(14px,.55vw,16px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">RESEARCH &amp; DESIGN</div>
         </div>
         <!-- Content -->
         <div style="padding:clamp(20px,2vw,32px);flex:1;display:flex;flex-direction:column">
           <div style="font-family:var(--serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(10px,1vw,16px)">Infographics</div>
           <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(14px,1.4vw,22px);flex:1">Complex infrastructure made understandable. Original visual systems explaining digital finance, tokenisation, interoperability, and market infrastructure — built for anyone serious enough to want the real picture.</div>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:clamp(14px,1.4vw,20px);border-top:.5px solid var(--border)">
-            <div style="font-size:clamp(11px,.72vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7">20+ original systems</div>
-            <div style="font-size:clamp(11px,.82vw,13px);color:var(--gold);opacity:.65;letter-spacing:.04em">View library →</div>
+            <div style="font-size:clamp(14px,.72vw,16px);letter-spacing:.06em;color:var(--gold);opacity:.7">20+ original systems</div>
+            <div style="font-size:clamp(13px,.82vw,15px);color:var(--gold);opacity:.65;letter-spacing:.04em">View library →</div>
           </div>
         </div>
       </div>
@@ -5810,7 +5810,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
                onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
                onerror="this.style.display='none'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.7) 0%,transparent 60%);pointer-events:none"></div>
-          <div style="position:absolute;top:14px;left:14px;font-size:clamp(11px,.55vw,12px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">YOUTUBE SHORTS</div>
+          <div style="position:absolute;top:14px;left:14px;font-size:clamp(14px,.55vw,16px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">YOUTUBE SHORTS</div>
           <!-- Play icon -->
           <div style="position:absolute;bottom:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(7,9,13,.65);border:.5px solid rgba(244,242,238,.3);display:flex;align-items:center;justify-content:center">
             <svg width="12" height="12" viewBox="0 0 24 24" style="fill:rgba(244,242,238,.8);margin-left:2px"><path d="M8 5v14l11-7z"/></svg>
@@ -5820,8 +5820,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <div style="font-family:var(--serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(10px,1vw,16px)">Video Education</div>
           <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(14px,1.4vw,22px);flex:1">Infrastructure explained clearly, one system at a time. Short-form educational videos breaking down SWIFT, DTCC, stablecoins, tokenisation, and the protocols reshaping global finance — designed to stand alone as complete answers.</div>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:clamp(14px,1.4vw,20px);border-top:.5px solid var(--border)">
-            <div style="font-size:clamp(11px,.72vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7">60+ educational videos</div>
-            <div style="font-size:clamp(11px,.82vw,13px);color:var(--gold);opacity:.65;letter-spacing:.04em">Watch now →</div>
+            <div style="font-size:clamp(14px,.72vw,16px);letter-spacing:.06em;color:var(--gold);opacity:.7">60+ educational videos</div>
+            <div style="font-size:clamp(13px,.82vw,15px);color:var(--gold);opacity:.65;letter-spacing:.04em">Watch now →</div>
           </div>
         </div>
       </div>
@@ -5835,14 +5835,14 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
                onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
                onerror="this.src='assets/infographics/rwa/RWA/Blackrock Buidl Chainlink stack.jpg'"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,9,13,.7) 0%,transparent 60%);pointer-events:none"></div>
-          <div style="position:absolute;top:14px;left:14px;font-size:clamp(11px,.55vw,12px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">ANALYSIS &amp; RESEARCH</div>
+          <div style="position:absolute;top:14px;left:14px;font-size:clamp(14px,.55vw,16px);letter-spacing:.12em;color:var(--gold);background:rgba(7,9,13,.8);border:.5px solid rgba(200,146,42,.35);padding:3px 8px;font-family:var(--mono)">ANALYSIS &amp; RESEARCH</div>
         </div>
         <div style="padding:clamp(20px,2vw,32px);flex:1;display:flex;flex-direction:column">
           <div style="font-family:var(--serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--w);line-height:1.2;margin-bottom:clamp(10px,1vw,16px)">Research &amp; Analysis</div>
           <div style="font-size:clamp(13px,.95vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(14px,1.4vw,22px);flex:1">Looking beneath the narrative. Deep dives into SWIFT, DTCC, stablecoins, tokenisation, Chainlink, and the architecture of the emerging financial internet — for people who want to understand the systems, not just the headlines.</div>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:clamp(14px,1.4vw,20px);border-top:.5px solid var(--border)">
-            <div style="font-size:clamp(11px,.72vw,12px);letter-spacing:.06em;color:var(--gold);opacity:.7">16M+ impressions</div>
-            <div style="font-size:clamp(11px,.82vw,13px);color:var(--gold);opacity:.65;letter-spacing:.04em">Explore →</div>
+            <div style="font-size:clamp(14px,.72vw,16px);letter-spacing:.06em;color:var(--gold);opacity:.7">16M+ impressions</div>
+            <div style="font-size:clamp(13px,.82vw,15px);color:var(--gold);opacity:.65;letter-spacing:.04em">Explore →</div>
           </div>
         </div>
       </div>
@@ -5853,26 +5853,26 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <!-- ── TOPICS COVERED ── thin editorial strip ── -->
   <div style="max-width:none;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);background:var(--bg3)">
     <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(20px,2.2vw,36px) var(--section-pad);display:flex;align-items:center;gap:clamp(16px,2vw,32px);flex-wrap:wrap">
-      <div style="font-size:clamp(11px,.65vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;white-space:nowrap;font-family:var(--mono)">TOPICS COVERED</div>
+      <div style="font-size:clamp(14px,.65vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;white-space:nowrap;font-family:var(--mono)">TOPICS COVERED</div>
       <div style="width:.5px;height:20px;background:var(--border);flex-shrink:0"></div>
       <div style="display:flex;gap:clamp(10px,1.2vw,20px);flex-wrap:wrap;align-items:center">
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">SWIFT</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">SWIFT</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">DTCC</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">DTCC</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Chainlink</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">Chainlink</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Stablecoins</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">Stablecoins</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Tokenisation</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">Tokenisation</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Interoperability</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">Interoperability</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">RWA</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">RWA</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">Digital Assets</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">Digital Assets</span>
         <span style="color:var(--border)">·</span>
-        <span style="font-size:clamp(11px,.85vw,14px);color:var(--w40);letter-spacing:.03em">CBDCs</span>
+        <span style="font-size:clamp(12px,.85vw,16px);color:var(--w40);letter-spacing:.03em">CBDCs</span>
       </div>
     </div>
   </div>
@@ -6055,7 +6055,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <div class="ev-header" style="position:static">
     <div class="ev-header-inner">
       <div class="ev-title-row"><div class="ev-title">Help strengthen the vault</div></div>
-      <p style="font-size:clamp(12px,.85vw,14px);color:var(--w40);line-height:1.65;max-width:580px;margin:6px 0 0">Submit evidence, quotes, sources, timestamps, or misconceptions that can improve the Chainlink research archive.</p>
+      <p style="font-size:clamp(13px,.85vw,16px);color:var(--w40);line-height:1.65;max-width:580px;margin:6px 0 0">Submit evidence, quotes, sources, timestamps, or misconceptions that can improve the Chainlink research archive.</p>
     </div>
   </div>
   <div class="contrib-layout" style="max-width:var(--content-max);margin:0 auto;padding:var(--section-pad);display:grid;grid-template-columns:1fr clamp(260px,26vw,360px);gap:clamp(32px,4vw,64px);align-items:start">
@@ -6076,23 +6076,23 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <div class="form-field" style="margin:0"><label class="form-label" for="contrib-why">WHY IT MATTERS <span style="opacity:.4;font-weight:400">optional</span></label><textarea id="contrib-why" rows="3" class="form-input" style="resize:vertical" placeholder="Why should this be added to the vault?"></textarea></div>
         <div class="form-field" style="margin:0"><label class="form-label" for="contrib-email">CONTACT EMAIL <span style="opacity:.4;font-weight:400">optional</span></label><input id="contrib-email" type="email" class="form-input" placeholder="your@email.com"/></div>
         <button class="wk-btn" id="contrib-submit" style="width:100%;text-align:center" onclick="submitContrib()">Submit contribution →</button>
-        <div id="contrib-status" style="display:none;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:10px 14px;line-height:1.5"></div>
-        <p style="font-size:clamp(11px,.68vw,12px);color:var(--w20);font-family:var(--mono);letter-spacing:.04em;line-height:1.65;border-top:.5px solid var(--border);padding-top:14px;margin:0">Accepted contributions may be credited using your chosen display name.<br>All submissions are reviewed before publication. No accounts required.</p>
+        <div id="contrib-status" style="display:none;font-family:var(--mono);font-size:13px;letter-spacing:.06em;padding:10px 14px;line-height:1.5"></div>
+        <p style="font-size:clamp(14px,.68vw,16px);color:var(--w20);font-family:var(--mono);letter-spacing:.04em;line-height:1.65;border-top:.5px solid var(--border);padding-top:14px;margin:0">Accepted contributions may be credited using your chosen display name.<br>All submissions are reviewed before publication. No accounts required.</p>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px)">
       <div style="border:.5px solid var(--border);padding:clamp(18px,1.8vw,28px);background:var(--bg2)">
         <div class="contrib-sidebar-label">WHAT WE ARE LOOKING FOR</div>
         <div style="display:flex;flex-direction:column;gap:12px">
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:11px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">EVIDENCE</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Official statements, press releases, or video clips from named institutions</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:11px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">QUOTES</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Verbatim statements with confirmed speaker, role, and source URL</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:11px;color:rgba(80,200,120,.75);border:.5px solid rgba(80,200,120,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">TIMESTAMPS</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Exact video timestamps for evidence entries that currently lack them</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:11px;color:rgba(255,100,100,.75);border:.5px solid rgba(255,100,100,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">MYTHS</span><span style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.55">Common misconceptions with verifiable counter-evidence</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:13px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">EVIDENCE</span><span style="font-size:clamp(13px,.8vw,15px);color:var(--w40);line-height:1.55">Official statements, press releases, or video clips from named institutions</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:13px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">QUOTES</span><span style="font-size:clamp(13px,.8vw,15px);color:var(--w40);line-height:1.55">Verbatim statements with confirmed speaker, role, and source URL</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:13px;color:rgba(80,200,120,.75);border:.5px solid rgba(80,200,120,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">TIMESTAMPS</span><span style="font-size:clamp(13px,.8vw,15px);color:var(--w40);line-height:1.55">Exact video timestamps for evidence entries that currently lack them</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-family:var(--mono);font-size:13px;color:rgba(255,100,100,.75);border:.5px solid rgba(255,100,100,.2);padding:1px 6px;flex-shrink:0;margin-top:2px">MYTHS</span><span style="font-size:clamp(13px,.8vw,15px);color:var(--w40);line-height:1.55">Common misconceptions with verifiable counter-evidence</span></div>
         </div>
       </div>
       <div style="border:.5px solid var(--border);padding:clamp(18px,1.8vw,28px);background:var(--bg2)">
         <div class="contrib-sidebar-label">CONTRIBUTOR RECOGNITION</div>
-        <p style="font-size:clamp(11px,.8vw,13px);color:var(--w40);line-height:1.6;margin-bottom:14px">Accepted contributors are credited by display name. Contributor badges coming in a future update.</p>
+        <p style="font-size:clamp(13px,.8vw,15px);color:var(--w40);line-height:1.6;margin-bottom:14px">Accepted contributors are credited by display name. Contributor badges coming in a future update.</p>
         <div style="display:flex;flex-wrap:wrap;gap:5px">
           <span class="contrib-badge-chip">Evidence Hunter</span>
           <span class="contrib-badge-chip">Quote Archivist</span>
@@ -6111,7 +6111,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <!-- ════════════════════════════════════════ PRIVACY ════════════════════════════════════ -->
 <div class="page" id="page-research">
   <div style="max-width:var(--content-max);margin:0 auto;padding:clamp(48px,6vw,96px) clamp(32px,5vw,80px);text-align:center">
-    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);opacity:.7;margin-bottom:16px">THELINKPANDA RESEARCH</div>
+    <div style="font-family:var(--mono);font-size:13px;letter-spacing:.2em;color:var(--gold);opacity:.7;margin-bottom:16px">THELINKPANDA RESEARCH</div>
     <div style="font-family:var(--serif);font-size:clamp(22px,3vw,40px);font-weight:400;margin-bottom:20px">10 Conclusions from 54 Institutional Sources</div>
     <p style="font-size:clamp(14px,1vw,16px);color:var(--w40);max-width:560px;margin:0 auto 32px;line-height:1.7">What DTCC, SWIFT, JPMorgan, Euroclear, and 50 more institutions reveal when you read all the evidence together.</p>
     <a href="/research" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#08070a;padding:14px 28px;font-size:14px;font-weight:600;letter-spacing:.05em;text-decoration:none">Read the Research &rarr;</a>
@@ -6125,10 +6125,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK SERVICES</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">CHAINLINK SERVICES</div>
           <div class="ev-title">Technology Matrix</div>
         </div>
-        <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);color:var(--w20);letter-spacing:.1em">10 SERVICES &times; 15 INSTITUTIONS</div>
+        <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);color:var(--w20);letter-spacing:.1em">10 SERVICES &times; 15 INSTITUTIONS</div>
       </div>
     </div>
   </div>
@@ -6144,10 +6144,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTIONAL ANALYSIS</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTIONAL ANALYSIS</div>
           <div class="ev-title">Compare Institutions</div>
         </div>
-        <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);color:var(--w20);letter-spacing:.1em">SIDE BY SIDE</div>
+        <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);color:var(--w20);letter-spacing:.1em">SIDE BY SIDE</div>
       </div>
     </div>
   </div>
@@ -6162,12 +6162,12 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div class="ev-header-inner" style="max-width:var(--content-max);margin:0 auto;padding:clamp(14px,1.35vw,20px) 0">
       <div class="ev-title-row">
         <div>
-          <div style="font-family:var(--mono);font-size:clamp(11px,0.68vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">DEPLOYMENT STATUS</div>
+          <div style="font-family:var(--mono);font-size:clamp(14px,0.68vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:4px">DEPLOYMENT STATUS</div>
           <div class="ev-title">Production Tracker</div>
         </div>
         <div style="display:flex;gap:8px;align-items:center">
-          <button id="tracker-filter-all" onclick="trackerFilter('all')" style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:5px 12px;border:.5px solid var(--gold);background:var(--gold);color:#08070a;cursor:pointer">ALL</button>
-          <button id="tracker-filter-production" onclick="trackerFilter('production')" style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:5px 12px;border:.5px solid var(--border);background:none;color:var(--w40);cursor:pointer">PRODUCTION ONLY</button>
+          <button id="tracker-filter-all" onclick="trackerFilter('all')" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;padding:5px 12px;border:.5px solid var(--gold);background:var(--gold);color:#08070a;cursor:pointer">ALL</button>
+          <button id="tracker-filter-production" onclick="trackerFilter('production')" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;padding:5px 12px;border:.5px solid var(--border);background:none;color:var(--w40);cursor:pointer">PRODUCTION ONLY</button>
         </div>
       </div>
     </div>
@@ -6182,7 +6182,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <style>
 .legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
 .legal-body h1{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;margin-bottom:8px;color:var(--w)}
-.legal-body .legal-updated{font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
+.legal-body .legal-updated{font-family:var(--mono);font-size:13px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
 .legal-body h2{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--w);margin:clamp(28px,2.5vw,40px) 0 clamp(10px,1vw,14px)}
 .legal-body p{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:16px}
 .legal-body a{color:var(--gold)}
@@ -6218,7 +6218,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <style>
 .legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
 .legal-body h1{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;margin-bottom:8px;color:var(--w)}
-.legal-body .legal-updated{font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
+.legal-body .legal-updated{font-family:var(--mono);font-size:13px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
 .legal-body h2{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--w);margin:clamp(28px,2.5vw,40px) 0 clamp(10px,1vw,14px)}
 .legal-body p{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:16px}
 .legal-body a{color:var(--gold)}
@@ -6256,7 +6256,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <style>
 .legal-body{max-width:760px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,80px) clamp(60px,6vw,100px)}
 .legal-body h1{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:300;margin-bottom:8px;color:var(--w)}
-.legal-body .legal-updated{font-family:var(--mono);font-size:11px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
+.legal-body .legal-updated{font-family:var(--mono);font-size:13px;color:var(--w40);letter-spacing:.1em;margin-bottom:clamp(32px,3vw,48px)}
 .legal-body h2{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);font-weight:400;color:var(--w);margin:clamp(28px,2.5vw,40px) 0 clamp(10px,1vw,14px)}
 .legal-body p{font-size:clamp(14px,1vw,16px);color:var(--w60);line-height:1.8;margin-bottom:16px}
 .legal-body a{color:var(--gold)}
@@ -6296,7 +6296,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
       <div class="form-field"><label class="form-label" for="cf-email">EMAIL</label><input id="cf-email" type="email" class="form-input" placeholder="your@email.com" autocomplete="email"/></div>
       <div class="form-field" style="grid-column:1/-1"><label class="form-label" for="cf-message">MESSAGE</label><textarea id="cf-message" rows="5" class="form-input" style="resize:vertical" placeholder="Tell me about your project..."></textarea></div>
       <button class="wk-btn" id="cf-submit" style="width:100%;text-align:center;grid-column:1/-1" onclick="submitContact()">Send message →</button>
-      <div id="cf-status" style="display:none;margin-top:16px;font-size:12px;letter-spacing:.06em;font-family:var(--mono);padding:10px 14px"></div>
+      <div id="cf-status" style="display:none;margin-top:16px;font-size:14px;letter-spacing:.06em;font-family:var(--mono);padding:10px 14px"></div>
     </div>
   </div>
   
@@ -6324,7 +6324,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <p style="font-size:13px;color:var(--w40);line-height:1.65;max-width:520px;margin-bottom:32px">Short-form visual explainers on digital finance infrastructure. Each Short is designed to stand alone as a clear, researched answer to one infrastructure question.</p>
     <div class="video-section-grid" id="videos-full-grid"></div>
     <div style="text-align:center;margin-top:36px;padding-top:28px;border-top:.5px solid var(--border)">
-      <a href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:.07em;color:var(--gold);opacity:.6;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">VIEW ALL ON YOUTUBE →</a>
+      <a href="https://www.youtube.com/@TheLinkPanda/shorts" target="_blank" rel="noopener" style="font-size:13px;letter-spacing:.07em;color:var(--gold);opacity:.6;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">VIEW ALL ON YOUTUBE →</a>
     </div>
   </div>
   
@@ -7282,7 +7282,7 @@ function exInit(){
 
 function exBuildServicePanel(){
   var p=document.getElementById('ex-services');if(!p)return;
-  p.innerHTML='<div class="ex-svc-header">CHAINLINK SERVICES</div><div style="font-size:11px;color:rgba(244,242,238,.45);letter-spacing:.04em;margin-bottom:8px;padding:0 4px">Click to filter</div>';
+  p.innerHTML='<div class="ex-svc-header">CHAINLINK SERVICES</div><div style="font-size:13px;color:rgba(244,242,238,.45);letter-spacing:.04em;margin-bottom:8px;padding:0 4px">Click to filter</div>';
   EXD.chainlinkServices.forEach(function(svc){
     var d=document.createElement('div');d.className='ex-svc';d.id='ex-svc-'+svc.id;
 
@@ -7300,7 +7300,7 @@ function exBuildServicePanel(){
           /* service logo path warn removed */;
           this.style.display='none';
           var fb=document.createElement('span');
-          fb.style.cssText='font-size:12px;opacity:.7';
+          fb.style.cssText='font-size:14px;opacity:.7';
           fb.textContent=icon;
           wrap.appendChild(fb);
         };
@@ -7308,7 +7308,7 @@ function exBuildServicePanel(){
       wrap.appendChild(iconEl);
     } else {
       iconEl=document.createElement('span');
-      iconEl.style.cssText='font-size:12px;opacity:.7';
+      iconEl.style.cssText='font-size:14px;opacity:.7';
       iconEl.textContent=svc.icon;
       wrap.appendChild(iconEl);
     }
@@ -7467,11 +7467,11 @@ function exSelectChainlinkCenter(){
   var sl=document.getElementById('ex-ctx-svcs');
   if(sl){
     sl.style.display='';sl.innerHTML='';
-    var hdr=document.createElement('div');hdr.style.cssText='font-size:11px;letter-spacing:.16em;color:rgba(100,180,255,.7);margin-bottom:8px';hdr.textContent='ALL ACTIVE SERVICES';sl.appendChild(hdr);
+    var hdr=document.createElement('div');hdr.style.cssText='font-size:13px;letter-spacing:.16em;color:rgba(100,180,255,.7);margin-bottom:8px';hdr.textContent='ALL ACTIVE SERVICES';sl.appendChild(hdr);
     EXD.chainlinkServices.forEach(function(svc){
       var row=document.createElement('div');
       row.style.cssText='display:flex;align-items:flex-start;gap:8px;padding:6px 10px;background:rgba(60,120,255,.07);border:.5px solid rgba(60,120,255,.18);border-radius:3px;margin-bottom:4px;cursor:pointer';
-      row.innerHTML='<div style="font-size:11px;color:rgba(100,180,255,.9);font-family:var(--mono);letter-spacing:.07em;min-width:90px;flex-shrink:0">'+svc.name+'</div><div style="font-size:11px;color:rgba(244,242,238,.45);line-height:1.5">'+svc.desc+'</div>';
+      row.innerHTML='<div style="font-size:13px;color:rgba(100,180,255,.9);font-family:var(--mono);letter-spacing:.07em;min-width:90px;flex-shrink:0">'+svc.name+'</div><div style="font-size:13px;color:rgba(244,242,238,.45);line-height:1.5">'+svc.desc+'</div>';
       row.addEventListener('click',function(){exFilterBySvc(svc.id);});sl.appendChild(row);
     });
   }
@@ -7480,9 +7480,9 @@ function exSelectChainlinkCenter(){
 }
 function exShowNativeTip(ev,edge){
   var tt=document.getElementById('ex-ntip');
-  if(!tt){tt=document.createElement('div');tt.id='ex-ntip';tt.style.cssText='position:fixed;pointer-events:none;z-index:600;background:rgba(4,7,20,.97);border:.5px solid rgba(200,146,42,.3);border-left:2px solid rgba(200,146,42,.7);border-radius:5px;padding:9px 13px;min-width:180px;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.7);font-family:var(--sans);opacity:0;transition:opacity .12s;font-size:11px';document.body.appendChild(tt);}
+  if(!tt){tt=document.createElement('div');tt.id='ex-ntip';tt.style.cssText='position:fixed;pointer-events:none;z-index:600;background:rgba(4,7,20,.97);border:.5px solid rgba(200,146,42,.3);border-left:2px solid rgba(200,146,42,.7);border-radius:5px;padding:9px 13px;min-width:180px;max-width:280px;box-shadow:0 8px 28px rgba(0,0,0,.7);font-family:var(--sans);opacity:0;transition:opacity .12s;font-size:13px';document.body.appendChild(tt);}
   var tl={RUNS_ON_CHAIN:'Runs on',MESSAGES_WITH:'Messages with',SETTLES_WITH:'Settles with',CONNECTS_TO:'Connects to',CUSTODIES_ASSET:'Custodies for',ISSUES_ASSET:'Issues assets',DEPENDS_ON:'Depends on',TOKENIZES_ASSET:'Tokenizes for',PROVIDES_DATA_TO:'Provides data to'};
-  tt.innerHTML='<div style="font-size:11px;letter-spacing:.14em;color:rgba(200,146,42,.65);margin-bottom:3px">'+(tl[edge.type]||edge.type||'CONNECTION')+'</div><div style="color:rgba(244,242,238,.8);line-height:1.55">'+(edge.desc||'')+'</div>';
+  tt.innerHTML='<div style="font-size:13px;letter-spacing:.14em;color:rgba(200,146,42,.65);margin-bottom:3px">'+(tl[edge.type]||edge.type||'CONNECTION')+'</div><div style="color:rgba(244,242,238,.8);line-height:1.55">'+(edge.desc||'')+'</div>';
   tt.style.opacity='1';tt.style.left=(ev.clientX+14)+'px';tt.style.top=(ev.clientY-8)+'px';
 }
 function exHideNativeTip(){var tt=document.getElementById('ex-ntip');if(tt)tt.style.opacity='0';}
@@ -7493,7 +7493,7 @@ function exAppendNativeConnections(node){
   var related=(EXD.nativeEdges||[]).filter(function(e){return (e.from===node.id||e.to===node.id)&&e.from!==e.to;});
   if(!related.length)return;
   var sep=document.createElement('div');sep.style.cssText='height:.5px;background:rgba(244,242,238,.07);margin:12px 0 10px';sl.appendChild(sep);
-  var hdr=document.createElement('div');hdr.style.cssText='font-size:11px;letter-spacing:.16em;color:rgba(160,100,255,.7);margin-bottom:7px';hdr.textContent='NATIVE ECOSYSTEM CONNECTIONS';sl.appendChild(hdr);
+  var hdr=document.createElement('div');hdr.style.cssText='font-size:13px;letter-spacing:.16em;color:rgba(160,100,255,.7);margin-bottom:7px';hdr.textContent='NATIVE ECOSYSTEM CONNECTIONS';sl.appendChild(hdr);
   var tl={RUNS_ON_CHAIN:'Runs on',MESSAGES_WITH:'Messages with',SETTLES_WITH:'Settles with',CONNECTS_TO:'Connects to',CUSTODIES_ASSET:'Custodies for',ISSUES_ASSET:'Issues assets',DEPENDS_ON:'Depends on',TOKENIZES_ASSET:'Tokenizes for',PROVIDES_DATA_TO:'Provides data to'};
   related.forEach(function(e){
     var peerId=(e.from===node.id)?e.to:e.from;
@@ -7501,8 +7501,8 @@ function exAppendNativeConnections(node){
     var row=document.createElement('div');row.style.cssText='display:flex;align-items:flex-start;gap:7px;padding:5px 8px;background:rgba(160,100,255,.05);border:.5px solid rgba(160,100,255,.12);border-radius:3px;margin-bottom:3px';
     var dot=document.createElement('div');dot.style.cssText='width:3px;height:3px;border-radius:50%;background:rgba(160,100,255,.55);flex-shrink:0;margin-top:5px';
     var txt=document.createElement('div');
-    var lbl=document.createElement('div');lbl.style.cssText='font-size:11px;color:rgba(160,100,255,.8);letter-spacing:.05em;font-family:var(--mono)';lbl.textContent=(tl[e.type]||e.type||'—')+' '+peer.label;
-    var desc=document.createElement('div');desc.style.cssText='font-size:11px;color:rgba(244,242,238,.4);line-height:1.5;margin-top:1px';desc.textContent=e.desc||'';
+    var lbl=document.createElement('div');lbl.style.cssText='font-size:13px;color:rgba(160,100,255,.8);letter-spacing:.05em;font-family:var(--mono)';lbl.textContent=(tl[e.type]||e.type||'—')+' '+peer.label;
+    var desc=document.createElement('div');desc.style.cssText='font-size:13px;color:rgba(244,242,238,.4);line-height:1.5;margin-top:1px';desc.textContent=e.desc||'';
     txt.appendChild(lbl);txt.appendChild(desc);
     row.appendChild(dot);row.appendChild(txt);sl.appendChild(row);
   });
@@ -7523,19 +7523,19 @@ function exUpdateRightPanel(node){
   var stCfg={live:{c:'rgba(40,200,120,.9)',bg:'rgba(40,200,120,.12)',t:'LIVE'},announced:{c:'rgba(200,146,42,.9)',bg:'rgba(200,146,42,.12)',t:'ANNOUNCED'},future:{c:'rgba(120,140,200,.8)',bg:'rgba(120,140,200,.1)',t:'WATCHLIST'}};
   var stV=stCfg[node.status||'live'];
   var badge=document.createElement('span');
-  badge.style.cssText='display:inline-block;font-size:11px;padding:2px 7px;border-radius:2px;background:'+stV.bg+';color:'+stV.c+';font-family:var(--mono);letter-spacing:.08em;font-weight:600;margin-bottom:6px';
+  badge.style.cssText='display:inline-block;font-size:13px;padding:2px 7px;border-radius:2px;background:'+stV.bg+';color:'+stV.c+';font-family:var(--mono);letter-spacing:.08em;font-weight:600;margin-bottom:6px';
   badge.textContent=stV.t;
   te.appendChild(badge);
   // Path chip
   var rc=node.reachable?node.reachable.length:0;
-  if(rc){var chip=document.createElement('div');chip.style.cssText='font-size:11px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:3px 9px;border-radius:2px;margin-top:4px;display:inline-block;font-family:var(--mono)';chip.textContent=node.label.split('\n').join(' ')+' → Chainlink → '+rc+' systems';te.appendChild(chip);}
+  if(rc){var chip=document.createElement('div');chip.style.cssText='font-size:13px;color:rgba(60,160,255,.75);border:.5px solid rgba(60,160,255,.2);padding:3px 9px;border-radius:2px;margin-top:4px;display:inline-block;font-family:var(--mono)';chip.textContent=node.label.split('\n').join(' ')+' → Chainlink → '+rc+' systems';te.appendChild(chip);}
   // Sub-entities for group nodes (Banks, etc.)
   if(node.subEntities&&node.subEntities.length){
-    var subHdr=document.createElement('div');subHdr.style.cssText='font-size:11px;letter-spacing:.16em;color:rgba(200,146,42,.65);margin-top:10px;margin-bottom:5px';subHdr.textContent='INCLUDES';te.appendChild(subHdr);
-    node.subEntities.forEach(function(s){var c=document.createElement('div');c.style.cssText='font-size:11px;color:rgba(244,242,238,.55);padding:2px 0;display:flex;align-items:center;gap:5px';c.innerHTML='<span style="color:rgba(200,146,42,.65);font-size:11px">▸</span>'+s;te.appendChild(c);});
+    var subHdr=document.createElement('div');subHdr.style.cssText='font-size:13px;letter-spacing:.16em;color:rgba(200,146,42,.65);margin-top:10px;margin-bottom:5px';subHdr.textContent='INCLUDES';te.appendChild(subHdr);
+    node.subEntities.forEach(function(s){var c=document.createElement('div');c.style.cssText='font-size:13px;color:rgba(244,242,238,.55);padding:2px 0;display:flex;align-items:center;gap:5px';c.innerHTML='<span style="color:rgba(200,146,42,.65);font-size:13px">▸</span>'+s;te.appendChild(c);});
   }
   var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
-  function sec(l,c){var h=document.createElement('div');h.style.cssText='font-size:11px;letter-spacing:.16em;color:'+c+';margin-bottom:8px;margin-top:14px';h.textContent=l;sl.appendChild(h);}
+  function sec(l,c){var h=document.createElement('div');h.style.cssText='font-size:13px;letter-spacing:.16em;color:'+c+';margin-bottom:8px;margin-top:14px';h.textContent=l;sl.appendChild(h);}
   var help=node.chainlinkRole||node.explanation||'';
   if(help){sec('HOW CHAINLINK HELPS','rgba(200,146,42,.6)');var hb=document.createElement('div');hb.style.cssText='font-size:13px;color:rgba(244,242,238,.68);line-height:1.75;margin-bottom:4px';hb.textContent=help;sl.appendChild(hb);}
   if(svcs.length){
@@ -7555,7 +7555,7 @@ function exUpdateRightPanel(node){
     sec('CONNECTED THROUGH CHAINLINK','rgba(60,160,255,.65)');
     var co=['tradfi','assets','chains','apps'],cf={tradfi:'Traditional Finance',assets:'Digital Assets',chains:'Blockchains',apps:'Applications'};
     var groups={};co.forEach(function(c){groups[c]=[];});node.reachable.forEach(function(rid){var rn=EXD.nodes.filter(function(x){return x.id===rid;})[0];if(rn&&groups[rn.cat])groups[rn.cat].push(rn);});
-    co.forEach(function(cat){if(!groups[cat].length)return;var cl=document.createElement('div');cl.style.cssText='font-size:11px;letter-spacing:.09em;color:rgba(244,242,238,.45);margin:6px 0 4px';cl.textContent=cf[cat].toUpperCase();sl.appendChild(cl);var row=document.createElement('div');row.style.cssText='display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px';groups[cat].forEach(function(rn){var ch=document.createElement('div');ch.style.cssText='font-size:12px;padding:4px 9px;background:rgba(20,40,100,.3);border:.5px solid rgba(60,160,255,.2);border-radius:3px;color:rgba(244,242,238,.78);cursor:pointer;transition:all .15s;font-weight:500';ch.textContent=rn.label.split('\n').join(' ');ch.addEventListener('mouseenter',function(){ch.style.background='rgba(20,40,130,.55)';ch.style.color='#fff';});ch.addEventListener('mouseleave',function(){ch.style.background='rgba(20,40,100,.3)';ch.style.color='rgba(244,242,238,.78)';});(function(r){ch.addEventListener('click',function(e){e.stopPropagation();exSelectNode(r);});})(rn);row.appendChild(ch);});sl.appendChild(row);});
+    co.forEach(function(cat){if(!groups[cat].length)return;var cl=document.createElement('div');cl.style.cssText='font-size:13px;letter-spacing:.09em;color:rgba(244,242,238,.45);margin:6px 0 4px';cl.textContent=cf[cat].toUpperCase();sl.appendChild(cl);var row=document.createElement('div');row.style.cssText='display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px';groups[cat].forEach(function(rn){var ch=document.createElement('div');ch.style.cssText='font-size:14px;padding:4px 9px;background:rgba(20,40,100,.3);border:.5px solid rgba(60,160,255,.2);border-radius:3px;color:rgba(244,242,238,.78);cursor:pointer;transition:all .15s;font-weight:500';ch.textContent=rn.label.split('\n').join(' ');ch.addEventListener('mouseenter',function(){ch.style.background='rgba(20,40,130,.55)';ch.style.color='#fff';});ch.addEventListener('mouseleave',function(){ch.style.background='rgba(20,40,100,.3)';ch.style.color='rgba(244,242,238,.78)';});(function(r){ch.addEventListener('click',function(e){e.stopPropagation();exSelectNode(r);});})(rn);row.appendChild(ch);});sl.appendChild(row);});
   }
   sl.style.display='';var sc=document.getElementById('ex-ctx-scroll');if(sc)sc.scrollTop=0;setTimeout(exCheckScrollFade,60);
 }
@@ -7576,15 +7576,15 @@ function exClickService(svcName){
   document.getElementById('ex-ctx-body').textContent=sd;
   var te=document.getElementById('ex-ctx-tags');te.innerHTML='';
   var mn=EXD.nodes.filter(function(n){return n.services&&n.services.indexOf(svcName)>-1;});
-  var ch=document.createElement('div');ch.style.cssText='font-size:11px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';ch.textContent=mn.length+' systems use this service';te.appendChild(ch);
+  var ch=document.createElement('div');ch.style.cssText='font-size:13px;color:rgba(200,146,42,.75);border:.5px solid rgba(200,146,42,.2);padding:3px 9px;border-radius:2px;margin-top:6px;display:inline-block;font-family:var(--mono)';ch.textContent=mn.length+' systems use this service';te.appendChild(ch);
   var sl=document.getElementById('ex-ctx-svcs');sl.innerHTML='';
-  var hd=document.createElement('div');hd.style.cssText='font-size:11px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';hd.textContent='ECOSYSTEM USING '+displayName.toUpperCase();sl.appendChild(hd);
-  if(mn.length===0){var noNode=document.createElement('div');noNode.style.cssText='font-size:12px;color:rgba(244,242,238,.38);line-height:1.6;padding:8px 0;font-style:italic';noNode.textContent=displayName+' is available as a Chainlink service, but no current node in this map is assigned to it yet.';sl.appendChild(noNode);}
+  var hd=document.createElement('div');hd.style.cssText='font-size:13px;letter-spacing:.16em;color:rgba(200,146,42,.6);margin-bottom:10px';hd.textContent='ECOSYSTEM USING '+displayName.toUpperCase();sl.appendChild(hd);
+  if(mn.length===0){var noNode=document.createElement('div');noNode.style.cssText='font-size:14px;color:rgba(244,242,238,.38);line-height:1.6;padding:8px 0;font-style:italic';noNode.textContent=displayName+' is available as a Chainlink service, but no current node in this map is assigned to it yet.';sl.appendChild(noNode);}
   var cc={tradfi:'rgba(200,146,42,.7)',assets:'rgba(160,100,255,.7)',chains:'rgba(60,160,255,.7)',apps:'rgba(255,165,60,.7)'};
   mn.forEach(function(n){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:9px;padding:7px 10px;background:rgba(20,35,80,.2);border:.5px solid rgba(100,140,255,.1);border-radius:4px;margin-bottom:5px;cursor:pointer;transition:background .15s';var statusBadge=(function(st){
       var cfg={live:{c:'rgba(40,200,120,.85)',bg:'rgba(40,200,120,.12)',t:'LIVE'},announced:{c:'rgba(200,146,42,.85)',bg:'rgba(200,146,42,.12)',t:'ANNOUNCED'},future:{c:'rgba(120,140,200,.7)',bg:'rgba(120,140,200,.1)',t:'WATCHLIST'}};
       var v=cfg[st]||cfg['live'];
-      return '<span style="font-size:11px;padding:1px 5px;border-radius:2px;background:'+v.bg+';color:'+v.c+';font-family:var(--mono);letter-spacing:.06em;font-weight:600;flex-shrink:0">'+v.t+'</span>';
+      return '<span style="font-size:13px;padding:1px 5px;border-radius:2px;background:'+v.bg+';color:'+v.c+';font-family:var(--mono);letter-spacing:.06em;font-weight:600;flex-shrink:0">'+v.t+'</span>';
     })(n.status||'live');
     row.innerHTML='<div style="width:5px;height:5px;border-radius:50%;background:'+(cc[n.cat]||'rgba(200,146,42,.7)')+';flex-shrink:0"></div><div style="font-size:13px;color:rgba(244,242,238,.88);font-weight:500;flex:1">'+n.label.split('\n').join(' ')+'</div>'+statusBadge;row.addEventListener('mouseenter',function(){row.style.background='rgba(30,50,120,.35)';});row.addEventListener('mouseleave',function(){row.style.background='rgba(20,35,80,.2)';});(function(sn){row.addEventListener('click',function(){exSelectNode(sn);});})(n);sl.appendChild(row);});
   sl.style.display='';document.getElementById('ex-how').style.display='none';var sc=document.getElementById('ex-ctx-scroll');if(sc)sc.scrollTop=0;setTimeout(exCheckScrollFade,60);
@@ -8200,13 +8200,13 @@ function evRenderBanner(){
   }
   var n=evState.evIds.length,pl=n===1?'source':'sources';
   var tH=evState.mcTitle
-    ?'<div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--w40);margin-bottom:3px">SHOWING EVIDENCE FOR</div>'
+    ?'<div style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--w40);margin-bottom:3px">SHOWING EVIDENCE FOR</div>'
      +'<div style="font-family:var(--serif);font-size:clamp(14px,1.1vw,17px);color:var(--w);line-height:1.3;margin-bottom:4px">&#8220;'+orgEsc(evState.mcTitle)+'&#8221;</div>'
-     +'<div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.08em">'+n+' supporting '+pl+' found</div>'
-    :'<span style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold)">Showing '+n+' evidence '+(n===1?'entry':'entries')+' for selected misconception</span>';
+     +'<div style="font-family:var(--mono);font-size:13px;color:var(--gold);letter-spacing:.08em">'+n+' supporting '+pl+' found</div>'
+    :'<span style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--gold)">Showing '+n+' evidence '+(n===1?'entry':'entries')+' for selected misconception</span>';
   b.style.display='flex';
   b.innerHTML='<div style="flex:1">'+tH+'</div>'
-    +'<button onclick="evClearIds()" style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--w40);border:.5px solid var(--border);background:none;padding:4px 12px;cursor:pointer;flex-shrink:0;align-self:flex-start">&#215; Clear filter</button>';
+    +'<button onclick="evClearIds()" style="font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--w40);border:.5px solid var(--border);background:none;padding:4px 12px;cursor:pointer;flex-shrink:0;align-self:flex-start">&#215; Clear filter</button>';
 }
 
 // ── INSTITUTIONS ─────────────────────────────────────────────────────
@@ -8469,9 +8469,9 @@ function buildMostCited(){
     var rank = ('0'+(i+1)).slice(-2);
     return '<div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;'+ border +'">'
       + '<span style="font-size:13px;color:var(--w60)">'
-      + '<span style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;margin-right:10px">'+ rank +'</span>'
+      + '<span style="font-family:var(--mono);font-size:13px;color:var(--gold);opacity:.7;margin-right:10px">'+ rank +'</span>'
       + item.name + '</span>'
-      + '<span style="font-family:var(--mono);font-size:11px;color:var(--w20)">'+ item.count +' entr'+(item.count===1?'y':'ies')+'</span>'
+      + '<span style="font-family:var(--mono);font-size:13px;color:var(--w20)">'+ item.count +' entr'+(item.count===1?'y':'ies')+'</span>'
       + '</div>';
   }).join('');
 }
@@ -9306,7 +9306,7 @@ function orgShowInst(slug){
   var vidE=(typeof SHORTS!=='undefined'?SHORTS:[]).filter(function(v){var hay=(v.title+' '+(v.sub||'')+' '+(v.cat||'')).toLowerCase();return hay.indexOf(inst.name.toLowerCase())>-1||hay.indexOf(inst.mcKey.toLowerCase())>-1;});
   var tl=(typeof TIMELINES!=='undefined'&&TIMELINES[slug])||[];
   var hdr=document.getElementById('org-header-inner');
-  if(hdr){hdr.innerHTML='<button class="org-back-btn" onclick="history.back()">&#8592; Back</button>'+'<div style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTION PROFILE</div>'+'<div class="ev-title" style="font-size:clamp(18px,1.8vw,22px);font-weight:600">'+orgEsc(inst.name)+'</div>'+'<div style="font-size:13px;color:var(--w40);margin-top:3px">'+orgEsc(inst.full)+'</div>'+'<p style="font-size:13px;color:var(--w40);line-height:1.6;margin:6px 0 0;max-width:600px">'+orgEsc(inst.role)+'</p>';}
+  if(hdr){hdr.innerHTML='<button class="org-back-btn" onclick="history.back()">&#8592; Back</button>'+'<div style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:4px">INSTITUTION PROFILE</div>'+'<div class="ev-title" style="font-size:clamp(18px,1.8vw,22px);font-weight:600">'+orgEsc(inst.name)+'</div>'+'<div style="font-size:13px;color:var(--w40);margin-top:3px">'+orgEsc(inst.full)+'</div>'+'<p style="font-size:13px;color:var(--w40);line-height:1.6;margin:6px 0 0;max-width:600px">'+orgEsc(inst.role)+'</p>';}
   var stats=document.getElementById('org-stats-row');
   if(stats){stats.innerHTML='<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+evE.length+'</div><div class="org-stat-l">EVIDENCE</div></div>'+'<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+mcE.length+'</div><div class="org-stat-l">MISCONCEPTIONS</div></div>'+'<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+qtE.length+'</div><div class="org-stat-l">QUOTES</div></div>'+'<div class="org-stat"><div class="org-stat-n" style="color:'+inst.color+'">'+tl.length+'</div><div class="org-stat-l">TIMELINE</div></div>';}
   var evSec=document.getElementById('org-ev-section'),evGrid=document.getElementById('org-ev-grid');
@@ -9316,7 +9316,7 @@ function orgShowInst(slug){
   var qtSec=document.getElementById('org-qt-section'),qtGrid=document.getElementById('org-qt-grid');
   if(qtGrid){qtGrid.innerHTML='';if(qtE.length){if(qtSec)qtSec.style.display='';qtGrid.innerHTML=qtE.map(function(q){return'<div class="qt-card"><div class="qt-quote">&#8220;'+orgEsc(q.quote)+'&#8221;</div><div class="qt-attr"><span class="qt-person">'+orgEsc(q.person)+'</span>'+(q.role?'<span class="qt-role">, '+orgEsc(q.role)+'</span>':'')+'</div></div>';}).join('');}else{if(qtSec)qtSec.style.display='none';}}
   var vidSec=document.getElementById('org-vid-section'),vidGrid=document.getElementById('org-vid-grid');
-  if(vidGrid){vidGrid.innerHTML='';if(vidE.length){if(vidSec)vidSec.style.display='';vidGrid.innerHTML=vidE.map(function(v){return'<a class="yt-card" href="https://youtube.com/shorts/'+v.id+'" target="_blank" rel="noopener"><img src="'+v.thumb+'" alt="'+orgEsc(v.title)+'" onerror="this.src=\''+v.thumbFb+'\'" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:4px"><div style="font-size:12px;color:var(--w60);margin-top:6px;line-height:1.4">'+orgEsc(v.title)+'</div></a>';}).join('');}else{if(vidSec)vidSec.style.display='none';}}
+  if(vidGrid){vidGrid.innerHTML='';if(vidE.length){if(vidSec)vidSec.style.display='';vidGrid.innerHTML=vidE.map(function(v){return'<a class="yt-card" href="https://youtube.com/shorts/'+v.id+'" target="_blank" rel="noopener"><img src="'+v.thumb+'" alt="'+orgEsc(v.title)+'" onerror="this.src=\''+v.thumbFb+'\'" style="width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:4px"><div style="font-size:14px;color:var(--w60);margin-top:6px;line-height:1.4">'+orgEsc(v.title)+'</div></a>';}).join('');}else{if(vidSec)vidSec.style.display='none';}}
   var tlSec=document.getElementById('org-tl-section'),tlBody=document.getElementById('org-tl-body');
   if(tlBody){tlBody.innerHTML='';if(tl.length){if(tlSec)tlSec.style.display='';tlBody.innerHTML=tl.map(function(e){return'<div class="org-tl-item"><div class="org-tl-year">'+orgEsc(e.year)+'</div><div class="org-tl-event">'+orgEsc(e.event)+'</div></div>';}).join('');}else{if(tlSec)tlSec.style.display='none';}}
 }
@@ -9373,12 +9373,12 @@ function evBuildCard(e,i){
   var bodyRow='<div class="ev-card-title" title="'+e.title+'">'+escHtml(e.title)+'</div>'
     +(e.body?'<p class="ev-body-text">'+escHtml(e.body)+'</p>':'');
   var sigRow=e.significance
-    ?'<div class="ev-significance"><span style="font-family:var(--mono);font-size:clamp(11px,.48vw,12px);letter-spacing:.18em;color:var(--gold);opacity:.65;display:block;margin-bottom:4px">WHY IT MATTERS</span>'+escHtml(e.significance)+'</div>'
+    ?'<div class="ev-significance"><span style="font-family:var(--mono);font-size:clamp(14px,.48vw,16px);letter-spacing:.18em;color:var(--gold);opacity:.65;display:block;margin-bottom:4px">WHY IT MATTERS</span>'+escHtml(e.significance)+'</div>'
     :'';
   var metaRow='<div class="ev-meta">'
     +(e.source_url?'<a class="ev-source" href="'+e.source_url+'" target="_blank" rel="noopener">'+escHtml(e.source_label||e.source_url)+'</a>':'')
     +(e.tags&&e.tags.length?'<div class="ev-card-tags">'+e.tags.map(function(t){return'<span class="ev-card-tag">'+escHtml(t)+'</span>';}).join('')+'</div>':'')
-    +'<button onclick="evCopyLink(\''+e.id+'\',this)" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:clamp(11px,0.58vw,12px);letter-spacing:.1em;color:rgba(200,146,42,.65);border:.5px solid rgba(200,146,42,.25);background:none;padding:4px 10px;cursor:pointer;margin-top:6px;transition:all .15s;border-radius:2px" title="Copy a direct link to this evidence entry" onmouseover="this.style.background=\'rgba(200,146,42,.08)\'" onmouseout="this.style.background=\'none\'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>SHARE</button>'
+    +'<button onclick="evCopyLink(\''+e.id+'\',this)" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:clamp(14px,0.58vw,16px);letter-spacing:.1em;color:rgba(200,146,42,.65);border:.5px solid rgba(200,146,42,.25);background:none;padding:4px 10px;cursor:pointer;margin-top:6px;transition:all .15s;border-radius:2px" title="Copy a direct link to this evidence entry" onmouseover="this.style.background=\'rgba(200,146,42,.08)\'" onmouseout="this.style.background=\'none\'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>SHARE</button>'
     +'</div>';
   var sourceInfo='<div class="ev-source-info">'
     +'<div class="ev-source-info-title">Source Information</div>'
@@ -9626,11 +9626,11 @@ function matrixInit(){
 
   // Legend
   var legend = '<div style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(16px,2vw,32px);margin-bottom:clamp(20px,2vw,32px);padding:14px 18px;background:var(--bg2);border:.5px solid var(--border)">'
-    + '<span style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--w20);text-transform:uppercase;margin-right:8px">LEGEND</span>'
+    + '<span style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--w20);text-transform:uppercase;margin-right:8px">LEGEND</span>'
     + '<span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w60)"><span style="color:rgba(80,200,120,.9);font-size:17px;font-weight:700">✓</span> Confirmed deployment</span>'
     + '<span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w60)"><span style="color:var(--gold);font-size:15px">◑</span> Experimental / partial</span>'
     + '<span style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--w40)"><span style="color:rgba(244,242,238,.45);font-size:15px">—</span> No evidence</span>'
-    + '<span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--w20);letter-spacing:.08em">All cells sourced to Evidence Vault</span>'
+    + '<span style="margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--w20);letter-spacing:.08em">All cells sourced to Evidence Vault</span>'
     + '</div>';
 
   // Stage color helper
@@ -9654,7 +9654,7 @@ function matrixInit(){
     t += '<tr class="mx-svc-row">';
     t += '<th class="mx-th-svc">'
       + '<div style="font-size:13px;color:var(--w60)">' + svc.label + '</div>'
-      + '<div style="font-size:11px;color:var(--w20);margin-top:2px;font-weight:300">' + svc.full + '</div>'
+      + '<div style="font-size:13px;color:var(--w20);margin-top:2px;font-weight:300">' + svc.full + '</div>'
       + '</th>';
     insts.forEach(function(inst){
       var val = inst.services[svc.id];
@@ -9680,7 +9680,7 @@ function matrixInit(){
       + '<span style="width:7px;height:7px;border-radius:50%;background:'+stageColor(inst.stage)+';display:inline-block;flex-shrink:0"></span>'
       + '<span style="font-size:13px;color:var(--w);font-weight:500">' + inst.name + '</span>'
       + '</div>'
-      + '<div style="font-family:var(--mono);font-size:11px;color:var(--w20)">' + svcs.length + ' service' + (svcs.length!==1?'s':'') + ' &mdash; ' + inst.evidenceCount + ' evidence entries</div>'
+      + '<div style="font-family:var(--mono);font-size:13px;color:var(--w20)">' + svcs.length + ' service' + (svcs.length!==1?'s':'') + ' &mdash; ' + inst.evidenceCount + ' evidence entries</div>'
       + '</div>';
   });
   t += '</div>';
@@ -9711,21 +9711,21 @@ function compareInit(){
   body.innerHTML =
     '<div class="cmp-pickers">'
     + '<div>'
-    + '<div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:8px">INSTITUTION A</div>'
+    + '<div style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:8px">INSTITUTION A</div>'
     + '<div style="position:relative">'
     + '<select class="cmp-select" id="cmp-a" onchange="compareRender()">'
     + buildOptions('dtcc')
     + '</select>'
-    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none;font-size:12px">&#9660;</span>'
+    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none;font-size:14px">&#9660;</span>'
     + '</div>'
     + '</div>'
     + '<div>'
-    + '<div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:8px">INSTITUTION B</div>'
+    + '<div style="font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--gold);opacity:.65;margin-bottom:8px">INSTITUTION B</div>'
     + '<div style="position:relative">'
     + '<select class="cmp-select" id="cmp-b" onchange="compareRender()">'
     + buildOptions('swift')
     + '</select>'
-    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none;font-size:12px">&#9660;</span>'
+    + '<span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none;font-size:14px">&#9660;</span>'
     + '</div>'
     + '</div>'
     + '</div>'
@@ -9761,7 +9761,7 @@ function compareRender(){
     ['COUNTRY', iA.country, iB.country],
     ['EVIDENCE ENTRIES', iA.evidenceCount, iB.evidenceCount],
     ['QUOTES ON RECORD', iA.quoteCount, iB.quoteCount],
-    ['KEY FACT', '<span style="font-size:12px;color:var(--w40);font-style:italic">'+iA.keyFact+'</span>', '<span style="font-size:12px;color:var(--w40);font-style:italic">'+iB.keyFact+'</span>'],
+    ['KEY FACT', '<span style="font-size:14px;color:var(--w40);font-style:italic">'+iA.keyFact+'</span>', '<span style="font-size:14px;color:var(--w40);font-style:italic">'+iB.keyFact+'</span>'],
   ];
 
   services.forEach(function(svc){
@@ -9784,7 +9784,7 @@ function compareRender(){
   t += '<div class="cmp-row-label">EVIDENCE</div>';
   function evLinks(inst){
     return (inst.ev||[]).slice(0,4).map(function(eid){
-      return '<a href="/evidence/'+eid+'" style="display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:3px 8px;border:.5px solid rgba(200,146,42,.25);color:var(--gold);background:rgba(200,146,42,.06);margin:2px;text-decoration:none">'+eid.toUpperCase()+'</a>';
+      return '<a href="/evidence/'+eid+'" style="display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;padding:3px 8px;border:.5px solid rgba(200,146,42,.25);color:var(--gold);background:rgba(200,146,42,.06);margin:2px;text-decoration:none">'+eid.toUpperCase()+'</a>';
     }).join('');
   }
   t += '<div class="cmp-row-val">'+evLinks(iA)+'</div>';
@@ -9858,10 +9858,10 @@ function trackerRender(filter){
     var stageInsts = insts.filter(function(i){return i.stage===stage.id;});
     cols += '<div>'
       + '<div class="tracker-col-head '+stage.cls+'">'+stage.label
-      + '<div style="font-size:11px;font-weight:300;letter-spacing:.06em;color:inherit;opacity:.6;margin-top:3px">'+stage.desc+'</div>'
+      + '<div style="font-size:13px;font-weight:300;letter-spacing:.06em;color:inherit;opacity:.6;margin-top:3px">'+stage.desc+'</div>'
       + '</div>';
     if(stageInsts.length===0){
-      cols += '<div style="font-family:var(--mono);font-size:11px;color:var(--w20);padding:16px;text-align:center">No entries</div>';
+      cols += '<div style="font-family:var(--mono);font-size:13px;color:var(--w20);padding:16px;text-align:center">No entries</div>';
     } else {
       stageInsts.forEach(function(inst){ cols += buildCard(inst); });
     }
@@ -9965,7 +9965,7 @@ function buildTlFilters(){
   types.forEach(function(t){
     var b=document.createElement('button');
     b.className='ev-filter'+(t==='all'?' active':'');
-    b.style.cssText='font-size:clamp(11px,0.61vw,12px);padding:clamp(6px,0.54vw,9px) clamp(10px,1.08vw,16px);letter-spacing:.1em;';
+    b.style.cssText='font-size:clamp(14px,0.61vw,16px);padding:clamp(6px,0.54vw,9px) clamp(10px,1.08vw,16px);letter-spacing:.1em;';
     b.textContent=t.toUpperCase();
     b.onclick=function(){buildTl(t);document.querySelectorAll('#tl-type-filters .ev-filter').forEach(function(x){x.classList.remove('active');});b.classList.add('active');};
     bar.appendChild(b);
@@ -10017,21 +10017,21 @@ function buildTl(typeFilter){
       dot.style.cssText='width:10px;height:10px;border-radius:50%;background:'+item.color+';flex-shrink:0;margin-top:5px;box-shadow:0 0 8px '+(item.color||'rgba(60,140,255,.5)')+';';
       var content=document.createElement('div');
       content.style.cssText='flex:1;min-width:0;';
-      var typeBadge='<span style="font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.14em;padding:2px 7px;border:.5px solid '+(typeColors[item.type]||'rgba(200,200,200,.3)')+';color:'+(typeColors[item.type]||'rgba(200,200,200,.7)')+';background:rgba(0,0,0,.3);margin-right:6px">'+item.type.toUpperCase()+'</span>';
-      var qtr='<span style="font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.1em;color:var(--w40);">'+item.quarter+' '+yr+'</span>';
+      var typeBadge='<span style="font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.14em;padding:2px 7px;border:.5px solid '+(typeColors[item.type]||'rgba(200,200,200,.3)')+';color:'+(typeColors[item.type]||'rgba(200,200,200,.7)')+';background:rgba(0,0,0,.3);margin-right:6px">'+item.type.toUpperCase()+'</span>';
+      var qtr='<span style="font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.1em;color:var(--w40);">'+item.quarter+' '+yr+'</span>';
       content.innerHTML='<div style="margin-bottom:5px">'+typeBadge+qtr+'</div>'
-        +'<div style="font-size:clamp(11px,0.74vw,13px);font-weight:600;color:var(--w80);margin-bottom:3px;letter-spacing:.01em">'+orgEsc(item.institution)+'</div>'
+        +'<div style="font-size:clamp(13px,0.74vw,15px);font-weight:600;color:var(--w80);margin-bottom:3px;letter-spacing:.01em">'+orgEsc(item.institution)+'</div>'
         +'<div style="font-size:clamp(13px,0.94vw,15px);color:var(--w60);line-height:1.55;">'+orgEsc(item.event)+'</div>';
       if(item.ev){
         var evBtn=document.createElement('button');
-        evBtn.style.cssText='font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.1em;color:var(--gold);border:.5px solid rgba(200,146,42,.25);background:none;padding:2px 8px;cursor:pointer;margin-top:6px;transition:border-color .15s;';
+        evBtn.style.cssText='font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.1em;color:var(--gold);border:.5px solid rgba(200,146,42,.25);background:none;padding:2px 8px;cursor:pointer;margin-top:6px;transition:border-color .15s;';
         evBtn.textContent='VIEW EVIDENCE →';
         evBtn.onclick=function(e){e.stopPropagation();evSetIds([item.ev]);showPage('evidence');};
         content.appendChild(evBtn);
       }
       if(item.pl){
         var plBtn=document.createElement('button');
-        plBtn.style.cssText='font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.1em;color:var(--gold);border:.5px solid rgba(200,146,42,.25);background:none;padding:2px 8px;cursor:pointer;margin-top:6px;transition:border-color .15s;';
+        plBtn.style.cssText='font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.1em;color:var(--gold);border:.5px solid rgba(200,146,42,.25);background:none;padding:2px 8px;cursor:pointer;margin-top:6px;transition:border-color .15s;';
         plBtn.textContent='VIEW PATENT →';
         plBtn.onclick=function(e){e.stopPropagation();showPage('patents');setTimeout(function(){plScrollTo(item.pl);},300);};
         content.appendChild(plBtn);
@@ -10056,7 +10056,7 @@ function buildConceptNav(){
   CONCEPTS.forEach(function(c){
     var b=document.createElement('button');
     b.className='ev-filter'+(c.id===currentConcept?' active':'');
-    b.style.cssText='font-size:clamp(11px,0.61vw,12px);padding:clamp(6px,0.54vw,9px) clamp(10px,1.08vw,16px);letter-spacing:.1em;';
+    b.style.cssText='font-size:clamp(14px,0.61vw,16px);padding:clamp(6px,0.54vw,9px) clamp(10px,1.08vw,16px);letter-spacing:.1em;';
     b.textContent=c.name;
     b.onclick=function(){showConcept(c.id);document.querySelectorAll('#concept-nav .ev-filter').forEach(function(x){x.classList.remove('active');});b.classList.add('active');};
     nav.appendChild(b);
@@ -10071,31 +10071,31 @@ function showConcept(id){
     var e=EVIDENCE.filter(function(x){return x.id===eid;})[0];
     if(!e)return '';
     return '<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(14px,1.35vw,20px);margin-bottom:6px;cursor:pointer" onclick="evSetIds([\''+eid+'\']);showPage(\'evidence\')">'
-      +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--gold);opacity:.7;margin-bottom:4px">'+orgEsc(e.org)+'</div>'
-      +'<div style="font-size:clamp(12px,0.88vw,14px);color:var(--w80);line-height:1.4">'+orgEsc(e.title)+'</div>'
-      +'<div style="font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);color:var(--gold);margin-top:6px;letter-spacing:.08em">VIEW EVIDENCE →</div>'
+      +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--gold);opacity:.7;margin-bottom:4px">'+orgEsc(e.org)+'</div>'
+      +'<div style="font-size:clamp(13px,0.88vw,16px);color:var(--w80);line-height:1.4">'+orgEsc(e.title)+'</div>'
+      +'<div style="font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);color:var(--gold);margin-top:6px;letter-spacing:.08em">VIEW EVIDENCE →</div>'
       +'</div>';
   }).join('');
-  var whoItems=(c.who||[]).map(function(w){return '<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:.5px solid rgba(244,242,238,.05)"><span style="color:var(--gold);margin-top:2px">▸</span><span style="font-size:clamp(12px,0.88vw,14px);color:var(--w60)">'+orgEsc(w)+'</span></div>';}).join('');
+  var whoItems=(c.who||[]).map(function(w){return '<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:.5px solid rgba(244,242,238,.05)"><span style="color:var(--gold);margin-top:2px">▸</span><span style="font-size:clamp(13px,0.88vw,16px);color:var(--w60)">'+orgEsc(w)+'</span></div>';}).join('');
   body.innerHTML='<div style="display:grid;grid-template-columns:1fr clamp(260px,28vw,400px);gap:clamp(32px,4vw,64px);align-items:start">'
     +'<div>'
     +'<div style="font-family:var(--serif);font-size:clamp(18px,2.2vw,32px);font-weight:300;color:var(--w);line-height:1.15;margin-bottom:clamp(8px,0.81vw,14px)">'+orgEsc(c.full)+'</div>'
     +'<div style="font-size:clamp(13px,0.94vw,16px);color:var(--gold);opacity:.8;font-style:italic;margin-bottom:clamp(20px,2vw,32px)">'+orgEsc(c.tagline)+'</div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(9px,0.81vw,14px)">WHAT IS IT</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(9px,0.81vw,14px)">WHAT IS IT</div>'
     +'<div style="font-size:clamp(13px,0.97vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(20px,2vw,32px)">'+orgEsc(c.what)+'</div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(9px,0.81vw,14px)">WHY IT MATTERS</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(9px,0.81vw,14px)">WHY IT MATTERS</div>'
     +'<div style="font-size:clamp(13px,0.97vw,16px);color:var(--w60);line-height:1.75;margin-bottom:clamp(20px,2vw,32px)">'+orgEsc(c.why)+'</div>'
-    +(c.patent?'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(9px,0.81vw,14px)">PATENT COVERAGE</div>'
-      +'<div style="font-size:clamp(12px,0.88vw,14px);color:rgba(200,146,42,.75);font-family:var(--mono);line-height:1.6;margin-bottom:clamp(20px,2vw,32px);border:.5px solid rgba(200,146,42,.2);padding:8px 12px">'+orgEsc(c.patent)+'</div>':'')
+    +(c.patent?'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(9px,0.81vw,14px)">PATENT COVERAGE</div>'
+      +'<div style="font-size:clamp(13px,0.88vw,16px);color:rgba(200,146,42,.75);font-family:var(--mono);line-height:1.6;margin-bottom:clamp(20px,2vw,32px);border:.5px solid rgba(200,146,42,.2);padding:8px 12px">'+orgEsc(c.patent)+'</div>':'')
     +'<div style="border:.5px solid rgba(255,255,255,.06);padding:clamp(16px,1.6vw,24px);background:var(--bg2)">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:rgba(80,200,120,.7);margin-bottom:8px">KEY STAT</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:rgba(80,200,120,.7);margin-bottom:8px">KEY STAT</div>'
     +'<div style="font-size:clamp(13px,0.97vw,16px);color:var(--w80);line-height:1.6">'+orgEsc(c.stat)+'</div>'
     +'</div>'
     +'</div>'
     +'<div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px)">WHO USES IT</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px)">WHO USES IT</div>'
     +'<div style="margin-bottom:clamp(20px,2vw,32px)">'+whoItems+'</div>'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px)">EVIDENCE ENTRIES</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px)">EVIDENCE ENTRIES</div>'
     +'<div>'+evCards+'</div>'
     +'</div>'
     +'</div>';
@@ -10113,7 +10113,7 @@ orgShowInst = function(slug){
     svcDiv.style.cssText = 'display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;';
     svcs.forEach(function(s){
       var chip = document.createElement('span');
-      chip.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.12em;color:var(--gold);border:.5px solid rgba(200,146,42,.3);padding:2px 8px;background:rgba(200,146,42,.06);';
+      chip.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.12em;color:var(--gold);border:.5px solid rgba(200,146,42,.3);padding:2px 8px;background:rgba(200,146,42,.06);';
       chip.textContent = s;
       svcDiv.appendChild(chip);
     });
@@ -10131,8 +10131,8 @@ orgShowInst = function(slug){
         var card = document.createElement('div');
         card.style.cssText = 'background:var(--bg2);border:.5px solid var(--border);padding:clamp(16px,1.6vw,24px);margin-bottom:6px;';
         card.innerHTML = '<div class="qt-quote" style="font-size:clamp(13px,0.97vw,16px);margin-bottom:clamp(10px,1vw,14px)">'+orgEsc(q.quote)+'</div>'
-          +'<div style="font-size:clamp(11px,0.74vw,13px);color:var(--w80);font-weight:500">'+orgEsc(q.person)+'</div>'
-          +'<div style="font-size:clamp(11px,0.68vw,12px);color:var(--w40)">'+orgEsc(q.role)+' · '+orgEsc(q.source)+'</div>';
+          +'<div style="font-size:clamp(13px,0.74vw,15px);color:var(--w80);font-weight:500">'+orgEsc(q.person)+'</div>'
+          +'<div style="font-size:clamp(14px,0.68vw,16px);color:var(--w40)">'+orgEsc(q.role)+' · '+orgEsc(q.source)+'</div>';
         qtDiv.appendChild(card);
       });
       qtSec.parentNode.insertBefore(qtDiv, qtSec);
@@ -10193,8 +10193,8 @@ function digestInit(){
     // Header block
     issueWrap.innerHTML =
       '<div style="display:flex;align-items:center;gap:clamp(14px,1.4vw,22px);margin-bottom:clamp(20px,2vw,32px);padding-bottom:clamp(16px,1.6vw,24px);border-bottom:.5px solid var(--border)">'
-      +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.2em;color:var(--gold);border:.5px solid rgba(200,146,42,.3);padding:4px 12px;white-space:nowrap">ISSUE #'+d.issue+'</div>'
-      +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--w40)">'+orgEsc(d.date)+'</div>'
+      +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.2em;color:var(--gold);border:.5px solid rgba(200,146,42,.3);padding:4px 12px;white-space:nowrap">ISSUE #'+d.issue+'</div>'
+      +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--w40)">'+orgEsc(d.date)+'</div>'
       +'<div style="flex:1;height:.5px;background:rgba(244,242,238,.07)"></div>'
       +'</div>'
       +'<div style="font-family:var(--serif);font-size:clamp(20px,2.4vw,36px);font-weight:300;color:var(--w);line-height:1.15;margin-bottom:clamp(10px,1vw,16px)">'+orgEsc(d.title)+'</div>'
@@ -10207,10 +10207,10 @@ function digestInit(){
       var cell = document.createElement('div');
       cell.style.cssText = 'background:var(--bg2);padding:clamp(14px,1.4vw,22px) clamp(16px,1.6vw,24px);';
       cell.innerHTML = '<div style="font-size:clamp(18px,0.68vw,22px);margin-bottom:6px">'+s.icon+'</div>'
-        +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--w40);margin-bottom:4px">'+orgEsc(s.label)+'</div>'
+        +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--w40);margin-bottom:4px">'+orgEsc(s.label)+'</div>'
         +'<div style="display:flex;align-items:baseline;gap:8px">'
         +'<span style="font-size:clamp(13px,0.97vw,16px);color:var(--w30,rgba(244,242,238,.3));text-decoration:line-through;font-family:var(--mono)">'+orgEsc(s.before)+'</span>'
-        +'<span style="font-size:clamp(11px,0.61vw,12px);color:var(--w20)">→</span>'
+        +'<span style="font-size:clamp(14px,0.61vw,16px);color:var(--w20)">→</span>'
         +'<span style="font-size:clamp(18px,1.49vw,24px);font-weight:700;color:var(--w);font-family:var(--mono)">'+orgEsc(s.after)+'</span>'
         +'</div>';
       statsGrid.appendChild(cell);
@@ -10219,7 +10219,7 @@ function digestInit(){
 
     // Highlights label
     var hlLabel = document.createElement('div');
-    hlLabel.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(14px,1.35vw,20px);';
+    hlLabel.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(14px,1.35vw,20px);';
     hlLabel.textContent = 'NOTABLE NEW SOURCES';
     issueWrap.appendChild(hlLabel);
 
@@ -10234,13 +10234,13 @@ function digestInit(){
       var tagColor = {Production:'rgba(80,200,120,.8)',Payments:'rgba(255,140,60,.8)','Consumer Scale':'rgba(200,146,42,.8)',Interoperability:'rgba(60,160,255,.8)','Central Bank':'rgba(160,100,255,.8)'}[h.tag]||'rgba(200,146,42,.8)';
       card.innerHTML = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">'
         +'<span style="font-size:clamp(18px,1.35vw,22px)">'+h.icon+'</span>'
-        +'<span style="font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.14em;padding:2px 8px;border:.5px solid '+tagColor+';color:'+tagColor+';background:rgba(0,0,0,.3)">'+orgEsc(h.tag)+'</span>'
+        +'<span style="font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.14em;padding:2px 8px;border:.5px solid '+tagColor+';color:'+tagColor+';background:rgba(0,0,0,.3)">'+orgEsc(h.tag)+'</span>'
         +'</div>'
         +'<div style="font-size:clamp(13px,1vw,16px);font-weight:600;color:var(--w80);margin-bottom:8px;line-height:1.3">'+orgEsc(h.title)+'</div>'
-        +'<div style="font-size:clamp(12px,0.88vw,14px);color:var(--w50);line-height:1.65;margin-bottom:12px">'+orgEsc(h.body)+'</div>';
+        +'<div style="font-size:clamp(13px,0.88vw,16px);color:var(--w50);line-height:1.65;margin-bottom:12px">'+orgEsc(h.body)+'</div>';
       if(h.ev){
         var btn = document.createElement('button');
-        btn.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.12em;color:var(--gold);border:.5px solid rgba(200,146,42,.25);background:none;padding:3px 10px;cursor:pointer;';
+        btn.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.12em;color:var(--gold);border:.5px solid rgba(200,146,42,.25);background:none;padding:3px 10px;cursor:pointer;';
         btn.textContent = 'VIEW EVIDENCE →';
         btn.onclick = function(e){ e.stopPropagation(); evSetIds([h.ev]); showPage('evidence'); };
         card.appendChild(btn);
@@ -10252,7 +10252,7 @@ function digestInit(){
     // Metrics snapshot
     if(d.metricSnapshot){
       var mLabel = document.createElement('div');
-      mLabel.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.2em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px);';
+      mLabel.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.2em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px);';
       mLabel.textContent = 'METRICS SNAPSHOT AT TIME OF ISSUE';
       issueWrap.appendChild(mLabel);
       var msnap = d.metricSnapshot;
@@ -10271,7 +10271,7 @@ function digestInit(){
       mItems.forEach(function(m){
         var mc = document.createElement('div');
         mc.style.cssText = 'background:var(--bg2);padding:clamp(12px,1.22vw,18px) clamp(12px,1.22vw,18px);';
-        mc.innerHTML = '<div style="font-family:var(--mono);font-size:clamp(11px,0.54vw,12px);letter-spacing:.16em;color:var(--w30,rgba(244,242,238,.3));margin-bottom:3px">'+orgEsc(m.l)+'</div>'
+        mc.innerHTML = '<div style="font-family:var(--mono);font-size:clamp(14px,0.54vw,16px);letter-spacing:.16em;color:var(--w30,rgba(244,242,238,.3));margin-bottom:3px">'+orgEsc(m.l)+'</div>'
           +'<div style="font-family:var(--mono);font-size:clamp(12px,1vw,16px);color:var(--w80);font-weight:500">'+orgEsc(m.v)+'</div>';
         mGrid.appendChild(mc);
       });
@@ -10346,10 +10346,10 @@ function metcalfeInit(){
     +'<button id="mf-tab-weighted"    onclick="mfSetMode(\'weighted\')"     style="'+mfTabStyle(false)+'">WEIGHTED MODE</button>'
     +'<button id="mf-tab-relationship" onclick="mfSetMode(\'relationship\')" style="'+mfTabStyle(false)+'">RELATIONSHIP MODE</button>'
     +'</div>'
-    +'<div id="mf-mode-desc" style="font-size:clamp(11px,0.74vw,13px);color:var(--w40);line-height:1.7;padding:clamp(12px,1.22vw,18px);border:.5px solid rgba(244,242,238,.05);background:var(--bg2);margin-bottom:clamp(20px,2vw,32px)"></div>'
+    +'<div id="mf-mode-desc" style="font-size:clamp(13px,0.74vw,15px);color:var(--w40);line-height:1.7;padding:clamp(12px,1.22vw,18px);border:.5px solid rgba(244,242,238,.05);background:var(--bg2);margin-bottom:clamp(20px,2vw,32px)"></div>'
     +'<div style="display:grid;grid-template-columns:1fr clamp(280px,34vw,460px);gap:clamp(32px,4vw,72px);align-items:start">'
     +'<div id="mf-inputs"></div>'
-    +'<div id="mf-right"><div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">NETWORK VALUE OUTPUT</div><div id="mf-output"></div></div>'
+    +'<div id="mf-right"><div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">NETWORK VALUE OUTPUT</div><div id="mf-output"></div></div>'
     +'</div>';
 
   mfSetMode('simple');
@@ -10377,8 +10377,8 @@ function mfSetMode(mode){
 
 // ── INPUTS ────────────────────────────────────────────────────────────
 function mfInpStyle(){ return 'width:100%;background:var(--bg2);border:.5px solid var(--border);color:var(--w);font-family:var(--mono);font-size:clamp(16px,1.22vw,20px);padding:clamp(10px,0.94vw,14px) clamp(12px,1.08vw,18px);outline:none;transition:border-color .2s;'; }
-function mfLblStyle(){ return 'font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--w40);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;'; }
-function mfSecLbl(txt){ return '<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(12px,1.22vw,19px)">'+txt+'</div>'; }
+function mfLblStyle(){ return 'font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--w40);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;'; }
+function mfSecLbl(txt){ return '<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:clamp(12px,1.22vw,19px)">'+txt+'</div>'; }
 
 function mfBuildInputs(mode){
   var wrap = document.getElementById('mf-inputs');
@@ -10394,7 +10394,7 @@ function mfBuildInputs(mode){
     wrap.appendChild(pbar);
     MF_SIMPLE_PRESETS.forEach(function(p){
       var b = document.createElement('button');
-      b.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
       b.textContent = p.label+(p.n1?' ('+p.n1+')':'');
       b.title = p.desc;
       b.onclick = function(){
@@ -10455,7 +10455,7 @@ function mfBuildInputs(mode){
         row.style.cssText = 'margin-bottom:10px;';
         row.innerHTML = '<div style="'+mfLblStyle()+'">'
           +'<span style="color:'+col+'">'+MF_CAT_LABELS[k]+'</span>'
-          +'<span style="font-size:clamp(11px,0.5vw,12px);color:var(--w20)">weight ×'+wt+'</span>'
+          +'<span style="font-size:clamp(14px,0.5vw,16px);color:var(--w20)">weight ×'+wt+'</span>'
           +'</div>'
           +'<input id="mf-w-'+side+'-'+k+'" type="number" min="0" value="'+def+'" style="'+mfInpStyle()+';font-size:clamp(14px,1.08vw,18px);" oninput="mfCalcWeighted()" onfocus="mfFocus(this)" onblur="mfBlur(this)">';
         parent.appendChild(row);
@@ -10465,7 +10465,7 @@ function mfBuildInputs(mode){
     // Now attach preset buttons (after category inputs exist in DOM)
     MF_WEIGHTED_PRESETS.forEach(function(p){
       var b = document.createElement('button');
-      b.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
       b.textContent = p.label;
       b.title = p.desc;
       b.onclick = function(){
@@ -10497,7 +10497,7 @@ function mfBuildInputs(mode){
     wrap.appendChild(pbar3);
     MF_REL_PRESETS.forEach(function(p){
       var b = document.createElement('button');
-      b.style.cssText = 'font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
+      b.style.cssText = 'font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.1em;color:rgba(244,242,238,.6);border:.5px solid rgba(244,242,238,.08);background:none;padding:clamp(7px,0.68vw,10px) clamp(12px,1.08vw,16px);cursor:pointer;transition:all .15s;';
       b.textContent = p.label+(p.nodes?' ('+p.nodes+'n / '+p.edges+'e)':'');
       b.title = p.desc;
       b.onclick = function(){
@@ -10546,27 +10546,27 @@ function mfSlider(n,v){var inp=document.getElementById('mf-n'+n);if(inp)inp.valu
 
 function mfOutputBox(label,val,sub,color){
   return '<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(14px,1.4vw,22px);margin-bottom:6px">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.16em;color:var(--w40);margin-bottom:5px">'+label+'</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.16em;color:var(--w40);margin-bottom:5px">'+label+'</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(24px,2.8vw,44px);font-weight:700;color:'+(color||'var(--w)')+';letter-spacing:-.02em;line-height:1">'+val+'</div>'
-    +(sub?'<div style="font-size:clamp(11px,0.61vw,12px);color:var(--w30,rgba(244,242,238,.3));margin-top:4px">'+sub+'</div>':'')
+    +(sub?'<div style="font-size:clamp(14px,0.61vw,16px);color:var(--w30,rgba(244,242,238,.3));margin-top:4px">'+sub+'</div>':'')
     +'</div>';
 }
 function mfMultipleBox(multiple,fromN,toN){
   var col = mfMultColor(multiple);
   return '<div style="background:linear-gradient(135deg,rgba(12,20,44,.98),rgba(8,14,32,.98));border:.5px solid rgba(200,146,42,.35);padding:clamp(20px,2.4vw,36px);margin-bottom:6px;text-align:center">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.2em;color:rgba(200,146,42,.6);margin-bottom:10px">NETWORK GROWTH MULTIPLE</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.2em;color:rgba(200,146,42,.6);margin-bottom:10px">NETWORK GROWTH MULTIPLE</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(44px,5.5vw,88px);font-weight:700;color:'+col+';letter-spacing:-.03em;line-height:.9">'+multiple.toFixed(1)+'&#xD7;</div>'
-    +'<div style="font-size:clamp(11px,0.68vw,12px);color:var(--w40);margin-top:8px">'+fromN+' &#x2192; '+toN+' &nbsp;&nbsp; theoretical network value: <strong style="color:var(--w60)">'+multiple.toFixed(1)+'&#xD7;</strong></div>'
+    +'<div style="font-size:clamp(14px,0.68vw,16px);color:var(--w40);margin-top:8px">'+fromN+' &#x2192; '+toN+' &nbsp;&nbsp; theoretical network value: <strong style="color:var(--w60)">'+multiple.toFixed(1)+'&#xD7;</strong></div>'
     +'</div>';
 }
 function mfMcapBox(mcap,multiple){
-  if(!mcap||mcap<=0) return '<div style="font-size:clamp(11px,0.61vw,12px);color:var(--w20);padding:clamp(10px,1vw,14px);border:.5px solid rgba(244,242,238,.05);text-align:center;font-style:italic">Enter a market cap to see implied valuation</div>';
+  if(!mcap||mcap<=0) return '<div style="font-size:clamp(14px,0.61vw,16px);color:var(--w20);padding:clamp(10px,1vw,14px);border:.5px solid rgba(244,242,238,.05);text-align:center;font-style:italic">Enter a market cap to see implied valuation</div>';
   var implied = mcap * multiple;
   return '<div style="background:var(--bg2);border:.5px solid rgba(80,200,120,.25);padding:clamp(14px,1.4vw,22px)">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.16em;color:rgba(80,200,120,.6);margin-bottom:5px">IMPLIED VALUATION</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.16em;color:rgba(80,200,120,.6);margin-bottom:5px">IMPLIED VALUATION</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(24px,2.8vw,44px);font-weight:700;color:rgba(80,200,120,.9);letter-spacing:-.02em;line-height:1">'+mfFmtMc(implied)+'</div>'
-    +'<div style="font-size:clamp(11px,0.61vw,12px);color:var(--w30,rgba(244,242,238,.3));margin-top:4px">'+mfFmtMc(mcap)+' market cap &#xD7; '+multiple.toFixed(1)+'&#xD7; growth multiple</div>'
-    +'<div style="font-size:clamp(11px,0.5vw,12px);color:var(--w20);margin-top:6px;font-style:italic">Not financial advice. Theoretical model only.</div>'
+    +'<div style="font-size:clamp(14px,0.61vw,16px);color:var(--w30,rgba(244,242,238,.3));margin-top:4px">'+mfFmtMc(mcap)+' market cap &#xD7; '+multiple.toFixed(1)+'&#xD7; growth multiple</div>'
+    +'<div style="font-size:clamp(14px,0.5vw,16px);color:var(--w20);margin-top:6px;font-style:italic">Not financial advice. Theoretical model only.</div>'
     +'</div>';
 }
 
@@ -10597,8 +10597,8 @@ function mfCalcWeighted(){
     wCur+=cur*wt;wFut+=fut*wt;
     var col=MF_CAT_COLORS[k]||'var(--w40)';
     breakdown+='<div style="display:flex;align-items:center;justify-content:space-between;padding:3px 0;border-bottom:.5px solid rgba(244,242,238,.04)">'
-      +'<span style="font-size:clamp(11px,0.61vw,12px);color:'+col+'">'+MF_CAT_LABELS[k]+'</span>'
-      +'<span style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);color:var(--w40)">'+cur+' \xD7 '+wt+' = <strong style="color:var(--w60)">'+(cur*wt)+'</strong></span>'
+      +'<span style="font-size:clamp(14px,0.61vw,16px);color:'+col+'">'+MF_CAT_LABELS[k]+'</span>'
+      +'<span style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);color:var(--w40)">'+cur+' \xD7 '+wt+' = <strong style="color:var(--w60)">'+(cur*wt)+'</strong></span>'
       +'</div>';
   });
   var mcap=parseFloat(document.getElementById('mf-w-mcap')&&document.getElementById('mf-w-mcap').value)||0;
@@ -10606,10 +10606,10 @@ function mfCalcWeighted(){
   var out=document.getElementById('mf-output');if(!out)return;
   out.innerHTML=
     '<div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(12px,1.22vw,18px);margin-bottom:6px">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--w40);margin-bottom:8px">CURRENT WEIGHT BREAKDOWN</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--w40);margin-bottom:8px">CURRENT WEIGHT BREAKDOWN</div>'
     +breakdown
     +'<div style="display:flex;justify-content:space-between;padding-top:6px;margin-top:4px;border-top:.5px solid rgba(244,242,238,.08)">'
-    +'<span style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);color:var(--w40)">TOTAL WEIGHTED CONNECTIONS</span>'
+    +'<span style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);color:var(--w40)">TOTAL WEIGHTED CONNECTIONS</span>'
     +'<span style="font-family:var(--mono);font-size:clamp(13px,1vw,16px);font-weight:700;color:var(--gold)">'+mfFmt(wCur)+'</span>'
     +'</div></div>'
     +mfOutputBox('CURRENT WEIGHTED NETWORK SCORE',mfFmt(v1),'Weighted n\u00B2 = '+mfFmt(wCur)+'\u00B2')
@@ -10635,12 +10635,12 @@ function mfCalcRel(){
   out.innerHTML=
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:.5px;background:var(--border);margin-bottom:6px">'
     +'<div style="background:var(--bg2);padding:clamp(12px,1.22vw,18px)">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--w40);margin-bottom:5px">CURRENT GRAPH</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--w40);margin-bottom:5px">CURRENT GRAPH</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:var(--w)">'+mfFmt(nodes)+' nodes</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:rgba(60,160,255,.9)">'+mfFmt(edges)+' edges</div>'
     +'</div>'
     +'<div style="background:var(--bg2);padding:clamp(12px,1.22vw,18px)">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:var(--w40);margin-bottom:5px">FUTURE GRAPH</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:var(--w40);margin-bottom:5px">FUTURE GRAPH</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:var(--w)">'+mfFmt(nodes2)+' nodes</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(20px,1.8vw,28px);font-weight:700;color:rgba(60,160,255,.9)">'+mfFmt(edges2)+' edges</div>'
     +'</div>'
@@ -10650,15 +10650,15 @@ function mfCalcRel(){
     +mfOutputBox('METCALFE RELATIONSHIP SCORE (current)',mfFmt(mfScore1),'edges² = '+mfFmt(edges)+'²')
     +mfMultipleBox(relMult,'rel.score '+mfFmt(relScore1),'rel.score '+mfFmt(relScore2))
     +'<div style="background:var(--bg2);border:.5px solid rgba(60,160,255,.2);padding:clamp(12px,1.22vw,18px);margin-top:6px">'
-    +'<div style="font-family:var(--mono);font-size:clamp(11px,0.61vw,12px);letter-spacing:.14em;color:rgba(60,160,255,.6);margin-bottom:5px">FUTURE DENSITY</div>'
+    +'<div style="font-family:var(--mono);font-size:clamp(14px,0.61vw,16px);letter-spacing:.14em;color:rgba(60,160,255,.6);margin-bottom:5px">FUTURE DENSITY</div>'
     +'<div style="font-family:var(--mono);font-size:clamp(18px,1.62vw,26px);font-weight:700;color:rgba(60,160,255,.9)">'+density2.toFixed(2)+'</div>'
-    +'<div style="font-size:clamp(11px,0.61vw,12px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
+    +'<div style="font-size:clamp(14px,0.61vw,16px);color:var(--w40);margin-top:3px">Edges per node in future state</div>'
     +'</div>';
 }</script>
 <footer style="flex-direction:column;align-items:stretch;gap:0;padding:0">
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding:clamp(32px,4vw,56px) clamp(32px,5vw,80px);border-bottom:.5px solid var(--border);background:var(--bg2)">
     <div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">RESEARCH</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">RESEARCH</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <button onclick="showPage('evidence')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Evidence Vault</button>
         <button onclick="showPage('misconceptions')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Misconceptions</button>
@@ -10668,7 +10668,7 @@ function mfCalcRel(){
       </div>
     </div>
     <div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">TOOLS</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">TOOLS</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <button onclick="showPage('explorer')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Infrastructure Explorer</button>
         <button onclick="showPage('matrix')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Technology Matrix</button>
@@ -10679,7 +10679,7 @@ function mfCalcRel(){
       </div>
     </div>
     <div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">LEARN</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">LEARN</div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <button onclick="showPage('concepts')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Chainlink Explained</button>
         <button onclick="showPage('timeline')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Adoption Timeline</button>
@@ -10689,35 +10689,35 @@ function mfCalcRel(){
       </div>
     </div>
     <div>
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">THELINKPANDA</div>
+      <div style="font-family:var(--mono);font-size:13px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">THELINKPANDA</div>
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
         <img src="assets/logo/PANDA LOGO WEBSITE.png" alt="" style="width:22px;height:22px;object-fit:contain" onerror="this.style.display='none'"/>
         <span style="font-family:var(--serif);font-size:16px;color:var(--w)">Infrastructure Before Narratives.</span>
       </div>
-      <div style="font-size:12px;color:var(--w40);line-height:1.7;margin-bottom:16px">The largest independent Chainlink research platform. 54 verified institutional sources.</div>
+      <div style="font-size:14px;color:var(--w40);line-height:1.7;margin-bottom:16px">The largest independent Chainlink research platform. 54 verified institutional sources.</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="https://x.com/TheLinkPanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">X / Twitter</a>
+        <a href="https://x.com/TheLinkPanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">X / Twitter</a>
         <span style="color:var(--border)">·</span>
-        <a href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">YouTube</a>
+        <a href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">YouTube</a>
         <span style="color:var(--border)">·</span>
-        <a href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">TikTok</a>
+        <a href="https://www.tiktok.com/@thelinkpanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">TikTok</a>
         <span style="color:var(--border)">·</span>
-        <a href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">Instagram</a>
+        <a href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">Instagram</a>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-        <a href="mailto:thelinkpanda@proton.me" style="color:var(--w20);font-size:11px;text-decoration:none;font-family:var(--mono);letter-spacing:.06em;transition:color .15s" onmouseover="this.style.color='var(--w40)'" onmouseout="this.style.color='var(--w20)'">Contact</a>
+        <a href="mailto:thelinkpanda@proton.me" style="color:var(--w20);font-size:13px;text-decoration:none;font-family:var(--mono);letter-spacing:.06em;transition:color .15s" onmouseover="this.style.color='var(--w40)'" onmouseout="this.style.color='var(--w20)'">Contact</a>
       </div>
     </div>
   </div>
-  <div style="border-top:.5px solid var(--border);padding:16px clamp(20px,5vw,80px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:var(--w40)">
+  <div style="border-top:.5px solid var(--border);padding:16px clamp(20px,5vw,80px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:var(--w40)">
     <span>The Link Panda — Independent research platform — Belgium</span>
     <div style="display:flex;flex-wrap:wrap;gap:18px">
-      <button onclick="showPage('privacy')" style="background:none;border:none;color:var(--w40);font-size:12px;cursor:pointer;font-family:var(--sans);padding:0">Privacy Policy</button>
-      <button onclick="showPage('terms')" style="background:none;border:none;color:var(--w40);font-size:12px;cursor:pointer;font-family:var(--sans);padding:0">Terms</button>
-      <button onclick="showPage('disclaimer')" style="background:none;border:none;color:var(--w40);font-size:12px;cursor:pointer;font-family:var(--sans);padding:0">Disclaimer</button>
+      <button onclick="showPage('privacy')" style="background:none;border:none;color:var(--w40);font-size:14px;cursor:pointer;font-family:var(--sans);padding:0">Privacy Policy</button>
+      <button onclick="showPage('terms')" style="background:none;border:none;color:var(--w40);font-size:14px;cursor:pointer;font-family:var(--sans);padding:0">Terms</button>
+      <button onclick="showPage('disclaimer')" style="background:none;border:none;color:var(--w40);font-size:14px;cursor:pointer;font-family:var(--sans);padding:0">Disclaimer</button>
     </div>
   </div>
-  <div style="border-top:.5px solid var(--border);padding:12px clamp(20px,5vw,80px);font-size:12px;color:var(--w40);line-height:1.6">
+  <div style="border-top:.5px solid var(--border);padding:12px clamp(20px,5vw,80px);font-size:14px;color:var(--w40);line-height:1.6">
     The information on this website is provided for educational and informational purposes only and should not be considered investment, legal, or financial advice.
   </div>
 </footer>
