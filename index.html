@@ -86,7 +86,7 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);padding:0 clamp(24px,4
 .hero{position:relative;height:clamp(459px,45.9vw,580px);min-height:459px;max-height:580px;overflow:hidden;background:#07090D;contain:layout style;}
 .hero-right-img{
   position:absolute;left:50%;top:0;width:50%;height:100%;
-  object-fit:cover;object-position:60% center;z-index:0;
+  object-fit:cover;object-position:100% center;z-index:0;
   -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.15) 4%,rgba(0,0,0,.55) 8%,rgba(0,0,0,.88) 12%,black 18%,black 100%);
   mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.15) 4%,rgba(0,0,0,.55) 8%,rgba(0,0,0,.88) 12%,black 18%,black 100%);
 }
@@ -1267,6 +1267,18 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .lac-n{font-family:var(--mono);font-size:clamp(22px,2.5vw,38px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
 .lac-l{font-size:11px;letter-spacing:.1em;color:var(--w20);line-height:1.4}
 @media(max-width:600px){.lac-grid{grid-template-columns:repeat(3,1fr)}.lac-item:nth-child(3){border-right:none}.lac-item:nth-child(n+4){border-top:.5px solid var(--border)}}
+
+/* ── Footer nav ── */
+@media(max-width:768px){
+  footer > div[style*="grid-template-columns:repeat(4"]{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+@media(max-width:480px){
+  footer > div[style*="grid-template-columns:repeat(4"]{
+    grid-template-columns:1fr !important;
+  }
+}
 </style>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "79c8bea2a4a44122b76a50a20feaca00"}'></script><!-- End Cloudflare Web Analytics -->
 
@@ -5016,7 +5028,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <div class="dest-card-body">
             <div class="dest-card-cat">INSTITUTIONAL RESEARCH</div>
             <div class="dest-card-title">Evidence Vault</div>
-            <div class="dest-card-desc">52 verified sources.<br>DTCC, Swift, JPMorgan.</div>
+            <div class="dest-card-desc">54 verified sources.<br>DTCC, Swift, JPMorgan.</div>
             <div class="dest-card-link">Browse evidence →</div>
           </div>
         </div>
@@ -5170,15 +5182,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <div style="max-width:var(--content-max);margin:0 auto;padding:0 clamp(32px,5vw,80px) clamp(48px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)">
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
       <div style="font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">MOST CITED INSTITUTIONS</div>
-      <div style="display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">01</span>DTCC</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">13 entries</span></div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">02</span>Google Cloud</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">9 entries</span></div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">03</span>SWIFT</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">8 entries</span></div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">04</span>Citi</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">7 entries</span></div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">05</span>Euroclear</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">6 entries</span></div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid var(--border)"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">06</span>JPMorgan / Kinexys</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">5 entries</span></div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0"><span style="font-size:13px;color:var(--w60)"><span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">07</span>BNY Mellon &amp; UBS</span><span style="font-family:var(--mono);font-size:11px;color:var(--w20)">4 each</span></div>
-      </div>
+      <div id="most-cited-list" style="display:flex;flex-direction:column"></div>
       <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">All 54 evidence entries &rarr;</button>
     </div>
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
@@ -5479,7 +5483,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <div style="display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em">
       <span style="width:7px;height:7px;border-radius:50%;background:rgba(200,146,42,.9);display:inline-block"></span>
       <span style="color:var(--gold)">MANUALLY VERIFIED</span>
-      <span style="color:var(--w20)" id="metrics-manual-date">Last verified: June 21, 2026</span>
+      <span style="color:var(--w20)" id="metrics-manual-date">Last verified: <span class="metrics-verified-date">June 21, 2026</span></span>
     </div>
     <div style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--w20)" id="metrics-live-timestamp"></div>
   </div>
@@ -5536,7 +5540,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link svr" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">View Live SVR Analytics</a>
       </div>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; <a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">LlamaRisk Dashboard</a></div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">LlamaRisk Dashboard</a></div>
       <div style="display:none" aria-hidden="false"><p>Chainlink Smart Value Recapture (SVR) is a mechanism that recaptures non-toxic MEV from liquidations in DeFi protocols such as Aave, returning value to the protocol and Chainlink node operators instead of MEV bots. SVR was activated unanimously by Aave DAO on March 28, 2025. Revenue is split 65% to Aave and 35% to Chainlink, with the Chainlink portion converted to LINK and distributed to node operators.</p></div>
       <div class="mcard-row cols-3">
         <div class="mcard"><div class="mcard-label">Value Recaptured &#8212; All-time</div><div class="mcard-n svr">&gt;$1.1M</div><div class="mcard-sub">Non-toxic liquidation MEV returned to Aave and Chainlink rather than MEV bots</div><span class="mcard-trend">&#8599;</span><a class="mcard-src" href="https://dashboard.llamarisk.com/protocols/aave/svr" target="_blank" rel="noopener">LlamaRisk Dashboard</a></div>
@@ -5561,7 +5565,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a>
       </div>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; <a href="https://metrics.chain.link/reserve" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">metrics.chain.link/reserve</a></div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://metrics.chain.link/reserve" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">metrics.chain.link/reserve</a></div>
       <div style="display:none" aria-hidden="false"><p>The Chainlink Reserve is a protocol-owned treasury accumulating LINK tokens from a portion of all Chainlink network revenue, including CCIP fees, Data Feeds, SVR, Automation, and VRF. The Reserve is publicly verifiable on Etherscan and provides long-term economic sustainability for the network. Weekly inflows represent real protocol revenue being converted to LINK.</p></div>
       <div class="mcard-row cols-3">
         <div class="mcard"><div class="mcard-label">Reserve Balance</div><div class="mcard-n reserve">$32.7M</div><div class="mcard-sub">USD value of Reserve holdings. 4.06M LINK at avg cost basis ~$12.2. Publicly verifiable on Etherscan.</div><a class="mcard-src" href="https://metrics.chain.link/reserve" target="_blank" rel="noopener">metrics.chain.link/reserve</a></div>
@@ -5581,7 +5585,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         </div>
         <a class="msec-link" href="https://staking.chain.link/" target="_blank" rel="noopener">staking.chain.link &#8599;</a>
       </div>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; <a href="https://staking.chain.link" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">staking.chain.link</a></div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; <a href="https://staking.chain.link" target="_blank" rel="noopener" style="color:var(--gold);opacity:.65">staking.chain.link</a></div>
       <div style="display:none" aria-hidden="false"><p>Chainlink Staking v0.2 allows LINK token holders to stake their tokens to provide cryptoeconomic security to the network. Stakers earn rewards from token emissions and Chainlink Build programme allocations. The community pool is fully subscribed at 40.875 million LINK. Node operators may stake between 1,000 and 75,000 LINK each. A 28-day unbonding period applies, followed by a 7-day claim window. Slashing applies only to node operators for provable performance failures, not to community stakers.</p></div>
       <div class="mcard-row cols-4">
         <div class="mcard">
@@ -5627,7 +5631,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
           <span class="mstage ms-production">Production</span>
         </div>
       </div>
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: June 21, 2026 &mdash; Sources: official announcements, chain.link, primary evidence</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);opacity:.65;margin-bottom:clamp(16px,1.6vw,24px)">&#9679; MANUALLY VERIFIED &mdash; Last verified: <span class="metrics-verified-date">June 21, 2026</span> &mdash; Sources: official announcements, chain.link, primary evidence</div>
       <div style="display:none" aria-hidden="false"><p>This tracker monitors institutions with documented Chainlink deployments across tokenization, cross-chain settlement, data standards, and oracle infrastructure. Stages are based on publicly verifiable evidence. Production means a deployment serving real transactions. Pilot means active testing with confirmed participation. Research means the institution has publicly referenced Chainlink infrastructure.</p></div>
       <div class="minst-grid" id="metrics-inst-grid"></div>
     </div>
@@ -5637,7 +5641,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
     <span class="mts-dot"></span>
     <span id="metrics-live-timestamp">Live data fetched on page load</span>
     <span style="margin-left:16px;opacity:.5">&mdash;</span>
-    <span style="margin-left:16px;font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.6">Manual metrics verified: June 21, 2026</span>
+    <span style="margin-left:16px;font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.6">Manual metrics verified: <span class="metrics-verified-date">June 21, 2026</span></span>
   </div>
 
   
@@ -5991,7 +5995,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="rp-card" onclick="showPage('misconceptions')">
           <div class="rp-card-top">
             <span class="rp-label">MISCONCEPTIONS</span>
-            <span class="rp-count">31 entries</span>
+            <span class="rp-count">50 entries</span>
           </div>
           <div class="rp-title">Evidence-backed rebuttals</div>
           <div class="rp-desc">Oracle, CCIP, institutions, LINK tokenomics, and market narratives — each addressed with verified sources.</div>
@@ -6001,7 +6005,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="rp-card" onclick="showPage('evidence')">
           <div class="rp-card-top">
             <span class="rp-label">EVIDENCE VAULT</span>
-            <span class="rp-count">26 entries</span>
+            <span class="rp-count">54 entries</span>
           </div>
           <div class="rp-title">Verified institutional statements</div>
           <div class="rp-desc">Official statements, press releases, and timestamped video from DTCC, Swift, JPMorgan, Fidelity, and more.</div>
@@ -6011,7 +6015,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
         <button class="rp-card" onclick="showPage('quotes')">
           <div class="rp-card-top">
             <span class="rp-label">QUOTE LIBRARY</span>
-            <span class="rp-count">18 entries</span>
+            <span class="rp-count">23 entries</span>
           </div>
           <div class="rp-title">Institutional voices on Chainlink</div>
           <div class="rp-desc">Verbatim statements from Bitwise, Citi, Euroclear, Deutsche Börse, Franklin Templeton, and Google.</div>
@@ -7704,7 +7708,7 @@ function showPage(page,filter,noPush){
   if(page==='quotes'){if(!qtInited){qtInited=true;qtBuildFilters();}qtBuildGrid();}
   if(page==='explorer'){exInit();}if(page==='evidence'){evInit();var _ids=evReadUrlIds();if(_ids)evRenderBanner();}
   if(page==='org'){var _osl=window.location.pathname.replace('/organizations/','').replace('/institutions/','');if(_osl&&_osl.length>1&&_osl!=='org')orgShowInst(_osl);}
-  if(page==='home'){buildResearchStats(); buildHeatmap(); buildLiveCounter();buildLatestUpdates();}
+  if(page==='home'){buildResearchStats(); buildHeatmap(); buildLiveCounter(); buildMostCited(); buildLatestUpdates();}
   if(page==='metrics'){metricsInit();}
   if(page==='patents'){patentsInit();}
   if(page==='misconceptions'){mcInit();}
@@ -8425,6 +8429,53 @@ var CONCEPTS = [
 ];
 
 
+function buildMostCited(){
+  var el = document.getElementById('most-cited-list');
+  if(!el) return;
+
+  // Institution name → search terms
+  var INST_TERMS = [
+    {name:'DTCC',              terms:['dtcc']},
+    {name:'Google Cloud',      terms:['google']},
+    {name:'Swift',             terms:['swift']},
+    {name:'Citi',              terms:['citi','citigroup']},
+    {name:'Euroclear',         terms:['euroclear']},
+    {name:'JPMorgan / Kinexys',terms:['jpmorgan','kinexys','j.p. morgan']},
+    {name:'BNY Mellon',        terms:['bny mellon','bny']},
+    {name:'UBS',               terms:['ubs']},
+    {name:'Coinbase',          terms:['coinbase']},
+    {name:'Franklin Templeton',terms:['franklin templeton','franklin']},
+    {name:'Circle',            terms:['circle']},
+    {name:'Mastercard',        terms:['mastercard']},
+    {name:'Fidelity',          terms:['fidelity']},
+  ];
+
+  var counts = INST_TERMS.map(function(inst){
+    var n = 0;
+    EVIDENCE.forEach(function(e){
+      var hay = [e.org||'', e.title||'', e.body||'', e.significance||'', e.context||'']
+        .concat(e.tags||[]).join(' ').toLowerCase();
+      if(inst.terms.some(function(t){ return hay.indexOf(t) > -1; })) n++;
+    });
+    return {name: inst.name, count: n};
+  });
+
+  counts.sort(function(a,b){ return b.count - a.count; });
+  var top = counts.filter(function(x){ return x.count > 0; }).slice(0, 7);
+
+  el.innerHTML = top.map(function(item, i){
+    var isLast = i === top.length - 1;
+    var border = isLast ? '' : 'border-bottom:.5px solid var(--border);';
+    var rank = ('0'+(i+1)).slice(-2);
+    return '<div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;'+ border +'">'
+      + '<span style="font-size:13px;color:var(--w60)">'
+      + '<span style="font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.7;margin-right:10px">'+ rank +'</span>'
+      + item.name + '</span>'
+      + '<span style="font-family:var(--mono);font-size:11px;color:var(--w20)">'+ item.count +' entr'+(item.count===1?'y':'ies')+'</span>'
+      + '</div>';
+  }).join('');
+}
+
 function buildHeatmap(){
   var el = document.getElementById('heatmap-bars');
   if(!el) return;
@@ -8939,6 +8990,13 @@ var INSTITUTION_TRACKER=[
   {name:'State Street',full:'State Street Corporation',stage:'pilot',desc:'Participant in DTCC Smart NAV pilot using Chainlink CCIP with DTCC as data sourcer (2024).',url:'https://www.statestreet.com/'},
   {name:'Google Cloud',full:'Google Cloud',stage:'production',desc:'Active Chainlink node operator. Eric Schmidt at SmartCon: Chainlink has better technology and scales better. Published on cloud.google.com.',url:'https://cloud.google.com/'},
   {name:'Reserve Bank of Australia',full:'Reserve Bank of Australia — Project Acacia',stage:'production',desc:'RBA Project Acacia uses Chainlink CRE as orchestration layer for AUD wholesale CBDC and tokenised asset settlement trials. Production deployment confirmed 2026. Chainlink CRE selected to bridge real-world transactions across ledger environments.',url:'https://www.rba.gov.au/payments-and-infrastructure/projects/acacia/'},
+
+  {name:'Circle',         fullName:'Circle',                    country:'USA',stage:'production',
+   desc:'Issuer of USDC. Chainlink CCIP powers native cross-chain USDC via Circle CCTP. Formal Chainlink partnership 2026.',
+   services:['CCIP','Proof of Reserve'],ev:['ev-051','ev-052'],logo:'assets/logos/circle.png'},
+  {name:'Coinbase',        fullName:'Coinbase',                   country:'USA',stage:'production',
+   desc:'Selected Chainlink CCIP as exclusive bridge infrastructure for $7B+ in wrapped assets.',
+   services:['CCIP'],ev:['ev-010','ev-047'],logo:'assets/logos/coinbase.png'},
 ];
 
 // ── Technology Matrix ── which institutions use which Chainlink services
@@ -9067,6 +9125,9 @@ var CHAINLINK_MATRIX = {
 };
 
 // ── Country/region lookup for Atlas feature
+
+// ── Metrics verification date — update this single constant when re-verifying
+var METRICS_LAST_VERIFIED = 'June 21, 2026';
 var INST_COUNTRIES = {
   'USA':         ['DTCC','JPMorgan','Fidelity International','Mastercard','Citi','ANZ','BNY Mellon','State Street','Google Cloud','Circle','Coinbase'],
   'Belgium':     ['Swift','Euroclear'],
@@ -9107,6 +9168,12 @@ function fmtBig(n){
   if(n>=1e3)return'$'+(n/1e3).toFixed(1)+'K';
   return'$'+n.toLocaleString();
 }
+function metricsUpdateDates(){
+  var d = typeof METRICS_LAST_VERIFIED !== 'undefined' ? METRICS_LAST_VERIFIED : '';
+  if(!d) return;
+  document.querySelectorAll('.metrics-verified-date').forEach(function(el){ el.textContent = d; });
+}
+
 function metricsSetStat(id,val,sub){
   var card=document.getElementById(id);
   if(!card)return;
@@ -9122,6 +9189,7 @@ function metricsSetCard(id,val,sub){
 }
 
 function metricsInit(){
+  metricsUpdateDates();
   // Build institutional tracker
   var grid=document.getElementById('metrics-inst-grid');
   if(grid){
@@ -9302,7 +9370,7 @@ function evBuildCard(e,i){
   var orgRow='<div class="ev-org">'+escHtml(e.org)+'</div>'
     +(e.person?'<div class="ev-person">'+escHtml(e.person)+(e.role?'<span class="ev-role"> \u2014 '+escHtml(e.role)+'</span>':'')+'</div>':'')
     +'<div class="ev-date">'+escHtml(e.date)+'</div>';
-  var bodyRow='<div class="ev-card-title">'+escHtml(e.title)+'</div>'
+  var bodyRow='<div class="ev-card-title" title="'+e.title+'">'+escHtml(e.title)+'</div>'
     +(e.body?'<p class="ev-body-text">'+escHtml(e.body)+'</p>':'');
   var sigRow=e.significance
     ?'<div class="ev-significance"><span style="font-family:var(--mono);font-size:clamp(10px,.48vw,10px);letter-spacing:.18em;color:var(--gold);opacity:.65;display:block;margin-bottom:4px">WHY IT MATTERS</span>'+escHtml(e.significance)+'</div>'
@@ -10588,6 +10656,58 @@ function mfCalcRel(){
     +'</div>';
 }</script>
 <footer style="flex-direction:column;align-items:stretch;gap:0;padding:0">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding:clamp(32px,4vw,56px) clamp(32px,5vw,80px);border-bottom:.5px solid var(--border);background:var(--bg2)">
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">RESEARCH</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="showPage('evidence')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Evidence Vault</button>
+        <button onclick="showPage('misconceptions')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Misconceptions</button>
+        <button onclick="showPage('quotes')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Quote Library</button>
+        <a href="/research" style="color:var(--w40);font-size:13px;text-decoration:none;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Research Conclusions</a>
+        <button onclick="showPage('patents')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Patent Registry</button>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">TOOLS</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="showPage('explorer')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Infrastructure Explorer</button>
+        <button onclick="showPage('matrix')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Technology Matrix</button>
+        <button onclick="showPage('compare')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Compare Institutions</button>
+        <button onclick="showPage('tracker')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Production Tracker</button>
+        <button onclick="showPage('metrics')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Live Metrics</button>
+        <button onclick="showPage('metcalfe')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Network Calculator</button>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">LEARN</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="showPage('concepts')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Chainlink Explained</button>
+        <button onclick="showPage('timeline')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Adoption Timeline</button>
+        <button onclick="showPage('digest')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Research Digest</button>
+        <button onclick="showPage('infographics')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Infographics</button>
+        <button onclick="showPage('videos')" style="background:none;border:none;color:var(--w40);font-size:13px;cursor:pointer;text-align:left;padding:0;transition:color .15s" onmouseover="this.style.color='var(--w)'" onmouseout="this.style.color='var(--w40)'">Videos</button>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold);opacity:.6;margin-bottom:14px">THELINKPANDA</div>
+      <div style="font-family:var(--serif);font-size:16px;color:var(--w);margin-bottom:8px">Infrastructure Before Narratives.</div>
+      <div style="font-size:12px;color:var(--w40);line-height:1.7;margin-bottom:16px">The largest independent Chainlink research platform. 54 verified institutional sources.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://x.com/TheLinkPanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">X / Twitter</a>
+        <span style="color:var(--border)">·</span>
+        <a href="https://www.youtube.com/@TheLinkPanda" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">YouTube</a>
+        <span style="color:var(--border)">·</span>
+        <a href="https://www.instagram.com/thechainlinkpanda/" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.7;text-decoration:none;letter-spacing:.08em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">Instagram</a>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+        <button onclick="showPage('privacy')" style="background:none;border:none;color:var(--w20);font-size:11px;cursor:pointer;padding:0;font-family:var(--mono);letter-spacing:.06em;transition:color .15s" onmouseover="this.style.color='var(--w40)'" onmouseout="this.style.color='var(--w20)'">Privacy</button>
+        <span style="color:var(--border)">·</span>
+        <button onclick="showPage('terms')" style="background:none;border:none;color:var(--w20);font-size:11px;cursor:pointer;padding:0;font-family:var(--mono);letter-spacing:.06em;transition:color .15s" onmouseover="this.style.color='var(--w40)'" onmouseout="this.style.color='var(--w20)'">Terms</button>
+        <span style="color:var(--border)">·</span>
+        <button onclick="showPage('disclaimer')" style="background:none;border:none;color:var(--w20);font-size:11px;cursor:pointer;padding:0;font-family:var(--mono);letter-spacing:.06em;transition:color .15s" onmouseover="this.style.color='var(--w40)'" onmouseout="this.style.color='var(--w20)'">Disclaimer</button>
+      </div>
+    </div>
+  </div>
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:24px clamp(20px,5vw,80px)">
       <div class="ft-brand"><img class="ft-logo-img" src="assets/logo/PANDA LOGO WEBSITE.png" alt="" onerror="this.style.display='none'"/> TheLinkPanda</div>
       <span class="ft-tag">Infrastructure Before Narratives.</span>
