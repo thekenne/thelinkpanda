@@ -3715,7 +3715,7 @@ function evBuildTagButtons(){
     {label:'Swift',     tag:'SWIFT'},
     {label:'JPMorgan',  tag:'JPMorgan'},
     {label:'Coinbase',  tag:'Coinbase'},
-    {label:'Fidelity',  tag:'Fidelity International'},
+    {label:'Fidelity',  tag:'Fidelity'},
     {label:'Google',    tag:'Google'},
     {label:'CCIP',      tag:'CCIP'},
     {label:'Tokenisation',tag:'Tokenisation'},
@@ -3739,7 +3739,8 @@ function evBuildTagButtons(){
 function evSetType(type,btn){
   evState.typeFilter=type;
   document.querySelectorAll('#ev-type-filters .ev-filter').forEach(function(b){b.classList.remove('active');});
-  if(btn)btn.classList.add('active');evRender();
+  if(btn)btn.classList.add('active');
+  evSyncUrl();evRender();
 }
 function evSetTag(tag,btn){
   if(evState.tagFilter===tag){evState.tagFilter='';
@@ -3756,6 +3757,7 @@ function evSyncUrl(){
   var url='/evidence',q=[];
   if(evState.evIds&&evState.evIds.length)q.push('ev='+encodeURIComponent(evState.evIds.join(',')));
   if(evState.tagFilter)q.push('tag='+encodeURIComponent(evState.tagFilter));
+  if(evState.typeFilter&&evState.typeFilter!=='all')q.push('type='+encodeURIComponent(evState.typeFilter));
   if(q.length)url+='?'+q.join('&');
   try{history.replaceState({page:'evidence',evIds:evState.evIds||null},'',url);}catch(e){}
 }
@@ -3808,11 +3810,11 @@ function evReadUrlTag(){
     var tag=params.get('tag');
     if(tag){
       tag=decodeURIComponent(tag).trim();
-      var tl=tag.toLowerCase(),canon=null;
+      var tn=_evNorm(tag),canon=null;
       document.querySelectorAll('#ev-tag-row .ev-filter').forEach(function(b){
-        if(!canon&&b.dataset.tag&&b.dataset.tag.toLowerCase()===tl)canon=b.dataset.tag;
+        if(!canon&&b.dataset.tag&&_evNorm(b.dataset.tag)===tn)canon=b.dataset.tag;
       });
-      if(!canon){EVIDENCE.some(function(e){return e.tags.some(function(t){if(t.toLowerCase()===tl){canon=t;return true;}return false;});});}
+      if(!canon){EVIDENCE.some(function(e){return e.tags.some(function(t){if(_evNorm(t)===tn){canon=t;return true;}return false;});});}
       evState.tagFilter=canon||tag;
       return evState.tagFilter;
     }
@@ -3820,12 +3822,30 @@ function evReadUrlTag(){
   evState.tagFilter='';
   return null;
 }
+function evReadUrlType(){
+  try{
+    var params=new URLSearchParams(window.location.search);
+    var ty=params.get('type');
+    if(ty){
+      ty=decodeURIComponent(ty).trim().toLowerCase();
+      var known=EVIDENCE.some(function(e){return e.type===ty;});
+      evState.typeFilter=known?ty:'all';
+      return evState.typeFilter;
+    }
+  }catch(e){}
+  evState.typeFilter='all';
+  return null;
+}
 function evApplyUrl(){
-  var ids=evReadUrlIds();
-  var tag=evReadUrlTag();
-  var tl=(evState.tagFilter||'').toLowerCase();
+  evReadUrlIds();
+  evReadUrlTag();
+  evReadUrlType();
+  var tn=_evNorm(evState.tagFilter||'');
   document.querySelectorAll('#ev-tag-row .ev-filter').forEach(function(b){
-    b.classList.toggle('active',!!tl&&(b.dataset.tag||'').toLowerCase()===tl);
+    b.classList.toggle('active',!!tn&&_evNorm(b.dataset.tag||'')===tn);
+  });
+  document.querySelectorAll('#ev-type-filters .ev-filter').forEach(function(b){
+    b.classList.toggle('active',(b.dataset.type||'')===evState.typeFilter);
   });
   evRender();
   evRenderBanner();
@@ -4298,11 +4318,26 @@ function orgShowInst(slug){
 function orgEsc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 // ── Evidence Vault rendering ──────────────────────────────────────────
+function _evNorm(s){return String(s||'').toLowerCase().replace(/tokenization/g,'tokenisation').replace(/[^a-z0-9]/g,'');}
+function _evText(s){return String(s||'').toLowerCase().replace(/tokenization/g,'tokenisation').replace(/[^a-z0-9]+/g,' ').trim();}
+function _evTagMatch(e,filter){
+  var tf=_evText(filter);
+  if(!tf)return true;
+  var hs=' '+_evText([e.org,e.person,e.role,e.title,e.body,e.significance,e.context,e.source_label].concat(e.tags).join(' '))+' ';
+  if(hs.indexOf(' '+tf)!==-1)return true;
+  var tfc=tf.replace(/ /g,'');
+  if(tfc.length>=6&&hs.replace(/ /g,'').indexOf(tfc)!==-1)return true;
+  var vars=[];
+  if(/ing$/.test(tf)){var b=tf.replace(/ing$/,'');vars.push(b+'e',b+'ed',b+'es',b+'ers');}
+  if(/s$/.test(tf))vars.push(tf.replace(/s$/,''));else vars.push(tf+'s');
+  for(var i=0;i<vars.length;i++){if(vars[i].length>=4&&hs.indexOf(' '+vars[i]+' ')!==-1)return true;}
+  return false;
+}
 function evFiltered(){
   return EVIDENCE.filter(function(e){
     if(evState.evIds&&evState.evIds.indexOf(e.id)===-1)return false;
     if(evState.typeFilter!=='all'&&e.type!==evState.typeFilter)return false;
-    if(evState.tagFilter){var _tf=evState.tagFilter.toLowerCase();if(!e.tags.some(function(t){return t.toLowerCase()===_tf;}))return false;}
+    if(evState.tagFilter&&!_evTagMatch(e,evState.tagFilter))return false;
     if(evState.search){
       var hay=[e.org,e.person,e.role,e.title,e.body,e.significance,e.source_label,e.type,e.date].concat(e.tags).join(' ').toLowerCase();
       if(hay.indexOf(evState.search)===-1)return false;
