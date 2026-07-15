@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TheLinkPanda — Verified Chainlink Evidence</title>
+    <link>https://thelinkpanda.com</link>
+    <atom:link href="https://thelinkpanda.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Newly verified institutional evidence entries: DTCC, Swift, JPMorgan, ICMA, and more.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Jul 2026 09:06:23 GMT</lastBuildDate>
+    <item>
+      <title>Project Pangea — 47 banks, $10T+ AUM target T+0 FX settlement using SWIFT, regulated stablecoins, and Chainlink</title>
+      <link>https://thelinkpanda.com/evidence/ev-054</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-054</guid>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>47 banks — including BBVA, BNP Paribas, ING, Intesa Sanpaolo, Nordea, UniCredit, ABN AMRO, Rabobank, Danske Bank, and 28 more named institutions — representing $10 trillion+ AUM are targeting T+0 atomic PvP FX settlement using Chainlink as interoperability middleware between SWIF</description>
+    </item>
+    <item>
+      <title>ICMA Documents SWIFT's Chainlink Interoperability Architecture</title>
+      <link>https://thelinkpanda.com/evidence/ev-055</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-055</guid>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>Unlike previous evidence originating from Chainlink or SWIFT, this documentation comes from an independent capital markets association. ICMA describes CRE and CCIP as core components of SWIFT's distributed-ledger interoperability architecture — third-party corroboration of the in</description>
+    </item>
+    <item>
+      <title>ADI Predictstreet — Official FIFA World Cup 2026 Prediction Market Partner adopts Chainlink as exclusive oracle infrastructure</title>
+      <link>https://thelinkpanda.com/evidence/ev-041</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-041</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>ADI Predictstreet is the official FIFA World Cup 2026 prediction market partner. By adopting Chainlink as exclusive oracle infrastructure, this deployment proves Chainlink use cases extend far beyond DeFi and institutional finance — into the largest sporting events on the planet.</description>
+    </item>
+    <item>
+      <title>ICMA DLT Repo Report Part I — explicitly identifies oracles as future infrastructure; interoperability emerges as the central institutional challenge</title>
+      <link>https://thelinkpanda.com/evidence/ev-053</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-053</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>ICMA — the global standards body for capital markets — explicitly names oracles as necessary future infrastructure in a DLT world. The same report confirms interoperability between ledgers as the central unsolved problem, validates Canton Network and Kinexys as the leading instit</description>
+    </item>
+    <item>
+      <title>DTCC Collateral AppChain to leverage Chainlink CRE and data standard</title>
+      <link>https://thelinkpanda.com/evidence/ev-027</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-027</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>DTCC — the institution that settles $4.7 quadrillion annually — officially integrating Chainlink CRE and data standards into its Collateral AppChain for 24/7 real-time collateral management.</description>
+    </item>
+    <item>
+      <title>DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management</title>
+      <link>https://thelinkpanda.com/evidence/ev-034</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-034</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>DTCC using Chainlink CRE as orchestration layer for production-scale collateral management. Q4 2026 production launch. Not a pilot.</description>
+    </item>
+    <item>
+      <title>DTCC Collateral AppChain — Chainlink CRE and data standard selected for 24/7 collateral management</title>
+      <link>https://thelinkpanda.com/evidence/ev-042</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-042</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>DTCC — which processes $4.7 quadrillion annually — chose Chainlink CRE as the orchestration layer for its Collateral AppChain. This is not a pilot. This is production infrastructure for the world's largest post-trade system.</description>
+    </item>
+    <item>
+      <title>Project Acacia — Reserve Bank of Australia uses Chainlink CRE for DvP settlement in 20-use-case wholesale tokenisation research project</title>
+      <link>https://thelinkpanda.com/evidence/ev-050</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-050</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>The Reserve Bank of Australia — one of the world's most respected central banks — led a 20-use-case wholesale tokenisation project where Chainlink CRE was the orchestration layer connecting blockchain assets to real payment infrastructure. This is not a DeFi experiment. This is a</description>
+    </item>
+    <item>
+      <title>US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present</title>
+      <link>https://thelinkpanda.com/evidence/ev-035</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-035</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>Most ETF products experience outflow periods. The zero-outflow streak across all US LINK ETF products since launch — through a significant price drawdown — is statistically unusual. It indicates investors are allocating and holding rather than rotating capital. Compare: BTC ETFs </description>
+    </item>
+    <item>
+      <title>Tokenization 2030 — Wall Street On-Chain</title>
+      <link>https://thelinkpanda.com/evidence/ev-019</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-019</guid>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>Citi GPS projecting $4–5 trillion in tokenized assets by 2030 — the most-cited institutional market sizing for the tokenization opportunity.</description>
+    </item>
+    <item>
+      <title>US12494909 — Verifiable randomness (VRF) for decentralized computing granted</title>
+      <link>https://thelinkpanda.com/evidence/ev-038</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-038</guid>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>Chainlink holds a granted USPTO patent on on-chain verifiable randomness. Any competitor replicating VRF's on-chain proof approach faces patent infringement risk. The patent was first filed in May 2021 with priority to May 2020.</description>
+    </item>
+    <item>
+      <title>Securitize and VanEck adopt Chainlink NAVLink feeds for VBILL tokenized Treasury; integrate with Aave Horizon</title>
+      <link>https://thelinkpanda.com/evidence/ev-049</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-049</guid>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>Securitize and VanEck chose Chainlink NAVLink to bring a tokenized Treasury fund into institutional DeFi. This is the institutional TradFi-to-DeFi bridge in action — and Chainlink is the data infrastructure making it work.</description>
+    </item>
+    <item>
+      <title>Chainlink as a distribution multiplier comparable to Bloomberg and LSEG</title>
+      <link>https://thelinkpanda.com/evidence/ev-012</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-012</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>Deutsche Börse's Head of Market Data placing Chainlink in the same category as Bloomberg and LSEG/Refinitiv — the dominant financial data distribution platforms — as a multiplier for institutional market data infrastructure.</description>
+    </item>
+    <item>
+      <title>Chainlink as a distribution multiplier comparable to Bloomberg and LSEG</title>
+      <link>https://thelinkpanda.com/evidence/ev-013</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-013</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>Deutsche Börse's Head of Market Data placing Chainlink in the same category as Bloomberg and LSEG/Refinitiv — the dominant financial data distribution platforms — as a multiplier for institutional market data infrastructure.</description>
+    </item>
+    <item>
+      <title>24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem</title>
+      <link>https://thelinkpanda.com/evidence/ev-033</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-033</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>24 institutions including DTCC, Swift, and Euroclear using CRE and CCIP simultaneously for production-grade capital markets infrastructure. Near 100% data consensus achieved.</description>
+    </item>
+    <item>
+      <title>Euroclear and 23 institutions achieve near-100% data consensus in Corporate Actions Initiative using Chainlink CRE and CCIP</title>
+      <link>https://thelinkpanda.com/evidence/ev-045</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-045</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>24 institutions including Euroclear, DTCC, and Swift achieved near-100% data consensus on corporate actions using Chainlink CRE and CCIP. This is the financial industry solving its biggest data standardization problem using Chainlink as the coordination layer.</description>
+    </item>
+    <item>
+      <title>Coinbase adopts Chainlink CCIP as exclusive bridge for $7B in wrapped assets; Coinbase DataLink brings exchange data onchain</title>
+      <link>https://thelinkpanda.com/evidence/ev-047</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-047</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>Coinbase — the largest US crypto exchange — chose Chainlink CCIP as its exclusive bridge for $7B in assets, explicitly naming Chainlink as the industry leader for cross-chain connectivity. The most credible brand in US crypto made the clearest possible endorsement.</description>
+    </item>
+    <item>
+      <title>On Kinexys-Ondo-Chainlink cross-chain DvP settlement</title>
+      <link>https://thelinkpanda.com/evidence/ev-004</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-004</guid>
+      <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>J.P. Morgan's Kinexys officially crediting Chainlink as the cross-chain orchestration layer for their first public-private blockchain DvP settlement. Published on jpmorgan.com.</description>
+    </item>
+    <item>
+      <title>Mastercard and Chainlink partner to enable 3.5 billion cardholders to purchase crypto directly onchain</title>
+      <link>https://thelinkpanda.com/evidence/ev-048</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-048</guid>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>Mastercard — with 3.5B cardholders — partnered with Chainlink to bring their payment network onchain. This is the clearest proof yet that Chainlink is not just DeFi infrastructure — it is the bridge between the existing payment system and the onchain economy.</description>
+    </item>
+    <item>
+      <title>Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure</title>
+      <link>https://thelinkpanda.com/evidence/ev-040</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-040</guid>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>SVR is proof that Chainlink is not just data infrastructure — it is an economic protocol. SVR creates a new revenue stream for both DeFi protocols and the Chainlink Network simultaneously. The Aave DAO voted 100% in favor. $1.1M+ recaptured and counting. This is Chainlink's oracl</description>
+    </item>
+    <item>
+      <title>On Chainlink-led real-time corporate actions initiative</title>
+      <link>https://thelinkpanda.com/evidence/ev-008</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-008</guid>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>BNP Paribas securities services formally endorsing Chainlink as the lead on real-time cross-jurisdictional corporate actions data, in an official multi-institution press release targeting the $58 billion annual cost of corporate actions processing.</description>
+    </item>
+    <item>
+      <title>Coinbase selects Chainlink CCIP as exclusive bridge infrastructure</title>
+      <link>https://thelinkpanda.com/evidence/ev-010</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-010</guid>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>Coinbase formally selecting Chainlink CCIP as their exclusive bridge infrastructure — not just an endorsement but a confirmed production deployment for wrapped asset growth.</description>
+    </item>
+    <item>
+      <title>US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published</title>
+      <link>https://thelinkpanda.com/evidence/ev-039</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-039</guid>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>CCIP is not a bridge. It is a patented cross-chain security system with an independent Risk Management Network. This patent application is the technical evidence that CCIP's security model is a novel, IP-protected invention — not a commodity bridge protocol.</description>
+    </item>
+    <item>
+      <title>On creating unified golden records on-chain</title>
+      <link>https://thelinkpanda.com/evidence/ev-007</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-007</guid>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>Euroclear Head of Digital Assets describing the shift from sequential to circular data distribution where Chainlink powers a golden record giving every participant simultaneous access.</description>
+    </item>
+    <item>
+      <title>On using Chainlink for on-chain NAV</title>
+      <link>https://thelinkpanda.com/evidence/ev-005</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-005</guid>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>Direct institutional confirmation that Chainlink is live in Fidelity International's tokenized fund infrastructure for on-chain NAV delivery, enabling real-world asset tokens to carry verifiable fund data.</description>
+    </item>
+    <item>
+      <title>On providing daily Proof of Reserves on-chain</title>
+      <link>https://thelinkpanda.com/evidence/ev-006</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-006</guid>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>Franklin Templeton VP Digital Assets committing to daily on-chain reserve attestation — institutional adoption of Chainlink Proof of Reserve as a transparency standard.</description>
+    </item>
+    <item>
+      <title>On updating financial markets using Chainlink</title>
+      <link>https://thelinkpanda.com/evidence/ev-002</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-002</guid>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>DTCC confirming Chainlink as the mechanism for modernizing markets — DTCC processed $4.7 quadrillion in securities transactions in 2025.</description>
+    </item>
+    <item>
+      <title>On writing data once across all ledger networks</title>
+      <link>https://thelinkpanda.com/evidence/ev-001</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-001</guid>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 GMT</pubDate>
+      <category>statement</category>
+      <description>DTCC CTO naming Chainlink as the infrastructure enabling write-once, proliferate-everywhere data across any ledger network.</description>
+    </item>
+    <item>
+      <title>US12062037 — Secure state machine with off-chain oracle switching granted</title>
+      <link>https://thelinkpanda.com/evidence/ev-037</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-037</guid>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>Chainlink holds a granted patent on oracle-triggered smart contract state machines — the core mechanism behind Chainlink Automation and condition-based contract execution.</description>
+    </item>
+    <item>
+      <title>Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain</title>
+      <link>https://thelinkpanda.com/evidence/ev-032</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-032</guid>
+      <pubDate>Wed, 01 May 2024 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>10 of the world's largest financial institutions used Chainlink CCIP in a live pilot. Simultaneously refutes: institutions don't use Chainlink, CCIP has no adoption, and tokenization doesn't need interoperability.</description>
+    </item>
+  </channel>
+</rss>
