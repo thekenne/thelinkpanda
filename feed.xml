@@ -6,7 +6,15 @@
     <atom:link href="https://thelinkpanda.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Newly verified institutional evidence entries: DTCC, Swift, JPMorgan, ICMA, and more.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Jul 2026 09:06:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 09:00:00 GMT</lastBuildDate>
+    <item>
+      <title>DTCC processes first live production trades of tokenized securities — stocks, ETFs, and U.S. Treasuries</title>
+      <link>https://thelinkpanda.com/evidence/ev-056</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-056</guid>
+      <pubDate>Wed, 15 Jul 2026 17:00:00 GMT</pubDate>
+      <category>article</category>
+      <description>DTCC's largest production tokenization event to date: live trades of tokenized stocks, ETFs, and U.S. Treasuries on DTC-held assets — collateral, repo, and margin in production. Powered by Chainlink per Chainlink's announcement.</description>
+    </item>
     <item>
       <title>Project Pangea — 47 banks, $10T+ AUM target T+0 FX settlement using SWIFT, regulated stablecoins, and Chainlink</title>
       <link>https://thelinkpanda.com/evidence/ev-054</link>
