@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5330,6 +5329,29 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 <!-- Cloudflare Web Analytics — free, privacy-friendly. To activate: dash.cloudflare.com > Analytics > Web Analytics > add site, then paste your token below and uncomment.
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'></script>
 -->
+<style>
+/* ═══ GLOBAL SEARCH ═══ */
+#gs-overlay{display:none;position:fixed;inset:0;background:rgba(5,5,7,.82);backdrop-filter:blur(4px);z-index:9000;}
+#gs-overlay.open{display:flex;align-items:flex-start;justify-content:center;padding:9vh 16px 16px;}
+.gs-panel{width:100%;max-width:720px;background:#101013;border:1px solid rgba(200,146,42,.45);box-shadow:0 24px 80px rgba(0,0,0,.6);display:flex;flex-direction:column;max-height:78vh;}
+.gs-inputrow{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:.5px solid rgba(200,146,42,.3);}
+.gs-inputrow svg{flex-shrink:0;opacity:.7}
+#gs-input{flex:1;background:none;border:none;outline:none;color:var(--w90,#F4F2EE);font-family:var(--mono);font-size:clamp(17px,1.05vw,20px);letter-spacing:.04em;}
+#gs-input::placeholder{color:rgba(244,242,238,.3)}
+.gs-esc{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:rgba(244,242,238,.35);border:.5px solid rgba(244,242,238,.15);padding:3px 8px;cursor:pointer}
+#gs-results{overflow-y:auto;padding:8px 0 14px;}
+.gs-group{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--gold);opacity:.75;padding:14px 18px 6px;}
+.gs-item{display:block;width:100%;text-align:left;background:none;border:none;border-left:2px solid transparent;padding:9px 18px;cursor:pointer;}
+.gs-item:hover,.gs-item.sel{background:rgba(200,146,42,.07);border-left-color:var(--gold)}
+.gs-item .t{font-family:Georgia,serif;font-size:clamp(15px,.95vw,17px);color:#F4F2EE;line-height:1.35}
+.gs-item .s{font-family:var(--mono);font-size:clamp(12px,.72vw,13px);letter-spacing:.06em;color:rgba(244,242,238,.42);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gs-empty{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:rgba(244,242,238,.4);padding:26px 18px;text-align:center}
+.gs-hint{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:rgba(244,242,238,.28);padding:10px 18px;border-top:.5px solid rgba(244,242,238,.07)}
+.nav-search-btn{background:none;border:.5px solid rgba(200,146,42,.35);color:var(--gold);font-family:var(--mono);font-size:clamp(13px,.8vw,15px);letter-spacing:.1em;padding:5px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .15s;margin-left:6px}
+.nav-search-btn:hover{background:var(--gold3)}
+.nav-search-btn kbd{font-family:var(--mono);font-size:10.5px;border:.5px solid rgba(200,146,42,.3);padding:1px 5px;opacity:.75}
+@media(max-width:900px){.nav-search-btn kbd{display:none}}
+</style>
 </head>
 <body>
 
@@ -5367,7 +5389,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   <div class="nav-links">
     <button class="nav-link active" id="nl-home"           onclick="showPage('home')">Home</button>
     <button class="nav-link"        id="nl-explorer"       onclick="showPage('explorer')">Explorer</button>
-    <button class="nav-link"        id="nl-evidence"       onclick="showPage('evidence')">Evidence</button>
+    <button class="nav-link"        id="nl-evidence"       onclick="showPage('evidence')">Evidence</button><button class="nav-search-btn" onclick="gsOpen()" title="Search the entire site" aria-label="Search"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>SEARCH <kbd>CTRL K</kbd></button>
     <button class="nav-link"        id="nl-misconceptions" onclick="showPage('misconceptions')">Misconceptions</button>
     <button class="nav-link"        id="nl-metrics"        onclick="showPage('metrics')">Live Metrics</button>
     <div class="nav-more-wrap" id="nav-more-wrap">
@@ -5418,7 +5440,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 </nav>
 
 <!-- Mobile menu drawer -->
-<div class="mob-drawer" id="mob-drawer">
+<div class="mob-drawer" id="mob-drawer"><button class="nav-search-btn" style="margin:14px 16px 4px;width:calc(100% - 32px);justify-content:center" onclick="gsOpen();mobClose&&mobClose()">⌕ SEARCH THE SITE</button>
   <div class="mob-drawer-inner">
     <div class="mob-nav-links">
       <div style="font-size:14px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:0 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">RESEARCH</div>
@@ -11395,5 +11417,117 @@ function mfCalcRel(){
     Metrics
   </button>
 </nav>
+
+<div id="gs-overlay" role="dialog" aria-modal="true" aria-label="Site search">
+  <div class="gs-panel">
+    <div class="gs-inputrow">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C8922A" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      <input id="gs-input" type="text" placeholder="Search evidence, misconceptions, patents, institutions…" autocomplete="off"/>
+      <button class="gs-esc" onclick="gsClose()">ESC</button>
+    </div>
+    <div id="gs-results"></div>
+    <div class="gs-hint">↑↓ navigate &nbsp;•&nbsp; ENTER open &nbsp;•&nbsp; CTRL+K anywhere</div>
+  </div>
+</div>
+<script>
+// ═══ GLOBAL SEARCH ═══
+var gsIndex=null,gsSel=0,gsFlat=[];
+function gsBuild(){
+  if(gsIndex)return;
+  gsIndex=[];
+  function add(type,label,sub,hay,go){gsIndex.push({type:type,label:label,sub:sub,hay:hay.toLowerCase(),go:go});}
+  (typeof EVIDENCE!=='undefined'?EVIDENCE:[]).forEach(function(e){
+    add('EVIDENCE',e.title,e.org+' \u2022 '+e.date+' \u2022 '+e.id.toUpperCase(),
+      [e.title,e.org,e.person,e.body,e.significance,(e.tags||[]).join(' ')].join(' '),
+      function(){showPage('evidence');evSetIds([e.id]);});
+  });
+  (typeof MISCONCEPTIONS!=='undefined'?MISCONCEPTIONS:[]).forEach(function(m){
+    add('MISCONCEPTIONS',m.title||m.myth,(m.cat||'')+' \u2022 '+m.id.toUpperCase(),
+      [m.title,m.myth,m.reality,m.cat].join(' '),
+      function(){showPage('misconceptions');setTimeout(function(){try{mcJumpTo(m.id);}catch(e){}},150);});
+  });
+  (typeof PATENT_LIBRARY!=='undefined'?PATENT_LIBRARY:[]).forEach(function(p){
+    add('PATENTS',p.title,(p.assignee||'')+' \u2022 '+(p.number||''),
+      [p.title,p.assignee,p.number,(p.categories||[]).join(' '),(p.services||[]).join(' '),p.summary].join(' '),
+      function(){showPage('patents');setTimeout(function(){var i=document.getElementById('pl-search');if(i)i.value=p.number||p.title;try{plSearch(p.number||p.title);}catch(e){}},150);});
+  });
+  (typeof INSTITUTIONS!=='undefined'?INSTITUTIONS:[]).forEach(function(o){
+    add('INSTITUTIONS',o.name,(o.full||'')+' \u2014 profile',
+      [o.name,o.full,o.role].join(' '),
+      function(){showOrg(o.slug);});
+  });
+  (typeof CONCEPTS!=='undefined'?CONCEPTS:[]).forEach(function(c){
+    add('CONCEPTS',c.name+' \u2014 '+(c.full||''),(c.tagline||''),
+      [c.name,c.full,c.tagline,c.what].join(' '),
+      function(){try{showConcept(c.id);}catch(e){showPage('concepts');}});
+  });
+  (typeof QUOTES!=='undefined'?QUOTES:[]).forEach(function(q){
+    add('QUOTES','\u201C'+String(q.quote||'').slice(0,90)+'\u2026\u201D',(q.person||'')+' \u2022 '+(q.org||''),
+      [q.quote,q.person,q.org,q.topic].join(' '),
+      function(){showPage('quotes');});
+  });
+}
+function gsScore(item,terms){
+  var s=0;
+  for(var i=0;i<terms.length;i++){
+    var t=terms[i];if(!t)continue;
+    if(item.hay.indexOf(t)===-1)return 0;
+    s+=1;
+    if(item.label.toLowerCase().indexOf(t)!==-1)s+=3;
+  }
+  return s;
+}
+function gsRender(){
+  var q=(document.getElementById('gs-input').value||'').trim().toLowerCase();
+  var box=document.getElementById('gs-results');
+  gsFlat=[];gsSel=0;
+  if(q.length<2){box.innerHTML='<div class="gs-empty">Type at least 2 characters\u2026</div>';return;}
+  gsBuild();
+  var terms=q.split(/\s+/);
+  var hits=[];
+  gsIndex.forEach(function(it){var s=gsScore(it,terms);if(s>0)hits.push({s:s,it:it});});
+  hits.sort(function(a,b){return b.s-a.s;});
+  var groups={},order=['EVIDENCE','MISCONCEPTIONS','PATENTS','INSTITUTIONS','CONCEPTS','QUOTES'];
+  hits.forEach(function(h){(groups[h.it.type]=groups[h.it.type]||[]).push(h.it);});
+  var html='';
+  order.forEach(function(g){
+    if(!groups[g])return;
+    html+='<div class="gs-group">'+g+' ('+groups[g].length+')</div>';
+    groups[g].slice(0,5).forEach(function(it){
+      var idx=gsFlat.length;gsFlat.push(it);
+      html+='<button class="gs-item'+(idx===0?' sel':'')+'" data-i="'+idx+'" onclick="gsGo('+idx+')"><div class="t">'+gsEsc(it.label)+'</div><div class="s">'+gsEsc(it.sub)+'</div></button>';
+    });
+  });
+  box.innerHTML=html||'<div class="gs-empty">No results for \u201C'+gsEsc(q)+'\u201D</div>';
+}
+function gsEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function gsGo(i){if(!gsFlat[i])return;gsClose();gsFlat[i].go();}
+function gsOpen(){
+  var o=document.getElementById('gs-overlay');o.classList.add('open');
+  var inp=document.getElementById('gs-input');inp.value='';gsRender();
+  setTimeout(function(){inp.focus();},30);
+}
+function gsClose(){document.getElementById('gs-overlay').classList.remove('open');}
+(function(){
+  var inp=document.getElementById('gs-input');
+  if(inp)inp.addEventListener('input',gsRender);
+  document.addEventListener('keydown',function(ev){
+    var o=document.getElementById('gs-overlay');
+    var open=o&&o.classList.contains('open');
+    if((ev.ctrlKey||ev.metaKey)&&ev.key.toLowerCase()==='k'){ev.preventDefault();open?gsClose():gsOpen();return;}
+    if(!open)return;
+    if(ev.key==='Escape'){gsClose();}
+    else if(ev.key==='ArrowDown'||ev.key==='ArrowUp'){
+      ev.preventDefault();
+      gsSel=Math.max(0,Math.min(gsFlat.length-1,gsSel+(ev.key==='ArrowDown'?1:-1)));
+      document.querySelectorAll('.gs-item').forEach(function(b){b.classList.toggle('sel',+b.dataset.i===gsSel);});
+      var el=document.querySelector('.gs-item.sel');if(el&&el.scrollIntoView)el.scrollIntoView({block:'nearest'});
+    }
+    else if(ev.key==='Enter'){gsGo(gsSel);}
+  });
+  var ov=document.getElementById('gs-overlay');
+  if(ov)ov.addEventListener('click',function(ev){if(ev.target===ov)gsClose();});
+})();
+</script>
 </body>
 </html>
