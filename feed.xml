@@ -6,7 +6,7 @@
     <atom:link href="https://thelinkpanda.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Newly verified institutional evidence entries: DTCC, Swift, JPMorgan, ICMA, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jul 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 09:00:00 GMT</lastBuildDate>
     <item>
       <title>DTCC processes first live production trades of tokenized securities — stocks, ETFs, and U.S. Treasuries</title>
       <link>https://thelinkpanda.com/evidence/ev-056</link>
@@ -14,6 +14,38 @@
       <pubDate>Wed, 15 Jul 2026 17:00:00 GMT</pubDate>
       <category>article</category>
       <description>DTCC's largest production tokenization event to date: live trades of tokenized stocks, ETFs, and U.S. Treasuries on DTC-held assets — collateral, repo, and margin in production. Powered by Chainlink per Chainlink's announcement.</description>
+    </item>
+    <item>
+      <title>Chainlink connects the Central Bank of Brazil and the HKMA — first cross-border, cross-chain trade settlement experiment</title>
+      <link>https://thelinkpanda.com/evidence/ev-057</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-057</guid>
+      <pubDate>Tue, 04 Nov 2025 09:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>CRE and CCIP linked Brazil&#8217;s Drex with Hong Kong&#8217;s Ensemble for programmable DvP/PvP trade settlement — a central-bank pilot with Banco Inter, Standard Chartered, GSBN, and 7COMm.</description>
+    </item>
+    <item>
+      <title>Chainlink co-founder addresses the Federal Reserve&#8217;s first Payments Innovation Conference</title>
+      <link>https://thelinkpanda.com/evidence/ev-059</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-059</guid>
+      <pubDate>Tue, 21 Oct 2025 14:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>Sergey Nazarov joined the opening panel of the Fed&#8217;s first digital-assets conference, documented on federalreserve.gov. Evidence class: engagement.</description>
+    </item>
+    <item>
+      <title>Chainlink powers three use cases under MAS&#8217;s Project Guardian</title>
+      <link>https://thelinkpanda.com/evidence/ev-058</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-058</guid>
+      <pubDate>Wed, 06 Nov 2024 09:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>Swift/UBS tokenized fund settlement, SBI Digital Markets, and ADDX/ANZ tokenized commercial paper — the first institutional pilot of CCIP Private Transactions, under Singapore&#8217;s MAS-led framework.</description>
+    </item>
+    <item>
+      <title>ECB advisory-group report documents Chainlink as interoperability middleware</title>
+      <link>https://thelinkpanda.com/evidence/ev-060</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-060</guid>
+      <pubDate>Mon, 12 Apr 2021 09:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>The ECB&#8217;s 2021 post-trade DLT report includes a dedicated Annex 2 section on Chainlink as on-chain/off-chain middleware. Evidence class: documentation.</description>
     </item>
     <item>
       <title>Project Pangea — 47 banks, $10T+ AUM target T+0 FX settlement using SWIFT, regulated stablecoins, and Chainlink</title>
