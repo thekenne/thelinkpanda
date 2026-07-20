@@ -5459,8 +5459,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .map-wrap{display:grid;grid-template-columns:1fr 340px;gap:0;border:.5px solid var(--border)}
 @media(max-width:900px){.map-wrap{grid-template-columns:1fr}}
 .map-svgbox{position:relative;background:var(--bg2);padding:8px}
-#cl-map{width:100%;height:auto;display:block}
-.map-country{fill:#141418;stroke:rgba(244,242,238,.10);stroke-width:.5;transition:fill .15s;cursor:default}
+#cl-map{width:100%;height:auto;max-height:none;display:block}
+.map-country{fill:#1B1B22;stroke:rgba(244,242,238,.18);stroke-width:.5;transition:fill .15s;cursor:default}
 .map-country.has{cursor:pointer}
 .map-country.c-production{fill:rgba(200,146,42,.85)}
 .map-country.c-pilot{fill:rgba(200,146,42,.42)}
@@ -6374,7 +6374,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div></div>
   <div class="ev-body">
     <div class="map-wrap">
-      <div class="map-svgbox"><svg id="cl-map" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="World map of Chainlink institutional connections"></svg><div class="map-tip" id="map-tip"></div><div class="map-zoom"><button onclick="mapZoomBtn(1.5)" title="Zoom in" aria-label="Zoom in">+</button><button onclick="mapZoomBtn(1/1.5)" title="Zoom out" aria-label="Zoom out">−</button><button onclick="mapZoomReset()" title="Reset view" aria-label="Reset view">⌂</button></div></div>
+      <div class="map-svgbox"><svg id="cl-map" viewBox="0 -28 1000 576" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="World map of Chainlink institutional connections"></svg><div class="map-tip" id="map-tip"></div><div class="map-zoom"><button onclick="mapZoomBtn(1.5)" title="Zoom in" aria-label="Zoom in">+</button><button onclick="mapZoomBtn(1/1.5)" title="Zoom out" aria-label="Zoom out">−</button><button onclick="mapZoomReset()" title="Reset view" aria-label="Reset view">⌂</button></div></div>
       <div class="map-panel" id="map-panel">
         <div class="map-panel-title">Select a country</div>
         <div class="map-panel-sub">CLICK A HIGHLIGHTED REGION</div>
@@ -11744,8 +11744,8 @@ function mapInit(){
   if(cEl)cEl.textContent=n+' countries / regions';
   mapZoomSetup(svg);
 }
-var MAP_BASE={x:0,y:0,w:1000,h:520};
-var mapView={x:0,y:0,w:1000,h:520};
+var MAP_BASE={x:0,y:-28,w:1000,h:576};
+var mapView={x:0,y:-28,w:1000,h:576};
 function mapApplyView(){
   var svg=document.getElementById('cl-map');if(!svg)return;
   svg.setAttribute('viewBox',mapView.x+' '+mapView.y+' '+mapView.w+' '+mapView.h);
@@ -11756,8 +11756,8 @@ function mapApplyView(){
 function mapClampView(){
   mapView.w=Math.min(MAP_BASE.w,Math.max(MAP_BASE.w/8,mapView.w));
   mapView.h=mapView.w*(MAP_BASE.h/MAP_BASE.w);
-  mapView.x=Math.min(MAP_BASE.w-mapView.w,Math.max(0,mapView.x));
-  mapView.y=Math.min(MAP_BASE.h-mapView.h,Math.max(0,mapView.y));
+  mapView.x=Math.min(MAP_BASE.x+MAP_BASE.w-mapView.w,Math.max(MAP_BASE.x,mapView.x));
+  mapView.y=Math.min(MAP_BASE.y+MAP_BASE.h-mapView.h,Math.max(MAP_BASE.y,mapView.y));
 }
 function mapZoomAt(factor,px,py){
   var nw=mapView.w/factor;
@@ -11767,7 +11767,7 @@ function mapZoomAt(factor,px,py){
   mapClampView();mapApplyView();
 }
 function mapZoomBtn(f){mapZoomAt(f,mapView.x+mapView.w/2,mapView.y+mapView.h/2);}
-function mapZoomReset(){mapView={x:0,y:0,w:MAP_BASE.w,h:MAP_BASE.h};mapApplyView();}
+function mapZoomReset(){mapView={x:MAP_BASE.x,y:MAP_BASE.y,w:MAP_BASE.w,h:MAP_BASE.h};mapApplyView();}
 function mapPt(svg,cx,cy){
   var r=svg.getBoundingClientRect();
   return [mapView.x+(cx-r.left)/r.width*mapView.w, mapView.y+(cy-r.top)/r.height*mapView.h];
