@@ -16,6 +16,22 @@
       <description>DTCC's largest production tokenization event to date: live trades of tokenized stocks, ETFs, and U.S. Treasuries on DTC-held assets — collateral, repo, and margin in production. Powered by Chainlink per Chainlink's announcement.</description>
     </item>
     <item>
+      <title>RBA publishes Project Acacia final report — Chainlink runtime coordinated settlement in the Westpac use case</title>
+      <link>https://thelinkpanda.com/evidence/ev-063</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-063</guid>
+      <pubDate>Tue, 19 May 2026 09:00:00 GMT</pubDate>
+      <category>official</category>
+      <description>The RBA&#8217;s final report documents Westpac, Chainlink, and Imperium Markets settling tokenized term deposits via PayTo and RITS. Evidence class: pilot.</description>
+    </item>
+    <item>
+      <title>Bermuda Monetary Authority completes Embedded Supervision pilot built on Chainlink</title>
+      <link>https://thelinkpanda.com/evidence/ev-064</link>
+      <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-064</guid>
+      <pubDate>Wed, 06 May 2026 09:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>Real-time regulatory enforcement onchain via CCIP, Proof of Reserve, and Secure Mint — completed with Bermuda&#8217;s sovereign monetary authority. Evidence class: pilot.</description>
+    </item>
+    <item>
       <title>Bank of England selects Chainlink for its RT2 Synchronisation Lab</title>
       <link>https://thelinkpanda.com/evidence/ev-062</link>
       <guid isPermaLink="true">https://thelinkpanda.com/evidence/ev-062</guid>
