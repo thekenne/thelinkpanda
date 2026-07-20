@@ -5456,10 +5456,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 </style>
 <style>
 /* ═══ ADOPTION WORLD MAP ═══ */
-.map-wrap{display:grid;grid-template-columns:1fr 340px;gap:0;border:.5px solid var(--border)}
+.map-wrap{display:grid;grid-template-columns:1fr 340px;gap:0;border:.5px solid var(--border);margin-top:22px}
 @media(max-width:900px){.map-wrap{grid-template-columns:1fr}}
-.map-svgbox{position:relative;background:var(--bg2);padding:8px}
-#cl-map{width:100%;height:auto;max-height:none;display:block}
+.map-svgbox{position:relative;background:var(--bg2);padding:22px 10px 10px}
+#cl-map{width:100%;height:auto;max-height:none;aspect-ratio:1000/576;display:block;overflow:visible}
 .map-country{fill:#1B1B22;stroke:rgba(244,242,238,.18);stroke-width:.5;transition:fill .15s;cursor:default}
 .map-country.has{cursor:pointer}
 .map-country.c-production{fill:rgba(200,146,42,.85)}
@@ -6374,7 +6374,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
   </div></div>
   <div class="ev-body">
     <div class="map-wrap">
-      <div class="map-svgbox"><svg id="cl-map" viewBox="0 -28 1000 576" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="World map of Chainlink institutional connections"></svg><div class="map-tip" id="map-tip"></div><div class="map-zoom"><button onclick="mapZoomBtn(1.5)" title="Zoom in" aria-label="Zoom in">+</button><button onclick="mapZoomBtn(1/1.5)" title="Zoom out" aria-label="Zoom out">−</button><button onclick="mapZoomReset()" title="Reset view" aria-label="Reset view">⌂</button></div></div>
+      <div class="map-svgbox"><svg id="cl-map" width="1000" height="576" viewBox="0 -28 1000 576" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="World map of Chainlink institutional connections"></svg><div class="map-tip" id="map-tip"></div><div class="map-zoom"><button onclick="mapZoomBtn(1.5)" title="Zoom in" aria-label="Zoom in">+</button><button onclick="mapZoomBtn(1/1.5)" title="Zoom out" aria-label="Zoom out">−</button><button onclick="mapZoomReset()" title="Reset view" aria-label="Reset view">⌂</button></div></div>
       <div class="map-panel" id="map-panel">
         <div class="map-panel-title">Select a country</div>
         <div class="map-panel-sub">CLICK A HIGHLIGHTED REGION</div>
@@ -11741,7 +11741,7 @@ function mapInit(){
   });
   var n=Object.keys(CL_MAP).length;
   var cEl=document.getElementById('map-count');
-  if(cEl)cEl.textContent=n+' countries / regions';
+  if(cEl)cEl.textContent=n+' countries / regions \u2022 MAP V4';
   mapZoomSetup(svg);
 }
 var MAP_BASE={x:0,y:-28,w:1000,h:576};
