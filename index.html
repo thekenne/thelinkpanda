@@ -5528,6 +5528,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 #cl-map.panning{cursor:grabbing}
 #cl-map.zoomed{cursor:grab}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thelinkpanda.com/concepts/ccip#faq", "mainEntity": [{"@type": "Question", "name": "What is Chainlink CCIP?", "acceptedAnswer": {"@type": "Answer", "text": "CCIP (Cross-Chain Interoperability Protocol) is Chainlink's standard for securely transferring data, tokens, and instructions between different blockchain networks. Unlike standard bridges, it includes an independent Risk Management Network that validates every cross-chain message and treats all connected chains as potentially hostile."}}, {"@type": "Question", "name": "Which institutions use Chainlink CCIP?", "acceptedAnswer": {"@type": "Answer", "text": "Documented CCIP users include Swift, DTCC, JPMorgan (Kinexys), Coinbase, Mastercard, Euroclear, ANZ, Circle, and central-bank initiatives involving the Central Bank of Brazil, the HKMA, and the Monetary Authority of Singapore. Each is backed by a primary source in TheLinkPanda evidence vault."}}, {"@type": "Question", "name": "Is CCIP just another blockchain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "No. CCIP differs from standard bridges through its independent Risk Management Network, a separate set of nodes that monitors and validates cross-chain activity. Chainlink CCIP has recorded zero security incidents since mainnet launch, during a period when competing bridges lost over $2 billion to exploits."}}, {"@type": "Question", "name": "Why does the financial system need CCIP?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenized assets are being issued across many blockchains — public chains like Ethereum and private institutional ledgers. CCIP provides a single standard for these networks to exchange value and data without trusting any single bridge operator, which is why it has been selected for institutional settlement pilots by major banks and market infrastructures."}}]}</script>
 </head>
 <body>
 
@@ -9161,7 +9162,9 @@ var CONCEPTS = [
    who:['DTCC — Smart NAV Pilot across 10 institutions','Swift — tokenized asset settlement experiments with 12+ institutions','JPMorgan Kinexys — institutional DvP settlement','Coinbase — exclusive bridge for $7B in wrapped assets'],
    patent:'US20250342426 — CCIP Risk Management Network (application published 2025)',
    stat:'Zero security incidents since mainnet launch. $2B+ lost to competing bridge exploits in same period.',
-   ev:['ev-043','ev-044','ev-004','ev-047'],
+   ev:['ev-044','ev-043','ev-032','ev-004','ev-010','ev-047','ev-033','ev-045','ev-048','ev-051','ev-052','ev-057','ev-058','ev-064','ev-003','ev-030','ev-039','ev-053','ev-054','ev-055'],
+   seoTitle:'Chainlink CCIP: Institutional Adoption & Evidence | Who Uses CCIP',
+   seoDesc:'Which institutions use Chainlink CCIP? A verified, primary-sourced record: Swift, DTCC, JPMorgan, Coinbase, Mastercard, Euroclear, ANZ, and central banks. 20 evidence entries on CCIP cross-chain settlement.',
    color:'rgba(60,140,255,0.8)'},
   {id:'cre',name:'CRE',full:'Chainlink Runtime Environment',tagline:'Enterprise-grade orchestration for the tokenized financial system.',
    what:'CRE is Chainlink\'s workflow orchestration platform that connects blockchain infrastructure with legacy financial systems. It enables complex multi-step automated workflows across both on-chain and off-chain systems — coordinating data delivery, settlement instructions, compliance checks, and payment rails in real time.',
@@ -10761,13 +10764,15 @@ function trackerRender(filter){
   // Deep-link routes: /evidence/ev-041  /misconceptions/mc-049
   var _evMatch=path.match(/^\/evidence\/(ev-\d+)$/);
   var _mcMatch=path.match(/^\/misconceptions\/(mc-\d+)$/);
-  var page=_evMatch?'evidence':_mcMatch?'misconceptions':(path.indexOf('/organizations/')===0?'org':(URL_PAGES[path]||'home'));
+  var _cMatch=path.match(/^\/concepts\/([a-z0-9-]+)$/);
+  var page=_evMatch?'evidence':_mcMatch?'misconceptions':_cMatch?'concepts':(path.indexOf('/organizations/')===0?'org':(URL_PAGES[path]||'home'));
   var filter=null;
   if(qs){var mm=qs.match(/[?&]filter=([^&]+)/);if(mm)filter=decodeURIComponent(mm[1]);}
   showPage(page,filter,true);
   if(_evMatch){evState.evIds=[_evMatch[1]];evRender();evRenderBanner();}
   else if(page==='evidence'){evApplyUrl();}
   if(_mcMatch){setTimeout(function(){mcJumpTo(_mcMatch[1]);},300);}
+  if(_cMatch){setTimeout(function(){try{showConcept(_cMatch[1]);}catch(e){}},60);}
 
   window.addEventListener('popstate',function(e){
     var pp=window.location.pathname;
@@ -10947,6 +10952,7 @@ function buildConceptNav(){
 function showConcept(id){
   currentConcept=id;
   var c=CONCEPTS.filter(function(x){return x.id===id;})[0];if(!c)return;
+  try{var _t=c.seoTitle||(c.name+' \u2014 '+(c.full||'')+' | TheLinkPanda'),_d=c.seoDesc||c.tagline||'',_u='https://thelinkpanda.com/concepts/'+id;document.title=_t;var sm=function(s,a,v){var el=document.querySelector(s);if(el)el.setAttribute(a,v);};sm('meta[name="description"]','content',_d);sm('meta[property="og:title"]','content',_t);sm('meta[property="og:description"]','content',_d);sm('meta[property="og:url"]','content',_u);sm('meta[name="twitter:title"]','content',_t);sm('meta[name="twitter:description"]','content',_d);sm('link[rel="canonical"]','href',_u);try{history.replaceState({page:'concepts',concept:id},'',_u);}catch(e){}}catch(e){}
   var hdr=document.getElementById('concept-name-header');if(hdr)hdr.textContent=c.name;
   var body=document.getElementById('concept-body');if(!body)return;
   var evCards=(c.ev||[]).map(function(eid){
