@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>TheLinkPanda — The Chainlink Intelligence Platform</title>
 <meta name="description" content="The largest independent Chainlink research platform. 55 verified institutional evidence entries, 50 misconceptions corrected, DTCC, Swift, JPMorgan, Circle, RBA. Infrastructure Explorer, live metrics, patent registry." id="meta-desc"/>
 <meta name="keywords" content="Chainlink, CCIP, CRE, LINK token, tokenization, DTCC, Swift, JPMorgan, institutional blockchain, cross-chain, oracle infrastructure, DeFi, RWA, real-world assets, Circle USDC"/>
@@ -654,7 +654,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mob-drawer{
   position:fixed;top:0;right:0;
   width:min(300px,85vw);
-  height:100%;
+  height:100%;height:100dvh;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
   background:rgba(7,9,13,.98);
   border-left:.5px solid var(--border);
   z-index:300;
@@ -5529,6 +5532,49 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 #cl-map.zoomed{cursor:grab}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "@id": "https://thelinkpanda.com/concepts/ccip#faq", "mainEntity": [{"@type": "Question", "name": "What is Chainlink CCIP?", "acceptedAnswer": {"@type": "Answer", "text": "CCIP (Cross-Chain Interoperability Protocol) is Chainlink's standard for securely transferring data, tokens, and instructions between different blockchain networks. Unlike standard bridges, it includes an independent Risk Management Network that validates every cross-chain message and treats all connected chains as potentially hostile."}}, {"@type": "Question", "name": "Which institutions use Chainlink CCIP?", "acceptedAnswer": {"@type": "Answer", "text": "Documented CCIP users include Swift, DTCC, JPMorgan (Kinexys), Coinbase, Mastercard, Euroclear, ANZ, Circle, and central-bank initiatives involving the Central Bank of Brazil, the HKMA, and the Monetary Authority of Singapore. Each is backed by a primary source in TheLinkPanda evidence vault."}}, {"@type": "Question", "name": "Is CCIP just another blockchain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "No. CCIP differs from standard bridges through its independent Risk Management Network, a separate set of nodes that monitors and validates cross-chain activity. Chainlink CCIP has recorded zero security incidents since mainnet launch, during a period when competing bridges lost over $2 billion to exploits."}}, {"@type": "Question", "name": "Why does the financial system need CCIP?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenized assets are being issued across many blockchains — public chains like Ethereum and private institutional ledgers. CCIP provides a single standard for these networks to exchange value and data without trusting any single bridge operator, which is why it has been selected for institutional settlement pilots by major banks and market infrastructures."}}]}</script>
+<style>
+/* ═══ MOBILE / IN-APP BROWSER HARDENING (X, Instagram, etc.) ═══ */
+/* In-app browsers overlay their own toolbars; dvh + safe-area keeps content reachable */
+@supports (height: 100dvh){
+  .mob-drawer{height:100dvh}
+  #gs-overlay.open{max-height:100dvh}
+  .lightbox{height:100dvh}
+}
+/* Respect iOS safe areas everywhere it matters */
+body{padding-bottom:env(safe-area-inset-bottom,0px)}
+.mob-bottom-nav{padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+#gs-overlay.open{padding-top:max(6vh,env(safe-area-inset-top,0px));padding-bottom:env(safe-area-inset-bottom,0px)}
+
+@media(max-width:768px){
+  /* Never allow horizontal drift — the #1 cause of "hard to navigate" in in-app browsers */
+  html,body{max-width:100%;overflow-x:hidden}
+  /* Long unbroken strings (URLs, IDs) shouldn't force the page wide */
+  .ev-body-text,.ev-source,.ev-card-tag,.mc-body,.map-item .mo,p,li,h1,h2,h3{overflow-wrap:anywhere;word-break:normal}
+  /* Tap targets: iOS HIG minimum 44px */
+  .ev-filter,.ev-card-tag,.nav-search-btn,.map-zoom button,.mob-nav-link,.contrib-cta{min-height:40px;display:inline-flex;align-items:center}
+  .map-zoom button{width:42px;height:42px}
+  /* Horizontal chip rows: make it obvious they scroll, and let them scroll smoothly */
+  .ev-filters,.ev-tags-row{-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;padding-bottom:2px}
+  .ev-filters::after,.ev-tags-row::after{content:'';flex:0 0 12px}
+  /* Search overlay: full-width, thumb-reachable */
+  .gs-panel{max-width:100%;max-height:82vh}
+  #gs-input{font-size:16px} /* <16px triggers iOS auto-zoom on focus */
+  /* Map: side panel stacks under the map, and give the SVG a usable height */
+  .map-wrap{grid-template-columns:1fr}
+  .map-panel{max-height:none;border-left:none;border-top:.5px solid var(--border)}
+  .map-svgbox{padding:14px 6px 6px}
+  /* Evidence cards: tighter padding so text isn't squeezed into a column */
+  .ev-card{padding-left:14px;padding-right:14px}
+}
+@media(max-width:480px){
+  /* Chip rows get a fade hint at the right edge so users know to swipe */
+  .ev-filters,.ev-tags-row{position:relative}
+  .map-zoom{top:8px;right:8px}
+  .gs-panel{max-height:86vh}
+}
+/* Any input at <16px causes iOS to zoom and then the page feels "stuck" */
+input,select,textarea{font-size:16px}
+</style>
 </head>
 <body>
 
