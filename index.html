@@ -5484,6 +5484,10 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .gs-item:hover,.gs-item.sel{background:rgba(200,146,42,.07);border-left-color:var(--gold)}
 .gs-item .t{font-family:Georgia,serif;font-size:clamp(15px,.95vw,17px);color:#F4F2EE;line-height:1.35}
 .gs-item .s{font-family:var(--mono);font-size:clamp(12px,.72vw,13px);letter-spacing:.06em;color:rgba(244,242,238,.42);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gs-sugg{margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--gold);opacity:.8}
+.gs-chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:10px}
+.gs-chip{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:rgba(244,242,238,.75);background:none;border:.5px solid rgba(200,146,42,.3);padding:5px 11px;cursor:pointer;transition:all .15s}
+.gs-chip:hover{color:var(--gold);border-color:var(--gold);background:rgba(200,146,42,.08)}
 .gs-empty{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:rgba(244,242,238,.4);padding:26px 18px;text-align:center}
 .gs-hint{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:rgba(244,242,238,.28);padding:10px 18px;border-top:.5px solid rgba(244,242,238,.07)}
 .nav-search-btn{background:none;border:.5px solid rgba(200,146,42,.35);color:var(--gold);font-family:var(--mono);font-size:clamp(13px,.8vw,15px);letter-spacing:.1em;padding:5px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .15s;margin-left:6px}
@@ -5575,6 +5579,44 @@ body{padding-bottom:env(safe-area-inset-bottom,0px)}
 /* Any input at <16px causes iOS to zoom and then the page feels "stuck" */
 input,select,textarea{font-size:16px}
 </style>
+<style>
+/* ═══ METHODOLOGY PAGE ═══ */
+.meth-wrap{max-width:860px}
+.meth-sec{border-top:.5px solid var(--border);padding:clamp(22px,2.2vw,34px) 0}
+.meth-sec:first-child{border-top:none;padding-top:6px}
+.meth-h{font-family:var(--sans);font-size:clamp(19px,1.5vw,25px);font-weight:600;color:var(--w);margin:0 0 12px;letter-spacing:-.01em}
+.meth-p{font-size:clamp(15px,.92vw,17px);line-height:1.72;color:rgba(244,242,238,.72);margin:0 0 13px}
+.meth-p strong{color:rgba(244,242,238,.95);font-weight:600}
+.meth-list{margin:6px 0 14px;padding-left:20px}
+.meth-list li{font-size:clamp(15px,.92vw,17px);line-height:1.7;color:rgba(244,242,238,.72);margin-bottom:9px}
+.meth-list li strong{color:var(--gold);font-family:var(--mono);font-size:.92em;letter-spacing:.04em}
+.meth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:16px 0 18px}
+.meth-card{border:.5px solid var(--border);padding:14px 16px;background:rgba(244,242,238,.02)}
+.meth-card p{font-size:clamp(14px,.85vw,16px);line-height:1.6;color:rgba(244,242,238,.62);margin:8px 0 0}
+.meth-badge{font-family:var(--mono);font-size:11px;letter-spacing:.18em;padding:3px 8px;display:inline-block;border:.5px solid}
+.meth-badge.production{color:#C8922A;border-color:rgba(200,146,42,.7);background:rgba(200,146,42,.12)}
+.meth-badge.pilot{color:rgba(200,146,42,.85);border-color:rgba(200,146,42,.4)}
+.meth-badge.engagement{color:rgba(244,242,238,.6);border-color:rgba(244,242,238,.25)}
+.meth-badge.documentation{color:rgba(244,242,238,.45);border-color:rgba(244,242,238,.18);border-style:dashed}
+</style>
+<style>
+/* ═══ METRICS PROVENANCE ═══ */
+.mprov{border:.5px solid var(--border);background:rgba(244,242,238,.02);padding:14px 16px;margin-bottom:clamp(16px,1.6vw,26px)}
+.mprov-t{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;color:var(--gold);opacity:.85;margin-bottom:10px}
+.mprov-row{display:flex;flex-wrap:wrap;gap:14px}
+.mprov-i{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:clamp(12px,.72vw,13.5px);letter-spacing:.05em;color:rgba(244,242,238,.6)}
+.mp{width:9px;height:9px;flex-shrink:0;border-radius:50%}
+.mp.live{background:rgba(80,200,120,.9)}
+.mp.verified{background:var(--gold)}
+.mp.est{background:rgba(244,242,238,.3);border:.5px dashed rgba(244,242,238,.5)}
+.mprov-note{margin-top:11px;font-size:clamp(13px,.8vw,14.5px);line-height:1.6;color:rgba(244,242,238,.45)}
+.mprov-link{background:none;border:none;color:var(--gold);font-family:var(--mono);font-size:inherit;letter-spacing:.06em;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
+.mprov-link:hover{color:#E8B04A}
+/* trust strip on evidence header */
+.ev-trust{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--mono);font-size:clamp(12px,.74vw,13.5px);letter-spacing:.06em;color:rgba(244,242,238,.45)}
+.ev-trust button{background:none;border:.5px solid rgba(200,146,42,.3);color:var(--gold);font-family:var(--mono);font-size:inherit;letter-spacing:.06em;padding:3px 9px;cursor:pointer;transition:all .15s}
+.ev-trust button:hover{background:rgba(200,146,42,.08);border-color:var(--gold)}
+</style>
 </head>
 <body>
 
@@ -5628,7 +5670,7 @@ input,select,textarea{font-size:16px}
         <!-- LEARN -->
         <div class="nav-more-group-label">LEARN</div>
         <button class="nav-more-item" onclick="showPage('concepts');navCloseMore()">Chainlink Explained</button>
-        <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button><button class="nav-more-item" onclick="showPage('map');navCloseMore()">Adoption World Map</button>
+        <button class="nav-more-item" onclick="showPage('timeline');navCloseMore()">Adoption Timeline</button><button class="nav-more-item" onclick="showPage('map');navCloseMore()">Adoption World Map</button><button class="nav-more-item" onclick="showPage('methodology');navCloseMore()">Methodology &amp; Standards</button>
         <button class="nav-more-item" onclick="showPage('digest');navCloseMore()">Research Digest</button>
         <!-- CONTENT -->
         <div class="nav-more-group-label">CONTENT</div>
@@ -5674,7 +5716,7 @@ input,select,textarea{font-size:16px}
       <button class="mob-nav-link" onclick="showPage('quotes');closeMobileMenu()">💬 Quote Library</button>
       <div style="font-size:14px;letter-spacing:.18em;color:rgba(200,146,42,.65);padding:12px 0 8px;margin-bottom:4px;border-bottom:.5px solid rgba(244,242,238,.06)">LEARN</div>
       <button class="mob-nav-link" onclick="showPage('concepts');closeMobileMenu()">⬡ Chainlink Explained</button>
-      <button class="mob-nav-link" onclick="showPage('timeline');closeMobileMenu()">📅 Adoption Timeline</button><button class="mob-nav-link" onclick="showPage('map');closeMobileMenu()">🌍 Adoption World Map</button>
+      <button class="mob-nav-link" onclick="showPage('timeline');closeMobileMenu()">📅 Adoption Timeline</button><button class="mob-nav-link" onclick="showPage('map');closeMobileMenu()">🌍 Adoption World Map</button><button class="mob-nav-link" onclick="showPage('methodology');closeMobileMenu()">⚖️ Methodology &amp; Standards</button>
       <button class="mob-nav-link" onclick="showPage('patents');closeMobileMenu()">🔏 Patent Registry</button>
       <button class="mob-nav-link" onclick="showPage('digest');closeMobileMenu()">🐼 Research Digest</button>
       <button class="mob-nav-link" onclick="showPage('metcalfe');closeMobileMenu()">📈 Network Calculator</button>
@@ -6243,7 +6285,8 @@ input,select,textarea{font-size:16px}
     <div style="margin-left:auto;font-family:var(--mono);font-size:14px;color:var(--w20)" id="metrics-live-timestamp"></div>
   </div>
 
-  <div class="msec">
+  <div style="max-width:var(--content-max);margin:0 auto clamp(16px,1.6vw,26px);padding:0 var(--pad,16px)"><div class="mprov"><div class="mprov-t">DATA PROVENANCE</div><div class="mprov-row"><span class="mprov-i"><i class="mp live"></i>LIVE — fetched from a provider API at page load</span><span class="mprov-i"><i class="mp verified"></i>VERIFIED — manually checked against the linked source</span><span class="mprov-i"><i class="mp est"></i>ESTIMATE — derived or approximate; basis stated on the metric</span></div><div class="mprov-note">Every figure links to its original source. Where a live feed is unavailable, the last verified value is shown with its date rather than a stale number presented as current. <button class="mprov-link" onclick="showPage('methodology')">Full methodology ↗</button></div></div></div>
+<div class="msec">
     <div style="max-width:var(--content-max);margin:0 auto">
       <div class="msec-head">
         <div class="msec-title-block">
@@ -6461,6 +6504,78 @@ input,select,textarea{font-size:16px}
         <div class="map-panel-sub">CLICK A HIGHLIGHTED REGION</div>
         <div style="font-size:14px;color:var(--w40);line-height:1.6">Colors reflect the strongest <em>verified</em> evidence class per country — production &gt; pilot &gt; engagement &gt; documentation. Every listed connection links to its evidence entry.</div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════ METHODOLOGY ════════════════════════ -->
+<div class="page" id="page-methodology">
+  <div class="ev-header"><div class="ev-header-inner">
+    <div class="ev-title-row"><div class="ev-title">Methodology &amp; Editorial Standards</div><span class="ev-count">HOW THIS SITE WORKS</span></div>
+    <div style="font-size:clamp(15px,.8vw,17px);color:var(--w40);max-width:780px;line-height:1.6">How evidence is gathered, graded, and corrected \u2014 and what the confidence scores actually mean. Everything on this site is intended to be checkable against a primary source.</div>
+  </div></div>
+  <div class="ev-body">
+    <div class="meth-wrap">
+
+      <section class="meth-sec">
+        <h2 class="meth-h">What counts as evidence</h2>
+        <p class="meth-p">An entry enters the Evidence Vault only if a <strong>primary or first-party source</strong> documents it: an official press release, a regulator or central-bank publication, a company statement, a filing, a patent record, or direct reporting that names the parties involved. Aggregator articles and social-media claims are not sufficient on their own \u2014 they may point us toward a story, but the entry cites the underlying source.</p>
+        <p class="meth-p">Where a claim comes from one party about another (for example, a vendor describing its role in a client's project), the entry says so explicitly rather than blending the two into a single assertion.</p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">Evidence classes \u2014 how far something has actually gone</h2>
+        <p class="meth-p">Not all adoption is equal, and conflating a conference appearance with a live deployment is how research loses credibility. Every entry is graded into one of four classes, stated in the entry body:</p>
+        <div class="meth-grid">
+          <div class="meth-card"><div class="meth-badge production">PRODUCTION</div><p>Live systems handling real assets, real money, or real transactions. Highest bar.</p></div>
+          <div class="meth-card"><div class="meth-badge pilot">PILOT</div><p>Formal experiments, proofs-of-concept, or limited-production phases inside an official programme. Real work, not yet live at scale.</p></div>
+          <div class="meth-card"><div class="meth-badge engagement">ENGAGEMENT</div><p>Formal relationships without deployment: signed MoUs, official programme selection, invited participation, conference panels.</p></div>
+          <div class="meth-card"><div class="meth-badge documentation">DOCUMENTATION</div><p>An institution describing or analysing the technology in its own publications \u2014 explicitly not an endorsement or an adoption.</p></div>
+        </div>
+        <p class="meth-p">If an institution appears on the Adoption World Map, the colour reflects its <em>strongest verified class</em> \u2014 and each listed connection carries its own class label, so a country with one production system and one research mention is not presented as uniformly "adopted."</p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">What the confidence score means</h2>
+        <p class="meth-p">The percentage on each entry describes <strong>source strength and verifiability</strong> \u2014 not the importance of the news, and not a prediction about anything.</p>
+        <ul class="meth-list">
+          <li><strong>95\u2013100%</strong> \u2014 Primary source published by the institution itself (central bank report, regulator announcement, official press release, patent record).</li>
+          <li><strong>85\u201394%</strong> \u2014 First-party statement or official joint release; or credible direct reporting corroborated by a second independent source.</li>
+          <li><strong>70\u201384%</strong> \u2014 Single credible report, or a first-party claim about a third party that the third party has not itself confirmed.</li>
+          <li><strong>Below 70%</strong> \u2014 Not published. If it cannot clear this bar, it stays out of the vault.</li>
+        </ul>
+        <p class="meth-p">Where an entry's confidence is capped by a specific limitation (for example, a company's claim about a partner's project), that limitation is written into the entry's context field rather than hidden in the number.</p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">How deployment status is worded</h2>
+        <p class="meth-p">Entries use the language of the source, not promotional language. If a report says a system "was due to come on stream in November 2025," the entry says that \u2014 it does not say the system is live. If a programme is a simulation with no real funds, the entry says so. Overstating deployment is the single most common failure in crypto research, and avoiding it is the point of this site.</p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">What this site does not claim</h2>
+        <p class="meth-p">Documented adjacency is not participation. If an institution works with Chainlink on one initiative and separately participates in an unrelated programme, those are recorded as two separate facts \u2014 never merged into a claim that Chainlink is "in" the second programme. Analysis that draws connections between separate facts is published in the Research Digest and labelled as analysis, not as evidence.</p>
+        <p class="meth-p">Nothing on this site is investment advice, a price prediction, or a recommendation to buy or sell anything.</p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">Corrections policy</h2>
+        <p class="meth-p">Errors get fixed, visibly. If an entry is wrong, it is corrected or removed \u2014 not quietly softened. If you can show that something here is inaccurate, or you have a primary source for a connection that is missing, please send it: corrections are welcomed and acted on, and the correction matters more than being right the first time.</p>
+        <p class="meth-p"><button class="contrib-cta" onclick="showPage('contribute')">+ Submit a correction or new evidence</button></p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">Independence &amp; disclosure</h2>
+        <p class="meth-p">TheLinkPanda is an independent research project. It is not affiliated with, funded by, or endorsed by Chainlink Labs, the Chainlink Foundation, or any institution documented on this site. No payment is accepted in exchange for adding, removing, or changing an evidence entry.</p>
+        <p class="meth-p">As with most independent researchers covering a single ecosystem, the author holds a position in the asset discussed. That is a real conflict of interest, and it is disclosed here so readers can weigh the research accordingly \u2014 which is also why every claim is built to be checked against its original source rather than taken on trust.</p>
+      </section>
+
+      <section class="meth-sec">
+        <h2 class="meth-h">Sources for live metrics</h2>
+        <p class="meth-p">Figures on the Live Metrics page come from third-party providers and official sources, each linked on the metric itself. Values are labelled by type: <strong>live</strong> (fetched from an API at page load), <strong>verified</strong> (manually checked against a named source on the date shown), and <strong>estimate</strong> (derived or approximate, with the basis stated). Where a live feed is unavailable, the last verified value is shown with its date rather than a stale number presented as current.</p>
+      </section>
+
     </div>
   </div>
 </div>
@@ -6720,6 +6835,7 @@ input,select,textarea{font-size:16px}
       </div>
       <div class="ev-tags-row" id="ev-tag-row"></div>
       <div style="margin-top:8px"><button class="contrib-cta" onclick="showPage('contribute')">+ Contribute Evidence</button></div>
+      <div class="ev-trust">Every entry cites a primary source and is graded by evidence class. <button onclick="showPage('methodology')">Methodology &amp; standards ↗</button></div>
     </div>
   </div>
 
@@ -8357,12 +8473,12 @@ function exSearch(query){
 function exRender(){exApplyVisuals();}
 function exSvcFilter(s){exClickService(s);}
 
-var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','map','privacy','terms','disclaimer','research','matrix','compare','tracker'];
+var ALL_PAGES=['home','explorer','infographics','videos','art','about','quotes','evidence','misconceptions','contribute','contact','org','patents','metrics','timeline','concepts','digest','metcalfe','map','methodology','privacy','terms','disclaimer','research','matrix','compare','tracker'];
 // ── Page → URL map ──
-var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker',map:'/map',/* TODO: Re-enable AI Assistant — restore entry below
+var PAGE_URLS={home:'/',explorer:'/explorer',infographics:'/infographics',videos:'/videos',art:'/art',about:'/about',quotes:'/quotes',evidence:'/evidence',misconceptions:'/misconceptions',contribute:'/contribute',contact:'/work',metrics:'/metrics',timeline:'/timeline',concepts:'/concepts',digest:'/digest',metcalfe:'/network-calculator',privacy:'/privacy',terms:'/terms',disclaimer:'/disclaimer',patents:'/patents',research:'/research',matrix:'/matrix',compare:'/compare',tracker:'/tracker',map:'/map',methodology:'/methodology',/* TODO: Re-enable AI Assistant — restore entry below
   'ai-research':'/ai-research'
 */};
-var URL_PAGES={'/map':'map','/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
+var URL_PAGES={'/methodology':'methodology','/map':'map','/':'home','/patents':'patents','/metrics':'metrics','/explorer':'explorer','/infographics':'infographics','/videos':'videos','/art':'art','/about':'about','/quotes':'quotes','/evidence':'evidence','/misconceptions':'misconceptions','/contribute':'contribute','/work':'contact'};
 
 var PAGE_META_MAP = {
   'home': {title:'TheLinkPanda — The Chainlink Intelligence Platform', desc:'The largest independent Chainlink research platform. Evidence vault, Explorer, metrics, patents.', path:'/'},
@@ -11765,7 +11881,7 @@ function gsRender(){
   var q=(document.getElementById('gs-input').value||'').trim().toLowerCase();
   var box=document.getElementById('gs-results');
   gsFlat=[];gsSel=0;
-  if(q.length<2){box.innerHTML='<div class="gs-empty">Type at least 2 characters\u2026</div>';return;}
+  if(q.length<2){box.innerHTML='<div class="gs-empty">Search 64 evidence entries, 50 misconceptions, 59 patents, institutions and concepts.<div class="gs-sugg">Popular searches:</div><div class="gs-chips">'+['CCIP','DTCC','Swift','Central Banks','Tokenisation','CRE','Bank of England','Proof of Reserve'].map(function(s){return '<button class="gs-chip" onclick="gsSuggest(\''+s+'\')">'+s+'</button>';}).join('')+'</div></div>';return;}
   gsBuild();
   var terms=q.split(/\s+/);
   var hits=[];
@@ -11782,8 +11898,9 @@ function gsRender(){
       html+='<button class="gs-item'+(idx===0?' sel':'')+'" data-i="'+idx+'" onclick="gsGo('+idx+')"><div class="t">'+gsEsc(it.label)+'</div><div class="s">'+gsEsc(it.sub)+'</div></button>';
     });
   });
-  box.innerHTML=html||'<div class="gs-empty">No results for \u201C'+gsEsc(q)+'\u201D</div>';
+  box.innerHTML=html||('<div class="gs-empty">No results for \u201C'+gsEsc(q)+'\u201D'+'<div class="gs-sugg">Try one of these:</div><div class="gs-chips">'+['CCIP','DTCC','Swift','Tokenisation','CRE','Data Streams','Central Banks','Proof of Reserve'].map(function(s){return '<button class="gs-chip" onclick="gsSuggest(\''+s+'\')">'+s+'</button>';}).join('')+'</div></div>');
 }
+function gsSuggest(t){var i=document.getElementById('gs-input');if(i){i.value=t;gsRender();i.focus();}}
 function gsEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function gsGo(i){if(!gsFlat[i])return;gsClose();gsFlat[i].go();}
 function gsOpen(){
