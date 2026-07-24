@@ -5641,6 +5641,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .tk-fl.tk-split{border-color:var(--gold);background:rgba(200,146,42,.08);color:var(--gold)}
 .tk-ar{color:var(--gold);opacity:.6;font-size:16px;line-height:1}
 </style>
+<style>
+/* ═══ LONG-FORM PAGE HEADER SPACING (tokenomics / methodology / glossary) ═══ */
+#page-tokenomics .ev-body,#page-methodology .ev-body{padding-top:clamp(26px,3vw,46px)}
+#page-tokenomics .ev-header,#page-methodology .ev-header{position:relative;top:auto}
+#page-tokenomics .tk-wrap>.tk-callout:first-child,#page-methodology .meth-wrap>.meth-sec:first-child{margin-top:4px}
+@media(max-width:768px){
+  #page-tokenomics .ev-body,#page-methodology .ev-body{padding-top:18px}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -6538,62 +6547,62 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 <div class="page" id="page-methodology">
   <div class="ev-header"><div class="ev-header-inner">
     <div class="ev-title-row"><div class="ev-title">Methodology &amp; Editorial Standards</div><span class="ev-count">HOW THIS SITE WORKS</span></div>
-    <div style="font-size:clamp(15px,.8vw,17px);color:var(--w40);max-width:780px;line-height:1.6">How evidence is gathered, graded, and corrected \u2014 and what the confidence scores actually mean. Everything on this site is intended to be checkable against a primary source.</div>
+    <div style="font-size:clamp(15px,.8vw,17px);color:var(--w40);max-width:780px;line-height:1.6">How evidence is gathered, graded, and corrected — and what the confidence scores actually mean. Everything on this site is intended to be checkable against a primary source.</div>
   </div></div>
   <div class="ev-body">
     <div class="meth-wrap">
 
       <section class="meth-sec">
         <h2 class="meth-h">What counts as evidence</h2>
-        <p class="meth-p">An entry enters the Evidence Vault only if a <strong>primary or first-party source</strong> documents it: an official press release, a regulator or central-bank publication, a company statement, a filing, a patent record, or direct reporting that names the parties involved. Aggregator articles and social-media claims are not sufficient on their own \u2014 they may point us toward a story, but the entry cites the underlying source.</p>
+        <p class="meth-p">An entry enters the Evidence Vault only if a <strong>primary or first-party source</strong> documents it: an official press release, a regulator or central-bank publication, a company statement, a filing, a patent record, or direct reporting that names the parties involved. Aggregator articles and social-media claims are not sufficient on their own — they may point us toward a story, but the entry cites the underlying source.</p>
         <p class="meth-p">Where a claim comes from one party about another (for example, a vendor describing its role in a client's project), the entry says so explicitly rather than blending the two into a single assertion.</p>
       </section>
 
       <section class="meth-sec">
-        <h2 class="meth-h">Evidence classes \u2014 how far something has actually gone</h2>
+        <h2 class="meth-h">Evidence classes — how far something has actually gone</h2>
         <p class="meth-p">Not all adoption is equal, and conflating a conference appearance with a live deployment is how research loses credibility. Every entry is graded into one of four classes, stated in the entry body:</p>
         <div class="meth-grid">
           <div class="meth-card"><div class="meth-badge production">PRODUCTION</div><p>Live systems handling real assets, real money, or real transactions. Highest bar.</p></div>
           <div class="meth-card"><div class="meth-badge pilot">PILOT</div><p>Formal experiments, proofs-of-concept, or limited-production phases inside an official programme. Real work, not yet live at scale.</p></div>
           <div class="meth-card"><div class="meth-badge engagement">ENGAGEMENT</div><p>Formal relationships without deployment: signed MoUs, official programme selection, invited participation, conference panels.</p></div>
-          <div class="meth-card"><div class="meth-badge documentation">DOCUMENTATION</div><p>An institution describing or analysing the technology in its own publications \u2014 explicitly not an endorsement or an adoption.</p></div>
+          <div class="meth-card"><div class="meth-badge documentation">DOCUMENTATION</div><p>An institution describing or analysing the technology in its own publications — explicitly not an endorsement or an adoption.</p></div>
         </div>
-        <p class="meth-p">If an institution appears on the Adoption World Map, the colour reflects its <em>strongest verified class</em> \u2014 and each listed connection carries its own class label, so a country with one production system and one research mention is not presented as uniformly "adopted."</p>
+        <p class="meth-p">If an institution appears on the Adoption World Map, the colour reflects its <em>strongest verified class</em> — and each listed connection carries its own class label, so a country with one production system and one research mention is not presented as uniformly "adopted."</p>
       </section>
 
       <section class="meth-sec">
         <h2 class="meth-h">What the confidence score means</h2>
-        <p class="meth-p">The percentage on each entry describes <strong>source strength and verifiability</strong> \u2014 not the importance of the news, and not a prediction about anything.</p>
+        <p class="meth-p">The percentage on each entry describes <strong>source strength and verifiability</strong> — not the importance of the news, and not a prediction about anything.</p>
         <ul class="meth-list">
-          <li><strong>95\u2013100%</strong> \u2014 Primary source published by the institution itself (central bank report, regulator announcement, official press release, patent record).</li>
-          <li><strong>85\u201394%</strong> \u2014 First-party statement or official joint release; or credible direct reporting corroborated by a second independent source.</li>
-          <li><strong>70\u201384%</strong> \u2014 Single credible report, or a first-party claim about a third party that the third party has not itself confirmed.</li>
-          <li><strong>Below 70%</strong> \u2014 Not published. If it cannot clear this bar, it stays out of the vault.</li>
+          <li><strong>95–100%</strong> — Primary source published by the institution itself (central bank report, regulator announcement, official press release, patent record).</li>
+          <li><strong>85–94%</strong> — First-party statement or official joint release; or credible direct reporting corroborated by a second independent source.</li>
+          <li><strong>70–84%</strong> — Single credible report, or a first-party claim about a third party that the third party has not itself confirmed.</li>
+          <li><strong>Below 70%</strong> — Not published. If it cannot clear this bar, it stays out of the vault.</li>
         </ul>
         <p class="meth-p">Where an entry's confidence is capped by a specific limitation (for example, a company's claim about a partner's project), that limitation is written into the entry's context field rather than hidden in the number.</p>
       </section>
 
       <section class="meth-sec">
         <h2 class="meth-h">How deployment status is worded</h2>
-        <p class="meth-p">Entries use the language of the source, not promotional language. If a report says a system "was due to come on stream in November 2025," the entry says that \u2014 it does not say the system is live. If a programme is a simulation with no real funds, the entry says so. Overstating deployment is the single most common failure in crypto research, and avoiding it is the point of this site.</p>
+        <p class="meth-p">Entries use the language of the source, not promotional language. If a report says a system "was due to come on stream in November 2025," the entry says that — it does not say the system is live. If a programme is a simulation with no real funds, the entry says so. Overstating deployment is the single most common failure in crypto research, and avoiding it is the point of this site.</p>
       </section>
 
       <section class="meth-sec">
         <h2 class="meth-h">What this site does not claim</h2>
-        <p class="meth-p">Documented adjacency is not participation. If an institution works with Chainlink on one initiative and separately participates in an unrelated programme, those are recorded as two separate facts \u2014 never merged into a claim that Chainlink is "in" the second programme. Analysis that draws connections between separate facts is published in the Research Digest and labelled as analysis, not as evidence.</p>
+        <p class="meth-p">Documented adjacency is not participation. If an institution works with Chainlink on one initiative and separately participates in an unrelated programme, those are recorded as two separate facts — never merged into a claim that Chainlink is "in" the second programme. Analysis that draws connections between separate facts is published in the Research Digest and labelled as analysis, not as evidence.</p>
         <p class="meth-p">Nothing on this site is investment advice, a price prediction, or a recommendation to buy or sell anything.</p>
       </section>
 
       <section class="meth-sec">
         <h2 class="meth-h">Corrections policy</h2>
-        <p class="meth-p">Errors get fixed, visibly. If an entry is wrong, it is corrected or removed \u2014 not quietly softened. If you can show that something here is inaccurate, or you have a primary source for a connection that is missing, please send it: corrections are welcomed and acted on, and the correction matters more than being right the first time.</p>
+        <p class="meth-p">Errors get fixed, visibly. If an entry is wrong, it is corrected or removed — not quietly softened. If you can show that something here is inaccurate, or you have a primary source for a connection that is missing, please send it: corrections are welcomed and acted on, and the correction matters more than being right the first time.</p>
         <p class="meth-p"><button class="contrib-cta" onclick="showPage('contribute')">+ Submit a correction or new evidence</button></p>
       </section>
 
       <section class="meth-sec">
         <h2 class="meth-h">Independence &amp; disclosure</h2>
         <p class="meth-p">TheLinkPanda is an independent research project. It is not affiliated with, funded by, or endorsed by Chainlink Labs, the Chainlink Foundation, or any institution documented on this site. No payment is accepted in exchange for adding, removing, or changing an evidence entry.</p>
-        <p class="meth-p">As with most independent researchers covering a single ecosystem, the author holds a position in the asset discussed. That is a real conflict of interest, and it is disclosed here so readers can weigh the research accordingly \u2014 which is also why every claim is built to be checked against its original source rather than taken on trust.</p>
+        <p class="meth-p">As with most independent researchers covering a single ecosystem, the author holds a position in the asset discussed. That is a real conflict of interest, and it is disclosed here so readers can weigh the research accordingly — which is also why every claim is built to be checked against its original source rather than taken on trust.</p>
       </section>
 
       <section class="meth-sec">
@@ -6610,8 +6619,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 <div class="page" id="page-glossary">
   <div class="ev-header"><div class="ev-header-inner">
     <div class="ev-title-row"><div class="ev-title">Glossary</div><span class="ev-count" id="gl-count"></span></div>
-    <div style="font-size:clamp(15px,.8vw,17px);color:var(--w40);max-width:780px;line-height:1.6">Plain-English definitions of the institutional finance and blockchain terms used throughout this site \u2014 written for someone encountering them for the first time.</div>
-    <div class="ev-search-wrap"><input class="ev-search" id="gl-search" type="text" placeholder="Search terms\u2026" oninput="glRender()" autocomplete="off"/></div>
+    <div style="font-size:clamp(15px,.8vw,17px);color:var(--w40);max-width:780px;line-height:1.6">Plain-English definitions of the institutional finance and blockchain terms used throughout this site — written for someone encountering them for the first time.</div>
+    <div class="ev-search-wrap"><input class="ev-search" id="gl-search" type="text" placeholder="Search terms…" oninput="glRender()" autocomplete="off"/></div>
     <div class="ev-filters" id="gl-cats"></div>
   </div></div>
   <div class="ev-body"><div id="gl-grid" class="gl-grid"></div></div>
@@ -6621,7 +6630,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 <!-- ════════════════════════ TOKENOMICS ════════════════════════ -->
 <div class="page" id="page-tokenomics">
   <div class="ev-header"><div class="ev-header-inner">
-    <div class="ev-title-row"><div class="ev-title">Chainlink Tokenomics, Explained</div><span class="ev-count">MECHANICS \u2014 NOT PREDICTIONS</span></div>
+    <div class="ev-title-row"><div class="ev-title">Chainlink Tokenomics, Explained</div><span class="ev-count">MECHANICS — NOT PREDICTIONS</span></div>
     <div style="font-size:clamp(15px,.8vw,17px);color:var(--w40);max-width:820px;line-height:1.6">How the LINK token actually functions inside the network: what it is used for, where fees come from, how staking works, and what remains genuinely uncertain. This page describes verifiable mechanics. It contains no price targets, no forecasts, and no investment advice.</div>
   </div></div>
   <div class="ev-body">
@@ -6635,46 +6644,46 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         <h2 class="tk-h">1. What LINK actually does</h2>
         <p class="tk-p">LINK has three distinct functions inside the network. Conflating them is the source of most confusion:</p>
         <div class="tk-grid">
-          <div class="tk-card"><div class="tk-num">01</div><div class="tk-ct">Payment for services</div><p>Users of Chainlink services \u2014 data feeds, CCIP messages, automation, compute \u2014 pay fees, and node operators are compensated in LINK. This is the original and simplest function: LINK is the unit of account for oracle work.</p></div>
-          <div class="tk-card"><div class="tk-num">02</div><div class="tk-ct">Staking collateral (a performance bond)</div><p>Node operators lock LINK as a bond backing their promise to report honestly and reliably. If they misbehave or fail to perform, that stake can be slashed. The stake is not a yield product \u2014 it is economic skin in the game that makes dishonesty expensive.</p></div>
-          <div class="tk-card"><div class="tk-num">03</div><div class="tk-ct">Security budget</div><p>The value of staked LINK determines the cost of attacking or corrupting a Decentralized Oracle Network. Systems securing large amounts of value need a proportionally meaningful security budget \u2014 that relationship is the core of the design.</p></div>
+          <div class="tk-card"><div class="tk-num">01</div><div class="tk-ct">Payment for services</div><p>Users of Chainlink services — data feeds, CCIP messages, automation, compute — pay fees, and node operators are compensated in LINK. This is the original and simplest function: LINK is the unit of account for oracle work.</p></div>
+          <div class="tk-card"><div class="tk-num">02</div><div class="tk-ct">Staking collateral (a performance bond)</div><p>Node operators lock LINK as a bond backing their promise to report honestly and reliably. If they misbehave or fail to perform, that stake can be slashed. The stake is not a yield product — it is economic skin in the game that makes dishonesty expensive.</p></div>
+          <div class="tk-card"><div class="tk-num">03</div><div class="tk-ct">Security budget</div><p>The value of staked LINK determines the cost of attacking or corrupting a Decentralized Oracle Network. Systems securing large amounts of value need a proportionally meaningful security budget — that relationship is the core of the design.</p></div>
         </div>
-        <p class="tk-p tk-note">Related misconception corrections: <button class="tk-link" onclick="showPage('misconceptions');setTimeout(function(){try{mcJumpTo('mc-021');}catch(e){}},250)">LINK is only a payment token \u2197</button> <button class="tk-link" onclick="showPage('misconceptions');setTimeout(function(){try{mcJumpTo('mc-022');}catch(e){}},250)">LINK has no role in network security \u2197</button></p>
+        <p class="tk-p tk-note">Related misconception corrections: <button class="tk-link" onclick="showPage('misconceptions');setTimeout(function(){try{mcJumpTo('mc-021');}catch(e){}},250)">LINK is only a payment token ↗</button> <button class="tk-link" onclick="showPage('misconceptions');setTimeout(function(){try{mcJumpTo('mc-022');}catch(e){}},250)">LINK has no role in network security ↗</button></p>
       </section>
 
       <section class="tk-sec">
         <h2 class="tk-h">2. Where the revenue comes from</h2>
-        <p class="tk-p">Chainlink is frequently described as "just price feeds." In practice the network operates several distinct fee-generating services. Each is a real product with real users; their relative size varies, and Chainlink does not publish a full audited revenue breakdown, so treat any precise revenue figure you see \u2014 anywhere \u2014 with appropriate caution.</p>
+        <p class="tk-p">Chainlink is frequently described as "just price feeds." In practice the network operates several distinct fee-generating services. Each is a real product with real users; their relative size varies, and Chainlink does not publish a full audited revenue breakdown, so treat any precise revenue figure you see — anywhere — with appropriate caution.</p>
         <ul class="tk-list">
-          <li><strong>Data Feeds</strong> \u2014 the original service: aggregated market data delivered onchain, securing a large share of DeFi collateral.</li>
-          <li><strong>Data Streams</strong> \u2014 low-latency, pull-based market data for applications needing sub-second updates. Subscription and per-use fees.</li>
-          <li><strong>CCIP</strong> \u2014 fees for cross-chain messages and token transfers. The service institutions use for cross-ledger settlement.</li>
-          <li><strong>Automation</strong> \u2014 fees for reliably triggering smart contract functions without centralized bots.</li>
-          <li><strong>Functions / compute</strong> \u2014 fees for offchain computation delivered with cryptographic guarantees.</li>
-          <li><strong>SVR (Smart Value Recapture)</strong> \u2014 redirects MEV value that would otherwise be captured by block builders back toward the oracle network and the application. Converts a leak into a revenue source.</li>
-          <li><strong>BUILD</strong> \u2014 partner protocols commit a portion of their own token supply in exchange for oracle services and support, creating token flows to stakers that are not funded by new LINK issuance.</li>
+          <li><strong>Data Feeds</strong> — the original service: aggregated market data delivered onchain, securing a large share of DeFi collateral.</li>
+          <li><strong>Data Streams</strong> — low-latency, pull-based market data for applications needing sub-second updates. Subscription and per-use fees.</li>
+          <li><strong>CCIP</strong> — fees for cross-chain messages and token transfers. The service institutions use for cross-ledger settlement.</li>
+          <li><strong>Automation</strong> — fees for reliably triggering smart contract functions without centralized bots.</li>
+          <li><strong>Functions / compute</strong> — fees for offchain computation delivered with cryptographic guarantees.</li>
+          <li><strong>SVR (Smart Value Recapture)</strong> — redirects MEV value that would otherwise be captured by block builders back toward the oracle network and the application. Converts a leak into a revenue source.</li>
+          <li><strong>BUILD</strong> — partner protocols commit a portion of their own token supply in exchange for oracle services and support, creating token flows to stakers that are not funded by new LINK issuance.</li>
         </ul>
-        <p class="tk-p tk-note">Explore the services: <button class="tk-link" onclick="showConcept('ccip')">CCIP \u2197</button> <button class="tk-link" onclick="showConcept('data-streams')">Data Streams \u2197</button> <button class="tk-link" onclick="showConcept('svr')">SVR \u2197</button> <button class="tk-link" onclick="showConcept('automation')">Automation \u2197</button></p>
+        <p class="tk-p tk-note">Explore the services: <button class="tk-link" onclick="showConcept('ccip')">CCIP ↗</button> <button class="tk-link" onclick="showConcept('data-streams')">Data Streams ↗</button> <button class="tk-link" onclick="showConcept('svr')">SVR ↗</button> <button class="tk-link" onclick="showConcept('automation')">Automation ↗</button></p>
       </section>
 
 
       <section class="tk-sec">
-        <h2 class="tk-h">3. Payment Abstraction and the Chainlink Reserve \u2014 how fees become LINK</h2>
+        <h2 class="tk-h">3. Payment Abstraction and the Chainlink Reserve — how fees become LINK</h2>
         <p class="tk-p">This is the mechanism that connects network usage to the token, and it is the part most often missed. It works in two steps.</p>
-        <p class="tk-p"><strong>Step one \u2014 Payment Abstraction.</strong> Users do not have to hold LINK to pay for Chainlink services. They can pay in gas tokens, stablecoins, or (for enterprises) offchain in ordinary fiat invoices. Those payments are then programmatically converted into LINK onchain, using Chainlink services and decentralized exchange infrastructure. The friction of "you must acquire our token to use our product" is removed for the customer, while the fees still end up denominated in LINK.</p>
-        <p class="tk-p"><strong>Step two \u2014 the Chainlink Reserve.</strong> Launched on 7 August 2025, the Reserve is an onchain reserve that accumulates the LINK produced by that conversion process. It is funded from both onchain service fees and offchain enterprise revenue. Chainlink states that no withdrawals are expected for multiple years, so accumulated LINK is effectively locked away as it builds.</p>
+        <p class="tk-p"><strong>Step one — Payment Abstraction.</strong> Users do not have to hold LINK to pay for Chainlink services. They can pay in gas tokens, stablecoins, or (for enterprises) offchain in ordinary fiat invoices. Those payments are then programmatically converted into LINK onchain, using Chainlink services and decentralized exchange infrastructure. The friction of "you must acquire our token to use our product" is removed for the customer, while the fees still end up denominated in LINK.</p>
+        <p class="tk-p"><strong>Step two — the Chainlink Reserve.</strong> Launched on 7 August 2025, the Reserve is an onchain reserve that accumulates the LINK produced by that conversion process. It is funded from both onchain service fees and offchain enterprise revenue. Chainlink states that no withdrawals are expected for multiple years, so accumulated LINK is effectively locked away as it builds.</p>
         <div class="tk-flow">
-          <div class="tk-fl">Users pay in any currency<br><span>gas tokens \u2022 stablecoins \u2022 offchain fiat</span></div>
-          <div class="tk-ar">\u2193</div>
+          <div class="tk-fl">Users pay in any currency<br><span>gas tokens • stablecoins • offchain fiat</span></div>
+          <div class="tk-ar">↓</div>
           <div class="tk-fl">Payment Abstraction converts to LINK</div>
-          <div class="tk-ar">\u2193</div>
+          <div class="tk-ar">↓</div>
           <div class="tk-fl tk-split">Fees are split between the Reserve, node operators, and stakers</div>
         </div>
-        <p class="tk-p">The split is not a single fixed ratio across all services \u2014 it varies by service and by whether that service is secured by staking. The clearest published example is SVR: recaptured MEV is first split between the application and the Chainlink Network (Aave\u2019s launch terms were 65% Aave / 35% Chainlink), and the Chainlink portion is then directed onward. Chainlink states that 50% of fees from staking-secured SVR services \u2014 originally earmarked to cover node operator rewards \u2014 is now planned to help fund the Reserve, with the remainder going to node operators and community stakers.</p>
+        <p class="tk-p">The split is not a single fixed ratio across all services — it varies by service and by whether that service is secured by staking. The clearest published example is SVR: recaptured MEV is first split between the application and the Chainlink Network (Aave’s launch terms were 65% Aave / 35% Chainlink), and the Chainlink portion is then directed onward. Chainlink states that 50% of fees from staking-secured SVR services — originally earmarked to cover node operator rewards — is now planned to help fund the Reserve, with the remainder going to node operators and community stakers.</p>
         <p class="tk-p">Why this matters structurally: rewards funded by <em>fees</em> behave very differently from rewards funded by <em>new issuance</em>. One depends on customers using the product; the other dilutes existing holders. This design is an explicit attempt to shift from the second to the first.</p>
         <div class="tk-open">
           <div class="tk-open-t">Verifiable, and worth checking yourself</div>
-          <p>The Reserve publishes its holdings onchain with a public dashboard at <strong>reserve.chain.link</strong> and <strong>metrics.chain.link/reserve</strong>. Rather than reproduce a figure here that will be stale within days, check it directly \u2014 that is the whole point of an onchain reserve. Reported accumulation has grown from roughly 70,000 LINK at launch to weekly inflows in the six figures during 2026.</p>
+          <p>The Reserve publishes its holdings onchain with a public dashboard at <strong>reserve.chain.link</strong> and <strong>metrics.chain.link/reserve</strong>. Rather than reproduce a figure here that will be stale within days, check it directly — that is the whole point of an onchain reserve. Reported accumulation has grown from roughly 70,000 LINK at launch to weekly inflows in the six figures during 2026.</p>
         </div>
       </section>
 
@@ -6685,32 +6694,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
           <li>Node operators and community participants lock LINK into a staking pool.</li>
           <li>That locked LINK acts as a <strong>bond</strong>: it can be slashed if the oracle service fails to meet its commitments.</li>
           <li>Rewards come from a combination of protocol emissions and, increasingly, fees generated by network services.</li>
-          <li>The larger the value secured by an oracle network, the more meaningful the bond needs to be \u2014 which ties security spending to real usage rather than to speculation.</li>
+          <li>The larger the value secured by an oracle network, the more meaningful the bond needs to be — which ties security spending to real usage rather than to speculation.</li>
         </ul>
         <p class="tk-p">The economically important idea is <em>alignment</em>: the party providing the data has money at risk if the data is wrong. That is what a bond does, and it is why staking is a security mechanism first and a reward mechanism second.</p>
       </section>
 
       <section class="tk-sec">
-        <h2 class="tk-h">5. Emissions and dilution \u2014 the honest version</h2>
+        <h2 class="tk-h">5. Emissions and dilution — the honest version</h2>
         <p class="tk-p">Staking rewards have historically been funded substantially by protocol emissions from reserves rather than purely by service fees. This is a real dilution consideration and it deserves to be stated plainly rather than waved away.</p>
-        <p class="tk-p">The stated design direction is that as network usage grows, fee revenue becomes a larger share of what funds rewards, and emissions a smaller one. Payment Abstraction and the Chainlink Reserve are the infrastructure built for that transition, converting real customer payments into LINK rather than minting it. Programs like BUILD add further non-dilutive flows \u2014 value arriving from partner protocols rather than from new issuance.</p>
+        <p class="tk-p">The stated design direction is that as network usage grows, fee revenue becomes a larger share of what funds rewards, and emissions a smaller one. Payment Abstraction and the Chainlink Reserve are the infrastructure built for that transition, converting real customer payments into LINK rather than minting it. Programs like BUILD add further non-dilutive flows — value arriving from partner protocols rather than from new issuance.</p>
         <div class="tk-open">
           <div class="tk-open-t">Open question, stated as such</div>
-          <p>Whether fee revenue grows fast enough to meaningfully replace emissions is <strong>an outcome that depends on future adoption \u2014 it has not happened yet and cannot be asserted as fact.</strong> Anyone claiming certainty in either direction is speculating. What can be verified today is the direction of institutional adoption, which is what the evidence vault documents.</p>
+          <p>Whether fee revenue grows fast enough to meaningfully replace emissions is <strong>an outcome that depends on future adoption — it has not happened yet and cannot be asserted as fact.</strong> Anyone claiming certainty in either direction is speculating. What can be verified today is the direction of institutional adoption, which is what the evidence vault documents.</p>
         </div>
       </section>
 
       <section class="tk-sec">
         <h2 class="tk-h">6. Why institutional adoption is the variable that matters</h2>
         <p class="tk-p">The tokenomics only function at scale if the services are actually used at scale. That is why this site spends its effort documenting verified institutional adoption rather than modelling prices: adoption is the input, and it is observable. Everything downstream of it is inference.</p>
-        <p class="tk-p">Whether a central bank runs a settlement pilot, whether a market infrastructure moves from proof-of-concept to production, whether a bank uses CCIP for real transfers \u2014 these are checkable facts, and they are the honest place to focus.</p>
-        <p class="tk-p tk-note"><button class="tk-link" onclick="showPage('evidence')">Browse the evidence vault \u2197</button> <button class="tk-link" onclick="showPage('map')">See the adoption map \u2197</button></p>
+        <p class="tk-p">Whether a central bank runs a settlement pilot, whether a market infrastructure moves from proof-of-concept to production, whether a bank uses CCIP for real transfers — these are checkable facts, and they are the honest place to focus.</p>
+        <p class="tk-p tk-note"><button class="tk-link" onclick="showPage('evidence')">Browse the evidence vault ↗</button> <button class="tk-link" onclick="showPage('map')">See the adoption map ↗</button></p>
       </section>
 
       <section class="tk-sec">
         <h2 class="tk-h">7. What this page deliberately does not do</h2>
         <p class="tk-p">No price targets. No supply-and-demand models projecting a value. No "if X% of the market adopts, then LINK is worth Y" arithmetic. Those calculations are trivial to construct and consistently wrong, and publishing them would undermine the point of a research vault.</p>
-        <p class="tk-p">Nothing on this page is investment advice. Read the <button class="tk-link" onclick="showPage('methodology')">methodology and disclosure \u2197</button> for how this site handles evidence, uncertainty, and conflicts of interest.</p>
+        <p class="tk-p">Nothing on this page is investment advice. Read the <button class="tk-link" onclick="showPage('methodology')">methodology and disclosure ↗</button> for how this site handles evidence, uncertainty, and conflicts of interest.</p>
       </section>
 
     </div>
