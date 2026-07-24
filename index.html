@@ -7462,6 +7462,14 @@ const ARTWORKS = [
 var VIDEO_SLUG_MAP={'ebMDoPEdWP0':'infinite-blockchains-one-link','AHKokXLSwlI':'chainlink-cre-explained','p-vNnz7pJsM':'financial-system-runs-on-chainlink','D-tpoggrILQ':'chainlink-economics-2','r_5nUwFGt70':'books-of-the-blockchain','Hli-zu_lnOE':'chainlink-endgame','ql2KZ4a3UgE':'why-chainlink-is-the-standard','ZLsd1eT-enI':'why-chainlink-keeps-growing','uY0-ihxHf2M':'chainlink-economy-one-transaction'};
 const SHORTS = [
   {
+    id:      'RvezvXEJt4w',
+    cat:     'PROOF OF RESERVE',
+    title:   'Chainlink Proof of Reserve Explained',
+    sub:     'Continuous, automated verification that tokenized assets and stablecoins are genuinely backed \u2014 not a monthly PDF.',
+    thumb:   'https://i.ytimg.com/vi/RvezvXEJt4w/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/RvezvXEJt4w/sddefault.jpg',
+  },
+  {
     id:      'xNmv3Iy9Nfo',
     cat:     'SVR & PAYMENT ABSTRACTION',
     title:   'Payment Abstraction & SVR Explained',
@@ -9626,6 +9634,46 @@ var CONCEPTS = [
    seoTitle:'Chainlink Automation: Reliable Smart Contract Execution',
    seoDesc:'What is Chainlink Automation? Decentralized, verifiable triggering of smart contract functions — removing the need for centralized bots or manual execution.',
    color:'rgba(255,140,60,0.8)'},
+  {id:'functions',name:'Functions',full:'Chainlink Functions',tagline:'Serverless compute that connects any API to onchain logic.',
+   what:'Chainlink Functions lets a smart contract run custom computation and fetch data from any Web2 API, with the result delivered onchain backed by a decentralized oracle network. Instead of each developer building and trusting their own backend, the request is executed by multiple independent nodes that must agree on the output.',
+   why:'Most of the world\u2019s data and business logic lives behind conventional APIs \u2014 payment processors, KYC providers, enterprise databases, weather services. Functions is the bridge that lets onchain applications use those systems without introducing a single trusted server as a point of failure.',
+   who:['Institutions connecting existing internal systems to tokenized assets','DeFi protocols needing offchain computation with verifiable results','Applications integrating conventional Web2 APIs into smart contract logic'],
+   patent:'Covered by Chainlink patents on off-chain computation and decentralized oracle networks',
+   stat:'Removes the need for centralized backends: computation is executed and attested by an independent node set rather than a single server.',
+   ev:['ev-015','ev-020'],
+   seoTitle:'Chainlink Functions: Serverless Compute for Smart Contracts',
+   seoDesc:'What is Chainlink Functions? Serverless compute that lets smart contracts call any API and run custom logic, with results verified by a decentralized oracle network instead of a single trusted server.',
+   color:'rgba(90,190,255,0.8)'},
+  {id:'ace',name:'ACE',full:'Automated Compliance Engine',tagline:'Compliance enforced by the infrastructure itself, in real time.',
+   what:'ACE embeds regulatory policy directly into the movement of tokenized assets. Identity credentials and jurisdiction rules are checked automatically before a transfer executes \u2014 so a transaction that would breach a rule simply cannot settle, rather than being caught in a review weeks later.',
+   why:'Regulated institutions cannot use infrastructure where compliance is optional or retrospective. Automating enforcement at the settlement layer is what makes public and permissioned ledgers usable for regulated securities, and it is the piece regulators themselves have been testing.',
+   who:['Bermuda Monetary Authority \u2014 Embedded Supervision pilot (ev-064)','HKMA e-HKD Phase 2 \u2014 cross-chain settlement with ANZ, China AMC, Fidelity International','Institutions moving tokenized assets across jurisdictions'],
+   patent:'Related to Chainlink patents covering compliance and identity verification in decentralized networks',
+   stat:'Used in central-bank supervised pilots: compliance checks run before settlement rather than after the fact.',
+   ev:['ev-064','ev-005','ev-006'],
+   seoTitle:'Chainlink ACE: Automated Compliance Engine Explained',
+   seoDesc:'What is the Chainlink Automated Compliance Engine? How regulatory rules are enforced automatically at the settlement layer \u2014 used in the Bermuda Monetary Authority pilot and HKMA e-HKD Phase 2.',
+   color:'rgba(80,200,120,0.8)'},
+  {id:'ccid',name:'CCID',full:'Cross-Chain Identity',tagline:'Portable, verifiable identity across blockchain networks.',
+   what:'CCID allows an identity credential \u2014 that a wallet belongs to a verified institution, an accredited investor, or a KYC-cleared individual \u2014 to be recognised across different blockchains, without re-verifying on every network or exposing the underlying personal data.',
+   why:'Regulated finance requires knowing who is on the other side of a transaction. Without portable identity, every chain becomes a separate compliance silo, and tokenized assets cannot move between them. CCID is the layer that makes multi-chain regulated activity practical.',
+   who:['Institutions requiring KYC/AML across multiple ledgers','Tokenized asset platforms serving regulated investors','Compliance workflows spanning several jurisdictions'],
+   patent:'Related to Chainlink patents on identity and privacy-preserving verification',
+   stat:'Enables one verification to be honoured across networks, rather than repeated per chain.',
+   ev:['ev-064','ev-005'],
+   seoTitle:'Chainlink CCID: Cross-Chain Identity Explained',
+   seoDesc:'What is Chainlink Cross-Chain Identity? How verified identity credentials become portable across blockchains, enabling compliant tokenized asset transfers without re-verification on every network.',
+   color:'rgba(180,140,255,0.8)'},
+  {id:'staking',name:'Staking',full:'Chainlink Staking',tagline:'LINK locked as a performance bond securing oracle services.',
+   what:'Node operators and community participants lock LINK into staking pools. That stake acts as a bond: if an oracle service fails to meet its commitments, staked LINK can be slashed. Rewards come from a combination of protocol emissions and, increasingly, fees generated by network services.',
+   why:'Staking is a security mechanism before it is a reward mechanism. The party providing data has money at risk if the data is wrong \u2014 that alignment is what makes an oracle economically trustworthy, and the size of the bond scales with the value being secured.',
+   who:['Chainlink node operators securing oracle services','Community stakers supporting network security','Applications relying on staking-secured feeds'],
+   patent:'Covered by Chainlink cryptoeconomic security research and patents',
+   stat:'Staking underpins Chainlink Economics 2.0 alongside Payment Abstraction and the Chainlink Reserve.',
+   ev:['ev-028','ev-040'],
+   seoTitle:'Chainlink Staking Explained: Performance Bonds & Network Security',
+   seoDesc:'How does Chainlink staking work? LINK locked as a slashable performance bond securing oracle services \u2014 how it differs from proof-of-stake, and how rewards shift from emissions toward network fees.',
+   color:'rgba(255,180,80,0.8)'},
   {id:'vrf',name:'VRF',full:'Verifiable Random Function',tagline:'Cryptographically provable randomness for smart contracts.',
    what:'VRF generates a random number with a cryptographic proof that anyone can verify on-chain. Unlike block hashes (which miners can manipulate) or centralized RNG (which requires blind trust), VRF produces randomness that is demonstrably unpredictable and tamper-proof.',
    why:'Any application that requires provably fair outcomes — NFT minting, gaming, lotteries, governance selection — needs randomness that cannot be predicted or manipulated by any party, including the application developer.',
@@ -11187,7 +11235,7 @@ function trackerRender(filter){
   if(_evMatch){evState.evIds=[_evMatch[1]];evRender();evRenderBanner();}
   else if(page==='evidence'){evApplyUrl();}
   if(_mcMatch){setTimeout(function(){mcJumpTo(_mcMatch[1]);},300);}
-  if(_cMatch){setTimeout(function(){try{showConcept(_cMatch[1]);}catch(e){}},60);}
+  if(_cMatch){setTimeout(function(){try{if(typeof buildConceptNav==='function'){currentConcept=_cMatch[1];buildConceptNav();}showConcept(_cMatch[1]);}catch(e){}},60);}
 
   window.addEventListener('popstate',function(e){
     var pp=window.location.pathname;
