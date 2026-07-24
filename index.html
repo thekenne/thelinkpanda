@@ -6685,7 +6685,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         <div class="tk-grid">
           <div class="tk-card"><div class="tk-num">01</div><div class="tk-ct">Payment for services</div><p>Users of Chainlink services — data feeds, CCIP messages, automation, compute — pay fees, and node operators are compensated in LINK. This is the original and simplest function: LINK is the unit of account for oracle work.</p></div>
           <div class="tk-card"><div class="tk-num">02</div><div class="tk-ct">Staking collateral (a performance bond)</div><p>Node operators lock LINK as a bond backing their promise to report honestly and reliably. If they misbehave or fail to perform, that stake can be slashed. The stake is not a yield product — it is economic skin in the game that makes dishonesty expensive.</p></div>
-          <div class="tk-card"><div class="tk-num">03</div><div class="tk-ct">Security budget</div><p>The value of staked LINK determines the cost of attacking or corrupting a Decentralized Oracle Network. Systems securing large amounts of value need a proportionally meaningful security budget — that relationship is the core of the design.</p></div>
+          <div class="tk-card"><div class="tk-num">03</div><div class="tk-ct">Security budget</div><p>The value of staked LINK determines the cost of attacking or corrupting a <button class="tk-svc" onclick="showPage('glossary');setTimeout(function(){try{glJump('DON');}catch(e){}},200)">Decentralized Oracle Network ↗</button>. Systems securing large amounts of value need a proportionally meaningful security budget — that relationship is the core of the design.</p></div>
         </div>
         <p class="tk-p tk-note">Related misconception corrections: <button class="tk-link" onclick="showPage('misconceptions');setTimeout(function(){try{mcJumpTo('mc-021');}catch(e){}},250)">LINK is only a payment token ↗</button> <button class="tk-link" onclick="showPage('misconceptions');setTimeout(function(){try{mcJumpTo('mc-022');}catch(e){}},250)">LINK has no role in network security ↗</button></p>
       </section>
@@ -6698,19 +6698,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
           <li><strong><button class="tk-svc" onclick="showConcept('data-streams')">Data Streams ↗</button></strong> — low-latency, pull-based market data for applications needing sub-second updates. Subscription and per-use fees.</li>
           <li><strong><button class="tk-svc" onclick="showConcept('ccip')">CCIP ↗</button></strong> — fees for cross-chain messages and token transfers. The service institutions use for cross-ledger settlement.</li>
           <li><strong><button class="tk-svc" onclick="showConcept('automation')">Automation ↗</button></strong> — fees for reliably triggering smart contract functions without centralized bots.</li>
-          <li><strong><a class="tk-svc" href="https://youtube.com/shorts/O0RV03XAm78" target="_blank" rel="noopener">Functions / compute ↗</a></strong> — fees for offchain computation delivered with cryptographic guarantees.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('functions')">Functions / compute ↗</button></strong> — fees for offchain computation delivered with cryptographic guarantees.</li>
           <li><strong><button class="tk-svc" onclick="showConcept('svr')">SVR (Smart Value Recapture) ↗</button></strong> — redirects MEV value that would otherwise be captured by block builders back toward the oracle network and the application. Converts a leak into a revenue source.</li>
-          <li><strong>BUILD</strong> — partner protocols commit a portion of their own token supply in exchange for oracle services and support, creating token flows to stakers that are not funded by new LINK issuance.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('staking')">BUILD ↗</button></strong> — partner protocols commit a portion of their own token supply in exchange for oracle services and support, creating token flows to stakers that are not funded by new LINK issuance.</li>
         </ul>
-        <p class="tk-p tk-note">Each service above links to its own page — what it does, who uses it, and the evidence.</p>
+        <p class="tk-p tk-note">Each service links to its own page — what it does, who uses it, and the evidence. Also see: <button class="tk-link" onclick="showConcept('cre')">CRE ↗</button> <button class="tk-link" onclick="showConcept('proof-of-reserve')">Proof of Reserve ↗</button> <button class="tk-link" onclick="showConcept('ace')">ACE ↗</button> <button class="tk-link" onclick="showConcept('ccid')">CCID ↗</button> <button class="tk-link" onclick="showConcept('vrf')">VRF ↗</button></p>
       </section>
 
 
       <section class="tk-sec">
         <h2 class="tk-h">3. Payment Abstraction and the Chainlink Reserve — how fees become LINK</h2>
         <p class="tk-p">This is the mechanism that connects network usage to the token, and it is the part most often missed. It works in two steps.</p>
-        <p class="tk-p"><strong>Step one — Payment Abstraction.</strong> Users do not have to hold LINK to pay for Chainlink services. They can pay in gas tokens, stablecoins, or (for enterprises) offchain in ordinary fiat invoices. Those payments are then programmatically converted into LINK onchain, using Chainlink services and decentralized exchange infrastructure. The friction of "you must acquire our token to use our product" is removed for the customer, while the fees still end up denominated in LINK.</p>
-        <p class="tk-p"><strong>Step two — the Chainlink Reserve.</strong> Launched on 7 August 2025, the Reserve is an onchain reserve that accumulates the LINK produced by that conversion process. It is funded from both onchain service fees and offchain enterprise revenue. Chainlink states that no withdrawals are expected for multiple years, so accumulated LINK is effectively locked away as it builds.</p>
+        <p class="tk-p"><strong>Step one — <button class="tk-svc" onclick="showPage('glossary');setTimeout(function(){try{glJump('Payment Abstraction');}catch(e){}},200)">Payment Abstraction ↗</button>.</strong> Users do not have to hold LINK to pay for Chainlink services. They can pay in gas tokens, stablecoins, or (for enterprises) offchain in ordinary fiat invoices. Those payments are then programmatically converted into LINK onchain, using Chainlink services and decentralized exchange infrastructure. The friction of "you must acquire our token to use our product" is removed for the customer, while the fees still end up denominated in LINK.</p>
+        <p class="tk-p"><strong>Step two — the <button class="tk-svc" onclick="showPage('glossary');setTimeout(function(){try{glJump('Chainlink Reserve');}catch(e){}},200)">Chainlink Reserve ↗</button>.</strong> Launched on 7 August 2025, the Reserve is an onchain reserve that accumulates the LINK produced by that conversion process. It is funded from both onchain service fees and offchain enterprise revenue. Chainlink states that no withdrawals are expected for multiple years, so accumulated LINK is effectively locked away as it builds.</p>
         <div class="tk-flow">
           <div class="tk-fl">Users pay in any currency<br><span>gas tokens • stablecoins • offchain fiat</span></div>
           <div class="tk-ar">↓</div>
@@ -6734,6 +6734,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 
       <section class="tk-sec">
         <h2 class="tk-h">4. How staking works, in plain terms</h2>
+        <p class="tk-p tk-note"><button class="tk-link" onclick="showConcept('staking')">Full staking page ↗</button></p>
         <p class="tk-p">Staking in Chainlink is not the same as staking on a proof-of-stake blockchain. There are no blocks being produced and no transactions being ordered. Instead:</p>
         <ul class="tk-list">
           <li>Node operators and community participants lock LINK into a staking pool.</li>
@@ -11415,6 +11416,10 @@ function buildConceptNav(){
 function showConcept(id){
   currentConcept=id;
   var c=CONCEPTS.filter(function(x){return x.id===id;})[0];if(!c)return;
+  try{var _cp=document.getElementById('page-concepts');
+    if(_cp&&!_cp.classList.contains('active')){showPage('concepts');}
+    if(typeof buildConceptNav==='function'){buildConceptNav();}
+  }catch(e){}
   try{var _t=c.seoTitle||(c.name+' \u2014 '+(c.full||'')+' | TheLinkPanda'),_d=c.seoDesc||c.tagline||'',_u='https://thelinkpanda.com/concepts/'+id;document.title=_t;var sm=function(s,a,v){var el=document.querySelector(s);if(el)el.setAttribute(a,v);};sm('meta[name="description"]','content',_d);sm('meta[property="og:title"]','content',_t);sm('meta[property="og:description"]','content',_d);sm('meta[property="og:url"]','content',_u);sm('meta[name="twitter:title"]','content',_t);sm('meta[name="twitter:description"]','content',_d);sm('link[rel="canonical"]','href',_u);try{history.replaceState({page:'concepts',concept:id},'',_u);}catch(e){}}catch(e){}
   var hdr=document.getElementById('concept-name-header');if(hdr)hdr.textContent=c.name;
   var body=document.getElementById('concept-body');if(!body)return;
