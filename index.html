@@ -5650,6 +5650,45 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   #page-tokenomics .ev-body,#page-methodology .ev-body{padding-top:18px}
 }
 </style>
+<style>
+/* ═══ CONCEPT RELATED CONTENT ═══ */
+.cp-related{margin-top:clamp(28px,3vw,48px);border-top:.5px solid var(--border);padding-top:clamp(22px,2.4vw,36px)}
+.cp-sec{margin-bottom:clamp(26px,2.6vw,40px)}
+.cp-sec-t{font-family:var(--mono);font-size:clamp(15px,.61vw,18px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(12px,1.2vw,18px)}
+.cp-mc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
+.cp-mc{text-align:left;background:var(--bg2);border:.5px solid var(--border);padding:13px 15px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:all .15s}
+.cp-mc:hover{border-color:rgba(200,146,42,.45);background:rgba(200,146,42,.04)}
+.cp-mc-myth{font-size:clamp(14px,.88vw,16.5px);color:rgba(244,242,238,.82);line-height:1.4}
+.cp-mc-go{font-family:var(--mono);font-size:clamp(11px,.54vw,12.5px);letter-spacing:.1em;color:var(--gold);opacity:.85}
+.cp-vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+.cp-vid{background:var(--bg2);border:.5px solid var(--border);padding:13px 15px;display:flex;flex-direction:column;gap:5px;text-decoration:none;transition:all .15s}
+.cp-vid:hover{border-color:rgba(200,146,42,.45);background:rgba(200,146,42,.04)}
+.cp-vid-cat{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--gold);opacity:.75}
+.cp-vid-t{font-size:clamp(14px,.88vw,16px);color:rgba(244,242,238,.85);line-height:1.35}
+.cp-vid-s{font-size:clamp(12.5px,.78vw,14px);color:rgba(244,242,238,.45);line-height:1.45}
+.cp-vid-go{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);margin-top:2px}
+.cp-ig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.cp-ig{background:var(--bg2);border:.5px solid var(--border);padding:0;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;transition:all .15s}
+.cp-ig:hover{border-color:rgba(200,146,42,.45)}
+.cp-ig img{width:100%;height:96px;object-fit:cover;display:block;opacity:.85}
+.cp-ig:hover img{opacity:1}
+.cp-ig span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:rgba(244,242,238,.55);padding:7px 9px;text-align:left;line-height:1.35}
+.cp-gl{display:flex;flex-wrap:wrap;gap:6px}
+.cp-gl button{font-family:var(--mono);font-size:clamp(12px,.72vw,13.5px);letter-spacing:.05em;color:rgba(244,242,238,.7);background:none;border:.5px solid rgba(244,242,238,.14);padding:4px 10px;cursor:pointer;transition:all .15s}
+.cp-gl button:hover{color:var(--gold);border-color:rgba(200,146,42,.45)}
+</style>
+<style>
+.tk-svc{background:none;border:none;border-bottom:1px dashed rgba(200,146,42,.55);color:var(--gold);font-family:inherit;font-size:inherit;font-weight:600;padding:0;cursor:pointer;transition:all .15s}
+.tk-svc:hover{border-bottom-style:solid;color:#E8B04A}
+</style>
+<style>
+.tk-vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;margin:18px 0}
+.tk-vid{background:var(--bg2);border:.5px solid var(--border);padding:13px 15px;display:flex;flex-direction:column;gap:5px;text-decoration:none;transition:all .15s}
+.tk-vid:hover{border-color:rgba(200,146,42,.45);background:rgba(200,146,42,.04)}
+.tk-vid-c{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--gold);opacity:.75}
+.tk-vid-t{font-size:clamp(14px,.88vw,16px);color:rgba(244,242,238,.85);line-height:1.35}
+.tk-vid-g{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold)}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -6655,15 +6694,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         <h2 class="tk-h">2. Where the revenue comes from</h2>
         <p class="tk-p">Chainlink is frequently described as "just price feeds." In practice the network operates several distinct fee-generating services. Each is a real product with real users; their relative size varies, and Chainlink does not publish a full audited revenue breakdown, so treat any precise revenue figure you see — anywhere — with appropriate caution.</p>
         <ul class="tk-list">
-          <li><strong>Data Feeds</strong> — the original service: aggregated market data delivered onchain, securing a large share of DeFi collateral.</li>
-          <li><strong>Data Streams</strong> — low-latency, pull-based market data for applications needing sub-second updates. Subscription and per-use fees.</li>
-          <li><strong>CCIP</strong> — fees for cross-chain messages and token transfers. The service institutions use for cross-ledger settlement.</li>
-          <li><strong>Automation</strong> — fees for reliably triggering smart contract functions without centralized bots.</li>
-          <li><strong>Functions / compute</strong> — fees for offchain computation delivered with cryptographic guarantees.</li>
-          <li><strong>SVR (Smart Value Recapture)</strong> — redirects MEV value that would otherwise be captured by block builders back toward the oracle network and the application. Converts a leak into a revenue source.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('data-feeds')">Data Feeds ↗</button></strong> — the original service: aggregated market data delivered onchain, securing a large share of DeFi collateral.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('data-streams')">Data Streams ↗</button></strong> — low-latency, pull-based market data for applications needing sub-second updates. Subscription and per-use fees.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('ccip')">CCIP ↗</button></strong> — fees for cross-chain messages and token transfers. The service institutions use for cross-ledger settlement.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('automation')">Automation ↗</button></strong> — fees for reliably triggering smart contract functions without centralized bots.</li>
+          <li><strong><a class="tk-svc" href="https://youtube.com/shorts/O0RV03XAm78" target="_blank" rel="noopener">Functions / compute ↗</a></strong> — fees for offchain computation delivered with cryptographic guarantees.</li>
+          <li><strong><button class="tk-svc" onclick="showConcept('svr')">SVR (Smart Value Recapture) ↗</button></strong> — redirects MEV value that would otherwise be captured by block builders back toward the oracle network and the application. Converts a leak into a revenue source.</li>
           <li><strong>BUILD</strong> — partner protocols commit a portion of their own token supply in exchange for oracle services and support, creating token flows to stakers that are not funded by new LINK issuance.</li>
         </ul>
-        <p class="tk-p tk-note">Explore the services: <button class="tk-link" onclick="showConcept('ccip')">CCIP ↗</button> <button class="tk-link" onclick="showConcept('data-streams')">Data Streams ↗</button> <button class="tk-link" onclick="showConcept('svr')">SVR ↗</button> <button class="tk-link" onclick="showConcept('automation')">Automation ↗</button></p>
+        <p class="tk-p tk-note">Each service above links to its own page — what it does, who uses it, and the evidence.</p>
       </section>
 
 
@@ -6681,6 +6720,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         </div>
         <p class="tk-p">The split is not a single fixed ratio across all services — it varies by service and by whether that service is secured by staking. The clearest published example is SVR: recaptured MEV is first split between the application and the Chainlink Network (Aave’s launch terms were 65% Aave / 35% Chainlink), and the Chainlink portion is then directed onward. Chainlink states that 50% of fees from staking-secured SVR services — originally earmarked to cover node operator rewards — is now planned to help fund the Reserve, with the remainder going to node operators and community stakers.</p>
         <p class="tk-p">Why this matters structurally: rewards funded by <em>fees</em> behave very differently from rewards funded by <em>new issuance</em>. One depends on customers using the product; the other dilutes existing holders. This design is an explicit attempt to shift from the second to the first.</p>
+        <div class="tk-vids">
+          <a class="tk-vid" href="https://youtube.com/shorts/iu6fHjrtFnQ" target="_blank" rel="noopener">
+            <span class="tk-vid-c">CHAINLINK RESERVE</span><span class="tk-vid-t">The Chainlink Reserve Explained</span><span class="tk-vid-g">Watch ↗</span></a>
+          <a class="tk-vid" href="https://youtube.com/shorts/xNmv3Iy9Nfo" target="_blank" rel="noopener">
+            <span class="tk-vid-c">PAYMENT ABSTRACTION &amp; SVR</span><span class="tk-vid-t">How fees in any currency become LINK</span><span class="tk-vid-g">Watch ↗</span></a>
+        </div>
         <div class="tk-open">
           <div class="tk-open-t">Verifiable, and worth checking yourself</div>
           <p>The Reserve publishes its holdings onchain with a public dashboard at <strong>reserve.chain.link</strong> and <strong>metrics.chain.link/reserve</strong>. Rather than reproduce a figure here that will be stale within days, check it directly — that is the whole point of an onchain reserve. Reported accumulation has grown from roughly 70,000 LINK at launch to weekly inflows in the six figures during 2026.</p>
@@ -7416,6 +7461,54 @@ const ARTWORKS = [
 // ────────────────────────────────────────────────────────────────────────
 var VIDEO_SLUG_MAP={'ebMDoPEdWP0':'infinite-blockchains-one-link','AHKokXLSwlI':'chainlink-cre-explained','p-vNnz7pJsM':'financial-system-runs-on-chainlink','D-tpoggrILQ':'chainlink-economics-2','r_5nUwFGt70':'books-of-the-blockchain','Hli-zu_lnOE':'chainlink-endgame','ql2KZ4a3UgE':'why-chainlink-is-the-standard','ZLsd1eT-enI':'why-chainlink-keeps-growing','uY0-ihxHf2M':'chainlink-economy-one-transaction'};
 const SHORTS = [
+  {
+    id:      'xNmv3Iy9Nfo',
+    cat:     'SVR & PAYMENT ABSTRACTION',
+    title:   'Payment Abstraction & SVR Explained',
+    sub:     'How fees paid in any currency become LINK \u2014 and how Smart Value Recapture turns MEV leakage into network revenue.',
+    thumb:   'https://i.ytimg.com/vi/xNmv3Iy9Nfo/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/xNmv3Iy9Nfo/sddefault.jpg',
+  },
+  {
+    id:      'O0RV03XAm78',
+    cat:     'FUNCTIONS',
+    title:   'Chainlink Functions Explained',
+    sub:     'Serverless compute for smart contracts \u2014 connecting any API to onchain logic with verifiable results.',
+    thumb:   'https://i.ytimg.com/vi/O0RV03XAm78/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/O0RV03XAm78/sddefault.jpg',
+  },
+  {
+    id:      'iu6fHjrtFnQ',
+    cat:     'CHAINLINK RESERVE',
+    title:   'The Chainlink Reserve Explained',
+    sub:     'How network revenue is converted into LINK and accumulated onchain \u2014 the link between adoption and the token.',
+    thumb:   'https://i.ytimg.com/vi/iu6fHjrtFnQ/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/iu6fHjrtFnQ/sddefault.jpg',
+  },
+  {
+    id:      'DZikEo7n7lw',
+    cat:     'ACE, CCID & DECO',
+    title:   'ACE, CCID and DECO Explained',
+    sub:     'Automated Compliance Engine, cross-chain identity, and privacy-preserving proofs \u2014 the compliance layer institutions need.',
+    thumb:   'https://i.ytimg.com/vi/DZikEo7n7lw/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/DZikEo7n7lw/sddefault.jpg',
+  },
+  {
+    id:      'ASKxeXphHhE',
+    cat:     'DATA STREAMS',
+    title:   'Chainlink State Pricing Explained',
+    sub:     'Institutional-grade pricing data delivered onchain \u2014 low-latency market data for tokenized assets and NAV.',
+    thumb:   'https://i.ytimg.com/vi/ASKxeXphHhE/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/ASKxeXphHhE/sddefault.jpg',
+  },
+  {
+    id:      'Xl4hNP29RGY',
+    cat:     'OVERVIEW',
+    title:   'Every Chainlink Service in One Overview',
+    sub:     'CCIP, CRE, Data Feeds, Data Streams, Proof of Reserve, Automation, VRF, Functions \u2014 the full stack, briefly.',
+    thumb:   'https://i.ytimg.com/vi/Xl4hNP29RGY/maxresdefault.jpg',
+    thumbFb: 'https://i.ytimg.com/vi/Xl4hNP29RGY/sddefault.jpg',
+  },
   {
     id:      'ebMDoPEdWP0',
     cat:     'INTEROPERABILITY',
@@ -11308,7 +11401,71 @@ function showConcept(id){
     +'<div style="font-family:var(--mono);font-size:clamp(15px,0.61vw,18px);letter-spacing:.18em;color:var(--w40);margin-bottom:clamp(12px,1.22vw,19px)">EVIDENCE ENTRIES</div>'
     +'<div>'+evCards+'</div>'
     +'</div>'
-    +'</div>';
+    +'</div>'
+    + cpRelated(c);
+}
+
+// ── Related content for a concept: misconceptions, videos, infographics, glossary ──
+function cpMatch(obj,c){
+  var hay=JSON.stringify(obj).toLowerCase();
+  var keys=[c.name.toLowerCase(),(c.full||'').toLowerCase()];
+  if(c.id==='ccip')keys.push('cross-chain','crosschain','interoperab');
+  if(c.id==='cre')keys.push('runtime environment');
+  if(c.id==='proof-of-reserve')keys.push('proof of reserve','reserves');
+  if(c.id==='data-streams')keys.push('data stream','low-latency','low latency');
+  if(c.id==='data-feeds')keys.push('data feed','price feed');
+  if(c.id==='svr')keys.push('smart value recapture','mev');
+  if(c.id==='vrf')keys.push('randomness','verifiable random');
+  if(c.id==='automation')keys.push('automation','keeper');
+  for(var i=0;i<keys.length;i++){if(keys[i]&&keys[i].length>2&&hay.indexOf(keys[i])!==-1)return true;}
+  return false;
+}
+function cpRelated(c){
+  var out='';
+  // Misconceptions
+  var mcs=(typeof MISCONCEPTIONS!=='undefined'?MISCONCEPTIONS:[]).filter(function(m){return cpMatch(m,c);}).slice(0,6);
+  if(mcs.length){
+    out+='<div class="cp-sec"><div class="cp-sec-t">MISCONCEPTIONS CORRECTED</div><div class="cp-mc-grid">'
+      +mcs.map(function(m){
+        return '<button class="cp-mc" onclick="showPage(\'misconceptions\');setTimeout(function(){try{mcJumpTo(\''+m.id+'\');}catch(e){}},250)">'
+          +'<span class="cp-mc-myth">'+orgEsc(m.title||m.myth)+'</span>'
+          +'<span class="cp-mc-go">See the correction \u2197</span></button>';
+      }).join('')+'</div></div>';
+  }
+  // Videos (SHORTS)
+  var vids=(typeof SHORTS!=='undefined'?SHORTS:[]).filter(function(s){return cpMatch(s,c);}).slice(0,4);
+  var vidFallback=false;
+  if(!vids.length&&typeof SHORTS!=='undefined'){
+    var ov=SHORTS.filter(function(s){return s.id==='Xl4hNP29RGY';});
+    if(ov.length){vids=ov;vidFallback=true;}
+  }
+  if(vids.length){
+    out+='<div class="cp-sec"><div class="cp-sec-t">'+(vidFallback?'VIDEO OVERVIEW':'VIDEOS')+'</div><div class="cp-vid-grid">'
+      +vids.map(function(v){
+        return '<a class="cp-vid" href="https://www.youtube.com/watch?v='+orgEsc(v.id)+'" target="_blank" rel="noopener">'
+          +'<span class="cp-vid-cat">'+orgEsc(v.cat||'')+'</span>'
+          +'<span class="cp-vid-t">'+orgEsc(v.title||'')+'</span>'
+          +(v.sub?'<span class="cp-vid-s">'+orgEsc(v.sub)+'</span>':'')
+          +'<span class="cp-vid-go">Watch \u2197</span></a>';
+      }).join('')+'</div></div>';
+  }
+  // Infographics
+  var igs=(typeof INFOGRAPHICS!=='undefined'?INFOGRAPHICS:[]).filter(function(i){return cpMatch(i,c);}).slice(0,6);
+  if(igs.length){
+    out+='<div class="cp-sec"><div class="cp-sec-t">INFOGRAPHICS</div><div class="cp-ig-grid">'
+      +igs.map(function(i){
+        var t=(i.file||'').split('/').pop().replace(/\.[a-z]+$/i,'');
+        return '<button class="cp-ig" onclick="showPage(\'infographics\')"><img src="'+orgEsc(i.file)+'" alt="'+orgEsc(t)+'" loading="lazy"/><span>'+orgEsc(t)+'</span></button>';
+      }).join('')+'</div></div>';
+  }
+  // Glossary terms
+  var gls=(typeof GLOSSARY!=='undefined'?GLOSSARY:[]).filter(function(g){return cpMatch(g,c);}).slice(0,8);
+  if(gls.length){
+    out+='<div class="cp-sec"><div class="cp-sec-t">RELATED TERMS</div><div class="cp-gl">'
+      +gls.map(function(g){return '<button onclick="showPage(\'glossary\');setTimeout(function(){try{glJump(\''+orgEsc(g.t).replace(/\'/g,"&#39;")+'\');}catch(e){}},200)">'+orgEsc(g.t)+'</button>';}).join('')
+      +'</div></div>';
+  }
+  return out?'<div class="cp-related">'+out+'</div>':'';
 }
 
 // ── ENHANCED orgShowInst — add services + quotes ────────────────────
