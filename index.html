@@ -12390,7 +12390,7 @@ function mapInit(){
   svg.addEventListener('mouseleave',function(){tip.style.display='none';});
   svg.addEventListener('click',function(ev){
     var t=ev.target.closest('[data-id]');
-    if(!t||!CL_MAP[t.dataset.id])return;
+    if(!t)return;
     mapSelect(t.dataset.id);
   });
   var n=Object.keys(CL_MAP).length;
@@ -12463,11 +12463,19 @@ function mapZoomSetup(svg){
   svg.addEventListener('pointerup',up);svg.addEventListener('pointercancel',up);svg.addEventListener('pointerleave',function(ev){if(!(ev.pointerId in ptrs))return;up(ev);});
 }
 function mapSelect(id){
-  var c=CL_MAP[id];if(!c)return;
+  var c=CL_MAP[id];
+  var name=(c&&c.name)||(WORLD_PATHS[id]&&WORLD_PATHS[id].n)||id;
   document.querySelectorAll('#cl-map .sel').forEach(function(p){p.classList.remove('sel');});
   var el=document.querySelector('#cl-map [data-id="'+id+'"]');
   if(el)el.classList.add('sel');
-  var name=(c.name)||(WORLD_PATHS[id]&&WORLD_PATHS[id].n)||id;
+  if(!c){
+    document.getElementById('map-panel').innerHTML=
+      '<div class="map-panel-title">'+name+'</div>'
+      +'<div class="map-panel-sub">NO DOCUMENTED CONNECTION</div>'
+      +'<div class="map-item"><div class="mo">No verified Chainlink connection has been documented in '+name+' yet. An absence here means no primary source has been found \u2014 not that none exists.</div>'
+      +'<div class="mrow"><span class="map-evs"><button onclick="showPage(\'contribute\')">SUBMIT EVIDENCE \u2197</button></span></div></div>';
+    return;
+  }
   var html='<div class="map-panel-title">'+name+'</div>'
     +'<div class="map-panel-sub">'+c.cls.toUpperCase()+' \u2022 '+c.items.length+' VERIFIED CONNECTION'+(c.items.length>1?'S':'')+'</div>';
   c.items.forEach(function(it){
