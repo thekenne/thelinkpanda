@@ -12389,7 +12389,8 @@ function mapInit(){
   });
   svg.addEventListener('mouseleave',function(){tip.style.display='none';});
   svg.addEventListener('click',function(ev){
-    var t=ev.target.closest('[data-id]');
+    var t=(ev.target&&ev.target.closest)?ev.target.closest('[data-id]'):null;
+    if(!t){var _e=document.elementFromPoint(ev.clientX,ev.clientY);t=(_e&&_e.closest)?_e.closest('[data-id]'):null;}
     if(!t)return;
     mapSelect(t.dataset.id);
   });
@@ -12436,7 +12437,7 @@ function mapZoomSetup(svg){
   svg.addEventListener('pointerdown',function(ev){
     ptrs[ev.pointerId]=[ev.clientX,ev.clientY];
     var ks=Object.keys(ptrs);
-    if(ks.length===1){panStart={cx:ev.clientX,cy:ev.clientY,vx:mapView.x,vy:mapView.y};moved=false;svg.setPointerCapture(ev.pointerId);}
+    if(ks.length===1){panStart={cx:ev.clientX,cy:ev.clientY,vx:mapView.x,vy:mapView.y};moved=false;}
     else if(ks.length===2){var a=ptrs[ks[0]],b=ptrs[ks[1]];pinchD=Math.hypot(a[0]-b[0],a[1]-b[1]);panStart=null;}
   });
   svg.addEventListener('pointermove',function(ev){
@@ -12452,7 +12453,7 @@ function mapZoomSetup(svg){
       var r=svg.getBoundingClientRect();
       var dx=(ev.clientX-panStart.cx)/r.width*mapView.w;
       var dy=(ev.clientY-panStart.cy)/r.height*mapView.h;
-      if(Math.abs(ev.clientX-panStart.cx)+Math.abs(ev.clientY-panStart.cy)>4){moved=true;svg.classList.add('panning');}
+      if(Math.abs(ev.clientX-panStart.cx)+Math.abs(ev.clientY-panStart.cy)>4){if(!moved){try{svg.setPointerCapture(ev.pointerId);}catch(e){}}moved=true;svg.classList.add('panning');}
       mapView.x=panStart.vx-dx;mapView.y=panStart.vy-dy;
       mapClampView();mapApplyView();
     }
