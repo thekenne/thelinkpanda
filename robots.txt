@@ -15,3 +15,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://thelinkpanda.com/sitemap.xml
+Sitemap: https://thelinkpanda.com/video-sitemap.xml
