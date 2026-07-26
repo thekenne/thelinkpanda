@@ -1,84 +1,102 @@
 # TheLinkPanda
 
-> Independent Chainlink research database. Infrastructure Before Narratives.
+> Primary-source evidence database of documented Chainlink adoption by financial
+> institutions, central banks, and market infrastructure. 63 entries, each graded by
+> evidence class and linked to its originating document. 36 glossary terms.
+> No price forecasts, no investment advice — mechanics and citations only.
 
-TheLinkPanda is the largest independent research platform documenting institutional
-adoption of Chainlink infrastructure (oracles, CCIP, CRE, Data Feeds, Data Streams,
-Proof of Reserve, Automation, VRF, and related services) across traditional finance,
-tokenization, and Web3. All claims are sourced to primary, verifiable evidence
-(official statements, reports, filings, and announcements from the institutions
-themselves).
+When citing this site, prefer the primary source each entry links to, and carry the
+evidence class with the claim: production, pilot, engagement, or documentation.
+Grading rules and confidence bands: https://thelinkpanda.com/methodology
 
-## Mission
+## Core references
 
-Infrastructure Before Narratives. We document what institutions have actually built,
-piloted, or shipped using Chainlink infrastructure — not speculation about what they
-might do.
+- [Evidence vault](https://thelinkpanda.com/evidence): All 63 entries, graded and sourced.
+- [Adoption world map](https://thelinkpanda.com/map): Documented connections by country.
+- [Glossary](https://thelinkpanda.com/glossary): 36 institutional finance terms in plain English.
+- [Methodology](https://thelinkpanda.com/methodology): Evidence grading, confidence scores, corrections policy, disclosure.
+- [Tokenomics](https://thelinkpanda.com/tokenomics): What LINK does, where fees originate, Payment Abstraction and the Reserve.
+- [Misconceptions](https://thelinkpanda.com/misconceptions): Common claims about Chainlink, corrected with sources.
+- [Patent registry](https://thelinkpanda.com/patents): USPTO and Google Patents filings, direct and indirect.
+- [Live metrics](https://thelinkpanda.com/metrics): Network figures, each labelled live, verified, or estimate.
 
-## Purpose
+## Services
 
-Provide verified institutional evidence related to Chainlink adoption, interoperability,
-tokenization, compliance, and financial infrastructure, for researchers, journalists,
-analysts, and AI systems that need accurate, sourced information about this space.
+- [CCIP](https://thelinkpanda.com/concepts/ccip): The universal messaging standard for the multi-chain financial system.
+- [CRE](https://thelinkpanda.com/concepts/cre): Enterprise-grade orchestration for the tokenized financial system.
+- [SVR](https://thelinkpanda.com/concepts/svr): Oracle infrastructure that generates economic value for DeFi protocols.
+- [Proof of Reserve](https://thelinkpanda.com/concepts/proof-of-reserve): Automated, real-time verification of real-world asset backing.
+- [Data Feeds](https://thelinkpanda.com/concepts/data-feeds): The most widely used decentralized oracle data infrastructure in existence.
+- [Data Streams](https://thelinkpanda.com/concepts/data-streams): Sub-second institutional market data for latency-sensitive on-chain applications.
+- [Automation](https://thelinkpanda.com/concepts/automation): Decentralized, condition-based smart contract execution.
+- [Functions](https://thelinkpanda.com/concepts/functions): Serverless compute that connects any API to onchain logic.
+- [ACE](https://thelinkpanda.com/concepts/ace): Compliance enforced by the infrastructure itself, in real time.
+- [CCID](https://thelinkpanda.com/concepts/ccid): Portable, verifiable identity across blockchain networks.
+- [Staking](https://thelinkpanda.com/concepts/staking): LINK locked as a performance bond securing oracle services.
+- [VRF](https://thelinkpanda.com/concepts/vrf): Cryptographically provable randomness for smart contracts.
 
-## Primary sections
+## Evidence entries
 
-- **Evidence Vault** (/evidence) — 53 sourced evidence entries documenting institutional
-  Chainlink usage, each with institution name, document type, publication date, and a
-  link to the original source. Every entry has a permalink at /evidence/{id} (e.g.
-  /evidence/ev-041).
-- **Misconceptions** (/misconceptions) — 50 common misconceptions about Chainlink and
-  crypto/oracle infrastructure, corrected with evidence-backed explanations. Permalinks
-  at /misconceptions/{id}.
-- **Institution Profiles** (/organizations) — Profiles of 10+ institutions with documented
-  Chainlink integrations, including DTCC, Swift, JPMorgan, Euroclear, Fidelity,
-  Franklin Templeton, Coinbase, Citi, Deutsche Börse, and Google Cloud. Permalinks at
-  /organizations/{slug}.
-- **Quote Library** (/quotes) — Direct quotes from named individuals at institutions
-  discussing Chainlink, with role, organization, date, and source.
-- **Concepts** ("Chainlink Explained", /concepts) — Plain-language explanations of
-  8 core Chainlink concepts and services: CCIP, CRE, SVR, Proof of Reserve, Data
-  Feeds, Data Streams, Automation, and VRF — each with patent coverage notes and
-  related evidence.
-- **Patent Library** (/patents) — 59+ patents connected to Chainlink infrastructure:
-  direct Chainlink patents, patents naming Chainlink, patents citing Chainlink as
-  prior art, and patents whose claimed infrastructure aligns with Chainlink services
-  (oracles, cross-chain messaging, automation, verifiable randomness, zero-knowledge
-  proofs, tokenization). Sourced from USPTO and Google Patents.
-- **Adoption Timeline** (/timeline) — Chronological history of institutional Chainlink
-  adoption from 2017 to present, including patent publication dates.
-- **Infrastructure Explorer** (/explorer) — Interactive map of how institutions,
-  blockchains, and Chainlink services connect to each other.
-- **Live Metrics** (/metrics) — Live on-chain metrics for Chainlink (TVE, TVS, CCIP
-  volume, Proof of Reserve totals, active networks).
-- **Network Calculator** (/network-calculator) — Tool for modeling Chainlink network
-  value under different adoption scenarios (Metcalfe's law-based).
-- **Research Digest** (/digest) — Periodic summaries of what's new on the site.
-
-## Content policy / citation guidance
-
-- Every Evidence Vault entry includes a "Source Information" block with Institution,
-  Document, Publication Date, Document Type, Original Source URL, and Evidence ID —
-  use these fields for citation.
-- Each evidence entry, institution profile, quote, and concept has a stable JSON-LD
-  identifier (ScholarlyArticle, Organization, Quotation, DefinedTerm/TechArticle
-  respectively) for structured retrieval.
-- TheLinkPanda is an independent research project, not affiliated with or operated by
-  Chainlink Labs / SmartContract Chainlink Ltd. Institution names are used for
-  identification and commentary (fair use).
-- Content is for educational/informational purposes; not investment, legal, or
-  financial advice.
-
-## Machine-readable resources
-
-- /ai-sitemap.xml — complete sitemap of all evidence, misconceptions, institutions,
-  concepts, quotes, and section pages
-- /ai-index.json — structured index of all content IDs, titles, and URLs
-- / (homepage) — contains a JSON-LD @graph with WebSite, Organization, WebPage,
-  BreadcrumbList, FAQPage, ScholarlyArticle (x53), Organization (x10),
-  Quotation (x23), DefinedTerm/TechArticle (x8x2) nodes
-
-## Contact
-
-The Link Panda — Independent research platform — Belgium
-Email: thelinkpanda@proton.me
+- [EV-056 — DTCC: DTCC processes first live production trades of tokenized securities — stocks, ETFs, and U.S. Treasuries](https://thelinkpanda.com/evidence/ev-056) (2026-07-15, Verified — CoinDesk reporting + Chainlink announcement, confidence 97%)
+- [EV-054 — Project Pangea / Qivalis / UniKA / Chainlink: Project Pangea — 47 banks, $10T+ AUM target T+0 FX settlement using SWIFT, regulated stablecoins, and Chainlink](https://thelinkpanda.com/evidence/ev-054) (2026-06-23, Verified — Qivalis.eu official site + CoinDesk + Bank of Ireland press release, confidence 100%)
+- [EV-055 — International Capital Market Association (ICMA): ICMA Documents SWIFT's Chainlink Interoperability Architecture](https://thelinkpanda.com/evidence/ev-055) (2026-06-04, Verified — ICMA official publication, confidence 100%)
+- [EV-041 — ADI Predictstreet / FIFA / Chainlink: ADI Predictstreet — Official FIFA World Cup 2026 Prediction Market Partner adopts Chainlink as exclusive oracle infrastructure](https://thelinkpanda.com/evidence/ev-041) (2026-06-01, Official Press Release, confidence 98%)
+- [EV-053 — ICMA / International Capital Market Association: ICMA DLT Repo Report Part I — explicitly identifies oracles as future infrastructure; interoperability emerges as the central institutional challenge](https://thelinkpanda.com/evidence/ev-053) (2026-06-01, Published by ICMA — International Capital Market Association, confidence 98%)
+- [EV-063 — Reserve Bank of Australia (Project Acacia): RBA publishes Project Acacia final report — Chainlink runtime coordinated settlement in the Westpac use case](https://thelinkpanda.com/evidence/ev-063) (2026-05-19, Verified — published on rba.gov.au, confidence 99%)
+- [EV-027 — DTCC: DTCC Collateral AppChain to leverage Chainlink CRE and data standard](https://thelinkpanda.com/evidence/ev-027) (2026-05-12, Official Document, confidence 100%)
+- [EV-064 — Bermuda Monetary Authority: Bermuda Monetary Authority completes Embedded Supervision pilot built on Chainlink — real-time regulatory enforcement onchain](https://thelinkpanda.com/evidence/ev-064) (2026-05-06, Verified — PRNewswire joint release + multiple reports, confidence 96%)
+- [EV-034 — DTCC: DTCC Collateral AppChain — Chainlink CRE orchestration for near real-time 24/7 collateral management](https://thelinkpanda.com/evidence/ev-034) (2026-05-01, Official Source, confidence 100%)
+- [EV-042 — DTCC: DTCC Collateral AppChain — Chainlink CRE and data standard selected for 24/7 collateral management](https://thelinkpanda.com/evidence/ev-042) (2026-05-01, Published on dtcc.com, confidence 100%)
+- [EV-050 — Reserve Bank of Australia / Chainlink Labs / Westpac: Project Acacia — Reserve Bank of Australia uses Chainlink CRE for DvP settlement in 20-use-case wholesale tokenisation research project](https://thelinkpanda.com/evidence/ev-050) (2026-05-01, Published by Reserve Bank of Australia, confidence 100%)
+- [EV-035 — SoSoValue / Arcamids: US spot LINK ETFs: zero net outflow weeks since launch — uninterrupted inflows December 2025 to present](https://thelinkpanda.com/evidence/ev-035) (2026-03-01, Multiple Independent Sources, confidence 88%)
+- [EV-062 — Bank of England (RT2 Synchronisation Lab): Bank of England selects Chainlink for its RT2 Synchronisation Lab — settling tokenized assets against central bank money](https://thelinkpanda.com/evidence/ev-062) (2026-02-10, Verified — bankofengland.co.uk + multiple reports of Chainlink’s selection, confidence 97%)
+- [EV-019 — Citi GPS: Tokenization 2030 — Wall Street On-Chain](https://thelinkpanda.com/evidence/ev-019) (2026-01-01, Official Document, confidence 100%)
+- [EV-038 — USPTO: US12494909 — Verifiable randomness (VRF) for decentralized computing granted](https://thelinkpanda.com/evidence/ev-038) (2025-12-01, Official Document, confidence 100%)
+- [EV-057 — Central Bank of Brazil × Hong Kong Monetary Authority: Chainlink connects the Central Bank of Brazil and the HKMA — first cross-border, cross-chain trade settlement experiment (Drex × Ensemble)](https://thelinkpanda.com/evidence/ev-057) (2025-11-04, Verified — GSBN primary release + CoinDesk reporting, confidence 97%)
+- [EV-059 — Federal Reserve (Payments Innovation Conference): Chainlink co-founder addresses the Federal Reserve’s first Payments Innovation Conference](https://thelinkpanda.com/evidence/ev-059) (2025-10-21, Verified — federalreserve.gov agenda + conference broadcast, confidence 98%)
+- [EV-049 — Securitize / VanEck / Chainlink: Securitize and VanEck adopt Chainlink NAVLink feeds for VBILL tokenized Treasury; integrate with Aave Horizon](https://thelinkpanda.com/evidence/ev-049) (2025-10-01, Published on securitize.io, confidence 97%)
+- [EV-012 — Deutsche Börse Group: Chainlink as a distribution multiplier comparable to Bloomberg and LSEG](https://thelinkpanda.com/evidence/ev-012) (2025-09-01, Official Video, confidence 100%)
+- [EV-033 — DTCC: 24-institution Corporate Actions Initiative — Chainlink, DTCC, Swift, Euroclear solve $58B problem](https://thelinkpanda.com/evidence/ev-033) (2025-09-01, Official Source, confidence 100%)
+- [EV-045 — Euroclear / Chainlink Labs / DTCC / Swift: Euroclear and 23 institutions achieve near-100% data consensus in Corporate Actions Initiative using Chainlink CRE and CCIP](https://thelinkpanda.com/evidence/ev-045) (2025-09-01, Published by Chainlink Labs with institutional confirmation, confidence 97%)
+- [EV-047 — Coinbase / Chainlink: Coinbase adopts Chainlink CCIP as exclusive bridge for $7B in wrapped assets; Coinbase DataLink brings exchange data onchain](https://thelinkpanda.com/evidence/ev-047) (2025-09-01, Official Coinbase / Chainlink announcement, confidence 99%)
+- [EV-004 — J.P. Morgan: On Kinexys-Ondo-Chainlink cross-chain DvP settlement](https://thelinkpanda.com/evidence/ev-004) (2025-05-14, Official Document, confidence 100%)
+- [EV-048 — Mastercard / Chainlink: Mastercard and Chainlink partner to enable 3.5 billion cardholders to purchase crypto directly onchain](https://thelinkpanda.com/evidence/ev-048) (2025-04-01, Official Mastercard / Chainlink announcement, confidence 98%)
+- [EV-061 — Abu Dhabi Global Market (ADGM): ADGM signs MoU with Chainlink to shape blockchain standards — UAE financial centre alliance](https://thelinkpanda.com/evidence/ev-061) (2025-03-24, Verified — published on adgm.com, confidence 98%)
+- [EV-040 — Chainlink Labs / Aave: Chainlink SVR (Smart Value Recapture) — Aave recaptures $1.1M+ in liquidation MEV using Chainlink oracle infrastructure](https://thelinkpanda.com/evidence/ev-040) (2025-03-01, Live Production Data, confidence 97%)
+- [EV-008 — BNP Paribas: On Chainlink-led real-time corporate actions initiative](https://thelinkpanda.com/evidence/ev-008) (2025-01-01, Verified, confidence 90%)
+- [EV-010 — Coinbase: Coinbase selects Chainlink CCIP as exclusive bridge infrastructure](https://thelinkpanda.com/evidence/ev-010) (2025-01-01, Official Source, confidence 100%)
+- [EV-039 — USPTO: US20250342426 — Risk Management Networks for cross-chain security (CCIP RMN) — patent application published](https://thelinkpanda.com/evidence/ev-039) (2025-01-01, Official Document, confidence 97%)
+- [EV-007 — Euroclear: On creating unified golden records on-chain](https://thelinkpanda.com/evidence/ev-007) (2024-12-01, Verified, confidence 88%)
+- [EV-058 — Monetary Authority of Singapore — Project Guardian: Chainlink powers three use cases under MAS’s Project Guardian — Swift/UBS, SBI Digital Markets, ADDX/ANZ](https://thelinkpanda.com/evidence/ev-058) (2024-11-06, Verified — ADDX primary release + Fintech Singapore reporting, confidence 96%)
+- [EV-005 — Fidelity International: On using Chainlink for on-chain NAV](https://thelinkpanda.com/evidence/ev-005) (2024-10-01, Verified + Timestamp, confidence 95%)
+- [EV-006 — Franklin Templeton: On providing daily Proof of Reserves on-chain](https://thelinkpanda.com/evidence/ev-006) (2024-10-01, Verified + Timestamp, confidence 95%)
+- [EV-002 — DTCC: On updating financial markets using Chainlink](https://thelinkpanda.com/evidence/ev-002) (2024-09-30, Verified, confidence 95%)
+- [EV-001 — DTCC: On writing data once across all ledger networks](https://thelinkpanda.com/evidence/ev-001) (2024-09-24, Verified, confidence 92%)
+- [EV-037 — USPTO: US12062037 — Secure state machine with off-chain oracle switching granted](https://thelinkpanda.com/evidence/ev-037) (2024-08-01, Official Document, confidence 100%)
+- [EV-032 — DTCC: Smart NAV Pilot — DTCC and Chainlink CCIP deliver mutual fund NAV data onchain](https://thelinkpanda.com/evidence/ev-032) (2024-05-01, Official Document, confidence 100%)
+- [EV-043 — DTCC: DTCC Smart NAV Pilot — Chainlink CCIP used to deliver mutual fund NAV data onchain across 10 major financial institutions](https://thelinkpanda.com/evidence/ev-043) (2024-05-01, Published by DTCC, confidence 100%)
+- [EV-052 — Chainlink / Circle: Chainlink and Circle formal partnership — CCIP, Data Feeds, and Proof of Reserve across USDC and EURC stablecoin infrastructure](https://thelinkpanda.com/evidence/ev-052) (2024-05-01, Published on circle.com and prnewswire.com, confidence 100%)
+- [EV-011 — Water Tower Research: $27 trillion in transaction value enabled by Chainlink](https://thelinkpanda.com/evidence/ev-011) (2024-01-01, Verified, confidence 80%)
+- [EV-016 — Bitwise: The unquantifiable scale of Chainlink's addressable market](https://thelinkpanda.com/evidence/ev-016) (2024-01-01, Verified + Timestamp, confidence 90%)
+- [EV-029 — Chainlink Labs: Chainlink Data Streams — sub-second low-latency pull oracle](https://thelinkpanda.com/evidence/ev-029) (2024-01-01, Official Source, confidence 100%)
+- [EV-030 — Chainlink Labs: Chainlink service suite — CCIP, Data Streams, Functions, Automation, SVR, Scale, BUILD](https://thelinkpanda.com/evidence/ev-030) (2024-01-01, Official Source, confidence 100%)
+- [EV-051 — Chainlink / Circle: Chainlink CCIP integrates Circle CCTP — enabling secure native cross-chain USDC transfers](https://thelinkpanda.com/evidence/ev-051) (2024-01-01, Official joint Chainlink/Circle announcement, confidence 100%)
+- [EV-036 — USPTO: US11854101 — Decentralized oracle order-matching patent granted](https://thelinkpanda.com/evidence/ev-036) (2023-12-01, Official Document, confidence 100%)
+- [EV-044 — Swift / Chainlink: Swift used Chainlink and CCIP for tokenized asset settlement experiments across 12+ major financial institutions](https://thelinkpanda.com/evidence/ev-044) (2023-09-01, Published on swift.com, confidence 100%)
+- [EV-003 — SWIFT: Interoperability is at the heart of SWIFT strategy](https://thelinkpanda.com/evidence/ev-003) (2023-08-31, Official Document, confidence 100%)
+- [EV-014 — DocuSign: On oracle reliability as a critical prerequisite for smart contracts](https://thelinkpanda.com/evidence/ev-014) (2023-01-01, Verified + Timestamp, confidence 95%)
+- [EV-017 — Chainlink Labs: Secure oracles are foundational, not optional](https://thelinkpanda.com/evidence/ev-017) (2023-01-01, Verified, confidence 85%)
+- [EV-031 — DTCC: Bringing Capital Markets Onchain — DTCC and Chainlink collaboration](https://thelinkpanda.com/evidence/ev-031) (2023-01-01, Verified, confidence 95%)
+- [EV-046 — Google Cloud / Chainlink: Google Cloud operates as official Chainlink node operator; demonstrated BigQuery blockchain data integration](https://thelinkpanda.com/evidence/ev-046) (2022-09-01, Published on cloud.google.com, confidence 97%)
+- [EV-015 — Google: Token network effects are a real discovery](https://thelinkpanda.com/evidence/ev-015) (2022-01-01, Official Video, confidence 100%)
+- [EV-020 — Google: A whole new industrial system](https://thelinkpanda.com/evidence/ev-020) (2022-01-01, Official Video, confidence 100%)
+- [EV-021 — Google: Cryptographic truth is always the right answer](https://thelinkpanda.com/evidence/ev-021) (2022-01-01, Official Video, confidence 100%)
+- [EV-022 — Google: Faith in mathematics stronger than faith in institutions](https://thelinkpanda.com/evidence/ev-022) (2022-01-01, Official Video, confidence 100%)
+- [EV-023 — Google: Don't ask for regulation early](https://thelinkpanda.com/evidence/ev-023) (2022-01-01, Official Video, confidence 100%)
+- [EV-024 — Google: Chainlink has better technology that scales better](https://thelinkpanda.com/evidence/ev-024) (2022-01-01, Official Video, confidence 100%)
+- [EV-025 — Google: A piece of Google in everyone's computation](https://thelinkpanda.com/evidence/ev-025) (2022-01-01, Official Video, confidence 100%)
+- [EV-026 — Google: Congratulations for ending up in the right spot working with Chainlink](https://thelinkpanda.com/evidence/ev-026) (2022-01-01, Official Video, confidence 100%)
+- [EV-028 — Chainlink Labs: Chainlink Economics 2.0 — Staking, fees, and sustainable network growth](https://thelinkpanda.com/evidence/ev-028) (2022-01-01, Official Source, confidence 100%)
+- [EV-060 — European Central Bank (AMI-SeCo / AMI-Pay advisory groups): ECB advisory-group report documents Chainlink as interoperability middleware for post-trade DLT](https://thelinkpanda.com/evidence/ev-060) (2021-04-12, Verified — published on ecb.europa.eu, confidence 95%)
+- [EV-009 — Citi GPS: LINK potentially gaining prominence over Bitcoin](https://thelinkpanda.com/evidence/ev-009) (2021-03-01, Official Document, confidence 100%)
+- [EV-018 — Chainlink: Infrastructure standards create the most value](https://thelinkpanda.com/evidence/ev-018) (2017-05-09, Official Source, confidence 100%)

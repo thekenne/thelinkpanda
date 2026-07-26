@@ -1,9 +1,17 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thelinkpanda.com/sitemap.xml
-Sitemap: https://thelinkpanda.com/ai-sitemap.xml
-Sitemap: https://thelinkpanda.com/video-sitemap.xml
+# Research assistants welcome — structured index at /llms.txt
+User-agent: GPTBot
+Allow: /
 
-# AI / LLM discovery
-# See https://thelinkpanda.com/llms.txt for an LLM-readable summary of this site.
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://thelinkpanda.com/sitemap.xml

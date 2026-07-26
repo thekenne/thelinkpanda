@@ -1,0 +1,40 @@
+# Cloudflare Pages headers — place at the root of your build output.
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+# Hashed/static assets: cache hard. Only safe if filenames change when content does.
+# If your asset filenames are stable (e.g. "banner.jpg" gets overwritten), use
+# max-age=86400 instead, or you'll serve stale images for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML: always revalidate, so a deploy is visible immediately.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+  # Preload the LCP image. Fix the relative-path bug first — this does nothing
+  # while /assets resolves to /evidence/assets on nested routes.
+  Link: </assets/banner/thelinkpanda-banner-split.jpg>; rel=preload; as=image; fetchpriority=high
+
+# Feeds and crawler files: short cache, correct content types.
+/feed.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/rss+xml; charset=utf-8
+
+/llms.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+
+/sitemap*.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+# Baseline security headers. No CSP here on purpose — your inline scripts and
+# third-party API calls (DefiLlama, chain.link) need one written deliberately,
+# and a wrong CSP takes the site down. Add it separately, in report-only first.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
