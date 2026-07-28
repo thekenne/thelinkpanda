@@ -7355,6 +7355,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .legal-body ul{margin:0 0 16px 0;padding-left:22px}
 .legal-body li{font-size:clamp(15px,1vw,18px);color:var(--w60);line-height:1.8;margin-bottom:6px}
 
+.tracker-card-live{cursor:pointer;transition:border-color .18s ease,transform .18s ease}
+.tracker-card-live:hover{border-color:var(--gold);transform:translateY(-2px)}
+.tracker-card-live:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tracker-card-go{opacity:.55;font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-left:6px}
 /* perf: offscreen containment */
 .ev-grid > *,.mc-grid > *,.q-grid > *{content-visibility:auto;contain-intrinsic-size:auto 260px;}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
@@ -10368,7 +10372,7 @@ var CHAINLINK_MATRIX = {
       slug:'swift', name:'Swift', country:'Belgium', countryCode:'be',
       stage:'transition', evidenceCount:8, quoteCount:2,
       services:{ccip:true, cre:false, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
-      ev:['ev-003','ev-033','ev-044','ev-045','ev-053','ev-054'],
+      ev:['ev-003','ev-033','ev-044','ev-045','ev-053','ev-054','ev-065'],
       keyFact:'11,500+ connected institutions',
     },
     {
@@ -10459,7 +10463,7 @@ var CHAINLINK_MATRIX = {
       slug:'pangea', name:'Project Pangea', country:'Multi', countryCode:'multi',
       stage:'pilot', evidenceCount:1, quoteCount:1,
       services:{ccip:true, cre:true, 'data-feeds':false, 'data-streams':false, 'proof-reserve':false, automation:false, vrf:false, functions:false, svr:false, deco:false},
-      ev:['ev-054'],
+      ev:['ev-054','ev-065'],
       keyFact:'47 banks, $10T+ AUM, T+0 FX target',
     },
   ]
@@ -11180,6 +11184,14 @@ function trackerFilter(f){
   trackerRender(f);
 }
 
+function trackerGoTo(slug){
+  var inst=(CHAINLINK_MATRIX.institutions||[]).filter(function(i){return i.slug===slug;})[0];
+  var ids=(inst&&inst.ev&&inst.ev.length)?inst.ev.slice():[];
+  if(!ids.length)return;
+  evState.evIds=ids; evState.mcTitle=null;
+  showPage('evidence',null,false);
+  setTimeout(function(){evSetIds(ids,true);},60);
+}
 function trackerRender(filter){
   var body = document.getElementById('tracker-body');
   if(!body) return;
@@ -11203,10 +11215,12 @@ function trackerRender(filter){
       var svcObj = CHAINLINK_MATRIX.services.find(function(x){return x.id===s;});
       return '<span class="tracker-svc-tag">'+(svcObj?svcObj.label:s)+'</span>';
     }).join('');
-    return '<div class="tracker-card">'
+    var evn = (inst.ev&&inst.ev.length)||0;
+    var act = evn ? ' role="button" tabindex="0" onclick="trackerGoTo(\''+inst.slug+'\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();trackerGoTo(\''+inst.slug+'\');}" aria-label="View '+evn+' evidence entries for '+inst.name+'"' : '';
+    return '<div class="tracker-card'+(evn?' tracker-card-live':'')+'"'+act+'>'
       + '<div class="tracker-card-name">'+inst.name+'</div>'
       + '<div class="tracker-card-full">'+inst.country+'</div>'
-      + '<div class="tracker-card-ev">'+inst.evidenceCount+' evidence entr'+(inst.evidenceCount===1?'y':'ies')+'</div>'
+      + '<div class="tracker-card-ev">'+evn+' evidence entr'+(evn===1?'y':'ies')+(evn?' <span class="tracker-card-go">View &#8594;</span>':'')+'</div>'
       + (svcTags?'<div class="tracker-card-services">'+svcTags+'</div>':'')
       + '<div class="tracker-card-fact">'+inst.keyFact+'</div>'
       + '</div>';
