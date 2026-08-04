@@ -1216,7 +1216,7 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 /* ── Technology Matrix ── */
 .mx-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .mx-table{border-collapse:collapse;min-width:700px;width:100%}
-.mx-th-inst{font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--w40);padding:8px 10px;text-align:center;border-bottom:.5px solid var(--border);white-space:nowrap;writing-mode:vertical-rl;transform:rotate(180deg);height:90px;vertical-align:bottom}
+.mx-th-inst{font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--w40);padding:8px 10px;text-align:center;border-bottom:.5px solid var(--border);white-space:nowrap;writing-mode:vertical-rl;transform:rotate(180deg);height:158px;vertical-align:bottom}
 .mx-th-svc{font-family:var(--mono);font-size:14px;letter-spacing:.08em;color:var(--w60);padding:10px 14px;text-align:left;border-bottom:.5px solid var(--border);white-space:nowrap;min-width:160px}
 .mx-cell{padding:8px 10px;text-align:center;border-bottom:.5px solid rgba(244,242,238,.04);border-right:.5px solid rgba(244,242,238,.04)}
 .mx-cell.yes{color:rgba(80,200,120,.9);font-size:16px}
@@ -1224,7 +1224,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mx-cell.no{color:rgba(244,242,238,.12);font-size:14px}
 .mx-inst-head{background:var(--bg2)}
 .mx-svc-row:hover .mx-th-svc{color:var(--w)}
-.mx-svc-row:hover .mx-cell{background:rgba(244,242,238,.02)}
+.mx-svc-row:hover .mx-cell{background:rgba(244,242,238,.045)}
+.mx-table th.mx-th-svc{position:sticky;left:0;z-index:2;background:var(--bg)}
+.mx-table thead th:first-child{position:sticky;left:0;z-index:3;background:var(--bg)}
+.mx-svc-row:nth-child(even) .mx-cell{background:rgba(244,242,238,.015)}
+.mx-svc-row:nth-child(even):hover .mx-cell{background:rgba(244,242,238,.05)}
+.mx-cell{transition:background .12s ease}
+.mx-col-hi{background:rgba(212,175,55,.08)!important}
+.mx-svc-count{font-family:var(--mono);font-size:12px;color:var(--w20);letter-spacing:.06em;margin-top:3px}
+
 .mx-stage-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .mx-legend{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:clamp(16px,1.6vw,24px);font-family:var(--mono);font-size:14px;color:var(--w40)}
 .mx-legend span{display:flex;align-items:center;gap:6px}
@@ -11012,25 +11020,30 @@ function matrixInit(){
   t += '<thead><tr><th style="min-width:160px;border-bottom:.5px solid var(--border)"></th>';
   insts.forEach(function(inst){
     var dot = '<span class="mx-stage-dot" style="background:'+stageColor(inst.stage)+'"></span>';
-    t += '<th class="mx-th-inst mx-inst-head">' + dot + inst.name + '</th>';
+    var SHORT={'Reserve Bank of Australia':'RBA','Project Pangea':'Pangea'};
+    var hdr = SHORT[inst.name] || inst.name;
+    t += '<th class="mx-th-inst mx-inst-head" title="'+inst.name+'">' + dot + hdr + '</th>';
   });
   t += '</tr></thead><tbody>';
 
   // One row per service
   services.forEach(function(svc){
+    var nYes = insts.filter(function(i){return i.services[svc.id]===true;}).length;
+    var nPart = insts.filter(function(i){return i.services[svc.id]==="partial";}).length;
     t += '<tr class="mx-svc-row">';
     t += '<th class="mx-th-svc">'
       + '<div style="font-size:14px;color:var(--w60)">' + svc.label + '</div>'
       + '<div style="font-size:14px;color:var(--w20);margin-top:2px;font-weight:300">' + svc.full + '</div>'
+      + '<div class="mx-svc-count">' + (nYes+nPart===0 ? "no documented deployments" : nYes+" confirmed"+(nPart?" · "+nPart+" partial":"")) + '</div>'
       + '</th>';
-    insts.forEach(function(inst){
+    insts.forEach(function(inst,ci){
       var val = inst.services[svc.id];
       if(val === true){
-        t += '<td class="mx-cell yes" title="'+inst.name+' — '+svc.label+' confirmed">✓</td>';
+        t += '<td class="mx-cell yes" data-col='+ci+' title="'+inst.name+' — '+svc.label+' confirmed">✓</td>';
       } else if(val === 'partial'){
-        t += '<td class="mx-cell partial" title="'+inst.name+' — '+svc.label+' experimental">◑</td>';
+        t += '<td class="mx-cell partial" data-col='+ci+' title="'+inst.name+' — '+svc.label+' experimental">◑</td>';
       } else {
-        t += '<td class="mx-cell no">—</td>';
+        t += '<td class="mx-cell no" data-col="'+ci+'">—</td>';
       }
     });
     t += '</tr>';
@@ -11053,6 +11066,17 @@ function matrixInit(){
   t += '</div>';
 
   body.innerHTML = legend + t;
+  var tbl = body.querySelector(".mx-table");
+  if(tbl){
+    var clear=function(){tbl.querySelectorAll(".mx-col-hi").forEach(function(x){x.classList.remove("mx-col-hi");});};
+    tbl.addEventListener("mouseover", function(ev){
+      var c = ev.target && ev.target.closest ? ev.target.closest(".mx-cell") : null;
+      clear(); if(!c) return;
+      var ci = c.getAttribute("data-col"); if(ci===null) return;
+      tbl.querySelectorAll(".mx-cell[data-col='"+ci+"']").forEach(function(x){x.classList.add("mx-col-hi");});
+    });
+    tbl.addEventListener("mouseleave", clear);
+  }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
