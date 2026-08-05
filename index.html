@@ -997,13 +997,15 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mc-related-lbl{font-family:var(--mono);font-size:clamp(18px,1.0vw,20px);letter-spacing:.14em;color:var(--w20);margin-bottom:5px}
 .mc-related-btn{display:block;width:100%;text-align:left;background:none;border:none;border-left:1.5px solid rgba(244,242,238,.08);padding:3px 8px;font-size:clamp(16px,0.97vw,18px);color:var(--w40);cursor:pointer;transition:color .15s,border-color .15s;margin-bottom:3px;font-family:var(--sans);line-height:1.35}
 .mc-related-btn:hover{color:var(--w80);border-left-color:var(--gold)}
+.mc-related-btn{white-space:normal;overflow-wrap:anywhere}
+.mc-card{overflow-wrap:anywhere}
 .mc-contrib-credit{font-family:var(--mono);font-size:clamp(15px,0.81vw,16px);color:var(--w20);letter-spacing:.06em}
 .mc-latest-label{font-family:var(--mono);font-size:clamp(16px,0.94vw,18px);letter-spacing:.18em;color:var(--gold);opacity:.65;margin-bottom:10px}
-.mc-latest-grid{display:flex;flex-wrap:wrap;gap:5px}
-.mc-latest-btn{font-family:var(--mono);font-size:clamp(16px,0.94vw,18px);letter-spacing:.06em;color:var(--w40);border:.5px solid var(--border);background:none;padding:5px 10px;cursor:pointer;transition:all .15s;text-align:left}
+.mc-latest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:5px}
+.mc-latest-btn{font-family:var(--mono);font-size:clamp(16px,0.94vw,18px);letter-spacing:.06em;color:var(--w40);border:.5px solid var(--border);background:none;padding:6px 10px;cursor:pointer;transition:all .15s;text-align:left;white-space:normal;overflow:visible;overflow-wrap:anywhere;height:auto;min-width:0;line-height:1.35}
 .mc-latest-btn:hover{color:var(--gold);border-color:rgba(200,146,42,.35)}
 .mc-latest-cat{font-size:16px;letter-spacing:.12em;color:var(--w20);display:block;margin-bottom:2px}
-.mc-latest-title{display:block}
+.mc-latest-title{display:block;white-space:normal;overflow-wrap:anywhere}
 
 
 /* ── Misconceptions page — tighter header ── */
@@ -1177,8 +1179,8 @@ footer{padding:clamp(16px,1.5vw,24px) clamp(32px,5vw,80px);border-top:.5px solid
 .mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,600px),1fr));gap:clamp(12px,1.2vw,20px);padding:clamp(20px,2vw,32px) 0}
 .mc-card{background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px) clamp(20px,2vw,32px) clamp(16px,1.6vw,24px);display:flex;flex-direction:column;gap:0;transition:background .15s}
 .mc-card:hover{background:var(--bg)}
-.mc-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(10px,1vw,16px)}
-.mc-status{font-family:var(--mono);font-size:clamp(14px,0.9vw,16px);letter-spacing:.12em;padding:3px 10px;border:.5px solid}
+.mc-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:clamp(10px,1vw,16px)}
+.mc-status{font-family:var(--mono);font-size:clamp(14px,0.9vw,16px);letter-spacing:.12em;padding:3px 10px;border:.5px solid;flex-shrink:0;white-space:nowrap}
 .mc-status-verified{border-color:rgba(80,200,120,.35);color:rgba(80,200,120,.85);background:rgba(80,200,120,.06)}
 .mc-status-outdated{border-color:rgba(255,160,50,.35);color:rgba(255,160,50,.85);background:rgba(255,160,50,.06)}
 .mc-status-false{border-color:rgba(220,60,60,.35);color:rgba(220,80,80,.85);background:rgba(220,60,60,.06)}
