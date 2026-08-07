@@ -18,8 +18,8 @@
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="TheLinkPanda — Infrastructure Before Narratives"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="article:published_time" content="2025-01-01" id="meta-published"/>
-<meta property="article:modified_time" content="2026-06-12" id="meta-modified"/>
+<meta property="article:published_time" content="2026-05-01" id="meta-published"/>
+<meta property="article:modified_time" content="2026-08-06" id="meta-modified"/>
 <meta property="article:author" content="The Link Panda"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@TheLinkPanda"/>
@@ -6068,7 +6068,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
       <div style="font-family:var(--mono);font-size:14px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">MOST CITED INSTITUTIONS</div>
       <div id="most-cited-list" style="display:flex;flex-direction:column"></div>
-      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">All 63 evidence entries &rarr;</button>
+      <button onclick="showPage('evidence')" style="margin-top:16px;font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--gold);background:none;border:.5px solid rgba(200,146,42,.3);padding:8px 16px;cursor:pointer;width:100%" onmouseover="this.style.background='rgba(200,146,42,.08)'" onmouseout="this.style.background='none'">All 71 evidence entries &rarr;</button>
     </div>
     <div style="background:var(--bg2);border:.5px solid var(--border);padding:clamp(20px,2vw,32px)">
       <div style="font-family:var(--mono);font-size:14px;letter-spacing:.2em;color:var(--gold);opacity:.65;margin-bottom:16px">LATEST EVIDENCE</div>
@@ -7369,6 +7369,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .tracker-card-live:hover{border-color:var(--gold);transform:translateY(-2px)}
 .tracker-card-live:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tracker-card-go{opacity:.55;font-family:var(--mono);font-size:12px;letter-spacing:.06em;margin-left:6px}
+#main-content{max-width:900px;margin:0 auto;padding:24px 20px 0;font-family:var(--sans,system-ui);color:var(--w60,#b9b6b0)}
+#main-content:empty{padding:0}
+#main-content h1{font-size:clamp(24px,2.4vw,34px);color:var(--w,#f4f2ee);margin:0 0 12px;line-height:1.25}
+#main-content h2{font-size:clamp(17px,1.3vw,20px);color:var(--w80,#d9d6d0);margin:22px 0 8px}
+#main-content p,#main-content li,#main-content dd{line-height:1.7;margin:0 0 10px}
+#main-content a{color:var(--gold,#c8922a)}
+#main-content ul,#main-content dl{padding-left:18px}
+#main-content dt{color:var(--w80,#d9d6d0);margin-top:12px}
 /* perf: offscreen containment */
 .ev-grid > *,.mc-grid > *,.q-grid > *{content-visibility:auto;contain-intrinsic-size:auto 260px;}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
@@ -11290,6 +11298,9 @@ function trackerRender(filter){
   var page=_evMatch?'evidence':_mcMatch?'misconceptions':_cMatch?'concepts':(path.indexOf('/organizations/')===0?'org':(URL_PAGES[path]||'home'));
   var filter=null;
   if(qs){var mm=qs.match(/[?&]filter=([^&]+)/);if(mm)filter=decodeURIComponent(mm[1]);}
+  // Clear the edge-injected static SEO content once the app has rendered.
+  // It is what a no-JS visitor sees; the app replaces it. Not hidden text.
+  try{var _sc=document.getElementById('main-content');if(_sc&&_sc.firstChild)_sc.innerHTML='';}catch(e){}
   showPage(page,filter,true);
   if(_evMatch){evState.evIds=[_evMatch[1]];evRender();evRenderBanner();}
   else if(page==='evidence'){evApplyUrl();}
@@ -12314,7 +12325,7 @@ function gsRender(){
   var q=(document.getElementById('gs-input').value||'').trim().toLowerCase();
   var box=document.getElementById('gs-results');
   gsFlat=[];gsSel=0;
-  if(q.length<2){box.innerHTML='<div class="gs-empty">Search 63 evidence entries, 50 misconceptions, 59 patents, institutions and concepts.<div class="gs-sugg">Popular searches:</div><div class="gs-chips">'+['CCIP','DTCC','Swift','Central Banks','Tokenisation','CRE','Bank of England','Proof of Reserve'].map(function(s){return '<button class="gs-chip" onclick="gsSuggest(\''+s+'\')">'+s+'</button>';}).join('')+'</div></div>';return;}
+  if(q.length<2){box.innerHTML='<div class="gs-empty">Search 71 evidence entries, 50 misconceptions, 60 patents, institutions and concepts.<div class="gs-sugg">Popular searches:</div><div class="gs-chips">'+['CCIP','DTCC','Swift','Central Banks','Tokenisation','CRE','Bank of England','Proof of Reserve'].map(function(s){return '<button class="gs-chip" onclick="gsSuggest(\''+s+'\')">'+s+'</button>';}).join('')+'</div></div>';return;}
   gsBuild();
   var terms=q.split(/\s+/);
   var hits=[];
