@@ -10624,12 +10624,12 @@ function metricsLoadDeFiLlama(){
           .then(function(r2){return r2.json();})
           .then(function(d2){
             var tvs2=d2.currentChainTvls?Object.values(d2.currentChainTvls).reduce(function(a,b){return a+b;},0):null;
-            metricsSetStat('ms-tvs', tvs2?fmtBig(tvs2):'$46B+', 'Assets secured by Chainlink oracles');
+            metricsSetStat('ms-tvs', tvs2?fmtBig(tvs2):'$33.1B', 'Assets secured by Chainlink oracles');
           });
       }
     })
     .catch(function(){
-      metricsSetStat('ms-tvs','$46B+','Source: DefiLlama');
+      metricsSetStat('ms-tvs','$33.1B','Source: DefiLlama');
     });
 
   // 2. Fees/Revenue — try the corrected endpoint; hide cards entirely if unavailable
