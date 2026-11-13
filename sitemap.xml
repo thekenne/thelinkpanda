@@ -2,18 +2,22 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://thelinkpanda.com/sitemap-core.xml</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://thelinkpanda.com/sitemap-evidence.xml</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-11-13</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://thelinkpanda.com/sitemap-misconceptions.xml</loc>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://thelinkpanda.com/sitemap-concepts.xml</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://thelinkpanda.com/video-sitemap.xml</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-06-21</lastmod>
   </sitemap>
 </sitemapindex>
